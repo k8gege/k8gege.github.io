@@ -1,9 +1,30 @@
 Wiki: http://k8gege.org/Ladon
 
+7.4 2020.9.28
+[+] CVE-2020-0688 Exchange序列化漏洞(.net 4.0)
+
+GUI 2020.9.24
+[+] OutPowerShell Ladon免杀
+
+7.3.4 2020.9.21
+
+[+] webser getstr(无回显命令执行明文结果)
+[+] webser getb64/getb64(命令结果Base64加密)
+[+] webser deb64/debase64(命令Base64结果解密)
+
+7.3.3 2020.9.20
+[+]ZeroLogon CVE-2020-1472域控提权(密码置空)
+[+]PortScan  5985端口(有时防火墙开启也能识别)
+
+7.3.2 2020.9.9
+[u] WhatCMS更新86+
+
+7.3.1 2020.9.7
+[+] 当前进程PID和名称(主要是多个或CS加载时区分)
+
 7.3.0 2020.9.1
 [+] WinrmScan 5985端口密码爆破（支持System权限）
-[+] WinrmExec远程执行命令无回显（支持System权限）
-
+[+] WinrmExec 远程执行命令无回显（支持System权限）
 
 7.2.2 2020.8.15
 [u] whoami增加特权信息(如果你了解提权工具原理可查看特权)
@@ -52,7 +73,7 @@ Wiki: http://k8gege.org/Ladon
 
 7.0.0 2020.7.17
 [+] EthScan OXID枚举远程主机网卡
-[+] RDPhijack 远程桌面会话劫持
+[+] RDPhijack 远程桌面会话劫持(.net 4.0)
 
 6.6.6 2020.7.3
 [u] PowerCat支持PowerShell版反弹
