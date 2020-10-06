@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2020-09-16T13:18:22.413Z</updated>
+  <updated>2020-10-06T04:11:08.517Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ladon7.4 CVE-2020-0688 Exchange序列化漏洞利用</title>
+    <link href="http://k8gege.org/p/cve-2020-0688.html"/>
+    <id>http://k8gege.org/p/cve-2020-0688.html</id>
+    <published>2020-10-06T03:40:00.000Z</published>
+    <updated>2020-10-06T04:11:08.517Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span>%></%></p><p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";</script><h3 id="漏洞编号"><a href="#漏洞编号" class="headerlink" title="漏洞编号"></a>漏洞编号</h3><p>CVE-2020-0688</p><h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>漏洞产生的主要原因就是在Exchange ECP组件中发现，邮件服务在安装的过程中不会随机生成秘钥，也就是说所有默认安装的Exchange服务器中的validationKey和decryptionKey的值都是相同的，这些密钥用于保证ViewState的安全性。而ViewState是ASP.NET Web应用以序列化格式存储在客户机上的服务端数据。客户端通过__VIEWSTATE请求参数将这些数据返回给服务器。攻击者可以利用默认秘钥对服务器发起攻击，在Exchange web应用上执行任意.net代码。</p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>exchange 2010、2013、2016、2019</p><h3 id="模块类型"><a href="#模块类型" class="headerlink" title="模块类型"></a>模块类型</h3><p>漏洞利用</p><h3 id="模块功能"><a href="#模块功能" class="headerlink" title="模块功能"></a>模块功能</h3><p>已知Exchange帐密，获取目标服务器权限。</p><h3 id="Exchange探测"><a href="#Exchange探测" class="headerlink" title="Exchange探测"></a>Exchange探测</h3><h4 id="PortScan扫描Exchange邮件服务器"><a href="#PortScan扫描Exchange邮件服务器" class="headerlink" title="PortScan扫描Exchange邮件服务器"></a>PortScan扫描Exchange邮件服务器</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ew_portscan.png"></p><h4 id="WhatCms识别Exchange邮件服务器"><a href="#WhatCms识别Exchange邮件服务器" class="headerlink" title="WhatCms识别Exchange邮件服务器"></a>WhatCms识别Exchange邮件服务器</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ew_whatcms.png"></p><h3 id="EXP用法"><a href="#EXP用法" class="headerlink" title="EXP用法"></a>EXP用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon cve-2020-0688 192.168.1.8 Administrator k8gege520</span><br></pre></td></tr></table></figure><p>成功反弹CmdShell，使用exec执行命令<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/cve-2020-0688.PNG"></p><p>参考：<a href="https://github.com/zcgonvh/CVE-2020-0688" target="_blank" rel="noopener">https://github.com/zcgonvh/CVE-2020-0688</a></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.4版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% &lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+
+%&gt;
+&lt;/%&gt;&lt;/p&gt;
+
+&lt;p&gt;===========
+      
+    
+    </summary>
+    
+    
+      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="CVE-2020-0688" scheme="http://k8gege.org/tags/CVE-2020-0688/"/>
+    
+  </entry>
   
   <entry>
     <title>Ladon插件-CVE-2020-1472域控提权漏洞EXP</title>
@@ -569,38 +604,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Rce" scheme="http://k8gege.org/tags/Rce/"/>
     
       <category term="brute force" scheme="http://k8gege.org/tags/brute-force/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗Ladon网络认证弱口令爆破详解SSH为例</title>
-    <link href="http://k8gege.org/p/sshscan.html"/>
-    <id>http://k8gege.org/p/sshscan.html</id>
-    <published>2020-05-18T10:10:00.000Z</published>
-    <updated>2020-06-06T02:32:35.485Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Ladon内置SSH密码爆破SSHscan-支持内外网指定IP、批量IP、批量IP段（C段、B段、A段）、支持CIDR格式，支持自定义SSH端口。支持IP帐密检测-check-txt-，支持帐密组检测-userpass-txt-，支持传统用户密码检测-user-txt、pass-txt-密码爆破前程序会自动检测端口是否开放，无需另外扫描22端口，准备好密码就可以批量爆破。"><a href="#Ladon内置SSH密码爆破SSHscan-支持内外网指定IP、批量IP、批量IP段（C段、B段、A段）、支持CIDR格式，支持自定义SSH端口。支持IP帐密检测-check-txt-，支持帐密组检测-userpass-txt-，支持传统用户密码检测-user-txt、pass-txt-密码爆破前程序会自动检测端口是否开放，无需另外扫描22端口，准备好密码就可以批量爆破。" class="headerlink" title="Ladon内置SSH密码爆破SSHscan,支持内外网指定IP、批量IP、批量IP段（C段、B段、A段）、支持CIDR格式，支持自定义SSH端口。支持IP帐密检测(check.txt)，支持帐密组检测(userpass.txt)，支持传统用户密码检测(user.txt、pass.txt),密码爆破前程序会自动检测端口是否开放，无需另外扫描22端口，准备好密码就可以批量爆破。"></a>Ladon内置SSH密码爆破SSHscan,支持内外网指定IP、批量IP、批量IP段（C段、B段、A段）、支持CIDR格式，支持自定义SSH端口。支持IP帐密检测(check.txt)，支持帐密组检测(userpass.txt)，支持传统用户密码检测(user.txt、pass.txt),密码爆破前程序会自动检测端口是否开放，无需另外扫描22端口，准备好密码就可以批量爆破。</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/sshscan.html";</script><p><a href="http://k8gege.org/Ladon/sshscan.html">http://k8gege.org/Ladon/sshscan.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Ladon内置SSH密码爆破SSHscan-支持内外网指定IP、批量IP、批量IP段（C段、B段、A段）、支持CIDR格式，支持自定义SSH端口。支持IP帐密检测-check-txt-，支持帐密组检测-userpass-txt-，支持传统用户密码检测-user-t
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-      <category term="密码爆破" scheme="http://k8gege.org/categories/Brute-Force/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term="brute force" scheme="http://k8gege.org/tags/brute-force/"/>
-    
-      <category term="ssh" scheme="http://k8gege.org/tags/ssh/"/>
     
   </entry>
   
