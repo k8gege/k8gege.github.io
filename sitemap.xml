@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/Download/index.html</loc>
+    
+    <lastmod>2020-10-06T10:59:41.579Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/p/cve-2020-0688.html</loc>
     
     <lastmod>2020-10-06T04:11:33.338Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://k8gege.org/Ladon/example.html</loc>
     
     <lastmod>2020-10-06T03:12:04.027Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/Download/index.html</loc>
-    
-    <lastmod>2020-09-16T13:49:52.005Z</lastmod>
     
   </url>
   
