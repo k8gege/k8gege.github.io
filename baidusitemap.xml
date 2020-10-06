@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://k8gege.org/p/648af4b3.html</loc>
+    <lastmod>2020-10-06</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Ladon/index.html</loc>
+    <lastmod>2020-10-06</lastmod>
+  </url>  <url>
     <loc>http://k8gege.org/Ladon/example.html</loc>
     <lastmod>2020-10-06</lastmod>
   </url>  <url>
@@ -12,9 +18,6 @@
   </url>  <url>
     <loc>http://k8gege.org/p/cve-2020-1472.html</loc>
     <lastmod>2020-09-16</lastmod>
-  </url>  <url>
-    <loc>http://k8gege.org/Ladon/index.html</loc>
-    <lastmod>2020-09-15</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Ladon/IsShiro.html</loc>
     <lastmod>2020-09-13</lastmod>
@@ -38,9 +41,6 @@
     <lastmod>2020-08-28</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Ladon/RemoteLadon.html</loc>
-    <lastmod>2020-08-23</lastmod>
-  </url>  <url>
-    <loc>http://k8gege.org/p/648af4b3.html</loc>
     <lastmod>2020-08-23</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/p/potato.html</loc>
