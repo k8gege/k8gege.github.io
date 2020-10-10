@@ -1177,7 +1177,7 @@ thead {
 .widget #search-form #result-wrap {
   position: absolute;
   box-sizing: content-box;
-  top: 45px;
+  top: 115px;
   left: -50px;
   z-index: 6;
   width: 120%;
