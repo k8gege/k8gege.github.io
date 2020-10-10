@@ -1,5 +1,10 @@
 Wiki: http://k8gege.org/Ladon
 
+7.5 2020.10.10
+[+] Ladon 7.5 for CS
+[+] OsScan   Exchange Detection Win 465\143\587\25\110
+[+] PortScan Exchange 465\993\143\995 DC/DNS  88\6011
+
 7.4 2020.9.28
 [+] CVE-2020-0688 Exchange序列化漏洞(.net 4.0)
 
