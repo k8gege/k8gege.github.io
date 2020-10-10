@@ -524,7 +524,7 @@
 <td>Ladon DumpLsass</td>
 </tr>
 </tbody></table>
-<h4 id="0x009-信息收集-3"><a href="#0x009-信息收集-3" class="headerlink" title="0x009 信息收集(3)"></a>0x009 信息收集(3)</h4><table>
+<h4 id="0x009-信息收集-11"><a href="#0x009-信息收集-11" class="headerlink" title="0x009 信息收集(11)"></a>0x009 信息收集(11)</h4><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -550,6 +550,54 @@
 <td>GetInfo/GetInfo2</td>
 <td>获取渗透基础信息</td>
 <td>Ladon GetInfo 或 Ladon GetInfo2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GetPipe</td>
+<td>查看本机命名管道</td>
+<td>Ladon GetPipe</td>
+</tr>
+<tr>
+<td>5</td>
+<td>RdpLog</td>
+<td>查看3389连接记录</td>
+<td>Ladon RdpLog</td>
+</tr>
+<tr>
+<td>6</td>
+<td>QueryAdmin</td>
+<td>查看管理员组用户</td>
+<td>Ladon QueryAdmin</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/">NetVer</a></td>
+<td>查看安装.NET版本</td>
+<td>Ladon NetVer 或 Ladon NetVersion</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/">PsVer</a></td>
+<td>查看PowerShell版本</td>
+<td>Ladon PsVer 或 Ladon PSVersion</td>
+</tr>
+<tr>
+<td>9</td>
+<td>whoami</td>
+<td>查看当前用户与特权</td>
+<td>Ladon whoami</td>
+</tr>
+<tr>
+<td>10</td>
+<td>recent</td>
+<td>查看用户最近访问文件</td>
+<td>Ladon recent</td>
+</tr>
+<tr>
+<td>11</td>
+<td>AllVer</td>
+<td>获取已安装程序列表</td>
+<td>Ladon AllVer</td>
 </tr>
 </tbody></table>
 <h4 id="0x010-远程执行-7"><a href="#0x010-远程执行-7" class="headerlink" title="0x010 远程执行(7)"></a>0x010 远程执行(7)</h4><table>
@@ -604,7 +652,7 @@
 <td><a href="http://k8gege.org/Ladon/WinrmExec.html">http://k8gege.org/Ladon/WinrmExec.html</a></td>
 </tr>
 </tbody></table>
-<h4 id="0x011-提权降权-6"><a href="#0x011-提权降权-6" class="headerlink" title="0x011 提权降权(6)"></a>0x011 提权降权(6)</h4><table>
+<h4 id="0x011-提权降权-7"><a href="#0x011-提权降权-7" class="headerlink" title="0x011 提权降权(7)"></a>0x011 提权降权(7)</h4><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -649,8 +697,48 @@
 <td>IIS或服务用户提权至SYSTEM</td>
 <td>Ladon SweetPotato cmdline</td>
 </tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/Ladon/RdpHijack.html">RDPHijack</a></td>
+<td>远程桌面会话劫持</td>
+<td>Ladon RDPHijack sessionID</td>
+</tr>
 </tbody></table>
-<h4 id="0x012-其它功能-7"><a href="#0x012-其它功能-7" class="headerlink" title="0x012 其它功能(7)"></a>0x012 其它功能(7)</h4><table>
+<h4 id="0x012-反弹Shell-4"><a href="#0x012-反弹Shell-4" class="headerlink" title="0x012 反弹Shell(4)"></a>0x012 反弹Shell(4)</h4><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">netcat</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">MSF_Shell</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">PowerCat</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">MSF_Meter</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="0x013-其它功能-12"><a href="#0x013-其它功能-12" class="headerlink" title="0x013 其它功能(12)"></a>0x013 其它功能(12)</h4><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -685,21 +773,51 @@
 </tr>
 <tr>
 <td>5</td>
-<td><a href="http://k8gege.org/">WebSer</a></td>
-<td>迷你WEB服务器</td>
-<td>Ladon WebSer 80 或 Ladon web 80</td>
+<td><a href="http://k8gege.org/">Open3389</a></td>
+<td>一键开启3389</td>
+<td>Ladon Open3389</td>
 </tr>
 <tr>
 <td>6</td>
-<td><a href="http://k8gege.org/">NetVer</a></td>
-<td>查看安装.NET版本</td>
-<td>Ladon NetVer 或 Ladon NetVersion</td>
+<td><a href="http://k8gege.org/">ActiveAdmin</a></td>
+<td>激活内置用户Administrator</td>
+<td>Ladon ActiveAdmin</td>
 </tr>
 <tr>
 <td>7</td>
-<td><a href="http://k8gege.org/">PsVer</a></td>
-<td>查看PowerShell版本</td>
-<td>Ladon PsVer 或 Ladon PSVersion</td>
+<td><a href="http://k8gege.org/">ActiveGuest</a></td>
+<td>激活内置用户Guest</td>
+<td>Ladon ActiveGuest</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/">RunPS</a></td>
+<td>无PowerShell.exe执行PowerShell脚本</td>
+<td>Ladon RunPS *.ps1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>RegAuto</td>
+<td>添加注册表RUN启动项</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>sc</td>
+<td>服务加启动项(system权限)</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>sc</td>
+<td>服务执行程序(system权限)</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>at</td>
+<td>计划执行程序(无需时间)(system权限)</td>
+<td></td>
 </tr>
 </tbody></table>
 <p>注：以上仅是该工具内置模块的初级用法，外置插件或更高级用法请查看使用文档<br> 中级用法INI文件配置调用任意程序、系统命令、各种语言现成EXP的批量利用<br> 高级用法Exp生成器一键生成Poc，使用各种语言编写插件扩展Ladon扫描能力。</p>
@@ -881,8 +999,8 @@
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -1886,8 +2004,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -2149,8 +2267,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>密码</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -2329,8 +2447,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -2379,8 +2497,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Cobalt Strike</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Cobalt Strike</tag>
       </tags>
   </entry>
@@ -2461,13 +2579,13 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>提权</category>
+        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -2579,8 +2697,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Sniffer</tag>
         <tag>FtpSniffer</tag>
         <tag>HttpSniffer</tag>
@@ -2848,9 +2966,9 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ActiveMQ</tag>
         <tag>CVE-2016-3088</tag>
@@ -2872,9 +2990,9 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ThinkPHP</tag>
       </tags>
@@ -2897,9 +3015,9 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -2928,9 +3046,9 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -3021,8 +3139,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>PowerShell</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>PowerShell</tag>
       </tags>
   </entry>
@@ -3064,10 +3182,10 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Apache</tag>
-        <tag>Solr</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Apache</tag>
+        <tag>Solr</tag>
         <tag>0day</tag>
       </tags>
   </entry>
@@ -3350,8 +3468,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -3513,9 +3631,9 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3608,8 +3726,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
       </tags>
@@ -3626,8 +3744,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3704,8 +3822,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>编程</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -3880,12 +3998,12 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>&nbsp;</p>
 <p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
       <categories>
-        <category>Exp</category>
         <category>提权</category>
+        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>MS17010</tag>
         <tag>SMB</tag>
       </tags>
@@ -3983,8 +4101,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
@@ -4141,8 +4259,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
       </tags>
@@ -4165,8 +4283,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>BypassUAC</tag>
       </tags>
   </entry>
@@ -4236,8 +4354,8 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
       </tags>
@@ -4263,9 +4381,9 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
         <tag>IIS</tag>
       </tags>
   </entry>

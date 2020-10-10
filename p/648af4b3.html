@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content="Ladon,Tool">
+<meta name="keywords" content="Tool,Ladon">
 
 
 <meta name="description" content="Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机...">
@@ -711,7 +711,7 @@
 <td>Ladon DumpLsass</td>
 </tr>
 </tbody></table>
-<h4 id="0x009-信息收集-3"><a href="#0x009-信息收集-3" class="headerlink" title="0x009 信息收集(3)"></a>0x009 信息收集(3)</h4><table>
+<h4 id="0x009-信息收集-11"><a href="#0x009-信息收集-11" class="headerlink" title="0x009 信息收集(11)"></a>0x009 信息收集(11)</h4><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -737,6 +737,54 @@
 <td>GetInfo/GetInfo2</td>
 <td>获取渗透基础信息</td>
 <td>Ladon GetInfo 或 Ladon GetInfo2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GetPipe</td>
+<td>查看本机命名管道</td>
+<td>Ladon GetPipe</td>
+</tr>
+<tr>
+<td>5</td>
+<td>RdpLog</td>
+<td>查看3389连接记录</td>
+<td>Ladon RdpLog</td>
+</tr>
+<tr>
+<td>6</td>
+<td>QueryAdmin</td>
+<td>查看管理员组用户</td>
+<td>Ladon QueryAdmin</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/">NetVer</a></td>
+<td>查看安装.NET版本</td>
+<td>Ladon NetVer 或 Ladon NetVersion</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/">PsVer</a></td>
+<td>查看PowerShell版本</td>
+<td>Ladon PsVer 或 Ladon PSVersion</td>
+</tr>
+<tr>
+<td>9</td>
+<td>whoami</td>
+<td>查看当前用户与特权</td>
+<td>Ladon whoami</td>
+</tr>
+<tr>
+<td>10</td>
+<td>recent</td>
+<td>查看用户最近访问文件</td>
+<td>Ladon recent</td>
+</tr>
+<tr>
+<td>11</td>
+<td>AllVer</td>
+<td>获取已安装程序列表</td>
+<td>Ladon AllVer</td>
 </tr>
 </tbody></table>
 <h4 id="0x010-远程执行-7"><a href="#0x010-远程执行-7" class="headerlink" title="0x010 远程执行(7)"></a>0x010 远程执行(7)</h4><table>
@@ -791,7 +839,7 @@
 <td><a href="http://k8gege.org/Ladon/WinrmExec.html">http://k8gege.org/Ladon/WinrmExec.html</a></td>
 </tr>
 </tbody></table>
-<h4 id="0x011-提权降权-6"><a href="#0x011-提权降权-6" class="headerlink" title="0x011 提权降权(6)"></a>0x011 提权降权(6)</h4><table>
+<h4 id="0x011-提权降权-7"><a href="#0x011-提权降权-7" class="headerlink" title="0x011 提权降权(7)"></a>0x011 提权降权(7)</h4><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -836,8 +884,48 @@
 <td>IIS或服务用户提权至SYSTEM</td>
 <td>Ladon SweetPotato cmdline</td>
 </tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/Ladon/RdpHijack.html">RDPHijack</a></td>
+<td>远程桌面会话劫持</td>
+<td>Ladon RDPHijack sessionID</td>
+</tr>
 </tbody></table>
-<h4 id="0x012-其它功能-7"><a href="#0x012-其它功能-7" class="headerlink" title="0x012 其它功能(7)"></a>0x012 其它功能(7)</h4><table>
+<h4 id="0x012-反弹Shell-4"><a href="#0x012-反弹Shell-4" class="headerlink" title="0x012 反弹Shell(4)"></a>0x012 反弹Shell(4)</h4><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">netcat</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">MSF_Shell</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">PowerCat</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">MSF_Meter</a></td>
+<td>反弹Shell系列教程</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="0x013-其它功能-12"><a href="#0x013-其它功能-12" class="headerlink" title="0x013 其它功能(12)"></a>0x013 其它功能(12)</h4><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -872,21 +960,51 @@
 </tr>
 <tr>
 <td>5</td>
-<td><a href="http://k8gege.org/">WebSer</a></td>
-<td>迷你WEB服务器</td>
-<td>Ladon WebSer 80 或 Ladon web 80</td>
+<td><a href="http://k8gege.org/">Open3389</a></td>
+<td>一键开启3389</td>
+<td>Ladon Open3389</td>
 </tr>
 <tr>
 <td>6</td>
-<td><a href="http://k8gege.org/">NetVer</a></td>
-<td>查看安装.NET版本</td>
-<td>Ladon NetVer 或 Ladon NetVersion</td>
+<td><a href="http://k8gege.org/">ActiveAdmin</a></td>
+<td>激活内置用户Administrator</td>
+<td>Ladon ActiveAdmin</td>
 </tr>
 <tr>
 <td>7</td>
-<td><a href="http://k8gege.org/">PsVer</a></td>
-<td>查看PowerShell版本</td>
-<td>Ladon PsVer 或 Ladon PSVersion</td>
+<td><a href="http://k8gege.org/">ActiveGuest</a></td>
+<td>激活内置用户Guest</td>
+<td>Ladon ActiveGuest</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/">RunPS</a></td>
+<td>无PowerShell.exe执行PowerShell脚本</td>
+<td>Ladon RunPS *.ps1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>RegAuto</td>
+<td>添加注册表RUN启动项</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>sc</td>
+<td>服务加启动项(system权限)</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>sc</td>
+<td>服务执行程序(system权限)</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>at</td>
+<td>计划执行程序(无需时间)(system权限)</td>
+<td></td>
 </tr>
 </tbody></table>
 <p>注：以上仅是该工具内置模块的初级用法，外置插件或更高级用法请查看使用文档<br> 中级用法INI文件配置调用任意程序、系统命令、各种语言现成EXP的批量利用<br> 高级用法Exp生成器一键生成Poc，使用各种语言编写插件扩展Ladon扫描能力。</p>
@@ -1130,7 +1248,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Windows"><span class="toc-text">Ladon for Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-GUI"><span class="toc-text">Ladon GUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Cobalt-Strike"><span class="toc-text">Ladon for Cobalt Strike</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-PowerShell"><span class="toc-text">Ladon for PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-Ladon"><span class="toc-text">Python Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Linux"><span class="toc-text">Ladon for Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用说明"><span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码编译"><span class="toc-text">源码编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成品下载"><span class="toc-text">成品下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Ladon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序简介"><span class="toc-text">程序简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用简单"><span class="toc-text">使用简单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行环境"><span class="toc-text">运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux、Mac"><span class="toc-text">Linux、Mac</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇葩条件"><span class="toc-text">奇葩条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宗旨"><span class="toc-text">宗旨</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特色"><span class="toc-text">特色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序参数功能"><span class="toc-text">程序参数功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内置功能模块-78"><span class="toc-text">内置功能模块(78)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-资产扫描-11"><span class="toc-text">0x001 资产扫描(11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-指纹识别-服务识别-9"><span class="toc-text">0x002 指纹识别&#x2F;服务识别(9)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-口令检测-密码爆破-18"><span class="toc-text">0x003 口令检测&#x2F;密码爆破(18)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-漏洞检测-漏洞利用-11"><span class="toc-text">0x004 漏洞检测&#x2F;漏洞利用(11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-加密解密-4"><span class="toc-text">0x005 加密解密(4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-下载功能-2"><span class="toc-text">0x006 下载功能(2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-网络嗅探-3"><span class="toc-text">0x007 网络嗅探(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x008-密码读取-2"><span class="toc-text">0x008 密码读取(2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x009-信息收集-3"><span class="toc-text">0x009 信息收集(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x010-远程执行-7"><span class="toc-text">0x010 远程执行(7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x011-提权降权-6"><span class="toc-text">0x011 提权降权(6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x012-其它功能-7"><span class="toc-text">0x012 其它功能(7)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外部插件模块-19"><span class="toc-text">外部插件模块(19)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中级用法"><span class="toc-text">中级用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#批量扫描"><span class="toc-text">批量扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁ping扫描"><span class="toc-text">禁ping扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socks5代理扫描"><span class="toc-text">Socks5代理扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#linux-macos下KaliLadon"><span class="toc-text">linux&#x2F;macos下KaliLadon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#windows下Ladon-exe"><span class="toc-text">windows下Ladon.exe</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置INI调用任意程序、密码爆破"><span class="toc-text">配置INI调用任意程序、密码爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#调用系统ping命令进行存活主机探测"><span class="toc-text">调用系统ping命令进行存活主机探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调用Python-poc批量检测漏洞"><span class="toc-text">调用Python poc批量检测漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义程序密码爆破"><span class="toc-text">自定义程序密码爆破</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置端口扫描参数"><span class="toc-text">配置端口扫描参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#port-txt自定义端口"><span class="toc-text">port.txt自定义端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行自定义端口"><span class="toc-text">命令行自定义端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置密码爆破参数"><span class="toc-text">配置密码爆破参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库口令检测"><span class="toc-text">数据库口令检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mssql密码验证"><span class="toc-text">mssql密码验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#oracle同理"><span class="toc-text">oracle同理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mysql无需指定数据库名"><span class="toc-text">mysql无需指定数据库名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#系统密码"><span class="toc-text">系统密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SSH密码爆破"><span class="toc-text">SSH密码爆破</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#SMB-WMI密码爆破"><span class="toc-text">SMB&#x2F;WMI密码爆破</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#NTLM-HASH密码爆破"><span class="toc-text">NTLM HASH密码爆破</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网站密码"><span class="toc-text">网站密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#weblogic密码爆破"><span class="toc-text">weblogic密码爆破</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文件密码"><span class="toc-text">文件密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#RAR文件密码爆破"><span class="toc-text">RAR文件密码爆破</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerShell"><span class="toc-text">PowerShell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-PowerShell本地加载"><span class="toc-text">0x001 PowerShell本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-Cmd本地加载"><span class="toc-text">0x002 Cmd本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-Cmd远程加载"><span class="toc-text">0x003 Cmd远程加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-远控交互式CMD"><span class="toc-text">0x004 远控交互式CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-菜刀非交互CMD"><span class="toc-text">0x005 菜刀非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-Empire非交互CMD"><span class="toc-text">0x006 Empire非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-MSF交互式CMD"><span class="toc-text">0x007 MSF交互式CMD</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级用法"><span class="toc-text">高级用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-Exp生成器"><span class="toc-text">0x001 Exp生成器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-自定义模块教程"><span class="toc-text">0x002 自定义模块教程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-插件例子源码"><span class="toc-text">0x003 插件例子源码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Windows"><span class="toc-text">Ladon for Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-GUI"><span class="toc-text">Ladon GUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Cobalt-Strike"><span class="toc-text">Ladon for Cobalt Strike</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-PowerShell"><span class="toc-text">Ladon for PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-Ladon"><span class="toc-text">Python Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Linux"><span class="toc-text">Ladon for Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用说明"><span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码编译"><span class="toc-text">源码编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成品下载"><span class="toc-text">成品下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Ladon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序简介"><span class="toc-text">程序简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用简单"><span class="toc-text">使用简单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行环境"><span class="toc-text">运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux、Mac"><span class="toc-text">Linux、Mac</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇葩条件"><span class="toc-text">奇葩条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宗旨"><span class="toc-text">宗旨</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特色"><span class="toc-text">特色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序参数功能"><span class="toc-text">程序参数功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内置功能模块-78"><span class="toc-text">内置功能模块(78)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-资产扫描-11"><span class="toc-text">0x001 资产扫描(11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-指纹识别-服务识别-9"><span class="toc-text">0x002 指纹识别&#x2F;服务识别(9)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-口令检测-密码爆破-18"><span class="toc-text">0x003 口令检测&#x2F;密码爆破(18)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-漏洞检测-漏洞利用-11"><span class="toc-text">0x004 漏洞检测&#x2F;漏洞利用(11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-加密解密-4"><span class="toc-text">0x005 加密解密(4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-下载功能-2"><span class="toc-text">0x006 下载功能(2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-网络嗅探-3"><span class="toc-text">0x007 网络嗅探(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x008-密码读取-2"><span class="toc-text">0x008 密码读取(2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x009-信息收集-11"><span class="toc-text">0x009 信息收集(11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x010-远程执行-7"><span class="toc-text">0x010 远程执行(7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x011-提权降权-7"><span class="toc-text">0x011 提权降权(7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x012-反弹Shell-4"><span class="toc-text">0x012 反弹Shell(4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x013-其它功能-12"><span class="toc-text">0x013 其它功能(12)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外部插件模块-19"><span class="toc-text">外部插件模块(19)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中级用法"><span class="toc-text">中级用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#批量扫描"><span class="toc-text">批量扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁ping扫描"><span class="toc-text">禁ping扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socks5代理扫描"><span class="toc-text">Socks5代理扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#linux-macos下KaliLadon"><span class="toc-text">linux&#x2F;macos下KaliLadon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#windows下Ladon-exe"><span class="toc-text">windows下Ladon.exe</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置INI调用任意程序、密码爆破"><span class="toc-text">配置INI调用任意程序、密码爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#调用系统ping命令进行存活主机探测"><span class="toc-text">调用系统ping命令进行存活主机探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调用Python-poc批量检测漏洞"><span class="toc-text">调用Python poc批量检测漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义程序密码爆破"><span class="toc-text">自定义程序密码爆破</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置端口扫描参数"><span class="toc-text">配置端口扫描参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#port-txt自定义端口"><span class="toc-text">port.txt自定义端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行自定义端口"><span class="toc-text">命令行自定义端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置密码爆破参数"><span class="toc-text">配置密码爆破参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库口令检测"><span class="toc-text">数据库口令检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mssql密码验证"><span class="toc-text">mssql密码验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#oracle同理"><span class="toc-text">oracle同理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mysql无需指定数据库名"><span class="toc-text">mysql无需指定数据库名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#系统密码"><span class="toc-text">系统密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SSH密码爆破"><span class="toc-text">SSH密码爆破</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#SMB-WMI密码爆破"><span class="toc-text">SMB&#x2F;WMI密码爆破</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#NTLM-HASH密码爆破"><span class="toc-text">NTLM HASH密码爆破</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网站密码"><span class="toc-text">网站密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#weblogic密码爆破"><span class="toc-text">weblogic密码爆破</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文件密码"><span class="toc-text">文件密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#RAR文件密码爆破"><span class="toc-text">RAR文件密码爆破</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerShell"><span class="toc-text">PowerShell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-PowerShell本地加载"><span class="toc-text">0x001 PowerShell本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-Cmd本地加载"><span class="toc-text">0x002 Cmd本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-Cmd远程加载"><span class="toc-text">0x003 Cmd远程加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-远控交互式CMD"><span class="toc-text">0x004 远控交互式CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-菜刀非交互CMD"><span class="toc-text">0x005 菜刀非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-Empire非交互CMD"><span class="toc-text">0x006 Empire非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-MSF交互式CMD"><span class="toc-text">0x007 MSF交互式CMD</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级用法"><span class="toc-text">高级用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-Exp生成器"><span class="toc-text">0x001 Exp生成器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-自定义模块教程"><span class="toc-text">0x002 自定义模块教程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-插件例子源码"><span class="toc-text">0x003 插件例子源码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>
