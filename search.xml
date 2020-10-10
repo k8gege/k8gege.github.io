@@ -118,7 +118,7 @@
 <h3 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h3><p>一条龙服务，为用户提供一个简单易用、功能丰富、高度灵活的扫描工具</p>
 <h3 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h3><p>扫描流量小<br>程序体积小<br>功能丰富强大<br>程序简单易用<br>插件支持多种语言<br>跨平台(Win/Kali/Ubuntu)等<br>支持Cobalt Strike插件化<br>支持PowerShell无文件渗透<br>Exp生成器可一键定制Poc<br>多版本适用各种环境</p>
 <h3 id="程序参数功能"><a href="#程序参数功能" class="headerlink" title="程序参数功能"></a>程序参数功能</h3><p>1  支持指定IP扫描<br>2  支持指定域名扫描<br>3  支持指定机器名扫描<br>4  支持指定C段扫描(ip/24)<br>5  支持指定B段扫描(ip/16)<br>6  支持指定A段扫描(ip/8)<br>7  支持指定URL扫描<br>8  支持批量IP扫描(ip.txt)<br>9  支持批量C段扫描(ip24.txt)<br>10 支持批量B段扫描(ip16.txt)<br>11 支持批量URL扫描(url.txt)<br>12 支持批量域名扫描(domain.txt)<br>13 支持批量机器名扫描(host.txt)<br>14 支持批量字符串列表(str.txt)<br>15 支持主机帐密列表(check.txt)<br>16 支持用户密码列表(userpass.txt)<br>17 支持指定范围C段扫描<br>18 支持参数加载自定义DLL（仅限C#）<br>19 支持参数加载自定义EXE（仅限C#）<br>20 支持参数加载自定义INI配置文件<br>21 支持参数加载自定义PowerShell<br>22 支持自定义程序(系统命令或第三方程序即任意语言开发的程序或脚本)<br>23 插件(支持多种语言C#/Delphi/Golang/Python/VC/PowerShell)<br>24 支持Cobalt Strike(beacon命令行下扫描目标内网或跳板扫描外网目标)<br>25 支持CIDR格式IP扫描,如100.64.0.0/10，192.168.1.1/20等<br>26 INI配置支持自定义程序密码爆破</p>
-<h3 id="内置功能模块-58"><a href="#内置功能模块-58" class="headerlink" title="内置功能模块(58)"></a>内置功能模块(58)</h3><h4 id="0x001-资产扫描-11"><a href="#0x001-资产扫描-11" class="headerlink" title="0x001 资产扫描(11)"></a>0x001 资产扫描(11)</h4><p>例子: Ladon OnlinePC(扫当前机器所处C段，其它模块同理)<br>例子: Ladon 192.168.1.8/24 OnlinePC</p>
+<h3 id="内置功能模块-78"><a href="#内置功能模块-78" class="headerlink" title="内置功能模块(78)"></a>内置功能模块(78)</h3><h4 id="0x001-资产扫描-11"><a href="#0x001-资产扫描-11" class="headerlink" title="0x001 资产扫描(11)"></a>0x001 资产扫描(11)</h4><p>例子: Ladon OnlinePC(扫当前机器所处C段，其它模块同理)<br>例子: Ladon 192.168.1.8/24 OnlinePC</p>
 <table>
 <thead>
 <tr>
