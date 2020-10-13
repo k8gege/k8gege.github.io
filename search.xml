@@ -1223,150 +1223,6 @@
       </tags>
   </entry>
   <entry>
-    <title>利用DirectoryEntry获取域内计算机以及共享资源</title>
-    <url>/p/54132.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>System.DirectoryServices.DirectoryEntry组件提供了对Active Directory的访问。本文以两个简单的小程序为例，阐述了如何利用此组件查看网络的各节点的信息。 DirectoryEntry组件提供了Path属性，根据文档，此属性指定了目录服务中用来访问对象的对象名，其格式如下：<br>protocol://servername:port number/distinguished name<br>此语句的第一部分定义了访问将使用的协议，如<br>LDAP: (Lightweight Directory Access Protocol)<br>IIS: (提供IIS元数据来读及配置Internet Infomation Server)<br>WinNT: (提供在非常有限的性能下对Windows NT域的访问)<br>NDS: (提供对Novell Directory Service的访问)<br>等等（详细信息清参考MSDN）。 </p>
-<p>因此我们构造一个DirectoryEntry实例，将它的Path设为”WinNT:”，以通过对它的所有子项的枚举来发现网络上的所有域（以及工作组）。这样，再对所发现的域（以及工作组）的子项进行枚举，就可以发现网络上的所有计算机，结合WMI发现机器上的共享资源。</p>
-<h3 id="C-实现代码"><a href="#C-实现代码" class="headerlink" title="C#实现代码"></a>C#实现代码</h3><p>以下为Ladon的EnumShare代码,自动获取当前域，并枚举域内计算机以及获取机器开放共享资源。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string strDomain;</span><br><span class="line">string strComputer;</span><br><span class="line">string strShare;</span><br><span class="line">Console.WriteLine(&quot;Load EnumShare&quot;);</span><br><span class="line"></span><br><span class="line">DirectoryEntry root &#x3D; new DirectoryEntry(&quot;WinNT:&quot;);</span><br><span class="line">foreach (DirectoryEntry Domain in root.Children)</span><br><span class="line">&#123;</span><br><span class="line">    strDomain &#x3D; Domain.Name;</span><br><span class="line">    Console.WriteLine(&quot;Domain: &quot; + strDomain);</span><br><span class="line">    foreach (DirectoryEntry Computer in Domain.Children)</span><br><span class="line">    &#123;</span><br><span class="line">        if (Computer.SchemaClassName.Equals(&quot;Computer&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            strComputer &#x3D; Computer.Name;</span><br><span class="line">            ManagementObjectSearcher searcher &#x3D; new ManagementObjectSearcher(&quot;select * from win32_share&quot;);</span><br><span class="line">            foreach (ManagementObject share in searcher.Get())</span><br><span class="line">            &#123;</span><br><span class="line">                strShare &#x3D; share[&quot;Name&quot;].ToString();</span><br><span class="line">                Console.WriteLine(strComputer + &quot;\\&quot; + strShare);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Ladon EnumShare<br>因为崇尚极简主义，所以Ladon无需填写域名以及参数，参数多也很烦，全自动获取，一步到位。<br><img alt="img" data-original="https://k8gege.org/k8img/Ladon/exe/EnumShare.PNG"></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
-<p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8</a></p>
-]]></content>
-      <categories>
-        <category>Ladon</category>
-        <category>.NET</category>
-        <category>主机发现</category>
-        <category>源码</category>
-        <category>内网渗透</category>
-        <category>信息收集</category>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Ladon</tag>
-        <tag>.NET</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破</title>
-    <url>/p/56393.html</url>
-    <content><![CDATA[<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-6.0-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
-<h3 id="Ladon6-0"><a href="#Ladon6-0" class="headerlink" title="Ladon6.0"></a>Ladon6.0</h3><p>新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、<br>进程详细信息获取、渗透相关信息获取、命令行参数信息<br>操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><table>
-<thead>
-<tr>
-<th>动作</th>
-<th>模块</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>新增</td>
-<td>LdapScan</td>
-<td>AD域密码爆破:基于Ldap协议爆破Windows密码</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>FtpSniffer/SnifferFtp</td>
-<td>Ftp密码嗅探(无需WinPcap)</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>HttpSniffer/SnifferHTTP</td>
-<td>HTTP密码嗅探(无需WinPcap)</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>GetCmdLine/CmdLine</td>
-<td>获取进程命令行参数/可指定进程</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>GetInfo</td>
-<td>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>GetInfo2</td>
-<td>包含GetInfo &amp; Wmi获取信息</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>Sniffer</td>
-<td>网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>EnumIIS/IisWeb</td>
-<td>获取IIS站点、路径、帐号、密码</td>
-</tr>
-<tr>
-<td>新增</td>
-<td>EnumProcess/ProcessList/tasklist</td>
-<td>枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>HttpDownload/wget</td>
-<td>HTTP下载命令简化也可使用wget</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>OsScan</td>
-<td>扫描速度优化(某项目批量C段不再卡死)</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>WmiScan</td>
-<td>135端口关闭或RPC不可用停止爆破</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>SmbScan</td>
-<td>445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)</td>
-</tr>
-<tr>
-<td>移除</td>
-<td>IPCScan</td>
-<td>速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>所有模块</td>
-<td>所有功能模块参数忽略大小写</td>
-</tr>
-</tbody></table>
-<h3 id="LdapScan-AD域服务器密码爆破"><a href="#LdapScan-AD域服务器密码爆破" class="headerlink" title="LdapScan AD域服务器密码爆破"></a>LdapScan AD域服务器密码爆破</h3><p>非域内机器也可破解跨网段AD域服务器，LDAP端口为389<br>注意非3389，即便跑出来的密码能登远程桌面也没半毛钱关系<br>还有WMI、SMB(IPC)跑出来的密码也一样，3389是RDP协议<br>WMI端口135，SMB端口445，不要以为能登3389一定能IPC连接<br>有时一个帐密各种协议方法都能连到远程机器只能说运气好<br>不要说这个密码3389可以登，但是WMI或SMB跑不出来，瞎搞<br>默认条件下都不能保证100%，更何况经过配置或出问题的系统<br><img alt="LdapScan" data-original="http://k8gege.org/k8img/Ladon/exe/LdapScan_6.0.gif"></p>
-<h3 id="FtpSniffer-FTP密码嗅探"><a href="#FtpSniffer-FTP密码嗅探" class="headerlink" title="FtpSniffer FTP密码嗅探"></a>FtpSniffer FTP密码嗅探</h3><p>支持两种写法: FtpSniffer/SnifferFtp<br>Example: Ladon FtpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="FtpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/FtpSniffer.PNG"></p>
-<h3 id="HttpSniffer-HTTP密码嗅探"><a href="#HttpSniffer-HTTP密码嗅探" class="headerlink" title="HttpSniffer HTTP密码嗅探"></a>HttpSniffer HTTP密码嗅探</h3><p>支持两种写法: HttpSniffer/SnifferHTTP<br>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="HttpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/HttpSniffer.PNG"></p>
-<h3 id="Sniffer-网络嗅探"><a href="#Sniffer-网络嗅探" class="headerlink" title="Sniffer 网络嗅探"></a>Sniffer 网络嗅探</h3><p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>后续可能会添加其它功能可能另外写个专门用于嗅探的工具</p>
-<p>PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p>
-<p>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="Sniffer" data-original="http://k8gege.org/k8img/Ladon/exe/Sniffer.PNG"></p>
-<h3 id="EnumIIS-IIS站点密码读取"><a href="#EnumIIS-IIS站点密码读取" class="headerlink" title="EnumIIS IIS站点密码读取"></a>EnumIIS IIS站点密码读取</h3><p>获取IIS站点、路径、帐号、密码<br><img alt="EnumIIS" data-original="http://k8gege.org/k8img/Ladon/exe/EnumIIS.PNG"></p>
-<h3 id="EnumProcess-进程详细信息获取"><a href="#EnumProcess-进程详细信息获取" class="headerlink" title="EnumProcess 进程详细信息获取"></a>EnumProcess 进程详细信息获取</h3><p>支持三种写法: EnumProcess/ProcessList/tasklist<br>结果(PID、Session、位数、进程名、用户名、路径、标题)<br><img alt="EnumProcess" data-original="http://k8gege.org/k8img/Ladon/exe/EnumProcess.PNG"></p>
-<h3 id="GetCmdLine-进程启动参数"><a href="#GetCmdLine-进程启动参数" class="headerlink" title="GetCmdLine 进程启动参数"></a>GetCmdLine 进程启动参数</h3><p>进程启动参数/可指定进程<br>支持2种写法: GetCmdLine/CmdLine<br><img alt="getcmdline" data-original="http://k8gege.org/k8img/Ladon/exe/getcmdline.PNG"></p>
-<h3 id="GetInfo-获取渗透基础信息"><a href="#GetInfo-获取渗透基础信息" class="headerlink" title="GetInfo 获取渗透基础信息"></a>GetInfo 获取渗透基础信息</h3><p>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）<br>GetInfo2 包含GetInfo &amp; Wmi获取的相关信息</p>
-<h3 id="全部功能"><a href="#全部功能" class="headerlink" title="全部功能"></a>全部功能</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Ladon</category>
-        <category>密码</category>
-        <category>嗅探</category>
-      </categories>
-      <tags>
-        <tag>Ladon</tag>
-        <tag>Tool</tag>
-        <tag>Sniffer</tag>
-        <tag>FtpSniffer</tag>
-        <tag>HttpSniffer</tag>
-        <tag>IIS</tag>
-        <tag>LDAP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ladon7.4 CVE-2020-0688 Exchange序列化漏洞利用</title>
     <url>/p/cve-2020-0688.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -1889,6 +1745,150 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <tag>Ladon</tag>
         <tag>.NET</tag>
         <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破</title>
+    <url>/p/56393.html</url>
+    <content><![CDATA[<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-6.0-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
+<h3 id="Ladon6-0"><a href="#Ladon6-0" class="headerlink" title="Ladon6.0"></a>Ladon6.0</h3><p>新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、<br>进程详细信息获取、渗透相关信息获取、命令行参数信息<br>操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><table>
+<thead>
+<tr>
+<th>动作</th>
+<th>模块</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新增</td>
+<td>LdapScan</td>
+<td>AD域密码爆破:基于Ldap协议爆破Windows密码</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>FtpSniffer/SnifferFtp</td>
+<td>Ftp密码嗅探(无需WinPcap)</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>HttpSniffer/SnifferHTTP</td>
+<td>HTTP密码嗅探(无需WinPcap)</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetCmdLine/CmdLine</td>
+<td>获取进程命令行参数/可指定进程</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetInfo</td>
+<td>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetInfo2</td>
+<td>包含GetInfo &amp; Wmi获取信息</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>Sniffer</td>
+<td>网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>EnumIIS/IisWeb</td>
+<td>获取IIS站点、路径、帐号、密码</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>EnumProcess/ProcessList/tasklist</td>
+<td>枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>HttpDownload/wget</td>
+<td>HTTP下载命令简化也可使用wget</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>OsScan</td>
+<td>扫描速度优化(某项目批量C段不再卡死)</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>WmiScan</td>
+<td>135端口关闭或RPC不可用停止爆破</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>SmbScan</td>
+<td>445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)</td>
+</tr>
+<tr>
+<td>移除</td>
+<td>IPCScan</td>
+<td>速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>所有模块</td>
+<td>所有功能模块参数忽略大小写</td>
+</tr>
+</tbody></table>
+<h3 id="LdapScan-AD域服务器密码爆破"><a href="#LdapScan-AD域服务器密码爆破" class="headerlink" title="LdapScan AD域服务器密码爆破"></a>LdapScan AD域服务器密码爆破</h3><p>非域内机器也可破解跨网段AD域服务器，LDAP端口为389<br>注意非3389，即便跑出来的密码能登远程桌面也没半毛钱关系<br>还有WMI、SMB(IPC)跑出来的密码也一样，3389是RDP协议<br>WMI端口135，SMB端口445，不要以为能登3389一定能IPC连接<br>有时一个帐密各种协议方法都能连到远程机器只能说运气好<br>不要说这个密码3389可以登，但是WMI或SMB跑不出来，瞎搞<br>默认条件下都不能保证100%，更何况经过配置或出问题的系统<br><img alt="LdapScan" data-original="http://k8gege.org/k8img/Ladon/exe/LdapScan_6.0.gif"></p>
+<h3 id="FtpSniffer-FTP密码嗅探"><a href="#FtpSniffer-FTP密码嗅探" class="headerlink" title="FtpSniffer FTP密码嗅探"></a>FtpSniffer FTP密码嗅探</h3><p>支持两种写法: FtpSniffer/SnifferFtp<br>Example: Ladon FtpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="FtpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/FtpSniffer.PNG"></p>
+<h3 id="HttpSniffer-HTTP密码嗅探"><a href="#HttpSniffer-HTTP密码嗅探" class="headerlink" title="HttpSniffer HTTP密码嗅探"></a>HttpSniffer HTTP密码嗅探</h3><p>支持两种写法: HttpSniffer/SnifferHTTP<br>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="HttpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/HttpSniffer.PNG"></p>
+<h3 id="Sniffer-网络嗅探"><a href="#Sniffer-网络嗅探" class="headerlink" title="Sniffer 网络嗅探"></a>Sniffer 网络嗅探</h3><p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>后续可能会添加其它功能可能另外写个专门用于嗅探的工具</p>
+<p>PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p>
+<p>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="Sniffer" data-original="http://k8gege.org/k8img/Ladon/exe/Sniffer.PNG"></p>
+<h3 id="EnumIIS-IIS站点密码读取"><a href="#EnumIIS-IIS站点密码读取" class="headerlink" title="EnumIIS IIS站点密码读取"></a>EnumIIS IIS站点密码读取</h3><p>获取IIS站点、路径、帐号、密码<br><img alt="EnumIIS" data-original="http://k8gege.org/k8img/Ladon/exe/EnumIIS.PNG"></p>
+<h3 id="EnumProcess-进程详细信息获取"><a href="#EnumProcess-进程详细信息获取" class="headerlink" title="EnumProcess 进程详细信息获取"></a>EnumProcess 进程详细信息获取</h3><p>支持三种写法: EnumProcess/ProcessList/tasklist<br>结果(PID、Session、位数、进程名、用户名、路径、标题)<br><img alt="EnumProcess" data-original="http://k8gege.org/k8img/Ladon/exe/EnumProcess.PNG"></p>
+<h3 id="GetCmdLine-进程启动参数"><a href="#GetCmdLine-进程启动参数" class="headerlink" title="GetCmdLine 进程启动参数"></a>GetCmdLine 进程启动参数</h3><p>进程启动参数/可指定进程<br>支持2种写法: GetCmdLine/CmdLine<br><img alt="getcmdline" data-original="http://k8gege.org/k8img/Ladon/exe/getcmdline.PNG"></p>
+<h3 id="GetInfo-获取渗透基础信息"><a href="#GetInfo-获取渗透基础信息" class="headerlink" title="GetInfo 获取渗透基础信息"></a>GetInfo 获取渗透基础信息</h3><p>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）<br>GetInfo2 包含GetInfo &amp; Wmi获取的相关信息</p>
+<h3 id="全部功能"><a href="#全部功能" class="headerlink" title="全部功能"></a>全部功能</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Ladon</category>
+        <category>密码</category>
+        <category>嗅探</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>Tool</tag>
+        <tag>Sniffer</tag>
+        <tag>FtpSniffer</tag>
+        <tag>HttpSniffer</tag>
+        <tag>IIS</tag>
+        <tag>LDAP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用DirectoryEntry获取域内计算机以及共享资源</title>
+    <url>/p/54132.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>System.DirectoryServices.DirectoryEntry组件提供了对Active Directory的访问。本文以两个简单的小程序为例，阐述了如何利用此组件查看网络的各节点的信息。 DirectoryEntry组件提供了Path属性，根据文档，此属性指定了目录服务中用来访问对象的对象名，其格式如下：<br>protocol://servername:port number/distinguished name<br>此语句的第一部分定义了访问将使用的协议，如<br>LDAP: (Lightweight Directory Access Protocol)<br>IIS: (提供IIS元数据来读及配置Internet Infomation Server)<br>WinNT: (提供在非常有限的性能下对Windows NT域的访问)<br>NDS: (提供对Novell Directory Service的访问)<br>等等（详细信息清参考MSDN）。 </p>
+<p>因此我们构造一个DirectoryEntry实例，将它的Path设为”WinNT:”，以通过对它的所有子项的枚举来发现网络上的所有域（以及工作组）。这样，再对所发现的域（以及工作组）的子项进行枚举，就可以发现网络上的所有计算机，结合WMI发现机器上的共享资源。</p>
+<h3 id="C-实现代码"><a href="#C-实现代码" class="headerlink" title="C#实现代码"></a>C#实现代码</h3><p>以下为Ladon的EnumShare代码,自动获取当前域，并枚举域内计算机以及获取机器开放共享资源。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string strDomain;</span><br><span class="line">string strComputer;</span><br><span class="line">string strShare;</span><br><span class="line">Console.WriteLine(&quot;Load EnumShare&quot;);</span><br><span class="line"></span><br><span class="line">DirectoryEntry root &#x3D; new DirectoryEntry(&quot;WinNT:&quot;);</span><br><span class="line">foreach (DirectoryEntry Domain in root.Children)</span><br><span class="line">&#123;</span><br><span class="line">    strDomain &#x3D; Domain.Name;</span><br><span class="line">    Console.WriteLine(&quot;Domain: &quot; + strDomain);</span><br><span class="line">    foreach (DirectoryEntry Computer in Domain.Children)</span><br><span class="line">    &#123;</span><br><span class="line">        if (Computer.SchemaClassName.Equals(&quot;Computer&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            strComputer &#x3D; Computer.Name;</span><br><span class="line">            ManagementObjectSearcher searcher &#x3D; new ManagementObjectSearcher(&quot;select * from win32_share&quot;);</span><br><span class="line">            foreach (ManagementObject share in searcher.Get())</span><br><span class="line">            &#123;</span><br><span class="line">                strShare &#x3D; share[&quot;Name&quot;].ToString();</span><br><span class="line">                Console.WriteLine(strComputer + &quot;\\&quot; + strShare);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Ladon EnumShare<br>因为崇尚极简主义，所以Ladon无需填写域名以及参数，参数多也很烦，全自动获取，一步到位。<br><img alt="img" data-original="https://k8gege.org/k8img/Ladon/exe/EnumShare.PNG"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>.NET</category>
+        <category>主机发现</category>
+        <category>源码</category>
+        <category>内网渗透</category>
+        <category>信息收集</category>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>.NET</tag>
       </tags>
   </entry>
   <entry>
