@@ -1287,6 +1287,52 @@
       </tags>
   </entry>
   <entry>
+    <title>LadonGUI 九种PowerShell混淆命令执行</title>
+    <url>/p/LadonPowershellEncode.html</url>
+    <content><![CDATA[<p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+
+%>
+</%></p>
+
+
+<p>九种方式随机混淆PowerShell代码，防止管理员轻易还原，至少比默认明文或Base64隐蔽。<br>Base64就不说了是个人都能解，一是常用，二是工具多，管理员懂解很正常，所以不推荐。<br>Ladon提供的混淆方法，每点一次按钮就随机会生成不同的命令，但是执行的都是同个功能<br>管理员想反查就得每一条都研究如何解密，给管理员增加难度，就是给自己增加控制时间。</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/LadonPowershellEncode.html";
+</script>
+
+<h3 id="更新功能"><a href="#更新功能" class="headerlink" title="更新功能"></a>更新功能</h3><p>GUI 2020.10.18<br>[+] PowerShell转EXE，EXE转PowerShell<br>    EXE-&gt;Powershell<br>    PowerShell-&gt;EXE<br>[+] 九种PowerShell命令混淆（随机加密）</p>
+<pre><code>HexCommand
+AsciiCommand
+BinaryCommand
+CompressedCommand
+BXORCommand
+OctalCommand
+SpecialCharOnlyCommand
+SecureStringCommand
+Base64Command
+DecodeBase64</code></pre><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.隐藏执行PowerShell命令代码，不让管理员知道你意图<br>2.PowerShell脚本免杀（很多杀软对脚本的查杀能力很弱）</p>
+<h3 id="演示教程"><a href="#演示教程" class="headerlink" title="演示教程"></a>演示教程</h3><p>文本框1填写PowerShell代码或PowerShell命令（包含在Powershell中能执行的CMD命令）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Write-Host <span class="string">'Hello K8gege!'</span> -ForegroundColor Green; </span><br><span class="line">Write-Host <span class="string">'Fuck you!'</span> -ForegroundColor Green;</span><br><span class="line">whoami</span><br></pre></td></tr></table></figure>
+<p>点击中间按钮对PowerShell进行加密<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_PowershellEncode.PNG"></p>
+<p>加密生成的代码可直接在CMD中执行<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/gui/LadonEncodePSHcmd.PNG"></p>
+<h3 id="随机加密"><a href="#随机加密" class="headerlink" title="随机加密"></a>随机加密</h3><p>九种方式随机混淆PowerShell代码，防止管理员轻易还原，至少比默认明文或Base64隐蔽。<br>如图对同一份代码加密，每点按钮一次，都会生成不同的加密代码(Base64除外)</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_PowerShellEncode.gif"></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>PowerShell</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ladon7.4 CVE-2020-0688 Exchange序列化漏洞利用</title>
     <url>/p/cve-2020-0688.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
