@@ -1,5 +1,23 @@
 Wiki: http://k8gege.org/Ladon
 
+GUI 2020.10.18
+[+] PowerShell转EXE，EXE转PowerShell
+    EXE->Powershell
+	PowerShell->EXE	
+[+] 九种PowerShell命令混淆（随机加密）
+
+	HexCommand
+	AsciiCommand
+	BinaryCommand
+	CompressedCommand
+	BXORCommand
+	OctalCommand
+	SpecialCharOnlyCommand
+	SecureStringCommand
+	Base64Command
+	DecodeBase64
+
+
 7.5 2020.10.10
 [+] Ladon 7.5 for CS
 [+] OsScan   Exchange Detection Win 465\143\587\25\110
