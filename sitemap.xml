@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/Ladon/latest.html</loc>
+    
+    <lastmod>2020-10-19T16:10:25.805Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/Ladon/index.html</loc>
+    
+    <lastmod>2020-10-19T16:01:18.591Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/Ladon/PowershellEncode.html</loc>
     
     <lastmod>2020-10-19T15:55:40.386Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://k8gege.org/p/Exe2Powershell.html</loc>
     
     <lastmod>2020-10-19T15:54:33.597Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/Ladon/index.html</loc>
-    
-    <lastmod>2020-10-18T17:34:54.914Z</lastmod>
     
   </url>
   
