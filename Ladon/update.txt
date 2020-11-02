@@ -1,5 +1,9 @@
 Wiki: http://k8gege.org/Ladon
 
+GUI 2020.11.2
+[+] SubDomain 高效率子域名扫描（3万字典）
+[+] OnlinePC  本地存活主机、操作系统探测
+
 GUI 2020.10.18
 [+] PowerShell转EXE，EXE转PowerShell
     EXE->Powershell
