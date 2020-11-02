@@ -1297,10 +1297,10 @@ window.location.href="http://k8gege.org/Ladon/SubDomain.html";
 <h3 id="更新功能"><a href="#更新功能" class="headerlink" title="更新功能"></a>更新功能</h3><p>GUI 2020.11.2<br>[+] SubDomain 高效率子域名扫描（3万字典）<br>[+] OnlinePC  本地存活主机、操作系统探测</p>
 <h3 id="GUI子域名扫描"><a href="#GUI子域名扫描" class="headerlink" title="GUI子域名扫描"></a>GUI子域名扫描</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/gui/SubDomain.PNG"></p>
 <h3 id="本地存活主机探测"><a href="#本地存活主机探测" class="headerlink" title="本地存活主机探测"></a>本地存活主机探测</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/gui/OnlinePC.png"></p>
-<h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br><br>需域名字典SubDomain.dic，字典上万个高效率子域名<br></p>
+<h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br>需域名字典SubDomain.dic，字典上万个高效率子域名</p>
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
-<p>与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br><br>作者说它的工具携带字典包含2000个常用子域名<br><br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br><br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
-<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br><br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br><br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br><br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
+<p>与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
+<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
 <p>后期可能会添加证书或其它站点查询子域名(K8C段工具曾经添加过证书查询域名功能)</p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
