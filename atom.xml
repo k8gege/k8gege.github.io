@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2020-11-02T14:07:54.233Z</updated>
+  <updated>2020-11-06T14:43:52.646Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LadonGo开源全平台渗透扫描器框架</title>
+    <link href="http://k8gege.org/p/LadonGo.html"/>
+    <id>http://k8gege.org/p/LadonGo.html</id>
+    <published>2020-11-06T13:40:00.000Z</published>
+    <updated>2020-11-06T14:43:52.646Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源渗透扫描器框架，使用它可轻松批量探测C段、B段存活主机、指纹识别、端口扫描、密码爆破、高危漏洞检测等。<br>1.0版本包含11个模块功能，高危漏洞检测MS17010、SmbGhost，密码爆破SmbScan、SshScan、FtpScan、MysqlScan等，存活探测/信息收集/指纹识别PingScan、IcmpScan，BannerScan、WeblogicScan等，端口扫描PortScan。</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/LadonGo.html";</script><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>Detection:<br>PingScan        (Using system ping to detect Online hosts)<br>IcmpScan        (Using ICMP Protocol to detect Online hosts)<br>BannerScan      (Using HTTP Protocol to detect Banner hosts)<br>WeblogicScan    (Using T3 Protocol to detect Weblogic hosts)<br>PortScan        (Scan hosts open ports using TCP protocol)<br>MS17010         (Using SMB Protocol to detect MS17010 hosts))<br>SmbGhost        (Using SMB Protocol to detect SmbGhost hosts))</p><p>Brute-Force:<br>SmbScan         (Using SMB Protocol to Brute-For 445 Port))<br>SshScan         (Using SSH Protocol to Brute-For 22 Port))<br>FtpScan         (Using FTP Protocol to Brute-For 21 Port))<br>MysqlScan       (Using Mysql Protocol to Brute-For 3306 Port))</p><h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><p>和Ladon一样，用法非常简单<br>Ladon 目标IP/机器名/CIDR 扫描模块</p><p>例子：扫描C段是否存在永恒之蓝漏洞<br>Ladon 192.168.1.8/24 MS17010</p><h3 id="扫描速度"><a href="#扫描速度" class="headerlink" title="扫描速度"></a>扫描速度</h3><p>1.和Ladon一样，ICMP探测C段仅需1秒<br>2.Ping扫描C段大约11秒，支持任意权限<br>3.其它模块自行测试</p><h3 id="跨平台-全平台-全系统"><a href="#跨平台-全平台-全系统" class="headerlink" title="跨平台/全平台/全系统"></a>跨平台/全平台/全系统</h3><h4 id="TestOn"><a href="#TestOn" class="headerlink" title="TestOn"></a>TestOn</h4><p>Kali 2019<br>SUSE 10<br>CentOS 5.8<br>CentOS 6.8<br>Fedora5<br>XP、2003、Win7、Win8.1、Win10、2008 R2、2012 R2<br>RedHat5.7<br>BT5-R3  (Ubuntu 8)<br>MacOS 10.15</p><p>以上系统测试成功，其它系统未测，若某些系统不支持可自行编译</p><h4 id="MacOS-x64-10-15"><a href="#MacOS-x64-10-15" class="headerlink" title="MacOS x64 10.15"></a>MacOS x64 10.15</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/MacMS17010.png"></p><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxMS17010.PNG"></p><h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/WinMS17010.PNG"></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a></p><h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.5版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;LadonGo一款开源渗透扫描器框架，使用它可轻松批量探测C段、B段存活主机、指纹识别、端口扫描、密码爆破、高危漏洞检测等。&lt;br&gt;1.0版
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="LadonGo" scheme="http://k8gege.org/tags/LadonGo/"/>
+    
+  </entry>
   
   <entry>
     <title>Ladon高效率子域名扫描GUI版</title>
@@ -138,9 +164,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
     
-      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
     
   </entry>
   
@@ -170,9 +196,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     </summary>
     
     
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
       <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
     
       <category term="CVE-2020-0688" scheme="http://k8gege.org/tags/CVE-2020-0688/"/>
@@ -198,9 +224,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     </summary>
     
     
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
       <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
     
       <category term="内网渗透" scheme="http://k8gege.org/tags/Lan-Pentest/"/>
@@ -554,9 +580,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="嗅探" scheme="http://k8gege.org/categories/Sniffer/"/>
     
     
-      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
     
       <category term="Sniffer" scheme="http://k8gege.org/tags/Sniffer/"/>
     
@@ -591,11 +617,11 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
-      <category term="源码" scheme="http://k8gege.org/categories/Code/"/>
+      <category term=".NET" scheme="http://k8gege.org/categories/Dotnet/"/>
     
       <category term="主机发现" scheme="http://k8gege.org/categories/OnlinePC/"/>
     
-      <category term=".NET" scheme="http://k8gege.org/categories/Dotnet/"/>
+      <category term="源码" scheme="http://k8gege.org/categories/Code/"/>
     
       <category term="内网渗透" scheme="http://k8gege.org/categories/Lan-Pentest/"/>
     
@@ -607,42 +633,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
       <category term=".NET" scheme="http://k8gege.org/tags/Dotnet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ladon检测永恒之黑漏洞 SMBGhost CVE-2020-0796</title>
-    <link href="http://k8gege.org/p/smbghost_cve_2020_0796.html"/>
-    <id>http://k8gege.org/p/smbghost_cve_2020_0796.html</id>
-    <published>2020-06-03T14:40:00.000Z</published>
-    <updated>2020-07-04T16:42:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="漏洞介绍"><a href="#漏洞介绍" class="headerlink" title="漏洞介绍"></a>漏洞介绍</h3><p>2020年3月10日，微软在其官方SRC发布了CVE-2020-0796的安全公告（ADV200005，MicrosoftGuidance for Disabling SMBv3 Compression）,公告表示在Windows SMBv3版本的客户端和服务端存在远程代码执行漏洞。同时指出该漏洞存在于MicroSoft Server Message Block 3.1.1协议处理特定请求包的功能中，攻击者利用该漏洞可在目标SMB Server或者Client中执行任意代码。</p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>CVE-2020-0796漏洞影响运行Windows 10版本1903，Windows Server版本1903（服务器核心安装），Windows 10版本1909和Windows Server版本1909（服务器核心安装）的设备。根据Fortinet，其他Microsoft版本应受到影响。</p><h3 id="模块说明"><a href="#模块说明" class="headerlink" title="模块说明"></a>模块说明</h3><p>漏洞编号：CVE-2020-0796<br>漏洞别名：SMBGhost、永恒之黑<br>影响版本：Win10或2016 1903 | 1909<br>返回结果：IP、机器名、漏洞编号、操作系统版本</p><h3 id="无损扫描"><a href="#无损扫描" class="headerlink" title="无损扫描"></a>无损扫描</h3><p>通过检测SMB3.1.1是否启用压缩功能判定漏洞，和MS17010一样不会对目标造成任何损害，也不会被杀软拦截。</p><h3 id="SMBGhost漏洞检测"><a href="#SMBGhost漏洞检测" class="headerlink" title="SMBGhost漏洞检测"></a>SMBGhost漏洞检测</h3><h4 id="扫描指定主机SMBGhost漏洞"><a href="#扫描指定主机SMBGhost漏洞" class="headerlink" title="扫描指定主机SMBGhost漏洞"></a>扫描指定主机SMBGhost漏洞</h4><p>Ladon 192.168.1.8 SMBGhost</p><h4 id="扫描C段主机SMBGhost漏洞"><a href="#扫描C段主机SMBGhost漏洞" class="headerlink" title="扫描C段主机SMBGhost漏洞"></a>扫描C段主机SMBGhost漏洞</h4><p>Ladon 192.168.1.8/24 SMBGhost<br>Ladon 192.168.1.8/C SMBGhost</p><h4 id="批量扫描IP列表主机SMBGhost漏洞"><a href="#批量扫描IP列表主机SMBGhost漏洞" class="headerlink" title="批量扫描IP列表主机SMBGhost漏洞"></a>批量扫描IP列表主机SMBGhost漏洞</h4><p>ip.txt里放需要扫描的IP，使用以下命令即可<br>Ladon SMBGhost</p><h4 id="批量检测IP段（-24）SMBGhost漏洞"><a href="#批量检测IP段（-24）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/24）SMBGhost漏洞"></a>批量检测IP段（/24）SMBGhost漏洞</h4><p>ip24.txt里放需要扫描的IP段，使用以下命令即可<br>Ladon SMBGhost</p><h4 id="批量检测IP段（-16）SMBGhost漏洞"><a href="#批量检测IP段（-16）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/16）SMBGhost漏洞"></a>批量检测IP段（/16）SMBGhost漏洞</h4><p>ip16.txt里放需要扫描的IP段，使用以下命令即可<br>Ladon SMBGhost</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/SmbGhost.PNG"></p><h3 id="POC-EXP-LPE"><a href="#POC-EXP-LPE" class="headerlink" title="POC/EXP/LPE"></a>POC/EXP/LPE</h3><p><a href="https://github.com/danigargu/CVE-2020-0796" target="_blank" rel="noopener">https://github.com/danigargu/CVE-2020-0796</a><br><a href="https://github.com/chompie1337/SMBGhost_RCE_PoC" target="_blank" rel="noopener">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p><h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;漏洞介绍&quot;&gt;&lt;a href=&quot;#漏洞介绍&quot; class=&quot;headerlink&quot; title=&quot;漏洞介绍&quot;&gt;&lt;/a&gt;漏洞介绍&lt;/h3&gt;&lt;p&gt;2020年3月10日，微软在其官方SRC发布了CVE-2020-0796的安全公告（ADV200005，MicrosoftG
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-      <category term="提权" scheme="http://k8gege.org/categories/Lpe/"/>
-    
-      <category term="远程执行" scheme="http://k8gege.org/categories/Rce/"/>
-    
-    
-      <category term="LPE" scheme="http://k8gege.org/tags/LPE/"/>
-    
-      <category term="RCE" scheme="http://k8gege.org/tags/RCE/"/>
-    
-      <category term="CVE-2020-0796" scheme="http://k8gege.org/tags/CVE-2020-0796/"/>
-    
-      <category term="SMBGhost" scheme="http://k8gege.org/tags/SMBGhost/"/>
     
   </entry>
   

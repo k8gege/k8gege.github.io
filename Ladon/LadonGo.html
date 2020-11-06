@@ -19,10 +19,15 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content="K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具">
+<meta name="keywords" content>
 
 
-<meta name="description" content="没有绝对安全的系统！！！K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具 ">
+<meta name="description" content=" 
+
+
+
+
+简介LadonGo一款开源渗透扫描器框架，使用它可轻松批量探测C段、B段存活主机、指纹识别、端口扫描、密码爆破、高危漏洞检测等。1.0版本包含11个模块功能，高危漏洞检测MS1701...">
 
 
 <meta name="robots" content="all">
@@ -33,7 +38,7 @@
 
 <title>
     
-    Tag: Tool |
+    LadonGo开源全平台渗透扫描器框架 |
     
     K8哥哥’s Blog
 </title>
@@ -145,273 +150,42 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
+                    <div>
     
-    <li>
-        Tool
-    </li>
-    
-    
-</ol>
+    <article class="post">
+    <h1 class="post-head">
+        LadonGo开源全平台渗透扫描器框架
+    </h1>
+    <div class="post-body">
+        <p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
 
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/36010.html">
-                    PhpStudy BackDoor GetShell</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/01/11
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            前言使用Exp生成器生成Ladon插件实战,PhpStudy BackDoor GetShell
-简介Cscan Web Exp生成器包含4种提交方法Get/Post/Put/Move,支持16个Http协议参数。用户无需编程能力，填...
-            
-        </p>
+%>
+</%></p>
+
+
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源渗透扫描器框架，使用它可轻松批量探测C段、B段存活主机、指纹识别、端口扫描、密码爆破、高危漏洞检测等。<br>1.0版本包含11个模块功能，高危漏洞检测MS17010、SmbGhost，密码爆破SmbScan、SshScan、FtpScan、MysqlScan等，存活探测/信息收集/指纹识别PingScan、IcmpScan，BannerScan、WeblogicScan等，端口扫描PortScan。</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>Detection:<br>PingScan        (Using system ping to detect Online hosts)<br>IcmpScan        (Using ICMP Protocol to detect Online hosts)<br>BannerScan      (Using HTTP Protocol to detect Banner hosts)<br>WeblogicScan    (Using T3 Protocol to detect Weblogic hosts)<br>PortScan        (Scan hosts open ports using TCP protocol)<br>MS17010         (Using SMB Protocol to detect MS17010 hosts))<br>SmbGhost        (Using SMB Protocol to detect SmbGhost hosts))</p>
+<p>Brute-Force:<br>SmbScan         (Using SMB Protocol to Brute-For 445 Port))<br>SshScan         (Using SSH Protocol to Brute-For 22 Port))<br>FtpScan         (Using FTP Protocol to Brute-For 21 Port))<br>MysqlScan       (Using Mysql Protocol to Brute-For 3306 Port))</p>
+<h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><p>和Ladon一样，用法非常简单<br>Ladon 目标IP/机器名/CIDR 扫描模块</p>
+<p>例子：扫描C段是否存在永恒之蓝漏洞<br>Ladon 192.168.1.8/24 MS17010</p>
+<h3 id="扫描速度"><a href="#扫描速度" class="headerlink" title="扫描速度"></a>扫描速度</h3><p>1.和Ladon一样，ICMP探测C段仅需1秒<br>2.Ping扫描C段大约11秒，支持任意权限<br>3.其它模块自行测试</p>
+<h3 id="跨平台-全平台-全系统"><a href="#跨平台-全平台-全系统" class="headerlink" title="跨平台/全平台/全系统"></a>跨平台/全平台/全系统</h3><h4 id="TestOn"><a href="#TestOn" class="headerlink" title="TestOn"></a>TestOn</h4><p>Kali 2019<br>SUSE 10<br>CentOS 5.8<br>CentOS 6.8<br>Fedora5<br>XP、2003、Win7、Win8.1、Win10、2008 R2、2012 R2<br>RedHat5.7<br>BT5-R3  (Ubuntu 8)<br>MacOS 10.15</p>
+<p>以上系统测试成功，其它系统未测，若某些系统不支持可自行编译</p>
+<h4 id="MacOS-x64-10-15"><a href="#MacOS-x64-10-15" class="headerlink" title="MacOS x64 10.15"></a>MacOS x64 10.15</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/MacMS17010.png"></p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxMS17010.PNG"></p>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/WinMS17010.PNG"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a></p>
+<h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+
     </div>
 </article>
-
-<article class="post">
     
-    <div class="post-media">
-        <a href="/p/72f1fea6.html">
-            <img class="img-ajax" data-src="http://k8gege.org/k8img/avatar.png" alt="K8tools工具合集20200118" data-original="/img/loading.gif">
-        </a>
-    </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/72f1fea6.html">
-                    K8tools工具合集20200118</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/27
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-              
-
-声明: 工具仅供安全研究或授权渗透，非法用途后果自负。
-下载: https://github.com/k8gege/K8tools
-
-PS: 不定期更新,文件比较大，可按需下载。工具有BUG或建议可直接Github上留言提权工...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/673c210e.html">
-                    Ladon Scanner For PowerShell</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/27
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            
-程序简介Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。5.5版本内置...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-media">
-        <a href="/p/dc4a2cb7.html">
-            <img class="img-ajax" data-src="http://k8gege.org/k8img/Ladon/kali/Kali_MS17010.gif" alt="Ladon for Kali 2019" data-original="/img/loading.gif">
-        </a>
-    </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/dc4a2cb7.html">
-                    Ladon for Kali 2019</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/10
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            
-     
-前言无论内网还是外网渗透信息收集都是非常关键，信息收集越多越准确渗透的成功率就越高。但成功率还受到漏洞影响，漏洞受时效性影响，对于大型内网扫描速度直接影响着成功率。漏洞时效性1-2天，扫描内网或外网需1周时间，是否会因此...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/fa25cc9b.html">
-                    CVE-2019-0803提权工具</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            0x000 漏洞信息CVE-2019-0803 | Win32k 特权提升漏洞发布时间: 2019-04-09当 Win32k 组件无法正确处理内存中的对象时，Windows 中存在特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式中...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/22e5f4a8.html">
-                    Cobalt Strike TeamServer For Windows</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            
-Cobalt Strike 3.x TeamServer for Windows
-0x001 环境CS 3.12 或 3.13 
-Kali或Win最好安装jdk1.8.5或之后版本设置环境变量,如path=C:\Program Fi...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/9cffe32c.html">
-                    CobaltStrike & Metasploit Shellcode一键免杀工具</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            0x001 前言
-CobaltStrike &amp;amp; Metasploit&amp;nbsp; Shellcode一键免杀工具
-加载器通过AES加密ShellCode，动态编译生成EXE。
-
-1个月前该工具生成的exe免杀所有杀软，现在未测...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/ab3e87f7.html">
-                    K8 Struts2 EXP 综合漏洞利用工具</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            工具:&amp;nbsp;K8&amp;nbsp;Struts2&amp;nbsp;Exploit组织:&amp;nbsp;K8搞基大队[K8team]作者:&amp;nbsp;K8拉登哥哥博客:&amp;nbsp;http://qqhack8.blog.163.com发布:&amp;nb...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/de1a82bb.html">
-                    K8飞刀Final</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            
-法律声明: 工具仅供安全研究或授权渗透，非法用途后果自负。工具: K8飞刀Final作者: K8哥哥博客: https://www.cnblogs.com/k8gege简介: 一款多功能网络安全渗透测试工具(Hacker Swiss...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/dcb670e3.html">
-                    Ladon Scanner For Python</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            Ladon Scanner For Python
-PyLadon目前python版功能较少,无论在Windows还是Linux系统性能以及速度均也比不上Ladon.exe唯一的优点是跨平台,后续会添加相关功能，缺点也明显py打包程序很...
-            
-        </p>
-    </div>
-</article>
-
-
-<nav class="pagination" role="navigation">
-    <div id="page-nav">
-
-        <a class="extend prev" rel="prev" href="/tags/Tool/">Prev</a><a class="page-number" href="/tags/Tool/">1</a><span class="page-number current">2</span><a class="page-number" href="/tags/Tool/page/3/">3</a><a class="extend next" rel="next" href="/tags/Tool/page/3/">Next</a>
-    </div>
-</nav>
-
+</div>
                 </main>
                 
                     
