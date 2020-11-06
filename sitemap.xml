@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/Download/index.html</loc>
+    
+    <lastmod>2020-11-06T15:24:10.187Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/Ladon/LadonGo.html</loc>
     
     <lastmod>2020-11-06T15:10:46.182Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>http://k8gege.org/Ladon/example.html</loc>
     
     <lastmod>2020-10-10T11:23:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/Download/index.html</loc>
-    
-    <lastmod>2020-10-10T11:22:21.000Z</lastmod>
     
   </url>
   

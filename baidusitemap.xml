@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://k8gege.org/Download/index.html</loc>
+    <lastmod>2020-11-06</lastmod>
+  </url>  <url>
     <loc>http://k8gege.org/Ladon/LadonGo.html</loc>
     <lastmod>2020-11-06</lastmod>
   </url>  <url>
@@ -62,9 +65,6 @@
     <lastmod>2020-10-10</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Ladon/example.html</loc>
-    <lastmod>2020-10-10</lastmod>
-  </url>  <url>
-    <loc>http://k8gege.org/Download/index.html</loc>
     <lastmod>2020-10-10</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Ladon/cve-2020-0688.html</loc>
