@@ -170,7 +170,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>Brute-Force:<br>SmbScan         (Using SMB Protocol to Brute-For 445 Port))<br>SshScan         (Using SSH Protocol to Brute-For 22 Port))<br>FtpScan         (Using FTP Protocol to Brute-For 21 Port))<br>MysqlScan       (Using Mysql Protocol to Brute-For 3306 Port))</p>
 <h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><p>go get github.com/k8gege/LadonGo<br>go build Ladon.go</p>
 <h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><p>用法：<br>Ladon IP/机器名/CIDR 扫描模块</p>
-<p>例子：扫描C段是否存在永恒之蓝漏洞<br>Ladon 192.168.1.8/24 MS17010</p>
+<p>例子：<br>扫描C段是否存在永恒之蓝漏洞<br>Ladon 192.168.1.8/24 MS17010</p>
+<p>扫描C段445端口Windows机器口令<br>Ladon 192.168.1.8/24 SmbScan</p>
 <h3 id="扫描速度"><a href="#扫描速度" class="headerlink" title="扫描速度"></a>扫描速度</h3><p>1.和Ladon一样，ICMP探测C段仅需1秒<br>2.Ping扫描C段大约11秒，支持任意权限<br>3.其它模块自行测试</p>
 <h3 id="跨平台-全平台-全系统"><a href="#跨平台-全平台-全系统" class="headerlink" title="跨平台/全平台/全系统"></a>跨平台/全平台/全系统</h3><h4 id="TestOn"><a href="#TestOn" class="headerlink" title="TestOn"></a>TestOn</h4><p>Kali 2019<br>SUSE 10<br>CentOS 5.8<br>CentOS 6.8<br>Fedora5<br>XP、2003、Win7、Win8.1、Win10、2008 R2、2012 R2<br>RedHat5.7<br>BT5-R3  (Ubuntu 8)<br>MacOS 10.15</p>
 <p>以上系统测试成功，其它系统未测，若某些系统不支持可自行编译</p>
