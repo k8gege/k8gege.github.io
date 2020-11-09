@@ -173,6 +173,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon <span class="built_in">help</span></span><br><span class="line">Ladon Detection</span><br><span class="line">Ladon BruteForce</span><br></pre></td></tr></table></figure>
 
 <h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon IP/机器名/CIDR 扫描模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MS17010</span><br><span class="line">Ladon 192.168.1/c MS17010</span><br><span class="line">Ladon 192.168/b MS17010</span><br><span class="line">Ladon 192/a MS17010</span><br></pre></td></tr></table></figure>
+
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="信息收集、漏洞检测"><a href="#信息收集、漏洞检测" class="headerlink" title="信息收集、漏洞检测"></a>信息收集、漏洞检测</h5><p>Ping扫描C段存活主机（任意权限）<br>Ladon 192.168.1.8/24 PingScan</p>
 <p>ICMP扫描C段存活主机(管理员权限)<br>Ladon 192.168.1.8/24 IcmpScan</p>
 <p>SMB扫描C段永恒之蓝MS17010漏洞主机<br>Ladon 192.168.1.8/24 MS17010</p>
@@ -221,35 +223,59 @@ Visit <span id="busuanzi_value_page_pv"></span>
 </tr>
 <tr>
 <td>7</td>
-<td>Kali 2019</td>
+<td>Win 2019</td>
 </tr>
 <tr>
 <td>8</td>
-<td>SUSE 10</td>
+<td>Kali 1.0.2</td>
 </tr>
 <tr>
 <td>9</td>
-<td>CentOS 5.8</td>
+<td>Kali 2018</td>
 </tr>
 <tr>
 <td>10</td>
-<td>CentOS 6.8</td>
+<td>Kali 2019</td>
 </tr>
 <tr>
 <td>11</td>
-<td>Fedora 5</td>
+<td>SUSE 10</td>
 </tr>
 <tr>
 <td>12</td>
-<td>RedHat 5.7</td>
+<td>CentOS 5.8</td>
 </tr>
 <tr>
 <td>13</td>
-<td>BT5-R3  (Ubuntu 8)</td>
+<td>CentOS 6.3</td>
 </tr>
 <tr>
 <td>14</td>
+<td>CentOS 6.8</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Fedora 5</td>
+</tr>
+<tr>
+<td>16</td>
+<td>RedHat 5.7</td>
+</tr>
+<tr>
+<td>17</td>
+<td>BT5-R3</td>
+</tr>
+<tr>
+<td>18</td>
 <td>MacOS 10.15</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Ubuntu 8</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Ubuntu 18</td>
 </tr>
 </tbody></table>
 <p>以上系统测试成功，其它系统未测，若不支持可自行编译</p>
