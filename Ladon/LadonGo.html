@@ -168,10 +168,102 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 <h1 id="Ladon-Scanner-For-Golang"><a href="#Ladon-Scanner-For-Golang" class="headerlink" title="Ladon Scanner For Golang"></a>Ladon Scanner For Golang</h1><h3 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h3><p><a href="http://k8gege.org/Ladon/LadonGo.html">http://k8gege.org/Ladon/LadonGo.html</a></p>
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源渗透扫描器框架，使用它可轻松批量探测C段、B段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。2.0版本包含15个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，密码爆破SmbScan、SshScan、FtpScan、MysqlScan、WinrmScan，存活探测/信息收集/指纹识别PingScan、IcmpScan，BannerScan、HttpTitle、WeblogicScan，端口扫描PortScan。</p>
-<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><p>Detection:<br>PingScan        (Using system ping to detect Online hosts)<br>IcmpScan        (Using ICMP Protocol to detect Online hosts)<br>HttpBanner      (Using HTTP Protocol Scan Web Banner)<br>HttpTitle       (Using HTTP protocol Scan Web titles)<br>T3Scan          (Using T3 Protocol Scan Weblogic hosts)<br>PortScan        (Scan hosts open ports using TCP protocol)</p>
-<p>VulDetection:<br>MS17010         (Using SMB Protocol to detect MS17010 hosts))<br>SmbGhost        (Using SMB Protocol to detect SmbGhost hosts))</p>
-<p>BruteForce:<br>SmbScan         (Using SMB Protocol to Brute-For 445 Port))<br>SshScan         (Using SSH Protocol to Brute-For 22 Port))<br>FtpScan         (Using FTP Protocol to Brute-For 21 Port))<br>MysqlScan       (Using Mysql Protocol to Brute-For 3306 Port))<br>WinrmScan       (Using Winrm Protocol to Brute-For 5985 Port))</p>
-<p>RemoteExec:<br>SshCmd          (SSH Remote command execution Default 22 Port))<br>WinrmCmd        (Winrm Remote command execution Default 5985 Port))</p>
+<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><p>Detection:<br></p>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PingScan</td>
+<td>(Using system ping to detect Online hosts)</td>
+</tr>
+<tr>
+<td>IcmpScan</td>
+<td>(Using ICMP Protocol to detect Online hosts)</td>
+</tr>
+<tr>
+<td>HttpBanner</td>
+<td>(Using HTTP Protocol Scan Web Banner)</td>
+</tr>
+<tr>
+<td>HttpTitle</td>
+<td>(Using HTTP protocol Scan Web titles)</td>
+</tr>
+<tr>
+<td>T3Scan</td>
+<td>(Using T3 Protocol Scan Weblogic hosts)</td>
+</tr>
+<tr>
+<td>PortScan</td>
+<td>(Scan hosts open ports using TCP protocol)</td>
+</tr>
+</tbody></table>
+<p>VulDetection:<br></p>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MS17010</td>
+<td>(Using SMB Protocol to detect MS17010 hosts))</td>
+</tr>
+<tr>
+<td>SmbGhost</td>
+<td>(Using SMB Protocol to detect SmbGhost hosts))</td>
+</tr>
+</tbody></table>
+<p>BruteForce:</p>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SmbScan</td>
+<td>(Using SMB Protocol to Brute-For 445 Port))</td>
+</tr>
+<tr>
+<td>SshScan</td>
+<td>(Using SSH Protocol to Brute-For 22 Port))</td>
+</tr>
+<tr>
+<td>FtpScan</td>
+<td>(Using FTP Protocol to Brute-For 21 Port))</td>
+</tr>
+<tr>
+<td>MysqlScan</td>
+<td>(Using Mysql Protocol to Brute-For 3306 Port))</td>
+</tr>
+<tr>
+<td>WinrmScan</td>
+<td>(Using Winrm Protocol to Brute-For 5985 Port))</td>
+</tr>
+</tbody></table>
+<p>RemoteExec:</p>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SshCmd</td>
+<td>(SSH Remote command execution Default 22 Port))</td>
+</tr>
+<tr>
+<td>WinrmCmd</td>
+<td>(Winrm Remote command execution Default 5985 Port))</td>
+</tr>
+</tbody></table>
 <p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/Help.PNG"></p>
 <h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/k8gege/LadonGo</span><br><span class="line">go build Ladon.go</span><br></pre></td></tr></table></figure>
 
@@ -298,7 +390,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
 </div>
 
-<h3 id="为什么使用GO"><a href="#为什么使用GO" class="headerlink" title="为什么使用GO"></a>为什么使用GO</h3><p>现有Ladon版本无法兼容一些系统，代理又丢包非常蛋疼。虽然Python版也是跨平台，但是编译体积大，二是有些依赖包（依赖底层库）在某些系统安装非常麻烦甚至装不上，有些编译后不能执行等原因。所以这几天重新学了下GO，现学现卖使用Golang重写Ladon框架，先加一些功能看看效果，GO和PY差不多很简单，框架弄好后，使用开源库一下就可以添加好几个功能模块，然后再测14个操作系统下程序的兼容性，无论性能、体积、兼容性都远甩Python几条街，最主要是编译的程序可在一些旧操作系统上执行，Python可能受限于py版本、相关依赖包或GCC、GLID、SSL等库版本影响，Go可以很好解决这些问题。</p>
+<h3 id="为何使用GO"><a href="#为何使用GO" class="headerlink" title="为何使用GO"></a>为何使用GO</h3><p>现有Ladon版本无法兼容一些系统，代理又丢包非常蛋疼。虽然Python版也是跨平台，但是编译体积大，二是有些依赖包（依赖底层库）在某些系统安装非常麻烦甚至装不上，有些编译后不能执行等原因。所以这几天重新学了下GO，现学现卖使用Golang重写Ladon框架，先加一些功能看看效果，GO和PY差不多很简单，框架弄好后，使用开源库一下就可以添加好几个功能模块，然后再测14个操作系统下程序的兼容性，无论性能、体积、兼容性都远甩Python几条街，最主要是编译的程序可在一些旧操作系统上执行，Python可能受限于py版本、相关依赖包或GCC、GLID、SSL等库版本影响，Go可以很好解决这些问题。</p>
 <p>缺点： 很多API库没有人封装或者根本不能用，想要实现Ladon的所有功能或者说一半的功能，两三个月都搞不定，如Ladon的OsScan模块用到的协议就已比这个LadonGo 1.0现在的11个功能还要多。如果用Python的话就非常快了，各种依赖库、各种现有POC，写好扫描框架，稍微改一下集成起来就是功能非常多的扫描器，但是目标PY版本低、操作系统老，本地编译再丢过去都不定能运行，本地都未必能编译，所以选用GO。</p>
 
     </div>
