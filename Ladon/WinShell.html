@@ -176,6 +176,9 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h4 id="SshExec非交互回显"><a href="#SshExec非交互回显" class="headerlink" title="SshExec非交互回显"></a>SshExec非交互回显</h4><p>一般开放SSH服务的有Linux系统，网络设备等，默认为22端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshExec 192.168.1.8 k8gege k8gege520 whoami</span><br><span class="line">Ladon SshExec 192.168.1.8 22 k8gege k8gege520 whoami</span><br></pre></td></tr></table></figure>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/sshexec.PNG"></p>
+<h3 id="WinrmCmd非交互回显"><a href="#WinrmCmd非交互回显" class="headerlink" title="WinrmCmd非交互回显"></a>WinrmCmd非交互回显</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon WinrmCmd host port user pass cmd</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxSshWinrm.PNG"></p>
 <h4 id="JspShell非交互回显"><a href="#JspShell非交互回显" class="headerlink" title="JspShell非交互回显"></a>JspShell非交互回显</h4><p>支持菜刀以及Ladon自动GetShell时传的UAshell，详见：<a href="http://k8gege.org/p/ladon_cs_shell.html">http://k8gege.org/p/ladon_cs_shell.html</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon JspShell <span class="built_in">type</span> url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon JspShell ua http://192.168.1.8/shell.jsp Ladon whoami</span><br></pre></td></tr></table></figure>
 
