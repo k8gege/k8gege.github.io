@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://k8gege.org/p/LadonGo.html</loc>
+    <lastmod>2020-11-21</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Ladon/LadonGo.html</loc>
+    <lastmod>2020-11-21</lastmod>
+  </url>  <url>
     <loc>http://k8gege.org/Ladon/WinShell.html</loc>
     <lastmod>2020-11-16</lastmod>
   </url>  <url>
@@ -10,14 +16,8 @@
     <loc>http://k8gege.org/Ladon/SshScan.html</loc>
     <lastmod>2020-11-16</lastmod>
   </url>  <url>
-    <loc>http://k8gege.org/Ladon/LadonGo.html</loc>
-    <lastmod>2020-11-15</lastmod>
-  </url>  <url>
     <loc>http://k8gege.org/Ladon/index.html</loc>
     <lastmod>2020-11-15</lastmod>
-  </url>  <url>
-    <loc>http://k8gege.org/p/LadonGo.html</loc>
-    <lastmod>2020-11-08</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Download/index.html</loc>
     <lastmod>2020-11-07</lastmod>
