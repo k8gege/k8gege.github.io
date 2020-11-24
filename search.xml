@@ -2110,8 +2110,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
@@ -2308,8 +2308,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>CS: <a href="https://github.com/k8gege/Aggressor" target="_blank" rel="noopener">https://github.com/k8gege/Aggressor</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Cobalt Strike</category>
         <category>Ladon</category>
+        <category>Cobalt Strike</category>
         <category>远程执行</category>
         <category>内网渗透</category>
       </categories>
@@ -2980,13 +2980,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>Cobalt Strike</category>
         <category>Ladon</category>
+        <category>Cobalt Strike</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
         <tag>Ladon</tag>
+        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -3028,13 +3028,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>提权</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Exp</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3086,8 +3086,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>.NET</category>
-        <category>ShellCode</category>
         <category>源码</category>
+        <category>ShellCode</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -3150,8 +3150,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
         <category>Ladon</category>
       </categories>
       <tags>
@@ -3174,8 +3174,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
         <category>Ladon</category>
       </categories>
       <tags>
@@ -3199,8 +3199,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
         <category>Ladon</category>
       </categories>
       <tags>
@@ -3230,8 +3230,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
         <category>Ladon</category>
       </categories>
       <tags>
@@ -3408,14 +3408,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Exp: <a href="https://github.com/k8gege/SolrExp" target="_blank" rel="noopener">https://github.com/k8gege/SolrExp</a><br>Cscan: <a href="https://github.com/k8gege/K8CScan" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>Apache</tag>
-        <tag>Solr</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Apache</tag>
+        <tag>Solr</tag>
         <tag>0day</tag>
       </tags>
   </entry>
@@ -3433,8 +3433,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
         <category>Ladon</category>
       </categories>
       <tags>
@@ -3797,26 +3797,6 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       </tags>
   </entry>
   <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-0803提权工具</title>
     <url>/p/fa25cc9b.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x000 漏洞信息</strong></span><br>CVE-2019-0803 | Win32k 特权提升漏洞<br>发布时间: 2019-04-09<br>当 Win32k 组件无法正确处理内存中的对象时，Windows 中存在特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式中运行任意代码。攻击者可随后安装程序；查看、更改或删除数据；或者创建拥有完全用户权限的新帐户。<br>若要利用此漏洞，攻击者首先必须登录到系统。然后，攻击者可以运行一个为利用此漏洞而经特殊设计的应用程序，从而控制受影响的系统。</p>
@@ -3877,13 +3857,33 @@ Microsoft Windows 10 for 32-bit Systems 0
 
 <pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
       <categories>
-        <category>工具</category>
         <category>提权</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Exp</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -3904,9 +3904,9 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
+        <category>免杀</category>
         <category>Metasploit</category>
         <category>Cobalt Strike</category>
-        <category>免杀</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -3952,8 +3952,8 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p>
 功能:&nbsp;<br>===========================================================================================<br>[+]新增任意文件上传小马 (解决S2奇葩环境菜刀无法上传文件 &amp; 乱码问题)<br>[+]10 S2-045&nbsp; CVE-2017-5638&nbsp;&nbsp; 支持执行CMD命令<br>[+]9 devMode CVE-xxxx-xxxx&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]8 S2-037&nbsp; CVE-2016-4438&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]7 S2-032&nbsp; CVE-2016-3081&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]6 S2-020&nbsp; CVE-2014-0094&nbsp;&nbsp; 支持GetShell (此洞特殊,EXP集成在飞刀)<br>[+]5 S2-019&nbsp; CVE-2013-4316&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]4 S2-016&nbsp; CVE-2013-2251&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]3 S2-013&nbsp; CVE-2013-1966&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]2 S2-009&nbsp; CVE-2011-3923&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令<br>[+]1 S2-005&nbsp; CVE-2010-1870&nbsp;&nbsp; 支持GetShell/获取物理路径/执行CMD命令/列文件目录<br>===========================================================================================<br>CVE-2016-4438&nbsp; 影响版本：Struts 2.3.20 - Struts 2.3.28.1&nbsp; 官方公告：http://struts.apache.org/docs/s2-037.html<br>CVE-2016-3081&nbsp; 影响版本：Struts 2.3.18 &ndash; Struts 2.3.28&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-032.html<br>CVE-2014-0094&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.16&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-020.html<br>CVE-2013-4316&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.15.1&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-019.html<br>CVE-2013-2251&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.15&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-016.html<br>CVE-2013-1966&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.3.14&nbsp;&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-013.html<br>CVE-2011-3923&nbsp; 影响版本：Struts 2.0.0 -&nbsp; Struts 2.3.1.1&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.3.x/docs/s2-009.html<br>CVE-2010-1870&nbsp; 影响版本：Struts 2.0.0 &ndash; Struts 2.1.8.1&nbsp;&nbsp; 官方公告：http://struts.apache.org/release/2.2.x/docs/s2-005.html<br>===========================================================================================<br><br><span style="color: #ff00ff;">下载地址:</span><br>文件: K8_Struts2_EXP.exe<br>SHA1:3DAF7AD4FB7440C33E66613E6075A0F02EA9DF18<br>平台:&nbsp;XP/Vista/Win7/Win8/2000/2003/2008/2012<br>猛击:<a href="http://pan.baidu.com/s/1cpcQeE" rel="nofollow" target="_blank">http://pan.baidu.com/s/1cpcQeE</a><br><br><a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/k8gege/p/10261217.html" target="_blank" rel="noopener">[原创]Struts2奇葩环境任意文件上传工具(解决菜刀无法传文件或上传乱码等问题)</a><br>https://www.cnblogs.com/k8gege/p/10261217.html</p>]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -4098,6 +4098,33 @@ PortTranS.exe 8000 338
       </tags>
   </entry>
   <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>Exp</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Exp</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
     <url>/p/f3512dbc.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
@@ -4198,9 +4225,9 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
+        <category>免杀</category>
         <category>Metasploit</category>
         <category>Cobalt Strike</category>
-        <category>免杀</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -4209,33 +4236,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Exp</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -4327,37 +4327,14 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
 <p><a href="https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py" target="_blank">&nbsp;https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Exp</tag>
-        <tag>BypassUAC</tag>
       </tags>
   </entry>
   <entry>
@@ -4507,8 +4484,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
         <category>Ladon</category>
       </categories>
       <tags>
@@ -4516,6 +4493,29 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <tag>Exp</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Exp</tag>
+        <tag>BypassUAC</tag>
       </tags>
   </entry>
   <entry>
@@ -4530,8 +4530,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>PowerShell</p>
 <p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
       <categories>
-        <category>工具</category>
         <category>提权</category>
+        <category>工具</category>
         <category>密码</category>
         <category>PowerShell</category>
       </categories>
@@ -4580,8 +4580,8 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
 <p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
 <p>&nbsp;</p>]]></content>
       <categories>
-        <category>工具</category>
         <category>Exp</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -4607,13 +4607,13 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
 <p>&nbsp;</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
       <categories>
-        <category>工具</category>
         <category>提权</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>Tool</tag>
-        <tag>Exp</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
         <tag>IIS</tag>
       </tags>
   </entry>
@@ -4680,8 +4680,8 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
