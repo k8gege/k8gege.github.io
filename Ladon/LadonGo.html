@@ -28,7 +28,7 @@
 
 
 Ladon Scanner For GolangWikihttp://k8gege.org/Ladon/LadonGo.html
-简介LadonGo一款开源渗透扫描器框架，使用它可轻...">
+简介LadonGo一款开源网络渗透扫描器框架，使用它...">
 
 
 <meta name="robots" content="all">
@@ -167,94 +167,37 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 
 <h1 id="Ladon-Scanner-For-Golang"><a href="#Ladon-Scanner-For-Golang" class="headerlink" title="Ladon Scanner For Golang"></a>Ladon Scanner For Golang</h1><h3 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h3><p><a href="http://k8gege.org/Ladon/LadonGo.html">http://k8gege.org/Ladon/LadonGo.html</a></p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。2.0版本包含15个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，密码爆破SmbScan、SshScan、FtpScan、MysqlScan、WinrmScan，存活探测/信息收集/指纹识别PingScan、IcmpScan，BannerScan、HttpTitle、WeblogicScan，端口扫描PortScan。</p>
-<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><table>
-<thead>
-<tr>
-<th>.</th>
-<th>.</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PingScan</td>
-<td>(Using system ping to detect Online hosts)</td>
-</tr>
-<tr>
-<td>IcmpScan</td>
-<td>(Using ICMP Protocol to detect Online hosts)</td>
-</tr>
-<tr>
-<td>HttpBanner</td>
-<td>(Using HTTP Protocol Scan Web Banner)</td>
-</tr>
-<tr>
-<td>HttpTitle</td>
-<td>(Using HTTP protocol Scan Web titles)</td>
-</tr>
-<tr>
-<td>T3Scan</td>
-<td>(Using T3 Protocol Scan Weblogic hosts)</td>
-</tr>
-<tr>
-<td>PortScan</td>
-<td>(Scan hosts open ports using TCP protocol)</td>
-</tr>
-<tr>
-<td>MS17010</td>
-<td>(Using SMB Protocol to detect MS17010 hosts))</td>
-</tr>
-<tr>
-<td>SmbGhost</td>
-<td>(Using SMB Protocol to detect SmbGhost hosts))</td>
-</tr>
-<tr>
-<td>SmbScan</td>
-<td>(Using SMB Protocol to Brute-For 445 Port))</td>
-</tr>
-<tr>
-<td>SshScan</td>
-<td>(Using SSH Protocol to Brute-For 22 Port))</td>
-</tr>
-<tr>
-<td>FtpScan</td>
-<td>(Using FTP Protocol to Brute-For 21 Port))</td>
-</tr>
-<tr>
-<td>MysqlScan</td>
-<td>(Using Mysql Protocol to Brute-For 3306 Port))</td>
-</tr>
-<tr>
-<td>WinrmScan</td>
-<td>(Using Winrm Protocol to Brute-For 5985 Port))</td>
-</tr>
-<tr>
-<td>SshCmd</td>
-<td>(SSH Remote command execution Default 22 Port))</td>
-</tr>
-<tr>
-<td>WinrmCmd</td>
-<td>(Winrm Remote command execution Default 5985 Port))</td>
-</tr>
-</tbody></table>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源网络渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.0版本包含23个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，密码爆破SmbScan、SshScan、FtpScan、MysqlScan、MssqlScan、OracleScan、SqlplusScan、WinrmScan、HttpBasicScan，存活探测/信息收集/指纹识别PingScan、IcmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描PortScan。</p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>OS:     Kali 2019<br>IDE: Mousepad<br>Go:  1.13</p>
+<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><h4 id="Detection"><a href="#Detection" class="headerlink" title="Detection"></a>Detection</h4><p>PingScan        (Using system ping to detect Online hosts)<br>IcmpScan        (Using ICMP Protocol to detect Online hosts)<br>SnmpScan        (Using Snmp Protocol to detect Online hosts)<br>HttpBanner      (Using HTTP Protocol Scan Web Banner)<br>HttpTitle       (Using HTTP protocol Scan Web titles)<br>T3Scan          (Using T3 Protocol Scan Weblogic hosts)<br>PortScan        (Scan hosts open ports using TCP protocol)<br>TcpBanner       (Scan hosts open ports using TCP protocol)<br>OxidScan        (Using dcom Protocol enumeration network interfaces)</p>
+<h4 id="VulDetection"><a href="#VulDetection" class="headerlink" title="VulDetection"></a>VulDetection</h4><p>MS17010         (Using SMB Protocol to detect MS17010 hosts)<br>SmbGhost        (Using SMB Protocol to detect SmbGhost hosts)</p>
+<h4 id="BruteForce"><a href="#BruteForce" class="headerlink" title="BruteForce"></a>BruteForce</h4><p>SmbScan         (Using SMB Protocol to Brute-For 445 Port)<br>SshScan         (Using SSH Protocol to Brute-For 22 Port)<br>FtpScan         (Using FTP Protocol to Brute-For 21 Port)<br>401Scan         (Using HTTP BasicAuth to Brute-For web Port)<br>MysqlScan       (Using Mysql Protocol to Brute-For 3306 Port)<br>MssqlScan       (Using Mssql Protocol to Brute-For 1433 Port)<br>OracleScan      (Using Oracle Protocol to Brute-For 1521 Port)<br>WinrmScan       (Using Winrm Protocol to Brute-For 5985 Port)<br>SqlplusScan     (Using Oracle Sqlplus Brute-For 1521 Port)</p>
+<h4 id="RemoteExec"><a href="#RemoteExec" class="headerlink" title="RemoteExec"></a>RemoteExec</h4><p>SshCmd          (SSH Remote command execution Default 22 Port)<br>WinrmCmd        (Winrm Remote command execution Default 5985 Port)</p>
+<h4 id="Exploit"><a href="#Exploit" class="headerlink" title="Exploit:"></a>Exploit:</h4><p>PhpStudyDoor    (PhpStudy 2016 &amp; 2018 BackDoor Exploit)</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/Help.PNG"></p>
 <h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/k8gege/LadonGo</span><br><span class="line">go build Ladon.go</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon <span class="built_in">help</span></span><br><span class="line">Ladon Detection</span><br><span class="line">Ladon BruteForce</span><br></pre></td></tr></table></figure>
+<h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ladon FuncList</span><br><span class="line">Ladon Detection</span><br><span class="line">Ladon VulDetection</span><br><span class="line">adon BruteFor</span><br><span class="line">Ladon RemoteExec</span><br><span class="line">Ladon Exploit</span><br><span class="line">Ladon Example</span><br></pre></td></tr></table></figure>
 
-<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon IP/机器名/CIDR 扫描模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MS17010</span><br><span class="line">Ladon 192.168.1/c MS17010</span><br><span class="line">Ladon 192.168/b MS17010</span><br><span class="line">Ladon 192/a MS17010</span><br></pre></td></tr></table></figure>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon IP/机器名/CIDR/URL/txt 扫描模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MS17010</span><br><span class="line">Ladon 192.168.1/c MS17010</span><br><span class="line">Ladon 192.168/b MS17010</span><br><span class="line">Ladon 192/a MS17010</span><br><span class="line">Ladon 192.168.1-192.168.5 MS17010</span><br><span class="line">Ladon http://192.168.1.8:8080 BasicAuthScan</span><br><span class="line">Ladon ip.txt MS17010</span><br><span class="line">Ladon url.txt HttpBanner</span><br></pre></td></tr></table></figure>
 
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="信息收集、漏洞检测"><a href="#信息收集、漏洞检测" class="headerlink" title="信息收集、漏洞检测"></a>信息收集、漏洞检测</h5><p>Ping扫描C段存活主机（任意权限）<br>Ladon 192.168.1.8/24 PingScan</p>
 <p>ICMP扫描C段存活主机(管理员权限)<br>Ladon 192.168.1.8/24 IcmpScan</p>
+<p>SNMP扫描C段存活主机、设备信息<br>Ladon 192.168.1.8/24 SnmpScan</p>
 <p>SMB扫描C段永恒之蓝MS17010漏洞主机<br>Ladon 192.168.1.8/24 MS17010</p>
 <p>SMB扫描C段永恒之黑SmbGhost漏洞主机<br>Ladon 192.168.1.8/24 SmbGhost</p>
 <p>T3扫描C段开放WebLogic的主机<br>Ladon 192.168.1.8/24 T3Scan</p>
 <p>HTTP扫描C段开放Web站点Banner<br>Ladon 192.168.1.8/24 BannerScan</p>
 <p>HTTP扫描C段开放Web站点标题<br>Ladon 192.168.1.8/24 HttpTitle</p>
+<p>TCP扫描C段开放端口服务信息<br>Ladon 192.168.1.8/24 TcpBanner</p>
+<p>TCP扫描C段主机常见开放端口<br>Ladon 192.168.1.8/24 PortScan</p>
 <h5 id="密码爆破、弱口令"><a href="#密码爆破、弱口令" class="headerlink" title="密码爆破、弱口令"></a>密码爆破、弱口令</h5><p>扫描C段445端口Windows机器弱口令<br>Ladon 192.168.1.8/24 SmbScan</p>
 <p>扫描C段22端口Linux机器SSH弱口令<br>Ladon 192.168.1.8/24 SshScan</p>
 <p>扫描C段21端口FTP服务器弱口令<br>Ladon 192.168.1.8/24 FtpScan</p>
 <p>扫描C段3306端口Mysql服务器弱口令<br>Ladon 192.168.1.8/24 MysqlScan</p>
+<p>扫描C段1521端口Oracle服务器弱口令<br>Ladon 192.168.1.8/24 OracleScan</p>
+<p>扫描C段1521端口Oracle服务器弱口令<br>Ladon 192.168.1.8/24 SqlplusScan</p>
 <p>扫描C段5985端口Winrm服务器弱口令<br>Ladon 192.168.1.8/24 WinrmScan</p>
 <h5 id="远程命令执行"><a href="#远程命令执行" class="headerlink" title="远程命令执行"></a>远程命令执行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshCmd host port user pass cmd</span><br><span class="line">Ladon WinrmCmd host port user pass cmd</span><br></pre></td></tr></table></figure>
 
@@ -362,8 +305,6 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
 </div>
 
-<h3 id="为何使用GO"><a href="#为何使用GO" class="headerlink" title="为何使用GO"></a>为何使用GO</h3><p>现有Ladon版本无法兼容一些系统，代理又丢包非常蛋疼。虽然Python版也是跨平台，但是编译体积大，二是有些依赖包（依赖底层库）在某些系统安装非常麻烦甚至装不上，有些编译后不能执行等原因。所以这几天重新学了下GO，现学现卖使用Golang重写Ladon框架，先加一些功能看看效果，GO和PY差不多很简单，框架弄好后，使用开源库一下就可以添加好几个功能模块，然后再测14个操作系统下程序的兼容性，无论性能、体积、兼容性都远甩Python几条街，最主要是编译的程序可在一些旧操作系统上执行，Python可能受限于py版本、相关依赖包或GCC、GLID、SSL等库版本影响，Go可以很好解决这些问题。</p>
-<p>缺点： 很多API库没有人封装或者根本不能用，想要实现Ladon的所有功能或者说一半的功能，两三个月都搞不定，如Ladon的OsScan模块用到的协议就已比这个LadonGo 1.0现在的11个功能还要多。如果用Python的话就非常快了，各种依赖库、各种现有POC，写好扫描框架，稍微改一下集成起来就是功能非常多的扫描器，但是目标PY版本低、操作系统老，本地编译再丢过去都不定能运行，本地都未必能编译，所以选用GO。</p>
 
     </div>
 </article>
