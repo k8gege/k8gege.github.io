@@ -167,8 +167,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 
 <h1 id="Ladon-Scanner-For-Golang"><a href="#Ladon-Scanner-For-Golang" class="headerlink" title="Ladon Scanner For Golang"></a>Ladon Scanner For Golang</h1><h3 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h3><p><a href="http://k8gege.org/Ladon/LadonGo.html">http://k8gege.org/Ladon/LadonGo.html</a></p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源网络渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.0版本包含23个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，密码爆破SmbScan、SshScan、FtpScan、MysqlScan、MssqlScan、OracleScan、SqlplusScan、WinrmScan、HttpBasicScan，存活探测/信息收集/指纹识别PingScan、IcmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描PortScan。</p>
-<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>OS:     Kali 2019<br>IDE: Mousepad<br>Go:  1.13</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源网络渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.1版本包含24个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，密码爆破SmbScan、SshScan、FtpScan、MysqlScan、MssqlScan、OracleScan、SqlplusScan、WinrmScan、HttpBasicScan，存活探测/信息收集/指纹识别OnlinePC、Ping、Icmp、SnmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描PortScan、服务探测PortScanBanner。</p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>OS:     Kali 2019 X64<br>IDE: 记事本Mousepad<br>Go:  1.13 linux</p>
 <h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><h4 id="Detection"><a href="#Detection" class="headerlink" title="Detection"></a>Detection</h4><table>
 <thead>
 <tr>
@@ -177,6 +177,10 @@ Visit <span id="busuanzi_value_page_pv"></span>
 </tr>
 </thead>
 <tbody><tr>
+<td>OnlinePC</td>
+<td>(Using ICMP/SNMP/Ping detect Online hosts)</td>
+</tr>
+<tr>
 <td>PingScan</td>
 <td>(Using system ping to detect Online hosts)</td>
 </tr>
