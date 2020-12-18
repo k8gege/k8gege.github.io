@@ -1,6 +1,0 @@
-system
-administrator
-admin
-root
-k8gege
-sa
