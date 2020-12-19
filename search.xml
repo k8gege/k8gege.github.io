@@ -1228,6 +1228,115 @@
       </tags>
   </entry>
   <entry>
+    <title>〖工具〗LadonGo开源全平台内网渗透扫描器</title>
+    <url>/p/LadonGo.html</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源内网渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.2版本包含24个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，密码爆破SmbScan、SshScan、FtpScan、MysqlScan、MssqlScan、OracleScan、SqlplusScan、WinrmScan、HttpBasicScan，存活探测/信息收集/指纹识别OnlinePC、Ping、Icmp、SnmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描PortScan、服务探测PortScanBanner。</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/LadonGo.html";
+</script>
+
+<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><p>Detection:<br>PingScan        (Using system ping to detect Online hosts)<br>IcmpScan        (Using ICMP Protocol to detect Online hosts)<br>BannerScan      (Using HTTP Protocol to detect Banner hosts)<br>WeblogicScan    (Using T3 Protocol to detect Weblogic hosts)<br>PortScan        (Scan hosts open ports using TCP protocol)<br>MS17010         (Using SMB Protocol to detect MS17010 hosts))<br>SmbGhost        (Using SMB Protocol to detect SmbGhost hosts))</p>
+<p>BruteForce:<br>SmbScan         (Using SMB Protocol to Brute-For 445 Port))<br>SshScan         (Using SSH Protocol to Brute-For 22 Port))<br>FtpScan         (Using FTP Protocol to Brute-For 21 Port))<br>MysqlScan       (Using Mysql Protocol to Brute-For 3306 Port))</p>
+<h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><p>go get github.com/k8gege/LadonGo<br>go build Ladon.go</p>
+<h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h4><p>Ladon help<br>Ladon Detection<br>Ladon BruteForce</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon IP/机器名/CIDR 扫描模块</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="信息收集、漏洞检测"><a href="#信息收集、漏洞检测" class="headerlink" title="信息收集、漏洞检测"></a>信息收集、漏洞检测</h5><p>Ping扫描C段存活主机（任意权限）<br>Ladon 192.168.1.8/24 PingScan</p>
+<p>ICMP扫描C段存活主机(管理员权限)<br>Ladon 192.168.1.8/24 IcmpScan</p>
+<p>SMB扫描C段永恒之蓝MS17010漏洞主机<br>Ladon 192.168.1.8/24 MS17010</p>
+<p>SMB扫描C段永恒之黑SmbGhost漏洞主机<br>Ladon 192.168.1.8/24 SmbGhost</p>
+<p>T3扫描C段开放WebLogic的主机<br>Ladon 192.168.1.8/24 T3Scan</p>
+<p>HTTP扫描C段开放Web站点Banner<br>Ladon 192.168.1.8/24 BannerScan</p>
+<h5 id="密码爆破、弱口令"><a href="#密码爆破、弱口令" class="headerlink" title="密码爆破、弱口令"></a>密码爆破、弱口令</h5><p>扫描C段445端口Windows机器弱口令<br>Ladon 192.168.1.8/24 SmbScan</p>
+<p>扫描C段22端口Linux机器SSH弱口令<br>Ladon 192.168.1.8/24 SshScan</p>
+<p>扫描C段21端口FTP服务器弱口令<br>Ladon 192.168.1.8/24 SshScan</p>
+<p>扫描C段3306端口Mysql服务器弱口令<br>Ladon 192.168.1.8/24 SshScan</p>
+<h3 id="扫描速度"><a href="#扫描速度" class="headerlink" title="扫描速度"></a>扫描速度</h3><p>1.和Ladon一样，ICMP探测C段仅需1秒<br>2.Ping扫描C段大约11秒，支持任意权限<br>3.其它模块自行测试</p>
+<h3 id="跨平台-全平台-全系统"><a href="#跨平台-全平台-全系统" class="headerlink" title="跨平台/全平台/全系统"></a>跨平台/全平台/全系统</h3><h4 id="TestOn"><a href="#TestOn" class="headerlink" title="TestOn"></a>TestOn</h4><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>OS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>WinXP</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Win 2003</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Win 7</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Win 8.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Win 10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Win 2008 R2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Win 2012 R2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Kali 2019</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SUSE 10</td>
+</tr>
+<tr>
+<td>9</td>
+<td>CentOS 5.8</td>
+</tr>
+<tr>
+<td>10</td>
+<td>CentOS 6.8</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Fedora 5</td>
+</tr>
+<tr>
+<td>12</td>
+<td>RedHat 5.7</td>
+</tr>
+<tr>
+<td>13</td>
+<td>BT5-R3  (Ubuntu 8)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>MacOS 10.15</td>
+</tr>
+</tbody></table>
+<p>以上系统测试成功，其它系统未测，若某些系统不支持可自行编译</p>
+<h4 id="MacOS-x64-10-15"><a href="#MacOS-x64-10-15" class="headerlink" title="MacOS x64 10.15"></a>MacOS x64 10.15</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/MacMS17010.png"></p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxMS17010.PNG"></p>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/WinMS17010.PNG"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a></p>
+<h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>LadonGo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖教程〗K8飞刀-网络安全CTF解题Web篇10个例子</title>
     <url>/p/ctf_k8fly.html</url>
     <content><![CDATA[<p>前段时间有人和我说什么时候有空出些CTF用的工具，实际上CTF考查的内容，实战中用到的很多工具都可以使用，关键在于你懂不懂用。也看到有人搜索如何使用K8飞刀，在此以CTF题为例，教大家如何使用K8飞刀的HackerIE功能（相当于Hackbar插件的高级版），以及编码解码功能的使用（模块涉及多种编码以及加密解密算法），除了实战会用到以外，CTF也可以用到，不过CTF中常见的应该是BASE64、HTML编码、SQL注入编码之类的，实战中密码除了MD5、SHA1以外最常见的莫过于BASE64了，XSS里HTML编码等也会经常用到，至于什么栅栏密码之类的实战几乎很少遇到，所以有些CTF出题和实战还是两回事，虽然说栅栏算法也非常简单，但从实战角度来说，考查用处不大，实战几乎不见的有必要考吗？如同书呆子考试靠死记硬背靠运气拿高分，拿了高分实际工作解决不了新问题，这种就是没用。</p>
@@ -4007,8 +4116,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
         <category>Ladon</category>
         <category>源码</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -4644,8 +4753,8 @@ from pprint import pprint
         <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
