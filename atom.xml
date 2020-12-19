@@ -74,32 +74,6 @@
   </entry>
   
   <entry>
-    <title>LadonGo开源全平台内网渗透扫描器框架</title>
-    <link href="http://k8gege.org/p/LadonGo.html"/>
-    <id>http://k8gege.org/p/LadonGo.html</id>
-    <published>2020-11-06T13:40:00.000Z</published>
-    <updated>2020-12-18T11:04:13.413Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源内网渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.2版本包含24个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，密码爆破SmbScan、SshScan、FtpScan、MysqlScan、MssqlScan、OracleScan、SqlplusScan、WinrmScan、HttpBasicScan，存活探测/信息收集/指纹识别OnlinePC、Ping、Icmp、SnmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描PortScan、服务探测PortScanBanner。</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/LadonGo.html";</script><h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><p>Detection:<br>PingScan        (Using system ping to detect Online hosts)<br>IcmpScan        (Using ICMP Protocol to detect Online hosts)<br>BannerScan      (Using HTTP Protocol to detect Banner hosts)<br>WeblogicScan    (Using T3 Protocol to detect Weblogic hosts)<br>PortScan        (Scan hosts open ports using TCP protocol)<br>MS17010         (Using SMB Protocol to detect MS17010 hosts))<br>SmbGhost        (Using SMB Protocol to detect SmbGhost hosts))</p><p>BruteForce:<br>SmbScan         (Using SMB Protocol to Brute-For 445 Port))<br>SshScan         (Using SSH Protocol to Brute-For 22 Port))<br>FtpScan         (Using FTP Protocol to Brute-For 21 Port))<br>MysqlScan       (Using Mysql Protocol to Brute-For 3306 Port))</p><h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><p>go get github.com/k8gege/LadonGo<br>go build Ladon.go</p><h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h4><p>Ladon help<br>Ladon Detection<br>Ladon BruteForce</p><h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon IP/机器名/CIDR 扫描模块</p><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="信息收集、漏洞检测"><a href="#信息收集、漏洞检测" class="headerlink" title="信息收集、漏洞检测"></a>信息收集、漏洞检测</h5><p>Ping扫描C段存活主机（任意权限）<br>Ladon 192.168.1.8/24 PingScan</p><p>ICMP扫描C段存活主机(管理员权限)<br>Ladon 192.168.1.8/24 IcmpScan</p><p>SMB扫描C段永恒之蓝MS17010漏洞主机<br>Ladon 192.168.1.8/24 MS17010</p><p>SMB扫描C段永恒之黑SmbGhost漏洞主机<br>Ladon 192.168.1.8/24 SmbGhost</p><p>T3扫描C段开放WebLogic的主机<br>Ladon 192.168.1.8/24 T3Scan</p><p>HTTP扫描C段开放Web站点Banner<br>Ladon 192.168.1.8/24 BannerScan</p><h5 id="密码爆破、弱口令"><a href="#密码爆破、弱口令" class="headerlink" title="密码爆破、弱口令"></a>密码爆破、弱口令</h5><p>扫描C段445端口Windows机器弱口令<br>Ladon 192.168.1.8/24 SmbScan</p><p>扫描C段22端口Linux机器SSH弱口令<br>Ladon 192.168.1.8/24 SshScan</p><p>扫描C段21端口FTP服务器弱口令<br>Ladon 192.168.1.8/24 SshScan</p><p>扫描C段3306端口Mysql服务器弱口令<br>Ladon 192.168.1.8/24 SshScan</p><h3 id="扫描速度"><a href="#扫描速度" class="headerlink" title="扫描速度"></a>扫描速度</h3><p>1.和Ladon一样，ICMP探测C段仅需1秒<br>2.Ping扫描C段大约11秒，支持任意权限<br>3.其它模块自行测试</p><h3 id="跨平台-全平台-全系统"><a href="#跨平台-全平台-全系统" class="headerlink" title="跨平台/全平台/全系统"></a>跨平台/全平台/全系统</h3><h4 id="TestOn"><a href="#TestOn" class="headerlink" title="TestOn"></a>TestOn</h4><table><thead><tr><th>ID</th><th>OS</th></tr></thead><tbody><tr><td>0</td><td>WinXP</td></tr><tr><td>1</td><td>Win 2003</td></tr><tr><td>2</td><td>Win 7</td></tr><tr><td>3</td><td>Win 8.1</td></tr><tr><td>4</td><td>Win 10</td></tr><tr><td>5</td><td>Win 2008 R2</td></tr><tr><td>6</td><td>Win 2012 R2</td></tr><tr><td>7</td><td>Kali 2019</td></tr><tr><td>8</td><td>SUSE 10</td></tr><tr><td>9</td><td>CentOS 5.8</td></tr><tr><td>10</td><td>CentOS 6.8</td></tr><tr><td>11</td><td>Fedora 5</td></tr><tr><td>12</td><td>RedHat 5.7</td></tr><tr><td>13</td><td>BT5-R3  (Ubuntu 8)</td></tr><tr><td>14</td><td>MacOS 10.15</td></tr></tbody></table><p>以上系统测试成功，其它系统未测，若某些系统不支持可自行编译</p><h4 id="MacOS-x64-10-15"><a href="#MacOS-x64-10-15" class="headerlink" title="MacOS x64 10.15"></a>MacOS x64 10.15</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/MacMS17010.png"></p><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxMS17010.PNG"></p><h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/WinMS17010.PNG"></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a></p><h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.5版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;LadonGo一款开源内网渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="LadonGo" scheme="http://k8gege.org/tags/LadonGo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Ladon高效率子域名扫描GUI版</title>
     <link href="http://k8gege.org/p/LadonSubDomain.html"/>
     <id>http://k8gege.org/p/LadonSubDomain.html</id>
@@ -216,14 +190,14 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     </summary>
     
     
-      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
+      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
     
-      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
     
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
     
   </entry>
   
@@ -606,6 +580,50 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term=".NET" scheme="http://k8gege.org/tags/Dotnet/"/>
     
       <category term="SQL" scheme="http://k8gege.org/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破</title>
+    <link href="http://k8gege.org/p/56393.html"/>
+    <id>http://k8gege.org/p/56393.html</id>
+    <published>2020-06-11T16:20:10.000Z</published>
+    <updated>2020-10-13T13:57:53.581Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-6.0-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p><h3 id="Ladon6-0"><a href="#Ladon6-0" class="headerlink" title="Ladon6.0"></a>Ladon6.0</h3><p>新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、<br>进程详细信息获取、渗透相关信息获取、命令行参数信息<br>操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化</p><h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><table><thead><tr><th>动作</th><th>模块</th><th>说明</th></tr></thead><tbody><tr><td>新增</td><td>LdapScan</td><td>AD域密码爆破:基于Ldap协议爆破Windows密码</td></tr><tr><td>新增</td><td>FtpSniffer/SnifferFtp</td><td>Ftp密码嗅探(无需WinPcap)</td></tr><tr><td>新增</td><td>HttpSniffer/SnifferHTTP</td><td>HTTP密码嗅探(无需WinPcap)</td></tr><tr><td>新增</td><td>GetCmdLine/CmdLine</td><td>获取进程命令行参数/可指定进程</td></tr><tr><td>新增</td><td>GetInfo</td><td>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）</td></tr><tr><td>新增</td><td>GetInfo2</td><td>包含GetInfo &amp; Wmi获取信息</td></tr><tr><td>新增</td><td>Sniffer</td><td>网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址</td></tr><tr><td>新增</td><td>EnumIIS/IisWeb</td><td>获取IIS站点、路径、帐号、密码</td></tr><tr><td>新增</td><td>EnumProcess/ProcessList/tasklist</td><td>枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)</td></tr><tr><td>更新</td><td>HttpDownload/wget</td><td>HTTP下载命令简化也可使用wget</td></tr><tr><td>更新</td><td>OsScan</td><td>扫描速度优化(某项目批量C段不再卡死)</td></tr><tr><td>更新</td><td>WmiScan</td><td>135端口关闭或RPC不可用停止爆破</td></tr><tr><td>更新</td><td>SmbScan</td><td>445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)</td></tr><tr><td>移除</td><td>IPCScan</td><td>速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代</td></tr><tr><td>更新</td><td>所有模块</td><td>所有功能模块参数忽略大小写</td></tr></tbody></table><h3 id="LdapScan-AD域服务器密码爆破"><a href="#LdapScan-AD域服务器密码爆破" class="headerlink" title="LdapScan AD域服务器密码爆破"></a>LdapScan AD域服务器密码爆破</h3><p>非域内机器也可破解跨网段AD域服务器，LDAP端口为389<br>注意非3389，即便跑出来的密码能登远程桌面也没半毛钱关系<br>还有WMI、SMB(IPC)跑出来的密码也一样，3389是RDP协议<br>WMI端口135，SMB端口445，不要以为能登3389一定能IPC连接<br>有时一个帐密各种协议方法都能连到远程机器只能说运气好<br>不要说这个密码3389可以登，但是WMI或SMB跑不出来，瞎搞<br>默认条件下都不能保证100%，更何况经过配置或出问题的系统<br><img alt="LdapScan" data-original="http://k8gege.org/k8img/Ladon/exe/LdapScan_6.0.gif"></p><h3 id="FtpSniffer-FTP密码嗅探"><a href="#FtpSniffer-FTP密码嗅探" class="headerlink" title="FtpSniffer FTP密码嗅探"></a>FtpSniffer FTP密码嗅探</h3><p>支持两种写法: FtpSniffer/SnifferFtp<br>Example: Ladon FtpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="FtpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/FtpSniffer.PNG"></p><h3 id="HttpSniffer-HTTP密码嗅探"><a href="#HttpSniffer-HTTP密码嗅探" class="headerlink" title="HttpSniffer HTTP密码嗅探"></a>HttpSniffer HTTP密码嗅探</h3><p>支持两种写法: HttpSniffer/SnifferHTTP<br>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="HttpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/HttpSniffer.PNG"></p><h3 id="Sniffer-网络嗅探"><a href="#Sniffer-网络嗅探" class="headerlink" title="Sniffer 网络嗅探"></a>Sniffer 网络嗅探</h3><p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>后续可能会添加其它功能可能另外写个专门用于嗅探的工具</p><p>PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p><p>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br><img alt="Sniffer" data-original="http://k8gege.org/k8img/Ladon/exe/Sniffer.PNG"></p><h3 id="EnumIIS-IIS站点密码读取"><a href="#EnumIIS-IIS站点密码读取" class="headerlink" title="EnumIIS IIS站点密码读取"></a>EnumIIS IIS站点密码读取</h3><p>获取IIS站点、路径、帐号、密码<br><img alt="EnumIIS" data-original="http://k8gege.org/k8img/Ladon/exe/EnumIIS.PNG"></p><h3 id="EnumProcess-进程详细信息获取"><a href="#EnumProcess-进程详细信息获取" class="headerlink" title="EnumProcess 进程详细信息获取"></a>EnumProcess 进程详细信息获取</h3><p>支持三种写法: EnumProcess/ProcessList/tasklist<br>结果(PID、Session、位数、进程名、用户名、路径、标题)<br><img alt="EnumProcess" data-original="http://k8gege.org/k8img/Ladon/exe/EnumProcess.PNG"></p><h3 id="GetCmdLine-进程启动参数"><a href="#GetCmdLine-进程启动参数" class="headerlink" title="GetCmdLine 进程启动参数"></a>GetCmdLine 进程启动参数</h3><p>进程启动参数/可指定进程<br>支持2种写法: GetCmdLine/CmdLine<br><img alt="getcmdline" data-original="http://k8gege.org/k8img/Ladon/exe/getcmdline.PNG"></p><h3 id="GetInfo-获取渗透基础信息"><a href="#GetInfo-获取渗透基础信息" class="headerlink" title="GetInfo 获取渗透基础信息"></a>GetInfo 获取渗透基础信息</h3><p>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）<br>GetInfo2 包含GetInfo &amp; Wmi获取的相关信息</p><h3 id="全部功能"><a href="#全部功能" class="headerlink" title="全部功能"></a>全部功能</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/k8gege&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img alt=&quot;Author&quot; data-original=&quot;https://img.shields.io/badge/Author-k
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+      <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
+    
+      <category term="密码" scheme="http://k8gege.org/categories/Pass/"/>
+    
+      <category term="嗅探" scheme="http://k8gege.org/categories/Sniffer/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
+    
+      <category term="Sniffer" scheme="http://k8gege.org/tags/Sniffer/"/>
+    
+      <category term="FtpSniffer" scheme="http://k8gege.org/tags/FtpSniffer/"/>
+    
+      <category term="HttpSniffer" scheme="http://k8gege.org/tags/HttpSniffer/"/>
+    
+      <category term="IIS" scheme="http://k8gege.org/tags/IIS/"/>
+    
+      <category term="LDAP" scheme="http://k8gege.org/tags/LDAP/"/>
     
   </entry>
   
