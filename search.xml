@@ -3,7 +3,7 @@
   <entry>
     <title>Ladon大型内网渗透扫描器&amp;Cobalt Strike</title>
     <url>/p/648af4b3.html</url>
-    <content><![CDATA[<p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。7.5版本内置100个功能模块,外部模块19个,通过多种协议以及方法快速获取目标网络存活主机、共享资源、网卡地址、操作系统…</p>
+    <content><![CDATA[<p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。7.5版本内置100个功能模块,外部模块19个,通过多种协议以及方法快速获取目标网络存活主机、网卡地址、操作系统…</p>
 <a id="more"></a>
 
 <p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-7.5-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
