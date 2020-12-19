@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/p/ctf_k8fly.html</loc>
+    
+    <lastmod>2020-12-19T07:44:53.233Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/p/k8ms17010exp.html</loc>
     
     <lastmod>2020-12-19T07:34:49.488Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://k8gege.org/p/Exe2Powershell.html</loc>
     
     <lastmod>2020-10-19T15:54:33.597Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/p/ctf_k8fly.html</loc>
-    
-    <lastmod>2020-10-13T14:02:34.369Z</lastmod>
     
   </url>
   
