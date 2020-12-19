@@ -1011,11 +1011,12 @@
   <entry>
     <title>〖工具〗K8tools工具合集20200118</title>
     <url>/p/72f1fea6.html</url>
-    <content><![CDATA[<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a><a href="https://github.com/k8gege/K8tools/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/K8tools"></a> <a href="https://github.com/k8gege/K8tools/stargazers" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/K8tools"></a> <a href="https://github.com/k8gege/K8tools/network/members" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/K8tools"></a><a href="https://github.com/k8gege/K8tools/blob/master/LICENSE" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/K8tools"></a></p>
-<br>
-声明: 工具仅供安全研究或授权渗透，非法用途后果自负。<br>
-下载: https://github.com/k8gege/K8tools<br>
+    <content><![CDATA[<p>K8工具合集(内网渗透/提权工具/远程溢出/漏洞利用/扫描工具/密码破解/免杀工具/Exploit/APT/0day/Shellcode/Payload/priviledge/BypassUAC/OverFlow/WebShell/PenTest) Web GetShell Exploit(Struts2/Zimbra/Weblogic/Tomcat/Apache/Jboss</p>
+<a id="more"></a>
 
+<p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a><a href="https://github.com/k8gege/K8tools/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/K8tools"></a> <a href="https://github.com/k8gege/K8tools/stargazers" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/K8tools"></a> <a href="https://github.com/k8gege/K8tools/network/members" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/K8tools"></a><a href="https://github.com/k8gege/K8tools/blob/master/LICENSE" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/K8tools"></a></p>
+<p>K8工具合集(内网渗透/提权工具/远程溢出/漏洞利用/扫描工具/密码破解/免杀工具/Exploit/APT/0day/Shellcode/Payload/priviledge/BypassUAC/OverFlow/WebShell/PenTest) Web GetShell Exploit(Struts2/Zimbra/Weblogic/Tomcat/Apache/Jboss/DotNetNuke/zabbix) </p>
+<p>声明: 工具仅供安全研究或授权渗透，非法用途后果自负。<br><br>下载: <a href="https://github.com/k8gege/K8tools" target="_blank" rel="noopener">https://github.com/k8gege/K8tools</a><br></p>
 <p>PS: 不定期更新,文件比较大，可按需下载。工具有BUG或建议可直接Github上留言<br><br>提权工具均可在远控Cmd或WebShell运行，大部份经过修改编译兼容性稳定性更好<br><br>注意：不保证永久有效,喜欢自行保存。<br></p>
 <h3>综合工具</h3>
 [+] 扫描工具 Ladon 7.2 大型内网渗透扫描神器内置94个功能,支持Cobalt Strike<br>
