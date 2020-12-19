@@ -185,7 +185,7 @@
     
     <div class="post-media">
         <a href="/p/CVE-2020-17144.html">
-            <img class="img-ajax" data-src="http://k8gege.org/k8img/title/exp.jpg" alt="〖EXP〗CVE-2020-17144 Exchange远程代码执行漏洞复现" data-original="/img/loading.gif">
+            <img class="img-ajax" data-src="http://k8gege.org/k8img/title/exp.jpg" alt="〖EXP〗Exchange CVE-2020-17144复现" data-original="/img/loading.gif">
         </a>
     </div>
     
@@ -193,7 +193,7 @@
         <div class="post-head home-post-head">
             <h1 class="post-title">
                 <a href="/p/CVE-2020-17144.html">
-                    〖EXP〗CVE-2020-17144 Exchange远程代码执行漏洞复现</a>
+                    〖EXP〗Exchange CVE-2020-17144复现</a>
             </h1>
             <div class="post-meta"> &bull;
                 <time class="post-date" datetime title>
@@ -203,8 +203,7 @@
         </div>
         <p class="brief">
             
-            漏洞简介漏洞是由程序未正确校验cmdlet参数引起。经过身份验证的攻击者利用该漏洞可实现远程代码执行。
-该漏洞和 CVE-2020-0688 类似，也需要登录后才能利用，不过在利用时无需明文密码，只要具备 NTHash 即可。除了常规...
+            漏洞是由程序未正确校验cmdlet参数引起。经过身份验证的攻击者利用该漏洞可实现远程代码执行。该漏洞和 CVE-2020-0688 类似，也需要登录后才能利用，不过在利用时无需明文密码，只要具备 NTHash 即可。…
             
         </p>
     </div>
@@ -236,7 +235,7 @@
 
 
 
-=============================================================================================+++++++++++++++++++...
+洞产生的主要原因就是在Exchange ECP组件中发现，邮件服务在安装的过程中不会随机生成秘钥，也就是说所有默认安装的Exchange服务器中的validationKey和decryptionKey的值都是相同的，这些密钥用于保证ViewState的安全性。而ViewState是ASP.NET Web应用以序列化格式存储在客户机上的服务端数据。…
             
         </p>
     </div>
