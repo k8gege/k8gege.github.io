@@ -1405,7 +1405,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>〖EXP〗MS17010-EXP 永恒之蓝一键工具</title>
+    <title>〖EXP〗NSA MS17010永恒之蓝漏洞一键工具</title>
     <url>/p/k8ms17010exp.html</url>
     <content><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。5月12日，不法分子通过改造“永恒之蓝”制作了wannacry勒索病毒，英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件。</p>
 <h3 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h3><p>无损检测，不会对目标造成任何危害，大家无需担心</p>
@@ -1438,7 +1438,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>〖EXP〗Exchange CVE-2020-17144复现</title>
+    <title>〖EXP〗CVE-2020-17144 Exchange漏洞利用</title>
     <url>/p/CVE-2020-17144.html</url>
     <content><![CDATA[<p>漏洞是由程序未正确校验cmdlet参数引起。经过身份验证的攻击者利用该漏洞可实现远程代码执行。<br>该漏洞和 CVE-2020-0688 类似，也需要登录后才能利用，不过在利用时无需明文密码，只要具备 NTHash 即可。</p>
 <a id="more"></a>
@@ -1500,7 +1500,7 @@ window.location.href="http://k8gege.org/Ladon/SubDomain.html";
       </tags>
   </entry>
   <entry>
-    <title>〖教程〗Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe/EXE互转PowerShell</title>
+    <title>〖教程〗Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe</title>
     <url>/p/Exe2Powershell.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
@@ -1594,7 +1594,7 @@ DecodeBase64</code></pre><h3 id="应用场景"><a href="#应用场景" class="he
       </tags>
   </entry>
   <entry>
-    <title>〖EXP〗Ladon CVE-2020-0688 Exchange序列化漏洞利用</title>
+    <title>〖EXP〗Ladon CVE-2020-0688 Exchange漏洞利用</title>
     <url>/p/cve-2020-0688.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
