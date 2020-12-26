@@ -1369,9 +1369,10 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
     <content><![CDATA[<p>K8加强版NC、NetCat,可监听执行windows\Linux\Mac等系统，或多种方式反弹的Shell,对于Windows还可以自动加密执行PowerShell、以及内存加载执行Ladon扫描（无文件落地）</p>
 <a id="more"></a>
 
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于最近使用的C2在执行CMD命令时，经常容易出现僵尸进程（无法结束必须结束宿主进程或重启机器），为了防止执行命令时出现僵尸进程导致被管理员发现，所以我采用反弹SHELL来执行命令的方法。</p>
 <h3 id="NC简介"><a href="#NC简介" class="headerlink" title="NC简介"></a>NC简介</h3><p>NetCat，简称Nc，是一款非常实用的网络工具，小巧而功能强大，被誉为网络安全界的“瑞士军刀”。NetCat被设计成一个可靠的后门工具，拥有功能丰富的网络调试和开发工具，它可以通过手工或者脚本与应用层的网络应用程序或服务进行交互，可以帮你轻易的建立几乎任何类型的连接。</p>
 <p>netcat在UNIX/LINUX/MAC等系统默认安装，所以现在依然是黑客必学的命令，功能很多，但现在大多数人估计也就只会用它来反弹。上一代或喜欢命令行下渗透的，可能比较熟悉使用NC的其它功能，什么端口扫描、监听、抓包等，由于现在我最多也就使用它来反弹，所以就弄个加强版的NC客户端，可监听来自WINDOWS、Linux、Mac等任意系统反弹的SHELL，针对Windows还可执行PowerShell命令、当然也支持渗透必备的Ladon。</p>
-<h3 id="加强版NC"><a href="#加强版NC" class="headerlink" title="加强版NC"></a>加强版NC</h3><p>由于最近使用的C2在执行CMD命令时，经常容易出现僵尸进程（无法结束必须结束宿主进程或重启机器），为了防止执行命令时出现僵尸进程导致被管理员发现，所以我采用反弹SHELL来执行命令的方法。NC客户端一般都放在VPS上或本地，所以此功能放在GUI里，这样使用起来很方便，特别是切换执行CMD、PowerShell、Ladon命令</p>
+<h3 id="加强版NC"><a href="#加强版NC" class="headerlink" title="加强版NC"></a>加强版NC</h3><p>NC客户端一般都放在VPS上或本地，所以此功能放在GUI里，这样使用起来很方便，特别是切换执行CMD、PowerShell、Ladon命令</p>
 <p>GUI 2020.12.25<br>[+] Netcat PowerShell命令加密执行<br>[+] Netcat 内存加载PowerLadon执行</p>
 <p>GUI 2020.12.16<br>[u] Netcat 兼容Linux或MAC反弹SHELL<br>[+] Netcat 执行命令历史记录</p>
 <h3 id="NC监听"><a href="#NC监听" class="headerlink" title="NC监听"></a>NC监听</h3><p>nc -lvp 4444</p>
@@ -4662,6 +4663,33 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
       </tags>
   </entry>
   <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于Browser协议探测内网主机</title>
     <url>/p/16b5ff0b.html</url>
     <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
@@ -4736,33 +4764,6 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
       </tags>
   </entry>
 </search>
