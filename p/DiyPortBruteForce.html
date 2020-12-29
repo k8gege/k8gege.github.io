@@ -196,15 +196,13 @@
     
     <div class="post-body post-content">
         <h3 id="自定义端口爆破"><a href="#自定义端口爆破" class="headerlink" title="自定义端口爆破"></a>自定义端口爆破</h3><p>以Ssh密码爆破为例,默认端口为22，其实这些功能一直都有，发现我也没写专门的文章，当然WIKI里也有了，但很多人可能不去看那么仔细，经常有人问能不能自定义端口，也不看看文档，只是今天朋友发现了SSH无法自定义端口的BUG，其它模块可能也有，若有发现可Github或小密圈内提交。</p>
-<h4 id="指定端口"><a href="#指定端口" class="headerlink" title="指定端口"></a>指定端口</h4><p>1.传统字典user.txt、pass.txt，分别填写用户和密码即可</p>
-<h5 id="user-txt"><a href="#user-txt" class="headerlink" title="user.txt"></a>user.txt</h5><p>root<br>k8</p>
-<h5 id="pass-txt"><a href="#pass-txt" class="headerlink" title="pass.txt"></a>pass.txt</h5><p>123456<br>00000<br>k8gege</p>
-<p>2.快速字典userpass.txt，密码组，格式为用户和密码</p>
-<h5 id="userpass-txt"><a href="#userpass-txt" class="headerlink" title="userpass.txt"></a>userpass.txt</h5><p>root 123456<br>root k8gege</p>
+<h4 id="指定端口"><a href="#指定端口" class="headerlink" title="指定端口"></a>指定端口</h4><h5 id="传统字典user-txt-pass-txt"><a href="#传统字典user-txt-pass-txt" class="headerlink" title="传统字典user.txt pass.txt"></a>传统字典user.txt pass.txt</h5><p>传统帐密user.txt、pass.txt，分别填写用户和密码即可<br>user.txt<br>root<br>k8</p>
+<p>pass.txt<br>123456<br>00000<br>k8gege</p>
+<h5 id="快速字典userpass-txt"><a href="#快速字典userpass-txt" class="headerlink" title="快速字典userpass.txt"></a>快速字典userpass.txt</h5><p>密码组userpass.txt,格式为用户和密码<br>userpass.txt<br>root 123456<br>root k8gege</p>
 <p>准备好字典，目标参数为IP:Port,即可实现自定义端口<br>命令 Ladon 192.168.1.8:888 SshScan</p>
 <p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/DiyPortSSH.PNG"></p>
-<h4 id="批量验证主机帐密"><a href="#批量验证主机帐密" class="headerlink" title="批量验证主机帐密"></a>批量验证主机帐密</h4><p>支持快速验证已知密码，如从配置文件里获取，明确确认IP对应帐密，或自己掌握了很久，需要批量验证是否可用，从0开始爆破不好吧，速度慢且容易产生很多流量，已知机器帐密推荐此方法验证。</p>
-<h5 id="check-txt"><a href="#check-txt" class="headerlink" title="check.txt"></a>check.txt</h5><p>三个参数跑默认端口，四个参数就写上对应端口<br>192.168.1.8 444 root k8gege<br>192.168.1.2 22 root k8520<br>192.168.1.6 root k8888</p>
+<h4 id="批量验证主机帐密check-txt"><a href="#批量验证主机帐密check-txt" class="headerlink" title="批量验证主机帐密check.txt"></a>批量验证主机帐密check.txt</h4><p>支持快速验证已知密码，如从配置文件里获取，明确确认IP对应帐密，或自己掌握了很久，需要批量验证是否可用，从0开始爆破不好吧，速度慢且容易产生很多流量，已知机器帐密推荐此方法验证。</p>
+<p>check.txt<br>192.168.1.8 444 root k8gege<br>192.168.1.2 22 root k8520<br>192.168.1.6 root k8888</p>
 <p>命令 Ladon SshScan</p>
 <p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/DiyPortSsh2.PNG"></p>
 <h3 id="其它模块"><a href="#其它模块" class="headerlink" title="其它模块"></a>其它模块</h3><p>其它模块同理，有几个参数就写几个</p>
@@ -277,7 +275,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义端口爆破"><span class="toc-text">自定义端口爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#指定端口"><span class="toc-text">指定端口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#user-txt"><span class="toc-text">user.txt</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pass-txt"><span class="toc-text">pass.txt</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#userpass-txt"><span class="toc-text">userpass.txt</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量验证主机帐密"><span class="toc-text">批量验证主机帐密</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#check-txt"><span class="toc-text">check.txt</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它模块"><span class="toc-text">其它模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义端口爆破"><span class="toc-text">自定义端口爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#指定端口"><span class="toc-text">指定端口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#传统字典user-txt-pass-txt"><span class="toc-text">传统字典user.txt pass.txt</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#快速字典userpass-txt"><span class="toc-text">快速字典userpass.txt</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量验证主机帐密check-txt"><span class="toc-text">批量验证主机帐密check.txt</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它模块"><span class="toc-text">其它模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>
