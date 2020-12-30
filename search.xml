@@ -1221,8 +1221,12 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   </entry>
   <entry>
     <title>〖教程〗Ladon非交互式runas执行命令/反弹SHELL</title>
-    <url>/p/ladonnetsh.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。</p>
+    <url>/p/runasnc.html</url>
+    <content><![CDATA[<h1 id="Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。"><a href="#Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。" class="headerlink" title="Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。"></a>Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/runas.html";
+</script>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。</p>
 <h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.本机用户密码验证（权限不够读不到帐密或HASH的情况下，验证用户是否使用某个已知密码）<br>2.SYSTEM权限降权，SYS权限下以用户身份执行命令，实现会话穿透，或访问特定用户的DBAPI加密数据<br>3.低权限用户提权，网络服务帐户或用户权限下使用管理员权限来执行一些必须管理员才能执行的命令<br>4.浏览器密码读取，本机存在多个用户，需要读取对应用户保存帐密（DBAPI），如Chrome、Firefox<br>5.以指定用户权限反弹SHELL，当然也可以转发特定交互式命令行程序</p>
 <p>提示：Runas条件是有帐密，提权降权也可使用GetSystem，无需帐密只需指定对应用户权限进程即可</p>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon Runas user pass cmd</span><br><span class="line">Ladon Runas user pass cmd domain</span><br><span class="line">Ladon RunasCS user pass cmd.exe ip port</span><br></pre></td></tr></table></figure>
