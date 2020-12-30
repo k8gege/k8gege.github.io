@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2020-12-30T04:46:41.307Z</updated>
+  <updated>2020-12-30T17:31:38.304Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖教程〗Ladon 7.8 netsh端口转发/端口映射</title>
+    <link href="http://k8gege.org/p/ladonnetsh.html"/>
+    <id>http://k8gege.org/p/ladonnetsh.html</id>
+    <published>2020-12-30T16:10:00.000Z</published>
+    <updated>2020-12-30T17:31:38.304Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Ladon7-8"><a href="#Ladon7-8" class="headerlink" title="Ladon7.8"></a>Ladon7.8</h3><p>由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员</p><p>自Windows XP开始，Windows中就内置网络端口转发的功能。任何传入到本地端口的TCP连接（IPv4或IPv6）都可以被重定向到另一个本地端口，或远程计算机上的端口，并且系统不需要有一个专门用于侦听该端口的服务。</p><h3 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon netsh query</span><br><span class="line">Ladon netsh del listenport</span><br><span class="line">Ladon netsh add listenport connectaddress connectport</span><br></pre></td></tr></table></figure><h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>转发机器：192.168.1.113<br>SSH机器： 192.168.1.112<br>攻击器：  192.168.1.8</p><h3 id="netsh查看"><a href="#netsh查看" class="headerlink" title="netsh查看"></a>netsh查看</h3><p>显示系统中的转发规则列表<br>netsh interface portproxy show all</p><h3 id="Ladon查看"><a href="#Ladon查看" class="headerlink" title="Ladon查看"></a>Ladon查看</h3><p>Ladon netsh query</p><h3 id="netsh端口转发"><a href="#netsh端口转发" class="headerlink" title="netsh端口转发"></a>netsh端口转发</h3><p>netsh interface portproxy add v4tov4 listenaddress=localaddress listenport=localport connectaddress=destaddress connectport=destport</p><p>listenaddress - 等待连接的本地IP地址<br>listenport - 本地侦听TCP端口<br>connectaddress - 将传入连接重定向到本地或远程IP地址<br>connectport - 一个TCP端口</p><p>113机器上以管理员权限执行命令<br>netsh interface portproxy add v4tov4 listenport=888 connectport=22 connectaddress=192.168.1.112</p><h3 id="Ladon端口转发"><a href="#Ladon端口转发" class="headerlink" title="Ladon端口转发"></a>Ladon端口转发</h3><p>113机器上以管理员权限执行命令<br>Ladon netsh add 888 192.168.1.112 22</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/netsh.PNG"></p><h3 id="SSH转发"><a href="#SSH转发" class="headerlink" title="SSH转发"></a>SSH转发</h3><p>转发后我们访问113机器的888端口，就是访问112的SSH端口，刚好可用于测试Ladon的自定义SSH端口爆破<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/DiyPortSSH.PNG"></p><h3 id="其它端口同理"><a href="#其它端口同理" class="headerlink" title="其它端口同理"></a>其它端口同理</h3><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Ladon7-8&quot;&gt;&lt;a href=&quot;#Ladon7-8&quot; class=&quot;headerlink&quot; title=&quot;Ladon7.8&quot;&gt;&lt;/a&gt;Ladon7.8&lt;/h3&gt;&lt;p&gt;由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="netsh" scheme="http://k8gege.org/tags/netsh/"/>
+    
+  </entry>
   
   <entry>
     <title>〖教程〗Ladon 7.8密码爆破自定义端口(SSH为例)</title>
@@ -552,32 +580,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
       <category term="netbios" scheme="http://k8gege.org/tags/netbios/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗Ladon Socks代理扫描(附Proxifier4.0注册码)</title>
-    <link href="http://k8gege.org/p/proxy.html"/>
-    <id>http://k8gege.org/p/proxy.html</id>
-    <published>2020-07-18T03:40:00.000Z</published>
-    <updated>2020-07-18T04:07:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/proxy.html";</script><h3 id="Socks代理工具"><a href="#Socks代理工具" class="headerlink" title="Socks代理工具"></a>Socks代理工具</h3><h4 id="windows平台"><a href="#windows平台" class="headerlink" title="windows平台"></a>windows平台</h4><p>Proxifier软件是一款极其强大的socks5客户端,同时也是一款强大的站长工具。Proxifier支持TCP，UDP协议，支持Xp，Vista，Win7，支持socks4，socks5，http代理协议可以让不支持通过代理服务器工作的网络程序能通过HTTPS或SOCKS代理或代理链。</p><p>2020年7月proxifier官方发布最新版4.0.1修复ipv6兼容问题，以及其它很多问题。 3.42支持类似chrome这样工作的69个应用程序，修复了一些第三方应用程序的兼容性。</p><p>以上更新日志，充分说明该代理工具不能保证兼容所有第3方程序，或者说兼容性不好，同样的3.31版本有人能代理Ladon，有人代理不了。 </p><p>官方下载: <a href="http://www.proxifier.com/download" target="_blank" rel="noopener">http://www.proxifier.com/download</a></p><h4 id="linux-mac平台"><a href="#linux-mac平台" class="headerlink" title="linux/mac平台"></a>linux/mac平台</h4><p>ProxyChains遵循GNU协议的一款适用于linux系统的网络代理设置工具。强制由任一程序发起的TCP连接请求必须通过诸如TOR 或 SOCKS4, SOCKS5 或HTTP(S) 代理。支持的认证方式包括：SOCKS4/5的用户/密码认证，HTTP的基本认证。允许TCP和DNS通过代理隧道，并且可配置多个代理。</p><p>ProxyChains代理工具非常好，真的可以兼容所有程序，不像proxifier好多程序还不定兼容，当然两者都有一定的丢包率，Ladon批量扫描功能过快超时短，可能会导致有些结果丢失，回头设置一个代理模式，提高超时放慢速度看看。</p><h3 id="代理支持协议"><a href="#代理支持协议" class="headerlink" title="代理支持协议"></a>代理支持协议</h3><p>通过以上两平台的代理工具简介，可以看出代理客户端并不支持ICMP协议。<br>所以使用它们代理，无法PING通内网主机。何况FRP、EW等也不支持ICMP。</p><h4 id="支持协议"><a href="#支持协议" class="headerlink" title="支持协议"></a>支持协议</h4><p>1.TCP<br>2.UDP</p><h4 id="代理协议"><a href="#代理协议" class="headerlink" title="代理协议"></a>代理协议</h4><p>1.SOCKS4<br>2.SOCKS5<br>3.HTTP(S)</p><h3 id="代理工具兼容性"><a href="#代理工具兼容性" class="headerlink" title="代理工具兼容性"></a>代理工具兼容性</h3><p>推荐proxifier 3.42及以上版本，最好是最新版，3.31及以前的兼容性极差，所以不推荐，我使用VM虚拟机12版本的时候，可以代理Ladon,但后面升级为15，发现很难代理，就连测试系统自带的telnet程序，都不行了。Ladon在多个虚拟机测试也是一样，但是有同事也是用3.31却可以代理使用，网上很多人也和我反应不能用。后来我看了下3.31是2016年的，就想看看官方有没更新，发现18年有个3.42版本，测试一下，兼容好多了，然后在星球发表，发表不久发现官方更新了4.0.1，只是他没写更新日志，还以为没有更新。</p><h3 id="Proxifier通用注册码"><a href="#Proxifier通用注册码" class="headerlink" title="Proxifier通用注册码"></a>Proxifier通用注册码</h3><p>4.0.1 (2020.7.7)<br>3.4.2 (2018.8.31)<br>3.3.1 (2016不推荐)<br>5EZ8G-C3WL5-B56YG-SCXM9-6QZAP（Standard Edition）</p><h3 id="Ladon工作原理"><a href="#Ladon工作原理" class="headerlink" title="Ladon工作原理"></a>Ladon工作原理</h3><p>由于proxifier客户端不支持ICMP或者说ew等代理工具也不支持ICMP协议，所以代理后探测存活主机就不要使用Ping或OnlinePC模块了，使用扫描模块需加noping参数，非扫描模块不需要noping。探测存活主机可使用osscan、webscan、urlscan、ms17010、smbghost等模块，他们能扫出东西不也意味着主机存活吗？ping不是唯一的探测存活主机存活方式，系统防火墙默认禁ping，使用ping探测本身就会错过很多存活主机，所以实战要结合多种方式探测。假设目标防火墙只允许smb协议通过，你用nmap端口扫描的TCP包被拦截显示成关的，但用ms17010，smbghost扫出漏洞或者用smbscan就显示密码错误拒绝访问等，这不就说明445确实开放吗？不要死板的老是停留在ping和单纯的端口扫描来探测存活主机，要考虑实际环境，OnlinePC可探测到大部分存活主机，但不等于能探测到全部存活主机，当你无法渗透已扫到的存活主机，就得尝试其它模块探测更多主机。</p><p>PS：如何验证代理是否支持ICMP协议，非常简单用系统自带命令PING目标内网IP（不要PING自己的内网哦），能PING通目标存活IP，说明代理支持ICMP协议，意味你可以像挂了目标VPN一样或者像本地一样随意扫描目标内网，如果根本PING不通，老老实实扫描时加上noping参数。</p><h3 id="Socks代理扫描"><a href="#Socks代理扫描" class="headerlink" title="Socks代理扫描"></a>Socks代理扫描</h3><p>例子：Socks5代理扫描目标10.1.2段是否存在MS17010漏洞<br>Ladon noping 10.1.2.8/24 MS17010</p><p>PS：再次强调，由于代理工具不支持ICMP，所以Ladon扫描类功能必须加noping参数，非扫描模块不需要。</p><h3 id="实战扫描结果"><a href="#实战扫描结果" class="headerlink" title="实战扫描结果"></a>实战扫描结果</h3><p>Linux SSH服务识别之22端口扫描<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/proxy_porscan22.png"></p><p>WEB HttpBanner扫描<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/proxy_httpscan.png"></p><p>永恒之默漏洞 SMBghost CVE-2020-0796<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/proxy_smbghost.png"></p><p>OSSCAN探测目标操作系统<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/proxy_osscan.png"></p><p>ProtScan端口扫描<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/proxy_porscan.png"></p><h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="Proxy" scheme="http://k8gege.org/tags/Proxy/"/>
     
   </entry>
   

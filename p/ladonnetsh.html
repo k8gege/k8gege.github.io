@@ -19,12 +19,11 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content="Exp,Tool,BypassUAC">
+<meta name="keywords" content="Ladon,netsh">
 
 
-<meta name="description" content="[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本
-工具: k8uac编译: VC++
-作者:K8哥哥发布:&nbsp;2018/11...">
+<meta name="description" content="Ladon7.8由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员
+自Windows XP开始，Windows中就内...">
 
 
 <meta name="robots" content="all">
@@ -35,7 +34,7 @@
 
 <title>
     
-    K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本 |
+    〖教程〗Ladon 7.8 netsh端口转发/端口映射 |
     
     K8哥哥’s Blog
 </title>
@@ -155,16 +154,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本">
+        <h1 id="〖教程〗Ladon 7.8 netsh端口转发/端口映射">
             
-            K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本
+            〖教程〗Ladon 7.8 netsh端口转发/端口映射
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/Tool/">工具</a> <a class="category-link" href="/categories/Lpe/">提权</a>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
     </span>
     
     
@@ -172,7 +171,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/BypassUAC/" rel="tag">BypassUAC</a> <a class="tag-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-link" href="/tags/Tool/" rel="tag">Tool</a>
+            <a class="tag-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-link" href="/tags/netsh/" rel="tag">netsh</a>
             
         </span>
     </span>
@@ -182,7 +181,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2019/12/03</span>
+            2020/12/31</span>
     </span>
     
     <span class="fa-wrap">
@@ -194,25 +193,23 @@
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                394</strong>
-            天之前发表
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>
+        <h3 id="Ladon7-8"><a href="#Ladon7-8" class="headerlink" title="Ladon7.8"></a>Ladon7.8</h3><p>由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员</p>
+<p>自Windows XP开始，Windows中就内置网络端口转发的功能。任何传入到本地端口的TCP连接（IPv4或IPv6）都可以被重定向到另一个本地端口，或远程计算机上的端口，并且系统不需要有一个专门用于侦听该端口的服务。</p>
+<h3 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon netsh query</span><br><span class="line">Ladon netsh del listenport</span><br><span class="line">Ladon netsh add listenport connectaddress connectport</span><br></pre></td></tr></table></figure>
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>转发机器：192.168.1.113<br>SSH机器： 192.168.1.112<br>攻击器：  192.168.1.8</p>
+<h3 id="netsh查看"><a href="#netsh查看" class="headerlink" title="netsh查看"></a>netsh查看</h3><p>显示系统中的转发规则列表<br>netsh interface portproxy show all</p>
+<h3 id="Ladon查看"><a href="#Ladon查看" class="headerlink" title="Ladon查看"></a>Ladon查看</h3><p>Ladon netsh query</p>
+<h3 id="netsh端口转发"><a href="#netsh端口转发" class="headerlink" title="netsh端口转发"></a>netsh端口转发</h3><p>netsh interface portproxy add v4tov4 listenaddress=localaddress listenport=localport connectaddress=destaddress connectport=destport</p>
+<p>listenaddress - 等待连接的本地IP地址<br>listenport - 本地侦听TCP端口<br>connectaddress - 将传入连接重定向到本地或远程IP地址<br>connectport - 一个TCP端口</p>
+<p>113机器上以管理员权限执行命令<br>netsh interface portproxy add v4tov4 listenport=888 connectport=22 connectaddress=192.168.1.112</p>
+<h3 id="Ladon端口转发"><a href="#Ladon端口转发" class="headerlink" title="Ladon端口转发"></a>Ladon端口转发</h3><p>113机器上以管理员权限执行命令<br>Ladon netsh add 888 192.168.1.112 22</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/netsh.PNG"></p>
+<h3 id="SSH转发"><a href="#SSH转发" class="headerlink" title="SSH转发"></a>SSH转发</h3><p>转发后我们访问113机器的888端口，就是访问112的SSH端口，刚好可用于测试Ladon的自定义SSH端口爆破<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/DiyPortSSH.PNG"></p>
+<h3 id="其它端口同理"><a href="#其它端口同理" class="headerlink" title="其它端口同理"></a>其它端口同理</h3><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
+
     </div>
     
     <div class="reward" ontouchstart>
@@ -240,17 +237,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/p/19452dd9.html" class="pre-post btn btn-default" title="CVE-2019-9621 Zimbra<8.8.11 GetShell Exploit">
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            CVE-2019-9621 Zimbra<8.8.11 getshell exploit< span>
-    </8.8.11></span></a>
     
-    
-    <a href="/p/77429fa6.html" class="next-post btn btn-default" title="mimikatz 2.1.1一键版 & PowerShell">
+    <a href="/p/DiyPortBruteForce.html" class="next-post btn btn-default" title="〖教程〗Ladon 7.8密码爆破自定义端口(SSH为例)">
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            mimikatz 2.1.1一键版 & PowerShell</span><i class="fa fa-angle-right fa-fw"></i>
+            〖教程〗Ladon 7.8密码爆破自定义端口(SSH为例)</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -286,7 +277,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <p>not dir</p>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon7-8"><span class="toc-text">Ladon7.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon命令"><span class="toc-text">Ladon命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试环境"><span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netsh查看"><span class="toc-text">netsh查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon查看"><span class="toc-text">Ladon查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netsh端口转发"><span class="toc-text">netsh端口转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon端口转发"><span class="toc-text">Ladon端口转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH转发"><span class="toc-text">SSH转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它端口同理"><span class="toc-text">其它端口同理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>
