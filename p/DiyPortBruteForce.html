@@ -196,7 +196,9 @@
     
     <div class="post-body post-content">
         <h3 id="自定义端口爆破"><a href="#自定义端口爆破" class="headerlink" title="自定义端口爆破"></a>自定义端口爆破</h3><p>以Ssh密码爆破为例,默认端口为22，其实这些功能一直都有，发现我也没写专门的文章，当然WIKI里也有了，但很多人可能不去看那么仔细，经常有人问能不能自定义端口，也不看看文档，只是今天朋友发现了SSH无法自定义端口的BUG，其它模块可能也有，若有发现可Github或小密圈内提交。</p>
-<h4 id="指定端口"><a href="#指定端口" class="headerlink" title="指定端口"></a>指定端口</h4><p>不指定的情况下为服务对应默认端口，如SSH默认22，SMB默认445<br>命令 Ladon 192.168.1.8 SshScan</p>
+<h4 id="指定端口"><a href="#指定端口" class="headerlink" title="指定端口"></a>指定端口</h4><p>不指定的情况下为服务对应默认端口，如SSH默认22，SMB默认445<br>命令 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 SshScan  扫描IP</span><br><span class="line">Ladon 192.168.1.8/24 SshScan 扫描C段</span><br><span class="line">Ladon 192.168.1.8/c SshScan  扫描C段</span><br><span class="line">Ladon 192.168.1.8/b SshScan	 扫描B段</span><br><span class="line">Ladon 192.168.1.8/a SshScan  扫描A段</span><br></pre></td></tr></table></figure>
+<p>PS：7.X开始后的版本/16或/8不一定是B段或A段，建议大家用/b或/a，扫描结果还是按顺序的</p>
 <h5 id="传统字典user-txt-pass-txt"><a href="#传统字典user-txt-pass-txt" class="headerlink" title="传统字典user.txt pass.txt"></a>传统字典user.txt pass.txt</h5><p>传统帐密user.txt、pass.txt，分别填写用户和密码即可<br>user.txt<br>root<br>k8</p>
 <p>pass.txt<br>123456<br>00000<br>k8gege</p>
 <h5 id="快速字典userpass-txt"><a href="#快速字典userpass-txt" class="headerlink" title="快速字典userpass.txt"></a>快速字典userpass.txt</h5><p>密码组userpass.txt,格式为用户和密码<br>userpass.txt<br>root 123456<br>root k8gege</p>
