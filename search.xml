@@ -1222,7 +1222,12 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   <entry>
     <title>〖教程〗Ladon检测100种网络摄像头默认密码</title>
     <url>/p/dvrscan.html</url>
-    <content><![CDATA[<h3 id="网络摄像头默认密码"><a href="#网络摄像头默认密码" class="headerlink" title="网络摄像头默认密码"></a>网络摄像头默认密码</h3><p>Ladon的DvrScan默认已内置本文密码列表，当然你也可以手工试</p>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/dvrscan.html";
+</script>
+
+<h3 id="网络摄像头默认密码"><a href="#网络摄像头默认密码" class="headerlink" title="网络摄像头默认密码"></a>网络摄像头默认密码</h3><p>Ladon的DvrScan默认已内置本文密码列表，当然你也可以手工试</p>
 <table>
 <thead>
 <tr>
@@ -1773,7 +1778,12 @@ window.location.href="http://k8gege.org/Ladon/runas.html";
   <entry>
     <title>〖教程〗Ladon 7.8 netsh端口转发/端口映射</title>
     <url>/p/ladonnetsh.html</url>
-    <content><![CDATA[<h3 id="Ladon7-8"><a href="#Ladon7-8" class="headerlink" title="Ladon7.8"></a>Ladon7.8</h3><p>由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员</p>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/netsh.html";
+</script>
+
+<h3 id="Ladon7-8"><a href="#Ladon7-8" class="headerlink" title="Ladon7.8"></a>Ladon7.8</h3><p>由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员</p>
 <p>自Windows XP开始，Windows中就内置网络端口转发的功能。任何传入到本地端口的TCP连接（IPv4或IPv6）都可以被重定向到另一个本地端口，或远程计算机上的端口，并且系统不需要有一个专门用于侦听该端口的服务。</p>
 <h3 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon netsh query 查询规则</span><br><span class="line">Ladon netsh del listenport 删除规则</span><br><span class="line">Ladon netsh add listenport connectaddress connectport 添加规则</span><br></pre></td></tr></table></figure>
 <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>转发机器：192.168.1.113<br>SSH机器： 192.168.1.112<br>攻击器：  192.168.1.8</p>
@@ -2625,10 +2635,10 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <tags>
         <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>IIS</tag>
         <tag>Sniffer</tag>
         <tag>FtpSniffer</tag>
         <tag>HttpSniffer</tag>
-        <tag>IIS</tag>
         <tag>LDAP</tag>
       </tags>
   </entry>
@@ -2647,8 +2657,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
@@ -5217,13 +5227,13 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Tool</tag>
