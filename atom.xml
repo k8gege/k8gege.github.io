@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-01-05T12:48:43.061Z</updated>
+  <updated>2021-01-05T12:50:36.697Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>〖教程〗Ladon &amp; Cobalt Strike PortTran端口转发/内网穿透</title>
+    <title>〖教程〗Ladon &amp; Cobalt Strike &amp; PortTran内网反向端口转发</title>
     <link href="http://k8gege.org/p/porttran.html"/>
     <id>http://k8gege.org/p/porttran.html</id>
     <published>2021-01-04T16:10:00.000Z</published>
-    <updated>2021-01-05T12:48:43.061Z</updated>
+    <updated>2021-01-05T12:50:36.697Z</updated>
     
     <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span>%></%></p><h3 id="PortTran"><a href="#PortTran" class="headerlink" title="PortTran"></a>PortTran</h3><p>.NET端口转发工具,支持任意权限。<br><a href="https://github.com/k8gege/PortTran" target="_blank" rel="noopener">https://github.com/k8gege/PortTran</a></p><h3 id="外网VPS监听"><a href="#外网VPS监听" class="headerlink" title="外网VPS监听"></a>外网VPS监听</h3><p>PortTranS.exe 8000 338<br><img data-original="https://github.com/k8gege/PortTran/blob/master/img/vps.PNG"></p><h3 id="目标内网转发"><a href="#目标内网转发" class="headerlink" title="目标内网转发"></a>目标内网转发</h3><p>PortTranC.exe 192.168.85.169 3389 192.168.85.142 8000<br><img data-original="https://github.com/k8gege/PortTran/blob/master/img/target.PNG"></p><h3 id="VPS连接3389"><a href="#VPS连接3389" class="headerlink" title="VPS连接3389"></a>VPS连接3389</h3><p>mstsc /console /v:127.0.0.1:338<br><img data-original="https://github.com/k8gege/PortTran/blob/master/img/3389.PNG"></p><h3 id="自己连接3389"><a href="#自己连接3389" class="headerlink" title="自己连接3389"></a>自己连接3389</h3><p>反向转发到VPS后，我们自己的机器连接VPS监听端口即为目标对应端口，如访问VPS的338端口对应1.30的3389端口</p><p>如：mstsc /console /v:这里填写VPS的IP即可:338</p><h3 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon PortTran TranPort ConnPort</span><br><span class="line">Ladon PortTran TragetIP TargetPort VpsIP TranPort</span><br><span class="line">Example:</span><br><span class="line">Listen: Ladon PortTran 8000 338</span><br><span class="line">Tran: Ladon PortTran 192.168.1.30 3389 192.168.1.8 8000</span><br><span class="line">Test: mstsc 192.168.1.8 338</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/PortTran.PNG"></p><h3 id="Cobalt-Strike"><a href="#Cobalt-Strike" class="headerlink" title="Cobalt Strike"></a>Cobalt Strike</h3><p>转发到本机<br>rportfwd 389 192.1.20.30 3389<br>转发到VPS<br>Ladon PortTran 192.168.1.30 3389 192.168.1.8 8000</p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
     
