@@ -1222,13 +1222,10 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   <entry>
     <title>〖教程〗Ladon/Cobalt Strike内网反向端口转发</title>
     <url>/p/porttran.html</url>
-    <content><![CDATA[<p style="color:#fff;"> 
-<% <span class="archive-article-date">
-Visit <span id="busuanzi_value_page_pv"></span>
-
-%>
-</%></p>
-
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/porttran.html";
+</script>
 
 <h3 id="PortTran"><a href="#PortTran" class="headerlink" title="PortTran"></a>PortTran</h3><p>.NET端口转发工具,支持任意权限。<br><a href="https://github.com/k8gege/PortTran" target="_blank" rel="noopener">https://github.com/k8gege/PortTran</a></p>
 <h3 id="外网VPS监听"><a href="#外网VPS监听" class="headerlink" title="外网VPS监听"></a>外网VPS监听</h3><p>PortTranS.exe 8000 338<br><img data-original="https://github.com/k8gege/PortTran/blob/master/img/vps.PNG"></p>
