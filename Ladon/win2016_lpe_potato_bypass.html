@@ -19,10 +19,14 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content="K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具">
+<meta name="keywords" content=",">
 
 
-<meta name="description" content="没有绝对安全的系统！！！K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具 ">
+<meta name="description" content=" 
+
+
+
+前言Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runa...">
 
 
 <meta name="robots" content="all">
@@ -33,7 +37,7 @@
 
 <title>
     
-    Category: 工具 |
+    〖教程〗Ladon提权Win2016/Win10/MSSQL2016 |
     
     K8哥哥’s Blog
 </title>
@@ -150,269 +154,42 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
+                    <div>
     
-    <li>
-        工具
-    </li>
-    
-</ol>
+    <article class="post">
+    <h1 class="post-head">
+        〖教程〗Ladon提权Win2016/Win10/MSSQL2016
+    </h1>
+    <div class="post-body">
+        <p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
 
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/f3512dbc.html">
-                    Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            0x001 原理
-采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。
-本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。
-PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具...
-            
-        </p>
+%>
+</%></p>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.本机用户密码验证（权限不够读不到帐密或HASH的情况下，验证用户是否使用某个已知密码）<br>2.SYSTEM权限降权，SYS权限下以用户身份执行命令，实现会话穿透，或访问特定用户的DBAPI加密数据<br>3.低权限用户提权，网络服务帐户或用户权限下使用管理员权限来执行一些必须管理员才能执行的命令<br>4.浏览器密码读取，本机存在多个用户，需要读取对应用户保存帐密（DBAPI），如Chrome、Firefox<br>5.以指定用户权限反弹SHELL，当然也可以转发特定交互式命令行程序</p>
+<p>提示：Runas条件是有帐密，提权降权也可使用GetSystem，无需帐密只需指定对应用户权限进程即可</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Runas user pass cmd</span><br><span class="line">Ladon Runas user pass cmd domain</span><br><span class="line">Ladon RunasCS user pass cmd.exe ip port</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>当前机器默认开启UAC，登陆用户为null，管理员用户为k8gege，默认管理员用户为Administrator</p>
+<h3 id="Uac权限"><a href="#Uac权限" class="headerlink" title="Uac权限"></a>Uac权限</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasUac.PNG"></p>
+<h3 id="Admin权限"><a href="#Admin权限" class="headerlink" title="Admin权限"></a>Admin权限</h3><p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
+<h3 id="System权限"><a href="#System权限" class="headerlink" title="System权限"></a>System权限</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/runas_lpe_2003.png"></p>
+<h3 id="Service权限"><a href="#Service权限" class="headerlink" title="Service权限"></a>Service权限</h3><p>服务权限下模拟登陆自己添加的管理员用户执行CMD命令<br>Ladon Runas k8gege k8gege520 whoami</p>
+<p>PS：实战某台机器曾经提权至管理员，由于提权不稳定曾给其添加了一个用户，发现再次使用Potato依旧无法以高极限执行命令，突然想起之前已加入一个管理员用户，使用非交互式Runas执行命令提权（已有目标帐密在低权限webshell下以高权限用户执行命令同理）</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/runas_lpe_2003.png"></p>
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+
     </div>
 </article>
-
-<article class="post">
     
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/e896a7d1.html">
-                    CVE-2019-0604 SharePoint GetShell Exploit</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            漏洞信息
-Microsoft SharePoint是美国微软（Microsoft）公司的一套企业业务协作平台。该平台用于对业务信息进行整合，并能够共享工作、与他人协同工作、组织项目和工作组、搜索人员和信息。
-Microsoft Sha...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/19452dd9.html">
-                    CVE-2019-9621 Zimbra<8.8.11 getshell exploit< a>
-            </8.8.11></a></h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            
-
-
-
-发现时间
-
-
-2019年03月18日
-
-
-
-
-威胁目标
-
-
-采用Zimbra邮件系统的企业
-
-
-
-
-主要风险
-
-
-远程代码执行
-
-
-
-
-攻击入口
-
-
-localconfig.xml &amp;nbsp;配置文件
-
-
-
-
-使用漏洞
-
-
-...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/41e1c61c.html">
-                    K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            [原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本
-工具: k8uac编译: VC++
-作者:K8哥哥发布:&amp;nbsp;2018/11/25 1:30
-这是一个旧方法，近两年...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/77429fa6.html">
-                    mimikatz 2.1.1一键版 & PowerShell</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            无需任何参数,运行EXE即可自动读取Windows系统密码
-EXE版需要其它功能请使用原版 (参数已写死仅读密码)
-结果保存于当前目录mz.log
-EXE
-https://github.com/k8gege/K8tools/blob/...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/b8e58f69.html">
-                    CVE-2018-2628 Weblogic GetShell Exploit</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            漏洞简介
-
-
-漏洞威胁：RCE--远程代码执行
-漏洞组件：weblogic
-影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3
-
-代码: 
-
-# -*- coding: utf-8 -*-
-# Oracl...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/6b9b3afe.html">
-                    全版本IIS提权工具iislpe</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            工具: iislpe.exe
-编译: .net 3.5 
-　　全版本IIS提权工具,支持IIS应用池用户/网络服务用户/本地服务用户
-原理:
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 通过NTLM重放将权限提升至S...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/16b5ff0b.html">
-                    基于Browser协议探测内网主机</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图
-
-
-
-
-浏览
-在SMB协议中，计算机为了访问网络资源，就需要了解网络上存在的资源列表（例如在Windows下使用网络邻居查看可以访问的计算机），这个机制就被称为...
-            
-        </p>
-    </div>
-</article>
-
-
-<nav class="pagination" role="navigation">
-    <div id="page-nav">
-
-        <a class="extend prev" rel="prev" href="/categories/Tool/page/2/">Prev</a><a class="page-number" href="/categories/Tool/">1</a><a class="page-number" href="/categories/Tool/page/2/">2</a><span class="page-number current">3</span>
-    </div>
-</nav>
-
+</div>
                 </main>
                 
                     
