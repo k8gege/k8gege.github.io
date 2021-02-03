@@ -345,9 +345,10 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>扫描C段1521端口Oracle服务器弱口令<br>Ladon 192.168.1.8/24 SqlplusScan</p>
 <p>扫描C段5985端口Winrm服务器弱口令<br>Ladon 192.168.1.8/24 WinrmScan</p>
 <p>扫描C段6379端口Redis服务器空口令<br>Ladon 192.168.1.8/24 RedisScan</p>
-<h5 id="远程命令执行"><a href="#远程命令执行" class="headerlink" title="远程命令执行"></a>远程命令执行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshCmd host port user pass cmd</span><br><span class="line">Ladon WinrmCmd host port user pass cmd</span><br></pre></td></tr></table></figure>
+<h5 id="远程命令执行"><a href="#远程命令执行" class="headerlink" title="远程命令执行"></a>远程命令执行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshCmd host port user pass cmd</span><br><span class="line">Ladon WinrmCmd host port user pass cmd</span><br><span class="line">Ladon PhpShell url pass cmd</span><br><span class="line">Ladon PhpStudyDoor url cmd</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxSshWinrm.PNG"></p>
+<p>SshCmd &amp; WinrmCmd<br><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxSshWinrm.PNG"></p>
+<p>PhpShell &amp; PhpStudyDoor<br><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/phpshell.PNG"></p>
 <h3 id="扫描速度"><a href="#扫描速度" class="headerlink" title="扫描速度"></a>扫描速度</h3><p>1.和Ladon一样，ICMP探测C段仅需1秒<br><br>2.Ping扫描C段大约11秒，支持任意权限<br><br>3.其它模块，欢迎大家反馈<br></p>
 <h4 id="扫C段-192-168-1-c"><a href="#扫C段-192-168-1-c" class="headerlink" title="扫C段(192.168.1/c)"></a>扫C段(192.168.1/c)</h4><table>
 <thead>
