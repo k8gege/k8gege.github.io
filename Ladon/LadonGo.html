@@ -172,8 +172,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 
 <h1 id="Ladon-Scanner-For-Golang"><a href="#Ladon-Scanner-For-Golang" class="headerlink" title="Ladon Scanner For Golang"></a>Ladon Scanner For Golang</h1><h3 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h3><p><a href="http://k8gege.org/Ladon/LadonGo.html">http://k8gege.org/Ladon/LadonGo.html</a></p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源内网渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.3版本包含25个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd，10种协议密码爆破Smb/Ssh/Ftp/Mysql/Mssql/Oracle/Sqlplus/Winrm/HttpBasic/Redis，存活探测/信息收集/指纹识别OnlinePC、Ping、Icmp、SnmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描/服务探测PortScan。</p>
-<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>OS:     Kali 2019 X64<br>IDE: 记事本Mousepad<br>Go:  1.13 linux</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源内网渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.4版本包含26个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd、PhpShell，10种协议密码爆破Smb/Ssh/Ftp/Mysql/Mssql/Oracle/Sqlplus/Winrm/HttpBasic/Redis，存活探测/信息收集/指纹识别OnlinePC、Ping、Icmp、SnmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描/服务探测PortScan。</p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>OS:     Kali 2019 X64<br>IDE: Mousepad<br>Go:  1.13 linux</p>
 <h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><h4 id="Detection"><a href="#Detection" class="headerlink" title="Detection"></a>Detection</h4><table>
 <thead>
 <tr>
@@ -301,6 +301,10 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <td>WinrmCmd</td>
 <td>(Winrm Remote command execution Default 5985 Port)</td>
 </tr>
+<tr>
+<td>PhpShell</td>
+<td>(Php WebShell command execution Default 80 Port)</td>
+</tr>
 </tbody></table>
 <h4 id="Exploit"><a href="#Exploit" class="headerlink" title="Exploit"></a>Exploit</h4><table>
 <thead>
@@ -315,6 +319,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
 </tr>
 </tbody></table>
 <h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/k8gege/LadonGo</span><br><span class="line">go build Ladon.go</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速编译"><a href="#快速编译" class="headerlink" title="快速编译"></a>快速编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make windows</span><br><span class="line">make linux</span><br><span class="line">make mac</span><br></pre></td></tr></table></figure>
 
 <h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ladon FuncList</span><br><span class="line">Ladon Detection</span><br><span class="line">Ladon VulDetection</span><br><span class="line">adon BruteFor</span><br><span class="line">Ladon RemoteExec</span><br><span class="line">Ladon Exploit</span><br><span class="line">Ladon Example</span><br></pre></td></tr></table></figure>
 
