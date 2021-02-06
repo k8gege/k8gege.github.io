@@ -201,7 +201,7 @@
 <h3 id="BypassUAC方法"><a href="#BypassUAC方法" class="headerlink" title="BypassUAC方法"></a>BypassUAC方法</h3><p>目前公开的绕过UAC的几种方式:</p>
 <p>1.各类的UAC白名单程序的DLL劫持<br>2.各类自动提升权限的COM接口利用(Elevated COM interface)<br>3.Windows 自身漏洞提权<br>4.远程注入</p>
 <p>UACME: <a href="https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究" target="_blank" rel="noopener">https://github.com/hfiref0x/UACME,内含60+种BypassUAC的方法，有兴趣可自行研究</a></p>
-<h3 id="利用白名单"><a href="#利用白名单" class="headerlink" title="利用白名单"></a>利用白名单</h3><p>上文也已经分析了,如果进程本身具有管理员权限或者可以直接获取管理员权限的话,就不会弹出UAC框让用户确认,这类程序被称为白名单程序，例如：slui.exe、wusa.exe、taskmgr.exe、msra.exe、eudcedit.exe、eventvwr.exe、CompMgmtLauncher.exe，rundll32.exe，explorer.exe等等。</p>
+<h3 id="利用白名单"><a href="#利用白名单" class="headerlink" title="利用白名单"></a>利用白名单</h3><p>如果进程本身具有管理员权限或者可以直接获取管理员权限的话,就不会弹出UAC框让用户确认,这类程序被称为白名单程序，例如：slui.exe、wusa.exe、taskmgr.exe、msra.exe、eudcedit.exe、eventvwr.exe、CompMgmtLauncher.exe，rundll32.exe，explorer.exe等等。</p>
 <h3 id="Ladon-8-0"><a href="#Ladon-8-0" class="headerlink" title="Ladon 8.0"></a>Ladon 8.0</h3><p>[+] BypassUac 五种方法UAC提权（非交互式执行Base64加密CMD命令）<br>用法Ladon BypassUac</p>
 <p>eventvwr<br>fodhelper<br>computerdefaults<br>sdclt<br>slui</p>
 <p>[+] BypassUac2 eventvwr方法执行明文cmd命令（即8.0前的bypassUAC）</p>
