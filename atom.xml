@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-02-06T11:26:25.263Z</updated>
+  <updated>2021-02-09T08:02:30.697Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖编程〗Ladon自定义POC插件模块编写</title>
+    <link href="http://k8gege.org/p/Ladon_diypoc.html"/>
+    <id>http://k8gege.org/p/Ladon_diypoc.html</id>
+    <published>2021-02-09T06:50:00.000Z</published>
+    <updated>2021-02-09T08:02:30.697Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一个优秀的扫描器，必须具备可扩展能力，才能满足不同用户的扫描需求。</p><h3 id="Ladon扩展"><a href="#Ladon扩展" class="headerlink" title="Ladon扩展"></a>Ladon扩展</h3><p>Ladon支持.NET程序、DLL(C#/Delphi/VC)、PowerShell、Go、Python等语言编写的插件以及无编程功底通过配置ini加载任意程序命令。不管你擅长哪门编程语言还是不懂编程，均能定制功能插件,快速扩展扫描能力。</p><p><a href="https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle</a></p><h3 id="C-插件-exe-dll"><a href="#C-插件-exe-dll" class="headerlink" title="C#插件(exe/dll)"></a>C#插件(exe/dll)</h3><p>用法：Ladon 192.168.1.1/24 *.exe<br>用法：Ladon 192.168.1.1/24 *.dll</p><p>调用C#编写的exe或dll，名称改为<em>.exe或</em>.dll，可实现内存调用，性能优，速度快。</p><p>1.Ladon插件实例端口扫描C#源码<br><a href="http://k8gege.org/p/4a713e0e.html">http://k8gege.org/p/4a713e0e.html</a></p><p>2.Ladon插件实例内网Web扫描C#源码<br><a href="http://k8gege.org/p/da863d02.html">http://k8gege.org/p/da863d02.html</a></p><p>3.批量Base64加密解密插件<br><a href="https://github.com/k8gege/K8CScan/wiki/C%23%E6%8F%92%E4%BB%B6EXE%E6%BA%90%E7%A0%81-%E6%89%B9%E9%87%8FBase64" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/wiki/C%23%E6%8F%92%E4%BB%B6EXE%E6%BA%90%E7%A0%81-%E6%89%B9%E9%87%8FBase64</a></p><p>4.检测网站是否使用Shiro<br><a href="http://k8gege.org/Ladon/IsShiro.html">http://k8gege.org/Ladon/IsShiro.html</a></p><h3 id="多语言DLL插件"><a href="#多语言DLL插件" class="headerlink" title="多语言DLL插件"></a>多语言DLL插件</h3><p>将各种语言编写的dll改成对应语言专用的文件名，放置程序目录即可加载。 多语言插件例子: <a href="https://github.com/k8gege/K8CScan/tree/master/Example" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/Example</a><br>C#插件例子:<a href="https://github.com/k8gege/K8CScan/tree/master/Example/DLL/c#" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/Example/DLL/c#</a><br>Delphi插件例子:<a href="https://github.com/k8gege/K8CScan/tree/master/Example/DLL/delphi" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/Example/DLL/delphi</a><br>VC插件例子: <a href="https://github.com/k8gege/K8CScan/blob/master/Example/DLL/vc" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/blob/master/Example/DLL/vc</a></p><h3 id="INI插件"><a href="#INI插件" class="headerlink" title="INI插件"></a>INI插件</h3><p>用法：Ladon 192.168.1.1/24 *.ini</p><p>此方法较简单，无需编程能力，仅需熟悉相关CMD命令，配置程序名和参数即可。</p><p>根目录创建Ladon.ini文件，仅需两个参数exe和arg,即可实现插件功能。如批量ping<br>Ladon.ini<br>[Ladon]<br>exe=cmd.exe<br>arg=/c ping -n 1 $ip$</p><h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>1.批量Windows机器上控<br><a href="https://github.com/k8gege/K8CScan/wiki/Cscan.ini%E4%BE%8B%E5%AD%90-%E6%89%B9%E9%87%8FWin%E4%B8%8A%E6%8E%A7" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/wiki/Cscan.ini%E4%BE%8B%E5%AD%90-%E6%89%B9%E9%87%8FWin%E4%B8%8A%E6%8E%A7</a></p><p>2.批量SSH机器上控<br><a href="https://github.com/k8gege/K8CScan/wiki/Cscan.ini%E4%BE%8B%E5%AD%90-%E6%89%B9%E9%87%8FSSH%E4%B8%8A%E6%8E%A7" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/wiki/Cscan.ini%E4%BE%8B%E5%AD%90-%E6%89%B9%E9%87%8FSSH%E4%B8%8A%E6%8E%A7</a></p><p>3.Ladon Moudle CVE-2020-1472 Exploit 域控提权神器<br><a href="https://github.com/k8gege/CVE-2020-1472-EXP" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2020-1472-EXP</a></p><p>4.PHP-FPM 远程代码执行漏洞(CVE-2019-11043)<br><a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a></p><p>5.ipcscan.ini INI插件之Ipc密码爆破<br><a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a></p><p>6.smbscan.ini INI插件之Smb密码爆破<br><a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a></p><p>7.smbhash.ini INI插件之NtlmHash爆破<br><a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a></p><p>8.winrmscan.ini INI插件之Winrm密码爆破<br><a href="http://k8gege.org/Ladon/WinrmScan.html">http://k8gege.org/Ladon/WinrmScan.html</a></p><h3 id="PowerShell插件"><a href="#PowerShell插件" class="headerlink" title="PowerShell插件"></a>PowerShell插件</h3><p>1.Ladon Moudle MS17010 Exploit for PowerShell<br><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p><p>2.批量Base64加密解密插件<br><a href="https://github.com/k8gege/K8CScan/wiki/PowerShell%E6%8F%92%E4%BB%B6-%E6%89%B9%E9%87%8FBase64" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/wiki/PowerShell%E6%8F%92%E4%BB%B6-%E6%89%B9%E9%87%8FBase64</a></p><h3 id="生成器插件-exe-dll"><a href="#生成器插件-exe-dll" class="headerlink" title="生成器插件(exe/dll)"></a>生成器插件(exe/dll)</h3><p>Ladon Web Exp生成器包含4种提交方法Get/Post/Put/Move,支持16个Http协议参数。<br>用户无需编程能力，填写HTTP参数即可生成Web漏洞POC，快速扩展Ladon扫描能力。</p><p>1.LadonExp生成器使用教程<br><a href="https://github.com/k8gege/Ladon/wiki/LadonExp-Usage" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/wiki/LadonExp-Usage</a></p><p>2.Ladon插件CVE-2016-3088 ActiveMQ GetShell Exploit<br><a href="https://www.cnblogs.com/k8gege/p/12307455.html" target="_blank" rel="noopener">https://www.cnblogs.com/k8gege/p/12307455.html</a></p><p>3.漏洞扫描 Weblogic CVE-2018-2894<br><a href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2018-2894" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2018-2894</a></p><p>4.ThinkPHP 5.0.22 5.1.29 RCE GetShell Exploit<br><a href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8-ThinkPHP-5.0.22-5.1.29-RCE-GetShell-Exploit" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8-ThinkPHP-5.0.22-5.1.29-RCE-GetShell-Exploit</a></p><p>5.PhpStudy后门 GetShell Exploit<br><a href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-PhpStudy%E5%90%8E%E9%97%A8" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-PhpStudy%E5%90%8E%E9%97%A8</a></p><h3 id="任意EXE插件"><a href="#任意EXE插件" class="headerlink" title="任意EXE插件"></a>任意EXE插件</h3><p>无需编程或配置，只需将任意exe程序改名为scan.exe,即可实现调用。<br>如将XP中的ping.exe改名为scan.exe,执行Ladon即可实现批量ping。<br>注:WIN7的ping改名后无法使用，这不是Ladon无法调用，而是被调用程序已失效<br>scan.exe例子:<br>C#/VC/PYTHON实现无需配置scan.exe例子<br><a href="https://github.com/k8gege/K8CScan/tree/master/Example/EXE" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/Example/EXE</a></p><h3 id="参数加载"><a href="#参数加载" class="headerlink" title="参数加载"></a>参数加载</h3><p>5.2及后续版本支持参数加载DLL，但仅限于C#编写的DLL，无需修改成LadonPoc.dll即可调用<br>自定义插件加载方法，将扫描参数改成对应插件名称即可,如netscan.dll改名成AnyName.dll<br>命令: Ladon AnyName.dll 或 Ladon IP AnyName.dll 或 Ladon URL AnyName.dll</p><h3 id="加载顺序"><a href="#加载顺序" class="headerlink" title="加载顺序"></a>加载顺序</h3><p>指定内置模块或DLL时可直接调用，当存在多种格式插件时，按插件优先级加载<br>Cscan程序目录放插件，当不指定扫描参数时，按顺序加载插件扫描(仅加载一个)<br>netscan.dll &gt; netscan.exe &gt; psscan.ps1 &gt; vcscan.dll &gt; descan.dll &gt; Ladon.ini &gt; scan.exe</p><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>Dll内存加载，性能优，扫描速度快。Ladon.ini启动的是外部进程，性能差，速度可能会慢<br>有能力最好是编写dll,最佳性能为C#编写的DLL或C#写的EXE，C#写的插件兼容性也是最好的<br>难度：DLL需要有一定编程能力,Ladon.ini无需编程能力,请根据自身实际情况进行选择<br>调用scan.exe原理同Ladon.ini，只是无需配置而已，可能会比Ladon.ini速度快一点吧</p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo3.4: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>Ladon 7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>Ladon 8.0版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;一个优秀的扫描器，必须具备可扩展能力，才能满足不同用户的扫描需求。&lt;/p&gt;
+&lt;h3 id=&quot;Ladon扩展&quot;&gt;&lt;a href=&quot;#Ladon
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="diypoc" scheme="http://k8gege.org/tags/diypoc/"/>
+    
+  </entry>
   
   <entry>
     <title>〖提权〗Ladon 8.0五种白名单方法BypaaUAC</title>
@@ -542,38 +571,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
       <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖EXP〗Ladon CVE-2020-0688 Exchange漏洞利用</title>
-    <link href="http://k8gege.org/p/cve-2020-0688.html"/>
-    <id>http://k8gege.org/p/cve-2020-0688.html</id>
-    <published>2020-10-06T03:40:00.000Z</published>
-    <updated>2021-01-17T08:40:47.722Z</updated>
-    
-    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span>%></%></p><p>洞产生的主要原因就是在Exchange ECP组件中发现，邮件服务在安装的过程中不会随机生成秘钥，也就是说所有默认安装的Exchange服务器中的validationKey和decryptionKey的值都是相同的，这些密钥用于保证ViewState的安全性。而ViewState是ASP.NET Web应用以序列化格式存储在客户机上的服务端数据。</p><a id="more"></a><p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";</script><h3 id="漏洞编号"><a href="#漏洞编号" class="headerlink" title="漏洞编号"></a>漏洞编号</h3><p>CVE-2020-0688</p><h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>漏洞产生的主要原因就是在Exchange ECP组件中发现，邮件服务在安装的过程中不会随机生成秘钥，也就是说所有默认安装的Exchange服务器中的validationKey和decryptionKey的值都是相同的，这些密钥用于保证ViewState的安全性。而ViewState是ASP.NET Web应用以序列化格式存储在客户机上的服务端数据。客户端通过__VIEWSTATE请求参数将这些数据返回给服务器。攻击者可以利用默认秘钥对服务器发起攻击，在Exchange web应用上执行任意.net代码。</p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>exchange 2010、2013、2016、2019</p><h3 id="模块类型"><a href="#模块类型" class="headerlink" title="模块类型"></a>模块类型</h3><p>漏洞利用</p><h3 id="模块功能"><a href="#模块功能" class="headerlink" title="模块功能"></a>模块功能</h3><p>已知Exchange帐密，获取目标服务器权限。</p><h3 id="Exchange探测"><a href="#Exchange探测" class="headerlink" title="Exchange探测"></a>Exchange探测</h3><h4 id="PortScan扫描Exchange邮件服务器"><a href="#PortScan扫描Exchange邮件服务器" class="headerlink" title="PortScan扫描Exchange邮件服务器"></a>PortScan扫描Exchange邮件服务器</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ew_portscan.png"></p><h4 id="WhatCms识别Exchange邮件服务器"><a href="#WhatCms识别Exchange邮件服务器" class="headerlink" title="WhatCms识别Exchange邮件服务器"></a>WhatCms识别Exchange邮件服务器</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ew_whatcms.png"></p><h3 id="EXP用法"><a href="#EXP用法" class="headerlink" title="EXP用法"></a>EXP用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon cve-2020-0688 192.168.1.8 Administrator k8gege520</span><br></pre></td></tr></table></figure><p>成功反弹CmdShell，使用exec执行命令<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/cve-2020-0688.PNG"></p><p>参考：<a href="https://github.com/zcgonvh/CVE-2020-0688" target="_blank" rel="noopener">https://github.com/zcgonvh/CVE-2020-0688</a></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p style=&quot;color:#fff;&quot;&gt; 
-&lt;% &lt;span class=&quot;archive-article-date&quot;&gt;
-Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
-
-%&gt;
-&lt;/%&gt;&lt;/p&gt;
-
-&lt;p&gt;洞产生的主要原因就是在Exchange ECP组件中发现，邮件服务在安装的过程中不会随机生成秘钥，也就是说所有默认安装的Exchange服务器中的validationKey和decryptionKey的值都是相同的，这些密钥用于保证ViewState的安全性。而ViewState是ASP.NET Web应用以序列化格式存储在客户机上的服务端数据。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="CVE-2020-0688" scheme="http://k8gege.org/tags/CVE-2020-0688/"/>
     
   </entry>
   
