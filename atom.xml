@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-03-08T14:31:52.859Z</updated>
+  <updated>2021-03-17T13:28:51.492Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖教程〗Ladon内网扫描探测Exchange服务器</title>
+    <link href="http://k8gege.org/p/FindExchange.html"/>
+    <id>http://k8gege.org/p/FindExchange.html</id>
+    <published>2021-03-17T13:08:00.000Z</published>
+    <updated>2021-03-17T13:28:51.492Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="WhatCms识别"><a href="#WhatCms识别" class="headerlink" title="WhatCms识别"></a>WhatCms识别</h3><p>Ladon &gt;= 7.3.2</p><h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon target  WhatCms</p><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>单IP：Ladon 192.168.1.8  WhatCms<br>C段：Ladon 192.168.1.1/c  WhatCms<br>B段：Ladon 192.168.1.1/b  WhatCms</p><h4 id="ip列表"><a href="#ip列表" class="headerlink" title="ip列表"></a>ip列表</h4><p>同目录放ip txt<br>命令：Ladon whatcms</p><h4 id="单个URL"><a href="#单个URL" class="headerlink" title="单个URL"></a>单个URL</h4><p>命令：Ladon <a href="https://192.168.1.8" target="_blank" rel="noopener">https://192.168.1.8</a>  WhatCms</p><h4 id="批量URL："><a href="#批量URL：" class="headerlink" title="批量URL："></a>批量URL：</h4><p>同目录放url.txt<br>命令Ladon whatcms</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ew_whatcms.png"></p><h3 id="PortScan识别"><a href="#PortScan识别" class="headerlink" title="PortScan识别"></a>PortScan识别</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ew_portscan.png"></p><h3 id="FindExchange识别"><a href="#FindExchange识别" class="headerlink" title="FindExchange识别"></a>FindExchange识别</h3><p>LadonGo &gt;= 3.6,此模块可通过IP识别出绑定域名</p><h4 id="FindExchange识别Exchange主机"><a href="#FindExchange识别Exchange主机" class="headerlink" title="FindExchange识别Exchange主机"></a>FindExchange识别Exchange主机</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/exchange_16.PNG"></p><h3 id="CVE-2021-26855"><a href="#CVE-2021-26855" class="headerlink" title="CVE-2021-26855"></a>CVE-2021-26855</h3><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/ex_2021_26855.PNG"></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p><h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.0版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;WhatCms识别&quot;&gt;&lt;a href=&quot;#WhatCms识别&quot; class=&quot;headerlink&quot; title=&quot;WhatCms识别&quot;&gt;&lt;/a&gt;WhatCms识别&lt;/h3&gt;&lt;p&gt;Ladon &amp;gt;= 7.3.2&lt;/p&gt;
+&lt;h4 id=&quot;用法&quot;&gt;&lt;a href=
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
+    
+      <category term="信息收集" scheme="http://k8gege.org/tags/Discover/"/>
+    
+  </entry>
   
   <entry>
     <title>JAVA反序列化漏洞命令执行回显方法</title>
@@ -535,42 +564,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
 %&gt;
 &lt;/%&gt;&lt;/p&gt;
 由于很多杀软对于powershell脚本的查杀能力比较差，所以可以将.NET程序转成PowerShell脚本，当然并非是反编译EXE再将代码转成PowerShell，方法很多，我们用.NET自带函数反射加载执行
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-      <category term="PowerShell" scheme="http://k8gege.org/categories/PowerShell/"/>
-    
-    
-      <category term="PowerShell" scheme="http://k8gege.org/tags/PowerShell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗Ladon九种PowerShell混淆免杀方法</title>
-    <link href="http://k8gege.org/p/LadonPowershellEncode.html"/>
-    <id>http://k8gege.org/p/LadonPowershellEncode.html</id>
-    <published>2020-10-18T14:40:00.000Z</published>
-    <updated>2021-01-17T08:42:04.789Z</updated>
-    
-    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span>%></%></p><p>九种方式随机混淆PowerShell代码，防止管理员轻易还原，至少比默认明文或Base64隐蔽。<br>Base64就不说了是个人都能解，一是常用，二是工具多，管理员懂解很正常，所以不推荐。<br>Ladon提供的混淆方法，每点一次按钮就随机会生成不同的命令，但是执行的都是同个功能<br>管理员想反查就得每一条都研究如何解密，给管理员增加难度，就是给自己增加控制时间。</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/PowershellEncode.html";</script><h3 id="更新功能"><a href="#更新功能" class="headerlink" title="更新功能"></a>更新功能</h3><p>GUI 2020.10.18<br>[+] PowerShell转EXE，EXE转PowerShell<br>    EXE-&gt;Powershell<br>    PowerShell-&gt;EXE<br>[+] 九种PowerShell命令混淆（随机加密）</p><pre><code>HexCommandAsciiCommandBinaryCommandCompressedCommandBXORCommandOctalCommandSpecialCharOnlyCommandSecureStringCommandBase64CommandDecodeBase64</code></pre><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.隐藏执行PowerShell命令代码，不让管理员知道你意图<br>2.PowerShell脚本免杀（很多杀软对脚本的查杀能力很弱）</p><h3 id="演示教程"><a href="#演示教程" class="headerlink" title="演示教程"></a>演示教程</h3><p>文本框1填写PowerShell代码或PowerShell命令（包含在Powershell中能执行的CMD命令）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Write-Host <span class="string">'Hello K8gege!'</span> -ForegroundColor Green; </span><br><span class="line">Write-Host <span class="string">'Fuck you!'</span> -ForegroundColor Green;</span><br><span class="line">whoami</span><br></pre></td></tr></table></figure><p>点击中间按钮对PowerShell进行加密<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_PowershellEncode.PNG"></p><p>加密生成的代码可直接在CMD中执行<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/gui/LadonEncodePSHcmd.PNG"></p><h3 id="随机加密"><a href="#随机加密" class="headerlink" title="随机加密"></a>随机加密</h3><p>九种方式随机混淆PowerShell代码，防止管理员轻易还原，至少比默认明文或Base64隐蔽。<br>如图对同一份代码加密，每点按钮一次，都会生成不同的加密代码(Base64除外)</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_PowerShellEncode.gif"></p><h3 id="Exe-gt-Powershell"><a href="#Exe-gt-Powershell" class="headerlink" title="Exe-&gt;Powershell"></a>Exe-&gt;Powershell</h3><p>Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe/EXE转PowerShell<br><a href="http://k8gege.org/Ladon/Exe2Powershell.html">http://k8gege.org/Ladon/Exe2Powershell.html</a></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p style=&quot;color:#fff;&quot;&gt; 
-&lt;% &lt;span class=&quot;archive-article-date&quot;&gt;
-Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
-
-%&gt;
-&lt;/%&gt;&lt;/p&gt;
-
-
-&lt;p&gt;九种方式随机混淆Po
-      
     
     </summary>
     
