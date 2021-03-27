@@ -1311,7 +1311,8 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   <entry>
     <title>〖工具〗ysoserial修改版支持代码生成Payload</title>
     <url>/p/ysoserial.html</url>
-    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ysoserial是一款目前最流行的Java反序列化Payload生成工具，目前支持29种的Payload生成。一般该工具可生成执行任意命令的序列化对象，通过对工具代码进行简单修改，也可使其执行任意的Java代码，以此来绕过对命令执行的限制。</p>
+    <content><![CDATA[<p>很久没用过这工具了，最近发现ysoserial在2个月前有更新过即最新版本是2021年1月，于是使用jdk1.7和1.8重新编译一下。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ysoserial是一款目前最流行的Java反序列化Payload生成工具，目前支持29种的Payload生成。一般该工具可生成执行任意命令的序列化对象，通过对工具代码进行简单修改，也可使其执行任意的Java代码，以此来绕过对命令执行的限制。</p>
 <p>主页：<a href="https://github.com/frohoff/ysoserial" target="_blank" rel="noopener">https://github.com/frohoff/ysoserial</a></p>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">  java -jar ysoserial.jar</span></span><br><span class="line">Y SO SERIAL?</span><br><span class="line">Usage: java -jar ysoserial.jar [payload] '[command]'</span><br><span class="line">  Available payload types:</span><br><span class="line">     Payload             Authors                     Dependencies</span><br><span class="line">     -------             -------                     ------------</span><br><span class="line">     AspectJWeaver       @Jang                       aspectjweaver:1.9.2, commons-collections:3.2.2</span><br><span class="line">     BeanShell1          @pwntester, @cschneider4711 bsh:2.0b5</span><br><span class="line">     C3P0                @mbechler                   c3p0:0.9.5.2, mchange-commons-java:0.2.11</span><br><span class="line">     Click1              @artsploit                  click-nodeps:2.3.0, javax.servlet-api:3.1.0</span><br><span class="line">     Clojure             @JackOfMostTrades           clojure:1.8.0</span><br><span class="line">     CommonsBeanutils1   @frohoff                    commons-beanutils:1.9.2, commons-collections:3.1, commons-logging:1.2</span><br><span class="line">     CommonsCollections1 @frohoff                    commons-collections:3.1</span><br><span class="line">     CommonsCollections2 @frohoff                    commons-collections4:4.0</span><br><span class="line">     CommonsCollections3 @frohoff                    commons-collections:3.1</span><br><span class="line">     CommonsCollections4 @frohoff                    commons-collections4:4.0</span><br><span class="line">     CommonsCollections5 @matthias_kaiser, @jasinner commons-collections:3.1</span><br><span class="line">     CommonsCollections6 @matthias_kaiser            commons-collections:3.1</span><br><span class="line">     CommonsCollections7 @scristalli, @hanyrax, @EdoardoVignati commons-collections:3.1</span><br><span class="line">     FileUpload1         @mbechler                   commons-fileupload:1.3.1, commons-io:2.4</span><br><span class="line">     Groovy1             @frohoff                    groovy:2.3.9</span><br><span class="line">     Hibernate1          @mbechler</span><br><span class="line">     Hibernate2          @mbechler</span><br><span class="line">     JBossInterceptors1  @matthias_kaiser            javassist:3.12.1.GA, jboss-interceptor-core:2.0.0.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21</span><br><span class="line">     JRMPClient          @mbechler</span><br><span class="line">     JRMPListener        @mbechler</span><br><span class="line">     JSON1               @mbechler                   json-lib:jar:jdk15:2.4, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2, commons-lang:2.6, ezmorph:1.0.6, commons-beanutils:1.9.2, spring-core:4.1.4.RELEASE, commons-collections:3.1</span><br><span class="line">     JavassistWeld1      @matthias_kaiser            javassist:3.12.1.GA, weld-core:1.1.33.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21</span><br><span class="line">     Jdk7u21             @frohoff</span><br><span class="line">     Jython1             @pwntester, @cschneider4711 jython-standalone:2.5.2</span><br><span class="line">     MozillaRhino1       @matthias_kaiser            js:1.7R2</span><br><span class="line">     MozillaRhino2       @_tint0                     js:1.7R2</span><br><span class="line">     Myfaces1            @mbechler</span><br><span class="line">     Myfaces2            @mbechler</span><br><span class="line">     ROME                @mbechler                   rome:1.0</span><br><span class="line">     Spring1             @frohoff                    spring-core:4.1.4.RELEASE, spring-beans:4.1.4.RELEASE</span><br><span class="line">     Spring2             @mbechler                   spring-core:4.1.4.RELEASE, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2</span><br><span class="line">     URLDNS              @gebl</span><br><span class="line">     Vaadin1             @kai_ullrich                vaadin-server:7.7.14, vaadin-shared:7.7.14</span><br><span class="line">     Wicket1             @jacob-baines               wicket-util:6.23.0, slf4j-api:1.6.4</span><br></pre></td></tr></table></figure>
 
@@ -4341,14 +4342,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p>注意：我这里说的是不推荐用MSF中的PowerShell加载模块，并不是说MSF。<br>如同说霍金身体残废，但却没有说他是废人哦，何况只是说他一只手受伤。</p>
 ]]></content>
       <categories>
+        <category>Metasploit</category>
         <category>.NET</category>
         <category>PowerShell</category>
-        <category>Metasploit</category>
       </categories>
       <tags>
         <tag>Metasploit</tag>
-        <tag>.NET</tag>
         <tag>PowerShell</tag>
+        <tag>.NET</tag>
         <tag>C#</tag>
         <tag>MSF</tag>
         <tag>meterpreter</tag>
@@ -4958,6 +4959,35 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
+    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
+    <url>/p/9cffe32c.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
+<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
+<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
+<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
+<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
+<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
+<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
+<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
+<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
+<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>免杀</category>
+        <category>Metasploit</category>
+        <category>Cobalt Strike</category>
+        <category>ShellCode</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>K8 Struts2 EXP 综合漏洞利用工具</title>
     <url>/p/ab3e87f7.html</url>
     <content><![CDATA[<p>工具:&nbsp;K8&nbsp;Struts2&nbsp;Exploit<br>组织:&nbsp;K8搞基大队[K8team]<br>作者:&nbsp;K8拉登哥哥<br>博客:&nbsp;<a href="http://qqhack8.blog.163.com" target="_blank">http://qqhack8.blog.163.com</a><br>发布:&nbsp;2014/7/31&nbsp;10:24:56<br><br>简介: <br><br>K8 Struts2 综合漏洞利用工具 (Apache Struts Remote Code Execution Exploit)<br>Struts2漏洞检测工具&nbsp;&nbsp; Struts2漏洞测试工具&nbsp; K8 struts2 exploit Test&nbsp; Struts2 GetShell<br>支持漏洞 (S2-045 devMode S2-032&nbsp; s2-020&nbsp; s2-019&nbsp; s2-016&nbsp; s2-013&nbsp; s2-009 S2-005)&nbsp; <br><br>声明:工具仅供安全检测或网络攻防研究,非法用途后果自负.<br>图片: <br><img alt data-original="http://k8gege.org/k8img/posts/S2exp1.png"></p>
@@ -5002,35 +5032,6 @@ Microsoft Windows 10 for 32-bit Systems 0
         <tag>Tool</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
-    <url>/p/9cffe32c.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
-<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
-<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
-<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
-<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
-<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
-<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
-<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
-<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
-<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Cobalt Strike</category>
-        <category>Metasploit</category>
-        <category>ShellCode</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -5119,13 +5120,53 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
         <category>Ladon</category>
         <category>源码</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
         <tag>Tool</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.NET端口转发工具PortTran</title>
+    <url>/p/3f55538f.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
+<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
+<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
+<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
+<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
+<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
+<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
+<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">0x001 VPS监听
+PortTranS.exe 8000 338
+
+<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
+<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
+</div>
+<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
+<p>1.vps监听</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran1.png"></p>
+<p>2.目标内网3389端口转发</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran2.png"></p>
+<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran3.png"></p>
+<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
+<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
+<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
+<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
+<p>&nbsp;</p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>.NET</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>PortTran</tag>
       </tags>
   </entry>
   <entry>
@@ -5230,8 +5271,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -5240,46 +5281,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.NET端口转发工具PortTran</title>
-    <url>/p/3f55538f.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
-<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
-<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
-<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
-<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
-<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
-<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
-<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">0x001 VPS监听
-PortTranS.exe 8000 338
-
-<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
-<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
-</div>
-<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
-<p>1.vps监听</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran1.png"></p>
-<p>2.目标内网3389端口转发</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran2.png"></p>
-<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran3.png"></p>
-<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
-<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
-<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
-<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
-<p>&nbsp;</p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>.NET</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>PortTran</tag>
       </tags>
   </entry>
   <entry>
@@ -5403,8 +5404,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -5756,12 +5757,12 @@ from pprint import pprint
         <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>Python</tag>
       </tags>
   </entry>
