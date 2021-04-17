@@ -203,7 +203,6 @@
 <p><img alt="image" data-original="http://k8gege.org/k8img/posts/portmap_ladon.PNG"></p>
 <h3 id="本地MSF渗透内网MS17010"><a href="#本地MSF渗透内网MS17010" class="headerlink" title="本地MSF渗透内网MS17010"></a>本地MSF渗透内网MS17010</h3><p>由于目标内网IP段是192.2.0段，而我们本地是192.168段，MSF直接打是不行的，所以我们需要将渗透机的某个端口转向目标内网端口。如设置555端口，目标445端口，目标对应内网IP，本地使用MSF打渗透机的555,即相当于打目标的445。这里由于电脑内存小不想多开个kali，所以MSF直接装在渗透机了，那么使用MSF直接打127就可以了。如果你打开的是KALI，在KALI里的MSF就打192.168.1.X的555端口。</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/posts/portmap_msf.PNG"></p>
-<p>PS：其实你用各种端口转发工具也是一样，只是那些都是命令行的，修改IP又得重敲命令，麻烦</p>
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p>
 <h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.0版本：K8小密圈</p>
 
