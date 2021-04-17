@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-03-27T09:52:51.806Z</updated>
+  <updated>2021-04-17T14:24:36.571Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖教程〗K8PortMap使用（本地MSF渗透内网MS17010）</title>
+    <link href="http://k8gege.org/p/portmap.html"/>
+    <id>http://k8gege.org/p/portmap.html</id>
+    <published>2021-04-17T13:10:00.000Z</published>
+    <updated>2021-04-17T14:24:36.571Z</updated>
+    
+    <content type="html"><![CDATA[<p>#工具分享<br>2013年Delphi写的端口转发工具，主要用于本地测试，GUI非常方便，一键启动。正因为是GUI的，我已经很久没用过了，本地测试的时候，还用netsh加规则…刚有个朋友问我要GUI的转发工具才想起来工具包里有这么个东西…</p><p>应用场景：<br>1.本地内网各种协议自定义端口(如888的SSH端口、666的SMB端口）方便调式各类爆破工具或EXP针对自定义端口的测试。可测试Ladon自定义SSH端口爆破。<br>2.端口转发，最直接不用说，如访问本机的51端口，可直接连到远程或内网对应的3389，其它端口同理。<br>3.本地转发到VPS对应的Socks5端口，连接本地内网对应的端口，即相当于把代理映射到内网。如连接本地192.168.1.8的1080，实际上就是VPS的1080端口socks5代理。<br>4.配合某些烦琐的工具使用，如MS17010原版EXP，代理出来后，打不同的内网IP就得都填写一次IP，如果使用该工具，就可以只输入一次内网IP，使用EXP时只用打本机特定端口就好，打下一个IP，只需在转发工具里填写，NSA的EXP只需回车即可，非常高效方便。一是能解决某些EXP工具不支持自定义端口的问题，如目标445转发到VPS的888端口，由于某些工具不支持888端口，只能打445，这时也可以使用该工具。</p><h3 id="Ladon探测内网MS17010漏洞"><a href="#Ladon探测内网MS17010漏洞" class="headerlink" title="Ladon探测内网MS17010漏洞"></a>Ladon探测内网MS17010漏洞</h3><p>由于之前已扫过整个C段，确定存在漏洞的机器IP范围,使用Ladon直接扫特定IP范围即可，由于目标机器禁Ping，所以Ladon需要noping参数,如以下命令为只探测1-50的机器是否存在MS17010漏洞，Ladon出这么久，估计还有些同学不懂用吧，Ladon非常智能，你只想扫一个IP，一个URL，特定IP区间，特定IP段，批量IP，批量IP段，它它它都可以，支持TXT列表，跨网段等，无需另外找其它工具。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon noping 192.168.1.1-192.168.1.50 ms17010</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/posts/portmap_ladon.PNG"></p><h3 id="本地MSF渗透内网MS17010"><a href="#本地MSF渗透内网MS17010" class="headerlink" title="本地MSF渗透内网MS17010"></a>本地MSF渗透内网MS17010</h3><p>由于目标内网IP段是192.2.0段，而我们本地是192.168段，MSF直接打是不行的，所以我们需要将渗透机的某个端口转向目标内网端口。如设置555端口，目标445端口，目标对应内网IP，本地使用MSF打渗透机的555,即相当于打目标的445。这里由于电脑内存小不想多开个kali，所以MSF直接装在渗透机了，那么使用MSF直接打127就可以了。如果你打开的是KALI，在KALI里的MSF就打192.168.1.X的555端口。</p><p><img alt="image" data-original="http://k8gege.org/k8img/posts/portmap_msf.PNG"></p><p>PS：其实你用各种端口转发工具也是一样，只是那些都是命令行的，修改IP又得重敲命令，麻烦</p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p><h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.0版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#工具分享&lt;br&gt;2013年Delphi写的端口转发工具，主要用于本地测试，GUI非常方便，一键启动。正因为是GUI的，我已经很久没用过了，本地测试的时候，还用netsh加规则…刚有个朋友问我要GUI的转发工具才想起来工具包里有这么个东西…&lt;/p&gt;
+&lt;p&gt;应用场景：&lt;br&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="内网渗透" scheme="http://k8gege.org/categories/Lan-Pentest/"/>
+    
+    
+      <category term="内网渗透" scheme="http://k8gege.org/tags/Lan-Pentest/"/>
+    
+  </entry>
   
   <entry>
     <title>〖工具〗ysoserial修改版支持代码生成Payload</title>
@@ -548,32 +575,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="CVE-2020-17144" scheme="http://k8gege.org/tags/CVE-2020-17144/"/>
     
       <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖工具〗LadonGo开源全平台内网渗透扫描器</title>
-    <link href="http://k8gege.org/p/LadonGo.html"/>
-    <id>http://k8gege.org/p/LadonGo.html</id>
-    <published>2020-11-06T13:40:00.000Z</published>
-    <updated>2021-03-17T12:39:16.788Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGo一款开源内网渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测等。3.6版本包含28个模块功能，高危漏洞检测MS17010、SmbGhost，远程执行SshCmd、WinrmCmd、PhpShell，10种协议密码爆破Smb/Ssh/Ftp/Mysql/Mssql/Oracle/Sqlplus/Winrm/HttpBasic/Redis，存活探测/信息收集/指纹识别OnlinePC、Ping、Icmp、SnmpScan，HttpBanner、HttpTitle、TcpBanner、WeblogicScan、OxidScan，端口扫描/服务探测PortScan。</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/LadonGo.html";</script><h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><h4 id="Detection"><a href="#Detection" class="headerlink" title="Detection"></a>Detection</h4><table><thead><tr><th>.</th><th>.</th></tr></thead><tbody><tr><td>OnlinePC</td><td>(Using ICMP/SNMP/Ping detect Online hosts)</td></tr><tr><td>PingScan</td><td>(Using system ping to detect Online hosts)</td></tr><tr><td>IcmpScan</td><td>(Using ICMP Protocol to detect Online hosts)</td></tr><tr><td>SnmpScan</td><td>(Using Snmp Protocol to detect Online hosts)</td></tr><tr><td>HttpBanner</td><td>(Using HTTP Protocol Scan Web Banner)</td></tr><tr><td>HttpTitle</td><td>(Using HTTP protocol Scan Web titles)</td></tr><tr><td>T3Scan</td><td>(Using T3 Protocol Scan Weblogic hosts)</td></tr><tr><td>PortScan</td><td>(Scan hosts open ports using TCP protocol)</td></tr><tr><td>TcpBanner</td><td>(Scan hosts open ports using TCP protocol)</td></tr><tr><td>OxidScan</td><td>(Using dcom Protocol enumeration network interfaces)</td></tr></tbody></table><h4 id="VulDetection"><a href="#VulDetection" class="headerlink" title="VulDetection"></a>VulDetection</h4><table><thead><tr><th>.</th><th>.</th></tr></thead><tbody><tr><td>MS17010</td><td>(Using SMB Protocol to detect MS17010 hosts)</td></tr><tr><td>SmbGhost</td><td>(Using SMB Protocol to detect SmbGhost hosts)</td></tr><tr><td>CVE-2021-21972</td><td>(Check VMware vCenter 6.5 6.7 7.0 Rce Vul)</td></tr><tr><td>CVE-2021-26855</td><td>(Check CVE-2021-26855 Microsoft Exchange SSRF)</td></tr></tbody></table><h4 id="BruteForce"><a href="#BruteForce" class="headerlink" title="BruteForce"></a>BruteForce</h4><table><thead><tr><th>.</th><th>.</th></tr></thead><tbody><tr><td>SmbScan</td><td>(Using SMB Protocol to Brute-For 445 Port)</td></tr><tr><td>SshScan</td><td>(Using SSH Protocol to Brute-For 22 Port)</td></tr><tr><td>FtpScan</td><td>(Using FTP Protocol to Brute-For 21 Port)</td></tr><tr><td>401Scan</td><td>(Using HTTP BasicAuth to Brute-For web Port)</td></tr><tr><td>MysqlScan</td><td>(Using Mysql Protocol to Brute-For 3306 Port)</td></tr><tr><td>MssqlScan</td><td>(Using Mssql Protocol to Brute-For 1433 Port)</td></tr><tr><td>OracleScan</td><td>(Using Oracle Protocol to Brute-For 1521 Port)</td></tr><tr><td>WinrmScan</td><td>(Using Winrm Protocol to Brute-For 5985 Port)</td></tr><tr><td>SqlplusScan</td><td>(Using Oracle Sqlplus Brute-For 1521 Port)</td></tr><tr><td>RedisScan</td><td>(Using Redis Protocol to Brute-For 6379 Port)</td></tr></tbody></table><h4 id="RemoteExec"><a href="#RemoteExec" class="headerlink" title="RemoteExec"></a>RemoteExec</h4><table><thead><tr><th>.</th><th>.</th></tr></thead><tbody><tr><td>SshCmd</td><td>(SSH Remote command execution Default 22 Port)</td></tr><tr><td>WinrmCmd</td><td>(Winrm Remote command execution Default 5985 Port)</td></tr><tr><td>PhpShell</td><td>(Php WebShell command execution Default 80 Port)</td></tr></tbody></table><h4 id="Exploit"><a href="#Exploit" class="headerlink" title="Exploit"></a>Exploit</h4><table><thead><tr><th>.</th><th>.</th></tr></thead><tbody><tr><td>PhpStudyDoor</td><td>(PhpStudy 2016 &amp; 2018 BackDoor Exploit)</td></tr></tbody></table><h3 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/k8gege/LadonGo</span><br><span class="line">go build Ladon.go</span><br></pre></td></tr></table></figure><h3 id="快速编译"><a href="#快速编译" class="headerlink" title="快速编译"></a>快速编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make windows</span><br><span class="line">make linux</span><br><span class="line">make mac</span><br></pre></td></tr></table></figure><h3 id="一键安装"><a href="#一键安装" class="headerlink" title="一键安装"></a>一键安装</h3><h4 id="Linux-Mac"><a href="#Linux-Mac" class="headerlink" title="Linux/Mac"></a>Linux/Mac</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure><h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run install.go</span><br></pre></td></tr></table></figure><h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h4><p>Ladon help<br>Ladon Detection<br>Ladon BruteForce</p><h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon IP/机器名/CIDR 扫描模块</p><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="信息收集、漏洞检测"><a href="#信息收集、漏洞检测" class="headerlink" title="信息收集、漏洞检测"></a>信息收集、漏洞检测</h5><p>Ping扫描C段存活主机（任意权限）<br>Ladon 192.168.1.8/24 PingScan</p><p>ICMP扫描C段存活主机(管理员权限)<br>Ladon 192.168.1.8/24 IcmpScan</p><p>SMB扫描C段永恒之蓝MS17010漏洞主机<br>Ladon 192.168.1.8/24 MS17010</p><p>SMB扫描C段永恒之黑SmbGhost漏洞主机<br>Ladon 192.168.1.8/24 SmbGhost</p><p>T3扫描C段开放WebLogic的主机<br>Ladon 192.168.1.8/24 T3Scan</p><p>HTTP扫描C段开放Web站点Banner<br>Ladon 192.168.1.8/24 BannerScan</p><h5 id="密码爆破、弱口令"><a href="#密码爆破、弱口令" class="headerlink" title="密码爆破、弱口令"></a>密码爆破、弱口令</h5><p>扫描C段445端口Windows机器弱口令<br>Ladon 192.168.1.8/24 SmbScan</p><p>扫描C段22端口Linux机器SSH弱口令<br>Ladon 192.168.1.8/24 SshScan</p><p>扫描C段21端口FTP服务器弱口令<br>Ladon 192.168.1.8/24 SshScan</p><p>扫描C段3306端口Mysql服务器弱口令<br>Ladon 192.168.1.8/24 SshScan</p><h3 id="扫描速度"><a href="#扫描速度" class="headerlink" title="扫描速度"></a>扫描速度</h3><p>1.和Ladon一样，ICMP探测C段仅需1秒<br>2.Ping扫描C段大约11秒，支持任意权限<br>3.其它模块自行测试</p><h3 id="跨平台-全平台-全系统"><a href="#跨平台-全平台-全系统" class="headerlink" title="跨平台/全平台/全系统"></a>跨平台/全平台/全系统</h3><h4 id="TestOn"><a href="#TestOn" class="headerlink" title="TestOn"></a>TestOn</h4><table><thead><tr><th>ID</th><th>OS</th></tr></thead><tbody><tr><td>0</td><td>WinXP</td></tr><tr><td>1</td><td>Win 2003</td></tr><tr><td>2</td><td>Win 7</td></tr><tr><td>3</td><td>Win 8.1</td></tr><tr><td>4</td><td>Win 10</td></tr><tr><td>5</td><td>Win 2008 R2</td></tr><tr><td>6</td><td>Win 2012 R2</td></tr><tr><td>7</td><td>Kali 2019</td></tr><tr><td>8</td><td>SUSE 10</td></tr><tr><td>9</td><td>CentOS 5.8</td></tr><tr><td>10</td><td>CentOS 6.8</td></tr><tr><td>11</td><td>Fedora 5</td></tr><tr><td>12</td><td>RedHat 5.7</td></tr><tr><td>13</td><td>BT5-R3  (Ubuntu 8)</td></tr><tr><td>14</td><td>MacOS 10.15</td></tr></tbody></table><p>以上系统测试成功，其它系统未测，若某些系统不支持可自行编译</p><h4 id="MacOS-x64-10-15"><a href="#MacOS-x64-10-15" class="headerlink" title="MacOS x64 10.15"></a>MacOS x64 10.15</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/MacMS17010.png"></p><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/LnxMS17010.PNG"></p><h4 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h4><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/WinMS17010.PNG"></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a></p><h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.0版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;LadonGo一款开源内网渗透扫描器框架，使用它可轻松一键探测C段、B段、A段存活主机、指纹识别、端口扫描、密码爆破、远程执行、高危漏洞检测
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="LadonGo" scheme="http://k8gege.org/tags/LadonGo/"/>
     
   </entry>
   
