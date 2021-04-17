@@ -1309,7 +1309,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>〖教程〗K8PortMap使用（本地MSF渗透内网MS17010）</title>
+    <title>〖教程〗K8PortMap使用-MSF渗透内网MS17010</title>
     <url>/p/portmap.html</url>
     <content><![CDATA[<p>#工具分享<br>2013年Delphi写的端口转发工具，主要用于本地测试，GUI非常方便，一键启动。正因为是GUI的，我已经很久没用过了，本地测试的时候，还用netsh加规则…刚有个朋友问我要GUI的转发工具才想起来工具包里有这么个东西…</p>
 <p>应用场景：<br>1.本地内网各种协议自定义端口(如888的SSH端口、666的SMB端口）方便调式各类爆破工具或EXP针对自定义端口的测试。可测试Ladon自定义SSH端口爆破。<br>2.端口转发，最直接不用说，如访问本机的51端口，可直接连到远程或内网对应的3389，其它端口同理。<br>3.本地转发到VPS对应的Socks5端口，连接本地内网对应的端口，即相当于把代理映射到内网。如连接本地192.168.1.8的1080，实际上就是VPS的1080端口socks5代理。<br>4.配合某些烦琐的工具使用，如MS17010原版EXP，代理出来后，打不同的内网IP就得都填写一次IP，如果使用该工具，就可以只输入一次内网IP，使用EXP时只用打本机特定端口就好，打下一个IP，只需在转发工具里填写，NSA的EXP只需回车即可，非常高效方便。一是能解决某些EXP工具不支持自定义端口的问题，如目标445转发到VPS的888端口，由于某些工具不支持888端口，只能打445，这时也可以使用该工具。</p>
@@ -4961,6 +4961,26 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
     <url>/p/9cffe32c.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
@@ -4987,26 +5007,6 @@ Microsoft Windows 10 for 32-bit Systems 0
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -5613,6 +5613,29 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
+    <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
+    <url>/p/77429fa6.html</url>
+    <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
+<p>EXE版需要其它功能请使用原版 (参数已写死仅读密码)</p>
+<p>结果保存于当前目录mz.log</p>
+<p>EXE</p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/mz.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz.exe</a></p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/mz64.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz64.exe</a></p>
+<p>PowerShell</p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+        <category>密码</category>
+        <category>PowerShell</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>PowerShell</tag>
+        <tag>mimikatz</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
     <url>/p/b8e58f69.html</url>
     <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
@@ -5763,29 +5786,6 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
-    <url>/p/77429fa6.html</url>
-    <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
-<p>EXE版需要其它功能请使用原版 (参数已写死仅读密码)</p>
-<p>结果保存于当前目录mz.log</p>
-<p>EXE</p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/mz.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz.exe</a></p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/mz64.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/mz64.exe</a></p>
-<p>PowerShell</p>
-<p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-        <category>密码</category>
-        <category>PowerShell</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>PowerShell</tag>
-        <tag>mimikatz</tag>
       </tags>
   </entry>
 </search>
