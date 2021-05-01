@@ -92,9 +92,9 @@
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
     
-      <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
-    
       <category term="信息收集" scheme="http://k8gege.org/tags/Discover/"/>
+    
+      <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
     
   </entry>
   
@@ -121,9 +121,9 @@
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
     
     
-      <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
-    
       <category term="信息收集" scheme="http://k8gege.org/tags/Discover/"/>
+    
+      <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
     
   </entry>
   
@@ -571,9 +571,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
-      <category term="CVE-2020-17144" scheme="http://k8gege.org/tags/CVE-2020-17144/"/>
-    
       <category term="Exchange" scheme="http://k8gege.org/tags/Exchange/"/>
+    
+      <category term="CVE-2020-17144" scheme="http://k8gege.org/tags/CVE-2020-17144/"/>
     
   </entry>
   
