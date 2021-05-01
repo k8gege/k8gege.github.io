@@ -22,7 +22,7 @@
 <meta name="keywords" content="命令执行">
 
 
-<meta name="description" content="前言很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法（http://k8gege.org/Ladon/web_javarce.htm...">
+<meta name="description" content="前言很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法http://k8gege.org/Ladon/web_javarce.html...">
 
 
 <meta name="robots" content="all">
@@ -195,10 +195,12 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法（<a href="http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。">http://k8gege.org/Ladon/web_javarce.html）。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。</a></p>
-<h3 id="启动WEB"><a href="#启动WEB" class="headerlink" title="启动WEB"></a>启动WEB</h3><p>Ladon web 800</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法<a href="http://k8gege.org/Ladon/web_javarce.html。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。">http://k8gege.org/Ladon/web_javarce.html。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。</a></p>
+<h3 id="启动WEB"><a href="#启动WEB" class="headerlink" title="启动WEB"></a>启动WEB</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></table></figure>
+
 <p>PS: 建议使用8.1以后版本，以免netstat -an等长度过长结果无法接收</p>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>GetInfo:<br>/ip.txt or ip.jpg        Get Target WanIP<br>/getstr/AnyString        Get Request String<br>/getb64/AnyString        Base64 Encode (Request String)<br>/deb64/Base64String      Base64 Decode (Request String)<br>/deb64txt/Base64String      Base64 Decode Save TXT</p>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/ip.txt or ip.jpg        Get Target WanIP</span><br><span class="line">/getstr/AnyString        Get Request String</span><br><span class="line">/getb64/AnyString        Base64 Encode (Request String)</span><br><span class="line">/deb64/Base64String      Base64 Decode (Request String)</span><br><span class="line">/deb64txt/Base64String      Base64 Decode Save TXT</span><br></pre></td></tr></table></figure>
+
 <h3 id="浏览器回显"><a href="#浏览器回显" class="headerlink" title="浏览器回显"></a>浏览器回显</h3><p>由于是HTTP协议，可以通过浏览器访问得到Ladon回显BASE64解密结果，就是说我们只要通过命令行发送HTTP请求即可在Ladon控制台看到命令执行后的结果。getstr为发送明文，但是结果中有特殊字符或换行就无法HTTP请求了，所以我们使用BASE64加密，这个原理我们在JAVA反序列化漏洞回显中有提到过。</p>
 <h4 id="明文回显"><a href="#明文回显" class="headerlink" title="明文回显"></a>明文回显</h4><p><a href="http://192.168.1.43:800/getstr/cve2020" target="_blank" rel="noopener">http://192.168.1.43:800/getstr/cve2020</a></p>
 <h4 id="Base64回显"><a href="#Base64回显" class="headerlink" title="Base64回显"></a>Base64回显</h4><p><a href="http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=" target="_blank" rel="noopener">http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=</a></p>
