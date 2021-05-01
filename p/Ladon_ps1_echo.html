@@ -22,7 +22,7 @@
 <meta name="keywords" content="命令执行">
 
 
-<meta name="description" content="前言很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法http://k8gege.org/Ladon/web_javarce.html...">
+<meta name="description" content="前言很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certuti...">
 
 
 <meta name="robots" content="all">
@@ -195,7 +195,7 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法<a href="http://k8gege.org/Ladon/web_javarce.html。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。">http://k8gege.org/Ladon/web_javarce.html。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。</a></p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。JAVA篇：<a href="http://k8gege.org/Ladon/web_javarce.html">http://k8gege.org/Ladon/web_javarce.html</a></p>
 <h3 id="启动WEB"><a href="#启动WEB" class="headerlink" title="启动WEB"></a>启动WEB</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></table></figure>
 
 <p>PS: 建议使用8.1以后版本，以免netstat -an等长度过长结果无法接收</p>
