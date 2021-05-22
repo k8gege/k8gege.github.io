@@ -1,5 +1,21 @@
 Wiki: http://k8gege.org/Ladon
 
+
+Ladon 8.3 2021.5.21
+[+]单线程	例子: Ladon noping 192.168.0.1/24 smbinfo t=1
+[u]Ping		系统自带ping只回显一条结果
+[u]PortScan	修复自定义端口不支持noping参数问题
+[u]base64/base64txt	    支持linux curl命令回显&解密
+[u]webser				支持linux cancel命令回显
+[u]webser				支持linux whois命令回显&解密
+[u]webser				修复非HTTP协议崩溃的Bug
+
+LadonGUI 8.3 2021.5.21
+[+]OnlinePC SmbInfo/WmiInfo/MssqlInfo/WinrmInfo/ExchangeInfo
+[u]简明wiki更新至8.3共112模块用法
+[u]Netcat  支持whois命令&Base64回显
+[u]Gui界面美化-增加图标，模块更直观
+
 Ladon 8.2 2021.5.15
 基于NTLM探测Windows版本信息
 [+] WmiInfo 		(135)
@@ -8,6 +24,7 @@ Ladon 8.2 2021.5.15
 [+] MssqlInfo		(1433)
 [+] ExchangeInfo	(443)
 [+] RdpInfo			(3389)
+[+] WmiExec			Base64cmd解决Cobalt Strike无法解析空格引号参数
 [+] WmiExec2		支持文件上传、Base64cmd解决CS解析空格引号的问题
 [+] Ping			重新启用系统Ping检测存活主机(目标PS1版本检测不到)
 
