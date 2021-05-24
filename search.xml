@@ -1309,7 +1309,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>利用Ladon实现简单C2免杀所有杀软</title>
+    <title>利用Ladon实现C2免杀所有杀软</title>
     <url>/p/Ladon_rat.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>写了几篇无回显命令执行漏洞Ladon回显方法，接下来我们它升级，既然我们可以通过漏洞执行无回显命令都可以得到回显，那么我们自己写的程序不是更轻而易举吗？所谓远控不过就是通过各种协议传输攻击者的操作指令与结果而已。早期都是用TCP协议实现，之后FTP、HTTP（什么网盘、邮箱、博客等都是并非什么新方式只是换个网址或API而已），大家常用的CS也是HTTP协议，本文用Ladon来实现个简单的C2。</p>
 <h3 id="启动WEB"><a href="#启动WEB" class="headerlink" title="启动WEB"></a>启动WEB</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></table></figure>
@@ -3457,11 +3457,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6027,12 +6027,12 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>嗅探</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
