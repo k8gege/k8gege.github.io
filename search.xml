@@ -1343,7 +1343,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 <h3 id="免杀virscan所有杀软"><a href="#免杀virscan所有杀软" class="headerlink" title="免杀virscan所有杀软"></a>免杀virscan所有杀软</h3><p><img alt="image" data-original="http://k8gege.org/k8img/posts/ladonrat/bypass_allav.PNG"></p>
 <p><a href="https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9" target="_blank" rel="noopener">https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9</a></p>
 <p>显然很多杀软很垃圾的，对于自己写的RAT依旧轻松免杀,所以那些说自己写的没几个人用的非公开马只能过一两个杀软认为自己牛B的，其实免杀水平都不怎样。当你写个公开的工具且很多人使用，依旧能免杀才叫牛，不是写一个没几个人用的东西免杀几个月还认为免杀牛逼，忽悠不会写马的菜B认为免杀难的差不多。你免杀别人公开的大量人用的东西当然难，不公开的东西可能并不需要怎么修改都免杀，功能越少越容易做，难个蛋蛋。</p>
-<h3 id="以色列杀软牛B"><a href="#以色列杀软牛B" class="headerlink" title="以色列杀软牛B"></a>以色列杀软牛B</h3><p>突然想起还有一个杀软网站，测试后发现来自以色列的杀软第一个杀了，这种出现HTTP请求和CMD执行的，那些不杀的杀软，至少也要报个可疑才对。居然不报，还是以色列牛逼<br><img alt="image" data-original="http://k8gege.org/k8img/posts/ladonrat/bypass_allav.PNG"><br><a href="https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection" target="_blank" rel="noopener">https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection</a></p>
+<h3 id="以色列杀软牛B"><a href="#以色列杀软牛B" class="headerlink" title="以色列杀软牛B"></a>以色列杀软牛B</h3><p>突然想起还有一个杀软网站，测试后发现来自以色列的杀软第一个杀了，这种出现HTTP请求和CMD执行的，那些不杀的杀软，至少也要报个可疑才对。居然不报，还是以色列牛逼<br><img alt="image" data-original="http://k8gege.org/k8img/posts/ladonrat/cbereason_kill.PNG"><br><a href="https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection" target="_blank" rel="noopener">https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection</a></p>
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p>
 <h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.3版本：K8小密圈</p>
 ]]></content>
@@ -6029,11 +6029,11 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Tool</tag>
