@@ -22,7 +22,7 @@
 <meta name="keywords" content="Ladon,信息收集">
 
 
-<meta name="description" content="Ladon8.4更新功能以下模块可自定义端口探测 Ladon 192.168.1.8:888 SmbInfo[u] WmiInfo[u] SmbInfo[u] WinrmInfo[u] Mssq...">
+<meta name="description" content="Ladon简介Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支...">
 
 
 <meta name="robots" content="all">
@@ -195,7 +195,8 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="Ladon8-4更新功能"><a href="#Ladon8-4更新功能" class="headerlink" title="Ladon8.4更新功能"></a>Ladon8.4更新功能</h3><p>以下模块可自定义端口探测 Ladon 192.168.1.8:888 SmbInfo<br>[u] WmiInfo<br>[u] SmbInfo<br>[u] WinrmInfo<br>[u] MssqlInfo</p>
+        <h3 id="Ladon简介"><a href="#Ladon简介" class="headerlink" title="Ladon简介"></a>Ladon简介</h3><p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。8.4版本内置113个功能模块,外部模块18个,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，漏洞检测包含MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列等，密码爆破13种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(wmiexe/psexec/atexec/sshexec/jspshell),Web指纹识别模块可识别75种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
+<h3 id="Ladon8-4更新功能"><a href="#Ladon8-4更新功能" class="headerlink" title="Ladon8.4更新功能"></a>Ladon8.4更新功能</h3><p>以下模块可自定义端口探测 Ladon 192.168.1.8:888 SmbInfo<br>[u] WmiInfo<br>[u] SmbInfo<br>[u] WinrmInfo<br>[u] MssqlInfo</p>
 <p>[+] OnlinePC 探测Win存活主机(ICMP/NBT/DNS/MAC)<br>[u] smbghost 永恒之黑漏洞CVE-2020-0796检测结果更准确<br>[+] NbtInfo 探测Win存活主机<br>[+] txt参数 Ladon ip.txt ms17010 (ip.txt/ip24.txt/ip16.txt/host.txt/domain.txt/str.txt)</p>
 <p>Ladon 8.3 2021.5.21<br>[+]单线程    例子: Ladon noping 192.168.0.1/24 smbinfo t=1<br>[u]Ping        系统自带ping只回显一条结果<br>[u]PortScan    修复自定义端口不支持noping参数问题<br>[u]base64/base64txt        支持linux curl命令回显&amp;解密<br>[u]webser                支持linux cancel命令回显<br>[u]webser                支持linux whois命令回显&amp;解密<br>[u]webser                修复非HTTP协议崩溃的Bug</p>
 <p>LadonGUI 8.3 2021.5.21<br>[+]OnlinePC SmbInfo/WmiInfo/MssqlInfo/WinrmInfo/ExchangeInfo<br>[u]简明wiki更新至8.3共112模块用法<br>[u]Netcat  支持whois命令&amp;Base64回显<br>[u]Gui界面美化-增加图标，模块更直观</p>
@@ -280,7 +281,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon8-4更新功能"><span class="toc-text">Ladon8.4更新功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon模块使用例子"><span class="toc-text">Ladon模块使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#批量扫描TXT"><span class="toc-text">批量扫描TXT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单线程用法"><span class="toc-text">单线程用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nbt探测信息"><span class="toc-text">Nbt探测信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon简介"><span class="toc-text">Ladon简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon8-4更新功能"><span class="toc-text">Ladon8.4更新功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon模块使用例子"><span class="toc-text">Ladon模块使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#批量扫描TXT"><span class="toc-text">批量扫描TXT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单线程用法"><span class="toc-text">单线程用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nbt探测信息"><span class="toc-text">Nbt探测信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>
