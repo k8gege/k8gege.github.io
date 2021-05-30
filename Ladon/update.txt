@@ -1,5 +1,16 @@
 Wiki: http://k8gege.org/Ladon
 
+Ladon 8.4 2021.5.30
+以下模块可自定义端口探测 Ladon 192.168.1.8:888 SmbInfo
+[u] WmiInfo
+[u] SmbInfo
+[u] WinrmInfo
+[u] MssqlInfo
+
+[+] OnlinePC 探测Win存活主机(ICMP/NBT/DNS/MAC)
+[u] smbghost检测结果更准确
+[+] NbtInfo 探测Win存活主机
+[+] txt参数 Ladon ip.txt ms17010 (ip.txt/ip24.txt/ip16.txt/host.txt/domain.txt/str.txt)
 
 Ladon 8.3 2021.5.21
 [+]单线程	例子: Ladon noping 192.168.0.1/24 smbinfo t=1
