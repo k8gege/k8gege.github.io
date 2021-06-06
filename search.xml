@@ -1309,7 +1309,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon8.5永恒之黑漏洞利用SMBGhost CVE-2020-0796</title>
+    <title>Ladon8.5稳定利用SMBGhost CVE-2020-0796</title>
     <url>/p/smbghost_cve_2020_0796.html</url>
     <content><![CDATA[<h3 id="漏洞介绍"><a href="#漏洞介绍" class="headerlink" title="漏洞介绍"></a>漏洞介绍</h3><p>2020年3月10日，微软在其官方SRC发布了CVE-2020-0796的安全公告（ADV200005，MicrosoftGuidance for Disabling SMBv3 Compression）,公告表示在Windows SMBv3版本的客户端和服务端存在远程代码执行漏洞。同时指出该漏洞存在于MicroSoft Server Message Block 3.1.1协议处理特定请求包的功能中，攻击者利用该漏洞可在目标SMB Server或者Client中执行任意代码。</p>
 <h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>CVE-2020-0796漏洞影响运行Windows 10版本1903，Windows Server版本1903（服务器核心安装），Windows 10版本1909和Windows Server版本1909（服务器核心安装）的设备。根据Fortinet，其他Microsoft版本应受到影响。</p>
