@@ -1355,7 +1355,7 @@ Windows Server 2019 (Server Core installation)
 Windows Server 2019
 Windows 10 Version 1809 for ARM64-based Systems
 Windows 10 Version 1809 for x64-based Systems
-Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id><a href="#" class="headerlink" title></a></h3><p>Ladon &gt;= 8.6</p>
+Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon &gt;= 8.6</p>
 <h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon CVE-2021-1675 DllPath</p>
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>Ladon CVE-2021-1675 c:\evil.dll</p>
 <h3 id="本地提权"><a href="#本地提权" class="headerlink" title="本地提权"></a>本地提权</h3><p>Win2019<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/2019_lpe.PNG"></p>
@@ -1371,7 +1371,7 @@ Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id><a href="#" class=
       </categories>
       <tags>
         <tag>本地提权</tag>
-        <tag>远程执行</tag>
+        <tag>域控提权</tag>
       </tags>
   </entry>
   <entry>
@@ -5786,8 +5786,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -6143,8 +6143,8 @@ from pprint import pprint
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
