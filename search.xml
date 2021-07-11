@@ -1311,7 +1311,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>〖EXP〗Ladon打印机漏洞提权CVE-2021-1675</title>
+    <title>〖EXP〗Ladon打印机漏洞提权CVE-2021-1675复现</title>
     <url>/p/CVE-2021-1675.html</url>
     <content><![CDATA[<h3 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h3><p>6月9日，微软发布6月安全更新补丁，修复了50个安全漏洞，其中包括一个Windows Print Spooler权限提升漏洞，漏洞CVE编号：CVE-2021-1675。未经身份验证的远程攻击者可利用该漏洞以SYSTEM权限在域控制器上执行任意代码，从而获得整个域的控制权。建议受影响用户及时更新漏洞补丁进行防护，做好资产自查以及预防工作，以免遭受黑客攻击。</p>
 <h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h3><p>Print Spooler是Windows系统中用于管理打印相关事务的服务。</p>
@@ -1358,9 +1358,10 @@ Windows 10 Version 1809 for x64-based Systems
 Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon &gt;= 8.6</p>
 <h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Ladon CVE-2021-1675 DllPath</p>
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>Ladon CVE-2021-1675 c:\evil.dll<br>Ladon PrintNightmare c:\evil.dll</p>
-<h3 id="本地提权"><a href="#本地提权" class="headerlink" title="本地提权"></a>本地提权</h3><p>Win2019<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/2019_lpe.PNG"></p>
-<p>Win2016<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/Ladon_2021-1675.PNG"></p>
-<h3 id="远程提权"><a href="#远程提权" class="headerlink" title="远程提权"></a>远程提权</h3><p>Win2016<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/2016_ISOK.PNG"></p>
+<h3 id="本地提权"><a href="#本地提权" class="headerlink" title="本地提权"></a>本地提权</h3><p>Win2019<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/cve-2021-1675/2019_lpe.PNG"></p>
+<p>Win2016<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/cve-2021-1675/Ladon_2021-1675.PNG"></p>
+<p>Win10<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/cve-2021-1675/win10_lpe.PNG"></p>
+<h3 id="远程提权"><a href="#远程提权" class="headerlink" title="远程提权"></a>远程提权</h3><p>Win2016<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/cve-2021-1675/2016_ISOK.PNG"></p>
 <h3 id="相关POC"><a href="#相关POC" class="headerlink" title="相关POC"></a>相关POC</h3><p>C++、Python、C#、PowerShell<br><a href="https://github.com/afwu/PrintNightmare" target="_blank" rel="noopener">https://github.com/afwu/PrintNightmare</a><br><a href="https://github.com/cube0x0/CVE-2021-1675" target="_blank" rel="noopener">https://github.com/cube0x0/CVE-2021-1675</a><br><a href="https://github.com/calebstewart/CVE-2021-1675" target="_blank" rel="noopener">https://github.com/calebstewart/CVE-2021-1675</a></p>
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p>
 <h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
@@ -6046,33 +6047,6 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
       </tags>
   </entry>
   <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于Browser协议探测内网主机</title>
     <url>/p/16b5ff0b.html</url>
     <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
@@ -6147,6 +6121,33 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
 </search>
