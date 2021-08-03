@@ -1311,7 +1311,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>〖EXP〗Drupal远程代码执行漏洞复现&amp;Ladon批量利用</title>
+    <title>〖EXP〗Drupal远程执行漏洞复现&amp;Ladon批量利用</title>
     <url>/p/CVE-2018-7600.html</url>
     <content><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>Drupal是一个开源内容管理系统（CMS），全球超过100万个网站（包括政府，电子零售，企业组织，金融机构等）使用。两周前，Drupal安全团队披露了一个非常关键的漏洞，编号CVE-2018-7600 Drupal对表单请求内容未做严格过滤，因此，这使得攻击者可能将恶意注入表单内容，此漏洞允许未经身份验证的攻击者在默认或常见的Drupal安装上执行远程代码执行。</p>
 <h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p><a href="https://research.checkpoint.com/uncovering-drupalgeddon-2/" target="_blank" rel="noopener">https://research.checkpoint.com/uncovering-drupalgeddon-2/</a></p>
