@@ -1313,7 +1313,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   <entry>
     <title>Ladon命令行查看USB使用记录</title>
     <url>/p/usblog.html</url>
-    <content><![CDATA[<p>Ladon UsbLog查看USB使用记录</p>
+    <content><![CDATA[<p>Ladon UsbLog查看USB使用记录，检测是否被他人用U盘插过自己电脑</p>
 <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>1.Ladon查看USB使用记录<br>2.CMD查看USB使用记录<br>3.BAT查看USB使用记录<br>4.C#查看USB使用记录</p>
 <script language="javascript" type="text/javascript">
 window.location.href="http://k8gege.org/Ladon/usblog.html";
