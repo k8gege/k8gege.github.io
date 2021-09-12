@@ -3,7 +3,7 @@
   <entry>
     <title>〖工具〗Ladon大型内网渗透扫描器&amp;Cobalt Strike</title>
     <url>/p/648af4b3.html</url>
-    <content><![CDATA[<p>Ladon一款用于大型内网渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。8.6版本内置115个功能模块…</p>
+    <content><![CDATA[<p>Ladon一款用于大型内网渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。8.8版本内置117个功能模块…</p>
 <a id="more"></a>
 
 <p><a href="https://github.com/k8gege" target="_blank" rel="noopener"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-8.5-yellowgreen"></a> <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a href="https://github.com/k8gege/Ladon/issues" target="_blank" rel="noopener"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
@@ -111,7 +111,7 @@
 <h3 id="成品下载"><a href="#成品下载" class="headerlink" title="成品下载"></a>成品下载</h3><p><a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>Win7/2008或安装.net 2.x 3.x系统可使用Ladon.exe<br>Win8-win10或安装.net 4.x系统可使用Ladon40.exe</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>无论内网还是外网渗透信息收集都是非常关键，信息收集越多越准确渗透的成功率就越高。<br>但成功率还受到漏洞影响，漏洞受时效性影响，对于大型内网扫描速度直接影响着成功率。<br>漏洞时效性1-2天，扫描内网或外网需1周时间，是否会因此错过很多或许可成功的漏洞？<br>对于那些拥有几百上千域名的大站来说，你发现越快成功率就越高，慢管理员就打补丁了。<br>因此我们需要一个支持批量C段/B段甚至A段的扫描器，添加自定义模块快速检测新出漏洞。</p>
 <h3 id="关于Ladon"><a href="#关于Ladon" class="headerlink" title="关于Ladon"></a>关于Ladon</h3><p>Ladon音译: 拉登或拉冬。因集成了很多模块，每个模块又可独立成为一个工具，和百头巨龙有很多头类似。<br>Ladon是希腊神话中的神兽，看守金苹果的百头巨龙。它从不睡觉，被赫拉克勒斯借扛天巨人之手诱巨龙睡着<br>杀死巨龙并偷得了金苹果。巨龙死前将自己的魂魄封印在金苹果中，偷盗者将金苹果送给了白雪公主，公主<br>为了报恩将金苹果分给了七个小矮人，吃下以后他们变成了龙珠散落到世界各地，龙珠分为七颗，它蕴含着<br>可以令奇迹发生的力量。当集齐7颗龙珠念出咒语，就能召唤神龙，而神龙则会实现召唤者提出的一个愿望。</p>
-<h3 id="程序简介"><a href="#程序简介" class="headerlink" title="程序简介"></a>程序简介</h3><p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。8.6版本内置115个功能模块,外部模块25个,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，漏洞检测包含MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列等，密码爆破含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(wmiexe/psexec/atexec/sshexec/jspshell),Web指纹识别模块可识别86种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
+<h3 id="程序简介"><a href="#程序简介" class="headerlink" title="程序简介"></a>程序简介</h3><p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。8.8版本内置117个功能模块,外部模块18个,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，漏洞检测包含MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列等，密码爆破13种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/jspshell),Web指纹识别模块可识别75种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
 <h3 id="使用简单"><a href="#使用简单" class="headerlink" title="使用简单"></a>使用简单</h3><p>虽然Ladon功能丰富多样,但使用却非常简单,任何人都能轻易上手<br>只需一或两个参数就可用90%的功能,一个模块相当于一个新工具</p>
 <h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>Ladon.exe可在安装有.net 2.0及以上版本Win系统中使用(Win7后系统自带.net)<br>如Cmd、PowerShell、远控Cmd、WebShell等，以及Cobalt Strike内存加载使用<br>Ladon.ps1完美兼容win7-win10 PowerShell，不看版本可远程加载实现无文件渗透</p>
 <h4 id="Linux、Mac"><a href="#Linux、Mac" class="headerlink" title="Linux、Mac"></a>Linux、Mac</h4><p>安装Mono运行时,将KaliLodan改名为Ladon,通过mono执行Ladon即可。</p>
@@ -606,7 +606,7 @@
 <td>Ladon AllVer</td>
 </tr>
 </tbody></table>
-<h4 id="0x010-远程执行-7"><a href="#0x010-远程执行-7" class="headerlink" title="0x010 远程执行(7)"></a>0x010 远程执行(7)</h4><table>
+<h4 id="0x010-远程执行-8"><a href="#0x010-远程执行-8" class="headerlink" title="0x010 远程执行(8)"></a>0x010 远程执行(8)</h4><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -656,6 +656,12 @@
 <td><a href="http://k8gege.org/Ladon/WinrmExec.html">WinrmExec</a></td>
 <td>5895端口执行命令</td>
 <td><a href="http://k8gege.org/Ladon/WinrmExec.html">http://k8gege.org/Ladon/WinrmExec.html</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/Ladon/SmbExec.html">SmbExec</a></td>
+<td>445端口HASH执行命令</td>
+<td><a href="http://k8gege.org/Ladon/SmbExec.html">http://k8gege.org/Ladon/SmbExec.html</a></td>
 </tr>
 </tbody></table>
 <h4 id="0x011-提权降权-7"><a href="#0x011-提权降权-7" class="headerlink" title="0x011 提权降权(7)"></a>0x011 提权降权(7)</h4><table>
@@ -1308,6 +1314,94 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </categories>
       <tags>
         <tag>LadonGo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>〖教程〗Ladon SmbExec Hash远程执行命令</title>
+    <url>/p/SmbExec.html</url>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/SmbExec.html";
+</script>
+
+
+<h3 id="Ladon8-8更新功能"><a href="#Ladon8-8更新功能" class="headerlink" title="Ladon8.8更新功能"></a>Ladon8.8更新功能</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[+]SmbExec NTLM-HASH非交互执行无回显</span><br><span class="line">[u]GetInfo  新增Vmware虚拟机信息</span><br><span class="line">[u]OsScan   新增识别Vigor Router路由器识别</span><br><span class="line">[u]新增Xen\VBOX\Hybrid\Parallels虚拟机识别</span><br><span class="line">[+]GetInfo  新增cmdkey、RrpLog、安装驱动、软件列表、最近访问文件等</span><br><span class="line">[+]GetInfo  新增GUID、CPUID、硬盘ID、自启动后门检测(DLL却持、注册表等)</span><br><span class="line">[+]GetInfo2 新增WMI补丁信息获取</span><br><span class="line">[+]默认信息 新增C盘剩余空间信息小于2G高亮提示</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="模块用法"><a href="#模块用法" class="headerlink" title="模块用法"></a>模块用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load SmbExec</span><br><span class="line">Usage:</span><br><span class="line">Ladon SmbExec host user pass cmd whoami</span><br><span class="line">Ladon SmbExec host user pass b64cmd dwBoAG8AYQBtAGkA</span><br></pre></td></tr></table></figure>
+
+<h3 id="SmbExec执行"><a href="#SmbExec执行" class="headerlink" title="SmbExec执行"></a>SmbExec执行</h3><p>在Cobalt Strike的shell下执行SmbExec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2以后版本使用Base64Unicode加密生成</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p>
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbExec.PNG"><br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbExec2.PNG"></p>
+<h4 id="Ladon其它横向移动模块"><a href="#Ladon其它横向移动模块" class="headerlink" title="Ladon其它横向移动模块"></a>Ladon其它横向移动模块</h4><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">WmiExec</a></td>
+<td>135端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">PsExec</a></td>
+<td>445端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">AtExec</a></td>
+<td>445端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">SshExec</a></td>
+<td>22端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="http://k8gege.org/p/ladon_cs_shell.html">JspShell</a></td>
+<td>Jsp一句话执行命令</td>
+<td><a href="http://k8gege.org/p/ladon_cs_shell.html">http://k8gege.org/p/ladon_cs_shell.html</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="http://k8gege.org/Ladon/webshell.html">WebShell</a></td>
+<td>WebShell执行命令</td>
+<td><a href="http://k8gege.org/Ladon/webshell.html">http://k8gege.org/Ladon/webshell.html</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/Ladon/WinrmExec.html">WinrmExec</a></td>
+<td>5895端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinrmExec.html">http://k8gege.org/Ladon/WinrmExec.html</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/Ladon/SmbExec.html">SmbExec</a></td>
+<td>445端口HASH执行命令</td>
+<td><a href="http://k8gege.org/Ladon/SmbExec.html">http://k8gege.org/Ladon/SmbExec.html</a></td>
+</tr>
+</tbody></table>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.8版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+        <tag>wmi</tag>
       </tags>
   </entry>
   <entry>
@@ -6309,8 +6403,8 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
         <category>内网渗透</category>
+        <category>嗅探</category>
         <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
