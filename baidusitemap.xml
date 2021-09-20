@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://k8gege.org/Ladon/example.html</loc>
+    <lastmod>2021-09-20</lastmod>
+  </url>  <url>
     <loc>http://k8gege.org/p/CVE-2021-40444.html</loc>
     <lastmod>2021-09-15</lastmod>
   </url>  <url>
@@ -17,9 +20,6 @@
     <lastmod>2021-09-12</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Ladon/index.html</loc>
-    <lastmod>2021-09-12</lastmod>
-  </url>  <url>
-    <loc>http://k8gege.org/Ladon/example.html</loc>
     <lastmod>2021-09-12</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Ladon/usblog.html</loc>

