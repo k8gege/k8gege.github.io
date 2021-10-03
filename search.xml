@@ -651,19 +651,19 @@
 </thead>
 <tbody><tr>
 <td>1</td>
-<td>EnumProcess/ProcessList/tasklist</td>
+<td><a href="http://k8gege.org/p/56393.html">EnumProcess/ProcessList/tasklist</a></td>
 <td>进程详细信息</td>
 <td>Ladon EnumProcess 或 Ladon Tasklist</td>
 </tr>
 <tr>
 <td>2</td>
-<td>GetCmdLine/CmdLine</td>
+<td><a href="http://k8gege.org/p/56393.html">GetCmdLine/CmdLine</a></td>
 <td>获取命令行参数</td>
 <td>Ladon cmdline 或 Ladon cmdline cmd.exe</td>
 </tr>
 <tr>
 <td>3</td>
-<td>GetInfo/GetInfo2</td>
+<td><a href="http://k8gege.org/p/56393.html">GetInfo/GetInfo2</a></td>
 <td>获取渗透基础信息</td>
 <td>Ladon GetInfo 或 Ladon GetInfo2</td>
 </tr>
@@ -717,7 +717,7 @@
 </tr>
 <tr>
 <td>12</td>
-<td>Usblog</td>
+<td><a href="http://k8gege.org/p/56393.html">Usblog</a></td>
 <td>查看USB使用记录</td>
 <td>Ladon Usblog</td>
 </tr>
@@ -809,7 +809,7 @@
 </tr>
 <tr>
 <td>3</td>
-<td>Runas</td>
+<td><a href="http://k8gege.org/Ladon/runas.html">Runas</a></td>
 <td>模拟用户执行命令</td>
 <td>Ladon Runas user pass cmd</td>
 </tr>
@@ -4345,8 +4345,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -6531,6 +6531,29 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mimikatz 2.1.1一键版 &amp; PowerShell</title>
     <url>/p/77429fa6.html</url>
     <content><![CDATA[<p>无需任何参数,运行EXE即可自动读取Windows系统密码</p>
@@ -6694,39 +6717,16 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>BypassUAC</tag>
       </tags>
   </entry>
 </search>
