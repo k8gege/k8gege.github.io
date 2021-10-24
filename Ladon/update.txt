@@ -1,8 +1,21 @@
 Wiki: http://k8gege.org/Ladon
 
+
+Ladon 9.0 20211014
+[+]CVE-2021-36934 读取系统Hash、VPN密码、DPAPI-Key
+[+]默认信息 机器制造商(看是否虚拟机)
+
+==================================================================
+Ladon 8.9 20210925
+[+]GetID 	获取PCname GUID CPUID DiskID Mac
+[u]GetInfo  本机网卡MAC获取
+MAC更新
+Hewlett 231
+Iphone 	35
+Android 16
+
 LadonGUI 8.9 20210920
 [+]CmdDll Windows 0day漏洞通用DLL注入生成器
-
 
 Ladon 8.9 2021.9.15
 [u]webscan CS保留
@@ -14,6 +27,7 @@ Ladon 8.9 2021.9.14
 [+]CmdDll cmd转DLL(Win系统0day漏洞DLL执行命令payload，可直接powershell上线CobaltStrike)
    溢出漏洞如MS17010、本地提权CVE-2021-1675等，非溢出如最新的Office漏洞CVE-2021-40444等
 
+==================================================================
 Ladon 8.8 2021.9.11
 [+]SmbExec NTLM-HASH非交互执行无回显(https://github.com/checkymander/Sharp-SMBExec)
 [u]GetInfo  新增Vmware虚拟机信息
@@ -181,19 +195,19 @@ GUI 2020.10.18
 	DecodeBase64
 
 
-7.5 2020.10.10
+Ladon 7.5 2020.10.10
 ============================
 [+] Ladon 7.5 for CS
 [+] OsScan   Exchange Detection Win 465\143\587\25\110
 [+] PortScan Exchange 465\993\143\995 DC/DNS  88\6011
 
-7.4 2020.9.28
+Ladon 7.4 2020.9.28
 [+] CVE-2020-0688 Exchange序列化漏洞(.net 4.0)
 
 GUI 2020.9.24
 [+] OutPowerShell Ladon免杀
 
-7.3.4 2020.9.21
+Ladon 7.3.4 2020.9.21
 
 [+] webser getstr(无回显命令执行明文结果)
 [+] webser getb64/getb64(命令结果Base64加密)
@@ -203,24 +217,24 @@ GUI 2020.9.24
 [+]ZeroLogon CVE-2020-1472域控提权(密码置空)
 [+]PortScan  5985端口(有时防火墙开启也能识别)
 
-7.3.2 2020.9.9
+Ladon 7.3.2 2020.9.9
 [u] WhatCMS更新86+
 
-7.3.1 2020.9.7
+Ladon 7.3.1 2020.9.7
 [+] 当前进程PID和名称(主要是多个或CS加载时区分)
 
-7.3.0 2020.9.1
+Ladon 7.3.0 2020.9.1
 [+] WinrmScan 5985端口密码爆破（支持System权限）
 [+] WinrmExec 远程执行命令无回显（支持System权限）
 
-7.2.2 2020.8.15
+Ladon 7.2.2 2020.8.15
 [u] whoami增加特权信息(如果你了解提权工具原理可查看特权)
 [+] 检测SeImpersonatePrivilege特权(很多提权工具需要用到)
 
-7.2.1 2020.8.13
+Ladon 7.2.1 2020.8.13
 [+] SweetPotato Win7-2019提权(服务用户权限提到system)
 
-7.2.0 2020.8.10
+Ladon 7.2.0 2020.8.10
 [+] BadPotato  PrintSpoofer/PipePotato提权(Win8-Win10/Win2012-2019)
 [+] Open3389 一键开启3389
 [+] RdpLog   查看3389连接记录
@@ -235,7 +249,7 @@ GUI 2020.9.24
 7.1 2020.8.3
 [+] 修复CS无法加载的Bug
 
-7.1.0 2020.8.1
+Ladon 7.1.0 2020.8.1
 [+] NbtScan 139端口Netbios协议Windows密码爆破
 [+] GetPipe 查看本机命名管道
 
@@ -258,35 +272,35 @@ GUI 2020.9.24
 [+] OSSCAN新增139 Banner识别win系统
 [u] Banner  为空或SSH-或HTTP 无需返回HEX
 
-7.0.0 2020.7.17
+Ladon 7.0.0 2020.7.17
 [+] EthScan OXID枚举远程主机网卡
 [+] RDPhijack 远程桌面会话劫持(.net 4.0)
 
-6.6.6 2020.7.3
+Ladon 6.6.6 2020.7.3
 [u] PowerCat支持PowerShell版反弹
 [+] WmiHash记录RCP不可用正确密码
 
-6.6.6 2020.7.2
+Ladon 6.6.6 2020.7.2
 [+] PortScan Banner新增原HEX数据(明文乱码时可查看原数据包)
 [+] PortScan 修复扫到非默认端口时，结果不显示开放端口的BU
 
-6.6.6 20200701
+Ladon 6.6.6 20200701
 [+] OracleScan不指定帐密时探测Oracle服务
 [+] OracleScan支持自定义SID扫描(sid.txt)
 [u] WebSer 重新支持a_1.rar b-2.rar文件名
 
-6.6.6 20200628
+Ladon 6.6.6 20200628
 [+] ReverseHttps/MsfHttps 反弹MSF Met Https Shell
 [+] ReverseHttp/MsfHttp 反弹MSF Met Http Shell
 
-6.6.5 20200622
+Ladon 6.6.5 20200622
 [+] WmiScan 记录RCP不可用正确密码
 [+] PowerCat TCP、UDP反弹SHELL
 [+] ReverseTcp MSF、NC反弹SHELL
 [+] recent  查看用户最近访问文件
 [+] sshexec 增加上传下载文件功能
 
-6.6.3 20200618
+Ladon 6.6.3 20200618
 [+] webser 钩鱼攻击密码捕获(如Win登陆认证)
 [+] webser 访问ip.txt、ip.jgp返回浏览者IP
 [+] RegAuto 添加注册表RUN启动项
@@ -295,7 +309,7 @@ GUI 2020.9.24
 [+] at 计划执行程序(无需时间)(system权限)
 [u] webser 支持列目录(Ladon web 80 dirlist)
 
-6.6.2 20200608
+Ladon 6.6.2 20200608
 [u] CS插件版 EXE完整版
 
 6.6.2 20200606
@@ -322,3 +336,78 @@ Ladon 6.5 远程执行命令 20200530
 [+] WmiExec非交互回显  (https://github.com/nccgroup/WMIcmd)
 [+] AtExec 非交互回显  (https://github.com/0x7556/smbexec)
 [+] GetIP 获取本机内网IP与外网IP
+
+Ladon 6.4
+===========================================
+5.2
+[u] 修复noping参数问题(误注释了一行代码导致)
+4.27
+[+] Ping/PingIP 仅ICMP探测IP速度快(3-6秒/C段,5.8前的OnlinePC)
+[+] CheckDoor 检测后门(网上公开多年的)–OCI.DLL/5个注册表RUN
+[u] OsScan 修复6.2 4.20后osscan无法使用的BUG
+[+] ipcscan.ini INI插件之Ipc密码爆破(net use)
+[+] smbscan.ini INI插件之Smb密码爆破(impacket)
+[+] smbhash.ini INI插件之NtlmHash爆破(impacket)
+
+4.26
+[+]JspShell 横向移动连接内网webshell执行命令
+
+4.20
+[+] GetSystem 管理员/SYSTEM权限切换
+[+] DumpLsass 导出Lsass内存文件
+[u] OsScan新增SSH识别操作系统
+[u] WebScan、SameWeb新增WebBanner
+[+] WhatCms新增Banner、TP-Link WDR7300识别
+[u] 修复6.3漏扫10、20等含0的C段
+
+Ladon 6.3 20200417
+===========================================
+[u] 修复6.3不扫描带0段IP的BUG
+6.3 20200415
+[u] 修复6.3不识别含-机器名的BUG
+[u] 更新参数 A段: IP/A B段: IP/B C段: IP/C（例：192.168.1.1/c）
+
+
+Ladon 6.2
+===========================================
+ID | 模块名称 | 功能说明 | 返回结果
+-|-|-|-|-
+0 | OnlinePC | 存活主机扫描 | 存活IP、Mac地址、机器名、设备制造商
+1 | SmbHashScan | SMB HASH密码爆破(Windows) | 检测过程、成功密码、LOG文件 |
+2 | WmiHashScan | WMI HASH密码爆破(Windows) | 检测过程、成功密码、LOG文件 |
+3 | BypassUac | 绕过UAC执行,支持Win7-Win10 | Ladon BypassUac c:\1.exe
+4 | EnableDotNet | 一键启用.net 3.5(2008系统默认未启用) | Ladon EnableDotNet
+5 | gethtml | 获取内网站点HTML源码 | Ladon gethtml http://192.168.1.1
+6 | AdiDnsDump | 域内机器信息获取(非域内请使用LdapScan探测) | IP、域名
+7 | LdapScan | 不指定密码时，仅探测LDAP服务器 | IP是否LDAP服务器
+8 | FtpScan | 不指定密码时，仅探测FTP服务器 | IP是否FTP服务器
+9| Ladon.cna | CobaltStrike 3.x-4.0右键菜单 | 一键扫描内网
+10 命令支持CIDR格式IP扫描
+11 INI配置支持自定义密码爆破
+12 PortScan命令行支持自定义端口
+
+Fixbug
+修复SmbScan遇到%非数字密码停止的BUG
+修复一些模块扫描TXT列表崩溃的BUG
+修复LdapScan扫描check.txt只检测一个的bug
+
+Ladon 6.0
+===========================================
+更新日志
+动作 	模块 	说明
+新增 	LdapScan 	AD域密码爆破:基于Ldap协议爆破Windows密码
+新增 	FtpSniffer/SnifferFtp 	Ftp密码嗅探(无需WinPcap)
+新增 	HttpSniffer/SnifferHTTP 	HTTP密码嗅探(无需WinPcap)
+新增 	GetCmdLine/CmdLine 	获取进程命令行参数/可指定进程
+新增 	GetInfo 	获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）
+新增 	GetInfo2 	包含GetInfo & Wmi获取信息
+新增 	Sniffer 	网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址
+新增 	EnumIIS/IisWeb 	获取IIS站点、路径、帐号、密码
+新增 	EnumProcess/ProcessList/tasklist 	枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)
+更新 	HttpDownload/wget 	HTTP下载命令简化也可使用wget
+更新 	OsScan 	扫描速度优化(某项目批量C段不再卡死)
+更新 	WmiScan 	135端口关闭或RPC不可用停止爆破
+更新 	SmbScan 	445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)
+移除 	IPCScan 	速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代
+更新 	所有模块 	所有功能模块参数忽略大小写
+
