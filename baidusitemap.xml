@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://k8gege.org/Download/index.html</loc>
+    <loc>http://k8gege.org/p/auto.html</loc>
+    <lastmod>2021-10-24</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/p/cve-2021-36934.html</loc>
     <lastmod>2021-10-24</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/Ladon/auto.html</loc>
+    <lastmod>2021-10-24</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Ladon/cve-20221-36934.html</loc>
+    <lastmod>2021-10-24</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Download/index.html</loc>
     <lastmod>2021-10-24</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/p/CVE-2021-40444.html</loc>

