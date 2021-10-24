@@ -22,7 +22,11 @@
 <meta name="keywords" content>
 
 
-<meta name="description" content="为何要自动化?你是否遇到过CS只上线几分钟又下线的情况，这种情况可能是安全公司扫描自动CS上线的，当然这并不是我们的重点，因为做个IP过滤或改一下CS就好了。重点是另外一个原因就是目标某些机器临...">
+<meta name="description" content=" 
+
+
+
+为何要自动化?你是否遇到过CS只上线几分钟又下线的情况，这种情况可能是安全公司扫描自动CS上线的，当然这并不是我们的重点，因为做个IP过滤或改一下CS就好了。重点是另外一个原因就是目标...">
 
 
 <meta name="robots" content="all">
@@ -157,7 +161,14 @@
         Cobalt Strike与Ladon联动自动渗透
     </h1>
     <div class="post-body">
-        <h3 id="为何要自动化"><a href="#为何要自动化" class="headerlink" title="为何要自动化?"></a>为何要自动化?</h3><p>你是否遇到过CS只上线几分钟又下线的情况，这种情况可能是安全公司扫描自动CS上线的，当然这并不是我们的重点，因为做个IP过滤或改一下CS就好了。重点是另外一个原因就是目标某些机器临时接入网络，所以我们会看到只上线一会儿。或者说就算上线一两个小时，而此时你正在做其它事，来不及看，等回来时机器已下线。因此自动化收集信息是有必要的，或者说有很多机器需要更新CS，如3.X转移到4.X，你一台一台换，等下班了都换不了几台，如果有些机器在不定时且是你休息时间才上线，难道你每天都在等它上线吗？</p>
+        <p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+
+%>
+</%></p>
+
+<h3 id="为何要自动化"><a href="#为何要自动化" class="headerlink" title="为何要自动化?"></a>为何要自动化?</h3><p>你是否遇到过CS只上线几分钟又下线的情况，这种情况可能是安全公司扫描自动CS上线的，当然这并不是我们的重点，因为做个IP过滤或改一下CS就好了。重点是另外一个原因就是目标某些机器临时接入网络，所以我们会看到只上线一会儿。或者说就算上线一两个小时，而此时你正在做其它事，来不及看，等回来时机器已下线。因此自动化收集信息是有必要的，或者说有很多机器需要更新CS，如3.X转移到4.X，你一台一台换，等下班了都换不了几台，如果有些机器在不定时且是你休息时间才上线，难道你每天都在等它上线吗？</p>
 <p>首先我们来看下CNA是如何执行命令的。首先是执行系统自带CMD命令，采用bshell,如执行whoami，脚本代码如下</p>
 <h3 id="执行CMD"><a href="#执行CMD" class="headerlink" title="执行CMD"></a>执行CMD</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"whoami"</span>);</span><br></pre></td></tr></table></figure>
 
