@@ -1583,7 +1583,7 @@ window.location.href="http://k8gege.org/Ladon/ladon_cs.html";
       </tags>
   </entry>
   <entry>
-    <title>Cobalt Strike与Ladon联动自动渗透</title>
+    <title>Cobalt Strike与Ladon联动 CS上线自动渗透插件</title>
     <url>/p/auto.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
@@ -4555,8 +4555,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>内网渗透</category>
         <category>远程执行</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -5330,9 +5330,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-执行效果"><a href="#0x006-执行效果" class="headerlink" title="0x006 执行效果"></a>0x006 执行效果</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Other/ilcode.PNG"></p>
 ]]></content>
       <categories>
-        <category>ShellCode</category>
         <category>.NET</category>
         <category>源码</category>
+        <category>ShellCode</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -6150,8 +6150,8 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -6444,8 +6444,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -6928,8 +6928,8 @@ from pprint import pprint
         <category>主机发现</category>
         <category>源码</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>嗅探</category>
+        <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
       </categories>
