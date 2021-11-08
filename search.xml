@@ -1502,8 +1502,30 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
 <h3 id="巨龙拉冬9-0-让你的Cobalt-Strike变成超级武器"><a href="#巨龙拉冬9-0-让你的Cobalt-Strike变成超级武器" class="headerlink" title="巨龙拉冬9.0: 让你的Cobalt Strike变成超级武器"></a>巨龙拉冬9.0: 让你的Cobalt Strike变成超级武器</h3><p>9.0插件获取：<a href="https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA</a></p>
 <h3 id="关于Ladon"><a href="#关于Ladon" class="headerlink" title="关于Ladon"></a>关于Ladon</h3><p>Ladon音译: 拉登或拉冬。因集成了很多模块，每个模块又可独立成为一个工具，上百功能尤如百头巨龙拥有100个头，每个头都可以喷火。Ladon是希腊神话中的神龙，看守金苹果的百头巨龙。它从不睡觉，被赫拉克勒斯借扛天巨人之手诱巨龙睡着。杀死巨龙并偷得了金苹果。巨龙死前将自己的魂魄封印在金苹果中，偷盗者将金苹果送给了白雪公主，公主为了报恩将金苹果分给了七个小矮人，吃下以后他们变成了龙珠散落到世界各地，龙珠分为七颗，它蕴含着可以令奇迹发生的力量。当集齐7颗龙珠念出咒语，就能召唤神龙，而神龙则会实现召唤者提出的一个愿望。</p>
 <h3 id="程序简介"><a href="#程序简介" class="headerlink" title="程序简介"></a>程序简介</h3><p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码审计、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。9.0版本内置122个功能模块,外部模块20个,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，多协议探测操作系统版本信息，漏洞检测包含MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列等，密码审计17种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar、网络摄像头、路由器等，横向移动远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/jspshell),Web指纹识别模块可识别86种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
-<h3 id="CS下载"><a href="#CS下载" class="headerlink" title="CS下载"></a>CS下载</h3><p>CS 3.12 3.13 4.3 4.4 K8破解版<br>000为原始试用版本(原版不是很全，欢迎大家提供给我更新)<br><a href="https://github.com/k8gege/Aggressor/releases/tag/cs" target="_blank" rel="noopener">https://github.com/k8gege/Aggressor/releases/tag/cs</a></p>
-<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>9.0版本：K8小密圈</p>
+<h4 id="无图无真相"><a href="#无图无真相" class="headerlink" title="无图无真相"></a>无图无真相</h4><p>好了废话不多说上图，让我们看看Cobalt Strike 4.4巨龙拉冬插件功能</p>
+<p>如果你熟悉Ladon命令的可以直接在Beacon上执行相应命令即可，如使用“Ladon GetID”命令查看目标机器名、机器ID、CPUID、硬盘ID、MAC地址等信息，主要用于区分一些大内网同名机器，或其它用途。若是你不熟悉可以使用右键菜单，为了方便新人或不太熟的人</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44.PNG"></p>
+<p>如果不熟悉Ladon命令用法，也可以右键菜单，使用非常方便，只需选择模块填写目标参数如(IP、URL、域名、主机名、CIDR格式IP等)，即可加载对应模块扫描或探测你想获取的信息，如探测C段存在MS17010漏洞的机器。</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_9.PNG"></p>
+<p>内网外网网络资产探测</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_2.PNG"></p>
+<p>操作系统信息探测</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_3.PNG"></p>
+<p>漏洞检测</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_4.PNG"></p>
+<p>网络密码审计</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_5.PNG"></p>
+<p>本机信息收集</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_6.PNG"></p>
+<p>横向移动、远程执行</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_7.PNG"></p>
+<p>权限提升、本地提权</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_8.PNG"></p>
+<p>这么强大的插件如何获取呢？</p>
+<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/csget.PNG"></p>
+<p>原文：<a href="https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA</a></p>
+<h3 id="CS下载"><a href="#CS下载" class="headerlink" title="CS下载"></a>CS下载</h3><p>CS 3.12 3.13 4.3 4.4 K8破解版<br>000为原始试用版本(部分未找到，大家可以提供给我更新)<br><a href="https://github.com/k8gege/Aggressor/releases/tag/cs" target="_blank" rel="noopener">https://github.com/k8gege/Aggressor/releases/tag/cs</a></p>
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>9.1版本：K8小密圈</p>
 ]]></content>
       <categories>
         <category>Tool</category>
@@ -4385,11 +4407,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6459,33 +6481,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -6579,9 +6574,36 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -6927,17 +6949,17 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>嗅探</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
