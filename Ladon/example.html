@@ -169,7 +169,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 </%></p>
 
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon 简明使用教程 完整文档: <a href="http://k8gege.org/Ladon">http://k8gege.org/Ladon</a><br>支持Cmd、Shell、Cobalt Strike、PowerShell下使用<br>Windows版本: .Net、Cobalt Strike、PowerShell<br>全系统版本：GO(全平台)、Python(理论上全平台)<br>PS: GUI版主要方便本地测试使用，完整功能使用CMD</p>
-<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon8.9 20210920<br>简明用法例子 120模块</p>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon9.1 20211108<br>简明用法例子 125模块</p>
 <h3 id="自定义线程扫描"><a href="#自定义线程扫描" class="headerlink" title="自定义线程扫描"></a>自定义线程扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞<br>单线程：Ladon 10.1.2.8/24 MS17010 t=1<br>80线程：Ladon noping 10.1.2.8/24 MS17010 t=80<br>在高强度防护下的网络默认线程无法扫描，必须单线程</p>
 <h3 id="Socks5代理扫描"><a href="#Socks5代理扫描" class="headerlink" title="Socks5代理扫描"></a>Socks5代理扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>Ladon noping 10.1.2.8/24 MS17010<br>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
 <h3 id="网段扫描"><a href="#网段扫描" class="headerlink" title="网段扫描"></a>网段扫描</h3><p>CIDR格式：不只是/24/16/8(所有)<br>Ladon 192.168.1.8/24 扫描模块<br>Ladon 192.168.1.8/16 扫描模块<br>Ladon 192.168.1.8/8  扫描模块</p>
@@ -300,8 +300,13 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h5 id="117-USB使用记录查看-USB名称、USB标记、路径信息"><a href="#117-USB使用记录查看-USB名称、USB标记、路径信息" class="headerlink" title="117 USB使用记录查看(USB名称、USB标记、路径信息)"></a>117 USB使用记录查看(USB名称、USB标记、路径信息)</h5><p>Ladon UsbLog</p>
 <h5 id="118-Windows-0day漏洞通用DLL注入执行CMD生成器-DLL仅5KB"><a href="#118-Windows-0day漏洞通用DLL注入执行CMD生成器-DLL仅5KB" class="headerlink" title="118 Windows 0day漏洞通用DLL注入执行CMD生成器(DLL仅5KB)"></a>118 Windows 0day漏洞通用DLL注入执行CMD生成器(DLL仅5KB)</h5><p>Ladon CmdDll x86 calc<br>Ladon CmdDll x64 calc<br>Ladon CmdDll b64x86 YwBhAGwAYwA=<br>Ladon CmdDll b64x64 YwBhAGwAYwA=</p>
 <h5 id="119-CVE-2021-40444-微软IE-Office-0day漏洞"><a href="#119-CVE-2021-40444-微软IE-Office-0day漏洞" class="headerlink" title="119 CVE-2021-40444  微软IE/Office 0day漏洞"></a>119 CVE-2021-40444  微软IE/Office 0day漏洞</h5><p>Ladon CVE-2021-40444 MakeCab poc.dll<br>Ladon CVE-2021-40444 MakeHtml <a href="http://192.168.1.8" target="_blank" rel="noopener">http://192.168.1.8</a></p>
-<h5 id="自定义程序集插件扫描"><a href="#自定义程序集插件扫描" class="headerlink" title="自定义程序集插件扫描"></a>自定义程序集插件扫描</h5><p>Ladon 192.168.1.8/24 IsShiro.exe</p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>9.0版本：K8小密圈</p>
+<h5 id="120-获取PCname-GUID-CPUID-DiskID-Mac地址"><a href="#120-获取PCname-GUID-CPUID-DiskID-Mac地址" class="headerlink" title="120 获取PCname GUID CPUID DiskID Mac地址"></a>120 获取PCname GUID CPUID DiskID Mac地址</h5><p>Ladon GetID</p>
+<h5 id="121-读取系统Hash、VPN密码、DPAPI-Key"><a href="#121-读取系统Hash、VPN密码、DPAPI-Key" class="headerlink" title="121 读取系统Hash、VPN密码、DPAPI-Key"></a>121 读取系统Hash、VPN密码、DPAPI-Key</h5><p>Ladon CVE-2021-36934</p>
+<h5 id="122-读取连接过的WIFI密码"><a href="#122-读取连接过的WIFI密码" class="headerlink" title="122 读取连接过的WIFI密码"></a>122 读取连接过的WIFI密码</h5><p>Ladon WifiPwd</p>
+<h5 id="123-读取FileZilla-FTP密码"><a href="#123-读取FileZilla-FTP密码" class="headerlink" title="123 读取FileZilla FTP密码"></a>123 读取FileZilla FTP密码</h5><p>Ladon WifiPwd</p>
+<h5 id="124-读取连接过的WIFI帐号密码"><a href="#124-读取连接过的WIFI帐号密码" class="headerlink" title="124 读取连接过的WIFI帐号密码"></a>124 读取连接过的WIFI帐号密码</h5><p>Ladon FileZillaPwd</p>
+<h5 id="125-自定义程序集插件扫描"><a href="#125-自定义程序集插件扫描" class="headerlink" title="125 自定义程序集插件扫描"></a>125 自定义程序集插件扫描</h5><p>Ladon 192.168.1.8/24 IsShiro.exe<br>Ladon 192.168.1.8/24 *.dll(c#)</p>
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>9.1版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
 </div>
