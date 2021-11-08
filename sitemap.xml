@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/Ladon/latest.html</loc>
+    
+    <lastmod>2021-11-08T12:25:46.072Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/p/cs.html</loc>
     
     <lastmod>2021-11-01T10:54:32.712Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://k8gege.org/p/CVE-2021-40444.html</loc>
     
     <lastmod>2021-10-24T02:33:31.941Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/Ladon/latest.html</loc>
-    
-    <lastmod>2021-10-24T01:47:28.402Z</lastmod>
     
   </url>
   
