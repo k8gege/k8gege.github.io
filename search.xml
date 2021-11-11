@@ -1490,7 +1490,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   <entry>
     <title>〖工具〗Cobalt Strike 3.12 3.13 4.3 4.4 K8破解版</title>
     <url>/p/cs.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44_9.PNG"></p>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/cs44/cs44.PNG"></p>
 <h3 id="Cobalt-Strike-K8破解版"><a href="#Cobalt-Strike-K8破解版" class="headerlink" title="Cobalt Strike K8破解版"></a>Cobalt Strike K8破解版</h3><p>Cobalt Strike 4.4<br>Cobalt Strike 4.3<br>Cobalt Strike 3.13<br>Cobalt Strike 3.12</p>
 <p>1.内置Windows版TeamServer.exe启动器<br>2.内置巨龙拉冬Ladon7.2 巨龙拉冬插件</p>
 <p>K8版默认集成Ladon7.2,可自行替换9.1版<br>修改版CS生成payload的后门暗桩已删除<br>证书均为CS默认，介意可以自行修改证书</p>
@@ -5366,8 +5366,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>.NET</category>
         <category>源码</category>
-        <category>ShellCode</category>
         <category>编程</category>
+        <category>ShellCode</category>
       </categories>
       <tags>
         <tag>.NET</tag>
@@ -5549,9 +5549,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p>注意：我这里说的是不推荐用MSF中的PowerShell加载模块，并不是说MSF。<br>如同说霍金身体残废，但却没有说他是废人哦，何况只是说他一只手受伤。</p>
 ]]></content>
       <categories>
-        <category>Metasploit</category>
         <category>.NET</category>
         <category>PowerShell</category>
+        <category>Metasploit</category>
       </categories>
       <tags>
         <tag>Metasploit</tag>
@@ -6184,8 +6184,8 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -6478,10 +6478,10 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
-        <category>ShellCode</category>
+        <category>Metasploit</category>
         <category>Python</category>
+        <category>ShellCode</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -6584,8 +6584,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -6961,15 +6961,15 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
         <category>内网渗透</category>
         <category>信息收集</category>
+        <category>嗅探</category>
         <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>Python</tag>
       </tags>
   </entry>
