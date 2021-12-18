@@ -1,25 +1,29 @@
 Wiki  http://k8gege.org/Ladon
 
-Ladon 9.1 巨龙拉冬
-CS右键131个功能模块
-Update 2021.11.05
+=======================
+Ladon 9.1.1 巨龙拉冬
+CS右键174个功能模块
+Update 2021.12.11
+=======================
 
 0x001 网络资产收集
 
 1.多协议探测存活主机
-2.仅ICMP探测存活(快)
-3.Oxid多网卡主机探测
-4.DNS多网卡主机探测
-5.多协议操作系统探测
-6.网站、标题、Banner
-7.智能网站CMS识别
-8.常见端口服务探测
-9.Shiro网站探测
-10.Cisco设备探测
-11.LDAP服务器探测
-12.FTP服务器探测
-13.枚举MSSQL服务器
-14.枚举共享资源
+2.多协议探测存活IP
+3.仅ICMP探测存活(快)
+4.系统Ping探测存活
+5.Oxid多网卡主机探测
+6.DNS多网卡主机探测
+7.多协议操作系统探测
+8.网站、标题、Banner
+9.智能网站CMS识别
+10.常见端口服务探测
+11.Shiro网站探测
+12.Cisco设备探测
+13.LDAP服务器探测
+14.FTP服务器探测
+15.枚举MSSQL服务器
+16.枚举共享资源
 
 0x002 系统信息探测
 
@@ -60,17 +64,21 @@ Update 2021.11.05
 14.查看安装.NET版本
 15.查看PowerShell版本
 16.查看已安装程序版本
-17.列全盘目录与CMD
+17.查看OS倍数.NET版本
+18.列全盘目录(RAR打包)
+19.查看注册表启动项、
+20.查看系统劫持DLL
 
 0x005 本机密码读取
 
 1 Chrome浏览器密码
 2 Firefox浏览器密码
 3 CocCoc浏览器密码
-4 Wifi连接密码
-5 IIS站点密码
-6 FileZilla FTP密码
-7 VPN连接密码
+4 Edge浏览器密码
+5 Wifi连接密码
+6 IIS站点密码
+7 FileZilla FTP密码
+8 VPN连接密码 CVE-2021-36934
 
 0x006 一键GetShell
 
@@ -95,13 +103,14 @@ Update 2021.11.05
 8.5900端口VNC密码审计(多平台)
 9.389端口LDAP密码审计(Windows)
 10.1521端口Oracle数据库密码审计(多平台)
-11.1433端口SQL数据库密码审计(Windows)
+11.1433端口MSSQL数据库密码审计(Windows)
 12.3306端口MYSQL数据库密码审计(多平台)
 13.7001端口Weblogic后台密码审计(多平台)
 14.Web端口Tomcat后台密码审计(多平台)
 15.Web端口401基础认证密码审计(多平台)
 16.22端口SSH密码审计(Linux_多平台)
 17.网络摄像头密码审计(401认证)
+18.WEB网站后台目录/页面存活扫描
 
 0x009 本机执行
 
@@ -137,13 +146,22 @@ Update 2021.11.05
 	5.slui
 
 2.BypassUac2
-3.GetSystem
-4.Runas
-5.ms16135
-6.BadPotato
-7.SweetPotato
-8.RDPHijack
-9.CVE-2021-1675
+3.Admin2System
+4.System2Admin
+5.Runas
+6.ms16135 X64
+7.BadPotato
+8.SweetPotato
+9.RDPHijack
+10.CVE-2021-1675
+11.Priviledges
+	0.SetPriviledge
+	1.SetDebugPriv
+	2.SetAuditPriv
+	3.SetImpersonate
+	4.SetCreateToken
+	5.SetAssignPrimaryToken
+12.Beacon2System
 
 0x012 自启动
 
@@ -171,22 +189,12 @@ Update 2021.11.05
 3.389端口LDAP密码审计
 4.CVE-2020-1472域控提权
 
-0x016 后门/木马查看
-
-1.注册表启动项
-2.系统却持DLL
-
-0x017 域名解析
-
-1.Domain2IP
-2.Host2IP
-
-0x018 端口转发
+0x016 端口转发
 
 1.netsh(系统自带)
 2.PortTran
 
-0x019 MSF/NC联动
+0x017 MSF/NC联动
 
 1.Shell_bind_tcp
 2.Shell_reverse_tcp
@@ -195,9 +203,48 @@ Update 2021.11.05
 5.Shell_reverse_icmp
 6.Shell_reverse_dns
 
-0x020 其它功能
+0x018 其它功能
 
 1.内存加载.NET测试
-2.Win2008启用.net3.5
-3.网站HTML源码查看
+2.PowerShell测试版本
+3.Win2008启用.net3.5
+4.网站HTML源码查看
+5.网站域名解析IP
+6.PC机器名解析IP
 
+以下为系统自带命令，Ladon无法加载也不影响
+0x019 CMD命令信息收集
+0.查看系统信息
+1.查看.NET版本
+2.查看保存凭证
+3.查看Defender
+4.查看当前特权
+5.查看当前WIFI
+6.查看机器GUID
+7.查看机器名称
+8.查看RDP端口
+9.查看进程列表
+10.查看服务列表
+11.查看安装程序
+12.查看启动列表
+13.查看防火墙规则
+14.查看路由表信息
+15.查看网络连接
+16.用户操作
+	1.查看当前用户
+	2.查看本机管理员
+	3.查看本机用户
+	4.查看域管理员
+	5.查看域用户
+	6.激活Administrator
+	7.激活Guest
+	8.Guest加管理员组
+	9.禁用Administrator
+	10.禁用Guest
+17.查看机器列表
+18.查看补丁信息
+
+0x020 PowerShell信息收集
+1.查看PowerShell版本
+2.查看当前登陆用户
+...其它功能下版本更新

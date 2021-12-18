@@ -1,8 +1,27 @@
 Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
-Ladon 9.1 20211108
 
+Ladon 9.1.1 20211211
+==================================================================
+[u]OnlinePC 新增Exchange探测主机 	(仅限C段/IP 优先级最高)
+[u]OnlinePC 新增MSSQL探测存活主机	(仅限C段/IP)
+[u]OnlinePC 新增SMB探测存活主机
+[u]OnlinePC 新增WMI探测存活主机
+[u]OnlinePC 新增WinRM探测存活主机
+[u]MS17010 	解决部分OS版本乱码问题
+[-]Dumplsass模块移除转PowerShell免杀
+[u]WifiPwd  读wifi密码含当前连接WIFI
+[u]GetInfo 	含当前连接WIFI信息
+
+GUI 9.1.1 20211211
+[u]OnlinePC 表格调整
+[u]cmddll AddUser系统登陆界面隐藏添加用户
+修复重复显示的BUG 却除DNS只保留域名
+MS17010 解决OS版本乱码(SMBINFO)
+
+Ladon 9.1 20211108
+==================================================================
 [+]DnsScan 	DNS协议探测多网卡主机
 [+]GetID 	新增获取C盘卷的序列号
 [+]FileZillaPwd 读取FileZilla FTP密码
