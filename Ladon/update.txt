@@ -1,6 +1,24 @@
 Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
+Ladon 9.1.3 20220301
+[+]LogDelTomcat 删除Tomcat指定IP日志
+
+Ladon 9.1.2 20220215
+[+]EfsPotato Win7-2019提权(服务用户权限提到system)
+
+Ladon 9.1.2 20220212
+[u]OnlinePC SMB、WMI、SQL、Winrm、Exchange探测新增MAC识别
+[u]fixbug  修复cidr扫描/24不扫个别IP的BUG(使用/c扫描无此BUG)
+
+Ladon 9.1.1 20211223
+[+]DraytekPoc CVE-2020-8515漏洞检测、Draytek版本探测、弱口令检测
+[+]DraytekExp CVE-2020-8515远程执行命令EXP
+[u]Domain2IP 支持解析url(如http://k8gege.org/cs.html CMS:Hexo)
+[u]Host2IP   支持解析url(如http://k8gege.org/aaa CMS:Hexo)
+
+Ladon 9.1.1 2021.12.21
+[+]txt参数 新增cidr.txt支持 方便扫描指定国家
 
 Ladon 9.1.1 20211211
 ==================================================================
