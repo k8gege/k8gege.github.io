@@ -1206,7 +1206,7 @@
 <h3 id="嗅探工具"><a href="#嗅探工具" class="headerlink" title="嗅探工具"></a>嗅探工具</h3><p>[+] 嗅探工具 K8getPC.py 内网存活主机探测(无需端口\无视防火墙)</p>
 <h3 id="扫描工具"><a href="#扫描工具" class="headerlink" title="扫描工具"></a>扫描工具</h3><p>[+] 扫描工具 K8Cscan5.0.rar 大型内网渗透扫描器内置22个功能,支持Cobalt Strike<br>[+] 扫描工具 K8PortScan开源跨平台大型网络端口扫描器(Bin: Windows/Kali/SUSE)<br>[+] 扫描插件 K8Cscan Moudle WebLogicScan.rar Weblogic通用GetShell<br>[+] 扫描插件 K8Cscan Moudle CiscoScan.rar Cisco思科探测插件<br>[+] 扫描插件 K8Cscan Moudle OSScan2.rar 系统版本探测插件2<br>[+] 扫描插件 K8Cscan Moudle PortScan.cs 端口扫描插件源码<br>[+] 扫描插件 K8Cscan Moudle FtpScan.rar Ftp密码扫描插件<br>[+] 扫描插件 K8Cscan Moudle MysqlScan.rar Mysql密码扫描插件<br>[+] 扫描插件 K8Cscan Moudle OnlinePC.rar 存活主机扫描插件<br>[+] 扫描插件 K8Cscan Moudle WebBanner.rar WebBanner标题扫描插件<br>[+] 扫描插件 K8Cscan Moudle WmiScan.rar Wmi扫描Win系统密码插件<br>[+] 扫描工具 K8Cscan for SameWeb.rar C段旁站扫描工具<br>[+] 扫描工具 K8Cscan for SubDomain.rar 子域名扫描工具<br>[+] 扫描工具 cping3.0.rar 大型内外网渗透主机扫描工具<br>[+] 扫描工具 K8_C段旁注工具6.0<br>[+] 扫描工具 s加强版.exe<br>[+] 扫描工具 K8openssl批量 Bat版.rar<br>[+] 扫描工具 K8破壳SMTP Bat版.rar<br>[+] 扫描工具 WPdetection.exe WordPress站点信息获取<br>[+] 扫描工具 K8-S2批量.rar Struts2批量工具<br>[+] 扫描工具 smbcheck.exe MS17-010漏洞检测，cping、cscan批量专用</p>
 <h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p>[+] 脱库工具 K8mysqlCmd.rar Mysql数据库免驱连接工具<br>[+] 脱库工具 K8_mysql脱裤20170114(千万).php<br>[+] 脱库工具 K8Packwebshell.aspx 整站打包工具<br>[+] 脱库工具 K8outSQL.aspx MSSQL导库工具</p>
-<h3 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h3><p>[+] 加密解密 LadonGUI 8.0 Base64/Base32/Hex/Ascii加密解密<br>[+] K8飞刀里大量加密解密算法、编码解码、SQL注入、XSS等<br>[+] 密码破解 SharpWeb.exe 浏览器帐密读取工具(Firefox/Chorme/IE)<br>[+] 密码破解 laZagne.exe 本地密码检索工具(支持XP/2003)<br>[+] 密码破解 sshtest.exe SSH密码登陆测试可结合Cscan进行批量破解<br>[+] 嗅探工具 k8ftpsniffer.py FTP<br>[+] 密码破解 K8_DNN_Password_Decrypt_20161110.rar dotnetnuke密码解密工具<br>[+] 密码破解 Invoke-Mimikatz.ps1  Mimikatz 20181209<br>[+] 密码破解 mz.exe    Mimikatz-2.1.1-20181209 X86 一键版<br>[+] 密码破解 mz64.exe  Mimikatz-2.1.1-20181209 X64 一键版<br>[+] 密码破解 K8_FTP爆破PHP脚本20151010.rar 内网渗透用<br>[+] 密码破解 K8_Mysql爆破PHP脚本20151009.rar 内网渗透用<br>[+] 密码破解 K8_ipcscan 爆破IPC自动种马工具+教程.rar<br>[+] 密码破解 weblogic密码解密工具(exe &amp; jar)<br>[+] 密码破解 K8fuckVNC.rar k8vncpwd.exe VNC密码解密工具<br>[+] 密码破解 K8getTeamViewPWD_20150705[K.8].rar<br>[+] 密码破解 K8正方密码解密工具_20150801[K.8].rar<br>[+] 密码破解 getBrowserPWD_1124[K.8].rar  Firefox\Ghrome 浏览器密码读取工具<br>[+] 密码破解 getvpnpwd.exe VPN、ADSL宽带帐密读取工具(仅限XP、2003)<br>[+] 密码破解 GetPassword_x64.rar GetPwd_K8.rar 一键获取明文<br>[+] 密码破解 K8_FuckOneShell 一句话密码爆破秒破10万<br>[+] 加密解密 K8Base32_Decode_20161110.rar<br>[+] 斛密工具 k8ungzip.exe GZIP 用于提取0day网马Powershell执行PAYLOAD<br>[+] 密码破解 K8FTP密码破解器V2.0_20190301[K8].rar<br>[+] 密码破解 K8Access数据库密码读取器_20190301[K8].rar<br>[+] 加密工具 K8_FileHideImg.exe 任意文件隐藏至图片工具</p>
+<h3 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h3><p>[+] 密码破解 ChromePwd_20220313  Chrome浏览器密码、Cookie、历史记录读取<br>[+] 密码破解 CocCocPwd_20220313  CocCoc浏览器密码、Cookie、历史记录读取<br>[+] 密码破解 EdgePwd_20220313    Edge浏览器密码、Cookie、历史记录读取<br>[+] 加密解密 LadonGUI 8.0 Base64/Base32/Hex/Ascii加密解密<br>[+] K8飞刀里大量加密解密算法、编码解码、SQL注入、XSS等<br>[+] 密码破解 SharpWeb.exe 浏览器帐密读取工具(Firefox/Chorme/IE)<br>[+] 密码破解 laZagne.exe 本地密码检索工具(支持XP/2003)<br>[+] 密码破解 sshtest.exe SSH密码登陆测试可结合Cscan进行批量破解<br>[+] 嗅探工具 k8ftpsniffer.py FTP<br>[+] 密码破解 K8_DNN_Password_Decrypt_20161110.rar dotnetnuke密码解密工具<br>[+] 密码破解 Invoke-Mimikatz.ps1  Mimikatz 20181209<br>[+] 密码破解 mz.exe    Mimikatz-2.1.1-20181209 X86 一键版<br>[+] 密码破解 mz64.exe  Mimikatz-2.1.1-20181209 X64 一键版<br>[+] 密码破解 K8_FTP爆破PHP脚本20151010.rar 内网渗透用<br>[+] 密码破解 K8_Mysql爆破PHP脚本20151009.rar 内网渗透用<br>[+] 密码破解 K8_ipcscan 爆破IPC自动种马工具+教程.rar<br>[+] 密码破解 weblogic密码解密工具(exe &amp; jar)<br>[+] 密码破解 K8fuckVNC.rar k8vncpwd.exe VNC密码解密工具<br>[+] 密码破解 K8getTeamViewPWD_20150705[K.8].rar<br>[+] 密码破解 K8正方密码解密工具_20150801[K.8].rar<br>[+] 密码破解 getBrowserPWD_1124[K.8].rar  Firefox\Ghrome 浏览器密码读取工具<br>[+] 密码破解 getvpnpwd.exe VPN、ADSL宽带帐密读取工具(仅限XP、2003)<br>[+] 密码破解 GetPassword_x64.rar GetPwd_K8.rar 一键获取明文<br>[+] 密码破解 K8_FuckOneShell 一句话密码爆破秒破10万<br>[+] 加密解密 K8Base32_Decode_20161110.rar<br>[+] 斛密工具 k8ungzip.exe GZIP 用于提取0day网马Powershell执行PAYLOAD<br>[+] 密码破解 K8FTP密码破解器V2.0_20190301[K8].rar<br>[+] 密码破解 K8Access数据库密码读取器_20190301[K8].rar<br>[+] 加密工具 K8_FileHideImg.exe 任意文件隐藏至图片工具</p>
 <h3 id="安全辅助"><a href="#安全辅助" class="headerlink" title="安全辅助"></a>安全辅助</h3><p>[+] 安全工具 K8木马病毒后门监视器V3.0.rar 捆绑后门木马释放路径、Shell上传路径查看<br>[+] 安全工具 K8进程拦截.rar (比方说访问网页浏览器调用外站EXE执行说明0day来了,而且可防止木马运行)<br>[+] 安全工具 K8驱动防止WebShell提权工具.rar (就是说无法通过WEBSHELL执行任意命令,就算有签名的EXE也不行)<br>[+] 辅助工具 K8注册表跳转.exe</p>
 <h3 id="转发代理"><a href="#转发代理" class="headerlink" title="转发代理"></a>转发代理</h3><p>[+] 端口转发 PortTran.rar  .NET端口转发工具<br>[+] 端口转发 K8PortMap.exe D7端口映射工具</p>
 <h3 id="WebShell"><a href="#WebShell" class="headerlink" title="WebShell"></a>WebShell</h3><p>[+] 转换工具 k8exe2bat.exe 任意文件转Bat工具(WebShell无法上传EXE解决方案)<br>[+] 上传工具 K8upload_1125[K8].rar 新型小马上传工具支持任意文件(内置asp\php\jsp小马)<br>[+] 连接工具 K8一句话ASP木马客户端加强程序版.exe<br>[+] WebShell k8cmd.ascx<br>[+] WebShell k8cmd.pl<br>[+] WebShell k8cmd.py<br>[+] WebShell k8飞刀CMD.jsp<br>[+] WebShell K8飞刀A专用UA一句话木马.asp<br>[+] WebShell K8飞刀PHP-专用UA一句话木马.php<br>[+] WebShell K8飞刀专用UA一句话木马.asxp<br>[+] WebShell shellcode.aspx </p>
@@ -2452,8 +2452,8 @@ Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id="版本"><a href="
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>提权</category>
+        <category>Ladon</category>
         <category>远程执行</category>
       </categories>
       <tags>
@@ -4620,11 +4620,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -4792,8 +4792,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -4894,8 +4894,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>提权</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6540,46 +6540,6 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
-    <title>.NET端口转发工具PortTran</title>
-    <url>/p/3f55538f.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
-<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
-<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
-<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
-<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
-<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
-<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
-<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">0x001 VPS监听
-PortTranS.exe 8000 338
-
-<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
-<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
-</div>
-<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
-<p>1.vps监听</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran1.png"></p>
-<p>2.目标内网3389端口转发</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran2.png"></p>
-<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran3.png"></p>
-<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
-<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
-<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
-<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
-<p>&nbsp;</p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>.NET</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>PortTran</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
     <url>/p/f3512dbc.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
@@ -6691,6 +6651,46 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.NET端口转发工具PortTran</title>
+    <url>/p/3f55538f.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
+<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
+<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
+<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
+<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
+<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
+<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
+<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">0x001 VPS监听
+PortTranS.exe 8000 338
+
+<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
+<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
+</div>
+<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
+<p>1.vps监听</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran1.png"></p>
+<p>2.目标内网3389端口转发</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran2.png"></p>
+<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/PortTran3.png"></p>
+<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
+<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
+<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
+<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
+<p>&nbsp;</p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>.NET</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>PortTran</tag>
       </tags>
   </entry>
   <entry>
@@ -7162,12 +7162,12 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
         <category>嗅探</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
         <category>Python</category>
       </categories>
       <tags>
