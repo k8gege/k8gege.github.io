@@ -1,6 +1,11 @@
 Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
+
+Ladon 9.1.3 20220315
+[+]GetDomainIP 查询域内机器、IP
+[u]各模块ICMP超时由500改为800ms
+
 Ladon 9.1.3 20220301
 [+]LogDelTomcat 删除Tomcat指定IP日志
 
