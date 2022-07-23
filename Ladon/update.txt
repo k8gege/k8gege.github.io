@@ -1,6 +1,35 @@
 Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
+
+Ladon 9.1.8 20220718
+[+]WPinfo 多种方法获取WordPress主程序、主题、插件版本
+[-]CVE-2021-40444 Microsoft MSHTML远程代码执行漏洞，Office文档利用模块
+
+Ladon GUI 9.1.8
+Linux Base64命令		Base64加密命令，这样执行就可绕过双引号、一些特殊字符等
+Linux echo Getshell		16进制写入webshell功能
+DisTXT 文本去重
+DisURL URL去重
+Dis IP Domain 对文本中URL、IP、域名等去重,如zimbra结果
+Add https://  域名或IP前添加https://
+Add http://  域名或IP前添加http://
+Rm https://  删除域名或IP前添加https://
+Rm http://   删除域名或IP前添加http://
+IP to IP24   IP转成ip/24，如10.1.10.1/24
+IP to IPC    IP转成ipc，如10.1.10.
+IP to IP16   IP转成ip/b，如10.1.10.1/b
+IP to IPB    IP转成ipb，如10.1.
+Domain to IP 域名解析成IP(结果只回显IP)
+Domain to IP 域名解析成IP(结果域名、IP)
+Split Space  按空格分割
+Split Tab    按Tab键分割
+Split Colon  按冒号分割
+Split Comma  按逗号分割
+Rm Space     移除前后空格
+Rm All Space 移除所有空格
+
+=============================================
 Ladon 9.1.7 20220618
 [+]SslInfo		探测设备、IP、域名、机器名、组织机构等信息
 url.txt			非URL ip:443自动添加https  ip:80自动添加http
