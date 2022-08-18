@@ -2,6 +2,45 @@ Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
 
+Ladon 9.2.0 20220818
+[+]CVE-2022-27925	Zimbra mboximport ZIP目录穿越漏洞GetShell检测
+[+]EXP-2022-27925	Zimbra mboximport ZIP目录穿越漏洞GetShell EXP
+[+]WebShellCmd		新增JSP UserAgent明文WebShell & Base64 Shell	
+[-]移除IsShiro	
+
+LadonGUI 9.2.0 20220815
+[u]修复文件分割功能 自动行前添加http://的BUG
+[u]修复IP/URL 未填写文件 使用文本去重等功能崩溃的BUG
+
+===================================
+Ladon 9.1.9 & Cobalt Strike 20220808
+[+]ExchangeScan			Exchange密码爆破(.net >= 4.0)
+[+]RevShell-2022-26134	Confluence CVE-2022-26134反弹Shell
+[u]修复批量url.txt Get提交EXP的BUG  如CVE-2022-26134
+
+===========================================
+Ladon9.1.8 20220731
+[u]ReadFile 大文件默认读取1024字节内容
+
+Ladon CS插件 更新9.1.8
+
+LadonExp 20220802
+支持返回头信息
+修复AddUrl Bug
+
+LadonEXP 20220730
+可选.net 3.5或.net 4.8生成
+.net 3.5生成可Ladon和Ladon48调用，部分https不兼容
+.net 4.8生成只能使用Ladon48调用，兼容更多https站点
+
+LadonEXP48 20220724
+双击POST框 可展开或收缩
+
+LadonGUI 9.1.8 20220724
+反弹shhell新增3个PHP反弹shell
+反弹shhell新增base64另一写法
+
+
 Ladon 9.1.8 20220718
 [+]WPinfo 多种方法获取WordPress主程序、主题、插件版本
 [-]CVE-2021-40444 Microsoft MSHTML远程代码执行漏洞，Office文档利用模块
