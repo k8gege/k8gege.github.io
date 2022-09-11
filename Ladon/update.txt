@@ -1,7 +1,38 @@
 Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
+Ladon 9.2.1 2022.9.11
+[+]CiscoDump		CVE-2019-1653 Cisco RV320 RV325 Dump Password
+[u]PortScan			超时5-8S，减少有时因超时漏端口的BUG
+[u]gethtml				支持https tls 1.3
+[u]wget/HttpDownLoad	支持https tls 1.3
+[u]WebShellCmd			WebShell横向移动
+[u]SslInfo
+[u]WPinfo
+移除模块
+[-]WebDir
+[-]WebScan 
+[-]SameWeb 
+[-]UrlScan
 
+Ladon 9.2.1 2022.8.28
+[u]WahtCMS 		新增识别Zimbra Mail、GitLab、Atlassian Confluence、TP-Link TL-WR840N
+[u]WebScan 		更新https tls 1.2
+[-]ms16135		移除MS16135提权(CVE-2016-7255)模块
+[+]FindIP		查找IP列表是否出现指定IP段或IP
+[+]IISdoor 		IIS-Raid后门连接执行命令(后门自行编译https://github.com/0x09AL/IIS-Raid)
+
+
+LadonEXP 2022.8.28
+[+]增加随机UserAgent，删除默认google蜘蛛(会被一些站点禁止访问)
+
+===========================================
+LadonGUI 9.2.0 20220820
+[+]Encode		加密解密 新增Unicode编码解码
+[+]Encode		文件转Hex编码、Hex转文件功能
+[+]Encode		加密解密 新增URL编码解码功能
+
+================================================
 Ladon 9.2.0 20220818
 [+]CVE-2022-27925	Zimbra mboximport ZIP目录穿越漏洞GetShell检测
 [+]EXP-2022-27925	Zimbra mboximport ZIP目录穿越漏洞GetShell EXP
