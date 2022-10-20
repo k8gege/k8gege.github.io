@@ -6152,8 +6152,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -7746,9 +7746,9 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>Metasploit</category>
         <category>免杀</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -8040,9 +8040,9 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>Metasploit</category>
         <category>免杀</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8525,9 +8525,9 @@ from pprint import pprint
         <category>主机发现</category>
         <category>源码</category>
         <category>内网渗透</category>
-        <category>嗅探</category>
         <category>信息收集</category>
         <category>编程</category>
+        <category>嗅探</category>
         <category>Python</category>
       </categories>
       <tags>
