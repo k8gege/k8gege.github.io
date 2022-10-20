@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>〖Tool〗Ladon modular hacking framework (penetration scanner &amp; Cobalt strike)</title>
+    <title>〖Tool〗Ladon modular hacking framework</title>
     <url>/p/Ladon-en.html</url>
     <content><![CDATA[<p>Ladon is a multi-threaded plug-in comprehensive scanning artifact for large-scale intranet penetration, including port scanning, service identification, network assets, password blasting, high-risk vulnerability detection and one click getshell. It supports batch segment A / segment B / segment C and cross network segment scanning, as well as URL, host and domain name list scanning. Version 9.2.3 has 175 built-in functional modules<br>…</p>
 <a id="more"></a>
@@ -2818,6 +2818,34 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖Tech〗Ladon Microsoft exchange account brute</title>
+    <url>/p/ExchangeScan.html</url>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="/Ladon/ExchangeScan.html";
+</script>
+
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon url ExchangeScan</span><br><span class="line">Ladon url.txt ExchangeScan</span><br></pre></td></tr></table></figure>
+
+<p>Ladon.exe for windows<br><img alt data-original="http://k8gege.org/k8img/Ladon/cs/ExchangeScan.PNG"></p>
+<p>Brute Exchange password<br><img alt data-original="http://k8gege.org/k8img/Ladon/cs/ExchangeScan.gif"></p>
+<p>Ladon for Cobalt Strike CLI<br><img alt data-original="http://k8gege.org/k8img/Ladon/cs/ExchangeScan_cs1.gif"></p>
+<p>Ladon for Cobalt Strike GUI<br><img alt data-original="http://k8gege.org/k8img/Ladon/cs/ExchangeScan_cs2.gif"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>9.2.4：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>Brute-Force</category>
+      </categories>
+      <tags>
+        <tag>Exchange</tag>
+        <tag>Brute</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测</title>
     <url>/p/log4shell.html</url>
     <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/log4j/log4shell_1.PNG"></p>
@@ -3253,7 +3281,7 @@ window.location.href="http://k8gege.org/Ladon/cve-2021-36934.html";
       </tags>
   </entry>
   <entry>
-    <title>〖教程〗Ladon 0day通用执行命令DLL生成器-MS17010演示</title>
+    <title>〖教程〗Ladon 0day通用DLL生成器-MS17010演示</title>
     <url>/p/cmddll.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
@@ -3782,8 +3810,8 @@ Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id="版本"><a href="
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Ladon</category>
+        <category>提权</category>
         <category>远程执行</category>
       </categories>
       <tags>
@@ -5952,11 +5980,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6226,8 +6254,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Ladon</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7718,8 +7746,8 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Metasploit</category>
+        <category>免杀</category>
         <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
@@ -8012,8 +8040,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Metasploit</category>
+        <category>免杀</category>
         <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
@@ -8494,12 +8522,12 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
         <category>嗅探</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>

