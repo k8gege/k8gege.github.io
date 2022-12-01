@@ -1,7 +1,118 @@
 Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
-Ladon 9.2.4 20221018
+Ladon  Study 20221201 让小白快速入门网络安全
+=============================================
+Ladon Study包含网络资产探测、漏洞检测、漏洞EXP、密码审计、
+信息收集、横向移动、密码读取、本地提权等144个功能。
+使用超级简单，只需填写目标IP、URL、域名、IP段、TXT等，
+点击对应按钮一键操作。如下图，填好C段IP后，使用ICMP探测C段存活主机。
+
+Ladon 9.3.0 20221130
+=============================================
+[u]修复一些Win7系统异常的Bug
+[u]Cobalt Strike	CS版更新9.3.0
+[u]ExchangePoc		ProxyShell漏洞检测 .net>=4.0
+[u]ExchangeVer		Exchange版本探测   .net>=4.0
+[u]ExchangeInfo		
+[u]CVE-2020-0688	
+[u]DraytekPoc
+[u]DraytekExp
+[u]CVE-2022-27925
+[u]EXP-2022-27925
+[u]RevShell-2022-26134
+[u]CVE-2022-26134
+[u]EXP-2022-26134
+
+
+Ladon 9.2.9 20221119
+=============================================
+[u]web	 修复9.2.5-9.2.8的web监听后无法远程加载Ladon.ps1
+爆破模块 修复userpass.txt字典读取最后多一空格无法爆破的BUG
+[u]CiscoScan
+[u]WeblogicScan
+[u]TomcatScan
+[u]SshScan
+[u]DvrScan		
+[u]HttpBasiScan 
+[u]MysqlScan	
+[u]OracleScan	
+[u]VncSan
+[u]MssqlScan	
+[u]FtpScan		
+[u]LdapScan		
+[u]SmbScan		
+[u]SmbHash		
+[u]WmiScan		
+[u]WmiHash		
+[u]WinrmScan	
+[u]DraytekPoc		
+[u]NbtScan			
+[u]ExchangeScan	
+	
+[-]EXE移除webshell\jspshell  CS保留
+[u]WPscan 解决WP误报问题 当WP禁止爆破时 同样出现log_in特征
+
+=============================================
+Ladon 9.2.8 20221116
+[+]WpScan	WordPress密码审计、弱口令
+
+Ladon 9.2.7 20221115
+[u]CiscoWebBrute
+[u]CiscoInfo	  支持Cisco RV340 VPN路由
+[u]HttpBasiScan	  支持Cisco RV340 VPN路由
+[u]DvrScan
+[u]PortScan 增加7080 9100端口 常见端口超时为5秒 其它8秒
+[u]Wmiexec2 支持Base64密码 解决双引号或特殊符号密码问题
+[+]默认增加CPU信息 物理数 内核数 逻辑处理器数量
+
+=============================================
+LadonExp 20221114
+txt字典只需提供原始用户密码，使用以下变量POC自动传入
+若密码需经过Base64加密或MD5加密，请使用对应加密变量
+$user$				用户
+$pass$				密码
+$b64pass$			Base64(密码)
+$b64(user:pass)$	Base64(用户:密码)
+$md532pass$			32位MD5(密码)
+$md516pass$			16位MD5(密码)
+
+Ladon 9.2.6 20221112
+=============================================
+
+以下模块40 48解决Cisco tls 1.2服务器提交协议冲突的Bug
+[u]WebScan 	支持Cisco RV340 VPN路由等识别
+[u]SslInfo	支持Cisco RV340 VPN路由等识别
+[u]WhatCms	支持Cisco RV340 VPN路由等识别
+[u]Wget		HTTP、HTTPS文件下载也可用于内网文件传输
+[u]GetHtml	无需代理CS或远控上查看内网站点HTML源码
+[u]GetIP	获取本机内网IP与外网IP(如查看是否VPN)
+[u]WPinfo   探测完后再显示插件信息，URL与结果完全对应
+
+[u]SshCmd  支持连接Kali 2022或高版本SSH，支持加载DLL更新
+[u]SshScan 支持爆破Kali 2022或高版本SSH，支持加载DLL更新
+[u]SshScan 修复userpass.txt密码组多个空格不的密码的BUG
+
+=============================================
+Ladon 9.2.5 20221108
+[u]fixbug      Ladon48修复MS17010不可用bug
+[u]fixbug      Ladon48修复DraytekExp不可用bug
+
+LadonEXP 9.2.5 20221108
+[+]回显结果 显示URL
+[+]cookie、Post、401  $user$ $pass$ 密码爆破
+[u]修复URL自定义端口时，部分POC崩溃的Bug
+
+LadonGUI 9.2.5 20221105
+[u]WebSer      /savetxt/string  支持保存提交原始字符串
+[u]WebSer      /deb64txt/B64Str 支持保存(解密提交的Bases64字符串)
+
+LadonGUI 9.2.4 20221027
+Dis IP Domain  对多端口URL、IP、域名等去重,如zimbra结果 即只提取文本中的IP和域名
+Split Num	   按次数分割，即分割成几份，自动计算均分 不足归最后一份
+Split Line	   按指定行数分割，自动分割成对应几份，不足归最后一份
+
+Ladon 9.2.4 20221024
 [u]DraytekPoc   修复35和48莫名Bug
 [u]WebShellCmd  PostShell OSinfo查看系统版本、gcc、python等(方便提权)
 [u]WebShellCmd  UAshell OSinfo查看系统版本、gcc、python等(方便提权)

