@@ -1,6 +1,37 @@
 Wiki: http://k8gege.org/Ladon
 https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA
 
+Ladon模块化网络渗透工具，可PowerShell模块化、可CS插件化、可内存加载，无文件扫描。含端口扫描、服务识别、网络资产探测、密码审计、高危漏洞检测、漏洞利用、密码读取以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描等。10.0版本内置180个功能模块,外部模块18个,网络资产探测模块28个通过多种协议(ICMP\NBT\DNS\MAC\SMB\WMI\SSH\HTTP\HTTPS\Exchange\mssql\FTP\RDP)以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、交换机、数据库、打印机等信息，高危漏洞检测16个包含Cisco、Zimbra、Exchange、DrayTek、MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列、Printer等，密码审计23个含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/webshell),Web指纹识别模块可识别135+（Web应用、中间件、脚本类型、页面类型）等，本地提权21+含SweetPotato\BadPotato\EfsPotato\BypassUAC,可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。
+
+
+Ladon 10.1 20221208
+[+]FireFoxPwd	Firefox密码读取支持最新版108
+[+]BypassUAC11  支持Win7、Win8、Win11 Win2012\2016\2019等 .net >=4.0
+[+]DraytekScan	DrayTek密码审计 弱口令检测
+[u]WpScan		超时18s 超时或报错回显 以免提示非WP不知怎么回事 默认4个弱口令
+[u]DraytekPoc	移除自定义密码因为太多功能发包太多了 另搞一模块专门爆破DrayTekScan
+
+
+Ladon 10.0 20221208
+[+]TrueIP 	  多种方式探测域名真实IP
+[u]Ladon Study 新增保存功能
+[u]Ladon Study 一些常用功能按钮高亮
+[+]GetHead	   新增获取网页返回头模块
+[+]GetHtml	   新增获取网页返回头+网页源码模块
+
+[+]GetDomain 新增获取IP或网页中的域名 可扫C段IP中的域名
+[u]WhatCMS	 重新放开Banner长度改为80 不能因为个别放弃大量
+[u]WebScan	 传入https也可探测机器名 无html内容也能机器名
+[+]扫IP、CIDR、IP列表等 可添加https 或 http 配合相应模块使用
+
+[+]TelnetScan	Telnet密码爆破 默认字典中兴ZTE F660 F670弱口令 其它Telnet暂不支持
+[u]TomcatScan	新增默认密码
+[u]WeblogicScan	新增默认密码
+[-]SubDomain	移除子域名爆破 绝对本地用的功能不加 需要的话另行优化
+[u]RdpInfo		only 20 or 35
+[u]sshscn		新增默认密码 修复扫出正确密码 莫明继续跑的BUG
+
+
 Ladon  Study 20221201 让小白快速入门网络安全
 =============================================
 Ladon Study包含网络资产探测、漏洞检测、漏洞EXP、密码审计、

