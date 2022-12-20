@@ -5,8 +5,8 @@ Windows版本: .Net、Cobalt Strike、PowerShell
 PS: Study方便本地测试使用，完整功能请使用CMD
 
 ### 版本
-Ladon 10.1 20221208
-简明用法例子 184例
+Ladon 10.1 20221220
+简明用法例子 186例
 
 ### 001 自定义线程扫描
 例子：扫描目标10.1.2段是否存在MS17010漏洞
@@ -771,3 +771,11 @@ Ladon40 BypassUAC11 cmd
 Ladon40 BypassUAC11 c:\1.bat
 Ladon40 BypassUAC11 c:\1.exe
 
+##### 185 GetPwd支持Navicat、TeamView、Xshell、SecureCRT密码获取
+Ladon GetPwd	   
+
+##### 186 DraytekScan 密码审计Draytek弱口令检测
+Ladon 192.168.1.8 DraytekScan
+Ladon https://192.168.1.8 DraytekScan
+Ladon 192.168.1.8/24 DraytekScan
+Ladon url.txt DraytekScan
