@@ -8266,8 +8266,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -8616,15 +8616,15 @@ from pprint import pprint
         <category>工具</category>
         <category>源码</category>
         <category>主机发现</category>
-        <category>内网渗透</category>
         <category>嗅探</category>
+        <category>内网渗透</category>
         <category>编程</category>
         <category>信息收集</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>Python</tag>
       </tags>
   </entry>
