@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2023-03-27T15:52:08.444Z</updated>
+  <updated>2023-04-23T07:41:36.040Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖Tech〗CVE-2022-36537 Zookeeper Server Backup Manager未授权RCE漏洞复现</title>
+    <link href="http://k8gege.org/p/CVE-2022-36537.html"/>
+    <id>http://k8gege.org/p/CVE-2022-36537.html</id>
+    <published>2023-04-22T08:11:00.000Z</published>
+    <updated>2023-04-23T07:41:36.040Z</updated>
+    
+    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="/Ladon/CVE-2022-36537.html";</script><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon url CVE-2022-36537</span><br><span class="line">Ladon url.txt CVE-2022-36537</span><br></pre></td></tr></table></figure><p>EXP-2022-36537    Zookeeper 未授权文件读取EXP (默认/WEB-INF/web.xml)<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/CVE-2022-36537_EXP.png"><br>批量检测CVE-2022-36537 Server Backup Manager 未授权RCE漏洞 上传是否可用<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/CVE-2022-36537_ISOK.png"><br>端口转发<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/FortForward.png"></p><h3 id="Ladon-10-10-4-20230422"><a href="#Ladon-10-10-4-20230422" class="headerlink" title="Ladon 10.10.4  20230422"></a>Ladon 10.10.4  20230422</h3><p>[u]LadonGUI            文本处理，功能全改成中文(Win8及以上英文系统支持中文)<br>[+]EXP-2022-36537    Zookeeper 未授权文件读取EXP (默认/WEB-INF/web.xml)<br>[+]CVE-2022-36537    Server Backup Manager 未授权RCE漏洞检测 (Zookeeper)<br>[+]INI插件               超时30秒，自动结束进程，防批量PY卡死<br>[+]TXT文件               IP、URL等自动去重，只有str.txt不去重<br>[+]TXT文件               扫描TXT支持自定义线程数，不再默认100<br>[u]SshScan          修复ip.txt时重复扫N多密码的Bug<br>[+]PortForward        端口转发 端口中转<br>[+]默认信息            显示OS版本识别小版本号、.NET最高版本<br>[+]INI插件               支持$ip$、$url$、$tar$、$ip$:$port$、$ip$ $port$参数，自动处理格式，如tar.txt中有IP和URL，$ip$会把url处理成IP<br>[+]INI插件               支持参数处理，如INI里配置$ip$，读取tar.txt内容为<a href="http://192.168.1.8:8099，内容将处理成IP数据192.168.1.8，其他同理">http://192.168.1.8:8099，内容将处理成IP数据192.168.1.8，其他同理</a><br>[+]TXT文件               新增tar.txt、target.txt一样，传入参数为原始内容，如提供的是IP，Ladon不会处理成url，除非INI里指定，或模块自行处理<br>[+]TXT文件               修复读取url.txt host.txt 出现不完整问题，如<a href="http://backup.xxx.org" target="_blank" rel="noopener">http://backup.xxx.org</a> 变成 http:ckup.xx.org 的Bug</p><p>EXP-2022-36537    Zookeeper 未授权文件读取EXP (默认/WEB-INF/web.xml)<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/CVE-2022-36537_EXP.png"><br>批量检测CVE-2022-36537 Server Backup Manager 未授权RCE漏洞 上传是否可用<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/CVE-2022-36537_ISOK.png"><br>端口转发<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/FortForward.png"></p><h3 id="Ladon-10-10-3-20230410"><a href="#Ladon-10-10-3-20230410" class="headerlink" title="Ladon 10.10.3 20230410"></a>Ladon 10.10.3 20230410</h3><p>[+]FtpServer    迷你FTP服务器，(支持windows/Linux自带ftp命令实现文件上传下载)<br>                默认21 admin admin 可自定义端口  自定义用户、密码<br>[+]TcpServer    监听TCP发包数据 保存TXT和HEX 如SMB RDP HTTP SSH LDAP FTP等协议<br>[+]UdpServer    监听UDP发包数据 保存TXT和HEX 如DNS、SNMP等协议<br>[+]ArpInfo        ARP协议探测存活主机IP和MAC，仅支持同一子网<br>[u]WebServer    迷你WEB服务器<br>[u]PortScan        移除9100端口</p><p>Ladon 10.10.2 20230402<br>[+]clsLog          清除崩溃日志、UsageLog日志、清除图标缓存、禁止UsageLog日志记录<br>[u]默认禁止基于.net程序UsageLog日志记录(如各类工具、powershell等)防止蓝队或EDR通过日志审计<br>[u]RunPS           无PowerShell.exe执行*.ps1脚本 新增内存绕过AMSI反病毒查杀接口<br>[+]默认Bypass     ETW 绕过部分杀软和EDR监控<br>[+]HPreboot        SNMP重启HP打印机 .net&gt;=4.0</p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon" target="_blank" rel="noopener">http://github.com/k8gege/Ladon</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
+      
+    
+    </summary>
+    
+    
+      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="Exp" scheme="http://k8gege.org/tags/Exp/"/>
+    
+      <category term="Poc" scheme="http://k8gege.org/tags/Poc/"/>
+    
+  </entry>
   
   <entry>
     <title>〖EXP〗Ladon漏洞复现 CVE-2023-21839 Weblogic</title>
@@ -543,33 +573,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
       <category term="wmi" scheme="http://k8gege.org/tags/wmi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ladon命令行查看USB使用记录</title>
-    <link href="http://k8gege.org/p/usblog.html"/>
-    <id>http://k8gege.org/p/usblog.html</id>
-    <published>2021-08-14T06:00:00.000Z</published>
-    <updated>2021-08-14T08:12:59.333Z</updated>
-    
-    <content type="html"><![CDATA[<p>Ladon UsbLog查看USB使用记录，检测是否被他人用U盘插过自己电脑</p><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>1.Ladon查看USB使用记录<br>2.CMD查看USB使用记录<br>3.BAT查看USB使用记录<br>4.C#查看USB使用记录</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/usblog.html";</script><h3 id="更新功能"><a href="#更新功能" class="headerlink" title="更新功能"></a>更新功能</h3><p>Ladon 8.7 2021.8.14<br>[+]UsbLog USB使用记录查看(USB名称、USB标记、路径信息)</p><h3 id="Ladon查看"><a href="#Ladon查看" class="headerlink" title="Ladon查看"></a>Ladon查看</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon UsbLog</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/UsbLog.PNG"></p><h3 id="C-查看"><a href="#C-查看" class="headerlink" title="C#查看"></a>C#查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">            USBConnKey &#x3D; Registry.LocalMachine.OpenSubKey(@&quot;SYSTEM\CurrentControlSet\Enum\USBSTOR&quot;, false);</span><br><span class="line">            foreach (string sub1 in USBConnKey.GetSubKeyNames())</span><br><span class="line">            &#123;</span><br><span class="line">                RegistryKey sub1key &#x3D; USBConnKey.OpenSubKey(sub1, false);</span><br><span class="line">                foreach (string sub2 in sub1key.GetSubKeyNames())</span><br><span class="line">                &#123;</span><br><span class="line">                    try</span><br><span class="line">                    &#123;</span><br><span class="line">                        RegistryKey sub2key &#x3D; sub1key.OpenSubKey(sub2, false);</span><br><span class="line">                        if (sub2key.GetValue(&quot;Service&quot;, &quot;&quot;).Equals(&quot;disk&quot;))</span><br><span class="line">                        &#123;</span><br><span class="line">                            String Path &#x3D; &quot;USBSTOR&quot; + &quot;\\&quot; + sub1 + &quot;\\&quot; + sub2;</span><br><span class="line">                            String Name &#x3D; (string)sub2key.GetValue(&quot;FriendlyName&quot;, &quot;&quot;);</span><br><span class="line">                            Console.WriteLine(&quot;USB_Name: &quot; + Name);</span><br><span class="line">                            Console.WriteLine(&quot;UID_Tag: &quot; + sub2);</span><br><span class="line">                            Console.WriteLine(&quot;Path: &quot; + Path + &quot;\r\n&quot;);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    catch (Exception msg)</span><br><span class="line">                    &#123;</span><br><span class="line">                        Console.WriteLine(msg.Message);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">### Cmd查看</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;Bash</span><br><span class="line">for &#x2F;f  %i in (&#39;reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR&#39;) do @for &#x2F;f %x in (&#39;reg query &quot;%i&quot;&#39;) do @reg query &quot;%x&quot; &#x2F;v FriendlyName | findstr FriendlyName</span><br></pre></td></tr></table></figure><h3 id="Bat查看"><a href="#Bat查看" class="headerlink" title="Bat查看"></a>Bat查看</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> /f  %%i <span class="keyword">in</span> (<span class="string">'reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR'</span>) <span class="keyword">do</span> @<span class="keyword">for</span> /f %%x <span class="keyword">in</span> (<span class="string">'reg query "%%i"'</span>) <span class="keyword">do</span> @reg query <span class="string">"%%x"</span> /v FriendlyName | findstr FriendlyName</span><br></pre></td></tr></table></figure><h3 id="Ladon其它信息收集模块"><a href="#Ladon其它信息收集模块" class="headerlink" title="Ladon其它信息收集模块"></a>Ladon其它信息收集模块</h3><p>Getinfo 渗透基础信息收集(常用命令)<br>Getinfo2 渗透基础信息收集(WMI信息)<br>RdpLog  查看3389连接记录<br>Recent   最近文件访问记录<br>QueryProxy 查看代理服务器<br>GetPipe 查看本机命名管道<br>netver    .net&amp;powershell版本查看<br>allver     安装软件列表</p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.7版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Ladon UsbLog查看USB使用记录，检测是否被他人用U盘插过自己电脑&lt;/p&gt;
-&lt;h3 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;p&gt;1.Ladon查看USB使用记录&lt;br&gt;2.CM
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="USB" scheme="http://k8gege.org/tags/USB/"/>
     
   </entry>
   

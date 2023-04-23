@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://k8gege.org/Ladon/ExchangeScan.html</loc>
+    <lastmod>2023-04-23</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/p/CVE-2022-36537.html</loc>
+    <lastmod>2023-04-23</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Ladon/CVE-2022-36537.html</loc>
+    <lastmod>2023-04-23</lastmod>
+  </url>  <url>
     <loc>http://k8gege.org/Download/index.html</loc>
     <lastmod>2023-04-23</lastmod>
   </url>  <url>
@@ -45,9 +54,6 @@
   </url>  <url>
     <loc>http://k8gege.org/p/Ladon-en.html</loc>
     <lastmod>2023-02-08</lastmod>
-  </url>  <url>
-    <loc>http://k8gege.org/Ladon/ExchangeScan.html</loc>
-    <lastmod>2022-10-20</lastmod>
   </url>  <url>
     <loc>http://k8gege.org/p/cmddll.html</loc>
     <lastmod>2022-10-20</lastmod>
