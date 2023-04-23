@@ -2818,7 +2818,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>〖Tech〗CVE-2022-36537 Zookeeper Server Backup Manager未授权RCE漏洞复现</title>
+    <title>〖Tech〗CVE-2022-36537 Zookeeper 未授权RCE漏洞复现</title>
     <url>/p/CVE-2022-36537.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
@@ -8783,8 +8783,8 @@ from pprint import pprint
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
-        <category>嗅探</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Tool</tag>
