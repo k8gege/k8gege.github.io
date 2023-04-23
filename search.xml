@@ -8783,8 +8783,8 @@ from pprint import pprint
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
-        <category>Python</category>
         <category>嗅探</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
