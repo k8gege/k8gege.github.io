@@ -6235,11 +6235,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>.NET</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>内网渗透</category>
         <category>信息收集</category>
+        <category>.NET</category>
+        <category>内网渗透</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -6408,8 +6408,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>内网渗透</category>
         <category>远程执行</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -6749,8 +6749,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>主机发现</category>
-        <category>内网渗透</category>
         <category>信息收集</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7183,9 +7183,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-执行效果"><a href="#0x006-执行效果" class="headerlink" title="0x006 执行效果"></a>0x006 执行效果</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Other/ilcode.PNG"></p>
 ]]></content>
       <categories>
+        <category>源码</category>
         <category>ShellCode</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -7369,15 +7369,15 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Metasploit</category>
-        <category>.NET</category>
         <category>PowerShell</category>
+        <category>.NET</category>
       </categories>
       <tags>
         <tag>Metasploit</tag>
         <tag>PowerShell</tag>
-        <tag>.NET</tag>
         <tag>C#</tag>
         <tag>MSF</tag>
+        <tag>.NET</tag>
         <tag>meterpreter</tag>
       </tags>
   </entry>
@@ -7810,9 +7810,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Net;</span><br><span class="line">using System.Text.RegularExpressions;</span><br><span class="line"></span><br><span class="line">namespace LadonDLL</span><br><span class="line">&#123;</span><br><span class="line">    public class scan</span><br><span class="line">    &#123;</span><br><span class="line">        public static string run(string ip)</span><br><span class="line">        &#123;</span><br><span class="line">            if (string.IsNullOrEmpty(ip))</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;192.11.22.10    Microsoft-IIS&#x2F;10.0      IIS Windows</span><br><span class="line">                &#x2F;&#x2F;192.11.22.1     H3C-Miniware-Webs       ER3200G2系统管理</span><br><span class="line">                return ip + &quot;\t&quot; + getURLbanner(ip) + &quot;\t&quot; + GetTitle(getHtml(&quot;http:&#x2F;&#x2F;&quot; + ip,2));</span><br><span class="line">            </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static string getURLbanner(string url)</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;&#x2F;&#x2F;HttpWebResponse res;</span><br><span class="line">            if (!url.ToLower().Contains(&quot;https:&#x2F;&#x2F;&quot;) &amp;&amp; !url.ToLower().Contains(&quot;http:&#x2F;&#x2F;&quot;))</span><br><span class="line">                url &#x3D; &quot;http:&#x2F;&#x2F;&quot; + url;</span><br><span class="line"></span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                var req &#x3D; (HttpWebRequest)WebRequest.CreateDefault(new Uri(url));</span><br><span class="line">                req.Method &#x3D; &quot;HEAD&quot;;</span><br><span class="line">                req.Timeout &#x3D; 1000;</span><br><span class="line">                var res &#x3D; (HttpWebResponse)req.GetResponse();</span><br><span class="line"></span><br><span class="line">                if (res.StatusCode &#x3D;&#x3D; HttpStatusCode.OK || res.StatusCode &#x3D;&#x3D; HttpStatusCode.Forbidden || res.StatusCode &#x3D;&#x3D; HttpStatusCode.Redirect || res.StatusCode &#x3D;&#x3D; HttpStatusCode.MovedPermanently)</span><br><span class="line">                &#123;</span><br><span class="line">                    return res.Server;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;res.Close();</span><br><span class="line"></span><br><span class="line">                return res.Server;</span><br><span class="line">            &#125;</span><br><span class="line">            catch (WebException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static string GetTitle(string html)</span><br><span class="line">        &#123;</span><br><span class="line">            if (html.Contains(&quot;&lt;hTmlKErRor&gt;&quot;))</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;return html.Replace(&quot;&lt;hTmlKErRor&gt;&quot;, &quot;&quot;);</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            html &#x3D; html.Replace(&quot;&lt;br&gt;&quot;, &quot;&quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;&lt;BR&gt;&quot;, &quot;&quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;\r\n&quot;, &quot;&quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;&amp;nbsp;&quot;, &quot; &quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;\n&quot;, &quot;&quot;).Trim();</span><br><span class="line"></span><br><span class="line">            String regex &#x3D; @&quot;&lt;title.+&lt;&#x2F;title&gt;&quot;;</span><br><span class="line"></span><br><span class="line">            String title &#x3D; Regex.Match(html, regex).ToString();</span><br><span class="line">            title &#x3D; Regex.Replace(title, @&quot;[\&quot;&quot;]+&quot;, &quot;&quot;);</span><br><span class="line"></span><br><span class="line">            title &#x3D; title.TrimStart(&#39;&lt;&#39;);</span><br><span class="line"></span><br><span class="line">            string regex2 &#x3D; @&quot;&gt;.+&lt;&#x2F;title&gt;&quot;;</span><br><span class="line"></span><br><span class="line">            string title2 &#x3D; Regex.Match(title, regex2).ToString();</span><br><span class="line">            title2 &#x3D; title2.TrimStart(&#39;&gt;&#39;).Replace(&quot;&lt;&#x2F;title&gt;&quot;, &quot;&quot;).Trim();</span><br><span class="line"></span><br><span class="line">            if (title2.Length &gt; 50)</span><br><span class="line">                return title2.Substring(0, 50);</span><br><span class="line"></span><br><span class="line">            return title2;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static string getHtml(string url, int codingType)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                if (!url.ToLower().Contains(&quot;https:&#x2F;&#x2F;&quot;) &amp;&amp; !url.ToLower().Contains(&quot;http:&#x2F;&#x2F;&quot;))</span><br><span class="line">                    url &#x3D; &quot;http:&#x2F;&#x2F;&quot; + url;</span><br><span class="line">                WebClient myWebClient &#x3D; new WebClient();</span><br><span class="line">                if (url.ToLower().Contains(&quot;https:&#x2F;&#x2F;&quot;))</span><br><span class="line">                &#123;</span><br><span class="line">                    System.Net.ServicePointManager.ServerCertificateValidationCallback +&#x3D;</span><br><span class="line">    delegate(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate,</span><br><span class="line">             System.Security.Cryptography.X509Certificates.X509Chain chain,</span><br><span class="line">             System.Net.Security.SslPolicyErrors sslPolicyErrors)</span><br><span class="line">    &#123;</span><br><span class="line">        return true; &#x2F;&#x2F; **** Always accept</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                byte[] myDataBuffer &#x3D; myWebClient.DownloadData(url);</span><br><span class="line">                &#x2F;&#x2F;return Encoding.Default.GetString(myDataBuffer);</span><br><span class="line">                string strWebData &#x3D; System.Text.Encoding.Default.GetString(myDataBuffer);</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;自动识别编码  不一定有&lt;meta  比如 百度开放平台 content&#x3D;&quot;text&#x2F;html; charset&#x3D;gbk&quot;&gt;</span><br><span class="line">                &#x2F;&#x2F;Match charSetMatch &#x3D; Regex.Match(strWebData, &quot;&lt;meta([^&gt;]*)charset&#x3D;(\&quot;)?(.*)?\&quot;&quot;, RegexOptions.IgnoreCase | RegexOptions.Multiline);</span><br><span class="line">                Match charSetMatch &#x3D; Regex.Match(strWebData, &quot;(.*)charset&#x3D;(\&quot;)?(.*)?\&quot;&quot;, RegexOptions.IgnoreCase | RegexOptions.Multiline);</span><br><span class="line"></span><br><span class="line">                string webCharSet &#x3D; charSetMatch.Groups[3].Value.Trim().ToLower();</span><br><span class="line"></span><br><span class="line">                if (webCharSet !&#x3D; &quot;gb2312&quot; &amp;&amp; webCharSet !&#x3D; &quot;gbk&quot;)</span><br><span class="line">                &#123;</span><br><span class="line">                    webCharSet &#x3D; &quot;utf-8&quot;;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (System.Text.Encoding.GetEncoding(webCharSet) !&#x3D; System.Text.Encoding.Default)</span><br><span class="line">                &#123;</span><br><span class="line">                    strWebData &#x3D; System.Text.Encoding.GetEncoding(webCharSet).GetString(myDataBuffer);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;if (codingType &#x3D;&#x3D; 1)</span><br><span class="line">                &#x2F;&#x2F;    return Encoding.Unicode.GetString(myDataBuffer);</span><br><span class="line">                &#x2F;&#x2F;else if (codingType &#x3D;&#x3D; 2)</span><br><span class="line">                &#x2F;&#x2F;    return Encoding.Default.GetString(myDataBuffer);&#x2F;&#x2F;GBK 936</span><br><span class="line">                &#x2F;&#x2F;else if (codingType &#x3D;&#x3D; 3)</span><br><span class="line">                &#x2F;&#x2F;    return Encoding.UTF8.GetString(myDataBuffer);&#x2F;&#x2F;65501</span><br><span class="line"></span><br><span class="line">                return strWebData;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;Console.WriteLine(url + &quot; &quot; + ex.Message);</span><br><span class="line">                return &quot;&lt;hTmlKErRor&gt;&quot; + ex.Message;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Ladon</category>
-        <category>.NET</category>
         <category>主机发现</category>
         <category>信息收集</category>
+        <category>.NET</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7831,8 +7831,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>工具</category>
-        <category>.NET</category>
         <category>源码</category>
+        <category>.NET</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -8002,9 +8002,9 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -8296,9 +8296,9 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8307,6 +8307,33 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8406,33 +8433,6 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8780,10 +8780,10 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>内网渗透</category>
         <category>信息收集</category>
-        <category>Python</category>
         <category>嗅探</category>
+        <category>Python</category>
+        <category>内网渗透</category>
         <category>编程</category>
       </categories>
       <tags>
