@@ -25,7 +25,46 @@ ChatLadon		渗透机器人，也可当成学习模式，只要会聊天，就能
 =========================================================================
 
 
-Ladon 10.10.4  20230422
+5.20
+[+]QueryAdminDomain 查看域管理员
+[+]QueryDomain	查看当前域、域时间
+LadonExp	payload出现$cmd$或$b64cmd$ 默认测试按钮 whoami
+增加Windows常用命令 QueryAdmin QueryProxy ActiveAdmin ActiveGuest等
+GUI  DLL添加用户 密码永不过期
+
+10.10.5 20230513
+[u]ExchangePoc	 	识别ProxyShell ISVUL更准确 
+[+]CS beacon连接测试CmdShell	Ladon cmdshell http://192.168.50.2:888 cmd whoami
+[u]HikvisionScan
+[U]修复CS下portscan noping 指定端口 识别不到IP的bug
+[+]cmdshell		连接Ladon测试专用webshell
+LadonExp		可选生成代码，方便修改poc
+LadonExp		服务器返回协议不规范或其他错误提示 如ServerProtocolViolation  只空对象无法确定原因
+[+]web			添加WebShell测试专用(Ladon web 800 cmd 访问http://192.168.1.8:800/shell?cmd=whoami)
+
+10.10.5 20230505
+[+]GodPotato	Win8-Win11/Win2012-2022服务提权至SYSTEM
+[+]RunToken		指定进程令牌权限执行程序(Ladon RunToken explorer cmd.exe)
+[+]RunUser		System权限降至当前用户权限执行程序
+[u]RunSystem	管理员权限提权到SYSTEM权限执行程序(旧版为GetSystem)
+[+]HikvisionScan 海康威视 视频监控 密码爆破
+[u]INI插件		支持isok、isvul字段，当结果出现对应特征字符串，回显ISVUL或ISOK
+[u]INI插件		支持$port$参数，超时改成3分钟
+[+]CloseSMB		彻底禁用SMB服务-需管理员权限(重启生效)
+[+]DisService	彻底禁用指定服务-需管理员权限
+[+]StopService	停止指定服务-需管理员权限
+[+]OpenTCP		防火墙放行指定TCP端口-需管理员权限
+[+]OpenUDP		防火墙放行指定UDP端口-需管理员权限
+[+]CloseTCP		防火墙拦截指定TCP端口-需管理员权限
+[+]CloseUDP		防火墙拦截指定UDP端口-需管理员权限
+
+Ladon 10.10.4  for CobaltStrike
+[u]CS插件 	分离Ladon高效加载
+[+]HikvisionPoc		CVE-2017-7921 hikvision 海康威视摄像头配置文件泄露 漏洞检测
+[+]HikvisionDecode  CVE-2017-7921 hikvision 海康威视摄像头配置文件解密 提取密码
+[u]sshcmd 	CS版sshcmd更新SSH库支持高版本SSH
+
+Ladon 10.10.4  20230424
 [u]LadonGUI			文本处理，功能全改成中文(Win8及以上英文系统支持中文)
 [+]EXP-2022-36537	Zookeeper 未授权文件读取EXP (默认/WEB-INF/web.xml)
 [+]CVE-2022-36537	Server Backup Manager 未授权RCE漏洞检测 (Zookeeper)
@@ -39,7 +78,7 @@ Ladon 10.10.4  20230422
 [+]INI插件		   	支持参数处理，如INI里配置$ip$，读取tar.txt内容为http://192.168.1.8:8099，内容将处理成IP数据192.168.1.8，其他同理
 [+]TXT文件		   	新增tar.txt、target.txt一样，传入参数为原始内容，如提供的是IP，Ladon不会处理成url，除非INI里指定，或模块自行处理
 [+]TXT文件		   	修复读取url.txt host.txt 出现不完整问题，如http://backup.xxx.org 变成 http:ckup.xx.org 的Bug
-
+[u]fixbug			修复10.10.2-10.10.4  IIS权限无法执行的BUG
 
 =========================================
 Ladon 10.10.3 20230410
