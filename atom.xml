@@ -123,9 +123,9 @@
     </summary>
     
     
-      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
       <category term="Exp" scheme="http://k8gege.org/tags/Exp/"/>
