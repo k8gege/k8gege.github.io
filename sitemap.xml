@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/Ladon/latest.html</loc>
+    
+    <lastmod>2023-06-05T12:41:56.865Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/Download/index.html</loc>
     
-    <lastmod>2023-05-28T16:26:01.879Z</lastmod>
+    <lastmod>2023-06-05T12:40:38.320Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://k8gege.org/Ladon/index.html</loc>
     
     <lastmod>2023-05-28T16:18:06.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/Ladon/latest.html</loc>
-    
-    <lastmod>2023-05-28T16:17:00.512Z</lastmod>
     
   </url>
   
