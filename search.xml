@@ -6451,8 +6451,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -7938,6 +7938,76 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       </tags>
   </entry>
   <entry>
+    <title>CVE-2019-0803提权工具</title>
+    <url>/p/fa25cc9b.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x000 漏洞信息</strong></span><br>CVE-2019-0803 | Win32k 特权提升漏洞<br>发布时间: 2019-04-09<br>当 Win32k 组件无法正确处理内存中的对象时，Windows 中存在特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式中运行任意代码。攻击者可随后安装程序；查看、更改或删除数据；或者创建拥有完全用户权限的新帐户。<br>若要利用此漏洞，攻击者首先必须登录到系统。然后，攻击者可以运行一个为利用此漏洞而经特殊设计的应用程序，从而控制受影响的系统。</p>
+<p><span style="font-size: 18px;"><strong>0x001 影响版本</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:csharp;gutter:true;">Microsoft Windows Server 2019 0
+Microsoft Windows Server 2016 0
+Microsoft Windows Server 2012 R2 0
+Microsoft Windows Server 2012 0
+Microsoft Windows Server 2008 R2 for x64-based Systems SP1
+Microsoft Windows Server 2008 R2 for Itanium-based Systems SP1
+Microsoft Windows Server 2008 for x64-based Systems SP2
+Microsoft Windows Server 2008 for Itanium-based Systems SP2
+Microsoft Windows Server 2008 for 32-bit Systems SP2
+Microsoft Windows Server 1803 0
+Microsoft Windows Server 1709 0
+Microsoft Windows RT 8.1
+Microsoft Windows 8.1 for x64-based Systems 0
+Microsoft Windows 8.1 for 32-bit Systems 0
+Microsoft Windows 7 for x64-based Systems SP1
+Microsoft Windows 7 for 32-bit Systems SP1
+Microsoft Windows 10 Version 1809 for x64-based Systems 0
+Microsoft Windows 10 Version 1809 for ARM64-based Systems 0
+Microsoft Windows 10 Version 1809 for 32-bit Systems 0
+Microsoft Windows 10 Version 1803 for x64-based Systems 0
+Microsoft Windows 10 Version 1803 for ARM64-based Systems 0
+Microsoft Windows 10 Version 1803 for 32-bit Systems 0
+Microsoft Windows 10 version 1709 for x64-based Systems 0
+Microsoft Windows 10 Version 1709 for ARM64-based Systems 0
+Microsoft Windows 10 version 1709 for 32-bit Systems 0
+Microsoft Windows 10 version 1703 for x64-based Systems 0
+Microsoft Windows 10 version 1703 for 32-bit Systems 0
+Microsoft Windows 10 Version 1607 for x64-based Systems 0
+Microsoft Windows 10 Version 1607 for 32-bit Systems 0
+Microsoft Windows 10 for x64-based Systems 0
+Microsoft Windows 10 for 32-bit Systems 0
+</pre>
+</div>
+<p><span style="font-size: 18px;"><strong>&nbsp;0x002 EXP用法</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:csharp;gutter:true;">Usage:  CVE-2019-0803.exe cmd cmdline
+</pre>
+</div>
+<p>如图：可能需执行3-4次左右才能提权成功,测试系统为Win7 X64,其它未测。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0803.png"></p>
+<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x003 下载</span></strong></span></p>
+<p>https://github.com/k8gege/K8tools</p>
+<p><span style="font-size: 18px;"><strong>0x004 补丁</strong></span></p>
+<p>补丁号有很多个，不同的系统补丁号不一样，有时新的补丁包含旧洞补丁</p>
+<p>旧的补丁号会被替换掉，所以每次提权都应该先到官方查看下对应补丁号</p>
+<p>不要老是查询有没旧的补丁号，然后再去提权，没有旧的补丁号不代表没补</p>
+<p><a href="https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2019-0803" target="_blank">https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2019-0803</a></p>
+<p><span style="font-size: 18px;"><strong>0x005 链接</strong></span></p>
+<p><a href="https://www.exploit-db.com/exploits/46920" target="_blank">https://www.exploit-db.com/exploits/46920</a><br>(steal Security token) <a href="https://github.com/mwrlabs/CVE-2016-7255" target="_blank">https://github.com/mwrlabs/CVE-2016-7255</a><br>EDB Note: Download ~ <a href="https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/46920.zip" target="_blank">https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/46920.zip</a></p>
+<p><a title="External url" href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0803" target="_blank">https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0803</a> <br>                    
+
+
+
+<pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cobalt Strike TeamServer For Windows</title>
     <url>/p/22e5f4a8.html</url>
     <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
@@ -7976,8 +8046,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -8047,76 +8117,6 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <tags>
         <tag>Exp</tag>
         <tag>Tool</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CVE-2019-0803提权工具</title>
-    <url>/p/fa25cc9b.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x000 漏洞信息</strong></span><br>CVE-2019-0803 | Win32k 特权提升漏洞<br>发布时间: 2019-04-09<br>当 Win32k 组件无法正确处理内存中的对象时，Windows 中存在特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式中运行任意代码。攻击者可随后安装程序；查看、更改或删除数据；或者创建拥有完全用户权限的新帐户。<br>若要利用此漏洞，攻击者首先必须登录到系统。然后，攻击者可以运行一个为利用此漏洞而经特殊设计的应用程序，从而控制受影响的系统。</p>
-<p><span style="font-size: 18px;"><strong>0x001 影响版本</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:csharp;gutter:true;">Microsoft Windows Server 2019 0
-Microsoft Windows Server 2016 0
-Microsoft Windows Server 2012 R2 0
-Microsoft Windows Server 2012 0
-Microsoft Windows Server 2008 R2 for x64-based Systems SP1
-Microsoft Windows Server 2008 R2 for Itanium-based Systems SP1
-Microsoft Windows Server 2008 for x64-based Systems SP2
-Microsoft Windows Server 2008 for Itanium-based Systems SP2
-Microsoft Windows Server 2008 for 32-bit Systems SP2
-Microsoft Windows Server 1803 0
-Microsoft Windows Server 1709 0
-Microsoft Windows RT 8.1
-Microsoft Windows 8.1 for x64-based Systems 0
-Microsoft Windows 8.1 for 32-bit Systems 0
-Microsoft Windows 7 for x64-based Systems SP1
-Microsoft Windows 7 for 32-bit Systems SP1
-Microsoft Windows 10 Version 1809 for x64-based Systems 0
-Microsoft Windows 10 Version 1809 for ARM64-based Systems 0
-Microsoft Windows 10 Version 1809 for 32-bit Systems 0
-Microsoft Windows 10 Version 1803 for x64-based Systems 0
-Microsoft Windows 10 Version 1803 for ARM64-based Systems 0
-Microsoft Windows 10 Version 1803 for 32-bit Systems 0
-Microsoft Windows 10 version 1709 for x64-based Systems 0
-Microsoft Windows 10 Version 1709 for ARM64-based Systems 0
-Microsoft Windows 10 version 1709 for 32-bit Systems 0
-Microsoft Windows 10 version 1703 for x64-based Systems 0
-Microsoft Windows 10 version 1703 for 32-bit Systems 0
-Microsoft Windows 10 Version 1607 for x64-based Systems 0
-Microsoft Windows 10 Version 1607 for 32-bit Systems 0
-Microsoft Windows 10 for x64-based Systems 0
-Microsoft Windows 10 for 32-bit Systems 0
-</pre>
-</div>
-<p><span style="font-size: 18px;"><strong>&nbsp;0x002 EXP用法</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:csharp;gutter:true;">Usage:  CVE-2019-0803.exe cmd cmdline
-</pre>
-</div>
-<p>如图：可能需执行3-4次左右才能提权成功,测试系统为Win7 X64,其它未测。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/CVE-2019-0803.png"></p>
-<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x003 下载</span></strong></span></p>
-<p>https://github.com/k8gege/K8tools</p>
-<p><span style="font-size: 18px;"><strong>0x004 补丁</strong></span></p>
-<p>补丁号有很多个，不同的系统补丁号不一样，有时新的补丁包含旧洞补丁</p>
-<p>旧的补丁号会被替换掉，所以每次提权都应该先到官方查看下对应补丁号</p>
-<p>不要老是查询有没旧的补丁号，然后再去提权，没有旧的补丁号不代表没补</p>
-<p><a href="https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2019-0803" target="_blank">https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2019-0803</a></p>
-<p><span style="font-size: 18px;"><strong>0x005 链接</strong></span></p>
-<p><a href="https://www.exploit-db.com/exploits/46920" target="_blank">https://www.exploit-db.com/exploits/46920</a><br>(steal Security token) <a href="https://github.com/mwrlabs/CVE-2016-7255" target="_blank">https://github.com/mwrlabs/CVE-2016-7255</a><br>EDB Note: Download ~ <a href="https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/46920.zip" target="_blank">https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/46920.zip</a></p>
-<p><a title="External url" href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0803" target="_blank">https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0803</a> <br>                    
-
-
-
-<pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
       </tags>
   </entry>
   <entry>
@@ -8340,8 +8340,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8350,33 +8350,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8473,9 +8446,36 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8825,13 +8825,13 @@ from pprint import pprint
         <category>主机发现</category>
         <category>内网渗透</category>
         <category>编程</category>
-        <category>嗅探</category>
         <category>信息收集</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>Python</tag>
       </tags>
   </entry>
