@@ -123,9 +123,9 @@
     </summary>
     
     
-      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
       <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+      <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
       <category term="Exp" scheme="http://k8gege.org/tags/Exp/"/>
@@ -351,9 +351,9 @@
       <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
     
     
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
       <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
   </entry>
   
@@ -378,9 +378,9 @@
       <category term="工具" scheme="http://k8gege.org/categories/Tool/"/>
     
     
-      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
       <category term="Tool" scheme="http://k8gege.org/tags/Tool/"/>
+    
+      <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
     
   </entry>
   
