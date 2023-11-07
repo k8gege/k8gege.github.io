@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2023-06-05T13:15:24.572Z</updated>
+  <updated>2023-11-07T13:01:02.449Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖提权〗cve-2023-36802 Win10/11/2019/2022</title>
+    <link href="http://k8gege.org/p/cve-2023-36802.html"/>
+    <id>http://k8gege.org/p/cve-2023-36802.html</id>
+    <published>2023-11-07T08:11:00.000Z</published>
+    <updated>2023-11-07T13:01:02.449Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><h5 id="cve-2023-36802提权"><a href="#cve-2023-36802提权" class="headerlink" title="cve-2023-36802提权"></a>cve-2023-36802提权</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cve-2023-36802 whoami</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/LPE/cve-2023-36802.PNG"></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>11.9：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;/p&gt;
+&lt;h5 id=&quot;cve-2023-36802提权&quot;&gt;&lt;a href=&quot;#cve-2023-36802提权&quot; class=&quot;headerlink&quot; title=&quot;cve-2023-36802提权&quot;&gt;&lt;/a&gt;cve-2023-36802提权&lt;/h5&gt;&lt;figure c
+      
+    
+    </summary>
+    
+    
+      <category term="LPE" scheme="http://k8gege.org/categories/LPE/"/>
+    
+      <category term="cve-2023-36802" scheme="http://k8gege.org/categories/cve-2023-36802/"/>
+    
+    
+      <category term="LPE" scheme="http://k8gege.org/tags/LPE/"/>
+    
+  </entry>
   
   <entry>
     <title>〖Tech〗Ladon PostShell连接CmdShell</title>
@@ -547,34 +576,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
       <category term="Cobalt Strike" scheme="http://k8gege.org/tags/CS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖EXP〗Ladon CVE-2021-36934读取VPN密码、NTLM-HASH</title>
-    <link href="http://k8gege.org/p/cve-2021-36934.html"/>
-    <id>http://k8gege.org/p/cve-2021-36934.html</id>
-    <published>2021-10-24T01:31:00.000Z</published>
-    <updated>2021-10-24T02:34:37.094Z</updated>
-    
-    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/cve-2021-36934.html";</script><h3 id="漏洞信息"><a href="#漏洞信息" class="headerlink" title="漏洞信息"></a>漏洞信息</h3><p>2021年7 月 20 日，微软确认了一个新的本地提权漏洞，该漏洞会影响 Windows 自 2018 年 10 月以来发布的版本，即 Windows 10 Version 1809 以后的版本。不过值得注意的是该漏洞不影响 Windows Server 版本。对于这个漏洞安全研究成员将其称为 HiveNightmare 或者 SeriousSAM ，该漏洞允许低权限的用户访问 Windows 系统文件(多个系统文件过度许可访问控制列表所导致，包含安全账号管理数据库SAM)，成功利用此漏洞的攻击者可以使用 SYSTEM 特权运行任意代码。</p><h3 id="漏洞编号"><a href="#漏洞编号" class="headerlink" title="漏洞编号"></a>漏洞编号</h3><p>CVE-2021-36934</p><h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Windows 10 Version 20H2 for ARM64-based Systems<br>Windows 10 Version 20H2 for 32-bit Systems<br>Windows 10 Version 20H2 for x64-based Systems<br>Windows 10 Version 2004 for x64-based Systems<br>Windows 10 Version 2004 for ARM64-based Systems<br>Windows 10 Version 2004 for 32-bit Systems<br>Windows 10 Version 21H1 for 32-bit Systems<br>Windows 10 Version 21H1 for ARM64-based Systems<br>Windows 10 Version 21H1 for x64-based Systems<br>Windows 10 Version 1909 for ARM64-based Systems<br>Windows 10 Version 1909 for x64-based Systems<br>Windows 10 Version 1909 for 32-bit Systems<br>Windows 10 Version 1809 for ARM64-based Systems<br>Windows 10 Version 1809 for x64-based Systems<br>Windows 10 Version 1809 for 32-bit Systems<br>Windows 10 Version 20H2 for ARM64-based Systems<br>Windows 10 Version 20H2 for 32-bit Systems<br>Windows 10 Version 20H2 for x64-based Systems<br>Windows 10 Version 2004 for x64-based Systems<br>Windows 10 Version 2004 for ARM64-based Systems<br>Windows 10 Version 2004 for 32-bit Systems<br>Windows 10 Version 21H1 for 32-bit Systems<br>Windows 10 Version 21H1 for ARM64-based Systems<br>Windows 10 Version 21H1 for x64-based Systems<br>Windows 10 Version 1909 for ARM64-based Systems<br>Windows 10 Version 1909 for x64-based Systems<br>Windows 10 Version 1909 for 32-bit Systems<br>Windows 10 Version 1809 for ARM64-based Systems<br>Windows 10 Version 1809 for x64-based Systems<br>Windows 10 Version 1809 for 32-bit Systems</p><h3 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h3><p>执行命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">icacls C:\windows\system32\config\sam</span><br></pre></td></tr></table></figure><p>如果输出 BUILTIN\Users:(I)(RX) 表示该系统易受攻击。</p><h3 id="密码读取"><a href="#密码读取" class="headerlink" title="密码读取"></a>密码读取</h3><p>执行命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2021-36934</span><br></pre></td></tr></table></figure><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/win8.1_ok.png"></p><p>成功读取 Win8.1 x64 VPN连接帐号密码、系统用户HASH、DPAPI-KEY</p><h3 id="Coblat-Strike联动"><a href="#Coblat-Strike联动" class="headerlink" title="Coblat Strike联动"></a>Coblat Strike联动</h3><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/cs_ok.png"></p><p>其它结果</p><p>Win8.1  x64 低权限失败 管理员成功</p><p>win10 1607 低权限失败 管理员成功</p><p>Win10 1903 低权限、管理员均失败</p><p>Win10 1803 低权限、管理员均失败</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1607_no.png"></p><p>可以看到HiveNightmare在多个系统下就算是管理员权限也无法读取HASH</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1803_no.png"></p><p>Win10 1607 x64  Ladon成功读取NTLM-HASH、DPAPI</p><p><img alt data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1607_ok.png"></p><p>手头只有这些环境实验，这些版本未在低权限成功，如大家用Ladon9.0在其它Win10版本上测试，低权限成功的，也可以后台将图片发送给我更新。当然就算是同一版本，我测试失败，也不代表你们失败，实战还是直接上，能读出来就是成功，管它37等于28呢？比如说理论上不支持某些版本(默认开启某些设置那种情况)，要是人为修改了不就存在漏洞了，如管理员乱改或做了什么设置，导致默认条件下无漏洞的版本变成了易受攻击的系统，你只是看到版本为XX，就不测试了，可能就错过了，所以我一直强调，实战为王。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a><br><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36934" target="_blank" rel="noopener">https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36934</a><br><a href="https://github.com/GossiTheDog/HiveNightmare" target="_blank" rel="noopener">https://github.com/GossiTheDog/HiveNightmare</a><br><a href="https://github.com/cube0x0/CVE-2021-36934" target="_blank" rel="noopener">https://github.com/cube0x0/CVE-2021-36934</a></p><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>9.0版本：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;=============================================================================================&lt;br&gt;++++++++++++++++++++++++++++++++++++++++
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="Cobalt Strike" scheme="http://k8gege.org/tags/CS/"/>
-    
-      <category term="CVE-2021-36934" scheme="http://k8gege.org/tags/CVE-2021-36934/"/>
     
   </entry>
   

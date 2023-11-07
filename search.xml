@@ -2818,6 +2818,25 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖提权〗cve-2023-36802 Win10/11/2019/2022</title>
+    <url>/p/cve-2023-36802.html</url>
+    <content><![CDATA[<p></p>
+<h5 id="cve-2023-36802提权"><a href="#cve-2023-36802提权" class="headerlink" title="cve-2023-36802提权"></a>cve-2023-36802提权</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cve-2023-36802 whoami</span><br></pre></td></tr></table></figure>
+<p><img alt="image" data-original="http://k8gege.org/k8img/LPE/cve-2023-36802.PNG"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>11.9：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>LPE</category>
+        <category>cve-2023-36802</category>
+      </categories>
+      <tags>
+        <tag>LPE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖Tech〗Ladon PostShell连接CmdShell</title>
     <url>/p/PostShell.html</url>
     <content><![CDATA[<p></p>
@@ -6322,11 +6341,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6494,8 +6513,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -8089,8 +8108,8 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -8383,8 +8402,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8489,8 +8508,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -8864,17 +8883,17 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>嗅探</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
+        <category>嗅探</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>Python</tag>
       </tags>
   </entry>
