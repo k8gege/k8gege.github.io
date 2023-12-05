@@ -19,17 +19,10 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content=",">
+<meta name="keywords" content="K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具">
 
 
-<meta name="description" content=" 
-
-
-
-漏洞名称Win32k 特权提升漏洞(MS16-135)(CVE-2016-7255)
-漏洞等级高危
-漏洞类型本地提权
-漏洞描述如果 Windows 内核模式驱动程序无法正确处理内存中对...">
+<meta name="description" content="没有绝对安全的系统！！！K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具 ">
 
 
 <meta name="robots" content="all">
@@ -40,7 +33,7 @@
 
 <title>
     
-    〖教程〗Ladon提权MS16-135参数版(WIN7-2016) |
+    Archives: 2023/12 |
     
     K8哥哥’s Blog
 </title>
@@ -157,49 +150,533 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <div>
-    
-    <article class="post">
-    <h1 class="post-head">
-        〖教程〗Ladon提权MS16-135参数版(WIN7-2016)
-    </h1>
-    <div class="post-body">
-        <p style="color:#fff;"> 
-<% <span class="archive-article-date">
-Visit <span id="busuanzi_value_page_pv"></span>
-
-%>
-</%></p>
-
-<h3 id="漏洞名称"><a href="#漏洞名称" class="headerlink" title="漏洞名称"></a>漏洞名称</h3><p>Win32k 特权提升漏洞(MS16-135)(CVE-2016-7255)</p>
-<h3 id="漏洞等级"><a href="#漏洞等级" class="headerlink" title="漏洞等级"></a>漏洞等级</h3><p>高危</p>
-<h3 id="漏洞类型"><a href="#漏洞类型" class="headerlink" title="漏洞类型"></a>漏洞类型</h3><p>本地提权</p>
-<h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h3><p>如果 Windows 内核模式驱动程序无法正确处理内存中对象，则会存在多个特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式下运行任意代码。攻击者可随后安装程序；查看、更改或删除数据；或者创建拥有完全用户权限的新帐户。</p>
-<p>攻击者必须先登录系统，然后才能利用这些漏洞。然后攻击者可以运行一个为利用这些漏洞而经特殊设计的应用程序，从而控制受影响的系统。该更新通过更正 Windows 内核模式驱动程序处理内存中对象的方式来解决这些漏洞。</p>
-<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>microsoft:windows_10:-</p>
-<p>microsoft:windows_10:1511</p>
-<p>microsoft:windows_10:1607</p>
-<p>microsoft:windows_7::sp1</p>
-<p>microsoft:windows_8.1</p>
-<p>microsoft:windows_rt_8.1</p>
-<p>microsoft:windows_server_2008::sp2</p>
-<p>microsoft:windows_server_2008:r2:sp1</p>
-<p>microsoft:windows_server_2012:-</p>
-<p>microsoft:windows_server_2012:r2</p>
-<p>microsoft:windows_server_2016</p>
-<p>microsoft:windows_vista::sp2</p>
-<h3 id="Ladon提权"><a href="#Ladon提权" class="headerlink" title="Ladon提权"></a>Ladon提权</h3><p>Ladon7.0集成该提权模块，ms16135参数版，无窗口且成功率高，原版提权会弹出窗口且容易蓝屏。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon ms16135 cmdline</span><br><span class="line">CVE-2016-7255 | Windows Kernel - mode Driver / Win32k.sys</span><br><span class="line">Vulnerable: Vista/Win7/2008/Win8.1/2012/Win10/2016</span><br></pre></td></tr></table></figure>
-
-<p>PS：<br>1 原版：PowerShell成功率随缘，执行个10几20次才成功提权，还容易导致蓝屏<br>2 K8版：经过修改EXP运行比较稳定，基本上执行就能成功提权，成功率非常高。<br>3 仅支持64位系统</p>
-<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>测试版本： Win10 1607 X64<br>Ladon ms16135 whoami<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/ms16135.PNG"></p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
-<div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
-</div>
+                    <div id="main">
+    <div class="timebox">
+        <div class="timeline">
+            <ul>
+                
+                
+                
+                
+                
+                
+                <h2>
+                    2023
+                </h2>
+                
+                
+                <li class>
+                    
+                    <h3>
+                        05<span>
+                            12月</span>
+                    </h3>
+                    <a href="/p/HtaSer.html" title="Ladon渗透 HTA服务器 访问DOC执行HTA" target="_blank">
+                        Ladon渗透 HTA服务器 访问DOC执行HTA</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        07<span>
+                            11月</span>
+                    </h3>
+                    <a href="/p/cve-2023-36802.html" title="〖提权〗cve-2023-36802 Win10/11/2019/2022" target="_blank">
+                        〖提权〗cve-2023-36802 Win10/11/2019/2022</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        05<span>
+                            06月</span>
+                    </h3>
+                    <a href="/p/PostShell.html" title="〖Tech〗Ladon PostShell连接CmdShell" target="_blank">
+                        〖Tech〗Ladon PostShell连接CmdShell</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        03<span>
+                            06月</span>
+                    </h3>
+                    <a href="/p/MndpInfo.html" title="〖Tech〗Ladon RouterOS/Mikrotik路由器探测" target="_blank">
+                        〖Tech〗Ladon RouterOS/Mikrotik路由器探测</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        13<span>
+                            05月</span>
+                    </h3>
+                    <a href="/p/proxy.html" title="〖教程〗Ladon Socks代理扫描(附Proxifier V4.11注册码)" target="_blank">
+                        〖教程〗Ladon Socks代理扫描(附Proxifier V4.11注册码)</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        22<span>
+                            04月</span>
+                    </h3>
+                    <a href="/p/CVE-2022-36537.html" title="〖Tech〗CVE-2022-36537 未授权RCE漏洞复现" target="_blank">
+                        〖Tech〗CVE-2022-36537 未授权RCE漏洞复现</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        27<span>
+                            03月</span>
+                    </h3>
+                    <a href="/p/CVE-2023-21839.html" title="〖EXP〗Ladon漏洞复现 CVE-2023-21839 Weblogic" target="_blank">
+                        〖EXP〗Ladon漏洞复现 CVE-2023-21839 Weblogic</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        25<span>
+                            03月</span>
+                    </h3>
+                    <a href="/p/LadonGo.html" title="〖工具〗LadonGo开源全平台内网渗透扫描器" target="_blank">
+                        〖工具〗LadonGo开源全平台内网渗透扫描器</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        12<span>
+                            03月</span>
+                    </h3>
+                    <a href="/p/ChatGPT.html" title="〖教程〗ChatGPT编写Ladon渗透工具插件视频教程" target="_blank">
+                        〖教程〗ChatGPT编写Ladon渗透工具插件视频教程</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                <li class="hide">
+                    
+                    <h3>
+                        22<span>
+                            02月</span>
+                    </h3>
+                    <a href="/p/vsKey.html" title="〖key〗VS2022 VS2019 VS2017最新注册码序列号" target="_blank">
+                        〖key〗VS2022 VS2019 VS2017最新注册码序列号</a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+        </div>
     </div>
-</article>
-    
 </div>
                 </main>
                 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2023-11-07T13:01:02.449Z</updated>
+  <updated>2023-12-05T14:34:40.311Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ladon渗透 HTA服务器 访问DOC执行HTA</title>
+    <link href="http://k8gege.org/p/HtaSer.html"/>
+    <id>http://k8gege.org/p/HtaSer.html</id>
+    <published>2023-12-05T14:34:00.000Z</published>
+    <updated>2023-12-05T14:34:40.311Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ladon for Kali/Ubuntu/Mac/Centos/Router/MIPS/ARM</p><h3 id="HTA服务器-一键启动-访问DOC也能执行HTA"><a href="#HTA服务器-一键启动-访问DOC也能执行HTA" class="headerlink" title="HTA服务器 一键启动 访问DOC也能执行HTA"></a>HTA服务器 一键启动 访问DOC也能执行HTA</h3><p>Ladon和LadonGO用法一致 不限制后缀 访问doc也能执行hta</p><h5 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon HtaSer</span><br><span class="line">Ladon HtaSer 8080</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/HtaSer.PNG"></p><h5 id="Kali启动"><a href="#Kali启动" class="headerlink" title="Kali启动"></a>Kali启动</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./Ladon HtaSer</span><br><span class="line">./Ladon HtaSer 8080</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/HtaSer.PNG"></p><h5 id="HtaSer-exe"><a href="#HtaSer-exe" class="headerlink" title="HtaSer.exe"></a>HtaSer.exe</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HtaSer</span><br><span class="line">HtaSer 8080</span><br></pre></td></tr></table></figure><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>12.0：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Ladon for Kali/Ubuntu/Mac/Centos/Router/MIPS/ARM&lt;/p&gt;
+&lt;h3 id=&quot;HTA服务器-一键启动-访问DOC也能执行HTA&quot;&gt;&lt;a href=&quot;#HTA服务器-一键启动-访问DOC也能执行HTA&quot; class=&quot;headerl
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+      <category term="0day" scheme="http://k8gege.org/tags/0day/"/>
+    
+      <category term="hta" scheme="http://k8gege.org/tags/hta/"/>
+    
+  </entry>
   
   <entry>
     <title>〖提权〗cve-2023-36802 Win10/11/2019/2022</title>
@@ -42,35 +71,6 @@
     
     
       <category term="LPE" scheme="http://k8gege.org/tags/LPE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ladon渗透HTA服务器 访问DOC执行HTA</title>
-    <link href="http://k8gege.org/p/HtaSer.html"/>
-    <id>http://k8gege.org/p/HtaSer.html</id>
-    <published>2023-06-05T08:11:00.000Z</published>
-    <updated>2023-12-05T14:31:43.412Z</updated>
-    
-    <content type="html"><![CDATA[<p>Ladon for Kali/Ubuntu/Mac/Centos/Router/MIPS/ARM</p><h3 id="HTA服务器-一键启动-访问DOC也能执行HTA"><a href="#HTA服务器-一键启动-访问DOC也能执行HTA" class="headerlink" title="HTA服务器 一键启动 访问DOC也能执行HTA"></a>HTA服务器 一键启动 访问DOC也能执行HTA</h3><p>Ladon和LadonGO用法一致 不限制后缀 访问doc也能执行hta</p><h5 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon HtaSer</span><br><span class="line">Ladon HtaSer 8080</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/HtaSer.PNG"></p><h5 id="Kali启动"><a href="#Kali启动" class="headerlink" title="Kali启动"></a>Kali启动</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./Ladon HtaSer</span><br><span class="line">./Ladon HtaSer 8080</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/HtaSer.PNG"></p><h5 id="HtaSer-exe"><a href="#HtaSer-exe" class="headerlink" title="HtaSer.exe"></a>HtaSer.exe</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HtaSer</span><br><span class="line">HtaSer 8080</span><br></pre></td></tr></table></figure><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>12.0：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Ladon for Kali/Ubuntu/Mac/Centos/Router/MIPS/ARM&lt;/p&gt;
-&lt;h3 id=&quot;HTA服务器-一键启动-访问DOC也能执行HTA&quot;&gt;&lt;a href=&quot;#HTA服务器-一键启动-访问DOC也能执行HTA&quot; class=&quot;headerl
-      
-    
-    </summary>
-    
-    
-      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-      <category term="0day" scheme="http://k8gege.org/tags/0day/"/>
-    
-      <category term="hta" scheme="http://k8gege.org/tags/hta/"/>
     
   </entry>
   
