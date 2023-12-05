@@ -2837,6 +2837,30 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>Ladon渗透HTA服务器 访问DOC执行HTA</title>
+    <url>/p/HtaSer.html</url>
+    <content><![CDATA[<p>Ladon for Kali/Ubuntu/Mac/Centos/Router/MIPS/ARM</p>
+<h3 id="HTA服务器-一键启动-访问DOC也能执行HTA"><a href="#HTA服务器-一键启动-访问DOC也能执行HTA" class="headerlink" title="HTA服务器 一键启动 访问DOC也能执行HTA"></a>HTA服务器 一键启动 访问DOC也能执行HTA</h3><p>Ladon和LadonGO用法一致 不限制后缀 访问doc也能执行hta</p>
+<h5 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon HtaSer</span><br><span class="line">Ladon HtaSer 8080</span><br></pre></td></tr></table></figure>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/HtaSer.PNG"></p>
+<h5 id="Kali启动"><a href="#Kali启动" class="headerlink" title="Kali启动"></a>Kali启动</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./Ladon HtaSer</span><br><span class="line">./Ladon HtaSer 8080</span><br></pre></td></tr></table></figure>
+<p><img alt="image" data-original="http://k8gege.org/k8img/LadonGo/HtaSer.PNG"></p>
+<h5 id="HtaSer-exe"><a href="#HtaSer-exe" class="headerlink" title="HtaSer.exe"></a>HtaSer.exe</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">HtaSer</span><br><span class="line">HtaSer 8080</span><br></pre></td></tr></table></figure>
+
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>12.0：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>0day</tag>
+        <tag>hta</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>〖Tech〗Ladon PostShell连接CmdShell</title>
     <url>/p/PostShell.html</url>
     <content><![CDATA[<p></p>
@@ -6341,11 +6365,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6513,8 +6537,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -6878,8 +6902,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Ladon</category>
-        <category>Kali</category>
         <category>密码</category>
+        <category>Kali</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7288,9 +7312,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-执行效果"><a href="#0x006-执行效果" class="headerlink" title="0x006 执行效果"></a>0x006 执行效果</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Other/ilcode.PNG"></p>
 ]]></content>
       <categories>
+        <category>ShellCode</category>
         <category>.NET</category>
         <category>源码</category>
-        <category>ShellCode</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -8107,9 +8131,9 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
+        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
-        <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -8401,9 +8425,9 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
+        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
-        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8535,8 +8559,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -8856,17 +8880,17 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
+        <category>编程</category>
         <category>信息收集</category>
         <category>嗅探</category>
-        <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>Python</tag>
       </tags>
   </entry>
