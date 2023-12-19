@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/Ladon/potato.html</loc>
+    
+    <lastmod>2023-12-19T16:06:26.987Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/p/potato.html</loc>
+    
+    <lastmod>2023-12-19T16:05:52.228Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/Ladon/OracleScan.html</loc>
     
     <lastmod>2023-12-19T15:57:20.786Z</lastmod>
@@ -859,20 +873,6 @@
     <loc>http://k8gege.org/Ladon/RemoteLadon.html</loc>
     
     <lastmod>2020-08-23T00:36:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/p/potato.html</loc>
-    
-    <lastmod>2020-08-15T17:10:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/Ladon/potato.html</loc>
-    
-    <lastmod>2020-08-15T17:04:05.000Z</lastmod>
     
   </url>
   

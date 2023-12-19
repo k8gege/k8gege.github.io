@@ -2842,6 +2842,61 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>〖教程〗Ladon提权之Potato系列</title>
+    <url>/p/potato.html</url>
+    <content><![CDATA[<h1 id="Ladon提权之PipePotato-BadPotato-EfsPotato-GodPotato-McpPotato-SweetPotato-PrintSpoofer"><a href="#Ladon提权之PipePotato-BadPotato-EfsPotato-GodPotato-McpPotato-SweetPotato-PrintSpoofer" class="headerlink" title="Ladon提权之PipePotato/BadPotato/EfsPotato/GodPotato/McpPotato/SweetPotato/PrintSpoofer"></a>Ladon提权之PipePotato/BadPotato/EfsPotato/GodPotato/McpPotato/SweetPotato/PrintSpoofer</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/potato.html";
+</script>
+
+
+<p>Ladon提权之PipePotato/BadPotato/SweetPotato/PrintSpoofer</p>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>&gt;= Ladon 7.2.0<br>Update: 20200810</p>
+<h3 id="Potato提权原理"><a href="#Potato提权原理" class="headerlink" title="Potato提权原理"></a>Potato提权原理</h3><p>通过各种方法在本地NTLM中继获取SYSTEM令牌，再通过模拟令牌执行命令，通过以上方法提权统称为potato(不管是否基于原potato修改)。就像SQL注入，通过特定SQL语句注入获取特定数据库信息统称为SQL注入，而不管如何编写的SQL语句，是否基于别人的SQL语句修改。</p>
+<h3 id="提权条件"><a href="#提权条件" class="headerlink" title="提权条件"></a>提权条件</h3><p>1 本地NTLM中继获取SYSTEM令牌<br>2 SeImpersonatePrivilege特权</p>
+<p>测试中任意用户都可以通过本地NTLM中继获取到SYSTEM令牌权限，但是由于USER默认不开户SeImpersonatePrivilege特权，无法模拟令牌创建进程无法执行命令，所以会导致很多Potato提权失败。如下方”Win7管理员提权至SYSTEM“图片上部分就是USER部分的Potato提权失败，下方是管理员权限，而其它环境都是IIS权限。所以为了方便Ladon默认也显示当前用户SeImpersonatePrivilege特权情况。</p>
+<h3 id="SweetPotato"><a href="#SweetPotato" class="headerlink" title="SweetPotato"></a>SweetPotato</h3><p>SweetPotato集成了原版Potato和JulyPotato的功能，包含DCOM/WINRM/PrintSpoofer方法获取SYSTEM。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load SweetPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">Vulnerable: Win7-Win10/Win2008-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon SweetPotato cmdline</span><br></pre></td></tr></table></figure>
+
+<h3 id="PrintSpoofer"><a href="#PrintSpoofer" class="headerlink" title="PrintSpoofer"></a>PrintSpoofer</h3><p>pipePotato:一种新型的通用提权漏洞，PrintSpoofer是一个利用打印机PIPE提权的方法，国人写了个工具叫BadPotato。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load BadPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">PrintSpoofer Abusing Impersonate Privileges.</span><br><span class="line">Vulnerable: Win8-Win10/Win2012-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon BadPotato cmdline</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>1 Win7 IIS 应用池用户权限<br>2 Win7 本地管理员用户权限<br>3 Win2012 IIS 应用池权限<br>4 Win7 本地服务用户权限<br>5 Win8 本地服务用户权限</p>
+<p>PS：由于BadPotato不支持WIN7系统，所以以上环境主要以测试SweetPotato为主。</p>
+<h4 id="Win7管理员提权至SYSTEM"><a href="#Win7管理员提权至SYSTEM" class="headerlink" title="Win7管理员提权至SYSTEM"></a>Win7管理员提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/Win7_Admin_SweetPotato.PNG"></p>
+<h4 id="Win7-IIS应用池提权至SYSTEM"><a href="#Win7-IIS应用池提权至SYSTEM" class="headerlink" title="Win7 IIS应用池提权至SYSTEM"></a>Win7 IIS应用池提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/IIS_Win7_SweetPotato.PNG"></p>
+<h4 id="2012-R2-IIS应用池提权至SYSTEM"><a href="#2012-R2-IIS应用池提权至SYSTEM" class="headerlink" title="2012 R2 IIS应用池提权至SYSTEM"></a>2012 R2 IIS应用池提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/IIS8_2012_PR.PNG"></p>
+<h4 id="WIN7服务用户CS提权至SYSTEM"><a href="#WIN7服务用户CS提权至SYSTEM" class="headerlink" title="WIN7服务用户CS提权至SYSTEM"></a>WIN7服务用户CS提权至SYSTEM</h4><p>本地服务用户权限下直接以SYSTEM权限上控Cobalt Strike<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/CS_PR_SweetPotato.png"></p>
+<h4 id="WIN8服务用户提权至SYSTEM"><a href="#WIN8服务用户提权至SYSTEM" class="headerlink" title="WIN8服务用户提权至SYSTEM"></a>WIN8服务用户提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/BadPotato.png"></p>
+<h3 id="IIS提权"><a href="#IIS提权" class="headerlink" title="IIS提权"></a>IIS提权</h3><p><a href="http://k8gege.org/p/6b9b3afe.html">http://k8gege.org/p/6b9b3afe.html</a></p>
+<h3 id="Ladon五个Potato提权命令"><a href="#Ladon五个Potato提权命令" class="headerlink" title="Ladon五个Potato提权命令"></a>Ladon五个Potato提权命令</h3><p>Ladon &gt;= 12.2</p>
+<h5 id="117-BadPotato服务用户提权至SYSTEM"><a href="#117-BadPotato服务用户提权至SYSTEM" class="headerlink" title="117 BadPotato服务用户提权至SYSTEM"></a>117 BadPotato服务用户提权至SYSTEM</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon BadPotato cmdline</span><br></pre></td></tr></table></figure>
+
+<h5 id="118-SweetPotato服务用户提权至SYSTEM"><a href="#118-SweetPotato服务用户提权至SYSTEM" class="headerlink" title="118 SweetPotato服务用户提权至SYSTEM"></a>118 SweetPotato服务用户提权至SYSTEM</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon SweetPotato cmdline</span><br></pre></td></tr></table></figure>
+
+<h5 id="119-EfsPotato-Win7-2019提权-服务用户权限提到system"><a href="#119-EfsPotato-Win7-2019提权-服务用户权限提到system" class="headerlink" title="119 EfsPotato Win7-2019提权(服务用户权限提到system)"></a>119 EfsPotato Win7-2019提权(服务用户权限提到system)</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon EfsPotato whoami</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="235-Win11-2022系统提权至system权限"><a href="#235-Win11-2022系统提权至system权限" class="headerlink" title="235 Win11/2022系统提权至system权限"></a>235 Win11/2022系统提权至system权限</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon McpPotato whoami</span><br></pre></td></tr></table></figure>
+
+<h5 id="221-GodPotato提权Win8-Win11-Win2012-Win2022"><a href="#221-GodPotato提权Win8-Win11-Win2012-Win2022" class="headerlink" title="221 GodPotato提权Win8-Win11 Win2012-Win2022"></a>221 GodPotato提权Win8-Win11 Win2012-Win2022</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon GodPotato whoami</span><br></pre></td></tr></table></figure>
+
+<h5 id="190-MssqlCmd-SQL-Server数据库远程efspotato、badpotato提权"><a href="#190-MssqlCmd-SQL-Server数据库远程efspotato、badpotato提权" class="headerlink" title="190 MssqlCmd SQL Server数据库远程efspotato、badpotato提权"></a>190 MssqlCmd SQL Server数据库远程efspotato、badpotato提权</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master install_clr</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master uninstall_clr</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_exec whoami</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_efspotato whoami</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_badpotato whoami</span><br></pre></td></tr></table></figure>
+
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>LPE</tag>
+        <tag>EXP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ladon渗透Oracle数据库一键提权 密码爆破</title>
     <url>/p/OracleScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -6023,47 +6078,6 @@ window.location.href="http://k8gege.org/Ladon/IsShiro.html";
       </tags>
   </entry>
   <entry>
-    <title>〖教程〗Ladon提权之Potato系列</title>
-    <url>/p/potato.html</url>
-    <content><![CDATA[<h1 id="Ladon提权之PipePotato-BadPotato-SweetPotato-PrintSpoofer"><a href="#Ladon提权之PipePotato-BadPotato-SweetPotato-PrintSpoofer" class="headerlink" title="Ladon提权之PipePotato/BadPotato/SweetPotato/PrintSpoofer"></a>Ladon提权之PipePotato/BadPotato/SweetPotato/PrintSpoofer</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
-<script language="javascript" type="text/javascript">
-window.location.href="http://k8gege.org/Ladon/potato.html";
-</script>
-
-
-<p>Ladon提权之PipePotato/BadPotato/SweetPotato/PrintSpoofer</p>
-<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>&gt;= Ladon 7.2.0<br>Update: 20200810</p>
-<h3 id="Potato提权原理"><a href="#Potato提权原理" class="headerlink" title="Potato提权原理"></a>Potato提权原理</h3><p>通过各种方法在本地NTLM中继获取SYSTEM令牌，再通过模拟令牌执行命令，通过以上方法提权统称为potato(不管是否基于原potato修改)。就像SQL注入，通过特定SQL语句注入获取特定数据库信息统称为SQL注入，而不管如何编写的SQL语句，是否基于别人的SQL语句修改。</p>
-<h3 id="提权条件"><a href="#提权条件" class="headerlink" title="提权条件"></a>提权条件</h3><p>1 本地NTLM中继获取SYSTEM令牌<br>2 SeImpersonatePrivilege特权</p>
-<p>测试中任意用户都可以通过本地NTLM中继获取到SYSTEM令牌权限，但是由于USER默认不开户SeImpersonatePrivilege特权，无法模拟令牌创建进程无法执行命令，所以会导致很多Potato提权失败。如下方”Win7管理员提权至SYSTEM“图片上部分就是USER部分的Potato提权失败，下方是管理员权限，而其它环境都是IIS权限。所以为了方便Ladon默认也显示当前用户SeImpersonatePrivilege特权情况。</p>
-<h3 id="SweetPotato"><a href="#SweetPotato" class="headerlink" title="SweetPotato"></a>SweetPotato</h3><p>SweetPotato集成了原版Potato和JulyPotato的功能，包含DCOM/WINRM/PrintSpoofer方法获取SYSTEM。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load SweetPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">Vulnerable: Win7-Win10/Win2008-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon SweetPotato cmdline</span><br></pre></td></tr></table></figure>
-
-<h3 id="PrintSpoofer"><a href="#PrintSpoofer" class="headerlink" title="PrintSpoofer"></a>PrintSpoofer</h3><p>pipePotato:一种新型的通用提权漏洞，PrintSpoofer是一个利用打印机PIPE提权的方法，国人写了个工具叫BadPotato。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load BadPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">PrintSpoofer Abusing Impersonate Privileges.</span><br><span class="line">Vulnerable: Win8-Win10/Win2012-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon BadPotato cmdline</span><br></pre></td></tr></table></figure>
-
-<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>1 Win7 IIS 应用池用户权限<br>2 Win7 本地管理员用户权限<br>3 Win2012 IIS 应用池权限<br>4 Win7 本地服务用户权限<br>5 Win8 本地服务用户权限</p>
-<p>PS：由于BadPotato不支持WIN7系统，所以以上环境主要以测试SweetPotato为主。</p>
-<h4 id="Win7管理员提权至SYSTEM"><a href="#Win7管理员提权至SYSTEM" class="headerlink" title="Win7管理员提权至SYSTEM"></a>Win7管理员提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/Win7_Admin_SweetPotato.PNG"></p>
-<h4 id="Win7-IIS应用池提权至SYSTEM"><a href="#Win7-IIS应用池提权至SYSTEM" class="headerlink" title="Win7 IIS应用池提权至SYSTEM"></a>Win7 IIS应用池提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/IIS_Win7_SweetPotato.PNG"></p>
-<h4 id="2012-R2-IIS应用池提权至SYSTEM"><a href="#2012-R2-IIS应用池提权至SYSTEM" class="headerlink" title="2012 R2 IIS应用池提权至SYSTEM"></a>2012 R2 IIS应用池提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/IIS8_2012_PR.PNG"></p>
-<h4 id="WIN7服务用户CS提权至SYSTEM"><a href="#WIN7服务用户CS提权至SYSTEM" class="headerlink" title="WIN7服务用户CS提权至SYSTEM"></a>WIN7服务用户CS提权至SYSTEM</h4><p>本地服务用户权限下直接以SYSTEM权限上控Cobalt Strike<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/CS_PR_SweetPotato.png"></p>
-<h4 id="WIN8服务用户提权至SYSTEM"><a href="#WIN8服务用户提权至SYSTEM" class="headerlink" title="WIN8服务用户提权至SYSTEM"></a>WIN8服务用户提权至SYSTEM</h4><p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/lpe/BadPotato.png"></p>
-<h3 id="IIS提权"><a href="#IIS提权" class="headerlink" title="IIS提权"></a>IIS提权</h3><p><a href="http://k8gege.org/p/6b9b3afe.html">http://k8gege.org/p/6b9b3afe.html</a></p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
-<div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
-</div>
-]]></content>
-      <categories>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>LPE</tag>
-        <tag>EXP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>〖教程〗LadonExp使用IIS写权限Webdav漏洞GetShell</title>
     <url>/p/iisput.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
@@ -6577,8 +6591,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>内网渗透</category>
         <category>远程执行</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -8479,33 +8493,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2019-0604 SharePoint GetShell Exploit</title>
     <url>/p/e896a7d1.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
@@ -8599,9 +8586,36 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8950,14 +8964,14 @@ from pprint import pprint
         <category>主机发现</category>
         <category>源码</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>嗅探</category>
+        <category>信息收集</category>
         <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
