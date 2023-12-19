@@ -26,7 +26,7 @@
 
 
 
-Ladon1521端口 Oracle数据库密码爆破Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限数据库名不对，是无法连接上数据库的，比方说你获取到的密...">
+============================================================================================...">
 
 
 <meta name="robots" content="all">
@@ -206,7 +206,13 @@ Visit <span id="busuanzi_value_page_pv"></span>
 %>
 </%></p>
 
-<h3 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h3><h3 id="1521端口-Oracle数据库密码爆破"><a href="#1521端口-Oracle数据库密码爆破" class="headerlink" title="1521端口 Oracle数据库密码爆破"></a>1521端口 Oracle数据库密码爆破</h3><p>Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限<br>数据库名不对，是无法连接上数据库的，比方说你获取到的密码<br>是oracle admin123 只允许连接db888数据库 就是所说的SID<br>但是网上很多工具都是使用默认的orcl数据库 导致无法爆破<br>有可能会因此错过很多Oracle数据库机器权限 </p>
+<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/OracleScan.html";
+</script>
+
+
+<h3 id="1521端口-Oracle数据库密码爆破"><a href="#1521端口-Oracle数据库密码爆破" class="headerlink" title="1521端口 Oracle数据库密码爆破"></a>1521端口 Oracle数据库密码爆破</h3><p>Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限<br>数据库名不对，是无法连接上数据库的，比方说你获取到的密码<br>是oracle admin123 只允许连接db888数据库 就是所说的SID<br>但是网上很多工具都是使用默认的orcl数据库 导致无法爆破<br>有可能会因此错过很多Oracle数据库机器权限 </p>
 <p>PS：SQL Server不指定数据库名也可以连 权限不够最多读取不了对应库的数据而已<br>但是填写默认的master库，即使是最低权限，也可连接上，就可用来验证爆破密码<br>而Oracle不行，填写默认的orcl，非授权用户是连不上的 不指定时Ladon默认跑orcl</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 OracleScan</span><br></pre></td></tr></table></figure>
 
@@ -302,7 +308,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon"><span class="toc-text">Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1521端口-Oracle数据库密码爆破"><span class="toc-text">1521端口 Oracle数据库密码爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置密码爆破参数"><span class="toc-text">配置密码爆破参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库口令检测"><span class="toc-text">数据库口令检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mssql密码验证"><span class="toc-text">mssql密码验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#oracle同理"><span class="toc-text">oracle同理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mysql无需指定数据库名"><span class="toc-text">mysql无需指定数据库名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerLadon"><span class="toc-text">PowerLadon</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#远程加载OracleScan-1521端口弱口令爆破"><span class="toc-text">远程加载OracleScan 1521端口弱口令爆破</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali、Linux、Mac、路由器等操作系统"><span class="toc-text">Kali、Linux、Mac、路由器等操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Oracle数据库远程提权工具"><span class="toc-text">Oracle数据库远程提权工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具下载"><span class="toc-text">工具下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1521端口-Oracle数据库密码爆破"><span class="toc-text">1521端口 Oracle数据库密码爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置密码爆破参数"><span class="toc-text">配置密码爆破参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库口令检测"><span class="toc-text">数据库口令检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mssql密码验证"><span class="toc-text">mssql密码验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#oracle同理"><span class="toc-text">oracle同理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mysql无需指定数据库名"><span class="toc-text">mysql无需指定数据库名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerLadon"><span class="toc-text">PowerLadon</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#远程加载OracleScan-1521端口弱口令爆破"><span class="toc-text">远程加载OracleScan 1521端口弱口令爆破</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali、Linux、Mac、路由器等操作系统"><span class="toc-text">Kali、Linux、Mac、路由器等操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Oracle数据库远程提权工具"><span class="toc-text">Oracle数据库远程提权工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具下载"><span class="toc-text">工具下载</span></a></li></ol>
         
     </div>
 </aside>

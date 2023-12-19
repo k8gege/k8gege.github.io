@@ -2906,7 +2906,13 @@ Visit <span id="busuanzi_value_page_pv"></span>
 %>
 </%></p>
 
-<h3 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h3><h3 id="1521端口-Oracle数据库密码爆破"><a href="#1521端口-Oracle数据库密码爆破" class="headerlink" title="1521端口 Oracle数据库密码爆破"></a>1521端口 Oracle数据库密码爆破</h3><p>Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限<br>数据库名不对，是无法连接上数据库的，比方说你获取到的密码<br>是oracle admin123 只允许连接db888数据库 就是所说的SID<br>但是网上很多工具都是使用默认的orcl数据库 导致无法爆破<br>有可能会因此错过很多Oracle数据库机器权限 </p>
+<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/OracleScan.html";
+</script>
+
+
+<h3 id="1521端口-Oracle数据库密码爆破"><a href="#1521端口-Oracle数据库密码爆破" class="headerlink" title="1521端口 Oracle数据库密码爆破"></a>1521端口 Oracle数据库密码爆破</h3><p>Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限<br>数据库名不对，是无法连接上数据库的，比方说你获取到的密码<br>是oracle admin123 只允许连接db888数据库 就是所说的SID<br>但是网上很多工具都是使用默认的orcl数据库 导致无法爆破<br>有可能会因此错过很多Oracle数据库机器权限 </p>
 <p>PS：SQL Server不指定数据库名也可以连 权限不够最多读取不了对应库的数据而已<br>但是填写默认的master库，即使是最低权限，也可连接上，就可用来验证爆破密码<br>而Oracle不行，填写默认的orcl，非授权用户是连不上的 不指定时Ladon默认跑orcl</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 OracleScan</span><br></pre></td></tr></table></figure>
 
@@ -6419,11 +6425,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6591,8 +6597,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -7366,9 +7372,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-执行效果"><a href="#0x006-执行效果" class="headerlink" title="0x006 执行效果"></a>0x006 执行效果</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Other/ilcode.PNG"></p>
 ]]></content>
       <categories>
+        <category>ShellCode</category>
         <category>.NET</category>
         <category>源码</category>
-        <category>ShellCode</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -8185,9 +8191,9 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
+        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
-        <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -8479,9 +8485,9 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
+        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
-        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8586,8 +8592,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -8961,17 +8967,17 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>嗅探</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>Python</tag>
       </tags>
   </entry>
