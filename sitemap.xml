@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/Ladon/VncScan.html</loc>
+    
+    <lastmod>2023-12-26T11:10:20.275Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/p/bypassEDR.html</loc>
     
     <lastmod>2023-12-26T11:07:47.643Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://k8gege.org/Ladon/MssqlScan.html</loc>
     
     <lastmod>2023-12-25T14:00:16.928Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/Ladon/VncScan.html</loc>
-    
-    <lastmod>2023-12-25T13:53:14.773Z</lastmod>
     
   </url>
   
