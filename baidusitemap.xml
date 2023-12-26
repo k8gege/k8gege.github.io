@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://k8gege.org/Ladon/HttpbasicScan.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Ladon/WeblogicScan.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Ladon/TomcatScan.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>  <url>
+    <loc>http://k8gege.org/Ladon/LdapScan.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>  <url>
     <loc>http://k8gege.org/p/vncscan.html</loc>
     <lastmod>2023-12-26</lastmod>
   </url>  <url>
