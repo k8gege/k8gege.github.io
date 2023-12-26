@@ -2818,6 +2818,46 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>Ladon渗透绕过WAF、EDR、防火墙扫描</title>
+    <url>/p/bypassEDR.html</url>
+    <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/bypassEDR.html";
+</script>
+
+<h3 id="BypassEDR扫描"><a href="#BypassEDR扫描" class="headerlink" title="BypassEDR扫描"></a>BypassEDR扫描</h3><p>默认扫描速度很快，有些WAF或EDR防御很强<br><br>设置几线程都有可能20分钟左右就不能扫了<br><br>bypassEDR模拟人工访问，绕过速度检测策略<br></p>
+<p>扫描速度较慢，追求速度的愣头青不要使用<br></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 bypassEDR</span><br></pre></td></tr></table></figure>
+
+<p>密码爆破相关模块暂不支持bypassEDR参数</p>
+<h3 id="001-自定义线程扫描"><a href="#001-自定义线程扫描" class="headerlink" title="001 自定义线程扫描"></a>001 自定义线程扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞<br><br>单线程：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 t=1</span><br></pre></td></tr></table></figure>
+
+<p>80线程：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon noping 10.1.2.8/24 MS17010 t=80</span><br></pre></td></tr></table></figure>
+
+<p>高强度防护下扫描线程设置低一些，F单线程<br></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 f=1</span><br></pre></td></tr></table></figure>
+
+<h3 id="002-Socks5代理扫描"><a href="#002-Socks5代理扫描" class="headerlink" title="002 Socks5代理扫描"></a>002 Socks5代理扫描</h3><p>例子：使用8线程扫描目标10.1.2段是否存在MS17010漏洞<br></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon noping 10.1.2.8/24 MS17010 t=8&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<p>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
+<p>PS：代理工具不支持Socks5，所以必须加noping参数扫描<br><br>不管是Frp还是其它同类工具，最主要是Proxifier等工具不支持ICMP协议<br><br>因为Ladon默认先用ICMP探测存活后，才使用对应模块测试<br><br>所以代理环境下得禁ping扫描，系统ping使用的就是ICMP协议</p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>12.3：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>waf</tag>
+        <tag>edr</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ladon渗透Oracle数据库一键提权 密码爆破</title>
     <url>/p/OracleScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -2864,7 +2904,7 @@ window.location.href="http://k8gege.org/Ladon/OracleScan.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
+    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
     <url>/p/MysqlScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
@@ -6698,8 +6738,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -7474,9 +7514,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>.NET</category>
+        <category>ShellCode</category>
         <category>源码</category>
         <category>编程</category>
-        <category>ShellCode</category>
       </categories>
       <tags>
         <tag>.NET</tag>
@@ -7658,9 +7698,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p>注意：我这里说的是不推荐用MSF中的PowerShell加载模块，并不是说MSF。<br>如同说霍金身体残废，但却没有说他是废人哦，何况只是说他一只手受伤。</p>
 ]]></content>
       <categories>
+        <category>Metasploit</category>
         <category>.NET</category>
         <category>PowerShell</category>
-        <category>Metasploit</category>
       </categories>
       <tags>
         <tag>Metasploit</tag>
@@ -8245,42 +8285,13 @@ Microsoft Windows 10 for 32-bit Systems 0
 
 <pre><code>&lt;a title=&quot;External url&quot; href=&quot;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&quot; target=&quot;_blank&quot;&gt;http://packetstormsecurity.com/files/153034/Microsoft-Windows-Win32k-Privilege-Escalation.html&lt;/a&gt;&lt;/p&gt;</code></pre></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
-    <url>/p/9cffe32c.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
-<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
-<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
-<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
-<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
-<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
-<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
-<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
-<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
-<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Cobalt Strike</category>
-        <category>Metasploit</category>
-        <category>ShellCode</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -8301,6 +8312,35 @@ Microsoft Windows 10 for 32-bit Systems 0
       <tags>
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
+    <url>/p/9cffe32c.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
+<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
+<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/scencode.png"></p>
+<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
+<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
+<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
+<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
+<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
+<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
+<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+        <category>Metasploit</category>
+        <category>免杀</category>
+        <category>ShellCode</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -8586,11 +8626,11 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Cobalt Strike</category>
         <category>Metasploit</category>
-        <category>Python</category>
+        <category>免杀</category>
         <category>ShellCode</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
@@ -8897,8 +8937,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p><img alt data-original="http://k8gege.org/k8img/posts/k8uac.png"></p>
 <p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8918,8 +8958,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>PowerShell</p>
 <p><a href="https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1" target="_blank">https://github.com/k8gege/K8tools/blob/master/Invoke-Mimikatz.ps1</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>工具</category>
+        <category>提权</category>
         <category>密码</category>
         <category>PowerShell</category>
       </categories>
@@ -8976,33 +9016,6 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
       </tags>
   </entry>
   <entry>
@@ -9071,8 +9084,8 @@ from pprint import pprint
         <category>主机发现</category>
         <category>源码</category>
         <category>内网渗透</category>
-        <category>嗅探</category>
         <category>信息收集</category>
+        <category>嗅探</category>
         <category>编程</category>
         <category>Python</category>
       </categories>
@@ -9080,6 +9093,33 @@ from pprint import pprint
         <tag>Code</tag>
         <tag>Tool</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
       </tags>
   </entry>
   <entry>
