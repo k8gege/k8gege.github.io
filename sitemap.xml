@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://k8gege.org/Download/index.html</loc>
+    <loc>http://k8gege.org/p/CVE-2024-29973.html</loc>
     
-    <lastmod>2024-10-19T16:57:09.901Z</lastmod>
+    <lastmod>2024-11-01T15:50:33.578Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/Ladon/CVE-2024-45216.html</loc>
+    
+    <lastmod>2024-11-01T15:49:41.104Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://k8gege.org/Ladon/CVE-2024-29973.html</loc>
     
-    <lastmod>2024-08-11T17:06:16.991Z</lastmod>
+    <lastmod>2024-11-01T15:48:03.523Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://k8gege.org/p/CVE-2024-29973.html</loc>
     
-    <lastmod>2024-08-11T17:04:10.953Z</lastmod>
+    <lastmod>2024-11-01T15:46:25.627Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/Download/index.html</loc>
+    
+    <lastmod>2024-10-19T16:57:09.901Z</lastmod>
     
   </url>
   
