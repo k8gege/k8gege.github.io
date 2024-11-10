@@ -2818,7 +2818,7 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
-    <title>LadonExp CVE-2024-45216 漏洞批量扫描教程</title>
+    <title>LadonExp CVE-2024-45216 漏洞复现批量扫描教程</title>
     <url>/p/CVE-2024-45216.html</url>
     <content><![CDATA[<h1 id="Ladon-CVE-2024-45216-影响版本-Apache-Solr-5-3-0-lt-Apache-Solr-lt-8-11-4-9-0-0-lt-Apache-Solr-lt-9-7-0"><a href="#Ladon-CVE-2024-45216-影响版本-Apache-Solr-5-3-0-lt-Apache-Solr-lt-8-11-4-9-0-0-lt-Apache-Solr-lt-9-7-0" class="headerlink" title="Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0"></a>Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
@@ -2872,9 +2872,9 @@ window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";
       </tags>
   </entry>
   <entry>
-    <title>LadonExp CVE-2024-29973漏洞批量扫描教程</title>
+    <title>LadonExp CVE-2024-29973漏洞复现批量扫描教程</title>
     <url>/p/CVE-2024-29973.html</url>
-    <content><![CDATA[<h1 id="Ladon-CVE-2024-29973-Zyxel漏洞批量扫描教程"><a href="#Ladon-CVE-2024-29973-Zyxel漏洞批量扫描教程" class="headerlink" title="Ladon CVE-2024-29973 Zyxel漏洞批量扫描教程"></a>Ladon CVE-2024-29973 Zyxel漏洞批量扫描教程</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+    <content><![CDATA[<h1 id="Ladon-CVE-2024-29973-Zyxel漏洞复现批量扫描教程"><a href="#Ladon-CVE-2024-29973-Zyxel漏洞复现批量扫描教程" class="headerlink" title="Ladon CVE-2024-29973 Zyxel漏洞复现批量扫描教程"></a>Ladon CVE-2024-29973 Zyxel漏洞复现批量扫描教程</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
 window.location.href="http://k8gege.org/Ladon/CVE-2024-29973.html";
 </script>
@@ -2974,7 +2974,7 @@ window.location.href="http://k8gege.org/Ladon/bypassEDR.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon渗透Win11 RCE CVE-2023-38146</title>
+    <title>Ladon漏洞复现Win11 RCE CVE-2023-38146</title>
     <url>/p/CVE-2023-38146.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
@@ -6734,11 +6734,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
+        <category>信息收集</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7681,9 +7681,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-执行效果"><a href="#0x006-执行效果" class="headerlink" title="0x006 执行效果"></a>0x006 执行效果</h3><p><img alt="image" data-original="http://k8gege.org/k8img/Other/ilcode.PNG"></p>
 ]]></content>
       <categories>
-        <category>ShellCode</category>
         <category>.NET</category>
         <category>源码</category>
+        <category>ShellCode</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -7872,8 +7872,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       </categories>
       <tags>
         <tag>Metasploit</tag>
-        <tag>PowerShell</tag>
         <tag>.NET</tag>
+        <tag>PowerShell</tag>
         <tag>C#</tag>
         <tag>MSF</tag>
         <tag>meterpreter</tag>
@@ -8500,8 +8500,8 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Cobalt Strike</category>
+        <category>免杀</category>
         <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
@@ -8794,8 +8794,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Cobalt Strike</category>
+        <category>免杀</category>
         <category>Metasploit</category>
         <category>ShellCode</category>
         <category>Python</category>
@@ -9276,13 +9276,13 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>主机发现</category>
         <category>源码</category>
+        <category>主机发现</category>
         <category>内网渗透</category>
-        <category>信息收集</category>
         <category>编程</category>
-        <category>嗅探</category>
+        <category>信息收集</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Tool</tag>

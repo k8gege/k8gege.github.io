@@ -2,30 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://k8gege.org/Ladon/CVE-2024-45216.html</loc>
+    <loc>http://k8gege.org/p/CVE-2023-38146.html</loc>
     
-    <lastmod>2024-11-01T16:12:50.673Z</lastmod>
+    <lastmod>2024-11-10T07:56:48.334Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://k8gege.org/Ladon/CVE-2024-29973.html</loc>
     
-    <lastmod>2024-11-01T16:01:56.228Z</lastmod>
+    <lastmod>2024-11-10T07:56:01.429Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://k8gege.org/p/CVE-2024-29973.html</loc>
+    <loc>http://k8gege.org/Ladon/CVE-2024-45216.html</loc>
     
-    <lastmod>2024-11-01T16:01:21.407Z</lastmod>
+    <lastmod>2024-11-10T07:55:48.616Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://k8gege.org/p/CVE-2024-45216.html</loc>
     
-    <lastmod>2024-11-01T16:01:14.980Z</lastmod>
+    <lastmod>2024-11-10T07:53:48.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/p/CVE-2024-29973.html</loc>
+    
+    <lastmod>2024-11-10T07:53:30.751Z</lastmod>
     
   </url>
   
@@ -54,13 +61,6 @@
     <loc>http://k8gege.org/Ladon/SmbSer.html</loc>
     
     <lastmod>2023-12-26T15:09:24.643Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/p/CVE-2023-38146.html</loc>
-    
-    <lastmod>2023-12-26T15:09:19.105Z</lastmod>
     
   </url>
   
