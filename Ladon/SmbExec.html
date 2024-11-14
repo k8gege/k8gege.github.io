@@ -174,8 +174,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h3 id="模块用法"><a href="#模块用法" class="headerlink" title="模块用法"></a>模块用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Load SmbExec</span><br><span class="line">Usage:</span><br><span class="line">Ladon SmbExec host user pass cmd whoami</span><br><span class="line">Ladon SmbExec host user pass b64cmd dwBoAG8AYQBtAGkA</span><br></pre></td></tr></table></figure>
 
 <h3 id="SmbExec执行"><a href="#SmbExec执行" class="headerlink" title="SmbExec执行"></a>SmbExec执行</h3><p>在Cobalt Strike的shell下执行SmbExec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2以后版本使用Base64Unicode加密生成</p>
-<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p>
-<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbExec.PNG"><br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/SmbExec2.PNG"></p>
+<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p>
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbExec.PNG"><br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbExec2.PNG"></p>
 <h4 id="Ladon其它横向移动模块"><a href="#Ladon其它横向移动模块" class="headerlink" title="Ladon其它横向移动模块"></a>Ladon其它横向移动模块</h4><table>
 <thead>
 <tr>

