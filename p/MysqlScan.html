@@ -37,7 +37,7 @@
 
 <title>
     
-    Ladon渗透Mysql数据库一键提权 密码爆破 |
+    Ladon渗透SQL Server数据库一键提权 密码爆破 |
     
     K8哥哥’s Blog
 </title>
@@ -157,9 +157,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Ladon渗透Mysql数据库一键提权 密码爆破">
+        <h1 id="Ladon渗透SQL Server数据库一键提权 密码爆破">
             
-            Ladon渗透Mysql数据库一键提权 密码爆破
+            Ladon渗透SQL Server数据库一键提权 密码爆破
             
         </h1>
         <div class="post-meta">
@@ -198,7 +198,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                350</strong>
+                383</strong>
             天之前发表
         </p>
         
@@ -214,11 +214,11 @@ Visit <span id="busuanzi_value_page_pv"></span>
 
 <p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
-window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
+window.location.href="http://k8gege.org/Ladon/MssqlScan.html";
 </script>
 
 
-<h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
+<h3 id="1433端口-Mssql数据库密码爆破"><a href="#1433端口-Mssql数据库密码爆破" class="headerlink" title="1433端口 Mssql数据库密码爆破"></a>1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure>
 
 <p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
 <h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
@@ -262,10 +262,10 @@ window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/p/MysqlScan.html" class="pre-post btn btn-default" title="Ladon渗透SQL Server数据库一键提权 密码爆破">
+    <a href="/p/MysqlScan.html" class="pre-post btn btn-default" title="Ladon渗透Mysql数据库一键提权 密码爆破">
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            Ladon渗透SQL Server数据库一键提权 密码爆破</span>
+            Ladon渗透Mysql数据库一键提权 密码爆破</span>
     </a>
     
     
@@ -308,7 +308,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#3306端口-Mysql数据库密码爆破"><span class="toc-text">3306端口 Mysql数据库密码爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置密码爆破参数"><span class="toc-text">配置密码爆破参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库口令检测"><span class="toc-text">数据库口令检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mssql密码验证"><span class="toc-text">mssql密码验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle同理"><span class="toc-text">Oracle同理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Mysql无需指定数据库名"><span class="toc-text">Mysql无需指定数据库名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerLadon"><span class="toc-text">PowerLadon</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#远程加载MysqlScan-1521端口弱口令爆破"><span class="toc-text">远程加载MysqlScan 1521端口弱口令爆破</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali、Linux、Mac、路由器等操作系统"><span class="toc-text">Kali、Linux、Mac、路由器等操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mysql数据库远程提权工具"><span class="toc-text">Mysql数据库远程提权工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具下载"><span class="toc-text">工具下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1433端口-Mssql数据库密码爆破"><span class="toc-text">1433端口 Mssql数据库密码爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置密码爆破参数"><span class="toc-text">配置密码爆破参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库口令检测"><span class="toc-text">数据库口令检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mssql密码验证"><span class="toc-text">mssql密码验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle同理"><span class="toc-text">Oracle同理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Mysql无需指定数据库名"><span class="toc-text">Mysql无需指定数据库名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerLadon"><span class="toc-text">PowerLadon</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#远程加载MysqlScan-1521端口弱口令爆破"><span class="toc-text">远程加载MysqlScan 1521端口弱口令爆破</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali、Linux、Mac、路由器等操作系统"><span class="toc-text">Kali、Linux、Mac、路由器等操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mysql数据库远程提权工具"><span class="toc-text">Mysql数据库远程提权工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具下载"><span class="toc-text">工具下载</span></a></li></ol>
         
     </div>
 </aside>
