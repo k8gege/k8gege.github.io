@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://k8gege.org/p/cve_2020_1472.html</loc>
+    
+    <lastmod>2025-03-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/p/wmiexec2.html</loc>
     
     <lastmod>2025-03-06</lastmod>
@@ -1586,7 +1595,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/p/6b9b3afe.html</loc>
+    <loc>http://k8gege.org/p/16b5ff0b.html</loc>
     
     <lastmod>2024-11-14</lastmod>
     
@@ -1595,7 +1604,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/p/16b5ff0b.html</loc>
+    <loc>http://k8gege.org/p/6b9b3afe.html</loc>
     
     <lastmod>2024-11-14</lastmod>
     
@@ -2130,6 +2139,27 @@
   </url>
   
   <url>
+    <loc>http://k8gege.org/tags/Ubuntu/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/lpe/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/CVE-2019-13272/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/tags/Poc/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2179,41 +2209,6 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/Ubuntu/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/lpe/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/CVE-2019-13272/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/CVE-2020-17144/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/Exchange/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/tags/Lpe/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2229,6 +2224,13 @@
   
   <url>
     <loc>http://k8gege.org/tags/Discover/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/Exchange/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2256,14 +2258,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/Zyxel/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/CVE-2024-29973/</loc>
+    <loc>http://k8gege.org/tags/CVE-2020-17144/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2284,21 +2279,14 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/CVE-2024-47575/</loc>
+    <loc>http://k8gege.org/tags/Zyxel/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/FortiManager/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/Brute/</loc>
+    <loc>http://k8gege.org/tags/CVE-2024-29973/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2319,14 +2307,14 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/hta/</loc>
+    <loc>http://k8gege.org/tags/CVE-2024-47575/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/Pass/</loc>
+    <loc>http://k8gege.org/tags/FortiManager/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2347,6 +2335,34 @@
   </url>
   
   <url>
+    <loc>http://k8gege.org/tags/Brute/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/Pass/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/K8tools/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/CMS/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/tags/Struts2/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2361,14 +2377,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/CMS/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/K8tools/</loc>
+    <loc>http://k8gege.org/tags/hta/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2417,13 +2426,6 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/Dotnet/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/tags/Moudle/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2439,6 +2441,13 @@
   
   <url>
     <loc>http://k8gege.org/tags/Sharp/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/Dotnet/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2508,13 +2517,6 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/wmi/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/tags/Sniffer/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2557,7 +2559,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/bypassAV/</loc>
+    <loc>http://k8gege.org/tags/wmi/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2578,21 +2580,14 @@
   </url>
   
   <url>
+    <loc>http://k8gege.org/tags/bypassAV/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/tags/netcat/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/bypassUAC/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/diypoc/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2606,7 +2601,21 @@
   </url>
   
   <url>
+    <loc>http://k8gege.org/tags/bypassUAC/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/tags/Study/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/diypoc/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2628,13 +2637,6 @@
   
   <url>
     <loc>http://k8gege.org/tags/Rat/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/Mikrotik/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2739,13 +2741,6 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/ladon/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/tags/Vmware/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2754,6 +2749,13 @@
   
   <url>
     <loc>http://k8gege.org/tags/Key/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/ladon/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2781,28 +2783,14 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/BypassUAC/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/waf/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/edr/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/tags/Zimbra/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/BypassUAC/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2830,6 +2818,20 @@
   </url>
   
   <url>
+    <loc>http://k8gege.org/tags/Lan-Pentest/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/CVE-2020-1472/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/tags/CVE-2020-0688/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2851,14 +2853,14 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/Log4j2/</loc>
+    <loc>http://k8gege.org/tags/PhpStudy/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/PhpStudy/</loc>
+    <loc>http://k8gege.org/tags/Log4j2/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2872,13 +2874,6 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/Password/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/tags/ntlm/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -2886,14 +2881,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/Lan-Pentest/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/porttran/</loc>
+    <loc>http://k8gege.org/tags/Password/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2935,7 +2923,28 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/USB/</loc>
+    <loc>http://k8gege.org/tags/Mikrotik/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/waf/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/edr/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/porttran/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2957,6 +2966,13 @@
   
   <url>
     <loc>http://k8gege.org/tags/%E5%91%BD%E4%BB%A4%E5%9B%9E%E6%98%BE/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/USB/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2993,13 +3009,6 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/Tool/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/categories/LPE/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -3007,14 +3016,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/EXP/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/categories/Brute-Force/</loc>
+    <loc>http://k8gege.org/categories/Tool/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3028,14 +3030,14 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/CS/</loc>
+    <loc>http://k8gege.org/categories/RCE/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/RCE/</loc>
+    <loc>http://k8gege.org/categories/EXP/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3049,7 +3051,14 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/Pass/</loc>
+    <loc>http://k8gege.org/categories/CS/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/categories/Brute-Force/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3057,6 +3066,13 @@
   
   <url>
     <loc>http://k8gege.org/categories/Kali/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/categories/Pass/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3077,21 +3093,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/OnlinePC/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/categories/Code/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/categories/PowerShell/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3105,14 +3107,21 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/Lan-Pentest/</loc>
+    <loc>http://k8gege.org/categories/OnlinePC/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/Discover/</loc>
+    <loc>http://k8gege.org/categories/PowerShell/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/categories/Lan-Pentest/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3133,7 +3142,7 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/categories/Python/</loc>
+    <loc>http://k8gege.org/categories/Discover/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3141,6 +3150,13 @@
   
   <url>
     <loc>http://k8gege.org/categories/Sniffer/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/categories/Python/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3155,13 +3171,6 @@
   
   <url>
     <loc>http://k8gege.org/categories/Rat/</loc>
-    <lastmod>2025-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/categories/Router/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3232,6 +3241,13 @@
   
   <url>
     <loc>http://k8gege.org/categories/DllHijack/</loc>
+    <lastmod>2025-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/categories/Router/</loc>
     <lastmod>2025-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
