@@ -205,14 +205,14 @@
 <h3 id="Ladon-6-4更新功能"><a href="#Ladon-6-4更新功能" class="headerlink" title="Ladon 6.4更新功能"></a>Ladon 6.4更新功能</h3><p>5.2<br>[u] 修复noping参数问题(误注释了一行代码导致)<br>4.27<br>[+] Ping/PingIP 仅ICMP探测IP速度快(3-6秒/C段,5.8前的OnlinePC)<br>[+] CheckDoor 检测后门(网上公开多年的)–OCI.DLL/5个注册表RUN<br>[u] OsScan 修复6.2 4.20后osscan无法使用的BUG<br>[+] ipcscan.ini INI插件之Ipc密码爆破(net use)<br>[+] smbscan.ini INI插件之Smb密码爆破(impacket)<br>[+] smbhash.ini INI插件之NtlmHash爆破(impacket)</p>
 <p>4.26<br>[+]JspShell 横向移动连接内网webshell执行命令</p>
 <p>4.20<br>[+] GetSystem 管理员/SYSTEM权限切换<br>[+] DumpLsass 导出Lsass内存文件<br>[u] OsScan新增SSH识别操作系统<br>[u] WebScan、SameWeb新增WebBanner<br>[+] WhatCms新增Banner、TP-Link WDR7300识别<br>[u] 修复6.3漏扫10、20等含0的C段</p>
-<h3 id="提权-以SYSTEM权限执行"><a href="#提权-以SYSTEM权限执行" class="headerlink" title="提权 以SYSTEM权限执行"></a>提权 以SYSTEM权限执行</h3><p>命令：Ladon GetSystem cmd.exe<br>命令：Ladon GetSystem cmd.exe /system<br>命令：Ladon GetSystem cmd.exe lsass<br>可指定EXE或BAT，将以SYSTEM权限运行，如下图弹个CMD<br><img alt="image" data-original="/k8img/Ladon/exe/GetSystem.PNG"></p>
+<h3 id="提权-以SYSTEM权限执行"><a href="#提权-以SYSTEM权限执行" class="headerlink" title="提权 以SYSTEM权限执行"></a>提权 以SYSTEM权限执行</h3><p>命令：Ladon GetSystem cmd.exe<br>命令：Ladon GetSystem cmd.exe /system<br>命令：Ladon GetSystem cmd.exe lsass<br>可指定EXE或BAT，将以SYSTEM权限运行，如下图弹个CMD<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/GetSystem.PNG"></p>
 <p>注意：需管理员权限，若存在UAC可使用BypassUac获取管理员</p>
 <p>当然也可以使用系统AT、SCHTASKS等命令获取SYSTEM权限，不担心被杀，只是麻烦点，看Ladom多简单</p>
-<h3 id="降权-以用户权限执行"><a href="#降权-以用户权限执行" class="headerlink" title="降权 以用户权限执行"></a>降权 以用户权限执行</h3><p>SYSTEM权限下并不是什么都可以做，比如大家用Ladon或其它工具弹出个SYS权限CMD，再试一下系统自带的NET USE命令连接IPC看提示什么，你会发现明明密码是正确的但是却提示错误。为何需提权、降权我在14年已发布<br>命令：Ladon GetSystem cmd.exe /user<br>命令：Ladon GetSystem cmd.exe explorer<br><img alt="image" data-original="/k8img/Ladon/exe/GetSystem2.PNG"></p>
+<h3 id="降权-以用户权限执行"><a href="#降权-以用户权限执行" class="headerlink" title="降权 以用户权限执行"></a>降权 以用户权限执行</h3><p>SYSTEM权限下并不是什么都可以做，比如大家用Ladon或其它工具弹出个SYS权限CMD，再试一下系统自带的NET USE命令连接IPC看提示什么，你会发现明明密码是正确的但是却提示错误。为何需提权、降权我在14年已发布<br>命令：Ladon GetSystem cmd.exe /user<br>命令：Ladon GetSystem cmd.exe explorer<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/GetSystem2.PNG"></p>
 <p>PS: 当然也可以切换至任意权限，指定对应进程即可，如降权到服务权限等</p>
-<h3 id="DumpLsass内存密码"><a href="#DumpLsass内存密码" class="headerlink" title="DumpLsass内存密码"></a>DumpLsass内存密码</h3><p>Dump Lsass内存文件，取回本地读取密码，无需免杀MIMI<br><img alt="image" data-original="/k8img/Ladon/exe/DumpLsass.PNG"></p>
+<h3 id="DumpLsass内存密码"><a href="#DumpLsass内存密码" class="headerlink" title="DumpLsass内存密码"></a>DumpLsass内存密码</h3><p>Dump Lsass内存文件，取回本地读取密码，无需免杀MIMI<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DumpLsass.PNG"></p>
 <h3 id="Ping"><a href="#Ping" class="headerlink" title="Ping"></a>Ping</h3><p>命令: Ping 或 PingIP</p>
-<p>仅ICMP协议探测存活主机（速度快3-6秒/ C段，5.8版本前的OnlinePC）<br><img alt="image" data-original="/k8img/Ladon/exe/PingIP.PNG"></p>
+<p>仅ICMP协议探测存活主机（速度快3-6秒/ C段，5.8版本前的OnlinePC）<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/PingIP.PNG"></p>
 <h3 id="Ipc密码爆破"><a href="#Ipc密码爆破" class="headerlink" title="Ipc密码爆破"></a>Ipc密码爆破</h3><p>INI插件：调用系统net use命令进行IPC爆破，由于系统限制只能连接一个，因此只能验证一个密码结束后，才能对下一个密码进行验证，而且必须删除连接，以上因素导致用系统命令爆破速度会很慢，因为你无法多线程一下就验证多个密码，所以Ladon内置模块不再保留IpcScan，使用分破4万密码的SmbScan可快速验证密码或者调用impacket的smbexec验证速度要比net use也快很多。</p>
 <p>PS：此模块的存在主要是用于针对2003或XP系统的Ipc爆破，远程为Win7后系统推荐使用内置SmbScan爆破</p>
 <p>ipcscan.ini</p>
@@ -221,7 +221,7 @@
 <p>扫描C段</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/c ipcscan.ini</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="/k8img/Ladon/exe/INI_ipcscan.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/INI_ipcscan.PNG"></p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 
     </div>

