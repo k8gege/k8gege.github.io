@@ -175,16 +175,16 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p><a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a> （9.23测试，世界杀软网全免，本地卡巴全免）</p>
 <h3 id="免杀原理"><a href="#免杀原理" class="headerlink" title="免杀原理"></a>免杀原理</h3><p>由于很多杀软对于powershell脚本的查杀能力比较差，所以可以将.NET程序转成PowerShell脚本，当然并非是反编译EXE再将代码转成PowerShell，这种方法一是难度大又麻烦吃力不讨好，PowerShell的兼容性我想大家应该深受其害，有些函数在C#里可用，但转成powershell可能兼容问题，所以最佳方案是转成BYTE、HEX、BASE64、ASCII、AES等(当初Python版的SCRUN免杀CS的套路在任何语言都可用)，比如说大家可能看到网上有利用GO语言AES加密免杀CS等文章，这些方法我说过几次了？所以再次强调一下要懂得举一反三，你可以百度搜索C语言AES算法，然后加密CS，或者其它语言也可以。</p>
 <h3 id="内存加载"><a href="#内存加载" class="headerlink" title="内存加载"></a>内存加载</h3><p>首先因为大部分杀软只是把Powershell当成文本来样，目前应该没几个可以模拟PowerShell或Hook查看最终执行的杀软。所以稍威加密下我们的程序，杀软由于扫描文本未发现恶意字符串或特定函数，那么基本上就不杀了，静态全免，但是如果你再把加密数据还原成EXE，那它肯定又杀了，所以我们得直接内存加载，方法很多，我们用.NET自带函数反射加载执行程序即可，PowerShelle写法[Reflection.Assembly]::Load,再通过反射调用传参。</p>
-<h3 id="Ladon免杀"><a href="#Ladon免杀" class="headerlink" title="Ladon免杀"></a>Ladon免杀</h3><p>首先将需要转的exe直接拖放至文本框，如Ladon.exe，点击EXE-&gt;PowerShell会生成一个脚本。<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/gui/Ladon_PowerShellEncode.PNG"></p>
+<h3 id="Ladon免杀"><a href="#Ladon免杀" class="headerlink" title="Ladon免杀"></a>Ladon免杀</h3><p>首先将需要转的exe直接拖放至文本框，如Ladon.exe，点击EXE-&gt;PowerShell会生成一个脚本。<br><img alt="image" data-original="/k8img/Ladon/gui/Ladon_PowerShellEncode.PNG"></p>
 <p>源码自行反编译此程序查看即可(注意反编译和逆向是两个概念，点个按钮反编译没任何难度 )</p>
-<p>复制红线所示@和@里的字符串很长可能有2M<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/gui/Exe2Ps12.png"></p>
-<p>替换Ladon6.6.ps1里面那个很长的字符串，注意长度那里也要替换如637440替换成1708544<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/gui/Exe2Ps13.png"></p>
-<p>接下来把新版本的新增的功能参数添加上去即可，看模块对应参数个数来加就可以了<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/gui/Exe2Ps14.png"></p>
+<p>复制红线所示@和@里的字符串很长可能有2M<br><img alt="image" data-original="/k8img/Ladon/gui/Exe2Ps12.png"></p>
+<p>替换Ladon6.6.ps1里面那个很长的字符串，注意长度那里也要替换如637440替换成1708544<br><img alt="image" data-original="/k8img/Ladon/gui/Exe2Ps13.png"></p>
+<p>接下来把新版本的新增的功能参数添加上去即可，看模块对应参数个数来加就可以了<br><img alt="image" data-original="/k8img/Ladon/gui/Exe2Ps14.png"></p>
 <h3 id="EXE转PowerShell"><a href="#EXE转PowerShell" class="headerlink" title="EXE转PowerShell"></a>EXE转PowerShell</h3><p>上面教大家转Ladon，但是其它的EXE或DLL怎么用？以数学加法运算为例子</p>
 <p>namespace Math<br>{<br>public class Methods<br>{<br>public Methods()<br>{<br>}<br>public static int add(int a, int b)<br>{<br>return a+b;<br>}</p>
 <p>public int sub(int a, int b)<br>{<br>return a-b;<br>}<br>}<br>}</p>
 <p>命令: csc.exe /target:library Math.cs<br>编译以上代码得到DLL,使用LadonGui一键转换得到PS1，在结尾处追加调用方法</p>
-<p>其它程序同理，你写的EXE/DLL是什么命名空间、什么方法对应添加到最后一行<br>如图计算500+20的结果<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/gui/Exe2Ps15.png"></p>
+<p>其它程序同理，你写的EXE/DLL是什么命名空间、什么方法对应添加到最后一行<br>如图计算500+20的结果<br><img alt="image" data-original="/k8img/Ladon/gui/Exe2Ps15.png"></p>
 <h3 id="为什么换其它语言就免杀？"><a href="#为什么换其它语言就免杀？" class="headerlink" title="为什么换其它语言就免杀？"></a>为什么换其它语言就免杀？</h3><p>由于语言结构特性等，特别新出的语言，杀软要查杀它前提是不是得去研究那门语言的结构特征，这就是为什么同样的方法换个语言就</p>
 <h3 id="九种混淆方法"><a href="#九种混淆方法" class="headerlink" title="九种混淆方法"></a>九种混淆方法</h3><p>Ladon九种PowerShell命令混淆加密免杀方法<br><a href="https://k8gege.org/Ladon/PowershellEncode.html">https://k8gege.org/Ladon/PowershellEncode.html</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>

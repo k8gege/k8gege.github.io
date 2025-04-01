@@ -194,7 +194,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1387</strong>
+                1394</strong>
             天之前发表
         </p>
         
@@ -215,12 +215,12 @@
 
 <h4 id="批量检测IP段（-16）SMBGhost漏洞"><a href="#批量检测IP段（-16）SMBGhost漏洞" class="headerlink" title="批量检测IP段（/16）SMBGhost漏洞"></a>批量检测IP段（/16）SMBGhost漏洞</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt SMBGhost</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exe/SmbGhost.PNG"></p>
+<p><img alt="image" data-original="/k8img/Ladon/exe/SmbGhost.PNG"></p>
 <h3 id="Ladon稳定利用"><a href="#Ladon稳定利用" class="headerlink" title="Ladon稳定利用"></a>Ladon稳定利用</h3><p>由于该漏洞利用不稳定，成功运气从1次到100次不等，所以8.5新增ForExec循环执行漏洞利用功能，原版EXP需交互执行，批量在本地执行还好，但要在目标，比如只有shell的情况下执行就很麻烦了，所以我们需对EXP进行一个小修改，把交互式去掉，再使用Ladon调用，一直循环有可能会导致目标蓝屏，所以我们需要判定成功后不再执行以免目标蓝屏，EXP命令循环使用Ladon ForExec查看用法。</p>
 <p>如图：ForExec循环利用Win10永恒之黑漏洞</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ForExec <span class="string">"CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e --load-shellcode test.txt"</span> 80 <span class="string">"Exploit finnished"</span></span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/exe/smbghost.gif"></p>
+<p><img alt="image" data-original="/k8img/Ladon/exe/smbghost.gif"></p>
 <h3 id="POC-EXP-LPE"><a href="#POC-EXP-LPE" class="headerlink" title="POC/EXP/LPE"></a>POC/EXP/LPE</h3><p><a href="https://github.com/danigargu/CVE-2020-0796" target="_blank" rel="noopener">https://github.com/danigargu/CVE-2020-0796</a><br><a href="https://github.com/chompie1337/SMBGhost_RCE_PoC" target="_blank" rel="noopener">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p>
 <p>配合Ladon可在Shell下使用的EXP在“K8小密圈”</p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.5版本：K8小密圈</p>

