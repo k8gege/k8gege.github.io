@@ -212,7 +212,7 @@
 
 <h4 id="注释Exchange"><a href="#注释Exchange" class="headerlink" title="注释Exchange"></a>注释Exchange</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    //vul.GetExFQND(Target)</span><br><span class="line">//&#125; <span class="keyword">else</span> <span class="keyword">if</span> ScanType == <span class="string">"CVE-2021-26855"</span> &#123;</span><br><span class="line">    //vul.CheckCVE_2021_26855(Target)</span><br></pre></td></tr></table></figure>
 
-<p>注释MS17010后发现，提示杀CVE-2021-26855，所以它也注释掉，注释后再丢进去发现可以正常执行Ladon了<br><img alt data-original="https://k8gege.org/k8img/LadonGo/LadonGobypasswin10.PNG"></p>
+<p>注释MS17010后发现，提示杀CVE-2021-26855，所以它也注释掉，注释后再丢进去发现可以正常执行Ladon了<br><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/LadonGobypasswin10.PNG"></p>
 <h3 id="加密免杀"><a href="#加密免杀" class="headerlink" title="加密免杀"></a>加密免杀</h3><p>通过注释掉被杀代码，Ladon立马免杀了，但是我们也丢失了功能，对于很多工具免杀也是一样，急用的话可通过删除功能来解决。但是我们需要那个功能怎么办？那必须得做真正的免杀，而不是单纯的删除功能免杀。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ScanType == <span class="string">"MS17010"</span> &#123;</span><br><span class="line">    //smb.MS17010(Target,3)</span><br></pre></td></tr></table></figure>
 
@@ -222,7 +222,7 @@
 <p>ms17010.go里对应函数也要修改成MS17888,再测试发现此时免杀也可使用MS17010漏洞探测功能。但这样改不好，我们的命令变成Ladon 192.168.1.1/24 MS17888了,时间久了或工具很多谁会记得是对应哪个洞。所以我们应该把字符串MS17010加密，代码如下XXENCODE为自己的加密函数如公开的BASE64或其它加密均可，DFKKJL82为MS17010加密后的密文，这样我们在命令行输入MS17010时，内部对应的还是MS17010探测。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> XXENCODE(ScanType) == <span class="string">"DFKKJL82"</span> &#123;</span><br><span class="line">    smb.MS17888(Target,3)</span><br></pre></td></tr></table></figure>
 
-<p>加密模块名称免杀后，依旧可使用MS17010模块扫描内网<br><img alt data-original="https://k8gege.org/k8img/LadonGo/ms17010_win10.PNG"></p>
+<p>加密模块名称免杀后，依旧可使用MS17010模块扫描内网<br><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/ms17010_win10.PNG"></p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon" target="_blank" rel="noopener">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
 
     </div>
