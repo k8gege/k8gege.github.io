@@ -204,12 +204,12 @@
     <div class="post-body post-content">
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>使用Exp生成器生成Ladon插件实战,Weblogic CVE-2018-2894漏洞检测</p>
 <h3 id="漏洞扫描-Weblogic-CVE-2018-2894"><a href="#漏洞扫描-Weblogic-CVE-2018-2894" class="headerlink" title="漏洞扫描 Weblogic CVE-2018-2894"></a>漏洞扫描 Weblogic CVE-2018-2894</h3><p>github上有一份weblogic一键检测脚本，发现存在漏洞误报<br><br>看了下代码竟只是判断页面非404，对于返回403,500等误报<br><br>还不如写成200，虽然同样不靠谱，于是Ladon添加此POC检测<br></p>
-<h4 id="误报的POC检测脚本"><a href="#误报的POC检测脚本" class="headerlink" title="误报的POC检测脚本"></a>误报的POC检测脚本</h4><p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_0.png"></p>
-<h4 id="存在漏洞的页面特征"><a href="#存在漏洞的页面特征" class="headerlink" title="存在漏洞的页面特征"></a>存在漏洞的页面特征</h4><p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_1.png"></p>
+<h4 id="误报的POC检测脚本"><a href="#误报的POC检测脚本" class="headerlink" title="误报的POC检测脚本"></a>误报的POC检测脚本</h4><p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_0.png"></p>
+<h4 id="存在漏洞的页面特征"><a href="#存在漏洞的页面特征" class="headerlink" title="存在漏洞的页面特征"></a>存在漏洞的页面特征</h4><p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_1.png"></p>
 <h4 id="EXP生成器生成POC"><a href="#EXP生成器生成POC" class="headerlink" title="EXP生成器生成POC"></a>EXP生成器生成POC</h4><p>使用EXP生成器可简单检测，至少判断页面特征比单纯检测状态更好吧</p>
-<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_2.png"></p>
+<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_2.png"></p>
 <h4 id="POC测试"><a href="#POC测试" class="headerlink" title="POC测试"></a>POC测试</h4><p>LadonExp生成的POC可单独使用，也可作为Ladon插件批量检测<br>单独使用: CVE-2018-2894_Poc.exe url<br><br>批量使用: Ladon CVE-2018-2894_Poc.exe (根目录url.txt)<br><br>当然Ladon内置模块WeblogicPoc已添加该漏洞检测<br></p>
-<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
+<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 
     </div>
     

