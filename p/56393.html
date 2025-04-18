@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Tool,Sniffer,FtpSniffer,HttpSniffer,IIS,LDAP">
+
+
+<meta name="description" content="     
+Ladon6.0
+新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、
+进程详细信息获取、渗透相关信息获取、命令行参数信息
+操作系统识别、Wmi密码爆破、Smb密码爆破...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破">
+            
+            Ladon6.0新增密码嗅探、IIS密码读取、LDAP域密码爆破
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Sniffer/">嗅探</a> <a class="category-link" href="/categories/Pass/">密码</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/FtpSniffer/" rel="tag">FtpSniffer</a> <a class="tag-none-link" href="/tags/HttpSniffer/" rel="tag">HttpSniffer</a> <a class="tag-none-link" href="/tags/IIS/" rel="tag">IIS</a> <a class="tag-none-link" href="/tags/LDAP/" rel="tag">LDAP</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/06/12</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1772</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a target="_blank" rel="noopener" href="https://github.com/k8gege"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-6.0-yellowgreen"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/issues"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
+<h3 id="Ladon6-0">Ladon6.0</h3>
+<p>新增FTP/HTTP密码嗅探、IIS密码读取、LDAP域密码爆破、<br>
+进程详细信息获取、渗透相关信息获取、命令行参数信息<br>
+操作系统识别、Wmi密码爆破、Smb密码爆破等功能优化</p>
+<h3 id="更新日志">更新日志</h3>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>模块</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新增</td>
+<td>LdapScan</td>
+<td>AD域密码爆破:基于Ldap协议爆破Windows密码</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>FtpSniffer/SnifferFtp</td>
+<td>Ftp密码嗅探(无需WinPcap)</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>HttpSniffer/SnifferHTTP</td>
+<td>HTTP密码嗅探(无需WinPcap)</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetCmdLine/CmdLine</td>
+<td>获取进程命令行参数/可指定进程</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetInfo</td>
+<td>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>GetInfo2</td>
+<td>包含GetInfo &amp; Wmi获取信息</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>Sniffer</td>
+<td>网络嗅探(源地址、目标地址)，可用于发现内网存活主机、恶意木马上线地址</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>EnumIIS/IisWeb</td>
+<td>获取IIS站点、路径、帐号、密码</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>EnumProcess/ProcessList/tasklist</td>
+<td>枚举进程 结果(PID、Session、位数、进程名、用户名、路径、标题)</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>HttpDownload/wget</td>
+<td>HTTP下载命令简化也可使用wget</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>OsScan</td>
+<td>扫描速度优化(某项目批量C段不再卡死)</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>WmiScan</td>
+<td>135端口关闭或RPC不可用停止爆破</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>SmbScan</td>
+<td>445端口关闭停止爆破(功能完美代替IpcScan，只是需使用DLL)</td>
+</tr>
+<tr>
+<td>移除</td>
+<td>IPCScan</td>
+<td>速度慢以及批量可能存在误报将其移除，反正SmbScan完全替代</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>所有模块</td>
+<td>所有功能模块参数忽略大小写</td>
+</tr>
+</tbody>
+</table>
+<h3 id="LdapScan-AD域服务器密码爆破">LdapScan AD域服务器密码爆破</h3>
+<p>非域内机器也可破解跨网段AD域服务器，LDAP端口为389<br>
+注意非3389，即便跑出来的密码能登远程桌面也没半毛钱关系<br>
+还有WMI、SMB(IPC)跑出来的密码也一样，3389是RDP协议<br>
+WMI端口135，SMB端口445，不要以为能登3389一定能IPC连接<br>
+有时一个帐密各种协议方法都能连到远程机器只能说运气好<br>
+不要说这个密码3389可以登，但是WMI或SMB跑不出来，瞎搞<br>
+默认条件下都不能保证100%，更何况经过配置或出问题的系统<br>
+<img alt="LdapScan" data-original="http://k8gege.org/k8img/Ladon/exe/LdapScan_6.0.gif"></p>
+<h3 id="FtpSniffer-FTP密码嗅探">FtpSniffer FTP密码嗅探</h3>
+<p>支持两种写法: FtpSniffer/SnifferFtp<br>
+Example: Ladon FtpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br>
+<img alt="FtpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/FtpSniffer.PNG"></p>
+<h3 id="HttpSniffer-HTTP密码嗅探">HttpSniffer HTTP密码嗅探</h3>
+<p>支持两种写法: HttpSniffer/SnifferHTTP<br>
+Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br>
+<img alt="HttpSniffer" data-original="http://k8gege.org/k8img/Ladon/exe/HttpSniffer.PNG"></p>
+<h3 id="Sniffer-网络嗅探">Sniffer 网络嗅探</h3>
+<p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>
+主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>
+后续可能会添加其它功能可能另外写个专门用于嗅探的工具</p>
+<p>PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>
+重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>
+当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p>
+<p>Example: Ladon HttpSniffer 192.168.1.8(本机某个IP相当于指定网卡)<br>
+<img alt="Sniffer" data-original="http://k8gege.org/k8img/Ladon/exe/Sniffer.PNG"></p>
+<h3 id="EnumIIS-IIS站点密码读取">EnumIIS IIS站点密码读取</h3>
+<p>获取IIS站点、路径、帐号、密码<br>
+<img alt="EnumIIS" data-original="http://k8gege.org/k8img/Ladon/exe/EnumIIS.PNG"></p>
+<h3 id="EnumProcess-进程详细信息获取">EnumProcess 进程详细信息获取</h3>
+<p>支持三种写法: EnumProcess/ProcessList/tasklist<br>
+结果(PID、Session、位数、进程名、用户名、路径、标题)<br>
+<img alt="EnumProcess" data-original="http://k8gege.org/k8img/Ladon/exe/EnumProcess.PNG"></p>
+<h3 id="GetCmdLine-进程启动参数">GetCmdLine 进程启动参数</h3>
+<p>进程启动参数/可指定进程<br>
+支持2种写法: GetCmdLine/CmdLine<br>
+<img alt="getcmdline" data-original="http://k8gege.org/k8img/Ladon/exe/getcmdline.PNG"></p>
+<h3 id="GetInfo-获取渗透基础信息">GetInfo 获取渗透基础信息</h3>
+<p>获取渗透基础信息（IP、域信息、系统信息、软件信息、网络连接、补丁信息、用户等）<br>
+GetInfo2 包含GetInfo &amp; Wmi获取的相关信息</p>
+<h3 id="全部功能">全部功能</h3>
+<p><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></p>
+<h3 id="下载">下载</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon">https://github.com/k8gege/Ladon</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/61471.html" class="pre-post btn btn-default" title="利用SqlDataSourceEnumerator获取局域网SQL主机">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            利用SqlDataSourceEnumerator获取局域网SQL主机</span>
+    </a>
+    
+    
+    <a href="/p/54132.html" class="next-post btn btn-default" title="利用DirectoryEntry获取域内计算机以及共享资源">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            利用DirectoryEntry获取域内计算机以及共享资源</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon6-0"><span class="toc-text">Ladon6.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="toc-text">更新日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LdapScan-AD%E5%9F%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">LdapScan AD域服务器密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FtpSniffer-FTP%E5%AF%86%E7%A0%81%E5%97%85%E6%8E%A2"><span class="toc-text">FtpSniffer FTP密码嗅探</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpSniffer-HTTP%E5%AF%86%E7%A0%81%E5%97%85%E6%8E%A2"><span class="toc-text">HttpSniffer HTTP密码嗅探</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sniffer-%E7%BD%91%E7%BB%9C%E5%97%85%E6%8E%A2"><span class="toc-text">Sniffer 网络嗅探</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EnumIIS-IIS%E7%AB%99%E7%82%B9%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96"><span class="toc-text">EnumIIS IIS站点密码读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EnumProcess-%E8%BF%9B%E7%A8%8B%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96"><span class="toc-text">EnumProcess 进程详细信息获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetCmdLine-%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0"><span class="toc-text">GetCmdLine 进程启动参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetInfo-%E8%8E%B7%E5%8F%96%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E4%BF%A1%E6%81%AF"><span class="toc-text">GetInfo 获取渗透基础信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">全部功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-text">下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

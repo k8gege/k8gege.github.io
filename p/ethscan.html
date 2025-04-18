@@ -1,0 +1,407 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="OXID">
+
+
+<meta name="description" content="=============================================================================================
++++...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon枚举远程主机网卡信息(OXID定位多网卡主机) |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon枚举远程主机网卡信息(OXID定位多网卡主机)">
+            
+            Ladon枚举远程主机网卡信息(OXID定位多网卡主机)
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Discover/">信息收集</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/OXID/" rel="tag">OXID</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/07/17</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1736</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>=============================================================================================<br>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/ethscan.html";
+</script>
+<h3 id="前言">前言</h3>
+<p>OXID Resolver是在支持COM +的每台计算机上运行的服务。它执行两项重要职责：<br>
+存储与远程对象连接所需的RPC字符串绑定，并将其提供给本地客户端。<br>
+将ping消息发送到本地计算机具有客户端的远程对象，并接收在本地计算机上运行的对象的ping消息。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Other/DCOM_OXID.PNG"></p>
+<p>我们只需要向远程主机发以下两个包，再解析返回结果即可。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">        static byte[] s1 ={</span><br><span class="line">0x05,0x00,0x0b,0x03,0x10,0x00,0x00,0x00,</span><br><span class="line">0x48,0x00,0x00,0x00,0x01,0x00,0x00,0x00,</span><br><span class="line">0xb8,0x10,0xb8,0x10,0x00,0x00,0x00,0x00,</span><br><span class="line">0x01,0x00,0x00,0x00,0x00,0x00,0x01,0x00,</span><br><span class="line">0xc4,0xfe,0xfc,0x99,0x60,0x52,0x1b,0x10,</span><br><span class="line">0xbb,0xcb,0x00,0xaa,0x00,0x21,0x34,0x7a,</span><br><span class="line">0x00,0x00,0x00,0x00,0x04,0x5d,0x88,0x8a,</span><br><span class="line">0xeb,0x1c,0xc9,0x11,0x9f,0xe8,0x08,0x00,</span><br><span class="line">0x2b,0x10,0x48,0x60,0x02,0x00,0x00,0x00</span><br><span class="line">     </span><br><span class="line">                          };</span><br><span class="line"></span><br><span class="line">        static byte[] s2 ={</span><br><span class="line"></span><br><span class="line">0x05,0x00,0x00,0x03,0x10,0x00,0x00,0x00,</span><br><span class="line">0x18,0x00,0x00,0x00,0x01,0x00,0x00,0x00,</span><br><span class="line">0x00,0x00,0x00,0x00,0x00,0x00,0x05,0x00</span><br><span class="line">     </span><br><span class="line">                          };</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="程序版本">程序版本</h3>
+<p>Ladon &gt;=7.0</p>
+<h3 id="模块名称">模块名称</h3>
+<p>EthScan<br>
+OxidScan</p>
+<h3 id="模块说明">模块说明</h3>
+<p>通过Windows的一些DCOM接口进行网卡进行信息枚举，定位多网卡主机，在无权限的情况下得知远程主机是否含有内网甚至VPN;当然也可以判定Windows主机,K8抓包发现xp和03系统有一段相同特征，WIN7-WIN10等也是相同特征，所以可区分是否WIN7以上系统。</p>
+<h3 id="前提条件">前提条件</h3>
+<p>1.Windows主机<br>
+2.开放135端口<br>
+3.DCOM&gt;=5.6（老外原文说5.6版本才可用，可能他写错了）<br>
+4.dcomcnfg配置中的“面向连接的TCP/IP”协议没有被移除</p>
+<p>PS: 由于有一定条件限制，若该模块无法定位多网卡主机，也可使用OnlinePC、OsScan、WebScan、WhatCMS等模块探测，如多个IP同一个机器名，网样的网站标题，或同样的网卡MAC地址，也可定位多网卡主机，只是没有通过该方法好，毕竟一个是100%，一个是90%，比如负载均横同样的网站却不在同一台机器上。</p>
+<h3 id="测试系统">测试系统</h3>
+<p>测试XP/Win7/Win8/Win10,2003/2008/2012均成功，2016和2019无环境未测，应该支持。</p>
+<h3 id="EthScan模块用法">EthScan模块用法</h3>
+<h4 id="扫描指定主机">扫描指定主机</h4>
+<p>Ladon 192.168.1.8 EthScan</p>
+<h4 id="扫描C段主机">扫描C段主机</h4>
+<p>Ladon 192.168.1.8/24 EthScan<br>
+Ladon 192.168.1.8/C EthScan</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/EthScan.PNG"></p>
+<h4 id="批量扫描IP列表主机">批量扫描IP列表主机</h4>
+<p>ip.txt里放需要扫描的IP，使用以下命令即可<br>
+Ladon EthScan</p>
+<h4 id="批量检测IP段（-24）">批量检测IP段（/24）</h4>
+<p>ip24.txt里放需要扫描的IP段，使用以下命令即可<br>
+Ladon EthScan</p>
+<h4 id="批量检测IP段（-16）">批量检测IP段（/16）</h4>
+<p>ip16.txt里放需要扫描的IP段，使用以下命令即可<br>
+Ladon EthScan</p>
+<h3 id="关闭135端口">关闭135端口</h3>
+<h4 id="防止通过135网卡探测">防止通过135网卡探测</h4>
+<p>运行dcomcnfg，打开“组件服务”→“计算机”，在“我的电脑”上右键点击，选“属性”；然后点默认属性，把“在此计算机上启用分布式COM（E）”的勾去掉，接着返回到“默认协议”，移除“面向连接的TCP/IP”协议。重启后发现135端口还是开放，但已无法探测机器名和网卡，不过WmiScan还可以扫描到密码。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Other/wmi_rpc_no.PNG"></p>
+<h4 id="彻底关闭135端口">彻底关闭135端口</h4>
+<p>运行regedit，进入注册表HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Rpc<br>
+右键点击Rpc,新建——项——输入 Internet<br>
+然后重启，再cmd,输入netstat -an,就发现135端口彻底消失，此时无法枚举网卡信息，也无法WMI扫描密码，无法WMI远程执行等。</p>
+<p>PS：由于很多服务是互相依赖的关系，不推荐关闭以免影响系统服务，比如计划任务程序无法正常运行，磁盘碎片整理又依赖计划任务而打不开等。</p>
+<h3 id="参考">参考</h3>
+<p><a target="_blank" rel="noopener" href="https://airbus-cyber-security.com/the-oxid-resolver-part-1-remote-enumeration-of-network-interfaces-without-any-authentication/">https://airbus-cyber-security.com/the-oxid-resolver-part-1-remote-enumeration-of-network-interfaces-without-any-authentication/</a></p>
+<p><a target="_blank" rel="noopener" href="https://payloads.online/archivers/2020-07-16/1?nsukey=oZl56gbIGgfxQcx%2F0HMnIkDOK1FvyCWabho4pheMAZ8WRjelIN1lFyf%2FmHcseWWhqnr%2FmmH2auwGTJDaANogm5UzmXCLggfgR%2FMkudQEJNkqWUsU6CSgCb%2FzUbrWP8kHd5jW5Ef%2FS7JxhKfzSFOdU7xdbahjeLVqv8CRKy3Wbv1gjhZZNsh6HJYxmWJ0AjK6mrrPaBaTRWg1zswyqwb1ng%3D%3D">https://payloads.online/archivers/2020-07-16/1?nsukey=oZl56gbIGgfxQcx%2F0HMnIkDOK1FvyCWabho4pheMAZ8WRjelIN1lFyf%2FmHcseWWhqnr%2FmmH2auwGTJDaANogm5UzmXCLggfgR%2FMkudQEJNkqWUsU6CSgCb%2FzUbrWP8kHd5jW5Ef%2FS7JxhKfzSFOdU7xdbahjeLVqv8CRKy3Wbv1gjhZZNsh6HJYxmWJ0AjK6mrrPaBaTRWg1zswyqwb1ng%3D%3D</a></p>
+<h3 id="工具下载">工具下载</h3>
+<p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/NbtScan.html" class="pre-post btn btn-default" title="〖教程〗NbtScan 139端口弱口令/Netbios密码爆破">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖教程〗NbtScan 139端口弱口令/Netbios密码爆破</span>
+    </a>
+    
+    
+    <a href="/p/vncscan.html" class="next-post btn btn-default" title="Ladon渗透5900端口弱口令/VNC密码爆破">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Ladon渗透5900端口弱口令/VNC密码爆破</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%89%88%E6%9C%AC"><span class="toc-text">程序版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%90%8D%E7%A7%B0"><span class="toc-text">模块名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E"><span class="toc-text">模块说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6"><span class="toc-text">前提条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F"><span class="toc-text">测试系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EthScan%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95"><span class="toc-text">EthScan模块用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E6%8C%87%E5%AE%9A%E4%B8%BB%E6%9C%BA"><span class="toc-text">扫描指定主机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%AB%E6%8F%8FC%E6%AE%B5%E4%B8%BB%E6%9C%BA"><span class="toc-text">扫描C段主机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%89%AB%E6%8F%8FIP%E5%88%97%E8%A1%A8%E4%B8%BB%E6%9C%BA"><span class="toc-text">批量扫描IP列表主机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%A3%80%E6%B5%8BIP%E6%AE%B5%EF%BC%88-24%EF%BC%89"><span class="toc-text">批量检测IP段（/24）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%A3%80%E6%B5%8BIP%E6%AE%B5%EF%BC%88-16%EF%BC%89"><span class="toc-text">批量检测IP段（/16）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD135%E7%AB%AF%E5%8F%A3"><span class="toc-text">关闭135端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E9%80%9A%E8%BF%87135%E7%BD%91%E5%8D%A1%E6%8E%A2%E6%B5%8B"><span class="toc-text">防止通过135网卡探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%BB%E5%BA%95%E5%85%B3%E9%97%AD135%E7%AB%AF%E5%8F%A3"><span class="toc-text">彻底关闭135端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

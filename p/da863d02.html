@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Code,Moudle,WebScan,C#">
+
+
+<meta name="description" content="
+获取网页标题、服务器Banner，例子仅探测80端口
+大家可自行修改添加其它端口识别定制Web扫描功能
+如识别出特定中间件或WEB后再检测是否存在漏洞等
+编译后的netscan.dll可改成任...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon插件实例内网Web扫描C#源码 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon插件实例内网Web扫描C#源码">
+            
+            Ladon插件实例内网Web扫描C#源码
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Dotnet/">.NET</a> <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/OnlinePC/">主机发现</a> <a class="category-link" href="/categories/Discover/">信息收集</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/C/" rel="tag">C#</a> <a class="tag-none-link" href="/tags/Code/" rel="tag">Code</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Moudle/" rel="tag">Moudle</a> <a class="tag-none-link" href="/tags/WebScan/" rel="tag">WebScan</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/08</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1958</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><img alt="PortScan" data-original="http://k8gege.org/k8img/Ladon/moudle/webscan.PNG"></p>
+<p>获取网页标题、服务器Banner，例子仅探测80端口<br>
+大家可自行修改添加其它端口识别定制Web扫描功能<br>
+如识别出特定中间件或WEB后再检测是否存在漏洞等<br>
+编译后的netscan.dll可改成任意名称Ladon均可加载</p>
+<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Net;</span><br><span class="line"><span class="keyword">using</span> System.Text.RegularExpressions;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">LadonDLL</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">scan</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">run</span>(<span class="params"><span class="built_in">string</span> ip</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(ip))</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            {</span><br><span class="line"></span><br><span class="line">                <span class="comment">//192.11.22.10    Microsoft-IIS/10.0      IIS Windows</span></span><br><span class="line">                <span class="comment">//192.11.22.1     H3C-Miniware-Webs       ER3200G2系统管理</span></span><br><span class="line">                <span class="keyword">return</span> ip + <span class="string">"\t"</span> + getURLbanner(ip) + <span class="string">"\t"</span> + GetTitle(getHtml(<span class="string">"http://"</span> + ip,<span class="number">2</span>));</span><br><span class="line">            </span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">getURLbanner</span>(<span class="params"><span class="built_in">string</span> url</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="comment"><span class="doctag">///</span>/HttpWebResponse res;</span></span><br><span class="line">            <span class="keyword">if</span> (!url.ToLower().Contains(<span class="string">"https://"</span>) &amp;&amp; !url.ToLower().Contains(<span class="string">"http://"</span>))</span><br><span class="line">                url = <span class="string">"http://"</span> + url;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">var</span> req = (HttpWebRequest)WebRequest.CreateDefault(<span class="keyword">new</span> Uri(url));</span><br><span class="line">                req.Method = <span class="string">"HEAD"</span>;</span><br><span class="line">                req.Timeout = <span class="number">1000</span>;</span><br><span class="line">                <span class="keyword">var</span> res = (HttpWebResponse)req.GetResponse();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (res.StatusCode == HttpStatusCode.OK || res.StatusCode == HttpStatusCode.Forbidden || res.StatusCode == HttpStatusCode.Redirect || res.StatusCode == HttpStatusCode.MovedPermanently)</span><br><span class="line">                {</span><br><span class="line">                    <span class="keyword">return</span> res.Server;</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="comment">//res.Close();</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> res.Server;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">catch</span> (WebException ex)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">GetTitle</span>(<span class="params"><span class="built_in">string</span> html</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (html.Contains(<span class="string">"&lt;hTmlKErRor&gt;"</span>))</span><br><span class="line">            {</span><br><span class="line">                <span class="comment">//return html.Replace("&lt;hTmlKErRor&gt;", "");</span></span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            html = html.Replace(<span class="string">"&lt;br&gt;"</span>, <span class="string">""</span>);</span><br><span class="line">            html = html.Replace(<span class="string">"&lt;BR&gt;"</span>, <span class="string">""</span>);</span><br><span class="line">            html = html.Replace(<span class="string">"\r\n"</span>, <span class="string">""</span>);</span><br><span class="line">            html = html.Replace(<span class="string">"&amp;nbsp;"</span>, <span class="string">" "</span>);</span><br><span class="line">            html = html.Replace(<span class="string">"\n"</span>, <span class="string">""</span>).Trim();</span><br><span class="line"></span><br><span class="line">            String regex = <span class="string">@"&lt;title.+&lt;/title&gt;"</span>;</span><br><span class="line"></span><br><span class="line">            String title = Regex.Match(html, regex).ToString();</span><br><span class="line">            title = Regex.Replace(title, <span class="string">@"[\""]+"</span>, <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">            title = title.TrimStart(<span class="string">'&lt;'</span>);</span><br><span class="line"></span><br><span class="line">            <span class="built_in">string</span> regex2 = <span class="string">@"&gt;.+&lt;/title&gt;"</span>;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">string</span> title2 = Regex.Match(title, regex2).ToString();</span><br><span class="line">            title2 = title2.TrimStart(<span class="string">'&gt;'</span>).Replace(<span class="string">"&lt;/title&gt;"</span>, <span class="string">""</span>).Trim();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (title2.Length &gt; <span class="number">50</span>)</span><br><span class="line">                <span class="keyword">return</span> title2.Substring(<span class="number">0</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> title2;</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">getHtml</span>(<span class="params"><span class="built_in">string</span> url, <span class="built_in">int</span> codingType</span>)</span></span><br><span class="line">        {</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (!url.ToLower().Contains(<span class="string">"https://"</span>) &amp;&amp; !url.ToLower().Contains(<span class="string">"http://"</span>))</span><br><span class="line">                    url = <span class="string">"http://"</span> + url;</span><br><span class="line">                WebClient myWebClient = <span class="keyword">new</span> WebClient();</span><br><span class="line">                <span class="keyword">if</span> (url.ToLower().Contains(<span class="string">"https://"</span>))</span><br><span class="line">                {</span><br><span class="line">                    System.Net.ServicePointManager.ServerCertificateValidationCallback +=</span><br><span class="line">    <span class="built_in">delegate</span>(<span class="built_in">object</span> sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate,</span><br><span class="line">             System.Security.Cryptography.X509Certificates.X509Chain chain,</span><br><span class="line">             System.Net.Security.SslPolicyErrors sslPolicyErrors)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// **** Always accept</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="built_in">byte</span>[] myDataBuffer = myWebClient.DownloadData(url);</span><br><span class="line">                <span class="comment">//return Encoding.Default.GetString(myDataBuffer);</span></span><br><span class="line">                <span class="built_in">string</span> strWebData = System.Text.Encoding.Default.GetString(myDataBuffer);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//自动识别编码  不一定有&lt;meta  比如 百度开放平台 content="text/html; charset=gbk"&gt;</span></span><br><span class="line">                <span class="comment">//Match charSetMatch = Regex.Match(strWebData, "&lt;meta([^&gt;]*)charset=(\")?(.*)?\"", RegexOptions.IgnoreCase | RegexOptions.Multiline);</span></span><br><span class="line">                Match charSetMatch = Regex.Match(strWebData, <span class="string">"(.*)charset=(\")?(.*)?\""</span>, RegexOptions.IgnoreCase | RegexOptions.Multiline);</span><br><span class="line"></span><br><span class="line">                <span class="built_in">string</span> webCharSet = charSetMatch.Groups[<span class="number">3</span>].Value.Trim().ToLower();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (webCharSet != <span class="string">"gb2312"</span> &amp;&amp; webCharSet != <span class="string">"gbk"</span>)</span><br><span class="line">                {</span><br><span class="line">                    webCharSet = <span class="string">"utf-8"</span>;</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (System.Text.Encoding.GetEncoding(webCharSet) != System.Text.Encoding.Default)</span><br><span class="line">                {</span><br><span class="line">                    strWebData = System.Text.Encoding.GetEncoding(webCharSet).GetString(myDataBuffer);</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="comment">//if (codingType == 1)</span></span><br><span class="line">                <span class="comment">//    return Encoding.Unicode.GetString(myDataBuffer);</span></span><br><span class="line">                <span class="comment">//else if (codingType == 2)</span></span><br><span class="line">                <span class="comment">//    return Encoding.Default.GetString(myDataBuffer);//GBK 936</span></span><br><span class="line">                <span class="comment">//else if (codingType == 3)</span></span><br><span class="line">                <span class="comment">//    return Encoding.UTF8.GetString(myDataBuffer);//65501</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> strWebData;</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">            {</span><br><span class="line">                <span class="comment">//Console.WriteLine(url + " " + ex.Message);</span></span><br><span class="line">                <span class="keyword">return</span> <span class="string">"&lt;hTmlKErRor&gt;"</span> + ex.Message;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/dc4a2cb7.html" class="pre-post btn btn-default" title="Ladon for Kali 2019">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon for Kali 2019</span>
+    </a>
+    
+    
+    <a href="/p/4a713e0e.html" class="next-post btn btn-default" title="Ladon插件实例简单端口扫描C#源码">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Ladon插件实例简单端口扫描C#源码</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <p>not dir</p>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

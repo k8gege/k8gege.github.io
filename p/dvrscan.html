@@ -1,0 +1,868 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,netsh">
+
+
+<meta name="description" content="=============================================================================================
++++...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗Ladon检测100种网络摄像头默认密码列表 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗Ladon检测100种网络摄像头默认密码列表">
+            
+            〖教程〗Ladon检测100种网络摄像头默认密码列表
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/netsh/" rel="tag">netsh</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/12/31</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1569</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>=============================================================================================<br>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/dvrscan.html";
+</script>
+<h3 id="网络摄像头默认密码">网络摄像头默认密码</h3>
+<p>Ladon的DvrScan默认已内置本文密码列表，当然你也可以手工试</p>
+<table>
+<thead>
+<tr>
+<th>产品名称</th>
+<th>用户</th>
+<th>密码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3xLogic</td>
+<td>admin</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>ACTi</td>
+<td>Admin</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>ACTi</td>
+<td>admin</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>Arecont</td>
+<td>admin</td>
+<td></td>
+</tr>
+<tr>
+<td>Amcrest</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>AmericanDynamics</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>AmericanDynamics</td>
+<td>admin</td>
+<td>9999</td>
+</tr>
+<tr>
+<td>ArecontVision</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>AvertX</td>
+<td>admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Avigilon</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Avigilon</td>
+<td>Administrator</td>
+<td></td>
+</tr>
+<tr>
+<td>Axis</td>
+<td>root</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>Axis</td>
+<td>root</td>
+<td></td>
+</tr>
+<tr>
+<td>Basler</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Bosch</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>Bosch</td>
+<td>service</td>
+<td>service</td>
+</tr>
+<tr>
+<td>Bosch</td>
+<td>Dinion</td>
+<td></td>
+</tr>
+<tr>
+<td>Brickcom</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Canon</td>
+<td>root</td>
+<td>camera</td>
+</tr>
+<tr>
+<td>CBCGanz</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>CNB</td>
+<td>root</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Costar</td>
+<td>root</td>
+<td>root</td>
+</tr>
+<tr>
+<td>Dahua</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Dahua</td>
+<td>888888</td>
+<td>888888</td>
+</tr>
+<tr>
+<td>Dahua</td>
+<td>666666</td>
+<td>666666</td>
+</tr>
+<tr>
+<td>DigitalWatchdog</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>DRS</td>
+<td>admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>DVtel</td>
+<td>Admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>DynaColor</td>
+<td>Admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>FLIR</td>
+<td>admin</td>
+<td>fliradmin</td>
+</tr>
+<tr>
+<td>FLIR(Dahua/OEM)</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>FLIR(Quasar/Ariel)</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Foscam</td>
+<td>admin</td>
+<td></td>
+</tr>
+<tr>
+<td>GeoVision</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Grandstream</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>GVI</td>
+<td>Admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>HIKVision</td>
+<td>admin</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>Honeywell</td>
+<td>admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Honeywell</td>
+<td>administrator</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>IndigoVision  (Ultra)</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>IndigoVision  (BX/GX)</td>
+<td>Admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Intellio</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Interlogix</td>
+<td>admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>IOImage</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>IQInvision</td>
+<td>root</td>
+<td>system</td>
+</tr>
+<tr>
+<td>IPX-DDK</td>
+<td>root</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>IPX-DDK</td>
+<td>root</td>
+<td>Admin</td>
+</tr>
+<tr>
+<td>JVC</td>
+<td>admin</td>
+<td>jvc</td>
+</tr>
+<tr>
+<td>Longse</td>
+<td>admin</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>Lorex</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>LTS</td>
+<td>admin</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>MarchNetworks</td>
+<td>admin</td>
+<td></td>
+</tr>
+<tr>
+<td>MeritLilinCamera</td>
+<td>admin</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>MeritLilinRecorder</td>
+<td>admin</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>Mobotix</td>
+<td>admin</td>
+<td>meinsm</td>
+</tr>
+<tr>
+<td>Northern</td>
+<td>admin</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>Oncam</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Panasonic</td>
+<td>admin</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>Panasonic</td>
+<td>admin1</td>
+<td>password</td>
+</tr>
+<tr>
+<td>Pelco</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>PiXORD</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>PiXORD</td>
+<td>root</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>Q-See</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Q-See</td>
+<td>admin</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>QVIS</td>
+<td>Admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Reolink</td>
+<td>admin</td>
+<td></td>
+</tr>
+<tr>
+<td>SamsungElectronics</td>
+<td>root</td>
+<td>root</td>
+</tr>
+<tr>
+<td>SamsungElectronics</td>
+<td>admin</td>
+<td>4321</td>
+</tr>
+<tr>
+<td>SamsungTechwin(old)</td>
+<td>admin</td>
+<td>1111111</td>
+</tr>
+<tr>
+<td>Samsung(new)</td>
+<td>admin</td>
+<td>4321</td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>root</td>
+<td>4321</td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>root</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>admin</td>
+<td>4321</td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>admin</td>
+<td>1111111</td>
+</tr>
+<tr>
+<td>Sanyo</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Scallopadmin</td>
+<td>password</td>
+<td></td>
+</tr>
+<tr>
+<td>Sentry360</td>
+<td>admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Sentry360</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>Sentry360</td>
+<td>Admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Sony</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Speco</td>
+<td>admin</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>Speco</td>
+<td>root</td>
+<td>root</td>
+</tr>
+<tr>
+<td>Speco</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Stardot</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Starvedia</td>
+<td>admin</td>
+<td></td>
+</tr>
+<tr>
+<td>Sunell</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>SV3C</td>
+<td>admin</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>Swann</td>
+<td>admin</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>Trendnet</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Toshiba</td>
+<td>root</td>
+<td>ikwd</td>
+</tr>
+<tr>
+<td>Ubiquiti</td>
+<td>ubnt</td>
+<td>ubnt</td>
+</tr>
+<tr>
+<td>Uniview</td>
+<td>admin</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>Verint</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>VideoIQ</td>
+<td>supervisor</td>
+<td>supervisor</td>
+</tr>
+<tr>
+<td>Vivotek</td>
+<td>root</td>
+<td></td>
+</tr>
+<tr>
+<td>W-Box(Hikvision  OEM)</td>
+<td>admin</td>
+<td>wbox123</td>
+</tr>
+<tr>
+<td>W-Box(Sunell OEM)</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Wodsee</td>
+<td>admin</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="DvrScan">DvrScan</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 DvrScan  扫描IP</span><br><span class="line">Ladon 192.168.1.8/24 DvrScan 扫描C段</span><br><span class="line">Ladon 192.168.1.8/c DvrScan  扫描C段</span><br><span class="line">Ladon 192.168.1.8/b DvrScan	 扫描B段</span><br><span class="line">Ladon 192.168.1.8/a DvrScan  扫描A段</span><br></pre></td></tr></tbody></table></figure>
+<p>PS：内置密码 默认扫描80、8080端口，不同的摄像头，可能路径不一样<br>
+针对性扫描，请使用URL如Ladon <a target="_blank" rel="noopener" href="https://192.168.1.18/dvr/login.htm">https://192.168.1.18/dvr/login.htm</a> DvrScan</p>
+<h3 id="结果">结果</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DVR/IPcameras Check... https://192.168.1.1 admin 888888</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.18 admin 888888</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.100 admin 888888</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.1 admin 000000</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.18 admin 000000</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.100 admin 000000</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.1 admin 1234</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.18 admin 1234</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.100 admin 1234</span><br><span class="line">DVR/IPcameras Check... https://192.168.1.1 admin 12345</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>
+历史版本: <a target="_blank" rel="noopener" href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+7.8版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/porttran.html" class="pre-post btn btn-default" title="〖教程〗Ladon/Cobalt Strike内网反向端口转发">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon/Cobalt Strike内网反向端口转发</span>
+    </a>
+    
+    
+    <a href="/p/runasnc.html" class="next-post btn btn-default" title="〖教程〗Ladon非交互式runas执行命令/反弹SHELL">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon非交互式runas执行命令/反弹SHELL</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%91%84%E5%83%8F%E5%A4%B4%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81"><span class="toc-text">网络摄像头默认密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DvrScan"><span class="toc-text">DvrScan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-text">结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

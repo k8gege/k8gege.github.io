@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Kali,PowerShell">
+
+
+<meta name="description" content="关于Kali &amp; PowerShell
+最近Kali出了年度最终版2019.4，该版本主存储库集成了PowerShell，可apt一键安装。
+实际上想用PowerShell也不是非要等2...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Kali 2019 &amp; Ladon无PowerShell执行脚本 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Kali 2019 &amp; Ladon无PowerShell执行脚本">
+            
+            Kali 2019 &amp; Ladon无PowerShell执行脚本
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Kali/">Kali</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Kali/" rel="tag">Kali</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/PowerShell/" rel="tag">PowerShell</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/07</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1960</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="关于Kali-PowerShell">关于Kali &amp; PowerShell</h3>
+<p>最近Kali出了年度最终版2019.4，该版本主存储库集成了PowerShell，可apt一键安装。<br>
+实际上想用PowerShell也不是非要等2019.4版本，和很多程序一样，可以自己下载安装。<br>
+因为微软PowerShell早在几年前就支持跨平台了还有.net程序，听说mono被微软收购了。<br>
+只是多打几条命令而已，不是说之前版本的Kali就不支持PowerShell，真佩服国内小编。<br>
+当然也可以在不安装PowerShell的环境下通过Ladon来执行PowerShell脚本。</p>
+<h3 id="PowerShell例子">PowerShell例子</h3>
+<p>以下代码为Ladon插件例子，非常简单只需一个函数Ladon以及返回结果即可。</p>
+<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Ladon</span> ()</span>{</span><br><span class="line">param([<span class="built_in">string</span>]$ip) </span><br><span class="line"><span class="meta">#write-output $ip</span></span><br><span class="line">$result=-Join(<span class="string">"PsDemo "</span>,$ip)</span><br><span class="line"><span class="keyword">return</span> $result</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Ladon下载">Ladon下载</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/k8gege/Ladon/raw/master/KaliLadon -O Ladon</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="安装mono运行库">安装mono运行库</h3>
+<p>Linux版Ladon需mono,类似jar需java，py需python环境等<br>
+mono执行兼容性、稳定性以及效率在Linux下不如Win系统</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mono-runtime</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Ladon执行PowerShell">Ladon执行PowerShell</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mono Ladon 123456 test.ps1</span><br></pre></td></tr></tbody></table></figure>
+<p>Kali 2019.4 x64<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/kali/kali_ps1.PNG"></p>
+<p>Ubuntu 18.04 x64<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ubuntu/ub_ps1.PNG"></p>
+<h3 id="Windows绕过PowerShell限制">Windows绕过PowerShell限制</h3>
+<p>使用Ladon执行，就不存在PowerShell默认禁止执行脚本的限制<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/win_ps1.PNG"></p>
+<h3 id="自定义PowerShell脚本">自定义PowerShell脚本</h3>
+<p>其它功能脚本通过以下函数调用即可，或者返回空值的Ladon函数调用代码。<br>
+如Base64批量密码解密</p>
+<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Ladon</span> ()</span>{</span><br><span class="line">param([<span class="built_in">string</span>]$ip) </span><br><span class="line">$pass=ConvertFrom-Base64String($ip)</span><br><span class="line">$result=-Join($ip,<span class="string">" "</span>,$pass)</span><br><span class="line"><span class="keyword">return</span> $result</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="meta"># Convert base64 string to string</span></span><br><span class="line">function ConvertFrom-Base64String([<span class="built_in">string</span>]$<span class="built_in">string</span>)</span><br><span class="line">{</span><br><span class="line">    $byteArray = [Convert]::FromBase64String($<span class="built_in">string</span>)</span><br><span class="line">    [<span class="meta">System.Text.UnicodeEncoding</span>]::UTF8.GetString($byteArray)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="关于-net跨平台">关于.net跨平台</h3>
+<p>关于.net跨平台有两个选择，一是mono，<a target="_blank" rel="noopener" href="http://xn--4kq198c.net">二是.net</a> core，都是微软出品<br>
+三是PowerShell Core(<a target="_blank" rel="noopener" href="http://xn--v6qy00a.net">内嵌.net</a>，linux下未测，毕竟默认无.net运行库)</p>
+<p>完全脱离运行库编译程序都很大，好在mono运行库安装比PY、JAVA都要快<br>
+仅需一两分钟，也就是说，假如需要在目标执行，还可以只传一个小程序<br>
+不像Python和Java安装了运行库，需要运行程序可能还得安装其它依赖库<br>
+意味着有些程序离开开发环境可能无法运行(有些系统一些模块根本装不上)<br>
+同样存在着兼容性问题，从奇葩环境看似乎.net比py和java有着更大优势<br>
+需要将程序上传至目标，意味着可能出不了网或无法代理等奇葩网络环境。<br>
+我这里考虑的都是极差环境，只代理就顺利使用相关工具的永远体会不到。<br>
+当然有些功能PYTHON实现会比.NET简单很多倍，且.net可能还实现不了。<br>
+<a target="_blank" rel="noopener" href="http://xn--4gqving95mbubg62dlsas6c588ir54a.NET">反过来也一样有些功能.NET</a>，我不像别人喜欢哪门语言就无脑地吹哪门，<br>
+有缺点不肯承认还要强制说好，你和他说PY有什么缺点就像骂了他一样。<br>
+我从不否认任何语言的优点和缺点，因为任何语言只要工作需要我就用。<br>
+<a target="_blank" rel="noopener" href="http://xn--ruto42c.net">常用.net</a>，无非是程序小这个巨大优势，程序小产生的流量自然就很小。<br>
+使用再垃圾的远控或者再垃圾的网络环境都有办法把程序传到目标机器。<br>
+如果远控或WebShell像Cobal Strike一样支持内存加载，就更不用担心。</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/89f3c60.html" class="pre-post btn btn-default" title="Ladon MS17010 Exploit for PowerShell">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon MS17010 Exploit for PowerShell</span>
+    </a>
+    
+    
+    <a href="/p/fa25cc9b.html" class="next-post btn btn-default" title="CVE-2019-0803提权工具">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            CVE-2019-0803提权工具</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EKali-PowerShell"><span class="toc-text">关于Kali &amp; PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerShell%E4%BE%8B%E5%AD%90"><span class="toc-text">PowerShell例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85mono%E8%BF%90%E8%A1%8C%E5%BA%93"><span class="toc-text">安装mono运行库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E6%89%A7%E8%A1%8CPowerShell"><span class="toc-text">Ladon执行PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E7%BB%95%E8%BF%87PowerShell%E9%99%90%E5%88%B6"><span class="toc-text">Windows绕过PowerShell限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89PowerShell%E8%84%9A%E6%9C%AC"><span class="toc-text">自定义PowerShell脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-net%E8%B7%A8%E5%B9%B3%E5%8F%B0"><span class="toc-text">关于.net跨平台</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

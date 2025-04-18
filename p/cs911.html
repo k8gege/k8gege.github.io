@@ -1,0 +1,632 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Cobalt Strike">
+
+
+<meta name="description" content=" 
+
+
+=============================================================================================...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布">
+            
+            〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CS/" rel="tag">Cobalt Strike</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/12/11</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1224</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p style="color:#fff;"> 
+&lt;% 
+<span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+</span>
+%&gt;
+</p>
+<p>=============================================================================================<br>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/cs911.html";
+</script>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/Dragon.jpg"></p>
+<h3 id="简介">简介</h3>
+<p>Ladon9.1.1插件右键功能已更新174个，相比9.1.0的131个新增了43个功能，本机密码新增4个主流浏览器Chrome、Firefox、Edge、Coccoc帐密、历史记录、Cookie等，新增CMD常用渗透命令30+，Ladon9.1.1插件采用分离式加载，减少网络卡时加载Ladon导致CS假死情况。其它功能，新增.net测试&amp;powershell测试，用于测试目标杀软是否拦截CS加载.NET程序或Powershell等，具体功能大家实战测试吧，实战为王，多说无益。</p>
+<h3 id="Ladon主程序">Ladon主程序</h3>
+<h4 id="Ladon-9-1-1-20211211更新功能">Ladon 9.1.1 20211211更新功能</h4>
+<p>=======================<br>
+[u]OnlinePC 新增Exchange探测主机<br>
+[u]OnlinePC 新增MSSQL探测存活主机<br>
+[u]OnlinePC 新增SMB探测存活主机<br>
+[u]OnlinePC 新增WMI探测存活主机<br>
+[u]OnlinePC 新增WinRM探测存活主机<br>
+[u]MS17010     解决部分OS版本乱码问题<br>
+[-]Dumplsass模块移除转PowerShell免杀<br>
+[u]WifiPwd  读wifi密码含当前连接WIFI<br>
+[u]GetInfo     含当前连接WIFI信息</p>
+<h4 id="GUI-9-1-1-20211211更新功能">GUI 9.1.1 20211211更新功能</h4>
+<p>[u]OnlinePC 表格调整<br>
+[u]cmddll AddUser系统登陆界面隐藏添加用户<br>
+修复重复显示的BUG 却除DNS只保留域名<br>
+MS17010 解决OS版本乱码(SMBINFO)</p>
+<h3 id="无图无真相（CS插件部分截图）">无图无真相（CS插件部分截图）</h3>
+<h4 id="1-网络资产收集功能">1.网络资产收集功能</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_0.PNG"></p>
+<h4 id="2-操作系统信息探测">2.操作系统信息探测</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_1.PNG"></p>
+<h4 id="3-高危远程漏洞探测">3.高危远程漏洞探测</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_2.PNG"></p>
+<h4 id="4-本机信息收集">4.本机信息收集</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_3.PNG"></p>
+<h4 id="5-本机密码读取">5.本机密码读取</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_4.PNG"></p>
+<h4 id="6-网络密码审计">6.网络密码审计</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_5.PNG"></p>
+<h4 id="7-本地提权">7.本地提权</h4>
+<p>新增Beacon2System，将CS当前会话提升至system权限(该功能需当前会话处于admin权限)。Priviledges特权启用(一般情况下提权EXP会自动复制相应特权以达到提权的目的，通过相 关EXP上线的CS继承其权限以及特权，但是有时候需要在CS执行其它程序，而其它程序需要操作其它功能，而那些功能使用前提需要相应特权)，特权说明:<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/secauthz/privilege-constants?redirectedfrom=MSDN">https://docs.microsoft.com/en-us/windows/win32/secauthz/privilege-constants?redirectedfrom=MSDN</a></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_6.PNG"></p>
+<h4 id="8-其它功能">8.其它功能</h4>
+<p>1.NET测试，用于测试CS是否可加载.NET程序集，Win10_20H2系统的Defender或相关杀软，会对CS加载.NET程序进行拦截，若该功能可正常加载，再尝试使用Ladon，若无法加载，其它.NET写的也不需要测试了，因为你使用的话会和使用Mimikat一样会导致CS下线。一个小技巧，使用CS高危功能时最好多开一个会话，以免CS突然下线让你懵B。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_7.PNG"></p>
+<h4 id="9-CMD渗透信息收集">9.CMD渗透信息收集</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/911/911_8.PNG"></p>
+<p>当然，如果你熟悉Ladon命令的可以直接在Beacon上执行相应命令即可，如使用Ladon GetID命令查看目标机器名、机器ID、CPUID、硬盘ID、MAC地址等信息，主要用于区分一些大内网同名机器或其它用途；使用Ladon 192.168.1.8/24 MS17010探测C段机器是否存在MS17010漏洞。若是你不熟悉可以使用GUI右键菜单(打X的选项代表右键暂未支持)，为了方便新人或不太熟的人，实际上时间久了，我也会忘记Ladon的功能，也需要右键GUI，毕竟上百功能。</p>
+<h3 id="CS插件">CS插件</h3>
+<h1>=======================<br>
+Ladon 9.1.1 巨龙拉冬<br>
+CS右键174个功能模块<br>
+Update 2021.12.11</h1>
+<h3 id="0x001-网络资产收集">0x001 网络资产收集</h3>
+<p>1.多协议探测存活主机<br>
+2.多协议探测存活IP<br>
+3.仅ICMP探测存活(快)<br>
+4.系统Ping探测存活<br>
+5.Oxid多网卡主机探测<br>
+6.DNS多网卡主机探测<br>
+7.多协议操作系统探测<br>
+8.网站、标题、Banner<br>
+9.智能网站CMS识别<br>
+10.常见端口服务探测<br>
+11.Shiro网站探测<br>
+12.Cisco设备探测<br>
+13.LDAP服务器探测<br>
+14.FTP服务器探测<br>
+15.枚举MSSQL服务器<br>
+16.枚举共享资源</p>
+<h3 id="0x002-系统信息探测">0x002 系统信息探测</h3>
+<p>1.SMB探测系统信息<br>
+2.WMI探测系统信息<br>
+3.NBT探测系统信息<br>
+4.RDP探测系统信息<br>
+5.SNMP探测系统信息<br>
+6.MSSQL探测系统信息<br>
+7.WINRM探测系统信息<br>
+8.Exchange探测系统信息</p>
+<h3 id="0x003-远程漏洞检测">0x003 远程漏洞检测</h3>
+<p>1.SMB永恒之蓝检测<br>
+2.SMB永恒之黑检测<br>
+3.Struts2漏洞检测<br>
+4.Weblogic漏洞检测<br>
+5.PhpStudy后门检测<br>
+6.ActiveMQ漏洞检测<br>
+7.Tomcat漏洞检测</p>
+<h3 id="0x004-本机信息收集">0x004 本机信息收集</h3>
+<p>1.查看本机IP(内外网)<br>
+2.当前用户、特权信息<br>
+3.GUID、CPUID、DiskID<br>
+4.基础信息(仅cmd获取)<br>
+5.基础信息(含wmi获取)<br>
+6.获取命令行参数<br>
+7.获取进程详细信息<br>
+8.查看IE代理信息<br>
+9.查看本机命名管道<br>
+10.查看3389远程连接<br>
+11.查看USB使用记录<br>
+12.查看管理员组用户<br>
+13.查看最近访问文件<br>
+14.查看安装.NET版本<br>
+15.查看PowerShell版本<br>
+16.查看已安装程序版本<br>
+17.查看OS倍数.NET版本<br>
+18.列全盘目录(RAR打包)<br>
+19.查看注册表启动项、<br>
+20.查看系统劫持DLL</p>
+<h3 id="0x005-本机密码读取">0x005 本机密码读取</h3>
+<p>1 Chrome浏览器密码<br>
+2 Firefox浏览器密码<br>
+3 CocCoc浏览器密码<br>
+4 Edge浏览器密码<br>
+5 Wifi连接密码<br>
+6 IIS站点密码<br>
+7 FileZilla FTP密码<br>
+8 VPN连接密码 CVE-2021-36934</p>
+<h3 id="0x006-一键GetShell">0x006 一键GetShell</h3>
+<p>1.Exchange CVE-2020-0688<br>
+2.Weblogic GetShell<br>
+3.Tomcat GetShell</p>
+<h3 id="0x007-网络密码嗅探">0x007 网络密码嗅探</h3>
+<p>1.FTP密码嗅探<br>
+2.HTTP密码嗅探</p>
+<h3 id="0x008-网络密码审计">0x008 网络密码审计</h3>
+<p>1.445端口SMB密码审计(Windows)<br>
+2.135端口WMI密码审计(Windows)<br>
+3.445端口SMB-HASH密码审计(Windows)<br>
+4.135端口WMI-HASH密码审计(Windows)<br>
+5.139端口NBT密码审计(Windows)<br>
+6.5985端口Winrm密码审计(Windows)<br>
+7.21端口FTP密码审计(多平台)<br>
+8.5900端口VNC密码审计(多平台)<br>
+9.389端口LDAP密码审计(Windows)<br>
+10.1521端口Oracle数据库密码审计(多平台)<br>
+11.1433端口MSSQL数据库密码审计(Windows)<br>
+12.3306端口MYSQL数据库密码审计(多平台)<br>
+13.7001端口Weblogic后台密码审计(多平台)<br>
+14.Web端口Tomcat后台密码审计(多平台)<br>
+15.Web端口401基础认证密码审计(多平台)<br>
+16.22端口SSH密码审计(Linux_多平台)<br>
+17.网络摄像头密码审计(401认证)<br>
+18.WEB网站后台目录/页面存活扫描</p>
+<h3 id="0x009-本机执行">0x009 本机执行</h3>
+<p>1.sc服务执行(system权限)<br>
+2.at计划任务(system权限)<br>
+3.Runas(模拟用户执行)<br>
+4.RunPS(无powershell执行)<br>
+5.ForExec(循环执行命令)</p>
+<h3 id="0x010-远程执行">0x010 远程执行</h3>
+<p>1.WinrmExec<br>
+2.SshExec<br>
+3.SmbExec<br>
+4.PsExec<br>
+5.AtExec<br>
+6.WmiExec<br>
+7.WmiExec2<br>
+8.WinrmExec<br>
+9.JspShell<br>
+10.AspShell<br>
+11.AspxShell<br>
+12.PhpShell</p>
+<h3 id="0x011-本地提权">0x011 本地提权</h3>
+<p>1.BypassUac<br>
+1.eventvwr<br>
+2.fodhelper<br>
+3.computerdefaults<br>
+4.sdclt<br>
+5.slui</p>
+<p>2.BypassUac2<br>
+3.Admin2System<br>
+4.System2Admin<br>
+5.Runas<br>
+6.ms16135 X64<br>
+7.BadPotato<br>
+8.SweetPotato<br>
+9.RDPHijack<br>
+10.CVE-2021-1675<br>
+11.Priviledges<br>
+0.SetPriviledge<br>
+1.SetDebugPriv<br>
+2.SetAuditPriv<br>
+3.SetImpersonate<br>
+4.SetCreateToken<br>
+5.SetAssignPrimaryToken<br>
+12.Beacon2System</p>
+<h3 id="0x012-自启动">0x012 自启动</h3>
+<p>1.注册表自启动<br>
+2.服务启动项</p>
+<h3 id="0x013-3389远程桌面">0x013 3389远程桌面</h3>
+<p>1.一键开启3389<br>
+2.查看3389远程连接<br>
+3.查看管理员组用户<br>
+4.激活Administrator<br>
+5.激活用户Guest<br>
+6.远程桌面会话劫持</p>
+<h3 id="0x014-远程下载">0x014 远程下载</h3>
+<p>1.Http文件下载<br>
+2.FTP文件下载</p>
+<h3 id="0x015-域-DC、LDAP">0x015 域(DC、LDAP)</h3>
+<p>1.域内机器信息获取(域内)<br>
+2.389端口LDAP服务器探测<br>
+3.389端口LDAP密码审计<br>
+4.CVE-2020-1472域控提权</p>
+<h3 id="0x016-端口转发">0x016 端口转发</h3>
+<p>1.netsh(系统自带)<br>
+2.PortTran</p>
+<h3 id="0x017-MSF-NC联动">0x017 MSF/NC联动</h3>
+<p>1.Shell_bind_tcp<br>
+2.Shell_reverse_tcp<br>
+3.Met_reverse_http<br>
+4.Met_reverse_https<br>
+5.Shell_reverse_icmp<br>
+6.Shell_reverse_dns</p>
+<h3 id="0x018-其它功能">0x018 其它功能</h3>
+<p>1.内存加载.NET测试<br>
+2.PowerShell测试版本<br>
+3.Win2008启用.net3.5<br>
+4.网站HTML源码查看<br>
+5.网站域名解析IP<br>
+6.PC机器名解析IP</p>
+<p>以下为系统自带命令，Ladon无法加载也不影响</p>
+<h3 id="0x019-CMD命令信息收集">0x019 CMD命令信息收集</h3>
+<p>0.查看系统信息<br>
+1.查看.NET版本<br>
+2.查看保存凭证<br>
+3.查看Defender<br>
+4.查看当前特权<br>
+5.查看当前WIFI<br>
+6.查看机器GUID<br>
+7.查看机器名称<br>
+8.查看RDP端口<br>
+9.查看进程列表<br>
+10.查看服务列表<br>
+11.查看安装程序<br>
+12.查看启动列表<br>
+13.查看防火墙规则<br>
+14.查看路由表信息<br>
+15.查看网络连接<br>
+16.用户操作<br>
+1.查看当前用户<br>
+2.查看本机管理员<br>
+3.查看本机用户<br>
+4.查看域管理员<br>
+5.查看域用户<br>
+6.激活Administrator<br>
+7.激活Guest<br>
+8.Guest加管理员组<br>
+9.禁用Administrator<br>
+10.禁用Guest<br>
+17.查看机器列表<br>
+18.查看补丁信息</p>
+<h3 id="0x020-PowerShell信息收集">0x020 PowerShell信息收集</h3>
+<p>1.查看PowerShell版本<br>
+2.查看当前登陆用户<br>
+…其它功能下版本更新</p>
+<h3 id="为什么选11号发布">为什么选11号发布?</h3>
+<p>熟悉我的人应该知道911的意义吧，Ladon也刚好更新到9.1.1版本，911版本计划要添加不少功能，但要等到9月11才发布，就太遥远了，今天刚好11，那就今天发布吧，双十二虽比较好听，但还911不沾边。此次插件改动较大，时间也比较急，功能也未来得及全测，大家在使用过程中发现功能问题，都可以截图后台或小密圈反馈。</p>
+<h3 id="声明">声明</h3>
+<p>工具仅供安全研究或授权渗透，非法用途后果自负。</p>
+<h3 id="CS下载">CS下载</h3>
+<p>CS 3.12 3.13 4.3 4.4 K8破解版<br>
+000为原始试用版本(部分未找到，大家可以提供给我更新)<br>
+<a target="_blank" rel="noopener" href="https://github.com/k8gege/Aggressor/releases/tag/cs">https://github.com/k8gege/Aggressor/releases/tag/cs</a></p>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>LadonGo 3.8: <a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a><br>
+PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>
+历史版本: <a target="_blank" rel="noopener" href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>
+911版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+9.1.7版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/log4shell.html" class="pre-post btn btn-default" title="〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测</span>
+    </a>
+    
+    
+    <a href="/p/bypass_win10_20h2_defender.html" class="next-post btn btn-default" title="〖免杀〗.net程序一键免杀Win10 20H2 Defender">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖免杀〗.net程序一键免杀Win10 20H2 Defender</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%BB%E7%A8%8B%E5%BA%8F"><span class="toc-text">Ladon主程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-9-1-1-20211211%E6%9B%B4%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">Ladon 9.1.1 20211211更新功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GUI-9-1-1-20211211%E6%9B%B4%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">GUI 9.1.1 20211211更新功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8%EF%BC%88CS%E6%8F%92%E4%BB%B6%E9%83%A8%E5%88%86%E6%88%AA%E5%9B%BE%EF%BC%89"><span class="toc-text">无图无真相（CS插件部分截图）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BD%91%E7%BB%9C%E8%B5%84%E4%BA%A7%E6%94%B6%E9%9B%86%E5%8A%9F%E8%83%BD"><span class="toc-text">1.网络资产收集功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8E%A2%E6%B5%8B"><span class="toc-text">2.操作系统信息探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%AB%98%E5%8D%B1%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-text">3.高危远程漏洞探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">4.本机信息收集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%9C%AC%E6%9C%BA%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96"><span class="toc-text">5.本机密码读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-text">6.网络密码审计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E6%9C%AC%E5%9C%B0%E6%8F%90%E6%9D%83"><span class="toc-text">7.本地提权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD"><span class="toc-text">8.其它功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-CMD%E6%B8%97%E9%80%8F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">9.CMD渗透信息收集</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E6%8F%92%E4%BB%B6"><span class="toc-text">CS插件</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">=======================
+Ladon 9.1.1 巨龙拉冬
+CS右键174个功能模块
+Update 2021.12.11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x001-%E7%BD%91%E7%BB%9C%E8%B5%84%E4%BA%A7%E6%94%B6%E9%9B%86"><span class="toc-text">0x001 网络资产收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x002-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8E%A2%E6%B5%8B"><span class="toc-text">0x002 系统信息探测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x003-%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="toc-text">0x003 远程漏洞检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x004-%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">0x004 本机信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x005-%E6%9C%AC%E6%9C%BA%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96"><span class="toc-text">0x005 本机密码读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x006-%E4%B8%80%E9%94%AEGetShell"><span class="toc-text">0x006 一键GetShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x007-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%97%85%E6%8E%A2"><span class="toc-text">0x007 网络密码嗅探</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x008-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-text">0x008 网络密码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x009-%E6%9C%AC%E6%9C%BA%E6%89%A7%E8%A1%8C"><span class="toc-text">0x009 本机执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x010-%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C"><span class="toc-text">0x010 远程执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x011-%E6%9C%AC%E5%9C%B0%E6%8F%90%E6%9D%83"><span class="toc-text">0x011 本地提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x012-%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">0x012 自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x013-3389%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2"><span class="toc-text">0x013 3389远程桌面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x014-%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BD"><span class="toc-text">0x014 远程下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x015-%E5%9F%9F-DC%E3%80%81LDAP"><span class="toc-text">0x015 域(DC、LDAP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x016-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-text">0x016 端口转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x017-MSF-NC%E8%81%94%E5%8A%A8"><span class="toc-text">0x017 MSF/NC联动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x018-%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD"><span class="toc-text">0x018 其它功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x019-CMD%E5%91%BD%E4%BB%A4%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">0x019 CMD命令信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x020-PowerShell%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">0x020 PowerShell信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%8911%E5%8F%B7%E5%8F%91%E5%B8%83"><span class="toc-text">为什么选11号发布?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-text">声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </li></div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

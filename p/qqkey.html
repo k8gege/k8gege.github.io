@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon">
+
+
+<meta name="description" content="前言
+你是否收到好友给你发的H站、赌博等站点的广告信息？没错都是QQKEY的蠕虫，在2012年的时候很疯狂
+什么QQ空间自动发广告，邮箱自动给好友发广告消息等等，可能你点击里面的广告你的Q也跟着...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    超过8年依然可用的QQkey免密登陆漏洞 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="超过8年依然可用的QQkey免密登陆漏洞">
+            
+            超过8年依然可用的QQkey免密登陆漏洞
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Pass/">密码</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/04/23</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1821</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言">前言</h3>
+<p>你是否收到好友给你发的H站、赌博等站点的广告信息？没错都是QQKEY的蠕虫，在2012年的时候很疯狂<br>
+什么QQ空间自动发广告，邮箱自动给好友发广告消息等等，可能你点击里面的广告你的Q也跟着被盗…<br>
+如果你的号值钱就是以前常说的靓号，盗号者还会改你的信息卖你的QQ，当然现在也就只能发广告了<br>
+前几年可能也被电信诈骗利用，毕竟能通过资料或好友备注等很多信息，增加诈骗你好友钱的可信度</p>
+<h3 id="什么是QQkey">什么是QQkey</h3>
+<p>不管是ClinetKey还是skey在这里我统称它为QQKEY吧，他俩是有区别的，但对于最终目的我们都是登陆。<br>
+比如说钥匙，长得不一样，售价不一样，开锁难度不一样，但它一样是锁，叫法或卖的价钱不一样而已。</p>
+<p>无论是ClinetKey还是skey都是一张临时登陆的身分证，可理解为腾讯对特定字符串（cookie）的定义<br>
+ClientKey大家有没注意到当你登陆QQ后，访问QQ的相关站点，无需输入QQ密码即可自动登陆相关站点？<br>
+能自动登陆说明肯定有令牌，总不可能给你存密码，因此我们可以通过特定网页获取到QQKEY免密登陆。</p>
+<p>发帖前我又测了一下2014年的QQKEY利用程序，确认依然存在,如QQ邮箱、QQ安全中心均可直接KEY登陆</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Other/qqkey.gif"></p>
+<h3 id="获取内网QQkey">获取内网QQkey</h3>
+<p>由于腾讯对QQ做了异地登陆限制，需手机解锁等操作，相对来说也是顶安全的，但在公共场所就不一样了。<br>
+使用Ladon的HTTP嗅探功能，可轻松嗅探到局域网或公共场所中的QQ和SKEY，比如在网吧、学校、星巴克等<br>
+在公共场所获取到的QQ肯定是别人当前可登陆的，所以登陆地IP限制就不存在了，嗅到SKEY可直接登陆<br>
+Ladon获取SKEY的方法非常简单，命令Ladon HttpSniffer 192.168.1.8(本机IP)，坐等即可。<br>
+该功能在Ladon添加嗅探功能时就有,去年的12月份Ladon 6.0及以后版本均可以</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/QQskey.png"></p>
+<h3 id="QQkey登陆邮箱">QQkey登陆邮箱</h3>
+<p><a target="_blank" rel="noopener" href="http://ptlogin2.qq.com/jump?clientuin=QQ&amp;clientkey=key&amp;keyindex=9&amp;u1=https%3A%2F%2Fmail.qq.com%2Fcgi-bin%2Flogin%3Fvt%3Dpassport%26vm%3Dwpt%26ft%3Dloginpage%26target%3D&amp;pt_local_tk=&amp;pt_3rd_aid=0&amp;ptopt=1&amp;style=25">http://ptlogin2.qq.com/jump?clientuin=QQ&amp;clientkey=key&amp;keyindex=9&amp;u1=https%3A%2F%2Fmail.qq.com%2Fcgi-bin%2Flogin%3Fvt%3Dpassport%26vm%3Dwpt%26ft%3Dloginpage%26target%3D&amp;pt_local_tk=&amp;pt_3rd_aid=0&amp;ptopt=1&amp;style=25</a></p>
+<p>PS: 其它业务自行抓包获取URL，网上也公开很多ClientKeyt和Skey的利用工具，最新的是今年3月底</p>
+<h3 id="参考">参考</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38837337/article/details/80673809">https://blog.csdn.net/qq_38837337/article/details/80673809</a></p>
+<h3 id="警告">警告</h3>
+<p>本文主要是告诉大家不要在使用公共WIFI登陆QQ，其实微信或其它应用也同理</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/ladon_cs_shell.html" class="pre-post btn btn-default" title="Ladon &amp; Cobalt Strike连接内网WebShell">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon &amp; Cobalt Strike连接内网WebShell</span>
+    </a>
+    
+    
+    <a href="/p/28288.html" class="next-post btn btn-default" title="持久化后门之微软Visual Studio开发工具DLL劫持">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            持久化后门之微软Visual Studio开发工具DLL劫持</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFQQkey"><span class="toc-text">什么是QQkey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%86%85%E7%BD%91QQkey"><span class="toc-text">获取内网QQkey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QQkey%E7%99%BB%E9%99%86%E9%82%AE%E7%AE%B1"><span class="toc-text">QQkey登陆邮箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AD%A6%E5%91%8A"><span class="toc-text">警告</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

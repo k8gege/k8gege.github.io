@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Cobalt Strike,Python">
+
+
+<meta name="description" content="前言
+不知道你有没有遇到过马上线却不能操作的情况，我猜当你网络卡或马写得不好时会出现这个问题
+但是人为的你可能没遇到过，首先要欺骗你的远控，得分析你的协议，如果你的马根本不是公开的
+网络又是好的...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    看我如何模拟Cobalt Strike上线欺骗入侵者 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="看我如何模拟Cobalt Strike上线欺骗入侵者">
+            
+            看我如何模拟Cobalt Strike上线欺骗入侵者
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/CS/">Cobalt Strike</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CS/" rel="tag">Cobalt Strike</a> <a class="tag-none-link" href="/tags/Python/" rel="tag">Python</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/03/30</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1845</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言">前言</h3>
+<p>不知道你有没有遇到过马上线却不能操作的情况，我猜当你网络卡或马写得不好时会出现这个问题<br>
+但是人为的你可能没遇到过，首先要欺骗你的远控，得分析你的协议，如果你的马根本不是公开的<br>
+网络又是好的，你刚往人家机器里种马，发现马只能上线不能操作，绝对是马有问题，不能甩锅我<br>
+人家都不知道你的马的通信原理，流量特征，不可能事先准备好一个程序，让你一发就欺骗你的马<br>
+本文主要研究CS这个APT很喜欢用的马，当然TCP的也一样原理，只要构造对应的数据包就可欺骗</p>
+<h3 id="远控术语">远控术语</h3>
+<p>Cobalt Strike采用的是B/S架构，也就是常说的HTTP协议（HTTPS加密的http，记住都是WEB就不会错了）<br>
+Client：客户是上帝，我们想买什么告诉服务员。就是控制端，即通过它来控制对方电脑。不叫服务端哦<br>
+Server：服务员，即服务端。以前常说的肉鸡，这个叫被控端不是控制端，叫做什么就做什么不就是服务？<br>
+中转：放在VPS，好比现在的快递，可有可无，买家直接见卖家就不需要。CS中转Teamserve就是一个WEB</p>
+<p>就是说如果你用IIS或Tomcat搭建的ASP、JSP、PHP、.NET等网站也可以做为中转，即可实现HTTP远控<br>
+如果CS不搞客户端，我们便可直接在浏览器上操作和控制目标机器，这就是08年这类码称为B/S架构的原因<br>
+CS的客户端就像我们用PY或其它语言实现模拟WEB登陆网站来操作一样，中转是WEB，那么肉鸡上线，它也<br>
+一样是HTTP请求来实现，WEB发包、POST提交不管怎么表达都可以，这是渗透基础，即是CS通信采用HTTP</p>
+<p>C/S架构：Clinet/Server,主要指的是TCP，客户端和服务端，即便带个中转它也还是叫CS架构<br>
+B/S架构: Browser/Server,主要是HTTP，无论直接通过浏览器操作，还是像CS加个中转再用客户端访问<br>
+RAT：Remote Admin Tools，远程管理工具，长期以来国内外通用叫法。<br>
+C2: 老外的新名词，command&amp;control，从字面上就很好理解命令和控制，不管任何协议马都可这样叫<br>
+这种叫法对于不够专业的人来说不会错，因为他根本不需要了解远控到底用什么协议实现，反正都叫C2</p>
+<p>当然无论是以前还是现在叫RAT也绝对不会错，叫RAT可能更专业一点，RAT像老戏骨，C2像小鲜肉<br>
+看看现在好多远控基本都有CMD和文件管理，甚至只是一个SHELL而已了，我猜这就是C2的由来吧<br>
+以前像这样一般只称为后门，随便找一个远控都有CMD、文件管理、屏幕控制、键盘记录等功能<br>
+而现在一个CMD和文件管理，在10几年前也很难称为马叫炮灰，现在搞个炮灰一堆BUG还以为很吊<br>
+以前只能称为后门，连远控都称不上的，现在只实现了一个CMD执行命令，就说成自己写个远控了<br>
+多台机器管理实现不了先不说，只能一对一，断以后就无法控制，连后门都不合格，还TM说成远控</p>
+<p>PS：之所以写这一段话，主要是发现不少写马的或渗透的，竟然都分不清楚服务端和控制端</p>
+<h4 id="HTTP协议">HTTP协议</h4>
+<p>还有我说HTTP协议(含HTTP/S)，还有人说不是HTTP还有HTTPS（首先搞清楚HTTPS是什么，加密的HTTP）<br>
+比方说你设计一个HTTP经过特定格式加密，单纯HTTP访问得不到真实数据而已，解不了就不属于HTTP了？<br>
+当有一天大家都觉得这个加密好用或安全，给它起个名叫KTTPS，或许可称为新协议，但本质还是HTTP协议。<br>
+当然可能有些人要说HTTP也属于TCP，虽说HTTP可通过TCP实现，但是两者有很大区别，通过TCP实现叫伪<br>
+为什么因为它不是真正的HTTP，目标WAF禁TCP的时候，TCP实现的就出不来，HTTP只要会操作WEB就行<br>
+HTTP比TCP多了一个，允许通过WEB操作来访问，HTTP虽是特殊的TCP，但已经完全变异成了一个新协议。</p>
+<p>就像猩猩和人，我们几乎不会说人是猩猩，只会说人是猩猩进化而来的，因为变异太多，可以以新物种定义。<br>
+而HTTPS和HTTP，就像戴不戴口罩，戴个口罩就TM不是人了？除了戴个口罩，你的衣食住行哪一样不是人。<br>
+你不戴口罩进不了小区，那你就戴口罩就能进去了啊，就像HTTPS(HTTP基础上加SSL协议就可以访问了啊)<br>
+HTTP不加SSL访问不了HTTPS，你就说HTTPS不属于HTTP，这和不戴口罩不让进小区，就说你不是人一样<br>
+本质是因为你不是人而不让你进吗？而是你不戴口罩，并不是说你不是人所以不让你出入，概念不一样。<br>
+所以说我们通常只说TCP协议、HTTP协议(因为已包含HTTPS在内)，至少10几年来很少听到有人说HTTPS马<br>
+最多只是听说这款http马也支持https，或这个webshell工具支持https站点，这个EXP支持HTTPS站点等</p>
+<h3 id="CS心跳包">CS心跳包</h3>
+<p>一般在设计远控时，我们都会对机器进行标记，比如上线特征为A<br>
+A对应信息已保存在本地数据库，因此想要确认机器是否还在控<br>
+我们只需要发送A标识给客户端，告诉它机器还在控制,即心跳包<br>
+而没实战过的人是每次都发送目标信息，这样很容易被目标发现</p>
+<p>下面配置好CS让其上线后，我们对服务端进行抓包，其心跳包如下<br>
+CS也是一样，因为是BS模式HTTP协议，它的心跳特征存在Cookie里<br>
+非正常cookie写法，一段很长的加密数据，可以止来判断是否中招</p>
+<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat1.PNG"></p>
+<h3 id="上线验证">上线验证</h3>
+<p>使用Ladon Exp生成器可以提交WEB数据包，类似Firefox上的HackBar但更高级<br>
+区别在于可生成Ladon插件或独立EXE，对于不懂编程的人来说也可“编写”EXP<br>
+<img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat2.PNG"></p>
+<p>运行LadonPoc.exe发现CS上线，执行一次就上线一次，说明思路没错<br>
+<img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat3.gif"></p>
+<h3 id="欺骗入侵者">欺骗入侵者</h3>
+<p>假设我们在内网中发现别人的CS流量或者抓到样本，给他模拟上线，让他有得看没得吃<br>
+他在客户端那边只会看到机器在线，就是死活控不了，然后他就想是不是目标环境奇葩<br>
+还是说网络太卡或有什么问题,能上线就是不能操作，哈哈，一直在上线却啥事也不能做</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">### Cobalt Strike Cheat by K8gege</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cscheat</span>():</span><br><span class="line">	opener = urllib2.build_opener()</span><br><span class="line">	opener.addheaders.append((<span class="string">'Cookie'</span>, <span class="string">'Qk1UsVjTNpW6aR0327yD57Zkt1m6XWurvM+bR0xqOqGnXsatzGHpnccfgqmruH6dnJudEzijQhC0NCtoAxdA90rso7NAfBrfRrktO5B4FjZX6LEBxIyzEwQ71Jk1ttM8VY6luE5k+PMLk6DAmWUoGoJmvAl/qp4qreuWumv52TM='</span>))</span><br><span class="line">	res = opener.<span class="built_in">open</span>(<span class="string">"http://192.168.1.102:800/dpixel"</span>)</span><br><span class="line">	content = res.read()</span><br><span class="line">	<span class="built_in">print</span> content</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:    </span><br><span class="line">	<span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime()))    </span><br><span class="line">	cscheat()</span><br><span class="line">	time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat4.gif"></p>
+<h3 id="读取CMD指令">读取CMD指令</h3>
+<p>当客户端下达CMD命令时，中转TeamServer会将命令放在心跳包中，返回的结果如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^Zd........N...&amp;....%COMSPEC%.... /C net user k8gege..AAAAAAAAAA.&lt;....g..I9.....</span><br><span class="line"></span><br><span class="line">5e5a69740000002e0000004e000000260000000925434f4d535045432500000013202f43206e6574</span><br><span class="line">2075736572206b387465616d00004141414141414141414100e488fc2a22f737b0067ac4384c4971</span><br></pre></td></tr></tbody></table></figure>
+<p>测试多次发现不管执行多长的命令 都会出现/C空格 和两个00加至少一个A<br>
+所以我们截取 2F4320 和 000041 之间的值，再解密即为CS下发的CMD命令</p>
+<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat5.PNG"></p>
+<h3 id="返回CMD结果">返回CMD结果</h3>
+<p>将CS的命令执行结果提交到submit.php页面，即可实现回显,数据包如下</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /submit.php?<span class="built_in">id</span>=60871 HTTP/1.1</span><br><span class="line">Accept: */*</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</span><br><span class="line">Host: 192.168.1.102:800</span><br><span class="line">Content-Length: 68</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">...@...</span><br><span class="line">........win-60a3b595b7m\k8gege</span><br><span class="line">................0=W1..LGCN..</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="结语">结语</h3>
+<p>通过本文我们了解了CS心跳包机制、下达指令、回显等原理，并玩弄入侵者<br>
+有兴趣的话，可以自行抓包实现自己的CS服务端，甚至支持对Linux的控制<br>
+也可以实现CS远控的密罐，把CS下达的指令提取出来，返回假的CMD命令结果<br>
+即能收集目标证据以及意图，还能将他玩弄于鼓掌之中，搞死他，哈哈</p>
+<p>PS：之所以有这篇文章，是因为昨晚有人在群里讨论，CS能不能支不支持Linux<br>
+目前CS的shellcode以及beacon(核心功能DLL)都是WINDOWS系统才能执行。<br>
+而CS对于Linux的控制目前仅是SSH会话，想真正支持就得自己实现服务端<br>
+不要说让其支持Linux，用个GO来实现，兼容全平台都可以，只是很麻烦<br>
+因为不开源，每一个动作都要自己去分析它的数据包，很多功能也很费时<br>
+其实早在去年的这个时间就想实现Linux服务端，所以抓包研究了下。<br>
+当时就应该有这篇文章了，只是因为忙，懒得编辑文字，后面忘了发。</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/39070.html" class="pre-post btn btn-default" title="Ladon 6.2新增Ntlm Hash爆破每分钟可破4万个密码">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon 6.2新增Ntlm Hash爆破每分钟可破4万个密码</span>
+    </a>
+    
+    
+    <a href="/p/60379.html" class="next-post btn btn-default" title="Ladon for MacOS">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Ladon for MacOS</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E6%8E%A7%E6%9C%AF%E8%AF%AD"><span class="toc-text">远控术语</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="toc-text">HTTP协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E5%BF%83%E8%B7%B3%E5%8C%85"><span class="toc-text">CS心跳包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E7%BA%BF%E9%AA%8C%E8%AF%81"><span class="toc-text">上线验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%BA%E9%AA%97%E5%85%A5%E4%BE%B5%E8%80%85"><span class="toc-text">欺骗入侵者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96CMD%E6%8C%87%E4%BB%A4"><span class="toc-text">读取CMD指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9ECMD%E7%BB%93%E6%9E%9C"><span class="toc-text">返回CMD结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

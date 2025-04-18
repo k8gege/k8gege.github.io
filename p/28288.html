@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="DllHijack">
+
+
+<meta name="description" content="DLL劫持&amp;白加黑
+DLL劫持在白加黑里最常见，07、08年开始在国内才开始起步，但主要是写病毒用到的较多，什么LPK.DLL、USP10.DLL都是当时流行的U盘病毒木马最喜欢用的劫持...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    持久化后门之微软Visual Studio开发工具DLL劫持 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="持久化后门之微软Visual Studio开发工具DLL劫持">
+            
+            持久化后门之微软Visual Studio开发工具DLL劫持
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/DllHijack/">DLL劫持</a> <a class="category-link" href="/categories/Persistence/">持久化</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/DllHijack/" rel="tag">DllHijack</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/04/22</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1822</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="DLL劫持-白加黑">DLL劫持&amp;白加黑</h3>
+<p>DLL劫持在白加黑里最常见，07、08年开始在国内才开始起步，但主要是写病毒用到的较多，什么LPK.DLL、USP10.DLL都是当时流行的U盘病毒木马最喜欢用的劫持方式，因为它们可以劫持99%的EXE，10年后渗透圈才开始懂利用，常见的只是单纯用于提权而已。很多人在很多方面不懂举一反三，能执行添加用户命令，你就不懂让它执行远控上线了吗？一定要登3389?</p>
+<p>目前还不能完全避免此漏洞，特别是应用软件们的，通过DLL劫持来绕过安全软件主动防御的保护被称为“白加黑”，因为加载的主程序是正常的软件，主动防御可能会放过它，允许它启动，而恶意DLL则通过该软件的漏洞或替换正常的同名文件（对应用软件的文件保护似乎并不象对系统文件保护那样严密，而且并不是一直运行状态，被替换还是比较容易的）， 甚至有的还会冒用合法软件的数字签字等方式，由正常程序加载，从而躲开安全软件的拦截。</p>
+<p>当然可能有些人对白加黑有误解，以为非要劫持系统的才叫白加黑，实际APT里最常用的一些方法是，劫持第3方程序。比如360、讯雷、WinRar、Chrome、Office系列等存在DLL劫持，人家给你发送的马包含被劫持程序和对应DLL，运行正常的程序即可绕过主防上线。如海莲花等APT常用WINWORD.EXE加wwwlib.dll方式上线，因为EXE是WORD里的原版程序，有签名又合法它启动，杀软不拦，由于启动时会加载wwwlib.dll（什么C2或CS啊加密存在DLL里，海莲花常用的是CS），它就上线了，这也是白加黑利用。因为并不是所有人都安装WORD，而且安装的版本不定存在这个劫持，所以它必须捆绑EXE在里面，而这个合法的EXE可以是任何第3方程序。</p>
+<h3 id="VS劫持">VS劫持</h3>
+<p>将K8测试专用DLL劫持工具里的DLL改名成SspiCli.dll后放入VS目录<br>
+运行VS即可，劫持对象VS2008-VS2015主程序devenv，VS2019已修复<br>
+其它不只主程序，只是时间太久了，我忘了懒得测，大家自行测试</p>
+<h4 id="劫持VS2015">劫持VS2015</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/dllhijack/vs2015_ssp.jpg"></p>
+<h4 id="劫持VS2012">劫持VS2012</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/dllhijack/vs2012_ssp.jpg"></p>
+<h4 id="劫持VS2010">劫持VS2010</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/dllhijack/vs2010_ssp.jpg"></p>
+<h4 id="劫持VS2008">劫持VS2008</h4>
+<p><img alt="使用http访问查看图片" data-original="/k8img/dllhijack/vs2008_ssp.jpg"></p>
+<h3 id="POC">POC</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8tools/raw/master/K8dllhijack.rar">https://github.com/k8gege/K8tools/raw/master/K8dllhijack.rar</a></p>
+<h3 id="持久化">持久化</h3>
+<p>如CobalStrike生成DLL改名为SspiCli.dll，用户打开VS时即可上线</p>
+<p>PS: 2016年在网易有发过，发现网上已搜不到，重新发一下<br>
+<img alt="使用http访问查看图片" data-original="/k8img/dllhijack/vs_all.jpg"><br>
+Notepad++ DLL劫持<br>
+<img alt="使用http访问查看图片" data-original="/k8img/dllhijack/notepad++.png"></p>
+<h3 id="参考">参考</h3>
+<p>Notepad++ 修复被 CIA 利用的 DLL 劫持<br>
+<a target="_blank" rel="noopener" href="https://www.sohu.com/a/129080133_466846">https://www.sohu.com/a/129080133_466846</a><br>
+[提权]Notepad++ DLL劫持漏洞<br>
+<a target="_blank" rel="noopener" href="https://bbs.mayidui.net/t219-e.html">https://bbs.mayidui.net/t219-e.html</a></p>
+<h3 id="扯个淡">扯个淡</h3>
+<p>几年前看过我网易博客甚至百度博客的时候会发现，我经过发提权或者DLL劫持的文章，那时候我不需要和别人说持久化人家就懂得如何利用用在哪方面，一张图片就够，而近几年你一定要和人家说一样的名词，不然TMD人家听不懂。不信大家看我19年用博客园时DLL劫持的文章并没多少人看，而以前大家对DLL劫持和提权的关注都是差不多的，这就是最明显的一点。当然也和很多人不会编程或写马有关系，你告诉人家哪个DLL能劫持的，他也没法利用，不关注也很正常。</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/qqkey.html" class="pre-post btn btn-default" title="超过8年依然可用的QQkey免密登陆漏洞">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            超过8年依然可用的QQkey免密登陆漏洞</span>
+    </a>
+    
+    
+    <a href="/p/26141.html" class="next-post btn btn-default" title="持久化后门之加密工具TrueCrypt DLL劫持">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            持久化后门之加密工具TrueCrypt DLL劫持</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DLL%E5%8A%AB%E6%8C%81-%E7%99%BD%E5%8A%A0%E9%BB%91"><span class="toc-text">DLL劫持&amp;白加黑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VS%E5%8A%AB%E6%8C%81"><span class="toc-text">VS劫持</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81VS2015"><span class="toc-text">劫持VS2015</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81VS2012"><span class="toc-text">劫持VS2012</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81VS2010"><span class="toc-text">劫持VS2010</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81VS2008"><span class="toc-text">劫持VS2008</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POC"><span class="toc-text">POC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text">持久化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%AF%E4%B8%AA%E6%B7%A1"><span class="toc-text">扯个淡</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

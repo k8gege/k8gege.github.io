@@ -1,0 +1,659 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon">
+
+
+<meta name="description" content="
+前言
+内网渗透中，最重要的一步就是探测在线机器，只有先探测到机器
+接下来才是探测操作系统、扫描端口服务、开放WEB、扫描漏洞等。
+目标不开机，你搞啥呢？当然也有一种情况，目标开机但却扫不到
+这...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon中28种探测存活主机方法(含绕过防火墙探测) |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon中28种探测存活主机方法(含绕过防火墙探测)">
+            
+            Ladon中28种探测存活主机方法(含绕过防火墙探测)
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/OnlinePC/">主机发现</a> <a class="category-link" href="/categories/Discover/">信息收集</a> <a class="category-link" href="/categories/Lan-Pentest/">内网渗透</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/04/02</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1842</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/OnlinePC6.2.png"></p>
+<h3 id="前言">前言</h3>
+<p>内网渗透中，最重要的一步就是探测在线机器，只有先探测到机器<br>
+接下来才是探测操作系统、扫描端口服务、开放WEB、扫描漏洞等。<br>
+目标不开机，你搞啥呢？当然也有一种情况，目标开机但却扫不到<br>
+这是因为目前大部份扫描器使用PING扫描，而防火墙默认是拦截的<br>
+默认条件下也不放行其它端口，比如SMB、RDP、HTTP等协议也不行<br>
+那能不能在防火墙完全防护状态下探测存活机器呢？答案是有的。</p>
+<h3 id="测试环境">测试环境</h3>
+<p>Win7-A: 192.168.1.20 测试防火墙<br>
+Win7-B: 192.168.1.7  Ladon扫描器</p>
+<p>实验1：A机器关闭防火墙<br>
+实验2：A机器开启防火墙<br>
+实验3：A机器关机</p>
+<p>PS：整个过程中B机器防火墙需关闭，因为要保证所有协议都能进出B机器<br>
+才能测试防火墙开启或关闭的情况下，分别有哪些协议可以探测存活主机</p>
+<h3 id="A关闭防火墙">A关闭防火墙</h3>
+<h1>ICMP协议可达目标机器，即可PING通A机器<br>
+Ladon 192.168.1.1/24 OnlinePC</h1>
+<h1>ICMP: 192.168.1.7       00-0C-00-00-00-90       Win-K8gege      VMware<br>
+ICMP: 192.168.1.4       00-0C-00-00-00-1C                       VMware<br>
+ICMP: 192.168.1.30      08-1F-00-00-00-EA                       Tp-Link<br>
+ICMP: 192.168.1.1       94-28-00-00-00-4E                       NewH3C<br>
+ICMP: 192.168.1.20      00-0C-00-00-00-50                       VMware</h1>
+<p>OnlinePC:5</p>
+<h3 id="A开启防火墙">A开启防火墙</h3>
+<h1>ICMP协议不可达目标机器，即无法PING通A机器，但是MAC可以<br>
+Ladon 192.168.1.1/24 OnlinePC</h1>
+<h1>ICMP: 192.168.1.7       00-0C-00-00-00-90       Win-K8gege      VMware<br>
+ICMP: 192.168.1.1       94-28-00-00-00-4E                       NewH3C<br>
+ICMP: 192.168.1.30      08-1F-00-00-00-EA                       Tp-Link<br>
+ICMP: 192.168.1.4       00-0C-00-00-00-1C                       VMware<br>
+MAC: 192.168.1.20      00-0C-00-00-00-50                       VMware<br>
+ICMP: 192.168.1.2       38-AD-00-00-00-1F                       NewH3C</h1>
+<p>OnlinePC:6</p>
+<h3 id="A机器关机">A机器关机</h3>
+<h1>A机器关机后，发现无法探测MAC，说明能获取到MAC，机器肯定在线<br>
+Ladon 192.168.1.1/24 OnlinePC</h1>
+<h1>ICMP: 192.168.1.7       00-0C-00-00-00-90       Win-K8gege      VMware<br>
+ICMP: 192.168.1.1       94-28-00-00-00-4E                       NewH3C<br>
+ICMP: 192.168.1.4       00-0C-00-00-00-1C                       VMware<br>
+ICMP: 192.168.1.30      08-1F-00-00-00-EA                       Tp-Link<br>
+ICMP: 192.168.1.2       38-AD-00-00-00-1F                       NewH3C</h1>
+<p>OnlinePC:5</p>
+<h3 id="结论">结论</h3>
+<p>开机状态下，开启系统防火墙后，无法PING通机器（默认配置）<br>
+但可获取远程机器MAC，因此可通过MAC探测目标主机是否存活</p>
+<h3 id="疑问">疑问</h3>
+<p>1.有人问我Ladon扫描出来的存活机器，为何PING不通呢?是不是不准？<br>
+答：首先机器存活，但相关端口未开放，如3389没开,你当然连不上。<br>
+同理防火墙默认根本不允许ICMP协议通过，你PING不通很正常。Ladon<br>
+通过其它方式探测到存活，而非单纯的ICMP，PING不通并不代表关机<br>
+上面的实验结果已充分说明，用其它工具扫描可能会漏掉禁PING机器</p>
+<p>2.有人问我为什么新版的OnlinePC比之前慢了，以前3秒可扫一个C段。<br>
+再重复一次，Ladon的OnlinePC不只是单纯的通过ICMP检测存活主机。<br>
+打个比方一个人自己开车去北京，中途车坏了他就不去了，事情结束<br>
+如果车坏了，找人来修或换乘轮船，最后到达北京时间是不是多了。<br>
+新版的先PING机器,不通并没有结束，而是再尝试使用其它协议探测<br>
+最简单的一个问题，你是想要扫描结果更准更多，还是结果少速度快<br>
+再者以前可能3秒至几秒，现在可能几秒至13秒，才多几秒钟也不慢啊</p>
+<p>以上两个问题是我发此文章的主要原因，怕还会有很多人问同样的问题</p>
+<h3 id="28种方法">28种方法</h3>
+<p>Ladon以下模块均可用于探测存活主机，不要死板的只用OnlinePC<br>
+或者只用其它只是用PING来扫描的工具，得到的结果错过很多机器<br>
+可根据实际情况使用以下模块探测存活主机，如WAF禁用HTTP协议<br>
+采用HTTP协议的模块就不要用了，即便同样是HTTP，模块结果不同<br>
+如WhatCMS识别到CMS才回显，WebScan还会返回HttpBanner。<br>
+所以同个协议，有些模块扫不出东西，不代表防火墙禁止该协议。</p>
+<p>如大家最容易理解的扫445端口发现不开放，不代表TCP协议禁用<br>
+因为人家怕你用MS17010漏洞一键GETSHELL，所以禁止了共享而已<br>
+如果要精准探测存活主机，就得使用多个方式才能深入拓展内网</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>模块名称</th>
+<th>功能说明</th>
+<th>采用协议</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>OnlinePC</td>
+<td>存活主机信息</td>
+<td>ICMP、MAC、DNS</td>
+<td>Ladon 192.168.1.1/24 OnlinePC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>OnlineIP</td>
+<td>存活主机(IP)</td>
+<td>ICMP、MAC、DNS</td>
+<td>Ladon 192.168.1.1/24 OnlineIP</td>
+</tr>
+<tr>
+<td>3</td>
+<td>UrlScan</td>
+<td>URL域名扫描</td>
+<td>HTTP</td>
+<td>Ladon 192.168.1.1/24 UrlScan</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SameWeb</td>
+<td>同服域名扫描</td>
+<td>HTTP</td>
+<td>Ladon 192.168.1.1/24 SameWeb</td>
+</tr>
+<tr>
+<td>5</td>
+<td>WebScan</td>
+<td>Web信息扫找</td>
+<td>HTTP</td>
+<td>Ladon 192.168.1.1/24 WebScan</td>
+</tr>
+<tr>
+<td>6</td>
+<td>HostIP</td>
+<td>主机名解析</td>
+<td>DNS</td>
+<td>Ladon Win-K8gege HostIP</td>
+</tr>
+<tr>
+<td>7</td>
+<td>DomainIP</td>
+<td>域名解析</td>
+<td>DNS</td>
+<td>Ladon <a href="http://k8gege.org">k8gege.org</a> DomainIP</td>
+</tr>
+<tr>
+<td>8</td>
+<td>OsScan</td>
+<td>操作系统版本</td>
+<td>MAC、DNS、SMB、HTTP、RDP、TCP等</td>
+<td>Ladon 192.168.1.1/24 OsScan</td>
+</tr>
+<tr>
+<td>9</td>
+<td>PortScan</td>
+<td>扫描Banner</td>
+<td>TCP</td>
+<td>Ladon 192.168.1.1/24 PortScan</td>
+</tr>
+<tr>
+<td>10</td>
+<td>WhatCMS</td>
+<td>Web指纹识别</td>
+<td>HTTP</td>
+<td>Ladon 192.168.1.1/24 WhatCMS</td>
+</tr>
+<tr>
+<td>11</td>
+<td>CiscoScan</td>
+<td>思科扫描</td>
+<td>HTTP、TCP</td>
+<td>Ladon 192.168.1.1/24 CiscoScan</td>
+</tr>
+<tr>
+<td>12</td>
+<td>EnumMssql</td>
+<td>MSSQL主机</td>
+<td>MSSQL</td>
+<td>Ladon EnumMssql</td>
+</tr>
+<tr>
+<td>13</td>
+<td>EnumShare</td>
+<td>共享主机</td>
+<td>SMB</td>
+<td>Ladon EnumShare</td>
+</tr>
+<tr>
+<td>14</td>
+<td>LdapScan</td>
+<td>LDAP主机/389端口/密码爆破</td>
+<td>LDAP、TCP</td>
+<td>Ladon 192.168.1.1/24 LdapScan</td>
+</tr>
+<tr>
+<td>15</td>
+<td>FtpScan</td>
+<td>FTP主机/21端口/密码爆破</td>
+<td>FTP、TCP</td>
+<td>Ladon 192.168.1.1/24 FtpScan</td>
+</tr>
+<tr>
+<td>16</td>
+<td>SmbScan</td>
+<td>445端口/密码爆破</td>
+<td>SMB、TCP</td>
+<td>Ladon 192.168.1.1/24 SmbScan</td>
+</tr>
+<tr>
+<td>17</td>
+<td>WmiScan</td>
+<td>135端口/密码爆破</td>
+<td>WMI、TCP</td>
+<td>Ladon 192.168.1.1/24 WmiScan</td>
+</tr>
+<tr>
+<td>18</td>
+<td>SmbHash</td>
+<td>445端口/密码爆破</td>
+<td>SMB、TCP</td>
+<td>Ladon 192.168.1.1/24 SmbHash</td>
+</tr>
+<tr>
+<td>19</td>
+<td>WmiHash</td>
+<td>135端口/密码爆破</td>
+<td>WMI、TCP</td>
+<td>Ladon 192.168.1.1/24 WmiHash</td>
+</tr>
+<tr>
+<td>20</td>
+<td>SshScan</td>
+<td>22端口/密码爆破</td>
+<td>SSH、TCP</td>
+<td>Ladon 192.168.1.1/24 SshScan</td>
+</tr>
+<tr>
+<td>21</td>
+<td>MssqlScan</td>
+<td>1433端口/密码爆破</td>
+<td>MSSQL、TCP</td>
+<td>Ladon 192.168.1.1/24 MssqlScan</td>
+</tr>
+<tr>
+<td>22</td>
+<td>OracleScan</td>
+<td>1521端口/密码爆破</td>
+<td>Oracle、TCP</td>
+<td>Ladon 192.168.1.1/24 OracleScan</td>
+</tr>
+<tr>
+<td>23</td>
+<td>MysqlScan</td>
+<td>3306端口/密码爆破</td>
+<td>MYSQL、TCP</td>
+<td>Ladon 192.168.1.1/24 MysqlScan</td>
+</tr>
+<tr>
+<td>24</td>
+<td>VncScan</td>
+<td>5900端口/密码爆破</td>
+<td>VNC、TCP</td>
+<td>Ladon 192.168.1.1/24 VncScan</td>
+</tr>
+<tr>
+<td>25</td>
+<td>MS17010</td>
+<td>MS17010漏洞检测</td>
+<td>TCP、SMB</td>
+<td>Ladon 192.168.1.1/24 MS17010</td>
+</tr>
+<tr>
+<td>26</td>
+<td>AdiDnsDump</td>
+<td>域内存活机器</td>
+<td>DNS、LDAP</td>
+<td>Ladon AdiDnsDump 域机器IP</td>
+</tr>
+<tr>
+<td>27</td>
+<td>FtpSniffer</td>
+<td>Ftp密码嗅探</td>
+<td>FTP</td>
+<td>Ladon FtpSniffer 192.168.1.8</td>
+</tr>
+<tr>
+<td>28</td>
+<td>HttpSniffer</td>
+<td>HTTP密码嗅探</td>
+<td>HTTP</td>
+<td>Ladon HTTPSniffer 192.168.1.8</td>
+</tr>
+</tbody>
+</table>
+<p>PS: Ladon 6.2开始密码爆破模块，在无帐密文件的情况下，仅探测协议或对应端口<br>
+当然所有密码爆破均可自定义端口爆破，但自定义端口可能只支持一台不支持批量<br>
+具体看Ladon对应模块的详细文档,嗅探模块嗅探出HTTP或FTP帐密同时也证明其存活</p>
+<h3 id="Browser协议">Browser协议</h3>
+<p>无意发现browser协议中含有机器名、系统版本,发包时间随机，有些2-12分钟<br>
+除了上述方法外，Browser协议也可以用于探测存活主机，不过是基于嗅探<br>
+基于Browser协议探测内网主机，详见：<a href="http://k8gege.org/p/16b5ff0b.html">http://k8gege.org/p/16b5ff0b.html</a></p>
+<h3 id="工具下载">工具下载</h3>
+<p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/55476.html" class="pre-post btn btn-default" title="Ladon 6.4新增Linux系统探测、管理员提权System降权">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon 6.4新增Linux系统探测、管理员提权System降权</span>
+    </a>
+    
+    
+    <a href="/p/39070.html" class="next-post btn btn-default" title="Ladon 6.2新增Ntlm Hash爆破每分钟可破4万个密码">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Ladon 6.2新增Ntlm Hash爆破每分钟可破4万个密码</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-text">A关闭防火墙</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ICMP协议可达目标机器，即可PING通A机器
+Ladon 192.168.1.1/24 OnlinePC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ICMP: 192.168.1.7       00-0C-00-00-00-90       Win-K8gege      VMware
+ICMP: 192.168.1.4       00-0C-00-00-00-1C                       VMware
+ICMP: 192.168.1.30      08-1F-00-00-00-EA                       Tp-Link
+ICMP: 192.168.1.1       94-28-00-00-00-4E                       NewH3C
+ICMP: 192.168.1.20      00-0C-00-00-00-50                       VMware</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%E5%BC%80%E5%90%AF%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-text">A开启防火墙</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ICMP协议不可达目标机器，即无法PING通A机器，但是MAC可以
+Ladon 192.168.1.1/24 OnlinePC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ICMP: 192.168.1.7       00-0C-00-00-00-90       Win-K8gege      VMware
+ICMP: 192.168.1.1       94-28-00-00-00-4E                       NewH3C
+ICMP: 192.168.1.30      08-1F-00-00-00-EA                       Tp-Link
+ICMP: 192.168.1.4       00-0C-00-00-00-1C                       VMware
+MAC: 192.168.1.20      00-0C-00-00-00-50                       VMware
+ICMP: 192.168.1.2       38-AD-00-00-00-1F                       NewH3C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%E6%9C%BA%E5%99%A8%E5%85%B3%E6%9C%BA"><span class="toc-text">A机器关机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">A机器关机后，发现无法探测MAC，说明能获取到MAC，机器肯定在线
+Ladon 192.168.1.1/24 OnlinePC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ICMP: 192.168.1.7       00-0C-00-00-00-90       Win-K8gege      VMware
+ICMP: 192.168.1.1       94-28-00-00-00-4E                       NewH3C
+ICMP: 192.168.1.4       00-0C-00-00-00-1C                       VMware
+ICMP: 192.168.1.30      08-1F-00-00-00-EA                       Tp-Link
+ICMP: 192.168.1.2       38-AD-00-00-00-1F                       NewH3C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%96%91%E9%97%AE"><span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">28种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Browser%E5%8D%8F%E8%AE%AE"><span class="toc-text">Browser协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具下载</span></a></li></ol>
+        
+    </li></div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

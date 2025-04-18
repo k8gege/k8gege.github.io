@@ -1,0 +1,551 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Cobalt Strike">
+
+
+<meta name="description" content="
+Cobalt Strike巨龙拉冬插件9.0发布，让大家久等了，就当是程序员节礼物。原计划是Ladon8.0的时候出的，当时也实现了部份功能，但因为放在虚拟机里，可能误删了没备份，也因为各种事...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖工具〗巨龙拉冬：让你的Cobalt Strike变成超级武器 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖工具〗巨龙拉冬：让你的Cobalt Strike变成超级武器">
+            
+            〖工具〗巨龙拉冬：让你的Cobalt Strike变成超级武器
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CS/" rel="tag">Cobalt Strike</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/10/24</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1272</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/Dragon.jpg"></p>
+<p>Cobalt Strike巨龙拉冬插件9.0发布，让大家久等了，就当是程序员节礼物。原计划是Ladon8.0的时候出的，当时也实现了部份功能，但因为放在虚拟机里，可能误删了没备份，也因为各种事懒得重写，拖着拖着Ladon已出到9.0了，也想国庆写，但国庆又想上王者，于是又拖到最近两天才重写插件，CS右键已实现90%的功能部分功能请先在Beacon命令行使用。巨龙拉冬中文插件和Ladon英文插件的区别是右键菜单功能更全，英文的菜单让很多不熟的人，误以为Ladon并没让CS加强多少功能，而有些知道Ladon功能多的人，也误以为Ladon有很多乱七八槽的功能，最主要是文档不看，问我有没什么功能？如他想查询内网C段存在哪些WEB资产(网站、标题、Banner)等信息，问有没什么工具可以收集啊，然后他gitub找了一圈，哎呀这个工具是PYTHON的这个是GO的体积太大了，就一个功能还需要上传过去，不方便啊，最后来一句Ladon能不能加这个功能图片，我说兄弟能看看Ladon的文档吗？一个WebScan或WhatCMS搞定，用法和你们扫MS17010或OnlinePC一样简单但功能又强大，功能无论是博客文档还是GUI版上的WIKI都可以查看，问我有没有。现在功能又集成到CS插件右键上而且是中文的，希望下次不要再问我类似问题了，你们可以看到从右键菜单看Ladon功能更直观，觉得不乱了，你会发现那些功能都是实战要用的。因为有时候做不同的项目，有些模块可能用不到，时间久了我自己也忘记有这功能，然后去网上找，找着找着发现这功能我几年前写过，或Ladon里有，差点又重复造自己的轮子，所以觉得此中文版除了照顾大部分人，对于我可能也是需要的。总之一句话“Ladon在手，天下我有”，让你的它"Cobalt Strike"变成超级武器吧！不管你信不信，我反正信了。</p>
+<p>=============================================================================================<br>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="http://k8gege.org/Ladon/ladon_cs.html";
+</script>
+<h3 id="关于Ladon">关于Ladon</h3>
+<p>Ladon音译: 拉登或拉冬。因集成了很多模块，每个模块又可独立成为一个工具，上百功能尤如百头巨龙拥有100个头，每个头都可以喷火。Ladon是希腊神话中的神龙，看守金苹果的百头巨龙。它从不睡觉，被赫拉克勒斯借扛天巨人之手诱巨龙睡着。杀死巨龙并偷得了金苹果。巨龙死前将自己的魂魄封印在金苹果中，偷盗者将金苹果送给了白雪公主，公主为了报恩将金苹果分给了七个小矮人，吃下以后他们变成了龙珠散落到世界各地，龙珠分为七颗，它蕴含着可以令奇迹发生的力量。当集齐7颗龙珠念出咒语，就能召唤神龙，而神龙则会实现召唤者提出的一个愿望。</p>
+<h3 id="程序简介">程序简介</h3>
+<p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码审计、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。9.0版本内置122个功能模块,外部模块20个,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，多协议探测操作系统版本信息，漏洞检测包含MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列等，密码审计17种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar、网络摄像头、路由器等，横向移动远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/jspshell),Web指纹识别模块可识别86种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
+<h3 id="使用简单">使用简单</h3>
+<p>虽然Ladon功能丰富多样,但使用却非常简单,任何人都能轻易上手<br>
+只需一或两个参数就可用90%的功能,一个模块相当于一个新工具</p>
+<h3 id="Ladon宗旨">Ladon宗旨</h3>
+<p>一条龙服务，为用户提供一个简单易用、功能丰富、高度灵活的红队工具</p>
+<h3 id="横向对比">横向对比</h3>
+<p>为什么叫百头巨龙?单纯因为功能多吗？我们可以拿Ladon来和一些神器对比，每个模块可能轻松秒杀曾经公认独立的神器，如NbtInfo模块完暴N年前的NbtScan扫描神器，就一个NBT协议就比它信息全，支持批量跨网段、多网段、C段、B段、A段探测等，Ladon还有SMB、WMI、SNMP、Http、DNS、MAC、MSSQL等等协议也是一样。横向移动模块这个不能说秒杀，但可以说更安全，Ladon横向执行命令通信过程是加密的，而网上大量横向工具均是明文传输的，非要说用什么横向容易暴露，同等条件下，肯定是明文容易被WAF拦截啊，你其它横向工具语法复杂又不安全都敢用，Ladon语法简单又加密传输你说用Ladon容易被拦截？能拦Ladon要么是针对，要么是目标在API上拦截，在API拦截，其它工具也会失效。如360横向移动防护，除非你研究出绕过方式，使用新的API横向，不然在API上防护，其它工具无效。还有一些模块特有的b64cmd，能完美兼容类似CS这种在执行多条命令(含有多个引号或空格无法执行的问题)。子域名扫描模块SubDomain不只是单纯识别域名，为了准确会验证IP是否有效是否范解析（单纯解析速度非常快），虽然速度上已有所牺牲，但速度还是比一些文章推荐的神器快而准如SubBrute等(<a href="http://k8gege.org/Ladon/SubDomain.html">http://k8gege.org/Ladon/SubDomain.html</a>)，再说相关提权如potato系列，原版可能只能执行一次或提权后卡死，但Ladon集成的经过修改已解决相关Bug。当然由于实战环境各异，系统环境、网络环境、杀软环境等因素，可能在少部分机器上某些功能Ladon会有BUG(对于上百功能只有少量Bug比那些只写一两个功能的工具还几十个BUG强多了)或者被杀软针对，这种情况可能也是得需要用上其它工具的，因为没有一个工具能取代所有，有些工具可能不是很强，但它没被针对，关键时候可能只有它能用上，平时不用不代表它能完全抛弃。比如说impacket的wmiexec虽然是明文传输的，但有时代理Ladon连不上，这种情况我也推荐你用impaket或者其它工具，impacket也是个神器，我们从不否认，如果说Ladon和impacket都无法连接，我也推荐你用其它不知名的工具，我也不否认其它工具的存在，兴许人家的能用呢？因为实战你需要的是能用的东西，优先安全加密传输这样更隐蔽当然重要，但是实在不能用，你还是得用明文传输的可能也有很多BUG的工具。各种协议密码审计模块除了支持批量A段、B段、C段、跨网段扫描外，也支持多种字典格式快速验证，如SmbScan、NbtScan（独有功能）等模块一分钟可验证4万密码，我知道有黑子肯定要说跑那么多流量大了。实战中我们一般只会用收集到的几十或几百上千密码来跑而已，速度快不是让你一上来就跑，这和一进内网就全端口扫描或直接几百上千个漏洞扫描，那种都是极易被WAF发现和拦截的，这是为什么Ladon那么多功能都是分开的主要原因之一，假如能用MS17010这漏洞拿到系统权限，我还有必要探测其它漏洞，让WAF发现让管理员把我踢出局吗？什么叫动作越少越好，一边说Ladon扫描流量大，一边用那些带有明显特征流量大的工具无脑扫内网，靠运气不被管理员踢出局，明明是管理员菜以及WAF垃圾才没被发现，还说自己很吊。Ladon也可以t=x设置低线程扫啊，也可以f=1完成一个包后再下一包类似手工一个一个的扫啊。</p>
+<h3 id="不易被拦">不易被拦</h3>
+<p>大部份探测发包均为协议正常包所以很难被规则过滤。打个比方，如目标未打永恒之蓝补丁但装有卡巴最新版，使用EXP无法利用，但Ladon依然可以检测到存在MS17010漏洞，探测如此高危漏洞包还有点特殊的情况下连卡巴都不拦截，何况其它模块只是发对应协议正常包探测系统、WEB、设备、版本、服务等等信息呢？所以那些动不动就用Nmap扫C段全端口65535个，TM管理员都没反应，WAF也不拦，却造谣说用Ladon动作大流量高易被管理员发现或被拦截的不知道在想啥？先不说Nmap有特征，同样是小白它不会改特征，单纯无脑全端口扫描就有问题，就算不是C段，对一台机器都TM发几万个包了，管理员和WAF这都没发现，用Ladon只是用正常协议包探测上几个端口反倒会被发现？Ladon里90%的探测模块，如SmbInfo、NbtInfo、MS17010等模块，那些对一台机器仅仅发1-3个小包而已，别说探测一台机器，就是扫整个C段，也比你Nmap默认扫一台机器的1000个端口或全端口扫描的流量要小很多倍。所以在项目中你能用NMAP随意扫不被发现，Ladon也可以扫。因为大部分都是正常协议包探测，所以也不会对业务系统造成影响。用最近的瓜来说就是，Ladon是神龙的龙，不是"修水龙头"的龙，大家不要误会，用Ladon会比很多工具更难被发现，你真遇到很强的管理员，Ladon除了可设置只扫指定范围目标外，同样也可以t=x设置低线程扫啊，甚至f=1完成一个包后再下一个发包，这和手工一个一个来差不多更安全的探测。</p>
+<h3 id="神龙插件-右键菜单-功能列表">神龙插件 右键菜单 功能列表</h3>
+<h4 id="0x001-网络资产收集">0x001 网络资产收集</h4>
+<p>多协议探测存活主机<br>
+仅ICMP探测存活(快)<br>
+Oxid多网卡主机探测<br>
+多协议操作系统探测<br>
+网站、标题、Banner<br>
+智能网站CMS识别<br>
+常见端口服务探测<br>
+Shiro探测<br>
+Cisco探测<br>
+LDAP服务器探测<br>
+FTP服务器探测<br>
+枚举MSSQL服务器<br>
+枚举共享资源</p>
+<h4 id="0x002-系统信息探测">0x002 系统信息探测</h4>
+<p>SMB探测系统信息<br>
+WMI探测系统信息<br>
+NBT探测系统信息<br>
+RDP探测系统信息<br>
+SNMP探测系统信息<br>
+MSSQL探测系统信息<br>
+WINRM探测系统信息<br>
+Exchange探测系统信息</p>
+<h4 id="0x003-远程漏洞检测">0x003 远程漏洞检测</h4>
+<p>SMB永恒之蓝检测<br>
+SMB永恒之黑检测<br>
+Struts2漏洞检测<br>
+Weblogic漏洞检测<br>
+PhpStudy后门检测<br>
+ActiveMQ漏洞检测<br>
+Tomcat漏洞检测</p>
+<h4 id="0x004-一键GetShell">0x004 一键GetShell</h4>
+<p>Exchange CVE-2020-0688<br>
+Weblogic GetShell<br>
+Tomcat GetShell</p>
+<h4 id="0x005-网络密码嗅探">0x005 网络密码嗅探</h4>
+<p>FTP密码嗅探<br>
+HTTP密码嗅探</p>
+<h4 id="0x006-网络密码审计">0x006 网络密码审计</h4>
+<p>445端口SMB密码审计(Windows)<br>
+135端口WMI密码审计(Windows)<br>
+445端口SMB-HASH密码审计(Windows)<br>
+135端口WMI-HASH密码审计(Windows)<br>
+139端口NBT密码审计(Windows)<br>
+5985端口Winrm密码审计(Windows)<br>
+21端口FTP密码审计(多平台)<br>
+5900端口VNC密码审计(多平台)<br>
+389端口LDAP密码审计(Windows)<br>
+1521端口Oracle数据库密码审计(多平台)<br>
+1433端口SQL数据库密码审计(Windows)<br>
+3306端口MYSQL数据库密码审计(多平台)<br>
+7001端口Weblogic后台密码审计(多平台)<br>
+Web端口Tomcat后台密码审计(多平台)<br>
+Web端口401基础认证密码审计(多平台)<br>
+22端口SSH密码审计(Linux_多平台)<br>
+网络摄像头密码审计(401认证)</p>
+<h4 id="0x007-本机执行">0x007 本机执行</h4>
+<p>sc服务执行(system权限)<br>
+at计划任务(system权限)<br>
+Runas(模拟用户执行)<br>
+RunPS(无powershell执行)<br>
+ForExec(循环执行命令)</p>
+<h4 id="0x008-远程执行">0x008 远程执行</h4>
+<p>WinrmExec<br>
+SshExec<br>
+SmbExec<br>
+PsExec<br>
+AtExec<br>
+WmiExec<br>
+WmiExec2<br>
+WinrmExec<br>
+JspShell<br>
+AspShell<br>
+AspxShell<br>
+PhpShell</p>
+<h4 id="0x009-本地提权">0x009 本地提权</h4>
+<p>BypassUac<br>
+eventvwr<br>
+fodhelper<br>
+computerdefaults<br>
+sdclt<br>
+slui</p>
+<p>BypassUac2<br>
+GetSystem<br>
+Runas<br>
+ms16135<br>
+BadPotato<br>
+SweetPotato<br>
+RDPHijack<br>
+CVE-2021-1675</p>
+<h4 id="0x010-自启动">0x010 自启动</h4>
+<p>注册表自启动<br>
+服务启动项</p>
+<h4 id="0x011-3389远程桌面">0x011 3389远程桌面</h4>
+<p>一键开启3389<br>
+查看3389远程连接<br>
+查看管理员组用户<br>
+激活Administrator<br>
+激活用户Guest<br>
+远程桌面会话劫持</p>
+<h4 id="0x012-远程下载">0x012 远程下载</h4>
+<p>Http文件下载<br>
+FTP文件下载</p>
+<h4 id="0x013-域-DC、LDAP">0x013 域(DC、LDAP)</h4>
+<p>域内机器信息获取(域内)<br>
+389端口LDAP服务器探测<br>
+389端口LDAP密码审计<br>
+CVE-2020-1472域控提权</p>
+<h4 id="0x014-后门-木马查看">0x014 后门/木马查看</h4>
+<p>注册表启动项<br>
+系统却持DLL</p>
+<h4 id="0x015-域名解析">0x015 域名解析</h4>
+<p>Domain2IP<br>
+Host2IP</p>
+<h4 id="0x016-端口转发">0x016 端口转发</h4>
+<p>netsh(系统自带)<br>
+PortTran</p>
+<h4 id="0x017-本机信息收集">0x017 本机信息收集</h4>
+<p>查看本机IP(内外网)<br>
+当前用户、特权信息<br>
+GUID、CPUID、DiskID<br>
+基础信息(仅cmd获取)<br>
+基础信息(含wmi获取)<br>
+获取命令行参数<br>
+获取进程详细信息<br>
+查看IE代理信息<br>
+查看本机命名管道<br>
+查看3389远程连接<br>
+查看USB使用记录<br>
+查看管理员组用户<br>
+查看最近访问文件<br>
+查看安装.NET版本<br>
+查看PowerShell版本<br>
+查看已安装程序版本</p>
+<h4 id="0x018-本机密码读取">0x018 本机密码读取</h4>
+<p>IIS站点密码<br>
+CVE-2021-36934<br>
+DumpLsass</p>
+<h4 id="0x019-MSF-NC联动">0x019 MSF/NC联动</h4>
+<p>Shell_bind_tcp<br>
+Shell_reverse_tcp<br>
+Met_reverse_http<br>
+Met_reverse_https<br>
+Shell_reverse_icmp<br>
+Shell_reverse_dns</p>
+<h4 id="0x020-其它功能">0x020 其它功能</h4>
+<p>网站HTML源码查看</p>
+<h4 id="无图无真相">无图无真相</h4>
+<p>好了废话不多说上图，让我们看看Cobalt Strike 4.4巨龙拉冬插件功能</p>
+<p>如果你熟悉Ladon命令的可以直接在Beacon上执行相应命令即可，如使用“Ladon GetID”命令查看目标机器名、机器ID、CPUID、硬盘ID、MAC地址等信息，主要用于区分一些大内网同名机器，或其它用途。若是你不熟悉可以使用右键菜单，为了方便新人或不太熟的人</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44.PNG"></p>
+<p>如果不熟悉Ladon命令用法，也可以右键菜单，使用非常方便，只需选择模块填写目标参数如(IP、URL、域名、主机名、CIDR格式IP等)，即可加载对应模块扫描或探测你想获取的信息，如探测C段存在MS17010漏洞的机器。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_9.PNG"></p>
+<p>内网外网网络资产探测</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_2.PNG"></p>
+<p>操作系统信息探测</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_3.PNG"></p>
+<p>漏洞检测</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_4.PNG"></p>
+<p>网络密码审计</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_5.PNG"></p>
+<p>本机信息收集</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_6.PNG"></p>
+<p>横向移动、远程执行</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_7.PNG"></p>
+<p>权限提升、本地提权</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/cs44_8.PNG"></p>
+<p>这么强大的插件如何获取呢？</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/cs/cs44/csget.PNG"></p>
+<p>原文：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA">https://mp.weixin.qq.com/s/GQBXCX1fiSLi6gKY3M-JcA</a></p>
+<h3 id="CS下载">CS下载</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/Aggressor/releases/tag/cs">https://github.com/k8gege/Aggressor/releases/tag/cs</a></p>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>LadonGo 3.8: <a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a><br>
+PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>
+历史版本: <a target="_blank" rel="noopener" href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+9.0版本：K8小密圈</p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+</div>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/cs.html" class="pre-post btn btn-default" title="〖工具〗Cobalt Strike 3.12 3.13 4.3 4.4 K8破解版">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Cobalt Strike 3.12 3.13 4.3 4.4 K8破解版</span>
+    </a>
+    
+    
+    <a href="/p/auto.html" class="next-post btn btn-default" title="Cobalt Strike与Ladon联动 CS上线自动渗透插件">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Cobalt Strike与Ladon联动 CS上线自动渗透插件</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ELadon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B"><span class="toc-text">程序简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95"><span class="toc-text">使用简单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E5%AE%97%E6%97%A8"><span class="toc-text">Ladon宗旨</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%AA%E5%90%91%E5%AF%B9%E6%AF%94"><span class="toc-text">横向对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E6%98%93%E8%A2%AB%E6%8B%A6"><span class="toc-text">不易被拦</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A5%9E%E9%BE%99%E6%8F%92%E4%BB%B6-%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95-%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8"><span class="toc-text">神龙插件 右键菜单 功能列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-%E7%BD%91%E7%BB%9C%E8%B5%84%E4%BA%A7%E6%94%B6%E9%9B%86"><span class="toc-text">0x001 网络资产收集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8E%A2%E6%B5%8B"><span class="toc-text">0x002 系统信息探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="toc-text">0x003 远程漏洞检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-%E4%B8%80%E9%94%AEGetShell"><span class="toc-text">0x004 一键GetShell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%97%85%E6%8E%A2"><span class="toc-text">0x005 网络密码嗅探</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-text">0x006 网络密码审计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-%E6%9C%AC%E6%9C%BA%E6%89%A7%E8%A1%8C"><span class="toc-text">0x007 本机执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x008-%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C"><span class="toc-text">0x008 远程执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x009-%E6%9C%AC%E5%9C%B0%E6%8F%90%E6%9D%83"><span class="toc-text">0x009 本地提权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x010-%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">0x010 自启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x011-3389%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2"><span class="toc-text">0x011 3389远程桌面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x012-%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BD"><span class="toc-text">0x012 远程下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x013-%E5%9F%9F-DC%E3%80%81LDAP"><span class="toc-text">0x013 域(DC、LDAP)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x014-%E5%90%8E%E9%97%A8-%E6%9C%A8%E9%A9%AC%E6%9F%A5%E7%9C%8B"><span class="toc-text">0x014 后门/木马查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x015-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-text">0x015 域名解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x016-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-text">0x016 端口转发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x017-%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">0x017 本机信息收集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x018-%E6%9C%AC%E6%9C%BA%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96"><span class="toc-text">0x018 本机密码读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x019-MSF-NC%E8%81%94%E5%8A%A8"><span class="toc-text">0x019 MSF/NC联动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x020-%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD"><span class="toc-text">0x020 其它功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8"><span class="toc-text">无图无真相</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

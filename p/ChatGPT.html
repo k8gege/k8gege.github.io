@@ -1,0 +1,464 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon">
+
+
+<meta name="description" content="【视频】ChatGPT编写Ladon渗透插件之端口扫描.rar【视频】ChatGPT编写Ladon渗透插件之网页标题获取.rar
+++++++++++++++++++++++++++++++++...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗ChatGPT编写Ladon渗透工具插件视频教程 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗ChatGPT编写Ladon渗透工具插件视频教程">
+            
+            〖教程〗ChatGPT编写Ladon渗透工具插件视频教程
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2023/03/12</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                768</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1>【视频】ChatGPT编写Ladon渗透插件之端口扫描.rar【视频】ChatGPT编写Ladon渗透插件之网页标题获取.rar</h1>
+<p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<script language="javascript" type="text/javascript">
+window.location.href="/Ladon/ChatGPT.html";
+</script>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/LadonGUI.png"></p>
+<h3 id="Ladon简介">Ladon简介</h3>
+<p>Ladon模块化网络渗透工具，可PowerShell模块化、可CS插件化、可内存加载，无文件扫描。含端口扫描、服务识别、网络资产探测、密码审计、高危漏洞检测、漏洞利用、密码读取以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描等。10.9版本内置200个功能模块,外部模块18个,网络资产探测模块28个通过多种协议(ICMP\NBT\DNS\MAC\SMB\WMI\SSH\HTTP\HTTPS\Exchange\mssql\FTP\RDP)以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、交换机、数据库、打印机等信息，高危漏洞检测16个包含Cisco、Zimbra、Exchange、DrayTek、MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列、Printer等，密码审计23个含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/webshell),Web指纹识别模块可识别135+（Web应用、中间件、脚本类型、页面类型）等，本地提权21+含SweetPotato\BadPotato\EfsPotato\BypassUAC,可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
+<h3 id="C-开发Ladon渗透工具插件例子">C#开发Ladon渗透工具插件例子</h3>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Net;</span><br><span class="line"><span class="keyword">using</span> System.Text.RegularExpressions;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">LadonDLL</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">scan</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">run</span>(<span class="params"><span class="built_in">string</span> ip</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(ip))</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"demo: "</span>+ip + <span class="string">"\r\n"</span>;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Demo的功能为打印存活IP，编译DLL，把DLL放在Ladon目录下，使用以下命令测试，结果将输出ICMP即可Ping通的机器IP，因为Ladon默认先使用ICMP探测存活主机，然后再执行插件内部对应的功能。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon netscan.dll  扫描当前机器所在C段</span><br><span class="line">Ladon 192.168.1.1/24 netscan.dll  指定C段</span><br></pre></td></tr></tbody></table></figure>
+<p>工程源码：<a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/blob/master/Demo_DLL.rar">https://github.com/k8gege/Ladon/blob/master/Demo_DLL.rar</a> 使用VS2010或以上版本打开，若是ChatGPT生成的代码建议使用VS2015或之后版本，不然可能有些代码不能直接使用。</p>
+<h3 id="简单了解ChatGPT回答问题的能力">简单了解ChatGPT回答问题的能力</h3>
+<p>给它输入Ladon简明教程地址，它给我胡编了一个答案，逻辑能力非常强，简直以假乱真。应该根据很多类似工具参考生成了固定模板，你告诉它Ladon是渗透工具，它就胡编乱写一个简介，不熟悉Ladon的人一看估计以为它说的是真的。甚至我在群里看到有人发的人工智能说k8gege也是一款渗透工具，不知道它是不是用的旧版chatGPT，虽然乱说，但逻辑能力是非常强的。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/00.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/0.PNG"></p>
+<p>让它把Ladon简介和版本说明做个排版，效果非常棒<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/info.PNG"></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/info2.PNG"></p>
+<h3 id="ChatGPT编写Ladon渗透工具插件之获取网页标题">ChatGPT编写Ladon渗透工具插件之获取网页标题</h3>
+<p>跟它聊天或做个表格，那就太小看它了，对于渗透或开发人员，我们可以让它帮我们写一些简单工具，或者一些功能模块。大家都知道Ladon工具的插件开发非常简单，一是直接配置INI插件，二是LadonEXP一键生成，三是自己编程实现。三的要求相对高一点，需要使用人员有一定编程能力。</p>
+<p>我们让ChatGPT参考插件例子源码，让它使用C#编写一个获取网页标题的插件<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/1.PNG"></p>
+<p>没等几秒钟，它立即给出以下代码<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/2.PNG"></p>
+<p>打开demo工程，复制它给的代码，全选粘贴到工程里面去，编译并运行，测试看看</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/3.PNG"></p>
+<p>运行结果报错，原因是我们扫描的是C段IP，即传入参数是IP，但获取网页标题需要的是URL，所以还得让它把IP处理成URL<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/4.PNG"><br>
+经过它的修改，可以成功获取网页标题，由于扫的是C段，我们并不知道哪个IP上面部署了IIS7，所以得让它把结果改下<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/5.PNG"><br>
+很快它又改好代码，再次编译测试<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/6.PNG"><br>
+测试发现除了获取标题外，还回显了很多访问不到的URL<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/7.PNG"><br>
+渗透时，我们不需要对不存在的URL进行分析，或者说存在但是当前IP被目标限制了访问不到，所以探测不到。不管是因为不存在而访问不到，还是IP限制访问不到，都无法对它进行渗透，如果C段存活主机非常多，或者说扫描B段，既然我们不关注不可访问结果，那么没必要让它显示。<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/8.PNG"><br>
+它给出了最终的代码，编译后，使用Ladon扫描C段，就只回显网页标题了<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/9.PNG"></p>
+<h4 id="ChatGPT实现Ladon渗透插件获取网页标题代码">ChatGPT实现Ladon渗透插件获取网页标题代码</h4>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Net;</span><br><span class="line"><span class="keyword">using</span> System.Text.RegularExpressions;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">LadonDLL</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">scan</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">run</span>(<span class="params"><span class="built_in">string</span> input</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(input))</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">string</span> url = <span class="string">""</span>;</span><br><span class="line">            Uri uriResult;</span><br><span class="line">            <span class="keyword">if</span> (Uri.TryCreate(input, UriKind.Absolute, <span class="keyword">out</span> uriResult)</span><br><span class="line">                &amp;&amp; (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps))</span><br><span class="line">            {</span><br><span class="line">                url = uriResult.ToString();</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (Regex.IsMatch(input, <span class="string">@"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d+)?$"</span>))</span><br><span class="line">            {</span><br><span class="line">                url = <span class="string">"http://"</span> + input;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(url))</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Invalid URL or IP address"</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            {</span><br><span class="line">                <span class="built_in">string</span> title = <span class="string">""</span>;</span><br><span class="line">                <span class="keyword">try</span></span><br><span class="line">                {</span><br><span class="line">                    WebClient client = <span class="keyword">new</span> WebClient();</span><br><span class="line">                    <span class="built_in">string</span> html = client.DownloadString(url);</span><br><span class="line">                    Regex regex = <span class="keyword">new</span> Regex(<span class="string">@"(?&lt;=&lt;title.*&gt;)([\s\S]*)(?=&lt;/title&gt;)"</span>, RegexOptions.IgnoreCase);</span><br><span class="line">                    title = regex.Match(html).Value.Trim();</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">catch</span></span><br><span class="line">                {</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">return</span> url + <span class="string">"\t"</span> + title + <span class="string">"\r\n"</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="ChatGPT编写Ladon渗透插件之端口扫描代码">ChatGPT编写Ladon渗透插件之端口扫描代码</h4>
+<pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
+
+namespace LadonDLL
+{
+    public class scan
+    {
+        public static string run(string ip)
+        {
+            if (string.IsNullOrEmpty(ip))
+                return "";
+
+            // 要扫描的端口列表
+            List&lt;int&gt; ports = new List&lt;int&gt;() { 21, 80, 443, 22, 445, 135 };
+
+            string result = "";
+            // 扫描每个端口并添加结果到字符串
+            foreach (int port in ports)
+            {
+                if (IsPortOpen(ip, port))
+                {
+                    result += $"{ip}\t{port}\tOPEN\r\n";
+                }
+            }
+
+            return result;
+        }
+
+        // 检查端口是否开放
+        static bool IsPortOpen(string ip, int port)
+        {
+            try
+            {
+                using (TcpClient client = new TcpClient())
+                {
+                    client.Connect(ip, port);
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+}
+
+```csharp
+
+PS：Ladon自带模块WebScan或WhatCMS或PortScan均包含网页标题功能获取，PortScan端口扫描模块也包含很多协议指纹识别，大家有兴趣也可以让chatGPT帮实现更多更好用的插件功能。
+
+### 小结
+本文演示如何使用ChatGPT开发Ladon插件，快速扩展Ladon扫描能力，借助ChatGPT，编程新手也可以快速编写POC。有一点大家要注意，使用ChatGPT做一件事最好只在一个chat里操作，不然它会结合上下文，把你的需求搞乱，给多余或混乱代码。你自身的专业能力越强，它和你的对话就越专业，你问得模糊不清，自己一知半解，你的专业术语或表述不对，它给你的结果自然垃圾。甚至有时候它给的很多代码压根就不能用，但是它胡编乱造的能力，让你一眼觉得代码是正确可用的，实际编译发现，不能用，比如某些协议它给的包就压根不对，我测试了十几次，同样问题它随机给了好几次代码，其中有3次重复，但这些不是重点，重点是都用不了，有是发包协议是这个数组有时是另一个，有时是对的，但整个请求代码还有其它错误，导致用不了，你得告诉它教它改，虽然这样，就它目前的能力，也是非常强的，让它写一个Ladon简单功能插件，基本也就5分钟左右，当然如果需求足够清晰，够了解它，让它不要乱改什么，要实现的功能，每一条都写清楚，也有可能一步到位，一问就搞定，加上编译测试，整个过程估计也就一分钟左右。
+
+
+### 视频教程
+
+https://github.com/k8gege/ChatLadon
+【视频】ChatGPT编写Ladon渗透插件之端口扫描.rar
+【视频】ChatGPT编写Ladon渗透插件之网页标题获取.rar
+
+### 工具下载
+
+最新版本：http://k8gege.org/Download
+历史版本: https://github.com/k8gege/Ladon/releases
+
+
+&lt;div style="text-align: center; width: 710px; border: green solid 0px;"&gt;
+&lt;img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /&gt;
+&lt;/div&gt;</code></pre>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/LadonGo.html" class="pre-post btn btn-default" title="〖工具〗LadonGo开源全平台内网渗透扫描器">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗LadonGo开源全平台内网渗透扫描器</span>
+    </a>
+    
+    
+    <a href="/p/vsKey.html" class="next-post btn btn-default" title="〖key〗VS2022 VS2019 VS2017最新注册码序列号">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖key〗VS2022 VS2019 VS2017最新注册码序列号</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">【视频】ChatGPT编写Ladon渗透插件之端口扫描.rar【视频】ChatGPT编写Ladon渗透插件之网页标题获取.rar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E7%AE%80%E4%BB%8B"><span class="toc-text">Ladon简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E5%BC%80%E5%8F%91Ladon%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7%E6%8F%92%E4%BB%B6%E4%BE%8B%E5%AD%90"><span class="toc-text">C#开发Ladon渗透工具插件例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3ChatGPT%E5%9B%9E%E7%AD%94%E9%97%AE%E9%A2%98%E7%9A%84%E8%83%BD%E5%8A%9B"><span class="toc-text">简单了解ChatGPT回答问题的能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ChatGPT%E7%BC%96%E5%86%99Ladon%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7%E6%8F%92%E4%BB%B6%E4%B9%8B%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5%E6%A0%87%E9%A2%98"><span class="toc-text">ChatGPT编写Ladon渗透工具插件之获取网页标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ChatGPT%E5%AE%9E%E7%8E%B0Ladon%E6%B8%97%E9%80%8F%E6%8F%92%E4%BB%B6%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5%E6%A0%87%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-text">ChatGPT实现Ladon渗透插件获取网页标题代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ChatGPT%E7%BC%96%E5%86%99Ladon%E6%B8%97%E9%80%8F%E6%8F%92%E4%BB%B6%E4%B9%8B%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E4%BB%A3%E7%A0%81"><span class="toc-text">ChatGPT编写Ladon渗透插件之端口扫描代码</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

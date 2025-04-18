@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Brute">
+
+
+<meta name="description" content="前言
+内置密码爆破模块还不够全面，研发其它协议认证需要时间。
+先不说功能实现，首先搭建各种协议认证环境就不少时间吧。
+还有别人的工具不开源的情况，而且它只能支持单个IP爆破。
+这时候我们需要批量...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗Ladon 6.2自定义密码爆破 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗Ladon 6.2自定义密码爆破">
+            
+            〖教程〗Ladon 6.2自定义密码爆破
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Brute-Force/">密码爆破</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Brute/" rel="tag">Brute</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/03/30</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1846</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言">前言</h3>
+<p>内置密码爆破模块还不够全面，研发其它协议认证需要时间。<br>
+先不说功能实现，首先搭建各种协议认证环境就不少时间吧。<br>
+还有别人的工具不开源的情况，而且它只能支持单个IP爆破。<br>
+这时候我们需要批量爆破整个C段、多个网段、或批量列表。<br>
+批量包括但不限于IP、URL、机器名、CIDR格式、任意XX等。</p>
+<h3 id="INI配置插件">INI配置插件</h3>
+<p>适用场景，需调用相关命令或第三方工具进行批量操作<br>
+或者有新的POC，但来不及或无法写成DLL来调用时<br>
+很多第3方工具不支持批量或者说根本不支持批量网段<br>
+而Ladon不只限于批量IP、URL、IP段、任意内容等<br>
+是紧急情况下最适合用于验证内网是否存在漏洞工具<br>
+新的漏洞来时你能调好POC就不错了，批量更要时间</p>
+<h3 id="自定义密码爆破">自定义密码爆破</h3>
+<p>例子：调用修改过的smbexec.exe进行HASH密码验证，原版不退出无法爆破<br>
+根目录下放4个文件，smbexec.exe、smbhash.ini、user.txt、pass.txt。</p>
+<p>smbhash.ini</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line">exe=smbexec.exe</span><br><span class="line">arg=-hashes $pass$ $user$@$ip$</span><br><span class="line">isok=Launching semi-interactive shell</span><br><span class="line">port=445</span><br><span class="line"><span class="built_in">log</span>=<span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="INI插件用法">INI插件用法</h3>
+<p>命令：Ladon 192.168.1.1/24 smbhash.ini</p>
+<h3 id="INI参数说明">INI参数说明</h3>
+<p>exe:  程序名称，必填项。不指定路径优先加载SYSTEM32目录或当前目录下程序<br>
+arg:  程序参数，必填项。其中$ip$、$user$、$pass$变量为字典文件替换变量<br>
+isok：成功标志，必填项。如smbexec成功时返回”Launching semi-interactive shell”<br>
+port：对应端口，非必填。如SMB为445，Ladon先检测到端口开放，才进行密码爆破<br>
+log:  程序日志，非必填。如有些程序返回一堆错误结果，我们不想看，可不显示</p>
+<p>检测内网C段是否使用同一个密码,命令：Ladon 192.168.1.1/24 smbhash.ini<br>
+截图为6.1，大家记得把ret改成isok就行了。<br>
+<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DiyIniPwd.PNG"></p>
+<h3 id="功能多余？">功能多余？</h3>
+<p>有人可能会说，功能用不到，批量用自己的程序就可以了。<br>
+1.不是所有人都会编程，INI配置的目的主要是给这些人用的。<br>
+2.据我所知市面上的批量，仅支持批量单一列表，如IP列表、URL列表等，且不支持模块化。</p>
+<p>举个例子：CVE-2019-0708原版漏洞检测批量支持C段扫描，但不支持批量C段甚至批量B段扫描。<br>
+没错它是开源的，但有几个人去实现修改让它支持更多实战环境的批量需求？<br>
+C语言的多线程操作可和Python这种小学生都能轻松学会的人随便写的啊。<br>
+如果别的Poc，用其它你不懂的语言来写，你需要急用，你还会慢慢去学？<br>
+当然你不觉得麻烦，也可以另外用自己会的语言写个批量调用工具，哈哈</p>
+<h3 id="工具下载">工具下载</h3>
+<p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
+历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/c5430395.html" class="pre-post btn btn-default" title="Ladon For Cobalt Strike 4.0">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Ladon For Cobalt Strike 4.0</span>
+    </a>
+    
+    
+    <a href="/p/19321.html" class="next-post btn btn-default" title="Windows提权工具 CVE-2019-1405 &amp; CVE-2019-1322">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Windows提权工具 CVE-2019-1405 &amp; CVE-2019-1322</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#INI%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6"><span class="toc-text">INI配置插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">自定义密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#INI%E6%8F%92%E4%BB%B6%E7%94%A8%E6%B3%95"><span class="toc-text">INI插件用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#INI%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-text">INI参数说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%A4%9A%E4%BD%99%EF%BC%9F"><span class="toc-text">功能多余？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具下载</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>

