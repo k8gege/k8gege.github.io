@@ -73,7 +73,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -176,7 +176,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>SSH服务默认为22端口，在不配置帐密的情况下，使用sshscan可探测SSH服务版本，通过SSH服务信息可确定目标操作系统版本，也可进行下一步渗透，如OpenSSH某个版本存在RCE，通过RCE直接getshell，就不需要爆破了，所以先做什么后做什么很重要。不是动不动就无脑的全端口扫描，全漏洞扫描，默认端口就是SSH，就有漏洞，用的就是简单密码，还要做很多动作，产生很多流量，让管理员更容易发现？</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 sshscan</span><br></pre></td></tr></tbody></table></figure>
 <p>如图，扫描C段开放SSH服务主机仅需3秒，探测到一台Ubuntu主机开放SSH服务，使用OepnSSH7.6<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/sshscan0.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/sshscan0.png"></p>
 <h3 id="SSH密码爆破-暴力破解">SSH密码爆破/暴力破解</h3>
 <h4 id="配置密码爆破参数">配置密码爆破参数</h4>
 <p>1 支持标准的user.txt和pass.txt帐密破解，爆破每个用户都需将密码跑完或跑出正确为此<br>
@@ -238,13 +238,13 @@ ip16.txt<br>
 10.1.</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshScan</span><br></pre></td></tr></tbody></table></figure>
 <p>如图，爆破指定主机SSH密码、爆破C段主机SSH密码<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SSHscan.gif"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/SSHscan.gif"></p>
 <h3 id="SSH执行命令">SSH执行命令</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshExec 192.168.1.8 k8gege k8gege520 <span class="built_in">whoami</span></span><br><span class="line">Ladon SshExec 192.168.1.8 22 k8gege k8gege520 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/sshexec.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/sshexec.PNG"></p>
 <h3 id="LadonGo全平台版">LadonGo全平台版</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshCmd host port user pass cmd</span><br><span class="line">Ladon WinrmCmd host port user pass cmd</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/LadonGo/LnxSshWinrm.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/LadonGo/LnxSshWinrm.PNG"></p>
 <h3 id="注意事项">注意事项</h3>
 <p>个别模块依赖DLL最好使用K8提供的，官网或第3方的不一定能用、兼容性不好等。如SSH爆破用的Renci.SshNet.dll，我曾经下过官方的不同版本发现有些能用有些不能用，也有同学不知从哪下的，刚和我说SSHscan在2012 R2没反应只扫描了端口然后就没了，然后我看它名称全是小写的和我提供的不一样，突然想起这个DLL的兼容性问题，让他下载Ladonlib之后果然可以用了。VNC的DLL也是一样官方源码的有个BUG</p>
 <h3 id="工具下载">工具下载</h3>
@@ -378,7 +378,7 @@ ip16.txt<br>
 </tbody>
 </table>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
     </div>
 </article>

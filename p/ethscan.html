@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -208,7 +208,7 @@ window.location.href="http://k8gege.org/Ladon/ethscan.html";
 <p>OXID Resolver是在支持COM +的每台计算机上运行的服务。它执行两项重要职责：<br>
 存储与远程对象连接所需的RPC字符串绑定，并将其提供给本地客户端。<br>
 将ping消息发送到本地计算机具有客户端的远程对象，并接收在本地计算机上运行的对象的ping消息。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Other/DCOM_OXID.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Other/DCOM_OXID.PNG"></p>
 <p>我们只需要向远程主机发以下两个包，再解析返回结果即可。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">        static byte[] s1 ={</span><br><span class="line">0x05,0x00,0x0b,0x03,0x10,0x00,0x00,0x00,</span><br><span class="line">0x48,0x00,0x00,0x00,0x01,0x00,0x00,0x00,</span><br><span class="line">0xb8,0x10,0xb8,0x10,0x00,0x00,0x00,0x00,</span><br><span class="line">0x01,0x00,0x00,0x00,0x00,0x00,0x01,0x00,</span><br><span class="line">0xc4,0xfe,0xfc,0x99,0x60,0x52,0x1b,0x10,</span><br><span class="line">0xbb,0xcb,0x00,0xaa,0x00,0x21,0x34,0x7a,</span><br><span class="line">0x00,0x00,0x00,0x00,0x04,0x5d,0x88,0x8a,</span><br><span class="line">0xeb,0x1c,0xc9,0x11,0x9f,0xe8,0x08,0x00,</span><br><span class="line">0x2b,0x10,0x48,0x60,0x02,0x00,0x00,0x00</span><br><span class="line">     </span><br><span class="line">                          };</span><br><span class="line"></span><br><span class="line">        static byte[] s2 ={</span><br><span class="line"></span><br><span class="line">0x05,0x00,0x00,0x03,0x10,0x00,0x00,0x00,</span><br><span class="line">0x18,0x00,0x00,0x00,0x01,0x00,0x00,0x00,</span><br><span class="line">0x00,0x00,0x00,0x00,0x00,0x00,0x05,0x00</span><br><span class="line">     </span><br><span class="line">                          };</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="程序版本">程序版本</h3>
@@ -232,7 +232,7 @@ OxidScan</p>
 <h4 id="扫描C段主机">扫描C段主机</h4>
 <p>Ladon 192.168.1.8/24 EthScan<br>
 Ladon 192.168.1.8/C EthScan</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/EthScan.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/EthScan.PNG"></p>
 <h4 id="批量扫描IP列表主机">批量扫描IP列表主机</h4>
 <p>ip.txt里放需要扫描的IP，使用以下命令即可<br>
 Ladon EthScan</p>
@@ -245,7 +245,7 @@ Ladon EthScan</p>
 <h3 id="关闭135端口">关闭135端口</h3>
 <h4 id="防止通过135网卡探测">防止通过135网卡探测</h4>
 <p>运行dcomcnfg，打开“组件服务”→“计算机”，在“我的电脑”上右键点击，选“属性”；然后点默认属性，把“在此计算机上启用分布式COM（E）”的勾去掉，接着返回到“默认协议”，移除“面向连接的TCP/IP”协议。重启后发现135端口还是开放，但已无法探测机器名和网卡，不过WmiScan还可以扫描到密码。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Other/wmi_rpc_no.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Other/wmi_rpc_no.PNG"></p>
 <h4 id="彻底关闭135端口">彻底关闭135端口</h4>
 <p>运行regedit，进入注册表HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Rpc<br>
 右键点击Rpc,新建——项——输入 Internet<br>
@@ -262,7 +262,7 @@ Ladon EthScan</p>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

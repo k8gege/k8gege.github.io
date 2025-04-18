@@ -75,7 +75,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -177,33 +177,33 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>你的朋友拿到abcdef密码也无法登陆，但是你给朋友发说明你们共享那个APP的帐密，于是你把算法告诉他，你说字母数字序号对应密码，他得知这个算法后即可解密出明文为123456,此过程完成了解密。</p>
 <h3 id="DIY加密">DIY加密</h3>
 <p>在实际使用中我们的密文最好不要使用这么简单的加密，可以设置得更复杂一点，比如1对应着a的ascii值,a的ascii码为97,我们的明文-密文对应关系为 1-a-97,1对应97<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218213751738.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218213751738.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center"><br>
 但还是不够隐蔽，我们可以让密文的ascii值减去一个数比如减去8,97减去8等于89,89通过ASCII解密得到Y,即明文为1，密文为Y。<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218213805714.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center">DIY算法，编码表为1对应(a的ascii码值-8),2对应(b的ascii码值-8),依此类推，这样就得到一个简单的自定义加密算法，如起名为k8diy算法。高兴怎么叫都行，但对于BASE64、MD5等等国际加密算法，即便你在完全自主研发情况下实现和MD5一模一样的算法，也不能起名叫XXXX，因为人家有专利了，而且MD5的发明用了10年。你单纯加密123456得到和MD5一模一样的密文，也不代表你加密其它明文也得到与其对应的结果。</p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218213805714.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center">DIY算法，编码表为1对应(a的ascii码值-8),2对应(b的ascii码值-8),依此类推，这样就得到一个简单的自定义加密算法，如起名为k8diy算法。高兴怎么叫都行，但对于BASE64、MD5等等国际加密算法，即便你在完全自主研发情况下实现和MD5一模一样的算法，也不能起名叫XXXX，因为人家有专利了，而且MD5的发明用了10年。你单纯加密123456得到和MD5一模一样的密文，也不代表你加密其它明文也得到与其对应的结果。</p>
 <h3 id="加密结果">加密结果</h3>
 <p>明文123456通过我们的自定义加密算法得到的密文为YZ[]^,这个结果在别人不知道算法的情况下，是不是无法解密。当然我们也可以故意在此基础上在进行BASE64加密得到密文为WVpbXF1e，以此误导黑客，该算法我们同样可以随机起个名字比如K8base64或者Kcrypt。此时99.99999%的黑客拿到密文肯定只会单纯的通过base64解密，解密得到明文后他会发现密码根本登陆不上，会以为管理员已经修改密码了。<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218215134714.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218215134714.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center"></p>
 <h3 id="异或加密">异或加密</h3>
 <p>通过以上讲解，大家是否发现，实现上实现所谓的加密解密算法非常简单，任何人都可轻易发明加密算法，但是要想做到像MD5、SHA1这样的加密算法很难。当然即使非常简单的加密算法在实际运用中也非常有效，比如最简单的异或加密。比如计算6异或3，6的2进制为110,3的2进制为011，计算6^3=110^011=101，因为简单，破解起来也很容易。在密码中不推荐使用，但在免杀方面可以使用,比如CS在加载beacon时使用的是0x69异或。因为我们加密shellcode后必须要解密，使用其它算法，可能shellcode长度就会非常长，最主要是难度非常大，异或就几行汇编代码,虽说此加密方法非常简单也非常容易破解，比我在写本文时突然想到的DIY算法例子还简单，为何杀软无法查杀呢?因为不同的恶意程序可能用不同的算法，单纯的异或，杀软在不知道你异或哪个值的情况下，是不是得尝试所有，这样扫描速度会怎样，如果人家使用了别的加密算法呢，每个算法都尝试几千上万种密钥解密不现实吧，再者我不是整段数据加密，是其中一小段，杀软怎么知道是对整个文件解密，还是先对其中一段解密。它能知道解密的前提是整个文件出现了某个特征，它才能通过特定算法去解密，不然就像买彩票一样，这就是为何异或非常简单，但长达几十年以来，大部分杀软免杀依然非常有效的原因。</p>
 <h3 id="Ladon加密解密">Ladon加密解密</h3>
 <p>为了方便，LadonGui版新增EnCode模块，内置Base64/Base32/Ascii/Hex等加密解密算法，当然你称为编码解码也是一样，名词是人定的，怎么叫都可以。有时我看到一些对加密一只半解的人说Base64是编码不算加密，这个东西就像坏人虐待儿童，不把他们当人看一样。不是说加密能解密的就称不上算法，就像你是穷人，难道你就不是人了吗？就像本文里最简单的123456加密成abcdef，就连这个它也是一个加密算法。比如所谓间谍、特工用的摩斯密码也是非常简单，它和123456对应abcdef差不多，相当于稍微改进一下，看以下对照表，大家会发现比本文的随手写的K8DIY算法还要简单，是不是所谓特工并非大家想像中的动不动智商高达多少多少，而是大部分也和普通人一样，只不过从事行业不同，术业有专攻罢了，哪怕一个在行业里最简单的东西，外行人不懂一点都不奇怪，并非你不懂就代表人家是天才。电影里敲击时间的长度，即可传递对应字母给同伴，当然这么简单的密码，同行轻易就能发现你是特工，所以为什么特工使用摩托密码很容易被同行抓，就是因为这密码太TM简单了。<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218222459499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218222459499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70#pic_center"></p>
 <h3 id="Hex加密">Hex加密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800479.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800479.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Hex解密">Hex解密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800528.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800528.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Base64加密">Base64加密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800469.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800469.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Base64解密">Base64解密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800421.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800421.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Base32加密">Base32加密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800393.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800393.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Base32解密">Base32解密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800339.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800339.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Ascii加密">Ascii加密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800282.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800282.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Ascii解密">Ascii解密</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210218211800231.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210218211800231.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Download">Download</h3>
 <h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4>
 <p><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p>
@@ -212,7 +212,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 8.0版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
     </div>
 </article>

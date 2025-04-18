@@ -71,7 +71,7 @@ SYSTEM权限下截取不到目标桌面？ADMIN权限下打不开...">
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -227,22 +227,22 @@ SYSTEM权限下截取不到目标桌面？ADMIN权限下打不开SYSTEM权限进
 命令：Ladon GetSystem cmd.exe /system<br>
 命令：Ladon GetSystem cmd.exe lsass<br>
 可指定EXE或BAT，将以SYSTEM权限运行，如下图弹个CMD<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/GetSystem.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/GetSystem.PNG"></p>
 <p>注意：需管理员权限，若存在UAC可使用BypassUac获取管理员</p>
 <p>当然也可以使用系统AT、SCHTASKS等命令获取SYSTEM权限，不担心被杀，只是麻烦点，看Ladom多简单</p>
 <h3 id="降权-以用户权限执行">降权 以用户权限执行</h3>
 <p>SYSTEM权限下并不是什么都可以做，比如大家用Ladon或其它工具弹出个SYS权限CMD，再试一下系统自带的NET USE命令连接IPC看提示什么，你会发现明明密码是正确的但是却提示错误。为何需提权、降权我在14年已发布<br>
 命令：Ladon GetSystem cmd.exe /user<br>
 命令：Ladon GetSystem cmd.exe explorer<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/GetSystem2.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/GetSystem2.PNG"></p>
 <p>PS: 当然也可以切换至任意权限，指定对应进程即可，如降权到服务权限等</p>
 <h3 id="DumpLsass内存密码">DumpLsass内存密码</h3>
 <p>Dump Lsass内存文件，取回本地读取密码，无需免杀MIMI<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/DumpLsass.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/DumpLsass.PNG"></p>
 <h3 id="Ping">Ping</h3>
 <p>命令: Ping 或 PingIP</p>
 <p>仅ICMP协议探测存活主机（速度快3-6秒/ C段，5.8版本前的OnlinePC）<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/PingIP.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/PingIP.PNG"></p>
 <h3 id="Ipc密码爆破">Ipc密码爆破</h3>
 <p>INI插件：调用系统net use命令进行IPC爆破，由于系统限制只能连接一个，因此只能验证一个密码结束后，才能对下一个密码进行验证，而且必须删除连接，以上因素导致用系统命令爆破速度会很慢，因为你无法多线程一下就验证多个密码，所以Ladon内置模块不再保留IpcScan，使用分破4万密码的SmbScan可快速验证密码或者调用impacket的smbexec验证速度要比net use也快很多。</p>
 <p>PS：此模块的存在主要是用于针对2003或XP系统的Ipc爆破，远程为Win7后系统推荐使用内置SmbScan爆破</p>
@@ -250,7 +250,7 @@ SYSTEM权限下截取不到目标桌面？ADMIN权限下打不开SYSTEM权限进
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Ladon]</span><br><span class="line"><span class="comment">#Brute-Force IPC(445) PassWord </span></span><br><span class="line">exe=cmd.exe</span><br><span class="line">arg=net use \\$ip$ /user:$user$ $pass$ &amp; net use \\$ip$ /del</span><br><span class="line"><span class="comment">#isok=The command completed successfully</span></span><br><span class="line">isok=命令成功完成</span><br><span class="line">port=445</span><br><span class="line"><span class="built_in">log</span>=<span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
 <p>扫描C段</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/c ipcscan.ini</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/INI_ipcscan.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/INI_ipcscan.PNG"></p>
 <h3 id="工具下载">工具下载</h3>
 <p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
 历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
@@ -259,7 +259,7 @@ SYSTEM权限下截取不到目标桌面？ADMIN权限下打不开SYSTEM权限进
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

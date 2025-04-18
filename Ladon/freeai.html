@@ -80,7 +80,7 @@ a...">
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -184,22 +184,22 @@ Qwen 2.5</p>
 <h3 id="漏洞简介">漏洞简介</h3>
 <p>通过调用 DeepSeek R1 和 Qwen 2.5 API进行聊天，成功聊天，回显ISOK</p>
 <h4 id="批量扫描">批量扫描</h4>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/freeai.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/freeai.png"></p>
 <h4 id="批量结果">批量结果</h4>
 <p>扫描1W只有478个，看来大部份还是设置授权的，单纯识别Ollama不等于能白嫖，这个和探测CMS页面存在就说有漏洞同理，目标刚好有，小白就认为扫描器牛逼，实际上靠的是运气。等过段时间目标补丁打得差不多，通过版本识别漏洞的工具，再扫提示有洞，但根本打不了。Ladon百分之99探测漏洞模块，均通过漏洞原理，能扫到大部分就能EXP打，个别漏洞采用版本，不确定存在漏洞会加?号<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/deepseek.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/deepseek.png"></p>
 <h3 id="CS使用POC">CS使用POC</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; Ladon http://192.168.1.8 FreeAI</span><br></pre></td></tr></tbody></table></figure>
 <p>PS: Cobalt Strike内存加载FreeAI</p>
 <h3 id="指定URL">指定URL</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 FreeAI</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/freeai.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/freeai.png"></p>
 <h3 id="指定IP">指定IP</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 FreeAI</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="批量URL">批量URL</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt FreeAI</span><br></pre></td></tr></tbody></table></figure>
 <p>PS：TXT可存放IP、IP:Port、URL等格式</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/freeai.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/freeai.png"></p>
 <h3 id="批量IP">批量IP</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt FreeAI</span><br><span class="line">Ladon noping ip.txt FreeAI</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="指定C段">指定C段</h3>

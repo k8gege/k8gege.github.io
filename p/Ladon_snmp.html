@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -206,27 +206,27 @@
 基于SNMP,进行网络设备监控,如:交换机、防火墙、服务器,CPU等其系统内部信息,基本都可以监控到。</p>
 <h3 id="穿墙探测">穿墙探测</h3>
 <p>赚快钱的方法都写在刑法里，穿墙的协议都写在防火墙里。Windows系统默认允许协议(或者说安装对应角色功能后默认通行的协议)，利用SNMP协议可探测机器名、操作系统版本、系统位数、多网卡信息(IP\掩码\网关)、进程(进程名/PID)、命令行参数、磁盘信息、C段存活主机MAC、当前打开目录、窗口标题等越多目标信息<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130174812639.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130174812639.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="开启Snmp">开启Snmp</h3>
 <p>1.控制面板-角色-启用SNMP协议<br>
 2.服务配置，默认一般为public<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130174134598.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">### Snmp抓包<br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130174134598.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">### Snmp抓包<br>
 使用Snmp抓包，可看到SNMP包中返回了操作系统版本等信息<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130174248308.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130174248308.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Ladon探测">Ladon探测</h3>
 <p>使用Ladon或LadonGo的SnmpScan模块可探测操作系统、硬件版本等信息<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130175000964.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130175000964.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="实战扫描">实战扫描</h3>
-<p>实战目标C段探测到的Cisco思科、Huawei华为、Linux系统、交换机等<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130174831409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">### 探测其它信息<br>
+<p>实战目标C段探测到的Cisco思科、Huawei华为、Linux系统、交换机等<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130174831409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">### 探测其它信息<br>
 探测更详细的信息可使用snmpwalk工具，但前提是我们先探测出SNMPY主机，因为Ladon主要用于批量C段、B段、A段甚至全网扫描，不适合对单个IP都发送大量SNMP协议包，所以仅发几个包探测目标系统版本等信息即可</p>
 <p>机器名、操作系统版本、系统位数、多网卡信息(IP\掩码\网关)、进程(进程名/PID)、命令行参数、磁盘信息、C段存活主机MAC、当前打开目录、窗口标题等</p>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130175328424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/2021013017532861.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130175327977.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130175327936.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130175327490.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130175327270.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210130175327175.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130175328424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/2021013017532861.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130175327977.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130175327936.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130175327490.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130175327270.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210130175327175.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Golang实现">Golang实现</h3>
 <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> snmp</span><br><span class="line"><span class="comment">//Ladon Scanner for golang </span></span><br><span class="line"><span class="comment">//Author: k8gege</span></span><br><span class="line"><span class="comment">//K8Blog: http://k8gege.org/Ladon</span></span><br><span class="line"><span class="comment">//Github: https://github.com/k8gege/LadonGo</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/alouca/gosnmp"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetInfo</span><span class="params">(host <span class="type">string</span>)</span></span>{</span><br><span class="line">s, err := gosnmp.NewGoSNMP(host, <span class="string">"public"</span>, gosnmp.Version2c, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> {</span><br><span class="line">	<span class="comment">//log.Fatal(err)</span></span><br><span class="line">}</span><br><span class="line">resp, err := s.Get(<span class="string">".1.3.6.1.2.1.1.1.0"</span>)</span><br><span class="line"><span class="keyword">if</span> err == <span class="literal">nil</span> {</span><br><span class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> resp.Variables {</span><br><span class="line">		<span class="keyword">switch</span> v.Type {</span><br><span class="line">		<span class="keyword">case</span> gosnmp.OctetString:</span><br><span class="line">			fmt.Println(host,<span class="string">"\t"</span>,v.Name, v.Value.(<span class="type">string</span>), v.Type.String())</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>PS：需要探测更详细的大量信息，可自行FOR循环发包获取</p>
@@ -242,7 +242,7 @@ Finished: 2020-11-22 08:54:41</p>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

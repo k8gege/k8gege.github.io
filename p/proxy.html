@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -237,7 +237,7 @@ window.location.href="http://k8gege.org/Ladon/proxy.html";
 <p>Standard Edition</p>
 <p>用户名 <a href="http://k8gege.org">k8gege.org</a><br>
 注册码 5EZ8G-C3WL5-B56YG-SCXM9-6QZAP</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/Proxy411.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/Proxy411.PNG"></p>
 <h3 id="Ladon工作原理">Ladon工作原理</h3>
 <p>由于proxifier客户端不支持ICMP或者说ew等代理工具也不支持ICMP协议，所以代理后探测存活主机就不要使用Ping或OnlinePC模块了，使用扫描模块需加noping参数，非扫描模块不需要noping。探测存活主机可使用osscan、webscan、urlscan、ms17010、smbghost等模块，他们能扫出东西不也意味着主机存活吗？ping不是唯一的探测存活主机存活方式，系统防火墙默认禁ping，使用ping探测本身就会错过很多存活主机，所以实战要结合多种方式探测。假设目标防火墙只允许smb协议通过，你用nmap端口扫描的TCP包被拦截显示成关的，但用ms17010，smbghost扫出漏洞或者用smbscan就显示密码错误拒绝访问等，这不就说明445确实开放吗？不要死板的老是停留在ping和单纯的端口扫描来探测存活主机，要考虑实际环境，OnlinePC可探测到大部分存活主机，但不等于能探测到全部存活主机，当你无法渗透已扫到的存活主机，就得尝试其它模块探测更多主机。</p>
 <p>PS：如何验证代理是否支持ICMP协议，非常简单用系统自带命令PING目标内网IP（不要PING自己的内网哦），能PING通目标存活IP，说明代理支持ICMP协议，意味你可以像挂了目标VPN一样或者像本地一样随意扫描目标内网，如果根本PING不通，老老实实扫描时加上noping参数。</p>
@@ -247,15 +247,15 @@ Ladon noping 10.1.2.8/24 MS17010</p>
 <p>PS：再次强调，由于代理工具不支持ICMP，所以Ladon扫描类功能必须加noping参数，非扫描模块不需要。</p>
 <h3 id="实战扫描结果">实战扫描结果</h3>
 <p>Linux SSH服务识别之22端口扫描<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/proxy_porscan22.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/proxy_porscan22.png"></p>
 <p>WEB HttpBanner扫描<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/proxy_httpscan.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/proxy_httpscan.png"></p>
 <p>永恒之默漏洞 SMBghost CVE-2020-0796<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/proxy_smbghost.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/proxy_smbghost.png"></p>
 <p>OSSCAN探测目标操作系统<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/proxy_osscan.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/proxy_osscan.png"></p>
 <p>ProtScan端口扫描<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/proxy_porscan.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/proxy_porscan.png"></p>
 <h3 id="Proxifier-更新日志">Proxifier 更新日志</h3>
 <h4 id="版本-4-11-2022-12-16">版本 4.11 (2022.12.16)</h4>
 <pre><code>Proxifier 现在可以记录和阻止 UDP 连接
@@ -329,7 +329,7 @@ Proxifier: <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8t
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

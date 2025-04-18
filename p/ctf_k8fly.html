@@ -69,7 +69,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -218,7 +218,7 @@
 直接访问会看到一堆表情，浏览器右键查看HTML代码即可，（但实战遇到屏蔽右键查看就无效）</p>
 <p>解题：</p>
 <p>K8飞刀–HackerIE–Get方式–网址web2–结果选"文本"–提交，即可看到注释中的Flag</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_html1.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_html1.PNG"></p>
 <p>PS：K8飞刀可以无视”网站屏蔽查看HTML代码“功能，现实这样的网页很多，很多CTF不考查，所以CTF和实战是有区别的。</p>
 <h3 id="题目2-HTML实体">题目2 HTML实体</h3>
 <p>网址： <a target="_blank" rel="noopener" href="http://123.206.87.240:8002/web3/">http://123.206.87.240:8002/web3/</a></p>
@@ -227,7 +227,7 @@
 <p>解题：</p>
 <p>K8飞刀–HackerIE–Get方式–网址web3–结果选"文本"–提交，看到一串可疑的HTML实体字符串，<br>
 编码解码–粘贴加密的Flag–右键选中Flag–编码转换–XSS跨站–HTML实体(Dec),解密获取Falg</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_html2.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_html2.PNG"></p>
 <p>PS：有些CTF也会把HTML实体编码放在图片里面(记事本打开图片就能看到)</p>
 <h3 id="题目3-GET提交">题目3 GET提交</h3>
 <p>网址：<a target="_blank" rel="noopener" href="http://123.206.87.240:8002/get/">http://123.206.87.240:8002/get/</a></p>
@@ -240,7 +240,7 @@ echo ‘flag{****}’;<br></p>
 <p>解题：<br>
 网址 <a target="_blank" rel="noopener" href="http://123.206.87.240:8002/get?what=flag">http://123.206.87.240:8002/get?what=flag</a><br>
 K8飞刀–HackerIE–Get方式–网址get–结果选"文本"–提交，可看到返回flag</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_get.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_get.PNG"></p>
 <h3 id="题目4-POST提交">题目4 POST提交</h3>
 <p>网址: <a target="_blank" rel="noopener" href="http://123.206.87.240:8002/post/">http://123.206.87.240:8002/post/</a></p>
 <p>$what=$_POST[‘what’];<br><br>
@@ -252,7 +252,7 @@ echo ‘flag{****}’;<br></p>
 <p>解题：<br>
 K8飞刀–HackerIE–Post方式–网址post–结果选"文本"–提交，可看到返回flag<br>
 网址：<a target="_blank" rel="noopener" href="http://123.206.87.240:8002/post/">http://123.206.87.240:8002/post/</a>  提交数据：what=flag</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_post.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_post.PNG"></p>
 <h3 id="题目5-伪造IP">题目5 伪造IP</h3>
 <p>伪造IP这个考查点非常不错，因为现实中确实有很多网站后台存在IP限制。</p>
 <p>网址：<a target="_blank" rel="noopener" href="http://123.206.31.85:1003/">http://123.206.31.85:1003/</a>  管理员系统</p>
@@ -260,7 +260,7 @@ K8飞刀–HackerIE–Post方式–网址post–结果选"文本"–提交，可
 <p>K8飞刀–HackerIE–Post方式–提交,返回Flag<br>
 提交数据：user=admin&amp;pass=test123</p>
 <p>X-Forwarded-For 值为 127.0.0.1</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_xorip.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_xorip.PNG"></p>
 <h3 id="题目6-PUT漏洞">题目6 PUT漏洞</h3>
 <p>这里没找到在线的题(也懒得找),有些CTF可能会考查PUT写权限漏洞，实战也是一个很经典的漏洞，如IIS6写权限GetShell或Tomcat CVE-2017-12615，实际上如果Apache或Ngix配置不当也可以通过PUT直接GetShell的，但该功能飞刀里没有，需使用LadonExp才可实现。</p>
 <p>遇到的话可参考<br>
@@ -269,35 +269,35 @@ K8飞刀–HackerIE–Post方式–网址post–结果选"文本"–提交，可
 <h3 id="题目7-URL编码">题目7 URL编码</h3>
 <p>网址：<a target="_blank" rel="noopener" href="http://123.206.87.240:8002/web4">http://123.206.87.240:8002/web4</a></p>
 <p>访问看到几个URL编码的变量，那就解密看看吧<br>
-<img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_url1.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_url1.PNG"><br>
 复制使用K8飞刀解密后得到Value值<br>
-<img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_url2.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_url2.PNG"><br>
 提交后得到Flag<br>
-<img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_url3.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_url3.PNG"></p>
 <h3 id="题目8-cookie欺骗">题目8 cookie欺骗</h3>
 <p>访问 <a target="_blank" rel="noopener" href="http://123.206.87.240:8002/web11/">http://123.206.87.240:8002/web11/</a> 会跳转到以下地址<br>
 <a target="_blank" rel="noopener" href="http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=">http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=</a><br>
 Cookie: margin=margin</p>
 <p>解题：K8飞刀–HackerIE–设置Cookie提交即可<br>
-<img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_cookie.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_cookie.PNG"></p>
 <h3 id="题目9-Referer来源">题目9 Referer来源</h3>
 <p>分析：访问提示，are you from google? 在URL里来源为Referer</p>
 <p><a target="_blank" rel="noopener" href="http://123.206.87.240:9009/from.php">http://123.206.87.240:9009/from.php</a></p>
 <p>解题：K8飞刀设置Referer为google即可<br>
 Referer: <a target="_blank" rel="noopener" href="https://www.google.com">https://www.google.com</a></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_referer.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_referer.PNG"></p>
 <h3 id="题目9-PHP-post">题目9 PHP post</h3>
 <p><a target="_blank" rel="noopener" href="http://123.206.87.240:8002/web7/?uname%5B%5D=1&amp;id=margin">http://123.206.87.240:8002/web7/?uname[]=1&amp;id=margin</a><br>
 post：passwd[]=2</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_phppost.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_phppost.PNG"></p>
 <h3 id="题目10-目录扫描">题目10 目录扫描</h3>
 <p><a target="_blank" rel="noopener" href="http://123.206.87.240:8002/web13/">http://123.206.87.240:8002/web13/</a><br>
 404 Not Found</p>
 <p>分析：访问提示404，本页不存在，那我们扫目录看有哪些页面可访问</p>
 <p>K8扫到robots.txt访问发现result.php,下面提示x=密码就出现flag<br>
-<img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_scandir.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_scandir.PNG"></p>
 <p><a target="_blank" rel="noopener" href="http://123.206.87.240:8002/web13/resusl.php?x=admin">http://123.206.87.240:8002/web13/resusl.php?x=admin</a></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/k8fly/ctf/ctf_scandir2.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/k8fly/ctf/ctf_scandir2.PNG"></p>
 <h3 id="解题速度">解题速度</h3>
 <p>天下武功唯快不破，只有解题速度快，才有机会做更多的题，同样能全解的情况下，自然也是速度快的拿第一。</p>
 <p>网上有不少教程对于，PUT提交或IP这种简单修改使用BURP来解题，这个也没什么问题，问题在于有些人并不熟悉相关工具。最怕的是你也熟悉该工具，但打CTF时，环境因素或自己不细心少了哪一步，会浪费掉很多时间，我们都知道如果几分钟就能把前面简单的FLAG提交，那么就会有更多的时间去解难题拿更高分。所以对于考查HTTP参数提交的知识点，可以完全使用K8飞刀或LadonExp这种一键的工具，不要使用Burp这种步骤多的工具，钥题时间越快对你越有利。实战也是一样，你早一天拿到目标，和只做到一半就被发现然后管理员打补丁，没办法再通过该漏洞GetShell甚至也无其它漏洞时你就知道错了。如果你多次提交失败管理员还是没发现，只能说明他很蠢，你运气好可以随便搞。</p>
@@ -312,7 +312,7 @@ post：passwd[]=2</p>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

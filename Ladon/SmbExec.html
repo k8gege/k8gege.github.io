@@ -73,7 +73,7 @@ Ladon8.8更新功能
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -171,10 +171,10 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Load SmbExec</span><br><span class="line">Usage:</span><br><span class="line">Ladon SmbExec host user pass cmd <span class="built_in">whoami</span></span><br><span class="line">Ladon SmbExec host user pass b64cmd dwBoAG8AYQBtAGkA</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="SmbExec执行">SmbExec执行</h3>
 <p>在Cobalt Strike的shell下执行SmbExec需要带空格引号参数时，CS转义有问题，使用正常CMD命令比较麻烦，所以我增加了个b64cmd参数便于在CS下使用(这个方法在几个月前的BypassUac里使用，很多人不知道为什么这样做，直接CMD命令不好吗，非要经过一步加密，当你要执行的CMD命令含有很多转义时你就知道了，得经过CS转义成CMD转义得到正常CMD很麻烦)。b64cmd命令可通过LadonGUI 8.2以后版本使用Base64Unicode加密生成</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Gui82.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/Gui82.PNG"></p>
 <h4 id="执行结果">执行结果</h4>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbExec.PNG"><br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbExec2.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/SmbExec.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/SmbExec2.PNG"></p>
 <h4 id="Ladon其它横向移动模块">Ladon其它横向移动模块</h4>
 <table>
 <thead>
@@ -242,7 +242,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 8.8版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
 
     </div>

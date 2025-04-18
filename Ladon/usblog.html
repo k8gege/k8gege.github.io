@@ -77,7 +77,7 @@ Ladon UsbLog查看USB使用记录，检测是否被他人用U盘插过自己电�
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -180,7 +180,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 [+]UsbLog USB使用记录查看(USB名称、USB标记、路径信息)</p>
 <h3 id="Ladon查看">Ladon查看</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon UsbLog</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/UsbLog.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/UsbLog.PNG"></p>
 <h3 id="C-查看">C#查看</h3>
 <figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">USBConnKey = Registry.LocalMachine.OpenSubKey(<span class="string">@"SYSTEM\CurrentControlSet\Enum\USBSTOR"</span>, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="built_in">string</span> sub1 <span class="keyword">in</span> USBConnKey.GetSubKeyNames())</span><br><span class="line">{</span><br><span class="line">    RegistryKey sub1key = USBConnKey.OpenSubKey(sub1, <span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="built_in">string</span> sub2 <span class="keyword">in</span> sub1key.GetSubKeyNames())</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        {</span><br><span class="line">            RegistryKey sub2key = sub1key.OpenSubKey(sub2, <span class="literal">false</span>);</span><br><span class="line">            <span class="keyword">if</span> (sub2key.GetValue(<span class="string">"Service"</span>, <span class="string">""</span>).Equals(<span class="string">"disk"</span>))</span><br><span class="line">            {</span><br><span class="line">                String Path = <span class="string">"USBSTOR"</span> + <span class="string">"\\"</span> + sub1 + <span class="string">"\\"</span> + sub2;</span><br><span class="line">                String Name = (<span class="built_in">string</span>)sub2key.GetValue(<span class="string">"FriendlyName"</span>, <span class="string">""</span>);</span><br><span class="line">                Console.WriteLine(<span class="string">"USB_Name: "</span> + Name);</span><br><span class="line">                Console.WriteLine(<span class="string">"UID_Tag: "</span> + sub2);</span><br><span class="line">                Console.WriteLine(<span class="string">"Path: "</span> + Path + <span class="string">"\r\n"</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">catch</span> (Exception msg)</span><br><span class="line">        {</span><br><span class="line">            Console.WriteLine(msg.Message);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Cmd查看">Cmd查看</h3>
@@ -201,7 +201,7 @@ allver     安装软件列表</p>
 7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 8.7版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
 
     </div>

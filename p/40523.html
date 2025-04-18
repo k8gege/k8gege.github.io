@@ -72,7 +72,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -250,25 +250,25 @@ A对应信息已保存在本地数据库，因此想要确认机器是否还在�
 <p>下面配置好CS让其上线后，我们对服务端进行抓包，其心跳包如下<br>
 CS也是一样，因为是BS模式HTTP协议，它的心跳特征存在Cookie里<br>
 非正常cookie写法，一段很长的加密数据，可以止来判断是否中招</p>
-<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat1.PNG"></p>
+<p><img alt="img" class="lazyload" data-src="http://k8gege.org/k8img/csonline/cscheat1.PNG"></p>
 <h3 id="上线验证">上线验证</h3>
 <p>使用Ladon Exp生成器可以提交WEB数据包，类似Firefox上的HackBar但更高级<br>
 区别在于可生成Ladon插件或独立EXE，对于不懂编程的人来说也可“编写”EXP<br>
-<img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat2.PNG"></p>
+<img alt="img" class="lazyload" data-src="http://k8gege.org/k8img/csonline/cscheat2.PNG"></p>
 <p>运行LadonPoc.exe发现CS上线，执行一次就上线一次，说明思路没错<br>
-<img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat3.gif"></p>
+<img alt="img" class="lazyload" data-src="http://k8gege.org/k8img/csonline/cscheat3.gif"></p>
 <h3 id="欺骗入侵者">欺骗入侵者</h3>
 <p>假设我们在内网中发现别人的CS流量或者抓到样本，给他模拟上线，让他有得看没得吃<br>
 他在客户端那边只会看到机器在线，就是死活控不了，然后他就想是不是目标环境奇葩<br>
 还是说网络太卡或有什么问题,能上线就是不能操作，哈哈，一直在上线却啥事也不能做</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">### Cobalt Strike Cheat by K8gege</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cscheat</span>():</span><br><span class="line">	opener = urllib2.build_opener()</span><br><span class="line">	opener.addheaders.append((<span class="string">'Cookie'</span>, <span class="string">'Qk1UsVjTNpW6aR0327yD57Zkt1m6XWurvM+bR0xqOqGnXsatzGHpnccfgqmruH6dnJudEzijQhC0NCtoAxdA90rso7NAfBrfRrktO5B4FjZX6LEBxIyzEwQ71Jk1ttM8VY6luE5k+PMLk6DAmWUoGoJmvAl/qp4qreuWumv52TM='</span>))</span><br><span class="line">	res = opener.<span class="built_in">open</span>(<span class="string">"http://192.168.1.102:800/dpixel"</span>)</span><br><span class="line">	content = res.read()</span><br><span class="line">	<span class="built_in">print</span> content</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:    </span><br><span class="line">	<span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime()))    </span><br><span class="line">	cscheat()</span><br><span class="line">	time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat4.gif"></p>
+<p><img alt="img" class="lazyload" data-src="http://k8gege.org/k8img/csonline/cscheat4.gif"></p>
 <h3 id="读取CMD指令">读取CMD指令</h3>
 <p>当客户端下达CMD命令时，中转TeamServer会将命令放在心跳包中，返回的结果如下：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^Zd........N...&amp;....%COMSPEC%.... /C net user k8gege..AAAAAAAAAA.&lt;....g..I9.....</span><br><span class="line"></span><br><span class="line">5e5a69740000002e0000004e000000260000000925434f4d535045432500000013202f43206e6574</span><br><span class="line">2075736572206b387465616d00004141414141414141414100e488fc2a22f737b0067ac4384c4971</span><br></pre></td></tr></tbody></table></figure>
 <p>测试多次发现不管执行多长的命令 都会出现/C空格 和两个00加至少一个A<br>
 所以我们截取 2F4320 和 000041 之间的值，再解密即为CS下发的CMD命令</p>
-<p><img alt="img" data-original="http://k8gege.org/k8img/csonline/cscheat5.PNG"></p>
+<p><img alt="img" class="lazyload" data-src="http://k8gege.org/k8img/csonline/cscheat5.PNG"></p>
 <h3 id="返回CMD结果">返回CMD结果</h3>
 <p>将CS的命令执行结果提交到submit.php页面，即可实现回显,数据包如下</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /submit.php?<span class="built_in">id</span>=60871 HTTP/1.1</span><br><span class="line">Accept: */*</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</span><br><span class="line">Host: 192.168.1.102:800</span><br><span class="line">Content-Length: 68</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">...@...</span><br><span class="line">........win-60a3b595b7m\k8gege</span><br><span class="line">................0=W1..LGCN..</span><br></pre></td></tr></tbody></table></figure>
@@ -289,7 +289,7 @@ CS也是一样，因为是BS模式HTTP协议，它的心跳特征存在Cookie里
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

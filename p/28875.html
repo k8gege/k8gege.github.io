@@ -72,7 +72,7 @@ github上有一份weblogic一...">
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -208,24 +208,24 @@ github上有一份weblogic一...">
 看了下代码竟只是判断页面非404，对于返回403,500等误报<br><br>
 还不如写成200，虽然同样不靠谱，于是Ladon添加此POC检测<br></p>
 <h4 id="误报的POC检测脚本">误报的POC检测脚本</h4>
-<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_0.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_0.png"></p>
 <h4 id="存在漏洞的页面特征">存在漏洞的页面特征</h4>
-<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_1.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_1.png"></p>
 <h4 id="EXP生成器生成POC">EXP生成器生成POC</h4>
 <p>使用EXP生成器可简单检测，至少判断页面特征比单纯检测状态更好吧</p>
-<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_2.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_2.png"></p>
 <h4 id="POC测试">POC测试</h4>
 <p>LadonExp生成的POC可单独使用，也可作为Ladon插件批量检测<br>
 单独使用: CVE-2018-2894_Poc.exe url<br><br>
 批量使用: Ladon CVE-2018-2894_Poc.exe (根目录url.txt)<br><br>
 当然Ladon内置模块WeblogicPoc已添加该漏洞检测<br></p>
-<p><img alt="使用http访问查看图片" data-original="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="https://k8gege.github.io/k8img/Ladon/exp/CVE-2018-2894_3.png"></p>
 
     </div>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

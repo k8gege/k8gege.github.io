@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -209,10 +209,10 @@
 <h3 id="Ladon探测内网MS17010漏洞">Ladon探测内网MS17010漏洞</h3>
 <p>由于之前已扫过整个C段，确定存在漏洞的机器IP范围,使用Ladon直接扫特定IP范围即可，由于目标机器禁Ping，所以Ladon需要noping参数,如以下命令为只探测1-50的机器是否存在MS17010漏洞，Ladon出这么久，估计还有些同学不懂用吧，Ladon非常智能，你只想扫一个IP，一个URL，特定IP区间，特定IP段，批量IP，批量IP段，它它它都可以，支持TXT列表，跨网段等，无需另外找其它工具。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon noping 192.168.1.1-192.168.1.50 ms17010</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/portmap_ladon.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/portmap_ladon.PNG"></p>
 <h3 id="本地MSF渗透内网MS17010">本地MSF渗透内网MS17010</h3>
 <p>由于目标内网IP段是192.2.0段，而我们本地是192.168段，MSF直接打是不行的，所以我们需要将渗透机的某个端口转向目标内网端口。如设置555端口，目标445端口，目标对应内网IP，本地使用MSF打渗透机的555,即相当于打目标的445。这里由于电脑内存小不想多开个kali，所以MSF直接装在渗透机了，那么使用MSF直接打127就可以了。如果你打开的是KALI，在KALI里的MSF就打192.168.1.X的555端口。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/portmap_msf.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/portmap_msf.PNG"></p>
 <h3 id="Download">Download</h3>
 <h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4>
 <p><a target="_blank" rel="noopener" href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p>
@@ -225,7 +225,7 @@
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

@@ -73,7 +73,7 @@ Windows系统下，tscon或任务管理器右键可被用来切换远程桌面�
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -167,7 +167,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 </p>
 <h3 id="前言">前言</h3>
 <p>Windows系统下，tscon或任务管理器右键可被用来切换远程桌面的会话。正常情况下，切换会话时需要提供登录密码，但在SYSTEM权限下可够绕过验证，无密码实现未授权登录。该漏洞在2017年由以色列安全研究员Alexander Korznikov在个人博客中披露，mimikat里面也有该功能，为了方便Ladon也添加了该功能。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Other/rdp_task.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Other/rdp_task.PNG"></p>
 <h3 id="背景">背景</h3>
 <p>实战中某个项目的内网HTTPS证书有问题，特别奇葩不知为何，代理或CMD下无法连WEBSHELL，还有些远程连接程序管理员连着远程机器，特别是连着数据库的在自动处理数据，当管理员不在时我们只要接管他的会话就很香了。</p>
 <h3 id="漏洞细节">漏洞细节</h3>
@@ -181,14 +181,14 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h3 id="Ladon用法">Ladon用法</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Load RDPhijack</span><br><span class="line">Usage:</span><br><span class="line">Ladon RDPHijack sessionID</span><br><span class="line">Ladon RDPHijack <span class="built_in">type</span> or password</span><br><span class="line">Example:</span><br><span class="line">Ladon RDPHijack 3</span><br><span class="line">Ladon RDPHijack 3 console</span><br><span class="line">Ladon RDPHijack 3 P@ssw0rd</span><br><span class="line">Ladon RDPHijack 3 disconnect</span><br></pre></td></tr></tbody></table></figure>
 <p>首先query user查看会话ID，然后使用Ladon接管会话即可，操作完成后disconnect即可，或者再连回原先会话。<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/RdpHijack.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/RdpHijack.PNG"></p>
 <p>PS: 用这个技术去劫持，系统不会请求合法用户登出，而是在没有任何通知的情况下，直接将用户踢出。</p>
 <h3 id="tscon用法">tscon用法</h3>
 <ol>
 <li>先获取SYSTEM权限,管理员权限执行以下命令，将弹出SYSTEM权限CMD，然后query user查看已登陆会话<br>
 Ladon getsystem cmd.exe</li>
 </ol>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Other/rdp_task.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Other/rdp_task.PNG"></p>
 <ol start="2">
 <li>创建劫持用户会话的服务</li>
 </ol>
@@ -213,7 +213,7 @@ Ladon getsystem cmd.exe</li>
 <p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
     </div>
 </article>

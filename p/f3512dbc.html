@@ -72,7 +72,7 @@ PS: 何为SC加载器，即专...">
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -248,22 +248,22 @@ ctypes.pointer(ctypes.c_int(0)))</p>
 <p>下面以前写的加载器，GUI的专门用于本地测试ShellCode是否正常用的，在测试漏洞的时候，</p>
 <p>首先先保证你的ShellCode是可运行的吧，要不然漏洞没问题，马没上线，你说漏洞不行就乱来了。</p>
 <p>除了PY和C#以外，VC、Delphi、VB的SC加载都有写过，Delphi版的在博客里就能找到例子。</p>
-<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun1.png"></p>
+<p><img alt="" class="lazyload" data-src="http://k8gege.org/k8img/posts/pyscrun1.png"></p>
 <p><span style="font-size: 18px; color: #ff00ff;"><strong>&nbsp;0x004 实战CS上线<br></strong></span></p>
 <p><span style="font-size: 18px; color: #ff00ff;"><strong>一、Hex ShellCode</strong></span></p>
 <p>1.首先使用CS生成标准C格式的payload，格式（\xfc\xe8\x89\x00）在飞刀里我定义为Char格式</p>
 <p>2.因为CS没有直接生成HEX格式的功能，所以需要使用K8飞刀将其转换成HEX格式。</p>
 <p>具体步骤：选中Char格式的Shellcode，右键-Hacking--ShellCode--Char2Hex</p>
 <p>其它溢出漏洞使用的ShellCode格式，均可使用飞刀进行转换或反转成标准格式</p>
-<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun2.png"></p>
+<p><img alt="" class="lazyload" data-src="http://k8gege.org/k8img/posts/pyscrun2.png"></p>
 <p>3.使用scrun.exe加载Hex格式的ShellCode，发现我们的CS上线了。</p>
 <p>如果我没记错此方式目前也还能过Win10系统自带的Defender</p>
 <p>不知大家有没发现Hex字符串除了不被杀以外，还无需落地</p>
 <p>而Bin文件需要落地且被Defender杀(这个我肯定没有记错)</p>
-<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun3.png"></p>
+<p><img alt="" class="lazyload" data-src="http://k8gege.org/k8img/posts/pyscrun3.png"></p>
 <p><span style="color: #ff00ff;"><strong>二、Base64(Hex) ShellCode</strong></span></p>
 <p>当然我们还可以对其进一步加密，先将Char转成Hex，再将HEX加密转成Base64，加密方法同上。</p>
-<p><img alt="" data-original="http://k8gege.org/k8img/posts/pyscrun4.png"></p>
+<p><img alt="" class="lazyload" data-src="http://k8gege.org/k8img/posts/pyscrun4.png"></p>
 <p>ScRunBase64.py 执行Base64格式ShellCode代码如下</p>
 <div class="cnblogs_Highlighter">
 <pre class="brush:python;gutter:true;">#scrun by k8gege
@@ -315,7 +315,7 @@ ctypes.pointer(ctypes.c_int(0)))</p>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

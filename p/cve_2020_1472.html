@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -231,15 +231,15 @@ Windows Server, version 2004 (Server Core installation)
 非域机器：MS17010、OnlinePC、OsScan等扫描出来的机器名可判断，密码爆破模块LdapScan不指定帐密时仅探测LDAP服务器。<br>
 域内机器：Ladon AdiDnsDump IP,当然非域机器能用的模块在域内也是可以用的。</p>
 <p>如图：扫描C段389端口，再通过协议识别是否为LDAP服务器，单纯检测389端口不准(1.12使用LDAP连接错误)<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/LdapScan0.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/LdapScan0.PNG"></p>
 <h3 id="插件用法">插件用法</h3>
 <h4 id="工具用法">工具用法</h4>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python cve-2020-1472-exp.py 192.168.1.8</span><br><span class="line">python cve-2020-1472-exp.py K8gege.org 192.168.1.8</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/cve-2020-1472.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/cve-2020-1472.PNG"></p>
 <h4 id="Ladon用法">Ladon用法</h4>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Usage</span><br><span class="line">Ladon target cve-2020-1472.ini</span><br><span class="line">Example:</span><br><span class="line">Ladon 192.169.1.8 cve-2020-1472.ini</span><br><span class="line">Ladon 192.169.1.8/24 cve-2020-1472.ini</span><br><span class="line">Ladon 192.169.1.8/16 cve-2020-1472.ini</span><br></pre></td></tr></tbody></table></figure>
 <p>如图：批量C段<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/Ladon_cve-2020-1472.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/Ladon_cve-2020-1472.PNG"></p>
 <h4 id="批量IP">批量IP</h4>
 <p>目录下放ip.txt，里面放入已知ip即可<br>
 192.168.1.8<br>
@@ -247,20 +247,20 @@ Windows Server, version 2004 (Server Core installation)
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon cve-2020-1472.ini</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="读取HASH">读取HASH</h3>
 <p>读取HASH后就不用我说了吧，WCE、WMI、SMB、PSEXEC等HASH注入执行<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/exp/EmptyDumpHash.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exp/EmptyDumpHash.PNG"></p>
 <h3 id="工具下载">工具下载</h3>
 <p>最新版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>
 历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>
 插件源码：小密圈可下载</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="http://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="http://k8gege.org/img/k8team.jpg">
 </div>
 
     </div>
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

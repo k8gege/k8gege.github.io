@@ -73,7 +73,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -175,14 +175,14 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>首先因为大部分杀软只是把Powershell当成文本来样，目前应该没几个可以模拟PowerShell或Hook查看最终执行的杀软。所以稍威加密下我们的程序，杀软由于扫描文本未发现恶意字符串或特定函数，那么基本上就不杀了，静态全免，但是如果你再把加密数据还原成EXE，那它肯定又杀了，所以我们得直接内存加载，方法很多，我们用.NET自带函数反射加载执行程序即可，PowerShelle写法[Reflection.Assembly]::Load,再通过反射调用传参。</p>
 <h3 id="Ladon免杀">Ladon免杀</h3>
 <p>首先将需要转的exe直接拖放至文本框，如Ladon.exe，点击EXE-&gt;PowerShell会生成一个脚本。<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Ladon_PowerShellEncode.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/gui/Ladon_PowerShellEncode.PNG"></p>
 <p>源码自行反编译此程序查看即可(注意反编译和逆向是两个概念，点个按钮反编译没任何难度 )</p>
 <p>复制红线所示@和@里的字符串很长可能有2M<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps12.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/gui/Exe2Ps12.png"></p>
 <p>替换Ladon6.6.ps1里面那个很长的字符串，注意长度那里也要替换如637440替换成1708544<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps13.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/gui/Exe2Ps13.png"></p>
 <p>接下来把新版本的新增的功能参数添加上去即可，看模块对应参数个数来加就可以了<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps14.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/gui/Exe2Ps14.png"></p>
 <h3 id="EXE转PowerShell">EXE转PowerShell</h3>
 <p>上面教大家转Ladon，但是其它的EXE或DLL怎么用？以数学加法运算为例子</p>
 <p>namespace Math<br>
@@ -206,7 +206,7 @@ return a-b;<br>
 编译以上代码得到DLL,使用LadonGui一键转换得到PS1，在结尾处追加调用方法</p>
 <p>其它程序同理，你写的EXE/DLL是什么命名空间、什么方法对应添加到最后一行<br>
 如图计算500+20的结果<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/gui/Exe2Ps15.png"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/gui/Exe2Ps15.png"></p>
 <h3 id="为什么换其它语言就免杀？">为什么换其它语言就免杀？</h3>
 <p>由于语言结构特性等，特别新出的语言，杀软要查杀它前提是不是得去研究那门语言的结构特征，这就是为什么同样的方法换个语言就</p>
 <h3 id="九种混淆方法">九种混淆方法</h3>
@@ -217,7 +217,7 @@ return a-b;<br>
 7.0版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
 7.5版本：K8小密圈</p>
 <div style="text-align: center; width: 710px; border: green solid 0px;">
-<img alt="" style="display: inline-block;width: 250px;height: 300px;" data-original="https://k8gege.org/img/k8team.jpg">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
 </div>
 
     </div>

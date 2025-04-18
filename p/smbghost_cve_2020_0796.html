@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -221,12 +221,12 @@
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt SMBGhost</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="批量检测IP段（-16）SMBGhost漏洞">批量检测IP段（/16）SMBGhost漏洞</h4>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt SMBGhost</span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/SmbGhost.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/SmbGhost.PNG"></p>
 <h3 id="Ladon稳定利用">Ladon稳定利用</h3>
 <p>由于该漏洞利用不稳定，成功运气从1次到100次不等，所以8.5新增ForExec循环执行漏洞利用功能，原版EXP需交互执行，批量在本地执行还好，但要在目标，比如只有shell的情况下执行就很麻烦了，所以我们需对EXP进行一个小修改，把交互式去掉，再使用Ladon调用，一直循环有可能会导致目标蓝屏，所以我们需要判定成功后不再执行以免目标蓝屏，EXP命令循环使用Ladon ForExec查看用法。</p>
 <p>如图：ForExec循环利用Win10永恒之黑漏洞</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ForExec <span class="string">"CVE-2020-0796-Exp -i 192.168.1.8 -p 445 -e --load-shellcode test.txt"</span> 80 <span class="string">"Exploit finnished"</span></span><br></pre></td></tr></tbody></table></figure>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/smbghost.gif"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/smbghost.gif"></p>
 <h3 id="POC-EXP-LPE">POC/EXP/LPE</h3>
 <p><a target="_blank" rel="noopener" href="https://github.com/danigargu/CVE-2020-0796">https://github.com/danigargu/CVE-2020-0796</a><br>
 <a target="_blank" rel="noopener" href="https://github.com/chompie1337/SMBGhost_RCE_PoC">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p>
@@ -241,7 +241,7 @@
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

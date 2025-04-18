@@ -70,7 +70,7 @@
     https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="K8gege">
-            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" data-original="/../images/avatar.png">
+            <img alt="logo" class="img-responsive" referrerpolicy="no-referrer" class="lazyload" data-src="/../images/avatar.png">
 			<h3 class="K8tilte">K8哥哥</h3>
         </a>
         <div class="branding">
@@ -204,7 +204,7 @@
 <script language="javascript" type="text/javascript">
 window.location.href="/Ladon/ChatGPT.html";
 </script>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/LadonGUI.png"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/LadonGUI.png"></p>
 <h3 id="Ladon简介">Ladon简介</h3>
 <p>Ladon模块化网络渗透工具，可PowerShell模块化、可CS插件化、可内存加载，无文件扫描。含端口扫描、服务识别、网络资产探测、密码审计、高危漏洞检测、漏洞利用、密码读取以及一键GetShell，支持批量A段/B段/C段以及跨网段扫描，支持URL、主机、域名列表扫描等。10.9版本内置200个功能模块,外部模块18个,网络资产探测模块28个通过多种协议(ICMP\NBT\DNS\MAC\SMB\WMI\SSH\HTTP\HTTPS\Exchange\mssql\FTP\RDP)以及方法快速获取目标网络存活主机IP、计算机名、工作组、共享资源、网卡地址、操作系统版本、网站、子域名、中间件、开放服务、路由器、交换机、数据库、打印机等信息，高危漏洞检测16个包含Cisco、Zimbra、Exchange、DrayTek、MS17010、SMBGhost、Weblogic、ActiveMQ、Tomcat、Struts2系列、Printer等，密码审计23个含数据库(Mysql、Oracle、MSSQL)、FTP、SSH、VNC、Windows(LDAP、SMB/IPC、NBT、WMI、SmbHash、WmiHash、Winrm)、BasicAuth、Tomcat、Weblogic、Rar等，远程执行命令包含(smbexec/wmiexe/psexec/atexec/sshexec/webshell),Web指纹识别模块可识别135+（Web应用、中间件、脚本类型、页面类型）等，本地提权21+含SweetPotato\BadPotato\EfsPotato\BypassUAC,可高度自定义插件POC支持.NET程序集、DLL(C#/Delphi/VC)、PowerShell等语言编写的插件,支持通过配置INI批量调用任意外部程序或命令，EXP生成器可一键生成漏洞POC快速扩展扫描能力。Ladon支持Cobalt Strike插件化扫描快速拓展内网进行横向移动。</p>
 <h3 id="C-开发Ladon渗透工具插件例子">C#开发Ladon渗透工具插件例子</h3>
@@ -214,31 +214,31 @@ window.location.href="/Ladon/ChatGPT.html";
 <p>工程源码：<a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/blob/master/Demo_DLL.rar">https://github.com/k8gege/Ladon/blob/master/Demo_DLL.rar</a> 使用VS2010或以上版本打开，若是ChatGPT生成的代码建议使用VS2015或之后版本，不然可能有些代码不能直接使用。</p>
 <h3 id="简单了解ChatGPT回答问题的能力">简单了解ChatGPT回答问题的能力</h3>
 <p>给它输入Ladon简明教程地址，它给我胡编了一个答案，逻辑能力非常强，简直以假乱真。应该根据很多类似工具参考生成了固定模板，你告诉它Ladon是渗透工具，它就胡编乱写一个简介，不熟悉Ladon的人一看估计以为它说的是真的。甚至我在群里看到有人发的人工智能说k8gege也是一款渗透工具，不知道它是不是用的旧版chatGPT，虽然乱说，但逻辑能力是非常强的。</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/00.PNG"></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/0.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/00.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/0.PNG"></p>
 <p>让它把Ladon简介和版本说明做个排版，效果非常棒<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/info.PNG"></p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/info2.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/info.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/info2.PNG"></p>
 <h3 id="ChatGPT编写Ladon渗透工具插件之获取网页标题">ChatGPT编写Ladon渗透工具插件之获取网页标题</h3>
 <p>跟它聊天或做个表格，那就太小看它了，对于渗透或开发人员，我们可以让它帮我们写一些简单工具，或者一些功能模块。大家都知道Ladon工具的插件开发非常简单，一是直接配置INI插件，二是LadonEXP一键生成，三是自己编程实现。三的要求相对高一点，需要使用人员有一定编程能力。</p>
 <p>我们让ChatGPT参考插件例子源码，让它使用C#编写一个获取网页标题的插件<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/1.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/1.PNG"></p>
 <p>没等几秒钟，它立即给出以下代码<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/2.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/2.PNG"></p>
 <p>打开demo工程，复制它给的代码，全选粘贴到工程里面去，编译并运行，测试看看</p>
-<p><img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/3.PNG"></p>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/3.PNG"></p>
 <p>运行结果报错，原因是我们扫描的是C段IP，即传入参数是IP，但获取网页标题需要的是URL，所以还得让它把IP处理成URL<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/4.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/4.PNG"><br>
 经过它的修改，可以成功获取网页标题，由于扫的是C段，我们并不知道哪个IP上面部署了IIS7，所以得让它把结果改下<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/5.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/5.PNG"><br>
 很快它又改好代码，再次编译测试<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/6.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/6.PNG"><br>
 测试发现除了获取标题外，还回显了很多访问不到的URL<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/7.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/7.PNG"><br>
 渗透时，我们不需要对不存在的URL进行分析，或者说存在但是当前IP被目标限制了访问不到，所以探测不到。不管是因为不存在而访问不到，还是IP限制访问不到，都无法对它进行渗透，如果C段存活主机非常多，或者说扫描B段，既然我们不关注不可访问结果，那么没必要让它显示。<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/8.PNG"><br>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/8.PNG"><br>
 它给出了最终的代码，编译后，使用Ladon扫描C段，就只回显网页标题了<br>
-<img alt="使用http访问查看图片" data-original="/k8img/Ladon/ai/9.PNG"></p>
+<img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/ai/9.PNG"></p>
 <h4 id="ChatGPT实现Ladon渗透插件获取网页标题代码">ChatGPT实现Ladon渗透插件获取网页标题代码</h4>
 <figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Net;</span><br><span class="line"><span class="keyword">using</span> System.Text.RegularExpressions;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">LadonDLL</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">scan</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">run</span>(<span class="params"><span class="built_in">string</span> input</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(input))</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">string</span> url = <span class="string">""</span>;</span><br><span class="line">            Uri uriResult;</span><br><span class="line">            <span class="keyword">if</span> (Uri.TryCreate(input, UriKind.Absolute, <span class="keyword">out</span> uriResult)</span><br><span class="line">                &amp;&amp; (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps))</span><br><span class="line">            {</span><br><span class="line">                url = uriResult.ToString();</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (Regex.IsMatch(input, <span class="string">@"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d+)?$"</span>))</span><br><span class="line">            {</span><br><span class="line">                url = <span class="string">"http://"</span> + input;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(url))</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Invalid URL or IP address"</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            {</span><br><span class="line">                <span class="built_in">string</span> title = <span class="string">""</span>;</span><br><span class="line">                <span class="keyword">try</span></span><br><span class="line">                {</span><br><span class="line">                    WebClient client = <span class="keyword">new</span> WebClient();</span><br><span class="line">                    <span class="built_in">string</span> html = client.DownloadString(url);</span><br><span class="line">                    Regex regex = <span class="keyword">new</span> Regex(<span class="string">@"(?&lt;=&lt;title.*&gt;)([\s\S]*)(?=&lt;/title&gt;)"</span>, RegexOptions.IgnoreCase);</span><br><span class="line">                    title = regex.Match(html).Value.Trim();</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">catch</span></span><br><span class="line">                {</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">return</span> url + <span class="string">"\t"</span> + title + <span class="string">"\r\n"</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="ChatGPT编写Ladon渗透插件之端口扫描代码">ChatGPT编写Ladon渗透插件之端口扫描代码</h4>
@@ -319,7 +319,7 @@ https://github.com/k8gege/ChatLadon
     
     <div class="reward" ontouchstart="">
     <div class="reward-wrap">
-	<img height="180" width="180" data-original="../images/k8join2.png">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
 
     </div>
     <p class="reward-tip">
