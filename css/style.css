@@ -453,29 +453,35 @@ pre {
   margin-bottom: 0.5em;
   text-align: center;
 }
+
 .post .post-head .post-title {
   font-size: 1.23em;
   line-height: 1.25em;
   margin: 0;
+  word-wrap: break-word; /* 允许单词换行 */
+  overflow-wrap: break-word; /* 兼容性 */
 }
+
 .post .post-head .post-title a {
   color: #303030;
 }
+
 .post .post-head .post-title a:hover {
   text-decoration: none;
-  color: #4CAF50;
+  color: white;
   background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    padding: 0 10px 0 10px;
-    display: inline-block;
-	border-radius: 8px; 
+  border: none;
+  text-align: center;
+  padding: 0 8px;
+  border-radius: 8px; 
 }
+
 .post .post-head .post-title a:focus {
   text-decoration: none;
-  color: #4CAF50;
+  color: white; 
+  background-color: #4CAF50;
 }
+
 .post .post-head p.warning {
   color: #f0ad4e;
 }
