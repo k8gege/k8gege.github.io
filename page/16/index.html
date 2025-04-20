@@ -30,8 +30,6 @@
 
 <title>
     
-    Category: 工具 |
-    
     K8哥哥’s Blog
 </title>
 
@@ -147,240 +145,465 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
-    
-    <li>
-        工具
-    </li>
-    
-</ol>
+                    
+<div class="carousel">
+    <a href="http://k8gege.org/Ladon/" target="_blank">
+        <img referrerpolicy="no-referrer" alt="" class="lazyload" data-src="/../images/MS17010.gif">
+    </a>
+</div>
+
+
+
 
 <article class="post">
     
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/p/f3512dbc.html">
-                    Python免杀ShellCode加载器(Cobalt Strike/Metasploit)</a>
+                <a href="/p/61341.html" title="Apache Solr <=8.2.0 Velocity Template 0day Exploit">
+                    Apache Solr &lt;=8.2.0 Velocity Template 0day Exploit
+                </a>
             </h1>
             <div class="post-meta"> •
                 <time class="post-date" datetime="" title="">
-                    2019/12/03
+                    2019/12/19
                 </time>
             </div>
         </div>
         <p class="brief">
             
-            0x001 原理
-采用分离法，即将ShellCode和加载器分离。方法较LOW但免杀。
-本文主要将ShellCode转成HEX，再通过加载器执行ShellCode。
-PS: 何为SC加载器，即专门用于加载所提供ShellCode的工具...
+            环境
+下载Solr 8.2.0添加core,默认配置即可。7.x版本自带core
+配置
+0x001 批量URL配置Cscan.ini
+[Cscan]
+exe=F:\Python279\python.exe
+arg=exp.py $ip...
             
         </p>
     </div>
-</article>
-
-<article class="post">
     
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/e896a7d1.html">
-                    CVE-2019-0604 SharePoint GetShell Exploit</a>
-            </h1>
-            <div class="post-meta"> •
-                <time class="post-date" datetime="" title="">
-                    2019/12/03
-                </time>
-            </div>
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/0day/" rel="tag">0day</a> <a class="tag-none-link" href="/tags/Apache/" rel="tag">Apache</a> <a class="tag-none-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Solr/" rel="tag">Solr</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
         </div>
-        <p class="brief">
-            
-            漏洞信息
-Microsoft SharePoint是美国微软（Microsoft）公司的一套企业业务协作平台。该平台用于对业务信息进行整合，并能够共享工作、与他人协同工作、组织项目和工作组、搜索人员和信息。
-Microsoft Sha...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/19452dd9.html">
-                    CVE-2019-9621 Zimbra&lt;8.8.11 GetShell Exploit</a>
-            </h1>
-            <div class="post-meta"> •
-                <time class="post-date" datetime="" title="">
-                    2019/12/03
-                </time>
-            </div>
+        <div class="post-permalink">
+            <a href="/p/61341.html" class="btn btn-default">
+                Read</a>
         </div>
-        <p class="brief">
-            
-            
-
-
-
-发现时间
-
-
-2019年03月18日
-
-
-
-
-威胁目标
-
-
-采用Zimbra邮件系统的企业
-
-
-
-
-主要风险
-
-
-远程代码执行
-
-
-
-
-攻击入口
-
-
-localconfig.xml &amp;nbsp;配置文件
-
-
-
-
-使用漏洞
-
-
-...
-            
-        </p>
-    </div>
+    </footer>
+    
 </article>
 
+
 <article class="post">
+    
+    <div class="post-media">
+        <a href="/p/41162.html">
+            <img class="lazyload" data-src="https://raw.githubusercontent.com/k8gege/CVE-2019-11043/master/CVE-2019-11043-POC.PNG" referrerpolicy="no-referrer" alt="Ladon POC CVE-2019-11043 PHP-FPM">
+        </a>
+    </div>
     
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/p/41e1c61c.html">
-                    K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本</a>
+                <a href="/p/41162.html" title="Ladon POC CVE-2019-11043 PHP-FPM">
+                    Ladon POC CVE-2019-11043 PHP-FPM
+                </a>
             </h1>
             <div class="post-meta"> •
                 <time class="post-date" datetime="" title="">
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            [原创]K8uac bypassUAC(Win7/Wi8/Win10) 过46款杀软影响所有Windows版本
-工具: k8uac编译: VC++
-作者:K8哥哥发布:&amp;nbsp;2018/11/25 1:30
-这是一个旧方法，近两年...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/77429fa6.html">
-                    mimikatz 2.1.1一键版 &amp; PowerShell</a>
-            </h1>
-            <div class="post-meta"> •
-                <time class="post-date" datetime="" title="">
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            无需任何参数,运行EXE即可自动读取Windows系统密码
-EXE版需要其它功能请使用原版 (参数已写死仅读密码)
-结果保存于当前目录mz.log
-EXE
-https://github.com/k8gege/K8tools/blob/...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/6b9b3afe.html">
-                    全版本IIS提权工具iislpe</a>
-            </h1>
-            <div class="post-meta"> •
-                <time class="post-date" datetime="" title="">
-                    2019/12/03
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            工具: iislpe.exe
-编译: .net 3.5 
-　　全版本IIS提权工具,支持IIS应用池用户/网络服务用户/本地服务用户
-原理:
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 通过NTLM重放将权限提升至S...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/p/b8e58f69.html">
-                    CVE-2018-2628 Weblogic GetShell Exploit</a>
-            </h1>
-            <div class="post-meta"> •
-                <time class="post-date" datetime="" title="">
-                    2019/12/03
+                    2019/12/18
                 </time>
             </div>
         </div>
         <p class="brief">
             
             漏洞简介
-
-
-漏洞威胁：RCE--远程代码执行
-漏洞组件：weblogic
-影响版本：10.3.6.0、12.1.3.0、12.2.1.2、12.2.1.3
-
-代码: 
-
-# -*- coding: utf-8 -*-
-# Oracl...
+PHP-FPM 远程代码执行漏洞(CVE-2019-11043)
+在长亭科技举办的 Real World CTF 中,国外安全研究员 Andrew Danau 在解决一道 CTF 题目时发现,向目标服务器 URL 发送 %0...
             
         </p>
     </div>
+    
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a> <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/CVE-2019-11043/" rel="tag">CVE-2019-11043</a> <a class="tag-none-link" href="/tags/Code/" rel="tag">Code</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Ngnix/" rel="tag">Ngnix</a> <a class="tag-none-link" href="/tags/PHP/" rel="tag">PHP</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
+        </div>
+        <div class="post-permalink">
+            <a href="/p/41162.html" class="btn btn-default">
+                Read</a>
+        </div>
+    </footer>
+    
 </article>
 
+
 <article class="post">
+    
+    <div class="post-media">
+        <a href="/p/dc4a2cb7.html">
+            <img class="lazyload" data-src="http://k8gege.org/k8img/Ladon/kali/Kali_MS17010.gif" referrerpolicy="no-referrer" alt="Ladon for Kali 2019">
+        </a>
+    </div>
     
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/p/16b5ff0b.html">
-                    基于Browser协议探测内网主机</a>
+                <a href="/p/dc4a2cb7.html" title="Ladon for Kali 2019">
+                    Ladon for Kali 2019
+                </a>
+            </h1>
+            <div class="post-meta"> •
+                <time class="post-date" datetime="" title="">
+                    2019/12/10
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+            
+     
+前言
+无论内网还是外网渗透信息收集都是非常关键，信息收集越多越准确渗透的成功率就越高。
+但成功率还受到漏洞影响，漏洞受时效性影响，对于大型内网扫描速度直接影响着成功率。
+漏洞时效性1-2天，扫描内网或外网需1周时间，是否...
+            
+        </p>
+    </div>
+    
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Kali/">Kali</a> <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Tool/">工具</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Kali/" rel="tag">Kali</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Scanner/" rel="tag">Scanner</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
+        </div>
+        <div class="post-permalink">
+            <a href="/p/dc4a2cb7.html" class="btn btn-default">
+                Read</a>
+        </div>
+    </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-media">
+        <a href="/p/da863d02.html">
+            <img class="lazyload" data-src="http://k8gege.org/k8img/Ladon/moudle/webscan.PNG" referrerpolicy="no-referrer" alt="Ladon插件实例内网Web扫描C#源码">
+        </a>
+    </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/p/da863d02.html" title="Ladon插件实例内网Web扫描C#源码">
+                    Ladon插件实例内网Web扫描C#源码
+                </a>
+            </h1>
+            <div class="post-meta"> •
+                <time class="post-date" datetime="" title="">
+                    2019/12/08
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+            
+获取网页标题、服务器Banner，例子仅探测80端口
+大家可自行修改添加其它端口识别定制Web扫描功能
+如识别出特定中间件或WEB后再检测是否存在漏洞等
+编译后的netscan.dll可改成任意名称Ladon均可加载
+1234567...
+            
+        </p>
+    </div>
+    
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Dotnet/">.NET</a> <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Discover/">主机发现</a> <a class="category-link" href="/categories/Discover/">信息收集</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/C/" rel="tag">C#</a> <a class="tag-none-link" href="/tags/Code/" rel="tag">Code</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Moudle/" rel="tag">Moudle</a> <a class="tag-none-link" href="/tags/WebScan/" rel="tag">WebScan</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
+        </div>
+        <div class="post-permalink">
+            <a href="/p/da863d02.html" class="btn btn-default">
+                Read</a>
+        </div>
+    </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-media">
+        <a href="/p/4a713e0e.html">
+            <img class="lazyload" data-src="http://k8gege.org/k8img/Ladon/moudle/portscan.PNG" referrerpolicy="no-referrer" alt="Ladon插件实例简单端口扫描C#源码">
+        </a>
+    </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/p/4a713e0e.html" title="Ladon插件实例简单端口扫描C#源码">
+                    Ladon插件实例简单端口扫描C#源码
+                </a>
+            </h1>
+            <div class="post-meta"> •
+                <time class="post-date" datetime="" title="">
+                    2019/12/08
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+            
+源码为单纯检测端口是否开放，有需要大家可自行定制功能。
+当然可以使用PortScan模块扫描开放端口带服务和Web识别。
+1234567891011121314151617181920212223242526272829303132...
+            
+        </p>
+    </div>
+    
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Dotnet/">.NET</a> <a class="category-link" href="/categories/Ladon/">Ladon</a> <a class="category-link" href="/categories/Tool/">工具</a> <a class="category-link" href="/categories/Code/">源码</a> <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Code/" rel="tag">Code</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/Moudle/" rel="tag">Moudle</a> <a class="tag-none-link" href="/tags/PortScan/" rel="tag">PortScan</a> <a class="tag-none-link" href="/tags/Sharp/" rel="tag">Sharp</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
+        </div>
+        <div class="post-permalink">
+            <a href="/p/4a713e0e.html" class="btn btn-default">
+                Read</a>
+        </div>
+    </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-media">
+        <a href="/p/89f3c60.html">
+            <img class="lazyload" data-src="https://img-blog.csdnimg.cn/20210117163103552.jpg" referrerpolicy="no-referrer" alt="Ladon MS17010 Exploit for PowerShell">
+        </a>
+    </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/p/89f3c60.html" title="Ladon MS17010 Exploit for PowerShell">
+                    Ladon MS17010 Exploit for PowerShell
+                </a>
+            </h1>
+            <div class="post-meta"> •
+                <time class="post-date" datetime="" title="">
+                    2019/12/07
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+            Win Ladon
+
+Kali PowerShell
+
+MS17010EXP
+123456789101112131415161718192021222324252627282930313233343536373839404142434...
+            
+        </p>
+    </div>
+    
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Exp/">Exp</a> <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-none-link" href="/tags/MS17010/" rel="tag">MS17010</a> <a class="tag-none-link" href="/tags/Rce/" rel="tag">Rce</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
+        </div>
+        <div class="post-permalink">
+            <a href="/p/89f3c60.html" class="btn btn-default">
+                Read</a>
+        </div>
+    </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-media">
+        <a href="/p/32e1a912.html">
+            <img class="lazyload" data-src="/k8img/Ladon/exe/win_ps1.PNG" referrerpolicy="no-referrer" alt="Kali 2019 &amp; Ladon无PowerShell执行脚本">
+        </a>
+    </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/p/32e1a912.html" title="Kali 2019 &amp; Ladon无PowerShell执行脚本">
+                    Kali 2019 &amp; Ladon无PowerShell执行脚本
+                </a>
+            </h1>
+            <div class="post-meta"> •
+                <time class="post-date" datetime="" title="">
+                    2019/12/07
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+            关于Kali &amp;amp; PowerShell
+最近Kali出了年度最终版2019.4，该版本主存储库集成了PowerShell，可apt一键安装。
+实际上想用PowerShell也不是非要等2019.4版本，和很多程序一样，可以自己...
+            
+        </p>
+    </div>
+    
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Kali/">Kali</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Kali/" rel="tag">Kali</a> <a class="tag-none-link" href="/tags/Ladon/" rel="tag">Ladon</a> <a class="tag-none-link" href="/tags/PowerShell/" rel="tag">PowerShell</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
+        </div>
+        <div class="post-permalink">
+            <a href="/p/32e1a912.html" class="btn btn-default">
+                Read</a>
+        </div>
+    </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-media">
+        <a href="/p/fa25cc9b.html">
+            <img class="lazyload" data-src="https://img-blog.csdnimg.cn/20210117163103552.jpg" referrerpolicy="no-referrer" alt="CVE-2019-0803提权工具">
+        </a>
+    </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/p/fa25cc9b.html" title="CVE-2019-0803提权工具">
+                    CVE-2019-0803提权工具
+                </a>
             </h1>
             <div class="post-meta"> •
                 <time class="post-date" datetime="" title="">
@@ -390,25 +613,50 @@ https://github.com/k8gege/K8tools/blob/...
         </div>
         <p class="brief">
             
-            利用Browser协议可获取机器IP、MAC、机器名、操作系统、域，如图
-
-
-
-
-浏览
-在SMB协议中，计算机为了访问网络资源，就需要了解网络上存在的资源列表（例如在Windows下使用网络邻居查看可以访问的计算机），这个机制就被称为...
+            0x000 漏洞信息CVE-2019-0803 | Win32k 特权提升漏洞发布时间: 2019-04-09当 Win32k 组件无法正确处理内存中的对象时，Windows 中存在特权提升漏洞。成功利用此漏洞的攻击者可以在内核模式中...
             
         </p>
     </div>
+    
+    <footer class="post-footer clearfix">
+        <div class="pull-left tag-list">
+            <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Tool/">工具</a> <a class="category-link" href="/categories/LPE/">提权</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Exp/" rel="tag">Exp</a> <a class="tag-none-link" href="/tags/LPE/" rel="tag">LPE</a> <a class="tag-none-link" href="/tags/Tool/" rel="tag">Tool</a>
+            
+        </span>
+    </span>
+    
+    
+</div>
+        </div>
+        <div class="post-permalink">
+            <a href="/p/fa25cc9b.html" class="btn btn-default">
+                Read</a>
+        </div>
+    </footer>
+    
 </article>
+
 
 
 <nav class="pagination" role="navigation">
     <div id="page-nav">
 
-        <a class="extend prev" rel="prev" href="/categories/Tool/page/3/">Prev</a><a class="page-number" href="/categories/Tool/">1</a><a class="page-number" href="/categories/Tool/page/2/">2</a><a class="page-number" href="/categories/Tool/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/categories/Tool/page/5/">5</a><a class="extend next" rel="next" href="/categories/Tool/page/5/">Next</a>
+        <a class="extend prev" rel="prev" href="/page/15/">Prev</a><a class="page-number" href="/">1</a><span class="space">…</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/17/">Next</a>
     </div>
 </nav>
+
 
                 </main>
                 
