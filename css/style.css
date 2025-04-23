@@ -311,13 +311,14 @@ pre {
   -webkit-background-size: cover;
   background-size: cover;
 }
+
 /* main-navigation */
 .main-navigation {
   text-align: center;
   background: #fff;
   border-top: 1px solid #ebebeb;
   margin-bottom: 20px;
-  border-bottom: 2px solid #e1e1e1;
+  border-bottom: 1px solid #4CAF50;
 }
 .main-navigation .navbar-collapse {
   border-top: 1px solid #ebebeb;
