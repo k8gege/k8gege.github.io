@@ -16,16 +16,10 @@
     <link rel="dns-prefetch" href="http://k8gege.org">
     <!--SEO-->
 
-<meta name="keywords" content=",">
+<meta name="keywords" content="K8博客，K8哥哥，Ladon，K8Tool，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具">
 
 
-<meta name="description" content=" 
-
-
-Ladon信息收集、资产探测、WhatCMS识别draytek路由器
-
-模块名称
-WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识别URL...">
+<meta name="description" content="没有绝对安全的系统！！！K8博客，K8哥哥，Ladon，K8Tool，Exploit，GetShell，扫描器，黑客，网络安全，信息安全，渗透测试，内网渗透，提权工具 ">
 
 
 <meta name="robots" content="all">
@@ -36,7 +30,7 @@ WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识�
 
 <title>
     
-    Ladon 资产探测 CMS识别 Draytek路由器 |
+    Tag: Erlang/OTP SSH |
     
     K8哥哥’s Blog
 </title>
@@ -153,59 +147,48 @@ WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识�
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <div>
+                    <ol class="breadcrumb">
     
-    <article class="post">
-    <h1 class="post-head">
-        Ladon 资产探测 CMS识别 Draytek路由器
-    </h1>
-    <div class="post-body">
-        <p style="color:#fff;"> 
-&lt;% 
-<span class="archive-article-date">
-Visit <span id="busuanzi_value_page_pv"></span>
-</span>
-%&gt;
-</p>
-<p>Ladon信息收集、资产探测、WhatCMS识别draytek路由器</p>
-<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/cms/draytek.png"></p>
-<h3 id="模块名称">模块名称</h3>
-<p>WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识别URL对应指纹，输入非URL时，会探测常见CMS网站、网络设备、打印机、路由器、防火墙、VPN等，由于端口多速度慢，但收集的资产会更全(前提是目标有)</p>
-<h3 id="指定URL">指定URL</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 CMS</span><br><span class="line">Ladon http://192.168.1.8 WhatCMS</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="指定IP">指定IP</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 CMS</span><br><span class="line">Ladon 192.168.1.8 WhatCMS</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="批量URL">批量URL</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt CMS</span><br></pre></td></tr></tbody></table></figure>
-<p>PS：TXT可存放IP、IP:Port、URL等格式</p>
-<h3 id="批量IP">批量IP</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt WhatCMS</span><br><span class="line">Ladon noping ip.txt CMS</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="指定C段">指定C段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/24 CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/24 CMS</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="指定B段">指定B段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/b CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/b CMS</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="指定A段">指定A段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/a CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a CMS</span><br><span class="line">Ladon noping 192.168.1.8/a CMS</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="批量C段">批量C段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt CMS</span><br><span class="line">Ladon ipc.txt CMS</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt CMS</span><br><span class="line">Ladon noping ipc.txt CMS</span><br></pre></td></tr></tbody></table></figure>
-<p>PS: TXT存放多个目标的C段IP</p>
-<h3 id="批量B段">批量B段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt CMS</span><br><span class="line">Ladon noping ip16.txt CMS</span><br></pre></td></tr></tbody></table></figure>
-<p>PS: TXT存放多个目标的B段IP</p>
-<h3 id="批量网段">批量网段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt CMS</span><br><span class="line">Ladon noping cidr.txt CMS</span><br></pre></td></tr></tbody></table></figure>
-<p>PS: TXT存放各种IP网段，全网无差别扫描</p>
-<h3 id="更多功能-使用教程">更多功能 使用教程</h3>
-<p><a href="https://k8gege.org/Ladon/">https://k8gege.org/Ladon/</a></p>
+    <li>
+        Erlang/OTP SSH
+    </li>
+    
+    
+</ol>
 
+<article class="post">
+    
+    <div class="post-media">
+        <a href="/p/CVE-2025-32433.html">
+            <img class="lazyload" data-src="https://img-blog.csdnimg.cn/20210117163103552.jpg" alt="Ladon CVE-2025-32433 Erlang/OTP SSH EXP">
+        </a>
+    </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/p/CVE-2025-32433.html">
+                    Ladon CVE-2025-32433 Erlang/OTP SSH EXP</a>
+            </h1>
+            <div class="post-meta"> •
+                <time class="post-date" datetime="" title="">
+                    2025/04/27
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+            CVE-2025-32433 Erlang/OTP SSH RCE EXP
+Description
+A serious vulnerability has been identified in the Erlang/OTP SSH s...
+            
+        </p>
 		<h3 id="copy">转载声明</h3> <p>K8博客文章随意转载，转载请注明出处！ © K8gege  <a href="http://k8gege.org" target="_blank">http://k8gege.org</a></p>
 
     </div>
 </article>
 
 
-    
-</div>
                 </main>
                 
                     
