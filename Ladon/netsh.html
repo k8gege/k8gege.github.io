@@ -170,7 +170,7 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <p>由于系统netsh命令较长，Ladon新增netsh命令，方便CS或SHELL下使用，查看无需管理员功能，增加和删除都需要管理员</p>
 <p>自Windows XP开始，Windows中就内置网络端口转发的功能。任何传入到本地端口的TCP连接（IPv4或IPv6）都可以被重定向到另一个本地端口，或远程计算机上的端口，并且系统不需要有一个专门用于侦听该端口的服务。</p>
 <h3 id="Ladon命令">Ladon命令</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ladon netsh query 查询规则</span><br><span class="line">Ladon netsh del listenport 删除规则</span><br><span class="line">Ladon netsh add listenport connectaddress connectport 添加规则</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ladon netsh query 查询规则</span><br><span class="line">Ladon netsh del listenport 删除规则</span><br><span class="line">Ladon netsh add listenport connectaddress connectport 添加规则</span><br><span class="line"></span><br><span class="line">Ladon netsh list 查看网卡列表</span><br><span class="line">Ladon netsh enabled eth0 启用网卡</span><br><span class="line">Ladon netsh disabled eth0 禁用网卡</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="测试环境">测试环境</h3>
 <p>转发机器：192.168.1.113<br>
 SSH机器： 192.168.1.112<br>
