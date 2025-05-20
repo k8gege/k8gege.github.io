@@ -215,6 +215,43 @@ Cobalt Strike 3.12</p>
 <p>K8版默认集成Ladon7.2,可自行替换9.1版<br>
 修改版CS生成payload的后门暗桩已删除<br>
 证书均为CS默认，介意可以自行修改证书</p>
+<h3 id="Cobalt-Strike-加载-Ladon-插件">Cobalt Strike 加载 Ladon 插件</h3>
+<h4 id="加载-Ladon-插件的步骤">加载 Ladon 插件的步骤</h4>
+<ol>
+<li>
+<p><strong>启动 Cobalt Strike</strong></p>
+<ul>
+<li>启动 Cobalt Strike 客户端。</li>
+</ul>
+</li>
+<li>
+<p><strong>打开脚本控制台</strong></p>
+<ul>
+<li>在 Cobalt Strike 的主界面中，点击菜单栏的 <code>Cobalt Strike</code>。</li>
+<li>选择 <code>Scripts</code>，然后选择 <code>Load</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>选择插件文件</strong></p>
+<ul>
+<li>在弹出的文件选择对话框中，导航到插件的路径：<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Desktop\Ladon12\CS\Ladon-cn.cna</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>选择该文件并点击 <code>Open</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>确认加载</strong></p>
+<ul>
+<li>加载成功后，您应该会在 Cobalt Strike 的脚本控制台中看到相关的确认信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>使用插件</strong></p>
+<ul>
+<li>根据 Ladon 插件的功能，您可以在 Cobalt Strike 中使用它提供的命令或GUI功能。</li>
+</ul>
+</li>
+</ol>
 <h3 id="中文乱码解决">中文乱码解决</h3>
 <h4 id="K8破解版20211109">K8破解版20211109</h4>
 <h5 id="4-X已解决插件中文乱码">4.X已解决插件中文乱码</h5>
@@ -371,7 +408,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-K8%E7%A0%B4%E8%A7%A3%E7%89%88"><span class="toc-text">Cobalt Strike K8破解版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3"><span class="toc-text">中文乱码解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K8%E7%A0%B4%E8%A7%A3%E7%89%8820211109"><span class="toc-text">K8破解版20211109</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">4.X已解决插件中文乱码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">3.X已解决插件中文乱码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E7%89%88%E6%9C%ACCS%E4%B9%B1%E7%A0%81"><span class="toc-text">其它版本CS乱码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWindows-TeamServer"><span class="toc-text">关于Windows TeamServer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-x-TeamServer-exe%E4%B8%8D%E9%80%9A%E7%94%A8"><span class="toc-text">4.x TeamServer.exe不通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-4"><span class="toc-text">CS 4.4</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-3"><span class="toc-text">CS 4.3</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-x-TeamServer-exe%E9%80%9A%E7%94%A8"><span class="toc-text">3.x TeamServer.exe通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-14"><span class="toc-text">CS 3.14</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-13"><span class="toc-text">CS 3.13</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-12"><span class="toc-text">CS 3.12</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Win%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Win机器上启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Kali启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A8%E9%BE%99%E6%8B%89%E5%86%AC9-0-%E8%AE%A9%E4%BD%A0%E7%9A%84Cobalt-Strike%E5%8F%98%E6%88%90%E8%B6%85%E7%BA%A7%E6%AD%A6%E5%99%A8"><span class="toc-text">巨龙拉冬9.0: 让你的Cobalt Strike变成超级武器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ELadon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B"><span class="toc-text">程序简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8"><span class="toc-text">无图无真相</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-K8%E7%A0%B4%E8%A7%A3%E7%89%88"><span class="toc-text">Cobalt Strike K8破解版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 加载 Ladon 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">加载 Ladon 插件的步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3"><span class="toc-text">中文乱码解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K8%E7%A0%B4%E8%A7%A3%E7%89%8820211109"><span class="toc-text">K8破解版20211109</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">4.X已解决插件中文乱码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">3.X已解决插件中文乱码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E7%89%88%E6%9C%ACCS%E4%B9%B1%E7%A0%81"><span class="toc-text">其它版本CS乱码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWindows-TeamServer"><span class="toc-text">关于Windows TeamServer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-x-TeamServer-exe%E4%B8%8D%E9%80%9A%E7%94%A8"><span class="toc-text">4.x TeamServer.exe不通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-4"><span class="toc-text">CS 4.4</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-3"><span class="toc-text">CS 4.3</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-x-TeamServer-exe%E9%80%9A%E7%94%A8"><span class="toc-text">3.x TeamServer.exe通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-14"><span class="toc-text">CS 3.14</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-13"><span class="toc-text">CS 3.13</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-12"><span class="toc-text">CS 3.12</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Win%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Win机器上启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Kali启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A8%E9%BE%99%E6%8B%89%E5%86%AC9-0-%E8%AE%A9%E4%BD%A0%E7%9A%84Cobalt-Strike%E5%8F%98%E6%88%90%E8%B6%85%E7%BA%A7%E6%AD%A6%E5%99%A8"><span class="toc-text">巨龙拉冬9.0: 让你的Cobalt Strike变成超级武器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ELadon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B"><span class="toc-text">程序简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8"><span class="toc-text">无图无真相</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
         
     </div>
 </aside>

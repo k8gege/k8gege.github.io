@@ -19,11 +19,19 @@
 <meta name="keywords" content="Ladon,Tool,Cobalt Strike">
 
 
-<meta name="description" content="前言
-Ladon 6.2支持Cobalt Strike 4.0,内置58个功能
-加载脚本Ladon.cna,通过Beacon命令或右键使用
-应用场景
-CS命令行下扫描目标内网,无需代理转发扫描收...">
+<meta name="description" content="Cobalt Strike 加载 Ladon 插件
+加载 Ladon 插件的步骤
+
+
+启动 Cobalt Strike
+
+启动 Cobalt Strike 客户端。
+
+
+
+打开脚本控制台
+
+在 ...">
 
 
 <meta name="robots" content="all">
@@ -202,7 +210,44 @@ CS命令行下扫描目标内网,无需代理转发扫描收...">
     </div>
     
     <div class="post-body post-content">
-        <h3 id="前言">前言</h3>
+        <h3 id="Cobalt-Strike-加载-Ladon-插件">Cobalt Strike 加载 Ladon 插件</h3>
+<h4 id="加载-Ladon-插件的步骤">加载 Ladon 插件的步骤</h4>
+<ol>
+<li>
+<p><strong>启动 Cobalt Strike</strong></p>
+<ul>
+<li>启动 Cobalt Strike 客户端。</li>
+</ul>
+</li>
+<li>
+<p><strong>打开脚本控制台</strong></p>
+<ul>
+<li>在 Cobalt Strike 的主界面中，点击菜单栏的 <code>Cobalt Strike</code>。</li>
+<li>选择 <code>Scripts</code>，然后选择 <code>Load</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>选择插件文件</strong></p>
+<ul>
+<li>在弹出的文件选择对话框中，导航到插件的路径：<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Desktop\Ladon12\CS\Ladon-cn.cna</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>选择该文件并点击 <code>Open</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>确认加载</strong></p>
+<ul>
+<li>加载成功后，您应该会在 Cobalt Strike 的脚本控制台中看到相关的确认信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>使用插件</strong></p>
+<ul>
+<li>根据 Ladon 插件的功能，您可以在 Cobalt Strike 中使用它提供的命令或GUI功能。</li>
+</ul>
+</li>
+</ol>
+<h3 id="前言">前言</h3>
 <p>Ladon 6.2支持Cobalt Strike 4.0,内置58个功能<br>
 加载脚本Ladon.cna,通过Beacon命令或右键使用</p>
 <h3 id="应用场景">应用场景</h3>
@@ -409,7 +454,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95"><span class="toc-text">Ladon右键菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Beacon%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9"><span class="toc-text">Beacon命令帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MS17010-MS17-010%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-text">1.MS17010 MS17-010漏洞扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-OSscan-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A2%E6%B5%8B"><span class="toc-text">2.OSscan 操作系统探测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-OnlinePC-%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA%E6%89%AB%E6%8F%8F"><span class="toc-text">3.OnlinePC 存活主机扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-WebScan-Web%E6%89%AB%E6%8F%8F"><span class="toc-text">4.WebScan Web扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-FtpScan-FTP%E5%AF%86%E7%A0%81%E6%89%AB%E6%8F%8F"><span class="toc-text">5.FtpScan FTP密码扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-WmiScan-Win%E6%96%B9%E5%BC%8F%E7%88%86%E7%A0%B4Windows%E5%AF%86%E7%A0%81%EF%BC%88IPC%E8%A2%AB%E6%8B%92%E7%BB%9D%E6%97%B6%E5%8F%AF%E5%B0%9D%E8%AF%95WMI%EF%BC%89"><span class="toc-text">6.WmiScan Win方式爆破Windows密码（IPC被拒绝时可尝试WMI）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-CiscoScan-%E6%80%9D%E7%A7%91%E8%AE%BE%E5%A4%87%E6%89%AB%E6%8F%8F"><span class="toc-text">7.CiscoScan 思科设备扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-UrlScan-C%E6%AE%B5%E5%9F%9F%E5%90%8DURL%E6%89%AB%E6%8F%8F"><span class="toc-text">8.UrlScan C段域名URL扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-SameWeb-C%E6%AE%B5%E6%97%81%E7%AB%99%E6%89%AB%E6%8F%8F"><span class="toc-text">9.SameWeb C段旁站扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-WeblogicExp-WeblogicPoc"><span class="toc-text">10.WeblogicExp &amp; WeblogicPoc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-EnumMSSQL-%E6%9E%9A%E4%B8%BE%E5%B1%80%E5%9F%9F%E7%BD%91MS-SQL-SERVER%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E6%9C%BA"><span class="toc-text">11.EnumMSSQL 枚举局域网MS SQL SERVER数据库主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-EnumShare-%E6%9E%9A%E4%B8%BE%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90"><span class="toc-text">12.EnumShare 枚举局域网共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-MssqlScan-MSSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">13.MssqlScan MSSQL数据库密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-MysqlScan-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">14.MysqlScan MySQL数据库密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-SSHscan-SSH%E4%B8%BB%E6%9C%BA%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">15.SSHscan SSH主机密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-OracleScan-Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">16.OracleScan Oracle数据库密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-HostIP-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-%E4%B8%BB%E6%9C%BA%E5%90%8D%E8%BD%ACIP"><span class="toc-text">17.HostIP 域名解析/主机名转IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-WhatCMS-Web%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%94%AF%E6%8C%8175%E7%A7%8D"><span class="toc-text">18.WhatCMS Web指纹识别支持75种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-IpcScan-Windows%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-Wmi%E8%A2%AB%E6%8B%92%E7%BB%9D%E6%97%B6%E5%8F%AF%E5%B0%9D%E8%AF%95Ipc"><span class="toc-text">19.IpcScan Windows密码爆破(Wmi被拒绝时可尝试Ipc)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-EnBase64-DeBase64-Base64%E5%AF%86%E7%A0%81%E6%89%B9%E9%87%8F%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86"><span class="toc-text">21.EnBase64/DeBase64  Base64密码批量加密解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-EnHex-DeHex-Hex%E5%AF%86%E7%A0%81%E6%89%B9%E9%87%8F%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-3%E7%A7%8D%E6%A0%BC%E5%BC%8F"><span class="toc-text">22.EnHex/DeHex  Hex密码批量加密解密(3种格式)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-SmbScan-Windows%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-Wmi%E8%A2%AB%E6%8B%92%E7%BB%9D%E6%97%B6%E5%8F%AF%E5%B0%9D%E8%AF%95-%E8%AE%B0%E5%BD%95%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97"><span class="toc-text">23.SmbScan Windows密码爆破(Wmi被拒绝时可尝试,记录错误日志)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-PhpStudyPoc-PhpStudy%E5%90%8E%E9%97%A8%E6%A3%80%E6%B5%8B"><span class="toc-text">24.PhpStudyPoc PhpStudy后门检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-DomainIP-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-text">25.DomainIP 域名解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-SubDomain-%E5%AD%90%E5%9F%9F%E5%90%8D%E7%88%86%E7%A0%B4"><span class="toc-text">26.SubDomain 子域名爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-WebDir-Web%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F"><span class="toc-text">27.WebDir Web目录扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-ActiveMQPoc-ActiveMQ%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-text">28.ActiveMQPoc ActiveMQ漏洞扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 加载 Ladon 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">加载 Ladon 插件的步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95"><span class="toc-text">Ladon右键菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Beacon%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9"><span class="toc-text">Beacon命令帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MS17010-MS17-010%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-text">1.MS17010 MS17-010漏洞扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-OSscan-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A2%E6%B5%8B"><span class="toc-text">2.OSscan 操作系统探测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-OnlinePC-%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA%E6%89%AB%E6%8F%8F"><span class="toc-text">3.OnlinePC 存活主机扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-WebScan-Web%E6%89%AB%E6%8F%8F"><span class="toc-text">4.WebScan Web扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-FtpScan-FTP%E5%AF%86%E7%A0%81%E6%89%AB%E6%8F%8F"><span class="toc-text">5.FtpScan FTP密码扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-WmiScan-Win%E6%96%B9%E5%BC%8F%E7%88%86%E7%A0%B4Windows%E5%AF%86%E7%A0%81%EF%BC%88IPC%E8%A2%AB%E6%8B%92%E7%BB%9D%E6%97%B6%E5%8F%AF%E5%B0%9D%E8%AF%95WMI%EF%BC%89"><span class="toc-text">6.WmiScan Win方式爆破Windows密码（IPC被拒绝时可尝试WMI）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-CiscoScan-%E6%80%9D%E7%A7%91%E8%AE%BE%E5%A4%87%E6%89%AB%E6%8F%8F"><span class="toc-text">7.CiscoScan 思科设备扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-UrlScan-C%E6%AE%B5%E5%9F%9F%E5%90%8DURL%E6%89%AB%E6%8F%8F"><span class="toc-text">8.UrlScan C段域名URL扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-SameWeb-C%E6%AE%B5%E6%97%81%E7%AB%99%E6%89%AB%E6%8F%8F"><span class="toc-text">9.SameWeb C段旁站扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-WeblogicExp-WeblogicPoc"><span class="toc-text">10.WeblogicExp &amp; WeblogicPoc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-EnumMSSQL-%E6%9E%9A%E4%B8%BE%E5%B1%80%E5%9F%9F%E7%BD%91MS-SQL-SERVER%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E6%9C%BA"><span class="toc-text">11.EnumMSSQL 枚举局域网MS SQL SERVER数据库主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-EnumShare-%E6%9E%9A%E4%B8%BE%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90"><span class="toc-text">12.EnumShare 枚举局域网共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-MssqlScan-MSSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">13.MssqlScan MSSQL数据库密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-MysqlScan-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">14.MysqlScan MySQL数据库密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-SSHscan-SSH%E4%B8%BB%E6%9C%BA%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">15.SSHscan SSH主机密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-OracleScan-Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">16.OracleScan Oracle数据库密码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-HostIP-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-%E4%B8%BB%E6%9C%BA%E5%90%8D%E8%BD%ACIP"><span class="toc-text">17.HostIP 域名解析/主机名转IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-WhatCMS-Web%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%94%AF%E6%8C%8175%E7%A7%8D"><span class="toc-text">18.WhatCMS Web指纹识别支持75种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-IpcScan-Windows%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-Wmi%E8%A2%AB%E6%8B%92%E7%BB%9D%E6%97%B6%E5%8F%AF%E5%B0%9D%E8%AF%95Ipc"><span class="toc-text">19.IpcScan Windows密码爆破(Wmi被拒绝时可尝试Ipc)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-EnBase64-DeBase64-Base64%E5%AF%86%E7%A0%81%E6%89%B9%E9%87%8F%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86"><span class="toc-text">21.EnBase64/DeBase64  Base64密码批量加密解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-EnHex-DeHex-Hex%E5%AF%86%E7%A0%81%E6%89%B9%E9%87%8F%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-3%E7%A7%8D%E6%A0%BC%E5%BC%8F"><span class="toc-text">22.EnHex/DeHex  Hex密码批量加密解密(3种格式)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-SmbScan-Windows%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-Wmi%E8%A2%AB%E6%8B%92%E7%BB%9D%E6%97%B6%E5%8F%AF%E5%B0%9D%E8%AF%95-%E8%AE%B0%E5%BD%95%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97"><span class="toc-text">23.SmbScan Windows密码爆破(Wmi被拒绝时可尝试,记录错误日志)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-PhpStudyPoc-PhpStudy%E5%90%8E%E9%97%A8%E6%A3%80%E6%B5%8B"><span class="toc-text">24.PhpStudyPoc PhpStudy后门检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-DomainIP-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-text">25.DomainIP 域名解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-SubDomain-%E5%AD%90%E5%9F%9F%E5%90%8D%E7%88%86%E7%A0%B4"><span class="toc-text">26.SubDomain 子域名爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-WebDir-Web%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F"><span class="toc-text">27.WebDir Web目录扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-ActiveMQPoc-ActiveMQ%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-text">28.ActiveMQPoc ActiveMQ漏洞扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具下载</span></a></li></ol>
         
     </div>
 </aside>
