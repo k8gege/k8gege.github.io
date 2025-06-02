@@ -19,12 +19,9 @@
 <meta name="keywords" content="Cobalt Strike">
 
 
-<meta name="description" content=" 
-
-
-
-Ladon：内存加载扫描器（无需落地）
-Ladon 是一款多功能的渗透测试工具，旨在帮助安全专业人员完成渗透测试的各个阶段，从信息收集和漏洞检测，到漏洞利用、权限提升和后渗透活动。它支...">
+<meta name="description" content="
+Ladon：内存加载渗透扫描器（无需落地）
+Ladon 是一款多功能的渗透测试工具，旨在帮助安全专业人员完成渗透测试的各个阶段，从信息收集和漏洞检测，到漏洞利用、权限提升和后渗透活动。它支持内...">
 
 
 <meta name="robots" content="all">
@@ -197,15 +194,8 @@ Ladon 是一款多功能的渗透测试工具，旨在帮助安全专业人员�
     </div>
     
     <div class="post-body post-content">
-        <p style="color:#fff;"> 
-&lt;% 
-<span class="archive-article-date">
-Visit <span id="busuanzi_value_page_pv"></span>
-</span>
-%&gt;
-</p>
-<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/Dragon.jpg"></p>
-<h1>Ladon：内存加载扫描器（无需落地）</h1>
+        <p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/Dragon.jpg"></p>
+<h1>Ladon：内存加载渗透扫描器（无需落地）</h1>
 <p>Ladon 是一款多功能的渗透测试工具，旨在帮助安全专业人员完成渗透测试的各个阶段，从信息收集和漏洞检测，到漏洞利用、权限提升和后渗透活动。它支持内存加载，无需文件落地即可执行扫描任务。Ladon 将广泛的功能整合到不同的模块中，是红队行动和道德黑客的强大资产。</p>
 <hr>
 <h2 id="模块文件概览-E-Ladon12-CS-res">模块文件概览 (E:\Ladon12\CS\res)</h2>
@@ -537,7 +527,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Ladon：内存加载扫描器（无需落地）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%96%87%E4%BB%B6%E6%A6%82%E8%A7%88-E-Ladon12-CS-res"><span class="toc-text">模块文件概览 (E:\Ladon12\CS\res)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cobalt-Strike-%E5%86%85%E5%AD%98%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 内存加载 Ladon 插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8E%E6%89%AB%E6%8F%8F"><span class="toc-text">信息收集与扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%A9%E7%94%A8"><span class="toc-text">漏洞检测与利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8%E4%B8%8E%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C"><span class="toc-text">横向移动与远程执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87"><span class="toc-text">权限提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%AD%E6%8D%AE%E8%AE%BF%E9%97%AE%E4%B8%8E%E5%AF%86%E7%A0%81%E6%94%BB%E5%87%BB"><span class="toc-text">凭据访问与密码攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E6%B8%97%E9%80%8F%E4%B8%8E%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text">后渗透与持久化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ladon-%E6%A0%B8%E5%BF%83%E4%B8%8E%E7%89%88%E6%9C%AC"><span class="toc-text">Ladon 核心与版本</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Ladon：内存加载渗透扫描器（无需落地）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%96%87%E4%BB%B6%E6%A6%82%E8%A7%88-E-Ladon12-CS-res"><span class="toc-text">模块文件概览 (E:\Ladon12\CS\res)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cobalt-Strike-%E5%86%85%E5%AD%98%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 内存加载 Ladon 插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8E%E6%89%AB%E6%8F%8F"><span class="toc-text">信息收集与扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%A9%E7%94%A8"><span class="toc-text">漏洞检测与利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8%E4%B8%8E%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C"><span class="toc-text">横向移动与远程执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87"><span class="toc-text">权限提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%AD%E6%8D%AE%E8%AE%BF%E9%97%AE%E4%B8%8E%E5%AF%86%E7%A0%81%E6%94%BB%E5%87%BB"><span class="toc-text">凭据访问与密码攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E6%B8%97%E9%80%8F%E4%B8%8E%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text">后渗透与持久化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ladon-%E6%A0%B8%E5%BF%83%E4%B8%8E%E7%89%88%E6%9C%AC"><span class="toc-text">Ladon 核心与版本</span></a></li></ol></li></ol>
         
     </div>
 </aside>
