@@ -251,8 +251,95 @@ window.location.href="http://k8gege.org/Ladon/cs911.html";
 <ul>
 <li>根据 Ladon 插件的功能，您可以在 Cobalt Strike 中使用它提供的命令或GUI功能。</li>
 </ul>
+<h2 id="模块文件概览-E-Ladon12-CS-res">模块文件概览 (E:\Ladon12\CS\res)</h2>
 </li>
 </ol>
+<p>以下是 Ladon 各模块的数据文件大小，这些文件通常用于内存加载，并按其主要类别归类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">大小 (K)</th>
+<th style="text-align:left">对应类别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Ladon20.dat</td>
+<td style="text-align:left">218 k</td>
+<td style="text-align:left">PostShell WebShell 反弹Shell 端口转发</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon30.dat</td>
+<td style="text-align:left">204 k</td>
+<td style="text-align:left">端口扫描  CMS识别</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon35.dat</td>
+<td style="text-align:left">238 k</td>
+<td style="text-align:left">密码审计 密码喷洒 暴力破解</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon40.dat</td>
+<td style="text-align:left">230 k</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://xn--doqy22bf80bxlg.net">部份必须.net</a> 4.0的功能模块</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon46.dat</td>
+<td style="text-align:left">117 k</td>
+<td style="text-align:left">密码嗅探 TCP FTP HTTP</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonExp.dat</td>
+<td style="text-align:left">238 k</td>
+<td style="text-align:left">漏洞利用 Exploit</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonInfo.dat</td>
+<td style="text-align:left">289 k</td>
+<td style="text-align:left">信息收集与扫描</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonLpe.dat</td>
+<td style="text-align:left">229 k</td>
+<td style="text-align:left">权限提升 本地提权</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonLpe2.dat</td>
+<td style="text-align:left">151 k</td>
+<td style="text-align:left">权限提升 本地提权</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonPoc.dat</td>
+<td style="text-align:left">175 k</td>
+<td style="text-align:left">漏洞检测 漏洞探测</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonPwd.dat</td>
+<td style="text-align:left">150 k</td>
+<td style="text-align:left">密码读取 凭据访问与密码攻击</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonRce.dat</td>
+<td style="text-align:left">280 k</td>
+<td style="text-align:left">横向移动与远程执行</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonSer.dat</td>
+<td style="text-align:left">164 k</td>
+<td style="text-align:left">一键服务器 WEB FTP TCP UDP HTTP OSAT HTA</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon48.dat</td>
+<td style="text-align:left">221 k</td>
+<td style="text-align:left">ICMP 存活主机 其它功能</td>
+</tr>
+</tbody>
+</table>
+<p>每个文件都是独立扫描器，具体功能模块，可参考CNA脚本文件。<br>
+也可以参考Ladon Study的密码审计模块，功能全在Ladon35.dat<br>
+假如只需要SMB RDP WMI SSH等密码喷洒功能，使用Ladon35就够了</p>
+<p>单个DAT 独立扫描器 功能：  <a href="http://k8gege.org/p/LadonCS.html">http://k8gege.org/p/LadonCS.html</a></p>
 <h3 id="Ladon主程序">Ladon主程序</h3>
 <h4 id="Ladon-9-1-1-20211211更新功能">Ladon 9.1.1 20211211更新功能</h4>
 <p>=======================<br>
@@ -595,7 +682,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 加载 Ladon 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">加载 Ladon 插件的步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%BB%E7%A8%8B%E5%BA%8F"><span class="toc-text">Ladon主程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-9-1-1-20211211%E6%9B%B4%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">Ladon 9.1.1 20211211更新功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GUI-9-1-1-20211211%E6%9B%B4%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">GUI 9.1.1 20211211更新功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8%EF%BC%88CS%E6%8F%92%E4%BB%B6%E9%83%A8%E5%88%86%E6%88%AA%E5%9B%BE%EF%BC%89"><span class="toc-text">无图无真相（CS插件部分截图）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BD%91%E7%BB%9C%E8%B5%84%E4%BA%A7%E6%94%B6%E9%9B%86%E5%8A%9F%E8%83%BD"><span class="toc-text">1.网络资产收集功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8E%A2%E6%B5%8B"><span class="toc-text">2.操作系统信息探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%AB%98%E5%8D%B1%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-text">3.高危远程漏洞探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">4.本机信息收集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%9C%AC%E6%9C%BA%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96"><span class="toc-text">5.本机密码读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-text">6.网络密码审计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E6%9C%AC%E5%9C%B0%E6%8F%90%E6%9D%83"><span class="toc-text">7.本地提权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD"><span class="toc-text">8.其它功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-CMD%E6%B8%97%E9%80%8F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">9.CMD渗透信息收集</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E6%8F%92%E4%BB%B6"><span class="toc-text">CS插件</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">=======================
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 加载 Ladon 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">加载 Ladon 插件的步骤</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%96%87%E4%BB%B6%E6%A6%82%E8%A7%88-E-Ladon12-CS-res"><span class="toc-text">模块文件概览 (E:\Ladon12\CS\res)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%BB%E7%A8%8B%E5%BA%8F"><span class="toc-text">Ladon主程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ladon-9-1-1-20211211%E6%9B%B4%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">Ladon 9.1.1 20211211更新功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GUI-9-1-1-20211211%E6%9B%B4%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-text">GUI 9.1.1 20211211更新功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8%EF%BC%88CS%E6%8F%92%E4%BB%B6%E9%83%A8%E5%88%86%E6%88%AA%E5%9B%BE%EF%BC%89"><span class="toc-text">无图无真相（CS插件部分截图）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BD%91%E7%BB%9C%E8%B5%84%E4%BA%A7%E6%94%B6%E9%9B%86%E5%8A%9F%E8%83%BD"><span class="toc-text">1.网络资产收集功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8E%A2%E6%B5%8B"><span class="toc-text">2.操作系统信息探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%AB%98%E5%8D%B1%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-text">3.高危远程漏洞探测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">4.本机信息收集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%9C%AC%E6%9C%BA%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96"><span class="toc-text">5.本机密码读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-text">6.网络密码审计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E6%9C%AC%E5%9C%B0%E6%8F%90%E6%9D%83"><span class="toc-text">7.本地提权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD"><span class="toc-text">8.其它功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-CMD%E6%B8%97%E9%80%8F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">9.CMD渗透信息收集</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E6%8F%92%E4%BB%B6"><span class="toc-text">CS插件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">=======================
 Ladon 9.1.1 巨龙拉冬
 CS右键174个功能模块
 Update 2021.12.11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x001-%E7%BD%91%E7%BB%9C%E8%B5%84%E4%BA%A7%E6%94%B6%E9%9B%86"><span class="toc-text">0x001 网络资产收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x002-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8E%A2%E6%B5%8B"><span class="toc-text">0x002 系统信息探测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x003-%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="toc-text">0x003 远程漏洞检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x004-%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">0x004 本机信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x005-%E6%9C%AC%E6%9C%BA%E5%AF%86%E7%A0%81%E8%AF%BB%E5%8F%96"><span class="toc-text">0x005 本机密码读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x006-%E4%B8%80%E9%94%AEGetShell"><span class="toc-text">0x006 一键GetShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x007-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%97%85%E6%8E%A2"><span class="toc-text">0x007 网络密码嗅探</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x008-%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-text">0x008 网络密码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x009-%E6%9C%AC%E6%9C%BA%E6%89%A7%E8%A1%8C"><span class="toc-text">0x009 本机执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x010-%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C"><span class="toc-text">0x010 远程执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x011-%E6%9C%AC%E5%9C%B0%E6%8F%90%E6%9D%83"><span class="toc-text">0x011 本地提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x012-%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">0x012 自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x013-3389%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2"><span class="toc-text">0x013 3389远程桌面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x014-%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BD"><span class="toc-text">0x014 远程下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x015-%E5%9F%9F-DC%E3%80%81LDAP"><span class="toc-text">0x015 域(DC、LDAP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x016-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-text">0x016 端口转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x017-MSF-NC%E8%81%94%E5%8A%A8"><span class="toc-text">0x017 MSF/NC联动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x018-%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD"><span class="toc-text">0x018 其它功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x019-CMD%E5%91%BD%E4%BB%A4%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">0x019 CMD命令信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x020-PowerShell%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">0x020 PowerShell信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%8911%E5%8F%B7%E5%8F%91%E5%B8%83"><span class="toc-text">为什么选11号发布?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-text">声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>

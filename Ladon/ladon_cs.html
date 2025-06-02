@@ -215,8 +215,95 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <ul>
 <li>根据 Ladon 插件的功能，您可以在 Cobalt Strike 中使用它提供的命令或GUI功能。</li>
 </ul>
+<h2 id="模块文件概览-E-Ladon12-CS-res">模块文件概览 (E:\Ladon12\CS\res)</h2>
 </li>
 </ol>
+<p>以下是 Ladon 各模块的数据文件大小，这些文件通常用于内存加载，并按其主要类别归类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">大小 (K)</th>
+<th style="text-align:left">对应类别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Ladon20.dat</td>
+<td style="text-align:left">218 k</td>
+<td style="text-align:left">PostShell WebShell 反弹Shell 端口转发</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon30.dat</td>
+<td style="text-align:left">204 k</td>
+<td style="text-align:left">端口扫描  CMS识别</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon35.dat</td>
+<td style="text-align:left">238 k</td>
+<td style="text-align:left">密码审计 密码喷洒 暴力破解</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon40.dat</td>
+<td style="text-align:left">230 k</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://xn--doqy22bf80bxlg.net">部份必须.net</a> 4.0的功能模块</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon46.dat</td>
+<td style="text-align:left">117 k</td>
+<td style="text-align:left">密码嗅探 TCP FTP HTTP</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonExp.dat</td>
+<td style="text-align:left">238 k</td>
+<td style="text-align:left">漏洞利用 Exploit</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonInfo.dat</td>
+<td style="text-align:left">289 k</td>
+<td style="text-align:left">信息收集与扫描</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonLpe.dat</td>
+<td style="text-align:left">229 k</td>
+<td style="text-align:left">权限提升 本地提权</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonLpe2.dat</td>
+<td style="text-align:left">151 k</td>
+<td style="text-align:left">权限提升 本地提权</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonPoc.dat</td>
+<td style="text-align:left">175 k</td>
+<td style="text-align:left">漏洞检测 漏洞探测</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonPwd.dat</td>
+<td style="text-align:left">150 k</td>
+<td style="text-align:left">密码读取 凭据访问与密码攻击</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonRce.dat</td>
+<td style="text-align:left">280 k</td>
+<td style="text-align:left">横向移动与远程执行</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonSer.dat</td>
+<td style="text-align:left">164 k</td>
+<td style="text-align:left">一键服务器 WEB FTP TCP UDP HTTP OSAT HTA</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon48.dat</td>
+<td style="text-align:left">221 k</td>
+<td style="text-align:left">ICMP 存活主机 其它功能</td>
+</tr>
+</tbody>
+</table>
+<p>每个文件都是独立扫描器，具体功能模块，可参考CNA脚本文件。<br>
+也可以参考Ladon Study的密码审计模块，功能全在Ladon35.dat<br>
+假如只需要SMB RDP WMI SSH等密码喷洒功能，使用Ladon35就够了</p>
+<p>单个DAT 独立扫描器 功能：  <a href="http://k8gege.org/p/LadonCS.html">http://k8gege.org/p/LadonCS.html</a></p>
 <h3 id="神龙插件-右键菜单-功能列表">神龙插件 右键菜单 功能列表</h3>
 <h4 id="0x001-网络资产收集">0x001 网络资产收集</h4>
 <p>多协议探测存活主机<br>

@@ -215,7 +215,7 @@ Cobalt Strike 3.12</p>
 <p>K8版默认集成Ladon7.2,可自行替换9.1版<br>
 修改版CS生成payload的后门暗桩已删除<br>
 证书均为CS默认，介意可以自行修改证书</p>
-<h3 id="Cobalt-Strike-加载-Ladon-插件">Cobalt Strike 加载 Ladon 插件</h3>
+<h3 id="Cobalt-Strike-内存加载-Ladon-插件">Cobalt Strike 内存加载 Ladon 插件</h3>
 <h4 id="加载-Ladon-插件的步骤">加载 Ladon 插件的步骤</h4>
 <ol>
 <li>
@@ -252,6 +252,93 @@ Cobalt Strike 3.12</p>
 </ul>
 </li>
 </ol>
+<h2 id="模块文件概览-E-Ladon12-CS-res">模块文件概览 (E:\Ladon12\CS\res)</h2>
+<p>以下是 Ladon 各模块的数据文件大小，这些文件通常用于内存加载，并按其主要类别归类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">大小 (K)</th>
+<th style="text-align:left">对应类别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Ladon20.dat</td>
+<td style="text-align:left">218 k</td>
+<td style="text-align:left">PostShell WebShell 反弹Shell 端口转发</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon30.dat</td>
+<td style="text-align:left">204 k</td>
+<td style="text-align:left">端口扫描  CMS识别</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon35.dat</td>
+<td style="text-align:left">238 k</td>
+<td style="text-align:left">密码审计 密码喷洒 暴力破解</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon40.dat</td>
+<td style="text-align:left">230 k</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://xn--doqy22bf80bxlg.net">部份必须.net</a> 4.0的功能模块</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon46.dat</td>
+<td style="text-align:left">117 k</td>
+<td style="text-align:left">密码嗅探 TCP FTP HTTP</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonExp.dat</td>
+<td style="text-align:left">238 k</td>
+<td style="text-align:left">漏洞利用 Exploit</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonInfo.dat</td>
+<td style="text-align:left">289 k</td>
+<td style="text-align:left">信息收集与扫描</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonLpe.dat</td>
+<td style="text-align:left">229 k</td>
+<td style="text-align:left">权限提升 本地提权</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonLpe2.dat</td>
+<td style="text-align:left">151 k</td>
+<td style="text-align:left">权限提升 本地提权</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonPoc.dat</td>
+<td style="text-align:left">175 k</td>
+<td style="text-align:left">漏洞检测 漏洞探测</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonPwd.dat</td>
+<td style="text-align:left">150 k</td>
+<td style="text-align:left">密码读取 凭据访问与密码攻击</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonRce.dat</td>
+<td style="text-align:left">280 k</td>
+<td style="text-align:left">横向移动与远程执行</td>
+</tr>
+<tr>
+<td style="text-align:left">LadonSer.dat</td>
+<td style="text-align:left">164 k</td>
+<td style="text-align:left">一键服务器 WEB FTP TCP UDP HTTP OSAT HTA</td>
+</tr>
+<tr>
+<td style="text-align:left">Ladon48.dat</td>
+<td style="text-align:left">221 k</td>
+<td style="text-align:left">ICMP 存活主机 其它功能</td>
+</tr>
+</tbody>
+</table>
+<p>每个文件都是独立扫描器，具体功能模块，可参考CNA脚本文件。<br>
+也可以参考Ladon Study的密码审计模块，功能全在Ladon35.dat<br>
+假如只需要SMB RDP WMI SSH等密码喷洒功能，使用Ladon35就够了</p>
+<p>单个DAT 独立扫描器 功能：  <a href="http://k8gege.org/p/LadonCS.html">http://k8gege.org/p/LadonCS.html</a></p>
 <h3 id="中文乱码解决">中文乱码解决</h3>
 <h4 id="K8破解版20211109">K8破解版20211109</h4>
 <h5 id="4-X已解决插件中文乱码">4.X已解决插件中文乱码</h5>
@@ -408,9 +495,9 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-K8%E7%A0%B4%E8%A7%A3%E7%89%88"><span class="toc-text">Cobalt Strike K8破解版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 加载 Ladon 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">加载 Ladon 插件的步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3"><span class="toc-text">中文乱码解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K8%E7%A0%B4%E8%A7%A3%E7%89%8820211109"><span class="toc-text">K8破解版20211109</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">4.X已解决插件中文乱码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">3.X已解决插件中文乱码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E7%89%88%E6%9C%ACCS%E4%B9%B1%E7%A0%81"><span class="toc-text">其它版本CS乱码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWindows-TeamServer"><span class="toc-text">关于Windows TeamServer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-x-TeamServer-exe%E4%B8%8D%E9%80%9A%E7%94%A8"><span class="toc-text">4.x TeamServer.exe不通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-4"><span class="toc-text">CS 4.4</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-3"><span class="toc-text">CS 4.3</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-x-TeamServer-exe%E9%80%9A%E7%94%A8"><span class="toc-text">3.x TeamServer.exe通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-14"><span class="toc-text">CS 3.14</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-13"><span class="toc-text">CS 3.13</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-12"><span class="toc-text">CS 3.12</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Win%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Win机器上启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Kali启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A8%E9%BE%99%E6%8B%89%E5%86%AC9-0-%E8%AE%A9%E4%BD%A0%E7%9A%84Cobalt-Strike%E5%8F%98%E6%88%90%E8%B6%85%E7%BA%A7%E6%AD%A6%E5%99%A8"><span class="toc-text">巨龙拉冬9.0: 让你的Cobalt Strike变成超级武器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ELadon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B"><span class="toc-text">程序简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8"><span class="toc-text">无图无真相</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-K8%E7%A0%B4%E8%A7%A3%E7%89%88"><span class="toc-text">Cobalt Strike K8破解版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike-%E5%86%85%E5%AD%98%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6"><span class="toc-text">Cobalt Strike 内存加载 Ladon 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD-Ladon-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">加载 Ladon 插件的步骤</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%96%87%E4%BB%B6%E6%A6%82%E8%A7%88-E-Ladon12-CS-res"><span class="toc-text">模块文件概览 (E:\Ladon12\CS\res)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3"><span class="toc-text">中文乱码解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K8%E7%A0%B4%E8%A7%A3%E7%89%8820211109"><span class="toc-text">K8破解版20211109</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">4.X已解决插件中文乱码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-X%E5%B7%B2%E8%A7%A3%E5%86%B3%E6%8F%92%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-text">3.X已解决插件中文乱码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E7%89%88%E6%9C%ACCS%E4%B9%B1%E7%A0%81"><span class="toc-text">其它版本CS乱码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWindows-TeamServer"><span class="toc-text">关于Windows TeamServer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-x-TeamServer-exe%E4%B8%8D%E9%80%9A%E7%94%A8"><span class="toc-text">4.x TeamServer.exe不通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-4"><span class="toc-text">CS 4.4</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-4-3"><span class="toc-text">CS 4.3</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-x-TeamServer-exe%E9%80%9A%E7%94%A8"><span class="toc-text">3.x TeamServer.exe通用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-14"><span class="toc-text">CS 3.14</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-13"><span class="toc-text">CS 3.13</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CS-3-12"><span class="toc-text">CS 3.12</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Win%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Win机器上启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kali%E5%90%AF%E5%8A%A8%E4%B8%AD%E8%BD%AC"><span class="toc-text">Kali启动中转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A8%E9%BE%99%E6%8B%89%E5%86%AC9-0-%E8%AE%A9%E4%BD%A0%E7%9A%84Cobalt-Strike%E5%8F%98%E6%88%90%E8%B6%85%E7%BA%A7%E6%AD%A6%E5%99%A8"><span class="toc-text">巨龙拉冬9.0: 让你的Cobalt Strike变成超级武器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ELadon"><span class="toc-text">关于Ladon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%AE%80%E4%BB%8B"><span class="toc-text">程序简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%9B%BE%E6%97%A0%E7%9C%9F%E7%9B%B8"><span class="toc-text">无图无真相</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS%E4%B8%8B%E8%BD%BD"><span class="toc-text">CS下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ladon%E4%B8%8B%E8%BD%BD"><span class="toc-text">Ladon下载</span></a></li></ol>
         
-    </div>
+    </li></div>
 </aside>
                 
             </div>
