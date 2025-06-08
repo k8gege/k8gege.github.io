@@ -37,7 +37,7 @@ WinrmScan 5985密码爆破
 
 <title>
     
-    〖教程〗Ladon WinrmExec远程执行命令 |
+    〖教程〗Ladon WinrmExec2远程执行命令 |
     
     K8哥哥’s Blog
 </title>
@@ -158,7 +158,7 @@ WinrmScan 5985密码爆破
     
     <article class="post">
     <h1 class="post-head">
-        〖教程〗Ladon WinrmExec远程执行命令
+        〖教程〗Ladon WinrmExec2远程执行命令
     </h1>
     <div class="post-body">
         <p style="color:#fff;"> 
@@ -174,16 +174,21 @@ Update: 20200901</p>
 <h3 id="WinrmScan-5985密码爆破">WinrmScan 5985密码爆破</h3>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 WinrmScan</span><br><span class="line">Ladon 192.168.1.8/24 WinrmScan</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="WinrmExec-远程执行命令">WinrmExec 远程执行命令</h3>
+<p>1.有回显<br>
+2.支持SYSTEM权限</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon winrmexec 192.168.50.235 5985 admin$ <span class="string">"XXtest520!@#"</span> <span class="string">"whoami"</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/winrmexec.png"></p>
+<h3 id="WinrmExec2-远程执行命令">WinrmExec2 远程执行命令</h3>
 <p>1.无回显<br>
 2.支持SYSTEM权限</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon WinrmExec &lt;Target&gt; [Port] [Domain] [Username] [Password] &lt;Command&gt;</span><br><span class="line">Default Port is 5985</span><br><span class="line">Example:</span><br><span class="line">Ladon WinrmExec 192.168.1.116 . k8gege K8test520!@# calc.exe</span><br><span class="line">Ladon WinrmExec 192.168.1.116 80 . k8gege K8test520!@# calc.exe</span><br><span class="line">Ladon WinrmExec 192.168.1.116 5985 . k8gege K8test520!@# calc.exe</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">Ladon WinrmExec2 &lt;Target&gt; [Port] [Domain] [Username] [Password] &lt;Command&gt;</span><br><span class="line">Default Port is 5985</span><br><span class="line">Example:</span><br><span class="line">Ladon WinrmExec2 192.168.1.116 . k8gege K8test520!@# calc.exe</span><br><span class="line">Ladon WinrmExec2 192.168.1.116 80 . k8gege K8test520!@# calc.exe</span><br><span class="line">Ladon WinrmExec2 192.168.1.116 5985 . k8gege K8test520!@# calc.exe</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Winrm密码爆破-端口复用后门">Winrm密码爆破/端口复用后门</h3>
 <p>相关知识点请参考：<a href="https://k8gege.org/Ladon/WinrmScan.html">https://k8gege.org/Ladon/WinrmScan.html</a></p>
 <p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/WinrmExec_Scan.PNG"></p>
 <h3 id="系统内置Winrs执行">系统内置Winrs执行</h3>
 <p>在用户权限下正常，但在SYSTEM权限下无法执行<br>
 <img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/Winrs_System.PNG"></p>
-<h3 id="Ladon-WinrmExec执行">Ladon WinrmExec执行</h3>
+<h3 id="Ladon-WinrmExec2执行">Ladon WinrmExec2执行</h3>
 <p>无论是用户权限还是SYSTEM权限下都可正常执行<br>
 <img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/exe/WinrmExec_System.PNG"></p>
 <h3 id="LadonGo-全平台">LadonGo 全平台</h3>
