@@ -204,99 +204,31 @@ Visit <span id="busuanzi_value_page_pv"></span>
 <h4 id="ChatGPT实现Ladon渗透插件获取网页标题代码">ChatGPT实现Ladon渗透插件获取网页标题代码</h4>
 <figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Net;</span><br><span class="line"><span class="keyword">using</span> System.Text.RegularExpressions;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">LadonDLL</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">scan</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">run</span>(<span class="params"><span class="built_in">string</span> input</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(input))</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">string</span> url = <span class="string">""</span>;</span><br><span class="line">            Uri uriResult;</span><br><span class="line">            <span class="keyword">if</span> (Uri.TryCreate(input, UriKind.Absolute, <span class="keyword">out</span> uriResult)</span><br><span class="line">                &amp;&amp; (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps))</span><br><span class="line">            {</span><br><span class="line">                url = uriResult.ToString();</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (Regex.IsMatch(input, <span class="string">@"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d+)?$"</span>))</span><br><span class="line">            {</span><br><span class="line">                url = <span class="string">"http://"</span> + input;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(url))</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Invalid URL or IP address"</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            {</span><br><span class="line">                <span class="built_in">string</span> title = <span class="string">""</span>;</span><br><span class="line">                <span class="keyword">try</span></span><br><span class="line">                {</span><br><span class="line">                    WebClient client = <span class="keyword">new</span> WebClient();</span><br><span class="line">                    <span class="built_in">string</span> html = client.DownloadString(url);</span><br><span class="line">                    Regex regex = <span class="keyword">new</span> Regex(<span class="string">@"(?&lt;=&lt;title.*&gt;)([\s\S]*)(?=&lt;/title&gt;)"</span>, RegexOptions.IgnoreCase);</span><br><span class="line">                    title = regex.Match(html).Value.Trim();</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">catch</span></span><br><span class="line">                {</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">return</span> url + <span class="string">"\t"</span> + title + <span class="string">"\r\n"</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="ChatGPT编写Ladon渗透插件之端口扫描代码">ChatGPT编写Ladon渗透插件之端口扫描代码</h4>
-<pre><code class="language-csharp">using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
-
-namespace LadonDLL
-{
-    public class scan
-    {
-        public static string run(string ip)
-        {
-            if (string.IsNullOrEmpty(ip))
-                return "";
-
-            // 要扫描的端口列表
-            List&lt;int&gt; ports = new List&lt;int&gt;() { 21, 80, 443, 22, 445, 135 };
-
-            string result = "";
-            // 扫描每个端口并添加结果到字符串
-            foreach (int port in ports)
-            {
-                if (IsPortOpen(ip, port))
-                {
-                    result += $"{ip}\t{port}\tOPEN\r\n";
-                }
-            }
-
-            return result;
-        }
-
-        // 检查端口是否开放
-        static bool IsPortOpen(string ip, int port)
-        {
-            try
-            {
-                using (TcpClient client = new TcpClient())
-                {
-                    client.Connect(ip, port);
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-    }
-}
-
-```csharp
-
-PS：Ladon自带模块WebScan或WhatCMS或PortScan均包含网页标题功能获取，PortScan端口扫描模块也包含很多协议指纹识别，大家有兴趣也可以让chatGPT帮实现更多更好用的插件功能。
-
-### 小结
-本文演示如何使用ChatGPT开发Ladon插件，快速扩展Ladon扫描能力，借助ChatGPT，编程新手也可以快速编写POC。有一点大家要注意，使用ChatGPT做一件事最好只在一个chat里操作，不然它会结合上下文，把你的需求搞乱，给多余或混乱代码。你自身的专业能力越强，它和你的对话就越专业，你问得模糊不清，自己一知半解，你的专业术语或表述不对，它给你的结果自然垃圾。甚至有时候它给的很多代码压根就不能用，但是它胡编乱造的能力，让你一眼觉得代码是正确可用的，实际编译发现，不能用，比如某些协议它给的包就压根不对，我测试了十几次，同样问题它随机给了好几次代码，其中有3次重复，但这些不是重点，重点是都用不了，有是发包协议是这个数组有时是另一个，有时是对的，但整个请求代码还有其它错误，导致用不了，你得告诉它教它改，虽然这样，就它目前的能力，也是非常强的，让它写一个Ladon简单功能插件，基本也就5分钟左右，当然如果需求足够清晰，够了解它，让它不要乱改什么，要实现的功能，每一条都写清楚，也有可能一步到位，一问就搞定，加上编译测试，整个过程估计也就一分钟左右。
-
-
-### 视频教程
-# Kali AI自动渗透 - Ladon MCP Server
-
-## AI渗透 SQL Injection 漏洞利用
-
-![SQL Injection Attempt](https://github.com/k8gege/ChatLadon/blob/main/images/Kali_sqlinject.png)
-
-在这张图中，我们展示了Kali AI 自主渗透的过程。
-
-## AI渗透 SQL Injection 成功GetShell
-
-![SQL Injection Success](https://github.com/k8gege/ChatLadon/blob/main/images/Kali_sqlinject_isok.png)
-
-在上面的图像中，我们可以看到 SQL 注入成功GetShell，并成功通过webshell执行命令。
-
-# Video 视频演示
-## AI Kali SQL Injection Getshell
-
-在这个视频中，我们展示了 AI 如何在 Kali Linux 上进行自动渗透，通过SQL注入获取shell。
-
-Video: https://github.com/k8gege/ChatLadon/blob/main/video/AI_Kali_Sqlinject_Getshell.mov
-
-https://github.com/k8gege/ChatLadon
-【视频】ChatGPT编写Ladon渗透插件之端口扫描.rar
-【视频】ChatGPT编写Ladon渗透插件之网页标题获取.rar
-
-### 工具下载
-
-最新版本：https://k8gege.org/Download
-历史版本: https://github.com/k8gege/Ladon/releases
-
-
-&lt;div style="text-align: center; width: 710px; border: green solid 0px;"&gt;
-&lt;img alt="" src="https://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /&gt;
-&lt;/div&gt;</code></pre>
-
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Net;</span><br><span class="line"><span class="keyword">using</span> System.Net.Sockets;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">LadonDLL</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">scan</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">string</span> <span class="title">run</span>(<span class="params"><span class="built_in">string</span> ip</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(ip))</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 要扫描的端口列表</span></span><br><span class="line">            List&lt;<span class="built_in">int</span>&gt; ports = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;() { <span class="number">21</span>, <span class="number">80</span>, <span class="number">443</span>, <span class="number">22</span>, <span class="number">445</span>, <span class="number">135</span> };</span><br><span class="line"></span><br><span class="line">            <span class="built_in">string</span> result = <span class="string">""</span>;</span><br><span class="line">            <span class="comment">// 扫描每个端口并添加结果到字符串</span></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="built_in">int</span> port <span class="keyword">in</span> ports)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (IsPortOpen(ip, port))</span><br><span class="line">                {</span><br><span class="line">                    result += <span class="string">$"<span class="subst">{ip}</span>\t<span class="subst">{port}</span>\tOPEN\r\n"</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查端口是否开放</span></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">IsPortOpen</span>(<span class="params"><span class="built_in">string</span> ip, <span class="built_in">int</span> port</span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">using</span> (TcpClient client = <span class="keyword">new</span> TcpClient())</span><br><span class="line">                {</span><br><span class="line">                    client.Connect(ip, port);</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">catch</span></span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>PS：Ladon自带模块WebScan或WhatCMS或PortScan均包含网页标题功能获取，PortScan端口扫描模块也包含很多协议指纹识别，大家有兴趣也可以让chatGPT帮实现更多更好用的插件功能。</p>
+<h3 id="小结">小结</h3>
+<p>本文演示如何使用ChatGPT开发Ladon插件，快速扩展Ladon扫描能力，借助ChatGPT，编程新手也可以快速编写POC。有一点大家要注意，使用ChatGPT做一件事最好只在一个chat里操作，不然它会结合上下文，把你的需求搞乱，给多余或混乱代码。你自身的专业能力越强，它和你的对话就越专业，你问得模糊不清，自己一知半解，你的专业术语或表述不对，它给你的结果自然垃圾。甚至有时候它给的很多代码压根就不能用，但是它胡编乱造的能力，让你一眼觉得代码是正确可用的，实际编译发现，不能用，比如某些协议它给的包就压根不对，我测试了十几次，同样问题它随机给了好几次代码，其中有3次重复，但这些不是重点，重点是都用不了，有是发包协议是这个数组有时是另一个，有时是对的，但整个请求代码还有其它错误，导致用不了，你得告诉它教它改，虽然这样，就它目前的能力，也是非常强的，让它写一个Ladon简单功能插件，基本也就5分钟左右，当然如果需求足够清晰，够了解它，让它不要乱改什么，要实现的功能，每一条都写清楚，也有可能一步到位，一问就搞定，加上编译测试，整个过程估计也就一分钟左右。</p>
+<h3 id="视频教程">视频教程</h3>
+<h1>Kali AI自动渗透 - Ladon MCP Server</h1>
+<h2 id="AI渗透-SQL-Injection-漏洞利用">AI渗透 SQL Injection 漏洞利用</h2>
+<p><img alt="SQL Injection Attempt" class="lazyload" data-src="https://github.com/k8gege/ChatLadon/blob/main/images/Kali_sqlinject.png"></p>
+<p>在这张图中，我们展示了Kali AI 自主渗透的过程。</p>
+<h2 id="AI渗透-SQL-Injection-成功GetShell">AI渗透 SQL Injection 成功GetShell</h2>
+<p><img alt="SQL Injection Success" class="lazyload" data-src="https://github.com/k8gege/ChatLadon/blob/main/images/Kali_sqlinject_isok.png"></p>
+<p>在上面的图像中，我们可以看到 SQL 注入成功GetShell，并成功通过webshell执行命令。</p>
+<h1>Video 视频演示</h1>
+<h2 id="AI-Kali-SQL-Injection-Getshell">AI Kali SQL Injection Getshell</h2>
+<p>在这个视频中，我们展示了 AI 如何在 Kali Linux 上进行自动渗透，通过SQL注入获取shell。</p>
+<p>Video: <a target="_blank" rel="noopener" href="https://github.com/k8gege/ChatLadon/blob/main/video/AI_Kali_Sqlinject_Getshell.mov">https://github.com/k8gege/ChatLadon/blob/main/video/AI_Kali_Sqlinject_Getshell.mov</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k8gege/ChatLadon">https://github.com/k8gege/ChatLadon</a><br>
+【视频】ChatGPT编写Ladon渗透插件之端口扫描.rar<br>
+【视频】ChatGPT编写Ladon渗透插件之网页标题获取.rar</p>
+<h3 id="工具下载">工具下载</h3>
+<p>最新版本：<a href="https://k8gege.org/Download">https://k8gege.org/Download</a><br>
+历史版本: <a target="_blank" rel="noopener" href="https://github.com/k8gege/Ladon/releases">https://github.com/k8gege/Ladon/releases</a></p>
+<div style="text-align: center; width: 710px; border: green solid 0px;">
+<img alt="" style="display: inline-block;width: 250px;height: 300px;" class="lazyload" data-src="https://k8gege.org/img/k8team.jpg">
+</div>
 		<h3 id="copy">转载声明</h3> <p>K8博客文章随意转载，转载请注明出处！ © K8gege  <a href="http://k8gege.org" target="_blank">http://k8gege.org</a></p>
 
     </div>
