@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="WordPress,WP">
+
+
+<meta name="description" content="WPinfo 模块用法
+1Ladon http://k8gege.org wpinfo
+WordPress 漏洞检测
+WordPress 主题 flatsome RCE漏洞 版本识别
+WordP...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    〖教程〗Ladon WordPress 漏洞、主题、插件版本识别 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="lazyload" referrerpolicy="no-referrer" class="lazyload" data-src="/../k8img/logo.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="〖教程〗Ladon WordPress 漏洞、主题、插件版本识别">
+            
+            〖教程〗Ladon WordPress 漏洞、主题、插件版本识别
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Ladon/">Ladon</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/WP/" rel="tag">WP</a> <a class="tag-none-link" href="/tags/WordPress/" rel="tag">WordPress</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2024/09/15</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="WPinfo-模块用法">WPinfo 模块用法</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://k8gege.org wpinfo</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="WordPress-漏洞检测">WordPress 漏洞检测</h3>
+<p>WordPress 主题 flatsome RCE漏洞 版本识别<br>
+WordPress 插件 GiveWP  RCE漏洞 版本识别</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"> Theme: ISVUL: http://192.168.50.91 [ flatsome v3.17.3 ] CVE-2023-40555</span><br><span class="line">Plugin: ISVUL: http://192.168.50.91 [ give v3.16.0 ] CVE-2024-8353 RCE ?</span><br><span class="line"> Target: http://192.168.50.91</span><br><span class="line"> Version: WordPress 6.8.1 Give v3.16.0</span><br><span class="line"></span><br><span class="line"> Start=============================================================Start</span><br><span class="line"></span><br><span class="line"> Using method 1 Get themes</span><br><span class="line"></span><br><span class="line">   Theme:  flatsome</span><br><span class="line"></span><br><span class="line">Using method 2 Get themes</span><br><span class="line"></span><br><span class="line">   Theme:  flatsome</span><br><span class="line">   Theme:  flatsome  3.17.3</span><br><span class="line"></span><br><span class="line"> Using method 1 Get Plugins</span><br><span class="line"></span><br><span class="line">   Plugin:  give</span><br><span class="line"></span><br><span class="line"> Using method 2 Get Plugins</span><br><span class="line"></span><br><span class="line">   Plugin:  give  3.16.0</span><br><span class="line"></span><br><span class="line"> Using method 3 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 4 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 5 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 6 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 7 Get Plugin</span><br><span class="line"></span><br><span class="line">   Plugin:  CF Geoplugin  8.6.4</span><br><span class="line"></span><br><span class="line"> Using method 8 Get Plugin</span><br><span class="line"></span><br><span class="line">  Plugin: Yoast SEO</span><br><span class="line">  Plugin: CF Geoplugin</span><br><span class="line"></span><br><span class="line"> Using method 9 Get Plugin</span><br><span class="line"></span><br><span class="line">  Plugin:  CF Geoplugin v8.6.4</span><br><span class="line"> End=================================================================End</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Yoast-SEO-插件">Yoast SEO 插件</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">Load WPinfo</span><br><span class="line"> Target: https://k8gege.org</span><br><span class="line"> Version: WordPress 6.8.1</span><br><span class="line"></span><br><span class="line"> Start=============================================================Start</span><br><span class="line"></span><br><span class="line"> Using method 1 Get themes</span><br><span class="line"></span><br><span class="line">   Theme:  jadro</span><br><span class="line"></span><br><span class="line">Using method 2 Get themes</span><br><span class="line"></span><br><span class="line">   Theme:  jadro  6.8.1</span><br><span class="line">   Theme:  jadro  1.0.2</span><br><span class="line"></span><br><span class="line"> Using method 1 Get Plugins</span><br><span class="line"></span><br><span class="line">   Plugin:  gutenberg</span><br><span class="line">   Plugin:  gutenkit-blocks-addon</span><br><span class="line">   Plugin:  table-builder-block</span><br><span class="line">   Plugin:  metform</span><br><span class="line">   Plugin:  elementor</span><br><span class="line">   Plugin:  elementskit-lite</span><br><span class="line">   Plugin:  king-addons</span><br><span class="line">   Plugin:  interactive-3d-flipbook-powered-physics-engine</span><br><span class="line">   Plugin:  independent-analytics</span><br><span class="line"></span><br><span class="line"> Using method 2 Get Plugins</span><br><span class="line"></span><br><span class="line">   Plugin:  gutenberg  21.0.0</span><br><span class="line">   Plugin:  gutenkit-blocks-addon  2.3.1</span><br><span class="line">   Plugin:  gutenkit-blocks-addon</span><br><span class="line">   Plugin:  table-builder-block  2.0.1</span><br><span class="line">   Plugin:  metform  4.0.0</span><br><span class="line">   Plugin:  elementor  24.12.87</span><br><span class="line">   Plugin:  elementskit-lite  3.5.4</span><br><span class="line">   Plugin:  king-addons  24.12.87</span><br><span class="line"></span><br><span class="line"> Using method 3 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 4 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 5 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 6 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 7 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 8 Get Plugin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Using method 9 Get Plugin</span><br><span class="line"></span><br><span class="line">  Plugin:  Yoast SEO v25.4</span><br><span class="line"> End=================================================================End</span><br><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
+		<h3 id="copy">转载声明</h3> <p>K8博客文章随意转载，转载请注明出处！ © K8gege  <a href="http://k8gege.org" target="_blank">http://k8gege.org</a></p>
+
+    </div>
+
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            K8博客文章随意转载，转载请注明出处！ © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/p/VmwareKey.html" class="pre-post btn btn-default" title="〖key〗Vmware 17 注册码 许可证 官方免注册下载地址">
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            〖key〗Vmware 17 注册码 许可证 官方免注册下载地址</span>
+    </a>
+    
+    
+    <a href="/p/cs_ladon.html" class="next-post btn btn-default" title="Cobalt Strike内存加载Ladon插件内网渗透">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Cobalt Strike内存加载Ladon插件内网渗透</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#WPinfo-%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95"><span class="toc-text">WPinfo 模块用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WordPress-%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="toc-text">WordPress 漏洞检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Yoast-SEO-%E6%8F%92%E4%BB%B6"><span class="toc-text">Yoast SEO 插件</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>
