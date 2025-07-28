@@ -2270,20 +2270,6 @@
   </url>
   
   <url>
-    <loc>http://k8gege.org/tags/CVE-2020-17144/</loc>
-    <lastmod>2025-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/Exchange/</loc>
-    <lastmod>2025-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://k8gege.org/tags/Poc/</loc>
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -2334,6 +2320,20 @@
   
   <url>
     <loc>http://k8gege.org/tags/CVE-2019-13272/</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/CVE-2020-17144/</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8gege.org/tags/Exchange/</loc>
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2613,6 +2613,13 @@
   </url>
   
   <url>
+    <loc>http://k8gege.org/tags/webser/</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/tags/ActiveMQ/</loc>
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -2621,13 +2628,6 @@
   
   <url>
     <loc>http://k8gege.org/tags/CVE-2016-3088/</loc>
-    <lastmod>2025-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/webser/</loc>
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2851,6 +2851,13 @@
   </url>
   
   <url>
+    <loc>http://k8gege.org/tags/SQL/</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://k8gege.org/tags/BypassAV/</loc>
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -2873,13 +2880,6 @@
   
   <url>
     <loc>http://k8gege.org/tags/SMBGhost/</loc>
-    <lastmod>2025-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://k8gege.org/tags/SQL/</loc>
     <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
