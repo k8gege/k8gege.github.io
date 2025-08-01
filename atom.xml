@@ -6,7 +6,7 @@
   <link href="http://k8gege.org/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2025-07-14T12:09:21.487Z</updated>
+  <updated>2025-08-01T14:42:29.995Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ladon SharePoint CVE-2025-53770漏洞后门批量检测</title>
+    <link href="http://k8gege.org/p/cve-2025-53770.html"/>
+    <id>http://k8gege.org/p/cve-2025-53770.html</id>
+    <published>2025-07-28T15:40:00.000Z</published>
+    <updated>2025-08-01T14:42:29.995Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="CMS识别-SharePoint">CMS识别 SharePoint</h3><p>CMS、WhatCMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识别URL对应指纹，输入非URL时，会探测常见cve-2025-53770网站、网络设备、打印机、路由器、防火墙、VPN等</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://k8gege.org CMS</span><br></pre></td></tr></table></figure><h4 id="SharePoint-版本探测">SharePoint 版本探测</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://k8gege.org SharePointVer</span><br></pre></td></tr></table></figure><p>结果如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Load SharePointVer</span><br><span class="line">http://k8gege.org  SharePoint: 16.0.0.5513 NET: 4.0.30319</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2025-07-28 08:09:39</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/cms/sharepoint.png" alt="使用http访问查看图片"></p><h4 id="SharePoint-CVE-2025-53770后门检测">SharePoint CVE-2025-53770后门检测</h4><p>根据公开资料，对SharePoint服务器进行扫描，还是能检到一此webshell<br><img src="/k8img/Ladon/poc/door53770scan.png" alt="使用http访问查看图片"></p><p>访问 可获取 ValidationKey<br><img src="/k8img/Ladon/poc/door53770.png" alt="使用http访问查看图片"></p><h4 id="CVE-2025-49704漏洞getshell">CVE-2025-49704漏洞getshell</h4><p>ysoserial 生成反序列化payload 使用Ladon ViewStateExp执行RCE<br><img src="/k8img/Ladon/poc/door53770cmd.png" alt="使用http访问查看图片"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ViewStateExp http://k8gege.org/_layouts/15/default.aspx payload.txt</span><br></pre></td></tr></table></figure><h2 id="CVE-2025-53770-漏洞检测">CVE-2025-53770 漏洞检测</h2><h3 id="指定URL">指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://k8gege.org cve-2025-53770</span><br></pre></td></tr></table></figure><p><img src="/k8img/Ladon/poc/cve-2025-53770.png" alt="使用http访问查看图片"></p><h3 id="指定IP">指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org cve-2025-53770</span><br></pre></td></tr></table></figure><h3 id="批量URL">批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt cve-2025-53770</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><h3 id="批量IP">批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt cve-2025-53770</span><br></pre></td></tr></table></figure><h3 id="指定C段">指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org/24 cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/24 cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon k8gege.org/24 cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/24 cve-2025-53770</span><br></pre></td></tr></table></figure><h3 id="指定B段">指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org/b cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/b cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon k8gege.org/b cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/b cve-2025-53770</span><br></pre></td></tr></table></figure><h3 id="指定A段">指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon k8gege.org/a cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/a cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon k8gege.org/a cve-2025-53770</span><br><span class="line">Ladon noping k8gege.org/a cve-2025-53770</span><br></pre></td></tr></table></figure><h3 id="批量C段">批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt cve-2025-53770</span><br><span class="line">Ladon ipc.txt cve-2025-53770</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt cve-2025-53770</span><br><span class="line">Ladon noping ipc.txt cve-2025-53770</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段">批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt cve-2025-53770</span><br><span class="line">Ladon noping ip16.txt cve-2025-53770</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段">批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt cve-2025-53770</span><br><span class="line">Ladon noping cidr.txt cve-2025-53770</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p><h3 id="更多功能-使用教程">更多功能 使用教程</h3><p><a href="https://k8gege.org/Ladon/">https://k8gege.org/Ladon/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;CMS识别-SharePoint&quot;&gt;CMS识别 SharePoint&lt;/h3&gt;
+&lt;p&gt;CMS、WhatCMS、CmsInfo等，Cobalt Strike下用法一致，输入URL，仅识别URL对应指纹，输入非URL时，会探测常见cve-2025-53770网站、网络</summary>
+      
+    
+    
+    
+    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="CMS" scheme="http://k8gege.org/categories/CMS/"/>
+    
+    
+    <category term="SharePoint" scheme="http://k8gege.org/tags/SharePoint/"/>
+    
+  </entry>
   
   <entry>
     <title>AI漏洞 MCP提示词注入POC</title>
@@ -60,9 +87,9 @@
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     <category term="Rce" scheme="http://k8gege.org/categories/Rce/"/>
     
@@ -92,9 +119,9 @@
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     <category term="远程执行" scheme="http://k8gege.org/categories/Rce/"/>
     
@@ -129,9 +156,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="DeepSeek" scheme="http://k8gege.org/tags/DeepSeek/"/>
@@ -164,9 +191,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="Exp" scheme="http://k8gege.org/tags/Exp/"/>
@@ -199,9 +226,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="CVE-2024-47575" scheme="http://k8gege.org/tags/CVE-2024-47575/"/>
@@ -228,44 +255,14 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="Apache Solr" scheme="http://k8gege.org/tags/Apache-Solr/"/>
     
     <category term="CVE-2024-45216" scheme="http://k8gege.org/tags/CVE-2024-45216/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>〖key〗Vmware 17 注册码 许可证 官方免注册下载地址</title>
-    <link href="http://k8gege.org/p/VmwareKey.html"/>
-    <id>http://k8gege.org/p/VmwareKey.html</id>
-    <published>2024-10-20T08:11:00.000Z</published>
-    <updated>2025-04-18T15:24:58.938Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Vmware最新注册码">Vmware最新注册码</h3><p>17.x<br>JU090-6039P-08409-8J0QH-2YR7F</p><p>vmware12及vmware14注册码</p><p>vmware12 5A02H-AU243-TZJ49-GTC7K-3C61N</p><p>vmware14 CG54H-D8D0H-H8DHY-C6X7X-N2KG6</p><p>vm 12.0 - 12.5.0<br>5A02H-AU243-TZJ49-GTC7K-3C61N</p><p>15.5<br>UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</p><p>WIN7 X64 旗舰版 注册码</p><p>HT6VR-XMPDJ-2VBFV-R9PFY-3VP7R</p><p>VMware Workstation 10.0 序列号(KEY)</p><p>5F29M-48312-8ZDF9-A8A5K-2AM0Z</p><h3 id="官方下载地址">官方下载地址</h3><p>官网下载地址 需注册<a href="https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-player/workstation-player-evaluation.html.html">https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-player/workstation-player-evaluation.html.html</a></p><p>官方的压缩包 直接下载 无需注册<a href="https://softwareupdate.vmware.com/cds/vmw-desktop/ws/17.5.2/23775571/windows/core/VMware-workstation-17.5.2-23775571.exe.tar">https://softwareupdate.vmware.com/cds/vmw-desktop/ws/17.5.2/23775571/windows/core/VMware-workstation-17.5.2-23775571.exe.tar</a></p><h3 id="Download">Download</h3><p>PowerLadon: <a href="https://github.com/k8gege/PowerLadon">https://github.com/k8gege/PowerLadon</a><br>History: <a href="http://github.com/k8gege/Ladon/releases">http://github.com/k8gege/Ladon/releases</a><br>9.1.1：<a href="http://k8gege.org/Download">http://k8gege.org/Download</a><br>10.8：K8小密圈</p><div style="text-align: center; width: 710px; border: green solid 0px;"><img alt="" src="http://k8gege.org/img/k8team.jpg" style="display: inline-block;width: 250px;height: 300px;" /></div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;Vmware最新注册码&quot;&gt;Vmware最新注册码&lt;/h3&gt;
-&lt;p&gt;17.x&lt;br&gt;
-JU090-6039P-08409-8J0QH-2YR7F&lt;/p&gt;
-&lt;p&gt;vmware12及vmware14注册码&lt;/p&gt;
-&lt;p&gt;vmware12 5A02H-AU243-TZJ4</summary>
-      
-    
-    
-    
-    <category term="Key" scheme="http://k8gege.org/categories/Key/"/>
-    
-    
-    <category term="Vmware" scheme="http://k8gege.org/tags/Vmware/"/>
-    
-    <category term="Key" scheme="http://k8gege.org/tags/Key/"/>
     
   </entry>
   
