@@ -1,0 +1,27 @@
+# K8哥哥's Blog
+
+> 中文网络安全研究博客，由 K8哥哥 维护。内容聚焦内网渗透工具 Ladon / LadonGo、漏洞复现分析、AI 安全与渗透测试工具集。作者 GitHub 主页：https://github.com/k8gege 。本站文章欢迎转载，转载请注明出处。
+
+## 核心页面
+
+- [Ladon 模块化内网渗透工具](https://k8gege.org/p/Ladon.html)：面向大型内网的插件化综合扫描工具，支持端口扫描、服务识别、口令审计、高危漏洞检测，可作为 Cobalt Strike 插件或 PowerShell 模块加载。
+- [Ladon 文档主页](https://k8gege.org/Ladon/)：Ladon 工具的完整文档入口。
+- [LadonGo 开源全平台内网渗透扫描器](https://k8gege.org/p/LadonGo.html)：Go 语言实现的跨平台版本，支持 C/B/A 段存活探测、指纹识别、端口扫描、12 种协议口令审计、远程执行与高危漏洞检测。
+- [K8tools 工具合集](https://k8gege.org/p/72f1fea6.html)：内网渗透、提权、漏洞利用、扫描与免杀工具汇总。
+- [CVE-2025-33073 域内提权漏洞复现](https://k8gege.org/p/cve-2025-33073.html)：Windows SMB 客户端 NTLM 反射提权漏洞的原理、影响范围与复现环境说明。
+- [Ladon SharePoint CVE-2025-53770 漏洞检测](https://k8gege.org/p/cve-2025-53770.html)：针对 SharePoint 漏洞的批量检测方法。
+- [HexStrike RCE 0day 漏洞分析](https://k8gege.org/p/hexstrike_0day.html)：AI 渗透工具集成中的远程命令执行漏洞研究。
+- [AI 攻防：Gemini 大模型越狱提示词](https://k8gege.org/p/aibreak.html)：大模型对抗输入鲁棒性研究。
+- [AI 漏洞：MCP 提示词注入 POC](https://k8gege.org/p/aipoc.html)：MCP 提示词注入的验证样例。
+
+## 代码与资源
+
+- [GitHub: k8gege](https://github.com/k8gege)：作者开源项目主页。
+- [GitHub: Ladon](https://github.com/k8gege/Ladon)：Ladon 源码与历史版本。
+- [GitHub: LadonGo](https://github.com/k8gege/LadonGo)：LadonGo 源码与 releases。
+- [站点地图](https://k8gege.org/sitemap.xml)：全站文章 URL 清单。
+
+## 说明
+
+- 本站所有安全技术内容仅用于授权环境下的安全研究与防御验证。
+- llms.txt 是面向 AI 阅读的站点索引辅助文件，非正式标准；主流引擎是否读取取决于各自实现，建议与 robots.txt、JSON-LD 结构化数据配合使用。

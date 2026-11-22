@@ -1,0 +1,50 @@
+# k8gege.org robots.txt
+# 目标：明确放行主流生成式引擎/AI 搜索爬虫，让内容可被抓取与引用。
+# 放置位置：站点根目录（与 index.html / _config.yml 同级）
+
+# --- 生成式引擎与 AI 搜索爬虫 ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# --- 默认规则 ---
+User-agent: *
+Allow: /
+
+# --- 站点地图 ---
+Sitemap: https://k8gege.org/sitemap.xml
